@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Client.Game.Data;
 using UnityEngine;
 using System.Linq;
+using Client.Game.Core;
 
 namespace Client.Game.Map
 {
@@ -60,7 +61,7 @@ namespace Client.Game.Map
 			
 		}
 
-		public void EnterGame(Game game) { 
+		public void EnterGame(Game.Core.Game game) { 
 			Draw ();
 		}
 

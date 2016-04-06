@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Client.Game.Data;
 using System.Linq;
+using Client.Game.Core;
 
 namespace Client.Game.Map
 {
@@ -29,7 +30,7 @@ namespace Client.Game.Map
 					room.X = targetX;
 					room.Y = targetY;
 					
-					room.EnterGame (Game.Instance);
+					room.EnterGame (Core.Game.Instance);
 
 					Grid.Block(targetX, targetY, room.Width, room.Height);
 
