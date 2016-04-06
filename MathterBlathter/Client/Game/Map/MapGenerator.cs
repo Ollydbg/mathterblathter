@@ -57,8 +57,9 @@ namespace Client.Game.Map
 		}
 
 		//this this is how we can bias which direction the map grows in
-		int roomSearch = -1;
-		Door.RoomSide[] SearchDirections = new Door.RoomSide[]{Door.RoomSide.Top, Door.RoomSide.Top, Door.RoomSide.Top, Door.RoomSide.Right, Door.RoomSide.Left, Door.RoomSide.Bottom};
+		int roomSearch = 0;
+		//Door.RoomSide[] SearchDirections = new Door.RoomSide[]{Door.RoomSide.Top, Door.RoomSide.Top, Door.RoomSide.Top, Door.RoomSide.Right, Door.RoomSide.Left, Door.RoomSide.Bottom};
+		Door.RoomSide[] SearchDirections = new Door.RoomSide[]{Door.RoomSide.Left, Door.RoomSide.Top, Door.RoomSide.Right, Door.RoomSide.Bottom};
 
 		bool SearchForBlock (RoomData data, out int targetX, out int targetY, out Dictionary<Door, Door> doorLinks)
 		{
@@ -75,10 +76,10 @@ namespace Client.Game.Map
 			roomSearch ++;
 
 			for( int i = 0; i< SearchDirections.Length; i++ ) {
+
 				int index = ((i + roomSearch) % (SearchDirections.Length));
 				//UnityEngine.Debug.Log(SearchDirections[index]);
 				if(SearchForMatchesForSide(data, SearchDirections[index], out targetX, out targetY, out doorLinks)) {
-					roomSearch = 0;
 					return true;
 				}
 			}
