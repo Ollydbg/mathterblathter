@@ -1,1 +1,2 @@
-# Platforming Roguelike Prototype in C# and Unity.
+# MATHTERBLATHTER 
+MATHTERBLATHTER is a platforming Roguelike Prototype in C# and Unity.
