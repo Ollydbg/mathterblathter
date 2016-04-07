@@ -8,8 +8,6 @@
     <RootNamespace>Client</RootNamespace>
     <AssemblyName>Client</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <ProductVersion>12.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -54,6 +52,12 @@
     <Compile Include="Game\Core\Actors\ActorRef.cs" />
     <Compile Include="Game\Core\Actors\PlayerController.cs" />
     <Compile Include="Game\Core\Attributes\GameAttribute.cs" />
+    <Compile Include="Game\Core\Actors\PlayerAnimator3D.cs" />
+    <Compile Include="Game\Core\Managers\RoomManager.cs" />
+    <Compile Include="Game\Map\DataMocker.cs" />
+    <Compile Include="Game\Map\PolyRoomDrawer.cs" />
+    <Compile Include="Game\Map\DebugRoomDrawer.cs" />
+    <Compile Include="Game\Core\Managers\CameraManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

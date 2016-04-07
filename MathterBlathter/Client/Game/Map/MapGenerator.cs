@@ -8,7 +8,7 @@ namespace Client.Game.Map
 {
 	public class MapGenerator
 	{
-		public MapGenerator (int width, int height)
+		public MapGenerator ()
 		{
 			Grid = new RoomGrid();
 		}

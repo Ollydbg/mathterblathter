@@ -35,7 +35,8 @@ namespace Client.Game.Core
 			
 			var tmp = new List<IGameManager> ();
 			tmp.Add(new InputManager());
-			
+			tmp.Add (new RoomManager ());
+			tmp.Add (new CameraManager ());
 			tmp.ForEach(p=>p.Init());
 			Managers = tmp.ToArray ();
 		}
@@ -60,6 +61,8 @@ namespace Client.Game.Core
 			var obj = (GameObject)GameObject.Instantiate (loaded);
 
 			BindActor (actor, obj);
+
+			actor.EnterGame(this);
 
 			return actor;
 		}
