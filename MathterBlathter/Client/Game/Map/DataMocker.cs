@@ -20,6 +20,8 @@ namespace Client.Game.Map
 			var buffer = new List<RoomData> ();
 
 			for (int i = 0; i < number; i++) {
+
+
 				int widthIndex = UnityEngine.Random.Range (0, widths.Length - 1);
 				int heightIndex = UnityEngine.Random.Range (0, heights.Length - 1);
 
@@ -29,10 +31,10 @@ namespace Client.Game.Map
 
 
 				while (room.Doors.Count == 0) {
-					//if (Maybe ())
+					if (Maybe ())
 						AddLeftAndRightDoors (room);
 
-					//if (Maybe ())
+					if (Maybe ())
 						AddTopAndBottomDoors (room);
 
 				}

@@ -65,7 +65,11 @@ namespace Client.Game.Map
 		}
 
 		public void EnterGame(Game.Core.Game game) { 
-			DebugDrawer.Draw (this);
+			
+		}
+
+		public void Draw() {
+			PolyDrawer.Draw (this);
 		}
 
 	}

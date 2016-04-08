@@ -23,7 +23,9 @@ namespace Client.Game.Map
 		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
 
 		//returns head
-		public Room GenerateFromDataSet(List<RoomData> data) {
+		public List<Room> GenerateFromDataSet(List<RoomData> data) {
+
+			var ret = new List<Room> ();
 			foreach (var roomData in data) {
 
 				int targetX;
@@ -34,7 +36,7 @@ namespace Client.Game.Map
 					var room = new Room (roomData);
 					room.X = targetX;
 					room.Y = targetY;
-
+					ret.Add (room);
 					Grid.Block(targetX, targetY, room.Width, room.Height);
 
 					foreach( var kvp in doorLinks) {
@@ -61,12 +63,12 @@ namespace Client.Game.Map
 
 			SealDoors();
 
-			return Head;
+			return ret;
 		}
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
-			var doorActor = Core.Game.Instance.Spawn<DoorActor>(resourceName:null);
-			doorActor.GameObject.name = "Door";
+			var doorActor = Core.Game.Instance.Spawn<DoorActor>(resourceName:"Door_prefab");
+			doorActor.GameObject.name = "DoorActor";
 			doorActor.LinkedGuid = doorGuidLink;
 			doorActor.InitWithData(link);
 			doorActor.Parent = parent;
@@ -87,7 +89,6 @@ namespace Client.Game.Map
 				doorLinks = new DoorLinkMapping();
 				return true;
 			}
-
 
 
 			roomSearch ++;
@@ -128,7 +129,6 @@ namespace Client.Game.Map
 							doorLinks.Add(door, mate);
 							return true;
 						}
-
 					}
 				}
 

@@ -16,10 +16,7 @@ namespace Client.Game.Map
 		}
 
 		public void Draw(Room room) {
-
-			var container = new GameObject ();
-			container.name = "room";
-
+			
 			DrawFloor (room);
 			DrawWalls (room);
 			DrawDoors (room);
@@ -28,16 +25,11 @@ namespace Client.Game.Map
 
 		public void DrawDoors(Room room) {
 			foreach (var door in room.Doors) {
-				var cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
-				cube.transform.localScale = new Vector3 (1, DOOR_HEIGHT, 1);
-				cube.transform.position = new Vector3 (door.X, door.Y, 0);
-				cube.GetComponent<MeshRenderer> ().material.color = Color.cyan;
-				cube.name = "door";
-				cube.layer = LayerMask.NameToLayer (DOOR_LAYER);
-				var rb = cube.AddComponent<Rigidbody> ();
-				rb.useGravity = false;
+				door.transform.localScale = new Vector3 (1, DOOR_HEIGHT, 1);
+				door.transform.position = new Vector3 (door.X + room.X, door.Y + room.Y, 0);
 
-				cube.GetComponent<BoxCollider> ().isTrigger = true;
+				Debug.Log ("placing door at position; " + door.transform.position);
+				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
 			}
 		}
 
@@ -53,10 +45,19 @@ namespace Client.Game.Map
 			var rb = floor.AddComponent<Rigidbody> ();
 			rb.useGravity = false;
 			rb.isKinematic = true;
-			floor.transform.position = new Vector3 (0, FLOOR_HEIGHT * -.5f, 0);
+			floor.transform.position = new Vector3 (room.X, FLOOR_HEIGHT * -.5f + room.Y, 0);
 			floor.name = "floor";
+			floor.GetComponent<MeshRenderer> ().material.color = RandomColor ();
 			return floor;
 
+		}
+
+		private Color RandomColor() {
+			return new Color (
+				UnityEngine.Random.Range (0.0f, 1.0f),
+				UnityEngine.Random.Range (0.0f, 1.0f),
+				UnityEngine.Random.Range (0.0f, 1.0f)
+			);
 		}
 
 	}

@@ -11,6 +11,11 @@ namespace Client.Game.Core.Actors
 
 
 
+		public Transform transform {
+			get {
+				return GameObject.transform;
+			}
+		}
 
 		public Actor ()
 		{

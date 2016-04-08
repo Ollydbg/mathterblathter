@@ -34,15 +34,6 @@ namespace Client.Game.Core.Actors
 			}
 		}
 
-		/*
-		public DoorActor(DoorActor other) {
-			
-			this.X = other.X;
-			this.Y = other.Y;
-			this.Width = other.Width;
-			this.Height = other.Height;
-			this.Side = other.Side;
-		}*/
 
 		public void InitWithData(RoomData.Link link) {
 			this.Width = link.Width;
@@ -50,6 +41,7 @@ namespace Client.Game.Core.Actors
 			this.X = link.X;
 			this.Y = link.Y;
 			this.SelfGuid = link.Id;
+			this.Side = link.Side;
 		}
 
 
