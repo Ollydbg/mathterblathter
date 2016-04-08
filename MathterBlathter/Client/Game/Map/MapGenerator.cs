@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using Client.Game.Data;
 using System.Linq;
 using Client.Game.Core;
+using Client.Game.Core.Actors;
+using Client.Game.Core.Enums;
 
 namespace Client.Game.Map
 {
+	using DoorLinkMapping = Dictionary<RoomData.Link, DoorActor>;
+
 	public class MapGenerator
 	{
 		public MapGenerator ()
@@ -16,7 +20,7 @@ namespace Client.Game.Map
 		RoomGrid Grid;
 		Room Head;
 
-		private List<Door> UnlinkedDoors = new List<Door> ();
+		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
 
 		//returns head
 		public Room GenerateFromDataSet(List<RoomData> data) {
@@ -24,26 +28,29 @@ namespace Client.Game.Map
 
 				int targetX;
 				int targetY;
-				Dictionary<Door, Door> doorLinks;
+				//existing doors to links in the data we're trying to place
+				DoorLinkMapping doorLinks;
 				if (SearchForBlock (roomData, out targetX, out targetY, out doorLinks)) {
 					var room = new Room (roomData);
 					room.X = targetX;
 					room.Y = targetY;
 
-					room.EnterGame (Core.Game.Instance);
-
 					Grid.Block(targetX, targetY, room.Width, room.Height);
 
-					//remove consumed doors
 					foreach( var kvp in doorLinks) {
-						kvp.Key.Linked = room;
-						kvp.Value.Linked = kvp.Key.Parent;
-
-						UnlinkedDoors.Remove(kvp.Key);
+						kvp.Value.LinkedGuid = kvp.Key.Id;
+						spawnDoorToRoom (kvp.Key, room, kvp.Value.SelfGuid);
+						UnlinkedDoors.Remove(kvp.Value);
 					}
 
+					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
+						.Select(p=>spawnDoorToRoom(p, room, Guid.Empty))
+						.ToList();
+
+					room.EnterGame (Core.Game.Instance);
+
 					//add new unlinked doors
-					UnlinkedDoors.AddRange (room.Doors.Where(p=>p.Linked == null));
+					UnlinkedDoors.AddRange (orphanedDoors);
 
 					if(Head == null) Head = room;
 
@@ -57,18 +64,27 @@ namespace Client.Game.Map
 			return Head;
 		}
 
+		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
+			var doorActor = Core.Game.Instance.Spawn<DoorActor>(resourceName:null);
+			doorActor.GameObject.name = "Door";
+			doorActor.LinkedGuid = doorGuidLink;
+			doorActor.InitWithData(link);
+			doorActor.Parent = parent;
+			parent.Doors.Add(doorActor);
+			return doorActor;
+		}
+
 		//this this is how we can bias which direction the map grows in
 		int roomSearch = 0;
-		//Door.RoomSide[] SearchDirections = new Door.RoomSide[]{Door.RoomSide.Top, Door.RoomSide.Top, Door.RoomSide.Top, Door.RoomSide.Right, Door.RoomSide.Left, Door.RoomSide.Bottom};
-		Door.RoomSide[] SearchDirections = new Door.RoomSide[]{Door.RoomSide.Left, Door.RoomSide.Top, Door.RoomSide.Right, Door.RoomSide.Bottom};
+		DoorRoomSide[] SearchDirections = new DoorRoomSide[]{DoorRoomSide.Left, DoorRoomSide.Top, DoorRoomSide.Right, DoorRoomSide.Bottom};
 
-		bool SearchForBlock (RoomData data, out int targetX, out int targetY, out Dictionary<Door, Door> doorLinks)
+		bool SearchForBlock (RoomData data, out int targetX, out int targetY, out DoorLinkMapping doorLinks)
 		{
 
 			if (UnlinkedDoors.Count == 0) {
 				targetX = 0;
 				targetY = 0;
-				doorLinks = new Dictionary<Door, Door>();
+				doorLinks = new DoorLinkMapping();
 				return true;
 			}
 
@@ -88,19 +104,19 @@ namespace Client.Game.Map
 			//default case: we failed to find a placement for the room
 			targetX = 0;
 			targetY = 0;
-			doorLinks = new Dictionary<Door, Door>();
+			doorLinks = new DoorLinkMapping ();
 			return false;
 
 		}
 
-		bool SearchForMatchesForSide (RoomData data, Door.RoomSide side, out int targetX, out int targetY, out Dictionary<Door, Door> doorLinks)
+		bool SearchForMatchesForSide (RoomData data, DoorRoomSide side, out int targetX, out int targetY, out DoorLinkMapping doorLinks)
 		{
 			targetX = 0;
 			targetY = 0;
-			doorLinks = new Dictionary<Door,Door >();
+			doorLinks = new DoorLinkMapping();
 			var doors = SideDoors (data, side);
 			if (doors.Count() > 0) {
-				foreach (Door door in doors) {
+				foreach (RoomData.Link door in doors) {
 					var potentialMates = SideDoors (UnlinkedDoors, Opposite (side));
 
 					foreach (var mate in potentialMates) {
@@ -109,7 +125,7 @@ namespace Client.Game.Map
 						targetY = (int)mate.WorldY - door.Y;
 
 						if (!Grid.IsBlocked (targetX, targetY, data.Width, data.Height)) {
-							doorLinks.Add(mate, door);
+							doorLinks.Add(door, mate);
 							return true;
 						}
 
@@ -120,36 +136,32 @@ namespace Client.Game.Map
 			return false;
 		}
 
-		private List<Door> DoorsInRect() {
-			return null;
-		}
-
-		private Door.RoomSide Opposite(Door.RoomSide side) {
+		private DoorRoomSide Opposite(DoorRoomSide side) {
 			switch (side) {
-			case Door.RoomSide.Bottom:
-				return Door.RoomSide.Top;
-			case Door.RoomSide.Left:
-				return Door.RoomSide.Right;
-			case Door.RoomSide.Right:
-				return Door.RoomSide.Left;
-			case Door.RoomSide.Top:
-				return Door.RoomSide.Bottom;
+			case DoorRoomSide.Bottom:
+				return DoorRoomSide.Top;
+			case DoorRoomSide.Left:
+				return DoorRoomSide.Right;
+			case DoorRoomSide.Right:
+				return DoorRoomSide.Left;
+			case DoorRoomSide.Top:
+				return DoorRoomSide.Bottom;
 			}
-			return default(Door.RoomSide);
+			return default(DoorRoomSide);
 		}
 
-		private IEnumerable<Door> SideDoors(List<Door> doors, Door.RoomSide side) {
-			return doors.Where (p => p.Side == side).ToList();
+		private IEnumerable<DoorActor> SideDoors(List<DoorActor> doors, DoorRoomSide side) {
+			return doors.Where (p => p.Side == side);
 		}
 
-		private IEnumerable<Door> SideDoors(RoomData data, Door.RoomSide side) {
-			return SideDoors (data.Doors, side);
+		private IEnumerable<RoomData.Link> SideDoors(RoomData data, DoorRoomSide side) {
+			return data.Doors.Where (p => p.Side == side);
 		}
 
 		private void SealDoors() {
 			foreach(var unlinked in UnlinkedDoors) {
 				unlinked.Parent.Doors.Remove(unlinked);
-				UnityEngine.Object.Destroy(unlinked.gameObject);
+				UnityEngine.Object.Destroy(unlinked.GameObject);
 			}
 		}
 

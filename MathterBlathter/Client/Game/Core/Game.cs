@@ -52,12 +52,12 @@ namespace Client.Game.Core
 
 		}
 
-		public T Spawn<T>(string name) where T : Actor, new() {
+		public T Spawn<T>(string resourceName) where T : Actor, new() {
 
 			var actor = new T ();
 			GameObject obj;
-			if (name != null) {
-				var loaded = Resources.Load (name);
+			if (resourceName != null) {
+				var loaded = Resources.Load (resourceName);
 				obj = (GameObject)GameObject.Instantiate (loaded);
 			} else {
 				obj = new GameObject ();

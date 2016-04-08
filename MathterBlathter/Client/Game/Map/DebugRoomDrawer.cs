@@ -19,9 +19,9 @@ namespace Client.Game.Map
 			roomObj.transform.parent = containerObj.transform;
 
 
-			foreach (Door door in room.Doors) {
+			foreach (DoorActor door in room.Doors) {
 				var doorObj = DebugDraw (door.X, door.Y, -1, door.Width, door.Height, Color.cyan);
-				door.gameObject = doorObj;
+				door.GameObject = doorObj;
 				doorObj.name = "door";
 				doorObj.transform.SetParent(containerObj.transform);
 			}

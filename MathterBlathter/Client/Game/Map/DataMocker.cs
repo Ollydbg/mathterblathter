@@ -1,6 +1,8 @@
 ﻿using System;
 using Client.Game.Data;
 using System.Collections.Generic;
+using Client.Game.Core.Actors;
+using Client.Game.Core.Enums;
 
 namespace Client.Game.Map
 {
@@ -46,38 +48,38 @@ namespace Client.Game.Map
 		}
 
 		public void AddTopAndBottomDoors(RoomData room) {
-			var top = new Door ();
+			var top = new RoomData.Link ();
 			top.X = 0;
 			top.Y = (int)(room.Height * .5);
 			top.Width = 1;
 			top.Height = 4;
-			top.Side = Door.RoomSide.Top;
+			top.Side = DoorRoomSide.Top;
 
-			var bottom = new Door ();
+			var bottom = new RoomData.Link ();
 			bottom.X = 0;
 			bottom.Y = (int)(room.Height*-.5);
 			bottom.Width = 1;
 			bottom.Height = 4;
-			bottom.Side = Door.RoomSide.Bottom;
+			bottom.Side = DoorRoomSide.Bottom;
 
 			room.Doors.Add (top);
 			room.Doors.Add (bottom);
 		}
 
 		public void AddLeftAndRightDoors(RoomData room) {
-			var left = new Door ();
+			var left = new RoomData.Link ();
 			left.X = (int)(room.Width * -.5);
 			left.Y = 0;
 			left.Width = 1;
 			left.Height = 4;
-			left.Side = Door.RoomSide.Left;
+			left.Side = DoorRoomSide.Left;
 
-			var right = new Door ();
+			var right = new RoomData.Link ();
 			right.X = (int)(room.Width * .5);
 			right.Y = 0;
 			right.Width = 1;
 			right.Height = 4;
-			right.Side = Door.RoomSide.Right;
+			right.Side = DoorRoomSide.Right;
 
 			room.Doors.Add (left);
 			room.Doors.Add (right);

@@ -12,7 +12,7 @@ namespace Client.Game.Map
 
 		public void Awake ()
 		{
-			var rooms = new DataMocker().Mock (500);
+			var rooms = new DataMocker().Mock (NUM_ROOMS);
 			var generator = new MapGenerator ();
 			generator.GenerateFromDataSet (rooms);
 		}

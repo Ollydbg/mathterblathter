@@ -59,8 +59,8 @@
     <Compile Include="Game\Core\Actors\CharacterActor.cs" />
     <Compile Include="Game\Core\Actors\RoomActor.cs" />
     <Compile Include="Game\Core\Actors\DoorActor.cs" />
-    <Compile Include="Game\Map\_Door.cs" />
-    <Compile Include="Game\Map\_Room.cs" />
+    <Compile Include="Game\Map\Room.cs" />
+    <Compile Include="Game\Core\Enums\DoorRoomSide.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -71,5 +71,6 @@
     <Folder Include="Game\Core\Managers\" />
     <Folder Include="Game\Core\Actors\" />
     <Folder Include="Game\Core\Attributes\" />
+    <Folder Include="Game\Core\Enums\" />
   </ItemGroup>
 </Project>

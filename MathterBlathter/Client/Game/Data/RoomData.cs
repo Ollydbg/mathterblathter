@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Client.Game.Map;
 using Client.Game.Data;
 using Client.Game.Core.Actors;
+using Client.Game.Core.Enums;
 
 namespace Client.Game.Data
 {
@@ -11,7 +12,7 @@ namespace Client.Game.Data
 
 		public int Width;
 		public int Height;
-		public List<Door> Doors = new List<Door>();
+		public List<Link> Doors = new List<Link>();
 
 		public class Link
 		{
@@ -19,7 +20,14 @@ namespace Client.Game.Data
 			public int Y;
 			public int Width;
 			public int Height;
-			public DoorActor.RoomSide Side;
+			public DoorRoomSide Side;
+
+			public Guid Id = Guid.NewGuid();
+
+			public Link()
+			{
+				
+			}
 
 			public Link(Link other) {
 				this.X = other.X;

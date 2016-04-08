@@ -16,7 +16,7 @@ namespace Client.Game.Core.Managers
 		public void Init ()
 		{
 			//make rooms
-			var mockedRooms = new DataMocker().Mock(1);
+			var mockedRooms = new DataMocker().Mock(30);
 			var generator = new MapGenerator ();
 			generator.GenerateFromDataSet (mockedRooms);
 		}

@@ -4,6 +4,7 @@ using Client.Game.Data;
 using UnityEngine;
 using System.Linq;
 using Client.Game.Core;
+using Client.Game.Core.Actors;
 
 namespace Client.Game.Map
 {
@@ -16,7 +17,7 @@ namespace Client.Game.Map
 		public int Width;
 		public int Height;
 
-		public List<Door> Doors;
+		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
 			void Draw (Room room);
 		}
@@ -60,13 +61,11 @@ namespace Client.Game.Map
 			this.Width = data.Width;
 			this.Height = data.Height;
 
-			this.Doors = data.Doors.Select (p => p.Clone ()).ToList();
-			this.Doors.ForEach (p => p.Parent = this);
 
 		}
 
 		public void EnterGame(Game.Core.Game game) { 
-			PolyDrawer.Draw (this);
+			DebugDrawer.Draw (this);
 		}
 
 	}

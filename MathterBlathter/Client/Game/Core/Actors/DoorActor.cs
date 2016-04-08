@@ -1,4 +1,7 @@
 ﻿using System;
+using Client.Game.Map;
+using Client.Game.Data;
+using Client.Game.Core.Enums;
 
 namespace Client.Game.Core.Actors
 {
@@ -13,9 +16,11 @@ namespace Client.Game.Core.Actors
 		public int Width;
 		public int Height;
 
-		public RoomActor Parent;
-		public RoomActor Linked;
-		public RoomSide Side;
+		public Room Parent;
+		public DoorRoomSide Side;
+
+		public Guid SelfGuid;
+		public Guid LinkedGuid;
 
 		public float WorldX {
 			get {
@@ -29,25 +34,25 @@ namespace Client.Game.Core.Actors
 			}
 		}
 
-
+		/*
 		public DoorActor(DoorActor other) {
+			
 			this.X = other.X;
 			this.Y = other.Y;
 			this.Width = other.Width;
 			this.Height = other.Height;
 			this.Side = other.Side;
+		}*/
+
+		public void InitWithData(RoomData.Link link) {
+			this.Width = link.Width;
+			this.Height = link.Height;
+			this.X = link.X;
+			this.Y = link.Y;
+			this.SelfGuid = link.Id;
 		}
 
-		public DoorActor Clone() {
-			return new DoorActor (this);
-		}
 
-		public enum RoomSide {
-			Top,
-			Bottom,
-			Left,
-			Right
-		}
 	}
 }
 
