@@ -17,7 +17,6 @@ namespace Client.Game.Map
 
 		public void Draw(Room room) {
 			
-			DrawFloor (room);
 			DrawWalls (room);
 			DrawDoors (room);
 
@@ -26,7 +25,7 @@ namespace Client.Game.Map
 		public void DrawDoors(Room room) {
 			foreach (var door in room.Doors) {
 				door.transform.localScale = new Vector3 (1, DOOR_HEIGHT, 1);
-				door.transform.position = new Vector3 (door.X + room.X, door.Y + room.Y, 0);
+				door.transform.position = new Vector3 (door.X + room.X, door.Y + room.Y, -1);
 
 				Debug.Log ("placing door at position; " + door.transform.position);
 				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
@@ -35,22 +34,40 @@ namespace Client.Game.Map
 
 		void DrawWalls (Room room)
 		{
-			
+			//median
+			//DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f));
+
+
+			//floor
+			DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y - .5f*room.Height, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f));
+
+			//left wall
+			DrawWall (new Vector3(room.X - .5f*room.Width, room.Y, 0), new Vector3(1, room.Height, 1));
+
+			//right wall
+			DrawWall (new Vector3(room.X + .5f*room.Width, room.Y, 0), new Vector3(1, room.Height, 1));
+
+			//ceiling
+			DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y + .5f*room.Height, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f));
+
+
+
 		}
 
-
-		public GameObject DrawFloor(Room room) {
+		void DrawWall (Vector3 position, Vector3 scale)
+		{
 			var floor = GameObject.CreatePrimitive (PrimitiveType.Cube);
-			floor.transform.localScale = new Vector3 (room.Width, FLOOR_HEIGHT , 1);
+			floor.transform.localScale = scale;
 			var rb = floor.AddComponent<Rigidbody> ();
 			rb.useGravity = false;
 			rb.isKinematic = true;
-			floor.transform.position = new Vector3 (room.X, FLOOR_HEIGHT * -.5f + room.Y, 0);
+			floor.transform.position = position;
 			floor.name = "floor";
 			floor.GetComponent<MeshRenderer> ().material.color = RandomColor ();
-			return floor;
 
 		}
+
+
 
 		private Color RandomColor() {
 			return new Color (

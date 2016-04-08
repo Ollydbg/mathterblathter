@@ -14,8 +14,8 @@ namespace Client.Game.Map
 
 		public List<RoomData> Mock(int number) {
 
-			int[] widths = new int[]{ 32, 64, 128 };
-			int[] heights = new int[]{ 32, 64, 128 };
+			int[] widths = new int[]{  32, 64, 96, 128 };
+			int[] heights = new int[]{ 32, 64, 96, 128 };
 
 			var buffer = new List<RoomData> ();
 
