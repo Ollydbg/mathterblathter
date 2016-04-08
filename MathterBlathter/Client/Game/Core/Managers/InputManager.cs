@@ -10,7 +10,7 @@ namespace Client.Game.Core.Managers
 		public static string HORIZONTAL_D_PAD = "PS4_DpadHorizontal";
 		public static string JUMP = "Jump";
 
-		public Actor TargetActor;
+		public CharacterActor TargetActor;
 
 		public InputManager ()
 		{
@@ -36,7 +36,7 @@ namespace Client.Game.Core.Managers
 			var hor = Input.GetAxis (HORIZONTAL);
 			TargetActor.Controller.MoveRight (hor);
 
-			if (Input.GetButton (JUMP)) {
+			if (Input.GetButtonDown (JUMP)) {
 				TargetActor.Controller.Jump ();
 			}
 			

@@ -4,6 +4,7 @@ using Client.Game.Data;
 using UnityEngine;
 using System.Linq;
 using Client.Game.Core;
+using Client.Game.Core.Actors;
 
 namespace Client.Game.Map
 {

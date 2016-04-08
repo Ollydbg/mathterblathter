@@ -23,7 +23,7 @@ namespace Client.Game.Map
 
 		private static IRoomDrawer DebugDrawer = new DebugRoomDrawer();
 		private static IRoomDrawer PolyDrawer = new PolyRoomDrawer();
-		
+
 		public float Left { 
 			get {
 				return (float)(X - .5*Width);
@@ -62,7 +62,7 @@ namespace Client.Game.Map
 
 			this.Doors = data.Doors.Select (p => p.Clone ()).ToList();
 			this.Doors.ForEach (p => p.Parent = this);
-			
+
 		}
 
 		public void EnterGame(Game.Core.Game game) { 

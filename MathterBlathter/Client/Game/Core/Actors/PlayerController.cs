@@ -5,17 +5,17 @@ namespace Client.Game.Core.Actors
 {
 	public class PlayerController
 	{
-		private Actor Actor;
+		private CharacterActor Actor;
 		private int angle = 90;
-
-		public PlayerController(Actor actor) {
+		Rigidbody body;
+		public PlayerController(CharacterActor actor) {
 			this.Actor = actor;
-
+			body = this.Actor.GameObject.GetComponent<Rigidbody> ();
 		}
 	
 		public void MoveRight (float hor)
 		{
-			float RunSpeed = 1;
+			float RunSpeed = .5f;
 			Vector3 oldPos = Actor.GameObject.transform.position;
 
 			var transform = Actor.GameObject.transform;
@@ -34,13 +34,13 @@ namespace Client.Game.Core.Actors
 		}
 
 		public void Update(float dt) {
-
 		}
 
 
 
 		public void Jump() {
-
+			
+			this.body.AddForce (Vector3.up * 25f, ForceMode.VelocityChange);
 		}
 
 	}

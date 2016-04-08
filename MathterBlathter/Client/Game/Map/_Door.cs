@@ -29,7 +29,7 @@ namespace Client.Game.Map
 
 		public Door ()
 		{
-			
+
 		}
 
 		public Door(Door other) {
@@ -52,4 +52,3 @@ namespace Client.Game.Map
 		}
 	}
 }
-

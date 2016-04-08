@@ -13,7 +13,10 @@ namespace Client.Game.Core.Managers
 
 		Vector3 goalPosition {
 			get {
-				return new Vector3 (Game.Instance.PossessedActor.GameObject.transform.position.x, transform.position.y, transform.position.z);
+				return new Vector3 (
+					Game.Instance.PossessedActor.GameObject.transform.position.x, 
+					Game.Instance.PossessedActor.GameObject.transform.position.y, 
+					transform.position.z);
 			}
 		}
 

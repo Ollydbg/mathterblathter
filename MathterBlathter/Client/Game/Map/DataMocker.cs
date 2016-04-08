@@ -27,10 +27,10 @@ namespace Client.Game.Map
 
 
 				while (room.Doors.Count == 0) {
-					if (Maybe ())
+					//if (Maybe ())
 						AddLeftAndRightDoors (room);
 
-					if (Maybe ())
+					//if (Maybe ())
 						AddTopAndBottomDoors (room);
 
 				}

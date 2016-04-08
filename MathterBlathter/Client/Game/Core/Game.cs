@@ -21,7 +21,7 @@ namespace Client.Game.Core
 
 
 		Dictionary<int, Actor> Actors = new Dictionary<int, Actor>();
-		public Actor PossessedActor;
+		public CharacterActor PossessedActor;
 
 		IGameManager[] Managers;
 
@@ -31,7 +31,7 @@ namespace Client.Game.Core
 		}
 
 		private void Init() {
-			PossessedActor = Spawn ("Actors/Arthur/Prefabs/arthur_prefab");
+			PossessedActor = Spawn<CharacterActor> ("Actors/Arthur/Prefabs/arthur_prefab");
 			
 			var tmp = new List<IGameManager> ();
 			tmp.Add(new InputManager());
@@ -52,13 +52,16 @@ namespace Client.Game.Core
 
 		}
 
-		public Actor Spawn(string name) {
+		public T Spawn<T>(string name) where T : Actor, new() {
 
-			var actor = new Actor ();
-
-			var loaded = Resources.Load (name);
-
-			var obj = (GameObject)GameObject.Instantiate (loaded);
+			var actor = new T ();
+			GameObject obj;
+			if (name != null) {
+				var loaded = Resources.Load (name);
+				obj = (GameObject)GameObject.Instantiate (loaded);
+			} else {
+				obj = new GameObject ();
+			}
 
 			BindActor (actor, obj);
 

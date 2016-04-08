@@ -29,7 +29,7 @@ namespace Client.Game.Map
 					var room = new Room (roomData);
 					room.X = targetX;
 					room.Y = targetY;
-					
+
 					room.EnterGame (Core.Game.Instance);
 
 					Grid.Block(targetX, targetY, room.Width, room.Height);
@@ -73,7 +73,7 @@ namespace Client.Game.Map
 			}
 
 
-			
+
 			roomSearch ++;
 
 			for( int i = 0; i< SearchDirections.Length; i++ ) {
@@ -156,4 +156,3 @@ namespace Client.Game.Map
 
 	}
 }
-
