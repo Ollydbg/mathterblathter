@@ -50,7 +50,6 @@
     <Compile Include="Game\Actors\Actor.cs" />
     <Compile Include="Game\Actors\ActorRef.cs" />
     <Compile Include="Game\Actors\DoorActor.cs" />
-    <Compile Include="Game\Actors\PlayerAnimator3D.cs" />
     <Compile Include="Game\Actors\RoomActor.cs" />
     <Compile Include="Game\Attributes\AttributeMap.cs" />
     <Compile Include="Game\Attributes\GameAttribute.cs" />
@@ -64,6 +63,14 @@
     <Compile Include="Game\Actors\CharacterController.cs" />
     <Compile Include="Game\Data\RoomDataMocker.cs" />
     <Compile Include="Game\Data\CharacterData.cs" />
+    <Compile Include="Game\AI\Brain.cs" />
+    <Compile Include="Game\Data\AIData.cs" />
+    <Compile Include="Game\AI\IAction.cs" />
+    <Compile Include="Game\Abilities\AbilityManager.cs" />
+    <Compile Include="Game\Animation\PlayerAnimator3D.cs" />
+    <Compile Include="Game\Animation\IAnimator.cs" />
+    <Compile Include="Game\Animation\States.cs" />
+    <Compile Include="Game\Animation\PriorityState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -75,5 +82,8 @@
     <Folder Include="Game\Attributes\" />
     <Folder Include="Game\Enums\" />
     <Folder Include="Game\Managers\" />
+    <Folder Include="Game\AI\" />
+    <Folder Include="Game\Abilities\" />
+    <Folder Include="Game\Animation\" />
   </ItemGroup>
 </Project>

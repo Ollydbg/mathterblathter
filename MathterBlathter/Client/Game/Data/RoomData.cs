@@ -13,6 +13,8 @@ namespace Client.Game.Data
 		public int Width;
 		public int Height;
 		public List<Link> Doors = new List<Link>();
+		public List<Spawn> Spawns = new List<Spawn> ();
+
 
 		public class Link
 		{
@@ -40,6 +42,17 @@ namespace Client.Game.Data
 			public Link Clone() {
 				return new Link (this);
 			}
+
+
+
+		}
+
+		public class Spawn
+		{
+			public CharacterData Character;
+			//LOCAL SPACE!!
+			public int X;
+			public int Y;
 		}
 
 		public RoomData ()

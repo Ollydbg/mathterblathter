@@ -12,6 +12,7 @@ namespace Client.Game.Actors
 		public GameObject GameObject;
 		public AttributeMap Attributes = new AttributeMap (ActorAttribute.GetAll());
 
+
 		public Transform transform {
 			get {
 				return GameObject.transform;
@@ -33,6 +34,10 @@ namespace Client.Game.Actors
 
 		public virtual void Update(float dt) {
 			
+		}
+
+		public virtual void LateUpdate(float dt) {
+
 		}
 	}
 }

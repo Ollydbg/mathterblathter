@@ -23,6 +23,10 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI Health = new GameAttributeI(1, 100, "health", GameAttributeEncoding.Int, 0, 100);
 		public static readonly GameAttributeF Speed = new GameAttributeF(2, .5f, "speed", GameAttributeEncoding.Float16, 0, 10);
 		public static readonly GameAttributeF JumpHeight = new GameAttributeF(3, 25, "jumpHeight", GameAttributeEncoding.Float16, 0, 50);
+		public static readonly GameAttributeI Abilities = new GameAttributeI(4, 0, "abilities", GameAttributeEncoding.Int, 0 , int.MaxValue);
+		public static readonly GameAttributeI Weapons = new GameAttributeI(5, 0, "weapons", GameAttributeEncoding.Int, 0, int.MaxValue);
+		public static readonly GameAttributeI CurrentWeaponIndex = new GameAttributeI(6, 0, "current weapon index", GameAttributeEncoding.Int, 0, 10);
+
 
 	}
 }

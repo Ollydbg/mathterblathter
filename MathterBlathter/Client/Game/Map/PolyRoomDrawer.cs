@@ -29,7 +29,6 @@ namespace Client.Game.Map
 				door.transform.localScale = new Vector3 (1, DOOR_HEIGHT, 1);
 				door.transform.position = new Vector3 (door.X + room.X, door.Y + room.Y, -1);
 
-				Debug.Log ("placing door at position; " + door.transform.position);
 				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
 			}
 		}
@@ -77,6 +76,7 @@ namespace Client.Game.Map
 			lightObj.transform.position = new Vector3 (room.X, room.Y, -10f);
 			light.type = LightType.Point;
 			light.intensity = 7;
+			lightObj.name = "light";
 		}
 
 		private Color RandomColor() {

@@ -9,7 +9,7 @@ namespace Client.Game.Managers
 {
 	using Game = Client.Game.Core.Game;
 
-	class CameraManager : IGameManager 
+	public class CameraManager : IGameManager 
 	{
 		Transform transform;
 		Camera camera;

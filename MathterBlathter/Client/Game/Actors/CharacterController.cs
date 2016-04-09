@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Client.Game.Attributes;
+using Client.Game.Animation;
 
 namespace Client.Game.Actors
 {
@@ -9,6 +10,7 @@ namespace Client.Game.Actors
 		private Character Actor;
 		private int angle = 90;
 		Rigidbody body;
+
 		public CharacterController(Character actor) {
 			this.Actor = actor;
 			body = this.Actor.GameObject.GetComponent<Rigidbody> ();
@@ -28,9 +30,14 @@ namespace Client.Game.Actors
 			else if(hor < 0)
 				angle = -90;
 
-			string animTarget = hor != 0 ? PlayerAnimator3D.RUN : PlayerAnimator3D.IDLE01;
-			Actor.Animator.RequestState(animTarget);
+			string animTarget = hor != 0 ? States.RUN : States.IDLE ;
+			Actor.Animator.RequestState(animTarget, 0);
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+
+		}
+
+		public void SwitchWeapon ()
+		{
 
 		}
 
@@ -46,6 +53,9 @@ namespace Client.Game.Actors
 			this.body.AddForce (Vector3.up * jumpHeight, ForceMode.VelocityChange);
 		}
 
+		public void Attack () {
+			Actor.Animator.RequestState (States.ATTACK1, 1, 1);	
+		}
 	}
 
 

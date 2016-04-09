@@ -23,7 +23,11 @@ namespace Client.Game.Core
 		Dictionary<int, Actor> Actors = new Dictionary<int, Actor>();
 		public Character PossessedActor;
 
-		IGameManager[] Managers;
+		public InputManager InputManager;
+		public RoomManager RoomManager;
+		public CameraManager CameraManager;
+
+		private IGameManager[] Managers;
 
 		public Game ()
 		{
@@ -31,13 +35,25 @@ namespace Client.Game.Core
 		}
 
 		private void Init() {
+
+			CreateManagers();
+
 			PossessedActor = Spawn<Character> ("Actors/Arthur/Prefabs/arthur_prefab");
-			
+
+			new List<IGameManager>(Managers).ForEach(p => p.Init ());
+
+			RoomManager.EnterRoom(PossessedActor, RoomManager.Rooms[0]);
+		}
+
+		private void CreateManagers() {
 			var tmp = new List<IGameManager> ();
-			tmp.Add(new InputManager());
-			tmp.Add (new RoomManager ());
-			tmp.Add (new CameraManager ());
-			tmp.ForEach(p=>p.Init());
+			InputManager = new InputManager();
+			RoomManager = new RoomManager();
+			CameraManager = new CameraManager();
+			
+			tmp.Add(InputManager);
+			tmp.Add (RoomManager);
+			tmp.Add (CameraManager);
 			Managers = tmp.ToArray ();
 		}
 
@@ -49,7 +65,6 @@ namespace Client.Game.Core
 
 			foreach( var kvp in Actors) 
 				kvp.Value.Update(dt);
-
 		}
 
 		public T Spawn<T>(string resourceName) where T : Actor, new() {

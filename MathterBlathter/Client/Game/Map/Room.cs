@@ -16,6 +16,7 @@ namespace Client.Game.Map
 		public int Y;
 		public int Width;
 		public int Height;
+		public RoomData data;
 
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
@@ -24,6 +25,12 @@ namespace Client.Game.Map
 
 		private static IRoomDrawer DebugDrawer = new DebugRoomDrawer();
 		private static IRoomDrawer PolyDrawer = new PolyRoomDrawer();
+
+		public Vector3 floorCenter {
+			get {
+				return new Vector3(0, Bottom, 0);
+			}
+		}
 
 		public float Left { 
 			get {
@@ -52,6 +59,7 @@ namespace Client.Game.Map
 
 		public Room (RoomData data)
 		{
+			this.data = data;
 			initFromData (data);
 		}
 
@@ -60,8 +68,6 @@ namespace Client.Game.Map
 		{
 			this.Width = data.Width;
 			this.Height = data.Height;
-
-
 		}
 
 		public void EnterGame(Game.Core.Game game) { 

@@ -8,8 +8,9 @@ namespace Client.Game.Data
 	{
 	
 		public string Name;
-		public string ResourceName;
+		public string ResourcePath;
 		public ActorType ActorType;
+		public AIData AIData;
 
 		//serialized attributes
 

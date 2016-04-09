@@ -11,6 +11,11 @@ namespace Client.Game.Managers
 		public static string HORIZONTAL = "Horizontal";
 		public static string HORIZONTAL_D_PAD = "PS4_DpadHorizontal";
 		public static string JUMP = "Jump";
+		public static string SWITCH_WEAPON = "SwitchWeapon";
+		public static string ATTACK = "Attack";
+		public static string Aim = "Aim";
+		public static string Interact = "Interact";
+
 
 		public Character TargetActor;
 
@@ -41,6 +46,16 @@ namespace Client.Game.Managers
 			if (Input.GetButtonDown (JUMP)) {
 				TargetActor.Controller.Jump ();
 			}
+
+			if (Input.GetButtonDown (SWITCH_WEAPON)) {
+				TargetActor.Controller.SwitchWeapon ();
+			}
+
+
+			if (Input.GetButtonDown (ATTACK)) {
+				TargetActor.Controller.Attack ();
+			}
+
 			
 		}
 

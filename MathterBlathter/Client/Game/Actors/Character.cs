@@ -1,12 +1,15 @@
 ﻿using System;
 using UnityEngine;
+using Client.Game.AI;
+using Client.Game.Animation;
 
 namespace Client.Game.Actors
 {
 	public class Character : Actor
 	{
-		public PlayerAnimator3D Animator;
+		public IAnimator Animator;
 		public CharacterController Controller;
+		public Brain Brain;
 
 		public Character ()
 		{
@@ -14,7 +17,7 @@ namespace Client.Game.Actors
 
 		void onCollision (Collider collider)
 		{
-			Debug.Log ("colliding");
+			
 		}
 
 		public override void EnterGame (Client.Game.Core.Game game)
@@ -28,10 +31,14 @@ namespace Client.Game.Actors
 		}
 
 		public override void Update(float dt) {
+			if(Brain != null) 
+				Brain.Update (dt);
+
 			Controller.Update(dt);
 
 			base.Update (dt);
 		}
+
 	}
 }
 
