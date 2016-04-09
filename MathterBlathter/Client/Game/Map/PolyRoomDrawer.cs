@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using Client.Game.Core.Actors;
+using Client.Game.Actors;
 
 namespace Client.Game.Map
 {
@@ -16,10 +16,12 @@ namespace Client.Game.Map
 		}
 
 		public void Draw(Room room) {
-			
-			DrawWalls (room);
-			DrawDoors (room);
 
+			Color color = RandomColor ();
+
+			DrawWalls (room, color);
+			DrawDoors (room);
+			CreateLight (room);
 		}
 
 		public void DrawDoors(Room room) {
@@ -32,29 +34,29 @@ namespace Client.Game.Map
 			}
 		}
 
-		void DrawWalls (Room room)
+		void DrawWalls (Room room, Color color)
 		{
 			//median
 			//DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f));
 
 
 			//floor
-			DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y - .5f*room.Height, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f));
+			DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y - .5f*room.Height, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f), color);
 
 			//left wall
-			DrawWall (new Vector3(room.X - .5f*room.Width, room.Y, 0), new Vector3(1, room.Height, 1));
+			DrawWall (new Vector3(room.X - .5f*room.Width, room.Y, 0), new Vector3(1, room.Height, 1), color);
 
 			//right wall
-			DrawWall (new Vector3(room.X + .5f*room.Width, room.Y, 0), new Vector3(1, room.Height, 1));
+			DrawWall (new Vector3(room.X + .5f*room.Width, room.Y, 0), new Vector3(1, room.Height, 1), color);
 
 			//ceiling
-			DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y + .5f*room.Height, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f));
+			DrawWall(new Vector3(room.X, FLOOR_HEIGHT * -.5f + room.Y + .5f*room.Height, 0), new Vector3(room.Width, FLOOR_HEIGHT, 1f), color);
 
 
 
 		}
 
-		void DrawWall (Vector3 position, Vector3 scale)
+		void DrawWall (Vector3 position, Vector3 scale, Color color)
 		{
 			var floor = GameObject.CreatePrimitive (PrimitiveType.Cube);
 			floor.transform.localScale = scale;
@@ -63,11 +65,19 @@ namespace Client.Game.Map
 			rb.isKinematic = true;
 			floor.transform.position = position;
 			floor.name = "floor";
-			floor.GetComponent<MeshRenderer> ().material.color = RandomColor ();
+			floor.GetComponent<MeshRenderer> ().material.color = color;
 
 		}
 
-
+		void CreateLight (Room room)
+		{
+			var lightObj = new GameObject ();
+			var light = lightObj.AddComponent<Light> ();
+			light.range = room.Width;
+			lightObj.transform.position = new Vector3 (room.X, room.Y, -10f);
+			light.type = LightType.Point;
+			light.intensity = 7;
+		}
 
 		private Color RandomColor() {
 			return new Color (

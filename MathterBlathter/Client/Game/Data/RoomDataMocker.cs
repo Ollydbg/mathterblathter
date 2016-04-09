@@ -1,14 +1,14 @@
 ﻿using System;
 using Client.Game.Data;
 using System.Collections.Generic;
-using Client.Game.Core.Actors;
-using Client.Game.Core.Enums;
+using Client.Game.Actors;
+using Client.Game.Enums;
 
-namespace Client.Game.Map
+namespace Client.Game.Data
 {
-	public class DataMocker
+	public class RoomDataMocker
 	{
-		public DataMocker ()
+		public RoomDataMocker ()
 		{
 		}
 

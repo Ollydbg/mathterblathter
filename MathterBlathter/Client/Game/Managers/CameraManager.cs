@@ -1,11 +1,14 @@
 using System;
-using Client.Game.Core.Managers;
+using Client.Game.Managers;
 using System.Collections.Generic;
-using Client.Game.Core.Actors;
+using Client.Game.Actors;
 using UnityEngine;
+using Client.Game.Core;
 
-namespace Client.Game.Core.Managers
+namespace Client.Game.Managers
 {
+	using Game = Client.Game.Core.Game;
+
 	class CameraManager : IGameManager 
 	{
 		Transform transform;

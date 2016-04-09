@@ -1,7 +1,7 @@
 ﻿using System;
-using Client.Game.Core.Managers;
+using Client.Game.Managers;
 using System.Collections.Generic;
-using Client.Game.Core.Actors;
+using Client.Game.Actors;
 using UnityEngine;
 
 namespace Client.Game.Core
@@ -21,7 +21,7 @@ namespace Client.Game.Core
 
 
 		Dictionary<int, Actor> Actors = new Dictionary<int, Actor>();
-		public CharacterActor PossessedActor;
+		public Character PossessedActor;
 
 		IGameManager[] Managers;
 
@@ -31,7 +31,7 @@ namespace Client.Game.Core
 		}
 
 		private void Init() {
-			PossessedActor = Spawn<CharacterActor> ("Actors/Arthur/Prefabs/arthur_prefab");
+			PossessedActor = Spawn<Character> ("Actors/Arthur/Prefabs/arthur_prefab");
 			
 			var tmp = new List<IGameManager> ();
 			tmp.Add(new InputManager());

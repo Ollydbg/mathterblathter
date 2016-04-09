@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client.Game.Core.Enums
+namespace Client.Game.Enums
 {
 	public enum DoorRoomSide {
 		Top,

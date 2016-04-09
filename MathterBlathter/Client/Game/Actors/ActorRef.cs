@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Client.Game.Core.Actors
+namespace Client.Game.Actors
 {
 	public class ActorRef : MonoBehaviour
 	{

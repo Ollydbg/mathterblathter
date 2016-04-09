@@ -3,7 +3,7 @@ using Client.Game.Data;
 using Client.Game.Map;
 using System.Collections.Generic;
 
-namespace Client.Game.Core.Managers
+namespace Client.Game.Managers
 {
 	public class RoomManager : IGameManager
 	{
@@ -20,7 +20,7 @@ namespace Client.Game.Core.Managers
 		public void Init ()
 		{
 			//make rooms
-			var mockedRooms = new DataMocker().Mock(20);
+			var mockedRooms = new RoomDataMocker().Mock(4);
 			var generator = new MapGenerator ();
 			Rooms = generator.GenerateFromDataSet (mockedRooms);
 			Rooms.ForEach (p => p.Draw());

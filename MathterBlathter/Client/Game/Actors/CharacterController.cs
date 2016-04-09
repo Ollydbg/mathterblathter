@@ -1,21 +1,22 @@
 ﻿using System;
 using UnityEngine;
+using Client.Game.Attributes;
 
-namespace Client.Game.Core.Actors
+namespace Client.Game.Actors
 {
-	public class PlayerController
+	public class CharacterController
 	{
-		private CharacterActor Actor;
+		private Character Actor;
 		private int angle = 90;
 		Rigidbody body;
-		public PlayerController(CharacterActor actor) {
+		public CharacterController(Character actor) {
 			this.Actor = actor;
 			body = this.Actor.GameObject.GetComponent<Rigidbody> ();
 		}
 	
 		public void MoveRight (float hor)
 		{
-			float RunSpeed = .5f;
+			float RunSpeed = Actor.Attributes[ActorAttribute.Speed];
 			Vector3 oldPos = Actor.GameObject.transform.position;
 
 			var transform = Actor.GameObject.transform;
@@ -39,8 +40,10 @@ namespace Client.Game.Core.Actors
 
 
 		public void Jump() {
-			
-			this.body.AddForce (Vector3.up * 25f, ForceMode.VelocityChange);
+
+			var jumpHeight = Actor.Attributes[ActorAttribute.JumpHeight];
+
+			this.body.AddForce (Vector3.up * jumpHeight, ForceMode.VelocityChange);
 		}
 
 	}

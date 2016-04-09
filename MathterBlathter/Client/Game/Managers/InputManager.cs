@@ -1,16 +1,18 @@
 ﻿using System;
 using UnityEngine;
-using Client.Game.Core.Actors;
+using Client.Game.Actors;
 
-namespace Client.Game.Core.Managers
+namespace Client.Game.Managers
 {
+	using Game = Client.Game.Core.Game;
+
 	public class InputManager : IGameManager
 	{
 		public static string HORIZONTAL = "Horizontal";
 		public static string HORIZONTAL_D_PAD = "PS4_DpadHorizontal";
 		public static string JUMP = "Jump";
 
-		public CharacterActor TargetActor;
+		public Character TargetActor;
 
 		public InputManager ()
 		{

@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Client.Game.Core.Actors
+namespace Client.Game.Actors
 {
-	public class CharacterActor : Actor
+	public class Character : Actor
 	{
 		public PlayerAnimator3D Animator;
-		public PlayerController Controller;
+		public CharacterController Controller;
 
-		public CharacterActor ()
+		public Character ()
 		{
 		}
 
@@ -17,9 +17,9 @@ namespace Client.Game.Core.Actors
 			Debug.Log ("colliding");
 		}
 
-		public override void EnterGame (Game game)
+		public override void EnterGame (Client.Game.Core.Game game)
 		{
-			Controller = new PlayerController (this);
+			Controller = new CharacterController (this);
 			Animator = new PlayerAnimator3D(this);
 
 			GameObject.GetComponent<ActorRef> ().CollisionEvent += onCollision;

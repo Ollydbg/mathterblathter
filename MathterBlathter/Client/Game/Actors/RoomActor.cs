@@ -4,7 +4,7 @@ using Client.Game.Map;
 using Client.Game.Data;
 using System.Linq;
 
-namespace Client.Game.Core.Actors
+namespace Client.Game.Actors
 {
 	public class RoomActor : Actor
 	{

@@ -1,9 +1,9 @@
 ﻿using System;
 using Client.Game.Map;
 using Client.Game.Data;
-using Client.Game.Core.Enums;
+using Client.Game.Enums;
 
-namespace Client.Game.Core.Actors
+namespace Client.Game.Actors
 {
 	public class DoorActor : Actor
 	{

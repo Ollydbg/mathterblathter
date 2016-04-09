@@ -44,23 +44,26 @@
     <Compile Include="Game\Map\RoomGrid.cs" />
     <Compile Include="Game\Core\Game.cs" />
     <Compile Include="Game\Core\GameManagerProxy.cs" />
-    <Compile Include="Game\Core\Managers\IGameManager.cs" />
-    <Compile Include="Game\Core\Managers\InputManager.cs" />
-    <Compile Include="Game\Core\Actors\Actor.cs" />
-    <Compile Include="Game\Core\Actors\ActorRef.cs" />
-    <Compile Include="Game\Core\Actors\PlayerController.cs" />
-    <Compile Include="Game\Core\Attributes\GameAttribute.cs" />
-    <Compile Include="Game\Core\Actors\PlayerAnimator3D.cs" />
-    <Compile Include="Game\Core\Managers\RoomManager.cs" />
-    <Compile Include="Game\Map\DataMocker.cs" />
     <Compile Include="Game\Map\PolyRoomDrawer.cs" />
     <Compile Include="Game\Map\DebugRoomDrawer.cs" />
-    <Compile Include="Game\Core\Managers\CameraManager.cs" />
-    <Compile Include="Game\Core\Actors\CharacterActor.cs" />
-    <Compile Include="Game\Core\Actors\RoomActor.cs" />
-    <Compile Include="Game\Core\Actors\DoorActor.cs" />
     <Compile Include="Game\Map\Room.cs" />
-    <Compile Include="Game\Core\Enums\DoorRoomSide.cs" />
+    <Compile Include="Game\Actors\Actor.cs" />
+    <Compile Include="Game\Actors\ActorRef.cs" />
+    <Compile Include="Game\Actors\DoorActor.cs" />
+    <Compile Include="Game\Actors\PlayerAnimator3D.cs" />
+    <Compile Include="Game\Actors\RoomActor.cs" />
+    <Compile Include="Game\Attributes\AttributeMap.cs" />
+    <Compile Include="Game\Attributes\GameAttribute.cs" />
+    <Compile Include="Game\Enums\DoorRoomSide.cs" />
+    <Compile Include="Game\Managers\CameraManager.cs" />
+    <Compile Include="Game\Managers\IGameManager.cs" />
+    <Compile Include="Game\Managers\InputManager.cs" />
+    <Compile Include="Game\Managers\RoomManager.cs" />
+    <Compile Include="Game\Actors\Character.cs" />
+    <Compile Include="Game\Attributes\ActorAttributeList.cs" />
+    <Compile Include="Game\Actors\CharacterController.cs" />
+    <Compile Include="Game\Data\RoomDataMocker.cs" />
+    <Compile Include="Game\Data\CharacterData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -68,9 +71,9 @@
     <Folder Include="Game\Map\" />
     <Folder Include="Game\Data\" />
     <Folder Include="Game\Core\" />
-    <Folder Include="Game\Core\Managers\" />
-    <Folder Include="Game\Core\Actors\" />
-    <Folder Include="Game\Core\Attributes\" />
-    <Folder Include="Game\Core\Enums\" />
+    <Folder Include="Game\Actors\" />
+    <Folder Include="Game\Attributes\" />
+    <Folder Include="Game\Enums\" />
+    <Folder Include="Game\Managers\" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Client.Game.Map;
 using Client.Game.Data;
-using Client.Game.Core.Actors;
-using Client.Game.Core.Enums;
+using Client.Game.Actors;
+using Client.Game.Enums;
 
 namespace Client.Game.Data
 {

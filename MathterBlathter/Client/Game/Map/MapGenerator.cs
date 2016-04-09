@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Client.Game.Data;
 using System.Linq;
 using Client.Game.Core;
-using Client.Game.Core.Actors;
-using Client.Game.Core.Enums;
+using Client.Game.Actors;
+using Client.Game.Enums;
 
 namespace Client.Game.Map
 {

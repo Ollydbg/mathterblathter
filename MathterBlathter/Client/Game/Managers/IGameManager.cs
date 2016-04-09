@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Client.Game.Core.Managers
+namespace Client.Game.Managers
 {
 	public interface IGameManager
 	{
