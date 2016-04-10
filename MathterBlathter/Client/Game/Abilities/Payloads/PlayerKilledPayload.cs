@@ -12,6 +12,13 @@ namespace Client.Game.Abilities.Payloads
 
 		public override void Apply ()
 		{
+			if (AbilityManager.NotifyPayloadSender(this, Context.source))
+				return;
+
+			if (AbilityManager.NotifyPayloadReceiver (this, Context.target))
+				return;
+
+			//this doesn't actually do anything at the moment
 			
 		}
 

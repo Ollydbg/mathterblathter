@@ -16,6 +16,12 @@ namespace Client.Game.Abilities.Payloads
 
 		public override void Apply ()
 		{
+			if (AbilityManager.NotifyPayloadSender(this, Context.source))
+				return;
+
+			if (AbilityManager.NotifyPayloadReceiver (this, Context.target))
+				return;
+			
 			Target.Game.RemoveActor (Target);
 		}
 
