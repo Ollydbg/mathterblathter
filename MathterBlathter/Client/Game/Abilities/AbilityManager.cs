@@ -41,9 +41,16 @@ namespace Client.Game.Abilities
 
 		}
 
-		public void TriggerPayload (Payload payload)
+		//returns true if it got consumed
+		public bool NotifyPayloadSender (Payload payload, Actor actor)
 		{
-			
+			return false;	
+		}
+
+		//returns true if it got consumed
+		public bool NotifyPayloadReceiver (Payload payload, Actor actor)
+		{
+			return false;
 		}
 	}
 }

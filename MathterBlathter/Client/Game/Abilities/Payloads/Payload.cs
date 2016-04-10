@@ -5,17 +5,20 @@ namespace Client.Game.Abilities.Payloads
 {
 	public abstract class Payload
 	{
+		public AbilityContext Context;
 
-		public Actor target;
-		public Actor source;
+		public AbilityManager AbilityManager {
+			get {
+				return Context.source.Game.AbilityManager;
+			}
+		}
 
-		public Payload ()
+		public Payload (AbilityContext context)
 		{
+			this.Context = context;
 		}
 
-		public void Trigger() {
-			Game.Core.Game.Instance.AbilityManager.TriggerPayload (this);
-		}
+		public abstract void Apply ();
 	}
 }
 

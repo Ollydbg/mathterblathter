@@ -83,6 +83,9 @@
     <Compile Include="Game\Data\MockAbilityData.cs" />
     <Compile Include="Game\Abilities\Scripts\ProjectileAttack.cs" />
     <Compile Include="Game\Actors\ProjectileActor.cs" />
+    <Compile Include="Game\Abilities\Payloads\DamagePayload.cs" />
+    <Compile Include="Game\Abilities\Payloads\KillPayload.cs" />
+    <Compile Include="Game\Abilities\Payloads\PlayerKilledPayload.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

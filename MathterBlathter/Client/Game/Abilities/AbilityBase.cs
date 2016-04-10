@@ -2,6 +2,7 @@
 using Client.Game.Abilities;
 using UnityEngine;
 using Client.Game.Actors;
+using Client.Game.Abilities.Payloads;
 
 namespace Client
 {
@@ -31,6 +32,11 @@ namespace Client
 			var projectile = context.source.Game.Spawn<ProjectileActor>(context.data.spawnableResourcePath);
 			projectile.transform.position = context.source.transform.position;
 			projectile.SetMovement (context.direction, 5f);
+
+			projectile.OnHit = (actor) => {
+				new DamagePayload (context, actor, 10).Apply();
+				context.source.Game.RemoveActor(projectile);
+			};
 
 			return projectile;
 

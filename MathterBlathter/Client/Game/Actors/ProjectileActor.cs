@@ -10,6 +10,8 @@ namespace Client.Game.Actors
 		private float speed;
 		private float lifespan = 5.0f;
 
+		private const string PROJECTILES_LAYER = "Projectiles";
+
 
 		public ProjectileActor ()
 		{
@@ -17,11 +19,25 @@ namespace Client.Game.Actors
 		}
 
 
+		public override void EnterGame (Client.Game.Core.Game game)
+		{
+			this.GameObject.layer = LayerMask.NameToLayer (PROJECTILES_LAYER);
+			base.EnterGame (game);
+		}
 
 		public void SetMovement (Vector3 direction, float speed)
 		{
 			this.direction = direction;
 			this.speed = speed;
+			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += onCollision;
+		}
+
+		void onCollision (Collider Collider)
+		{
+			var actorRef = Collider.GetComponent<ActorRef>();
+			if (actorRef != null && OnHit != null) {
+				OnHit (actorRef.Actor);
+			}
 		}
 
 		public override void Update (float dt)
@@ -29,7 +45,7 @@ namespace Client.Game.Actors
 			this.transform.position += (direction * (speed * dt));
 			lifespan -= dt;
 			if (lifespan <= 0f) {
-				Game.Remove (this);
+				Game.RemoveActor (this);
 			}
 		}
 	}

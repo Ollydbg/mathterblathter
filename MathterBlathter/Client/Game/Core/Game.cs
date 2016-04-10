@@ -109,7 +109,7 @@ namespace Client.Game.Core
 
 
 		private Queue<Actor> deferredRemoves = new Queue<Actor> ();
-		public void Remove(Actor actor) {
+		public void RemoveActor(Actor actor) {
 			deferredRemoves.Enqueue (actor);
 		}
 
