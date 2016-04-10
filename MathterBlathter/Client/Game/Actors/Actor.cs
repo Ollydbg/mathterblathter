@@ -2,6 +2,7 @@
 using UnityEngine;
 using Client.Game.Core;
 using Client.Game.Attributes;
+using Client.Game.Data;
 
 namespace Client.Game.Actors
 {
@@ -10,8 +11,10 @@ namespace Client.Game.Actors
 		private static int LastId;
 		public int Id = LastId++;
 		public GameObject GameObject;
-		public AttributeMap Attributes = new AttributeMap (ActorAttribute.GetAll());
+		public AttributeMap Attributes = new AttributeMap (ActorAttributes.GetAll());
+		public Client.Game.Core.Game Game;
 
+		public GameData data;
 
 		public Transform transform {
 			get {
@@ -25,9 +28,12 @@ namespace Client.Game.Actors
 		}
 
 
+		public virtual void LoadFromData(GameData data) {
+			this.data = data;
+		}
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {
-			
+			this.Game = game;
 		}
 
 
@@ -36,9 +42,7 @@ namespace Client.Game.Actors
 			
 		}
 
-		public virtual void LateUpdate(float dt) {
-
-		}
 	}
+
 }
 

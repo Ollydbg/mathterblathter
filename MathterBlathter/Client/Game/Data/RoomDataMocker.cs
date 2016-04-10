@@ -15,7 +15,7 @@ namespace Client.Game.Data
 		public List<RoomData> Mock(int number) {
 
 			int[] widths = new int[]{  32, 64, 96, 128 };
-			int[] heights = new int[]{ 16 };// 64, 96, 128 };
+			int[] heights = new int[]{ 16, 32 };//64, 96, 128 };
 
 			var buffer = new List<RoomData> ();
 
@@ -51,10 +51,7 @@ namespace Client.Game.Data
 			var spawn = new RoomData.Spawn ();
 			spawn.X = 0;
 			spawn.Y = 0;
-			spawn.Character = new CharacterData ();
-			spawn.Character.ResourcePath = "EnemyTest_prefab";
-			spawn.Character.ActorType = ActorType.Enemy;
-			spawn.Character.AIData = new AIData ();
+			spawn.Character = ActorDataMocker.ENEMY_TEST;
 
 			room.Spawns.Add (spawn);
 		}

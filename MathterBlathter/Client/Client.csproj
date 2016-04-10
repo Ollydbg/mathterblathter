@@ -65,12 +65,24 @@
     <Compile Include="Game\Data\CharacterData.cs" />
     <Compile Include="Game\AI\Brain.cs" />
     <Compile Include="Game\Data\AIData.cs" />
-    <Compile Include="Game\AI\IAction.cs" />
     <Compile Include="Game\Abilities\AbilityManager.cs" />
     <Compile Include="Game\Animation\PlayerAnimator3D.cs" />
     <Compile Include="Game\Animation\IAnimator.cs" />
     <Compile Include="Game\Animation\States.cs" />
     <Compile Include="Game\Animation\PriorityState.cs" />
+    <Compile Include="Game\Abilities\AbilityBase.cs" />
+    <Compile Include="Game\Abilities\Payloads\Payload.cs" />
+    <Compile Include="Game\Attributes\AbilityAttributeList.cs" />
+    <Compile Include="Game\Abilities\AbilityContext.cs" />
+    <Compile Include="Game\Data\AbilityData.cs" />
+    <Compile Include="Game\Abilities\Scripts\MeleeAttack.cs" />
+    <Compile Include="Game\AI\Actions\SeekToPlayer.cs" />
+    <Compile Include="Game\AI\Actions\FireAtPlayer.cs" />
+    <Compile Include="Game\Data\ActorDataMocker.cs" />
+    <Compile Include="Game\AI\Actions\AIAction.cs" />
+    <Compile Include="Game\Data\MockAbilityData.cs" />
+    <Compile Include="Game\Abilities\Scripts\ProjectileAttack.cs" />
+    <Compile Include="Game\Actors\ProjectileActor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -85,5 +97,8 @@
     <Folder Include="Game\AI\" />
     <Folder Include="Game\Abilities\" />
     <Folder Include="Game\Animation\" />
+    <Folder Include="Game\Abilities\Payloads\" />
+    <Folder Include="Game\Abilities\Scripts\" />
+    <Folder Include="Game\AI\Actions\" />
   </ItemGroup>
 </Project>

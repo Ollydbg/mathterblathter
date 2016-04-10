@@ -11,8 +11,10 @@ namespace Client.Game.Data
 		public string ResourcePath;
 		public ActorType ActorType;
 		public AIData AIData;
+		public List<AttributeData> attributeData = new List<AttributeData>();
 
 		//serialized attributes
+
 
 	}
 

@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Client.Game.Attributes
 {
-	public partial class ActorAttribute
+	public partial class ActorAttributes
 	{
 
-		static void ActorAttribte() {
-			_all = typeof(ActorAttribute).GetFields ()
+		static void ActorAttribute() {
+			_all = typeof(ActorAttributes).GetFields ()
 				.Where (a => a.IsStatic && a.FieldType.IsSubclassOf (typeof(GameAttribute)))
 				.Select (a => a.GetValue (null) as GameAttribute)
 				.OrderBy (a => a.Id)
@@ -26,7 +26,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI Abilities = new GameAttributeI(4, 0, "abilities", GameAttributeEncoding.Int, 0 , int.MaxValue);
 		public static readonly GameAttributeI Weapons = new GameAttributeI(5, 0, "weapons", GameAttributeEncoding.Int, 0, int.MaxValue);
 		public static readonly GameAttributeI CurrentWeaponIndex = new GameAttributeI(6, 0, "current weapon index", GameAttributeEncoding.Int, 0, 10);
-
+		public static readonly GameAttributeF AIDetectionRadius = new GameAttributeF(7, 15, "ai detection radius", GameAttributeEncoding.Float16, 2, 1000);
 
 	}
 }

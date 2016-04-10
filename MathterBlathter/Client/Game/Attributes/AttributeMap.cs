@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Game.Attributes;
 using System.Collections.Generic;
+using Client.Game.Data;
 
 namespace Client.Game.Attributes
 {
@@ -64,6 +65,15 @@ namespace Client.Game.Attributes
 				attributeValues.Remove (keyId);
 			} else {
 				attributeValues [keyId] = inValue;
+			}
+		}
+
+		public void LoadFromData (List<CharacterData.AttributeData> attributeData)
+		{
+			foreach (var attr in attributeData) {
+				var keyId = GetKeyId (attr.Id, null);
+				var attrValue = attr.ValueI == 0 ? new GameAttributeValue (attr.ValueF) : new GameAttributeValue (attr.ValueI);
+				attributeValues [keyId] = attrValue;
 			}
 		}
 

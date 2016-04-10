@@ -34,9 +34,20 @@ namespace Client.Game.Managers
 			CreateRoomObjects (head);
 		}
 
+
 		public void CreateRoomObjects(Room room) {
 			foreach (var spawn in room.data.Spawns) {
-				Game.Instance.Spawn <Character> (spawn.Character.ResourcePath);
+				
+				var enemyTest = Game.Instance.Spawn <Character> (spawn.Character);
+
+				enemyTest.Brain = new Client.Game.AI.Brain (enemyTest);
+
+				var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
+				var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
+				seekToAction.Next = fireAtAction;
+				fireAtAction.Next = seekToAction;
+				enemyTest.Brain.CurrentAction = seekToAction;
+
 			}
 		}
 

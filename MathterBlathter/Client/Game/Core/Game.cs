@@ -3,6 +3,8 @@ using Client.Game.Managers;
 using System.Collections.Generic;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Game.Abilities;
+using Client.Game.Data;
 
 namespace Client.Game.Core
 {
@@ -26,6 +28,7 @@ namespace Client.Game.Core
 		public InputManager InputManager;
 		public RoomManager RoomManager;
 		public CameraManager CameraManager;
+		public AbilityManager AbilityManager;
 
 		private IGameManager[] Managers;
 
@@ -38,7 +41,7 @@ namespace Client.Game.Core
 
 			CreateManagers();
 
-			PossessedActor = Spawn<Character> ("Actors/Arthur/Prefabs/arthur_prefab");
+			PossessedActor = Spawn<Character> (ActorDataMocker.PLAYER_TEST);
 
 			new List<IGameManager>(Managers).ForEach(p => p.Init ());
 
@@ -50,8 +53,10 @@ namespace Client.Game.Core
 			InputManager = new InputManager();
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
+			AbilityManager = new AbilityManager ();
 			
-			tmp.Add(InputManager);
+			tmp.Add (InputManager);
+			tmp.Add (AbilityManager);
 			tmp.Add (RoomManager);
 			tmp.Add (CameraManager);
 			Managers = tmp.ToArray ();
@@ -65,6 +70,23 @@ namespace Client.Game.Core
 
 			foreach( var kvp in Actors) 
 				kvp.Value.Update(dt);
+
+			while (deferredAds.Count > 0) {
+				var actor = deferredAds.Dequeue ();
+				Actors.Add (actor.Id, actor);
+			}
+
+			while (deferredRemoves.Count > 0) {
+				var actor = deferredRemoves.Dequeue ();
+				Actors.Remove (actor.Id);
+				GameObject.Destroy (actor.GameObject);
+			}
+		}
+
+		public T Spawn<T>(CharacterData data) where T : Character, new() {
+			T actor = Spawn<T> (data.ResourcePath);
+			actor.LoadFromData (data);
+			return actor;
 		}
 
 		public T Spawn<T>(string resourceName) where T : Actor, new() {
@@ -79,20 +101,26 @@ namespace Client.Game.Core
 			}
 
 			BindActor (actor, obj);
-
+			
 			actor.EnterGame(this);
 
 			return actor;
 		}
 
 
+		private Queue<Actor> deferredRemoves = new Queue<Actor> ();
+		public void Remove(Actor actor) {
+			deferredRemoves.Enqueue (actor);
+		}
+
+		private Queue<Actor> deferredAds = new Queue<Actor>();
 		void BindActor(Actor actor, GameObject obj) {
 			obj.AddComponent<ActorRef> ();
 			obj.GetComponent<ActorRef> ().Actor = actor;
 
 			actor.GameObject = obj;
 
-			Actors.Add (actor.Id, actor);
+			deferredAds.Enqueue (actor);
 
 		}
 

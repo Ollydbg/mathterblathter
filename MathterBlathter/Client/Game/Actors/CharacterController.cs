@@ -2,6 +2,8 @@
 using UnityEngine;
 using Client.Game.Attributes;
 using Client.Game.Animation;
+using Client.Game.Abilities;
+using Client.Game.Data;
 
 namespace Client.Game.Actors
 {
@@ -18,7 +20,7 @@ namespace Client.Game.Actors
 	
 		public void MoveRight (float hor)
 		{
-			float RunSpeed = Actor.Attributes[ActorAttribute.Speed];
+			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
 			Vector3 oldPos = Actor.GameObject.transform.position;
 
 			var transform = Actor.GameObject.transform;
@@ -48,18 +50,21 @@ namespace Client.Game.Actors
 
 		public void Jump() {
 
-			var jumpHeight = Actor.Attributes[ActorAttribute.JumpHeight];
+			var jumpHeight = Actor.Attributes[ActorAttributes.JumpHeight];
 
 			this.body.AddForce (Vector3.up * jumpHeight, ForceMode.VelocityChange);
 		}
 
 		public void Attack () {
-			Actor.Animator.RequestState (States.ATTACK1, 1, 1);	
+			Actor.Game.AbilityManager.ActivateAbility (new AbilityContext(Actor, Actor.transform.forward, MockAbilityData.PLAYER_MELEE));
 		}
+
+
+
 	}
 
 
-
+	
 
 }
 
