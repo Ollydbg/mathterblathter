@@ -124,8 +124,6 @@ namespace Client.Game.Core
 
 		}
 
-
-		
 	}
 }
 

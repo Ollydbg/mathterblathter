@@ -16,6 +16,8 @@ namespace Client.Game.Actors
 
 		public GameData data;
 
+		public ActorType ActorType;
+
 		public Transform transform {
 			get {
 				return GameObject.transform;
@@ -40,6 +42,11 @@ namespace Client.Game.Actors
 
 		public virtual void Update(float dt) {
 			
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("[Actor: name={0}]", GameObject.name);
 		}
 
 	}

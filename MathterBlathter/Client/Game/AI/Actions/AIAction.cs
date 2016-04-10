@@ -20,9 +20,7 @@ namespace Client.Game.AI
 		{
 			get {
 				var possessed = Game.Instance.PossessedActor;
-				return possessed.transform.position
-					+ new Vector3(0, possessed.HalfHeight, 0);
-				 
+				return possessed.HalfHeight;
 			}
 		}
 	}

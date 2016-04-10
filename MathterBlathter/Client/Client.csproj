@@ -86,6 +86,7 @@
     <Compile Include="Game\Abilities\Payloads\DamagePayload.cs" />
     <Compile Include="Game\Abilities\Payloads\KillPayload.cs" />
     <Compile Include="Game\Abilities\Payloads\PlayerKilledPayload.cs" />
+    <Compile Include="Game\Abilities\Utils\AbilityUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -103,5 +104,6 @@
     <Folder Include="Game\Abilities\Payloads\" />
     <Folder Include="Game\Abilities\Scripts\" />
     <Folder Include="Game\AI\Actions\" />
+    <Folder Include="Game\Abilities\Utils\" />
   </ItemGroup>
 </Project>

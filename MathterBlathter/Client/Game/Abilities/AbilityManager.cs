@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Client.Game.Actors;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Abilities.Scripts;
-
+using System.Linq;
 namespace Client.Game.Abilities
 {
 	public class AbilityManager : IGameManager
@@ -12,6 +12,8 @@ namespace Client.Game.Abilities
 
 		public Dictionary<Actor, List<AbilityBase>> Abilities = new Dictionary<Actor, List<AbilityBase>>();
 
+
+		public Queue<RemovePair> deferredRemoves = new Queue<RemovePair>();
 
 		public AbilityManager ()
 		{
@@ -27,7 +29,24 @@ namespace Client.Game.Abilities
 
 		public void Update (float dt)
 		{
-			
+			foreach (var kvp in Abilities) {
+				foreach (var ability in kvp.Value) {
+
+					ability.Update(dt);
+					if (ability.isComplete ()) {
+						deferredRemoves.Enqueue (new RemovePair (kvp.Key, ability));
+					}
+
+				}
+			}
+
+			//cull
+			while (deferredRemoves.Count > 0) {
+				var rp = deferredRemoves.Dequeue ();
+				rp.ability.End ();
+				Abilities [rp.actor].Remove (rp.ability);
+			}
+
 		}
 
 		public void ActivateAbility(AbilityContext ctx) {
@@ -52,6 +71,15 @@ namespace Client.Game.Abilities
 		{
 			return false;
 		}
+
+		public class RemovePair {
+			public Actor actor;
+			public AbilityBase ability;
+			public RemovePair(Actor actor, AbilityBase ability) {this.actor = actor; this.ability = ability;}
+		}
 	}
+
+
+
 }
 

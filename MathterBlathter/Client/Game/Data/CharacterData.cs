@@ -21,6 +21,7 @@ namespace Client.Game.Data
 	public enum ActorType {
 		Player,
 		Enemy,
+		Door,
 		Boss,
 	}
 

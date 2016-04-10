@@ -17,7 +17,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 15f
+					AbilityAttributes.Damage.Id, 15
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
 
@@ -36,7 +36,11 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 50f
+					AbilityAttributes.Damage.Id, 40
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.MeleeRange.Id, 2f
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MeleeAttack);
 

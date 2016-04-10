@@ -11,7 +11,12 @@ namespace Client.Game.Actors
 		public IAnimator Animator;
 		public CharacterController Controller;
 		public Brain Brain;
-		public float HalfHeight;
+		public float colliderHeight;
+		public Vector3 HalfHeight {
+			get {
+				return transform.position + new Vector3 (0f, colliderHeight*.5f, 0f);
+			}
+		}
 
 		public Character ()
 		{
@@ -28,7 +33,7 @@ namespace Client.Game.Actors
 			Animator = new PlayerAnimator3D(this);
 
 			GameObject.GetComponent<ActorRef> ().CollisionEvent += onCollision;
-			HalfHeight = GameObject.GetComponent<CapsuleCollider>().height * .5f;
+			colliderHeight = GameObject.GetComponent<CapsuleCollider> ().height;
 
 			base.EnterGame (game);
 		}

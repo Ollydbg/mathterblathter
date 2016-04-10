@@ -22,7 +22,8 @@ namespace Client.Game.Attributes
 
 		public static readonly GameAttributeF Duration = new GameAttributeF(1, 2f, "duration", GameAttributeEncoding.Float16, 0, float.MaxValue);
 		public static readonly GameAttributeF Cooldown = new GameAttributeF(2, 1f, "cooldown", GameAttributeEncoding.Float16, 0, float.MaxValue);
-		public static readonly GameAttributeF Damage = new GameAttributeF(3, 10, "damage", GameAttributeEncoding.Float16, 0, float.MaxValue);
+		public static readonly GameAttributeI Damage = new GameAttributeI(3, 10, "damage", GameAttributeEncoding.Int, 0, int.MaxValue);
+		public static readonly GameAttributeF MeleeRange = new GameAttributeF(4, 10, "melee range", GameAttributeEncoding.Float16, 0, float.MaxValue);
 
 	}
 }
