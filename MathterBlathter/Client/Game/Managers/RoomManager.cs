@@ -33,7 +33,7 @@ namespace Client.Game.Managers
 
 			//init spawns just for Head
 			var head = Rooms[0];
-			//CreateRoomObjects (head);
+			CreateRoomObjects (head);
 		}
 
 

@@ -10,6 +10,8 @@ namespace Client.Game.Managers
 	{
 		public static string HORIZONTAL = "Horizontal";
 		public static string HORIZONTAL_D_PAD = "PS4_DpadHorizontal";
+		public static string PS4_X = "PS4_X";
+		public static string PS4_SQ = "PS4_SQ";
 		public static string JUMP = "Jump";
 		public static string SWITCH_WEAPON = "SwitchWeapon";
 		public static string ATTACK = "Attack";
@@ -40,10 +42,12 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-			var hor = Input.GetAxis (HORIZONTAL);
-			TargetActor.Controller.MoveRight (hor);
 
-			if (Input.GetButtonDown (JUMP)) {
+			var hor = Input.GetAxis (HORIZONTAL);
+			var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
+			TargetActor.Controller.MoveRight (hor+controllerHor);
+
+			if (Input.GetButtonDown (JUMP) || Input.GetButtonDown(PS4_X)) {
 				TargetActor.Controller.Jump ();
 			}
 
@@ -52,7 +56,7 @@ namespace Client.Game.Managers
 			}
 
 
-			if (Input.GetButtonDown (ATTACK)) {
+			if (Input.GetButtonDown (ATTACK) || Input.GetButtonDown(PS4_SQ)) {
 				TargetActor.Controller.Attack ();
 			}
 
