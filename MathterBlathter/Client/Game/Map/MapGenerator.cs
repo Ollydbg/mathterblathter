@@ -39,7 +39,7 @@ namespace Client.Game.Map
 					room.X = targetX;
 					room.Y = targetY;
 					ret.Add (room);
-					Grid.Block(targetX, targetY, room.Width, room.Height);
+					Grid.Block(targetX, targetY, room.Width-1, room.Height-1);
 
 					foreach( var kvp in doorLinks) {
 						kvp.Value.LinkedGuid = kvp.Key.Id;

@@ -41,7 +41,7 @@ namespace Client.Game.Managers
 			foreach (var spawn in room.data.Spawns) {
 				
 				var enemyTest = Game.Instance.Spawn <Character> (spawn.Character);
-
+				enemyTest.transform.position = room.roomCenter;
 				enemyTest.Brain = new Client.Game.AI.Brain (enemyTest);
 
 				var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();

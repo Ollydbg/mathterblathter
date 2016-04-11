@@ -12,6 +12,7 @@ namespace Client.Game.Map
 		public const char SPIKES = 's';
 		public const char RAMP = '/';
 		public const char DOOR = 'd';
+		public const char CEILING = 'c';
 
 		public AsciiMap ()
 		{

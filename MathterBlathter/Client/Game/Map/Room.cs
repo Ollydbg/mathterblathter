@@ -28,7 +28,7 @@ namespace Client.Game.Map
 
 		public Vector3 roomCenter {
 			get {
-				return Vector3.zero;
+				return new Vector3 (0, Height * .5f);
 			}
 		}
 

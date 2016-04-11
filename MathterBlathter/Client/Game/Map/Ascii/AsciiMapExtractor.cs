@@ -86,6 +86,18 @@ namespace Client.Game.Map.Ascii
 		}
 
 
+		public List<Vector3> getAllMatching(char matchChar) {
+			int mapHeight = map.Height;
+			var buffer = new List<Vector3> ();
+			for (var x = 0; x < map.Width; x++) {
+				for (var y = 0; y < mapHeight; y++) {
+					if (map [x, y] == matchChar) {
+						buffer.Add (new Vector3(x, mapHeight-y, 0));
+					}
+				}
+			}
+			return buffer;
+		}
 
 		//ghetto ass flood fill
 		public List<List<Vector3>> readColumns (char matchChar)

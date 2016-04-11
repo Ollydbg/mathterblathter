@@ -28,10 +28,26 @@ namespace Client.Game.Map
 			var color = RandomColor();
 			CreateLight (room);
 
+			DrawCeiling (room, color);
 			DrawFloors (room, color);
 			DrawWalls (room, color);
 			DrawDoors (room);
 
+		}
+
+		void DrawCeiling (Room room, Color color)
+		{
+			foreach (var contour in extractor.readRows(AsciiMap.CEILING)) {
+				var go = new GameObject ();
+				go.name = "mesh ceiling";
+				var mr = go.AddComponent<MeshRenderer> ();
+				var mf = go.AddComponent<MeshFilter> ();
+				var collider = go.AddComponent<MeshCollider> ();
+				mf.mesh = extractor.contourToMesh (contour, false);
+				collider.sharedMesh = mf.mesh;
+				mr.material.color = color;
+				go.gameObject.transform.position += offsetForRoom (room);
+			}
 		}
 
 		public void DrawDoors(Room room) {
@@ -47,7 +63,7 @@ namespace Client.Game.Map
 		{
 			foreach (var contour in extractor.readColumns(AsciiMap.WALL)) {
 				var go = new GameObject ();
-				go.name = "mesh floor";
+				go.name = "mesh wall";
 				var mr = go.AddComponent<MeshRenderer> ();
 				var mf = go.AddComponent<MeshFilter> ();
 				var collider = go.AddComponent<MeshCollider> ();
