@@ -26,7 +26,7 @@ namespace Client.Game.Map
 		public List<Room> GenerateFromDataSet(List<RoomData> data, int maxRooms) {
 
 			var ret = new List<Room> ();
-			for (var i = 0; i<= maxRooms; i++) {
+			for (var i = 0; i< maxRooms; i++) {
 
 				var roomData = data [i % data.Count];
 
