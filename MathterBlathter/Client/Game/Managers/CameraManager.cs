@@ -14,12 +14,20 @@ namespace Client.Game.Managers
 		Transform transform;
 		Camera camera;
 
+		public Transform TargetTransform;
+
 		Vector3 goalPosition {
 			get {
-				return new Vector3 (
-					Game.Instance.PossessedActor.GameObject.transform.position.x, 
-					Game.Instance.PossessedActor.GameObject.transform.position.y, 
-					transform.position.z);
+
+				if (TargetTransform != null) {
+					return new Vector3 (
+						Game.Instance.PossessedActor.GameObject.transform.position.x, 
+						Game.Instance.PossessedActor.GameObject.transform.position.y, 
+						transform.position.z);
+				} else {
+					return transform.position;
+				}
+
 			}
 		}
 
@@ -32,6 +40,7 @@ namespace Client.Game.Managers
 		public void Update (float dt)
 		{
 			//so dumb
+
 			transform.position = goalPosition;
 
 		}

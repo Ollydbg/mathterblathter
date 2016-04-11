@@ -3,6 +3,7 @@ using Client.Game.Data;
 using Client.Game.Map;
 using System.Collections.Generic;
 using Client.Game.Actors;
+using UnityEngine;
 
 namespace Client.Game.Managers
 {
@@ -24,9 +25,10 @@ namespace Client.Game.Managers
 		public void Init ()
 		{
 			//make rooms
-			var mockedRooms = new RoomDataMocker().Mock(4);
+			var mocked = MockRoomData.GetAll();
+
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mockedRooms);
+			Rooms = generator.GenerateFromDataSet (mocked, 5);
 			Rooms.ForEach (p => p.Draw());
 
 			//init spawns just for Head
@@ -55,7 +57,7 @@ namespace Client.Game.Managers
 		{
 			//put on floor for now
 			if (throughDoor == null) {
-				actor.transform.position = room.floorCenter;
+				actor.transform.position = room.roomCenter;
 			}
 			
 		}

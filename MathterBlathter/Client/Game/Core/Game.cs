@@ -42,7 +42,7 @@ namespace Client.Game.Core
 			CreateManagers();
 
 			PossessedActor = Spawn<Character> (ActorDataMocker.PLAYER_TEST);
-
+			CameraManager.TargetTransform = PossessedActor.transform;
 			new List<IGameManager>(Managers).ForEach(p => p.Init ());
 
 			RoomManager.EnterRoom(PossessedActor, RoomManager.Rooms[0]);

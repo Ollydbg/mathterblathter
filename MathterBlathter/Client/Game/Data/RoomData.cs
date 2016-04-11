@@ -15,6 +15,8 @@ namespace Client.Game.Data
 		public List<Link> Doors = new List<Link>();
 		public List<Spawn> Spawns = new List<Spawn> ();
 
+		public AsciiMap AsciiMap = new AsciiMap();
+
 
 		public class Link
 		{
@@ -53,6 +55,9 @@ namespace Client.Game.Data
 			//LOCAL SPACE!!
 			public int X;
 			public int Y;
+			public Spawn(CharacterData inData) {
+				this.Character = inData;
+			}
 		}
 
 		public RoomData ()

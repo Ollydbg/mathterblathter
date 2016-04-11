@@ -23,8 +23,14 @@ namespace Client.Game.Map
 			void Draw (Room room);
 		}
 
-		private static IRoomDrawer DebugDrawer = new DebugRoomDrawer();
-		private static IRoomDrawer PolyDrawer = new PolyRoomDrawer();
+
+		private static IRoomDrawer Drawer = new MeshRoomDrawer();
+
+		public Vector3 roomCenter {
+			get {
+				return Vector3.zero;
+			}
+		}
 
 		public Vector3 floorCenter {
 			get {
@@ -75,7 +81,7 @@ namespace Client.Game.Map
 		}
 
 		public void Draw() {
-			PolyDrawer.Draw (this);
+			Drawer.Draw (this);
 		}
 
 	}

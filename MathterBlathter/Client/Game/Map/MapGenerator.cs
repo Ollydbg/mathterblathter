@@ -23,7 +23,7 @@ namespace Client.Game.Map
 		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
 
 		//returns head
-		public List<Room> GenerateFromDataSet(List<RoomData> data) {
+		public List<Room> GenerateFromDataSet(List<RoomData> data, int maxRooms) {
 
 			var ret = new List<Room> ();
 			foreach (var roomData in data) {

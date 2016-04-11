@@ -48,10 +48,9 @@ namespace Client.Game.Data
 		}
 
 		private void AddEnemies(RoomData room) {
-			var spawn = new RoomData.Spawn ();
+			var spawn = new RoomData.Spawn (ActorDataMocker.ENEMY_TEST);
 			spawn.X = 0;
 			spawn.Y = 0;
-			spawn.Character = ActorDataMocker.ENEMY_TEST;
 
 			room.Spawns.Add (spawn);
 		}
