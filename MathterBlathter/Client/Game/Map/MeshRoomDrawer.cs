@@ -27,8 +27,6 @@ namespace Client.Game.Map
 			var color = RandomColor();
 			CreateLight (room);
 
-			Debug.Log (String.Format ("Drawing room at {0}, {1}", room.X, room.Y));
-
 			DrawFloors (room, color);
 
 

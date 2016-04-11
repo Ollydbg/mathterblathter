@@ -28,12 +28,12 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 5);
+			Rooms = generator.GenerateFromDataSet (mocked, 10);
 			Rooms.ForEach (p => p.Draw());
 
 			//init spawns just for Head
 			var head = Rooms[0];
-			CreateRoomObjects (head);
+			//CreateRoomObjects (head);
 		}
 
 

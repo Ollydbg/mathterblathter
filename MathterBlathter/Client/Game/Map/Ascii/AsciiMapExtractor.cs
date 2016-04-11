@@ -18,7 +18,7 @@ namespace Client.Game.Map.Ascii
 			var contourLength = verts.Count;
 			//create the top surface
 			var topExtrusion = extrudeContour(verts, new Vector3(0, 0, 4));
-			var frontExtrusion = extrudeFrontFace (verts, -12);
+			var frontExtrusion = extrudeFrontFace (verts, 0);
 
 			verts.AddRange (topExtrusion);
 			verts.AddRange (frontExtrusion);
@@ -85,6 +85,7 @@ namespace Client.Game.Map.Ascii
 					if (!matched && map [x, y] == matchChar) {
 						//ascii space is y-down, we need to convert to y-up
 						buffer.Add (new Vector3 (x, mapHeight-y, 0));
+						buffer.Add (new Vector3 (x+1, mapHeight-y, 0));
 						matched = true;
 						readingSegment = true;
 					} 
@@ -95,9 +96,13 @@ namespace Client.Game.Map.Ascii
 					segments.Add (buffer);
 					readingSegment = false;
 					buffer = new List<Vector3> ();
-
 				}
 
+			}
+
+			//in case the search went through the whole map
+			if(readingSegment) {
+				segments.Add(buffer);
 			}
 
 			return segments;
