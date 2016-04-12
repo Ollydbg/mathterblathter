@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Client.Game.Map.Ascii;
+using Client.Game.Enums;
 
 namespace Client.Game.Map
 {
@@ -46,14 +47,28 @@ namespace Client.Game.Map
 				mf.mesh = extractor.contourToMesh (contour, false);
 				collider.sharedMesh = mf.mesh;
 				mr.material.color = color;
-				go.gameObject.transform.position += offsetForRoom (room);
+				go.gameObject.transform.position = GridToWorldSpace (room);
 			}
 		}
 
 		public void DrawDoors(Room room) {
 			foreach (var door in room.Doors) {
-				door.transform.localScale = new Vector3 (1, DOOR_HEIGHT, 1);
-				door.transform.position = new Vector3 (door.X + room.X, door.Y + room.Y, -1);
+				door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
+
+				//the offsets are an artifact of the fact that the doors are just box primitives
+				//instead of meshes like the walls
+			
+				if(door.Side == DoorRoomSide.Top || door.Side == DoorRoomSide.Bottom) {
+					door.transform.position = new Vector3 (
+						door.X + .5f*door.Width -1,
+						door.Y - .5f*door.Height + 1) + GridToWorldSpace(room);
+
+				} else {
+					door.transform.position = new Vector3 (
+						door.X + .5f*door.Width,
+						door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
+				}
+
 
 				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
 			}
@@ -70,7 +85,7 @@ namespace Client.Game.Map
 				mf.mesh = extractor.contourToMesh (contour, false);
 				collider.sharedMesh = mf.mesh;
 				mr.material.color = color;
-				go.gameObject.transform.position += offsetForRoom (room);
+				go.gameObject.transform.position += GridToWorldSpace (room);
 			}
 		}
 
@@ -86,7 +101,7 @@ namespace Client.Game.Map
 				mf.mesh = extractor.contourToMesh (contour, true);
 				collider.sharedMesh = mf.mesh;
 				mr.material.color = color;
-				go.gameObject.transform.position += offsetForRoom (room);
+				go.gameObject.transform.position += GridToWorldSpace (room);
 
 			}
 		}
@@ -110,9 +125,9 @@ namespace Client.Game.Map
 			);
 		}
 
-		Vector3 offsetForRoom(Room room) {
+		Vector3 GridToWorldSpace(Room room) {
 			var mapWidth = room.data.AsciiMap.Width;
-			return new Vector3 (room.X + mapWidth * -.5f, room.Y) + FLOOR_OFFSET;
+			return new Vector3 (room.X, room.Y);
 		}
 
 

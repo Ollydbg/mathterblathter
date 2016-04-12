@@ -44,7 +44,6 @@
     <Compile Include="Game\Core\Game.cs" />
     <Compile Include="Game\Core\GameManagerProxy.cs" />
     <Compile Include="Game\Map\PolyRoomDrawer.cs" />
-    <Compile Include="Game\Map\DebugRoomDrawer.cs" />
     <Compile Include="Game\Map\Room.cs" />
     <Compile Include="Game\Actors\Actor.cs" />
     <Compile Include="Game\Actors\ActorRef.cs" />

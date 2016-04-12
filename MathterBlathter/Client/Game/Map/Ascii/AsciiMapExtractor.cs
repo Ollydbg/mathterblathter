@@ -85,18 +85,34 @@ namespace Client.Game.Map.Ascii
 			return buff;
 		}
 
-
+		//ADJUSTED GRID SPACE
 		public List<Vector3> getAllMatching(char matchChar) {
 			int mapHeight = map.Height;
 			var buffer = new List<Vector3> ();
 			for (var x = 0; x < map.Width; x++) {
 				for (var y = 0; y < mapHeight; y++) {
 					if (map [x, y] == matchChar) {
-						buffer.Add (new Vector3(x, mapHeight-y, 0));
+						buffer.Add (new Vector3(x, mapHeight-1-y, 0));
 					}
 				}
 			}
 			return buffer;
+		}
+
+		//GRID SPACE
+		public bool getFirstMatching(char matchChar, out int x, out int y) {
+			int mapHeight = map.Height;
+			for (x = 0; x < map.Width; x++) {
+				for (y = 0; y < mapHeight; y++) {
+					if (map [x, y] == matchChar) {
+						return true;
+					}
+				}
+			}
+
+			x = -1;
+			y = -1;
+			return false;
 		}
 
 		//ghetto ass flood fill

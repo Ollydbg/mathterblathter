@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0aa6a02f-e359-475d-8248-8e3114290ea2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/AI/Actions/AIAction.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/AI/Actions/FireAtPlayer.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/AI/Actions/SeekToPlayer.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/AI/Brain.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/AbilityBase.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/AbilityContext.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/AbilityManager.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Payloads/DamagePayload.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Payloads/KillPayload.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Payloads/Payload.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Payloads/PlayerKilledPayload.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Scripts/MeleeAttack.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Scripts/ProjectileAttack.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Abilities/Utils/AbilityUtils.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/Actor.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/ActorRef.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/Character.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/CharacterController.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/DoorActor.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/ProjectileActor.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Actors/RoomActor.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Animation/IAnimator.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Animation/PlayerAnimator3D.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Animation/PriorityState.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Animation/States.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Attributes/AbilityAttributeList.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Attributes/ActorAttributeList.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Attributes/AttributeMap.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Attributes/GameAttribute.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/AIData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/AbilityData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/ActorDataMocker.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/AsciiMap.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/CharacterData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/MockAbilityData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Data/MockRoomData.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Enums/DoorRoomSide.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Managers/CameraManager.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Managers/IGameManager.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Managers/InputManager.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Managers/RoomManager.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Map/Ascii/AsciiMapExtractor.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Map/Ascii/FloodFill.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Map/DebugRoomDrawer.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Map/MeshRoomDrawer.cs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client/Game/Map/PolyRoomDrawer.cs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Core/Actors/Actor.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Core/Actors/ActorRef.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Core/Actors/PlayerController.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Core/Attributes/GameAttribute.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Core/Managers/IGameManager.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Core/Managers/InputManager.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Client/Game/Map/Door.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/MapTestScene.unity" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/MapTestScene.unity.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Temp/CaseSensitiveTest" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Client/Game/Map/GeneratorTest.cs" afterPath="$PROJECT_DIR$/Client/Game/Data/RoomDataMocker.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/MainScene.unity" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/MainScene.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/Scripts/Client.dll" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/Scripts/Client.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/Scripts/Client.dll.mdb" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/Scripts/Client.dll.mdb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/Standard Assets/Prototyping/Materials/PinkGrid.mat" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/Assets/Standard Assets/Prototyping/Materials/PinkGrid.mat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/ProjectSettings/DynamicsManager.asset" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/ProjectSettings/DynamicsManager.asset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/ProjectSettings/InputManager.asset" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/ProjectSettings/InputManager.asset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/ProjectSettings/TagManager.asset" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/ProjectSettings/TagManager.asset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unity/MathterBlathter/Temp/__EditModeScene" afterPath="$PROJECT_DIR$/Unity/MathterBlathter/Temp/__EditModeScene" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Client.csproj" afterPath="$PROJECT_DIR$/Client/Client.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Game/Core/Game.cs" afterPath="$PROJECT_DIR$/Client/Game/Core/Game.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Game/Data/GameData.cs" afterPath="$PROJECT_DIR$/Client/Game/Data/GameData.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Game/Data/RoomData.cs" afterPath="$PROJECT_DIR$/Client/Game/Data/RoomData.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Game/Map/MapGenerator.cs" afterPath="$PROJECT_DIR$/Client/Game/Map/MapGenerator.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client/Game/Map/Room.cs" afterPath="$PROJECT_DIR$/Client/Game/Map/Room.cs" />
+    </list>
+    <ignored path="MathterBlathter.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="MathterBlathter" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MockRoomData.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client/Game/Data/MockRoomData.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FloodFill.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Client/Game/Map/Ascii/FloodFill.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="36" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Client/Game/Map/Ascii/FloodFill.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="53" />
+    <option name="y" value="32" />
+    <option name="width" value="1427" />
+    <option name="height" value="1404" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MathterBlathter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MathterBlathter" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MathterBlathter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MathterBlathter" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MathterBlathter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MathterBlathter" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Enums" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DoorRoomSide.cs" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/MathterBlathter.sln" />
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration default="true" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue=".NET Project.Default" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0aa6a02f-e359-475d-8248-8e3114290ea2" name="Default" comment="" />
+      <created>1460430546880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1460430546880</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="53" y="32" width="1427" height="1404" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Errors in solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Client/Game/Data/MockRoomData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client/Game/Map/Ascii/FloodFill.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="36" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

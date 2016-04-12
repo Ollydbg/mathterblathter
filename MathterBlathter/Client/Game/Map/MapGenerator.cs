@@ -39,14 +39,16 @@ namespace Client.Game.Map
 					room.X = targetX;
 					room.Y = targetY;
 					ret.Add (room);
-					Grid.Block(targetX, targetY, room.Width-1, room.Height-1);
+					Grid.Block(targetX, targetY, room.Width, room.Height);
 
+					//spawn all doors for the room that got mates
 					foreach( var kvp in doorLinks) {
 						kvp.Value.LinkedGuid = kvp.Key.Id;
 						spawnDoorToRoom (kvp.Key, room, kvp.Value.SelfGuid);
 						UnlinkedDoors.Remove(kvp.Value);
 					}
 
+					//spawn doors for unmated links, but put them into the unlinked pile for consumption on the next placement
 					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
 						.Select(p=>spawnDoorToRoom(p, room, Guid.Empty))
 						.ToList();
@@ -74,6 +76,7 @@ namespace Client.Game.Map
 			doorActor.GameObject.name = "DoorActor";
 			doorActor.LinkedGuid = doorGuidLink;
 			doorActor.InitWithData(link);
+			//link coords are just in gridspace, need to convert to world space
 			doorActor.Parent = parent;
 			parent.Doors.Add(doorActor);
 			return doorActor;
@@ -118,6 +121,8 @@ namespace Client.Game.Map
 			targetX = 0;
 			targetY = 0;
 			doorLinks = new DoorLinkMapping();
+
+
 			var doors = SideDoors (data, side);
 			if (doors.Count() > 0) {
 				foreach (RoomData.Link door in doors) {
@@ -125,8 +130,12 @@ namespace Client.Game.Map
 
 					foreach (var mate in potentialMates) {
 
-						targetX = (int)mate.WorldX - door.X;
-						targetY = (int)mate.WorldY - door.Y;
+						//Because we don't want to actually overlap the doors, we want them to be adjacent.
+						//Testing Adjacency means we can just add offset for the door side and then test for equality
+
+
+						targetX = (int)mate.MatingX - door.X;
+						targetY = (int)mate.MatingY - door.Y;
 
 						if (!Grid.IsBlocked (targetX, targetY, data.Width, data.Height)) {
 							doorLinks.Add(door, mate);

@@ -11,6 +11,8 @@ namespace Client.Game.Actors
 		{
 		}
 
+
+
 		public delegate void CollisionDelegate(Collider Collider);
 		public event CollisionDelegate CollisionEvent;
 
