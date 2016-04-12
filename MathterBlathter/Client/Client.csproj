@@ -88,8 +88,8 @@
     <Compile Include="Game\Map\MeshRoomDrawer.cs" />
     <Compile Include="Game\Data\MockRoomData.cs" />
     <Compile Include="Game\Data\AsciiMap.cs" />
-    <Compile Include="Game\Map\Ascii\AsciiMapExtractor.cs" />
     <Compile Include="Game\Map\Ascii\FloodFill.cs" />
+    <Compile Include="Game\Map\Ascii\AsciiMeshExtractor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

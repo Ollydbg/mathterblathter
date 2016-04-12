@@ -9,7 +9,7 @@ namespace Client.Game.Map
 {
 	public class MeshRoomDrawer : Client.Game.Map.Room.IRoomDrawer
 	{
-		AsciiMapExtractor extractor;
+		AsciiMeshExtractor extractor;
 
 		public MeshRoomDrawer ()
 		{
@@ -24,7 +24,7 @@ namespace Client.Game.Map
 		{
 			//DrawMedian(new Vector3(room.X, 2 * -.5f + room.Y, 0), new Vector3(room.Width, 2, 1f), Color.black);
 
-			extractor = new AsciiMapExtractor (room.data.AsciiMap);
+			extractor = new AsciiMeshExtractor (room.data.AsciiMap);
 			//get contour
 			var color = RandomColor();
 			CreateLight (room);

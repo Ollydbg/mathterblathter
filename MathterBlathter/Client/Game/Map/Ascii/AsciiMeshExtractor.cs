@@ -1,14 +1,17 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Client.Game.Map.Ascii
 {
-	public class AsciiMapExtractor
+	using VecMap = Dictionary<Vector3, bool>;
+
+	public class AsciiMeshExtractor
 	{
 		private AsciiMap map;
 
-		public AsciiMapExtractor (AsciiMap map)
+		public AsciiMeshExtractor (AsciiMap map)
 		{
 			this.map = map;
 		}
@@ -118,6 +121,7 @@ namespace Client.Game.Map.Ascii
 		//ghetto ass flood fill
 		public List<List<Vector3>> readColumns (char matchChar)
 		{
+			
 			List<List<Vector3>> segments = new List<List<Vector3>> ();
 			List<Vector3> buffer = new List<Vector3> ();
 			int mapHeight = map.Height;
@@ -155,17 +159,22 @@ namespace Client.Game.Map.Ascii
 		//ghetto ass flood fill
 		public List<List<Vector3>> readRows (char matchChar)
 		{
-			List<List<Vector3>> segments = new List<List<Vector3>> ();
-			List<Vector3> buffer = new List<Vector3> ();
+			var ramps = getAllMatching (AsciiMap.RAMP);
+			 List<List<Vector3>> segments = new List<List<Vector3>> ();
+			VecMap buffer = new VecMap ();
 			int mapHeight = map.Height;
 			bool readingSegment = false;
+
 			for (var x = 0; x < map.Width; x++) {
 				bool matched = false;
 				for (var y = 0; y < map.Height; y++) {
+
+
 					if (!matched && map [x, y] == matchChar) {
 						//ascii space is y-down, we need to convert to y-up
-						buffer.Add (new Vector3 (x, mapHeight-y, 0));
-						buffer.Add (new Vector3 (x+1, mapHeight-y, 0));
+						buffer[new Vector3 (x, mapHeight-y)] =  true;
+						buffer[new Vector3 (x + 1, mapHeight - y)] =true;
+
 						matched = true;
 						readingSegment = true;
 					} 
@@ -173,22 +182,31 @@ namespace Client.Game.Map.Ascii
 
 
 				if(readingSegment && !matched) {
-					segments.Add (buffer);
+					AdjustForRamps (buffer, ramps);
+					segments.Add (buffer.Keys.ToList());
 					readingSegment = false;
-					buffer = new List<Vector3> ();
+					buffer = new VecMap();
 				}
 
 			}
 
 			//in case the search went through the whole map
 			if(readingSegment) {
-				segments.Add(buffer);
+				AdjustForRamps (buffer, ramps);
+				segments.Add(buffer.Keys.ToList());
 			}
 
 			return segments;
 
 		}
 			
+
+		private void AdjustForRamps(VecMap buffer, List<Vector3> ramps) {
+			foreach (var vec in ramps) {
+				buffer.Remove (new Vector3 (vec.x+1, vec.y + 1));
+				buffer.Remove (new Vector3 (vec.x, vec.y));
+			}
+		}
 		
 	}
 }
