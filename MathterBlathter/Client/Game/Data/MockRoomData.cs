@@ -16,12 +16,35 @@ namespace Client.Game.Data
 			_all = new List<RoomData>();
 			_all.Add(ROOM_RAMP_TEST);
 			_all.Add(ROOM_VERT_TEST);
+			_all.Add(FF_TEST);
 			_all.Add(ROOM_1);
 			_all.Add(ROOM_2);
 			_all.Add(TALL_ROOM);
 
 		}
 
+
+		public static RoomData FF_TEST {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 1;
+
+				ret.AsciiMap += "cccccccc";
+				ret.AsciiMap += "www    w";
+				ret.AsciiMap += "w      w";
+				ret.AsciiMap += "ww     w";
+				ret.AsciiMap += "w      w";
+				ret.AsciiMap += "w      w";
+				ret.AsciiMap += "w      w";
+				ret.AsciiMap += "ffffffff";
+				ret.Width = ret.AsciiMap.Width;
+				ret.Height = ret.AsciiMap.Height;
+				ret.Spawns.Add (new RoomData.Spawn (ActorDataMocker.ENEMY_TEST));
+				addDoorsFromAscii (ret);
+				//AddDoors (ret);
+				return ret;
+			}
+		}
 
 		public static RoomData ROOM_RAMP_TEST {
 			get {
@@ -34,11 +57,16 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                            w";
 				ret.AsciiMap += "d                           w";
 				ret.AsciiMap += "                            w";
+				ret.AsciiMap += "wppppp                      w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                            ";
 				ret.AsciiMap += "w                           d";
 				ret.AsciiMap += "w                            ";
+				ret.AsciiMap += "w                   ppppppppw";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
@@ -46,10 +74,9 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "          /ffffffffffff     w";
-				ret.AsciiMap += "d        /fffffffffffff     w";
-				ret.AsciiMap += "        /ffffffffffffff     w";
+				ret.AsciiMap += "          /ffffffffffff      ";
+				ret.AsciiMap += "d        /fffffffffffff     d";
+				ret.AsciiMap += "        /ffffffffffffff      ";
 				ret.AsciiMap += "fffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;

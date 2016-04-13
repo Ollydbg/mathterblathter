@@ -9,18 +9,20 @@ namespace Client.Game.Map.Ascii
 
 	public class AsciiMeshExtractor
 	{
-		private AsciiMap map;
+		AsciiMap map;
+		FloodFill floodFill;
 
 		public AsciiMeshExtractor (AsciiMap map)
 		{
 			this.map = map;
+			this.floodFill = new FloodFill(map);
 		}
 
 
 		public Mesh contourToMesh(List<Vector3> verts, bool floor) {
 			var contourLength = verts.Count;
 			//create the top surface
-			var topExtrusion = extrudeContour(verts, new Vector3(0, 0, 4));
+			var topExtrusion = extrudeContour(verts, new Vector3(0, 0, 1));
 			List<Vector3> frontExtrusion;
 			if (floor) {
 				frontExtrusion = extrudeToFloor (verts, 0);
@@ -61,6 +63,43 @@ namespace Client.Game.Map.Ascii
 
 		}
 
+
+		public Mesh chunkToMesh(Chunk chunk) {
+			var chunkSize = chunk.Count;
+			var ret = new Mesh();
+			CombineInstance[] combine = new CombineInstance[chunkSize];
+			//create using pseudo voxels
+			int i = 0;
+			foreach( var vert in chunk ) {
+				var mesh = new Mesh();
+				var verts = new List<Vector3>();
+				verts.Add(vert);
+				verts.Add(new Vector3(vert.x + 1, vert.y, vert.z));
+				verts.Add(new Vector3(vert.x, vert.y+1, vert.z));
+				verts.Add(new Vector3(vert.x + 1, vert.y+1, vert.z));
+
+				//do triangles
+				var tris = new int[6];
+				tris[0] = 0;
+				tris[1] = 2;
+				tris[2] = 3;
+				tris[3] = 3;
+				tris[4] = 1;
+				tris[5] = 0;
+				mesh.SetVertices(verts);
+				mesh.triangles = tris;
+
+				combine[i].mesh = mesh;
+				i++;
+			}
+
+			ret.CombineMeshes(combine, true, false);
+			return ret;
+
+		}
+
+
+
 		List<Vector3> extrudeFront (List<Vector3> verts, float direction)
 		{
 			var buff = new List<Vector3> ();
@@ -68,6 +107,20 @@ namespace Client.Game.Map.Ascii
 				buff.Add (new Vector3(vert.x, vert.y + direction, vert.z));
 			}
 			return buff;
+		}
+
+		List<Vector3> frontFaceForChunk (Chunk chunk, int extrudeDistance)
+		{
+			var buffer = new VecMap();
+			//the +1 is to draw the bottom of the last tile
+			foreach(var vert in chunk) {
+				buffer[vert] = true;
+				buffer[new Vector3(vert.x + extrudeDistance, vert.y, vert.z)] = true;
+				buffer[new Vector3(vert.x, vert.y - extrudeDistance, vert.z)] = true;
+				buffer[new Vector3(vert.x+ extrudeDistance, vert.y - extrudeDistance, vert.z)] = true;
+			}
+			var ret = buffer.Keys.ToList();
+			return ret;
 		}
 
 		List<Vector3> extrudeToFloor (List<Vector3> verts, float absoluteBottom)
@@ -79,7 +132,7 @@ namespace Client.Game.Map.Ascii
 			return buff;
 		}
 
-		List<Vector3> extrudeContour(List<Vector3> verts, Vector3 dir) {
+		List<Vector3> extrudeContour(IEnumerable<Vector3> verts, Vector3 dir) {
 			var buff = new List<Vector3>();
 			foreach (var vert in verts) {
 				buff.Add (vert + dir);
@@ -88,14 +141,42 @@ namespace Client.Game.Map.Ascii
 			return buff;
 		}
 
+		public List<Chunk> getChunksMatching(char matchChar) {
+
+			var buffer = new List<Chunk>();
+			var ungrouped = getAllMatching(matchChar, convertSpace:false);
+			var seen = new Dictionary<Vector3, bool>();
+			foreach( var vec in ungrouped) {
+				//keep track of which vectors we've actually seen on this trip
+				if(!seen.ContainsKey(vec)) {
+					var segment = floodFill.GetRegion(matchChar, (int)vec.x, (int)vec.y);
+					//add grouped vectors to seen map
+					segment.ForEach(p => seen[p]=true);
+					//now we have to convert space!
+					buffer.Add(new Chunk(segment.Select(p => InvertAsciiSpace(p))));
+				}
+			}
+
+			return buffer;
+		}
+
+		public Vector3 InvertAsciiSpace(Vector3 vec) {
+			return new Vector3(vec.x, map.Height-1 -vec.y, vec.z);
+		}
+
 		//ADJUSTED GRID SPACE
-		public List<Vector3> getAllMatching(char matchChar) {
+		public List<Vector3> getAllMatching(char matchChar, bool convertSpace = true) {
 			int mapHeight = map.Height;
 			var buffer = new List<Vector3> ();
 			for (var x = 0; x < map.Width; x++) {
 				for (var y = 0; y < mapHeight; y++) {
 					if (map [x, y] == matchChar) {
-						buffer.Add (new Vector3(x, mapHeight-1-y, 0));
+						var vect = new Vector3(x, y, 0);
+						if(convertSpace) {
+							buffer.Add (InvertAsciiSpace(vect));
+						} else {
+							buffer.Add (vect);
+						}
 					}
 				}
 			}
@@ -119,11 +200,11 @@ namespace Client.Game.Map.Ascii
 		}
 
 		//ghetto ass flood fill
-		public List<List<Vector3>> readColumns (char matchChar)
+		public List<Chunk> readColumns (char matchChar)
 		{
 			
-			List<List<Vector3>> segments = new List<List<Vector3>> ();
-			List<Vector3> buffer = new List<Vector3> ();
+			List<Chunk> segments = new List<Chunk> ();
+			Chunk buffer = new Chunk();
 			int mapHeight = map.Height;
 			bool readingSegment = false;
 			for (var x = 0; x < map.Width; x++) {
@@ -142,7 +223,7 @@ namespace Client.Game.Map.Ascii
 				if(readingSegment && matched) {
 					segments.Add (buffer);
 					readingSegment = false;
-					buffer = new List<Vector3> ();
+					buffer = new Chunk();
 				}
 
 			}
@@ -157,10 +238,10 @@ namespace Client.Game.Map.Ascii
 		}
 
 		//ghetto ass flood fill
-		public List<List<Vector3>> readRows (char matchChar)
+		public List<Chunk> readRows (char matchChar)
 		{
 			var ramps = getAllMatching (AsciiMap.RAMP);
-			 List<List<Vector3>> segments = new List<List<Vector3>> ();
+			List<Chunk> segments = new List<Chunk> ();
 			VecMap buffer = new VecMap ();
 			int mapHeight = map.Height;
 			bool readingSegment = false;
@@ -172,8 +253,8 @@ namespace Client.Game.Map.Ascii
 
 					if (!matched && map [x, y] == matchChar) {
 						//ascii space is y-down, we need to convert to y-up
-						buffer[new Vector3 (x, mapHeight-y)] =  true;
-						buffer[new Vector3 (x + 1, mapHeight - y)] =true;
+						buffer[new Vector3 (x, mapHeight-y)] = true;
+						buffer[new Vector3 (x + 1, mapHeight - y)] = true;
 
 						matched = true;
 						readingSegment = true;
@@ -183,7 +264,7 @@ namespace Client.Game.Map.Ascii
 
 				if(readingSegment && !matched) {
 					AdjustForRamps (buffer, ramps);
-					segments.Add (buffer.Keys.ToList());
+					segments.Add (new Chunk(buffer.Keys));
 					readingSegment = false;
 					buffer = new VecMap();
 				}
@@ -193,7 +274,7 @@ namespace Client.Game.Map.Ascii
 			//in case the search went through the whole map
 			if(readingSegment) {
 				AdjustForRamps (buffer, ramps);
-				segments.Add(buffer.Keys.ToList());
+				segments.Add(new Chunk(buffer.Keys));
 			}
 
 			return segments;

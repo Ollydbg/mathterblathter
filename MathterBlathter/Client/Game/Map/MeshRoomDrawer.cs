@@ -32,19 +32,36 @@ namespace Client.Game.Map
 			DrawCeiling (room, color);
 			DrawFloors (room, color);
 			DrawWalls (room, color);
+			DrawPlatforms(room, color);
 			DrawDoors (room);
 
 		}
 
+		void DrawPlatforms (Room room, Color color)
+		{
+			
+			foreach (var contour in extractor.getChunksMatching(AsciiMap.PLATFORM)) {
+				var go = new GameObject ();
+				go.name = "mesh platform";
+				var mr = go.AddComponent<MeshRenderer> ();
+				var mf = go.AddComponent<MeshFilter> ();
+				var collider = go.AddComponent<MeshCollider> ();
+				mf.mesh = extractor.chunkToMesh (contour);
+				collider.sharedMesh = mf.mesh;
+				mr.material.color = color;
+				go.gameObject.transform.position = GridToWorldSpace (room);
+			}
+		}
+
 		void DrawCeiling (Room room, Color color)
 		{
-			foreach (var contour in extractor.readRows(AsciiMap.CEILING)) {
+			foreach (var contour in extractor.getChunksMatching(AsciiMap.CEILING)) {
 				var go = new GameObject ();
 				go.name = "mesh ceiling";
 				var mr = go.AddComponent<MeshRenderer> ();
 				var mf = go.AddComponent<MeshFilter> ();
 				var collider = go.AddComponent<MeshCollider> ();
-				mf.mesh = extractor.contourToMesh (contour, false);
+				mf.mesh = extractor.chunkToMesh (contour);
 				collider.sharedMesh = mf.mesh;
 				mr.material.color = color;
 				go.gameObject.transform.position = GridToWorldSpace (room);
@@ -76,13 +93,14 @@ namespace Client.Game.Map
 
 		void DrawWalls (Room room, Color color)
 		{
-			foreach (var contour in extractor.readColumns(AsciiMap.WALL)) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiMap.WALL)) {
 				var go = new GameObject ();
 				go.name = "mesh wall";
 				var mr = go.AddComponent<MeshRenderer> ();
 				var mf = go.AddComponent<MeshFilter> ();
 				var collider = go.AddComponent<MeshCollider> ();
-				mf.mesh = extractor.contourToMesh (contour, false);
+				var extractedMesh =  extractor.chunkToMesh (chunk);
+				mf.sharedMesh = extractedMesh;
 				collider.sharedMesh = mf.mesh;
 				mr.material.color = color;
 				go.gameObject.transform.position += GridToWorldSpace (room);
@@ -128,20 +146,6 @@ namespace Client.Game.Map
 		Vector3 GridToWorldSpace(Room room) {
 			var mapWidth = room.data.AsciiMap.Width;
 			return new Vector3 (room.X, room.Y);
-		}
-
-
-		void DrawMedian (Vector3 position, Vector3 scale, Color color)
-		{
-			var floor = GameObject.CreatePrimitive (PrimitiveType.Cube);
-			floor.transform.localScale = scale;
-			var rb = floor.AddComponent<Rigidbody> ();
-			rb.useGravity = false;
-			rb.isKinematic = true;
-			floor.transform.position = position;
-			floor.name = "floor";
-			floor.GetComponent<MeshRenderer> ().material.color = color;
-
 		}
 
 	}

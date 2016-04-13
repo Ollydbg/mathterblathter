@@ -38,6 +38,7 @@ namespace Client.Game.Map
 					var room = new Room (roomData);
 					room.X = targetX;
 					room.Y = targetY;
+					
 					ret.Add (room);
 					Grid.Block(targetX, targetY, room.Width, room.Height);
 

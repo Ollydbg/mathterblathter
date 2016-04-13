@@ -13,7 +13,11 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Player;
 				ret.Id = 1;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .4f
+					ActorAttributes.Speed.Id, 20f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.JumpHeight.Id, 40f
 				));
 
 				return ret;

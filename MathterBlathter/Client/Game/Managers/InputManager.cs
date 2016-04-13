@@ -42,14 +42,14 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
+			if (Input.GetButtonDown (JUMP) || Input.GetButtonDown(PS4_X)) {
+				TargetActor.Controller.Jump ();
+			}
 
 			var hor = Input.GetAxis (HORIZONTAL);
 			var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
 			TargetActor.Controller.MoveRight (hor+controllerHor);
 
-			if (Input.GetButtonDown (JUMP) || Input.GetButtonDown(PS4_X)) {
-				TargetActor.Controller.Jump ();
-			}
 
 			if (Input.GetButtonDown (SWITCH_WEAPON)) {
 				TargetActor.Controller.SwitchWeapon ();

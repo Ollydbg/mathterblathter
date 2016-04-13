@@ -34,6 +34,9 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\External\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -43,7 +46,6 @@
     <Compile Include="Game\Map\RoomGrid.cs" />
     <Compile Include="Game\Core\Game.cs" />
     <Compile Include="Game\Core\GameManagerProxy.cs" />
-    <Compile Include="Game\Map\PolyRoomDrawer.cs" />
     <Compile Include="Game\Map\Room.cs" />
     <Compile Include="Game\Actors\Actor.cs" />
     <Compile Include="Game\Actors\ActorRef.cs" />
@@ -90,6 +92,9 @@
     <Compile Include="Game\Data\AsciiMap.cs" />
     <Compile Include="Game\Map\Ascii\FloodFill.cs" />
     <Compile Include="Game\Map\Ascii\AsciiMeshExtractor.cs" />
+    <Compile Include="Game\UI\Run\DepthMeter.cs" />
+    <Compile Include="Game\UI\Run\ZoneTitle.cs" />
+    <Compile Include="Game\Map\Ascii\Chunk.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -109,5 +114,7 @@
     <Folder Include="Game\AI\Actions\" />
     <Folder Include="Game\Abilities\Utils\" />
     <Folder Include="Game\Map\Ascii\" />
+    <Folder Include="Game\UI\" />
+    <Folder Include="Game\UI\Run\" />
   </ItemGroup>
 </Project>

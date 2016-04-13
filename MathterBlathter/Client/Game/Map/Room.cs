@@ -62,6 +62,16 @@ namespace Client.Game.Map
 			}
 		}
 
+		public void PlayerLeft (Actor actor)
+		{
+			
+		}
+
+		public void PlayerEntered (Actor actor, DoorActor throughDoor)
+		{
+			
+		}
+		
 
 		public Room (RoomData data)
 		{

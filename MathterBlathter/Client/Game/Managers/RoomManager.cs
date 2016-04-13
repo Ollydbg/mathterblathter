@@ -14,7 +14,7 @@ namespace Client.Game.Managers
 		
 
 		public List<Room> Rooms;
-
+		public Room CurrentRoom;
 
 		public RoomManager ()
 		{
@@ -28,12 +28,12 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 200);
+			Rooms = generator.GenerateFromDataSet (mocked, 2);
 			Rooms.ForEach (p => p.Draw());
 
 			//init spawns just for Head
 			var head = Rooms[0];
-			CreateRoomObjects (head);
+			//CreateRoomObjects (head);
 		}
 
 
@@ -55,7 +55,12 @@ namespace Client.Game.Managers
 
 		public void EnterRoom (Actor actor, Room room, DoorActor throughDoor = null)
 		{
-			//put on floor for now
+			if(CurrentRoom != null) {
+				CurrentRoom.PlayerLeft(actor);
+			}
+			CurrentRoom = room;
+			CurrentRoom.PlayerEntered(actor, throughDoor);
+
 			if (throughDoor == null) {
 				actor.transform.position = room.roomCenter;
 			}

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Client.Game.Map.Ascii
 {
@@ -23,13 +24,11 @@ namespace Client.Game.Map.Ascii
 		}
 		
 
-		public Vector3[] GetRegion(char match, int x, int y) {
+		public List<Vector3> GetRegion(char match, int x, int y) {
 			var matches = new VecMap();
 			var visited = new VecMap();
 			GetRegion (match, x, y, matches, visited);
-			var matchBuffer = new Vector3[matches.Keys.Count];
-			matches.Keys.CopyTo(matchBuffer, 0);
-			return matchBuffer;
+			return matches.Keys.ToList();
 		}
 
 		private void GetRegion(char match, int x, int y, VecMap matches, VecMap visited)
