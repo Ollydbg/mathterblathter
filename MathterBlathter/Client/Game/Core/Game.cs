@@ -41,7 +41,7 @@ namespace Client.Game.Core
 
 			CreateManagers();
 
-			PossessedActor = Spawn<Character> (ActorDataMocker.PLAYER_TEST);
+			PossessedActor = Spawn<Character> (MockActorData.PLAYER_TEST);
 			CameraManager.TargetTransform = PossessedActor.transform;
 			new List<IGameManager>(Managers).ForEach(p => p.Init ());
 
@@ -81,6 +81,11 @@ namespace Client.Game.Core
 				Actors.Remove (actor.Id);
 				GameObject.Destroy (actor.GameObject);
 			}
+		}
+
+		public void FixedUpdate() {
+			foreach( var kvp in Actors) 
+				kvp.Value.FixedUpdate();
 		}
 
 		public T Spawn<T>(CharacterData data) where T : Character, new() {

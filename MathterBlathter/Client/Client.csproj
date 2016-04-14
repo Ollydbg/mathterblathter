@@ -61,7 +61,6 @@
     <Compile Include="Game\Actors\Character.cs" />
     <Compile Include="Game\Attributes\ActorAttributeList.cs" />
     <Compile Include="Game\Actors\CharacterController.cs" />
-    <Compile Include="Game\Data\RoomDataMocker.cs" />
     <Compile Include="Game\Data\CharacterData.cs" />
     <Compile Include="Game\AI\Brain.cs" />
     <Compile Include="Game\Data\AIData.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Game\Abilities\Scripts\MeleeAttack.cs" />
     <Compile Include="Game\AI\Actions\SeekToPlayer.cs" />
     <Compile Include="Game\AI\Actions\FireAtPlayer.cs" />
-    <Compile Include="Game\Data\ActorDataMocker.cs" />
     <Compile Include="Game\AI\Actions\AIAction.cs" />
     <Compile Include="Game\Data\MockAbilityData.cs" />
     <Compile Include="Game\Abilities\Scripts\ProjectileAttack.cs" />
@@ -95,6 +93,7 @@
     <Compile Include="Game\UI\Run\DepthMeter.cs" />
     <Compile Include="Game\UI\Run\ZoneTitle.cs" />
     <Compile Include="Game\Map\Ascii\Chunk.cs" />
+    <Compile Include="Game\Data\MockActorData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

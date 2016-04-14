@@ -54,6 +54,10 @@ namespace Client.Game.Actors
 			base.Update (dt);
 		}
 
+		public override void FixedUpdate() {
+			Controller.FixedUpdate();
+		}
+
 	}
 }
 

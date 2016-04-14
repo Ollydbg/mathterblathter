@@ -16,19 +16,15 @@ namespace Client.Game.Map
 			
 		}
 
-		private static Vector3 FLOOR_OFFSET = new Vector3 (0, -1, -2);
 		private const int DOOR_HEIGHT = 3;
 
 
 		public void Draw (Room room)
 		{
-			//DrawMedian(new Vector3(room.X, 2 * -.5f + room.Y, 0), new Vector3(room.Width, 2, 1f), Color.black);
-
 			extractor = new AsciiMeshExtractor (room.data.AsciiMap);
 			//get contour
 			var color = RandomColor();
 			CreateLight (room);
-
 			DrawCeiling (room, color);
 			DrawFloors (room, color);
 			DrawWalls (room, color);
@@ -40,31 +36,17 @@ namespace Client.Game.Map
 		void DrawPlatforms (Room room, Color color)
 		{
 			
-			foreach (var contour in extractor.getChunksMatching(AsciiMap.PLATFORM)) {
-				var go = new GameObject ();
-				go.name = "mesh platform";
-				var mr = go.AddComponent<MeshRenderer> ();
-				var mf = go.AddComponent<MeshFilter> ();
-				var collider = go.AddComponent<MeshCollider> ();
-				mf.mesh = extractor.chunkToMesh (contour);
-				collider.sharedMesh = mf.mesh;
-				mr.material.color = color;
-				go.gameObject.transform.position = GridToWorldSpace (room);
+			foreach (var chunk in extractor.getChunksMatching(AsciiMap.PLATFORM)) {
+				var go = DrawRoomChunk(room, chunk, color, "mesh platform");
+				AddColliderForChunk(go, chunk);
 			}
 		}
 
 		void DrawCeiling (Room room, Color color)
 		{
-			foreach (var contour in extractor.getChunksMatching(AsciiMap.CEILING)) {
-				var go = new GameObject ();
-				go.name = "mesh ceiling";
-				var mr = go.AddComponent<MeshRenderer> ();
-				var mf = go.AddComponent<MeshFilter> ();
-				var collider = go.AddComponent<MeshCollider> ();
-				mf.mesh = extractor.chunkToMesh (contour);
-				collider.sharedMesh = mf.mesh;
-				mr.material.color = color;
-				go.gameObject.transform.position = GridToWorldSpace (room);
+			foreach (var chunk in extractor.getChunksMatching(AsciiMap.CEILING)) {
+				var go = DrawRoomChunk(room, chunk, color, "mesh ceiling");
+				AddColliderForChunk(go, chunk);
 			}
 		}
 
@@ -91,38 +73,48 @@ namespace Client.Game.Map
 			}
 		}
 
+		GameObject DrawRoomChunk(Room room, Chunk chunk, Color color, string name) {
+			var go = new GameObject ();
+			go.name = name;
+			var mr = go.AddComponent<MeshRenderer> ();
+			var mf = go.AddComponent<MeshFilter> ();
+			AddColliderForChunk(go, chunk);
+
+			mf.mesh = extractor.chunkToMesh (chunk);
+			mr.material.color = color;
+
+			go.gameObject.transform.position = chunk.Origin + GridToWorldSpace(room);
+			return go;
+		}
+
+
+		Collider AddColliderForChunk(GameObject go, Chunk chunk) {
+			var box = go.AddComponent<BoxCollider>();
+			box.size = new Vector3(chunk.Width, chunk.Height, 1);
+			var halfSize = box.size*.5f;
+			if(chunk.Height > 1) halfSize.y = -.5f*chunk.Height+1;
+			box.center = halfSize;
+			return box;
+		}
+
 		void DrawWalls (Room room, Color color)
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.WALL)) {
-				var go = new GameObject ();
-				go.name = "mesh wall";
-				var mr = go.AddComponent<MeshRenderer> ();
-				var mf = go.AddComponent<MeshFilter> ();
-				var collider = go.AddComponent<MeshCollider> ();
-				var extractedMesh =  extractor.chunkToMesh (chunk);
-				mf.sharedMesh = extractedMesh;
-				collider.sharedMesh = mf.mesh;
-				mr.material.color = color;
-				go.gameObject.transform.position += GridToWorldSpace (room);
+				var go = DrawRoomChunk(room, chunk, color, "wall");
+				AddColliderForChunk(go, chunk);
 			}
 		}
 
-		void DrawFloors (Room room, Color color)
-		{
-			foreach (var contour in extractor.readRows(AsciiMap.FLOOR)) {
 
-				var go = new GameObject ();
-				go.name = "mesh floor";
-				var mr = go.AddComponent<MeshRenderer> ();
-				var mf = go.AddComponent<MeshFilter> ();
-				var collider = go.AddComponent<MeshCollider> ();
-				mf.mesh = extractor.contourToMesh (contour, true);
-				collider.sharedMesh = mf.mesh;
-				mr.material.color = color;
-				go.gameObject.transform.position += GridToWorldSpace (room);
 
+
+		void DrawFloors(Room room, Color color) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiMap.FLOOR)) {
+				var go = DrawRoomChunk(room, chunk, color, "floor");
+				AddColliderForChunk(go, chunk);
 			}
 		}
+
 
 		void CreateLight (Room room)
 		{

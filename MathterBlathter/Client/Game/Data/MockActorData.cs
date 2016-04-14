@@ -3,7 +3,7 @@ using Client.Game.Attributes;
 
 namespace Client.Game.Data
 {
-	public static class ActorDataMocker
+	public static class MockActorData
 	{
 		
 		public static CharacterData PLAYER_TEST {
@@ -17,7 +17,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.JumpHeight.Id, 40f
+					ActorAttributes.JumpHeight.Id, .6f
 				));
 
 				return ret;

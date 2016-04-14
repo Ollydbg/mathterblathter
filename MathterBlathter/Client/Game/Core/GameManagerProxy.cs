@@ -29,6 +29,10 @@ namespace Client.Game.Core
 			Game.Update (Time.deltaTime);
 		}
 
+		void FixedUpdate() {
+			Game.FixedUpdate();
+		}
+
 
 
 	}

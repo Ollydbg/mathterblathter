@@ -14,9 +14,11 @@ namespace Client.Game.Actors
 		UnityEngine.CharacterController internalController;
 		public float facingAngle = 0f;
 		public float horizontalAxis = 0f;
-		private static float GRAVITY_ACC = -20.8f;
+		private static float GRAVITY_ACC = -1.8f;
 		private float gravityYv = 0f;
-		private static float MAX_DOWN_SPEED = -10f;
+		private static float MAX_DOWN_SPEED = -100f;
+
+		private Vector3 movementAccumulator = Vector3.zero;
 
 		public CharacterController(Character actor) {
 			this.Actor = actor;
@@ -40,13 +42,11 @@ namespace Client.Game.Actors
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
-			Vector3 oldPos = Actor.GameObject.transform.position;
 
 			Vector3 moveVector = horizontalAxis * RunSpeed * Vector3.right;
-			//gravity
-			moveVector.y = gravityYv;
+			moveVector*= Time.deltaTime;
 
-			internalController.Move(Time.deltaTime * moveVector);
+			movementAccumulator+= moveVector;
 
 			string animTarget = horizontalAxis != 0 ? States.RUN : States.IDLE ;
 			Actor.Animator.RequestState(animTarget, 0);
@@ -65,7 +65,11 @@ namespace Client.Game.Actors
 
 		}
 
-		
+		public void FixedUpdate() {
+			ConsumeMovement();
+
+
+		}
 
 		public void Update(float dt) {
 			
@@ -74,16 +78,28 @@ namespace Client.Game.Actors
 				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 10);
 
 			} else {
-				gravityYv = GRAVITY_ACC;
+				gravityYv = (GRAVITY_ACC*dt);
 			}
+
+			movementAccumulator += Vector3.up * (gravityYv);
 		}
 
+		void ConsumeMovement ()
+		{
+		
+			internalController.Move(movementAccumulator);
+
+			movementAccumulator = Vector3.zero;
+			
+		}
 
 		public void Jump() {
 
 			if(IsGrounded) {
 				var jumpHeight = Actor.Attributes[ActorAttributes.JumpHeight];
-				gravityYv += jumpHeight;
+				internalController.Move(Vector3.up*jumpHeight);
+				//gravityYv = 0;
+				gravityYv = jumpHeight;
 
 			}
 		}

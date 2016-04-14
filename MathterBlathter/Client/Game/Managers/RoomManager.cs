@@ -28,7 +28,7 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 2);
+			Rooms = generator.GenerateFromDataSet (mocked, 20);
 			Rooms.ForEach (p => p.Draw());
 
 			//init spawns just for Head

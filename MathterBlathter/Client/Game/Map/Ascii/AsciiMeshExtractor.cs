@@ -70,13 +70,14 @@ namespace Client.Game.Map.Ascii
 			CombineInstance[] combine = new CombineInstance[chunkSize];
 			//create using pseudo voxels
 			int i = 0;
+			Vector3 origin = chunk.Origin;
 			foreach( var vert in chunk ) {
 				var mesh = new Mesh();
 				var verts = new List<Vector3>();
-				verts.Add(vert);
-				verts.Add(new Vector3(vert.x + 1, vert.y, vert.z));
-				verts.Add(new Vector3(vert.x, vert.y+1, vert.z));
-				verts.Add(new Vector3(vert.x + 1, vert.y+1, vert.z));
+				verts.Add(vert - origin);
+				verts.Add(new Vector3(vert.x + 1, vert.y, vert.z) - origin);
+				verts.Add(new Vector3(vert.x, vert.y+1, vert.z) - origin);
+				verts.Add(new Vector3(vert.x + 1, vert.y+1, vert.z) - origin);
 
 				//do triangles
 				var tris = new int[6];
@@ -199,95 +200,6 @@ namespace Client.Game.Map.Ascii
 			return false;
 		}
 
-		//ghetto ass flood fill
-		public List<Chunk> readColumns (char matchChar)
-		{
-			
-			List<Chunk> segments = new List<Chunk> ();
-			Chunk buffer = new Chunk();
-			int mapHeight = map.Height;
-			bool readingSegment = false;
-			for (var x = 0; x < map.Width; x++) {
-				bool matched = false;
-				for (var y = 0; y < map.Height; y++) {
-					if (map [x, y] == matchChar) {
-						//ascii space is y-down, we need to convert to y-up
-						buffer.Add (new Vector3 (x, mapHeight-y, 0));
-						buffer.Add (new Vector3 (x+1, mapHeight-y, 0));
-						matched = true;
-						readingSegment = true;
-					} 
-				}
-
-
-				if(readingSegment && matched) {
-					segments.Add (buffer);
-					readingSegment = false;
-					buffer = new Chunk();
-				}
-
-			}
-
-			//in case the search went through the whole map
-			if(readingSegment) {
-				segments.Add(buffer);
-			}
-
-			return segments;
-
-		}
-
-		//ghetto ass flood fill
-		public List<Chunk> readRows (char matchChar)
-		{
-			var ramps = getAllMatching (AsciiMap.RAMP);
-			List<Chunk> segments = new List<Chunk> ();
-			VecMap buffer = new VecMap ();
-			int mapHeight = map.Height;
-			bool readingSegment = false;
-
-			for (var x = 0; x < map.Width; x++) {
-				bool matched = false;
-				for (var y = 0; y < map.Height; y++) {
-
-
-					if (!matched && map [x, y] == matchChar) {
-						//ascii space is y-down, we need to convert to y-up
-						buffer[new Vector3 (x, mapHeight-y)] = true;
-						buffer[new Vector3 (x + 1, mapHeight - y)] = true;
-
-						matched = true;
-						readingSegment = true;
-					} 
-				}
-
-
-				if(readingSegment && !matched) {
-					AdjustForRamps (buffer, ramps);
-					segments.Add (new Chunk(buffer.Keys));
-					readingSegment = false;
-					buffer = new VecMap();
-				}
-
-			}
-
-			//in case the search went through the whole map
-			if(readingSegment) {
-				AdjustForRamps (buffer, ramps);
-				segments.Add(new Chunk(buffer.Keys));
-			}
-
-			return segments;
-
-		}
-			
-
-		private void AdjustForRamps(VecMap buffer, List<Vector3> ramps) {
-			foreach (var vec in ramps) {
-				buffer.Remove (new Vector3 (vec.x+1, vec.y + 1));
-				buffer.Remove (new Vector3 (vec.x, vec.y));
-			}
-		}
 		
 	}
 }
