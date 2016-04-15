@@ -6,7 +6,7 @@ using Client.Game.Data;
 
 namespace Client.Game.Actors
 {
-	public class Actor
+	public abstract class Actor
 	{
 		private static int LastId;
 		public int Id = LastId++;
@@ -16,7 +16,7 @@ namespace Client.Game.Actors
 
 		public GameData data;
 
-		public ActorType ActorType;
+		public abstract ActorType ActorType {get;}
 
 		public Transform transform {
 			get {

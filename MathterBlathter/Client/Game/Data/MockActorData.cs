@@ -13,12 +13,13 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Player;
 				ret.Id = 1;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 20f
+					ActorAttributes.Speed.Id, 25f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.JumpHeight.Id, .6f
+					ActorAttributes.JumpPower.Id, .65f
 				));
+
 
 				return ret;
 			}
@@ -42,6 +43,9 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 100
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
 				));
 
 

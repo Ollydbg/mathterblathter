@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Client.Game.Data;
 
 namespace Client.Game.Actors
 {
@@ -18,6 +19,11 @@ namespace Client.Game.Actors
 			
 		}
 
+		public override ActorType ActorType {
+			get {
+				return ActorType.AbstractCharacter;
+			}
+		}
 
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
@@ -29,7 +35,7 @@ namespace Client.Game.Actors
 		{
 			this.direction = direction;
 			this.speed = speed;
-			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += onCollision;
+			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
 		}
 
 		void onCollision (Collider Collider)

@@ -28,16 +28,18 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 20);
+			Rooms = generator.GenerateFromDataSet (mocked, 10);
 			Rooms.ForEach (p => p.Draw());
 
 			//init spawns just for Head
 			var head = Rooms[0];
-			//CreateRoomObjects (head);
+			CreateRoomObjects (head);
 		}
 
 
 		public void CreateRoomObjects(Room room) {
+			
+
 			foreach (var spawn in room.data.Spawns) {
 				
 				var enemyTest = Game.Instance.Spawn <Character> (spawn.Character);
@@ -55,6 +57,11 @@ namespace Client.Game.Managers
 
 		public void EnterRoom (Actor actor, Room room, DoorActor throughDoor = null)
 		{
+			if(CurrentRoom == room) {
+				return;
+			}
+
+
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);
 			}

@@ -18,21 +18,23 @@ namespace Client.Game.Actors
 			}
 		}
 
+		public override ActorType ActorType {
+			get {
+				return ActorType.AbstractCharacter;
+			}
+		}
+
+
 		public Character ()
 		{
 		}
 
-		void onCollision (Collider collider)
-		{
-			
-		}
-
+	
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
 			Controller = new CharacterController (this);
 			Animator = new PlayerAnimator3D(this);
 
-			GameObject.GetComponent<ActorRef> ().CollisionEvent += onCollision;
 			colliderHeight = GameObject.GetComponent<CapsuleCollider> ().height;
 
 			base.EnterGame (game);

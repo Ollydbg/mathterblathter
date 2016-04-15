@@ -24,7 +24,7 @@ namespace Client.Game.Actors
 			this.Actor = actor;
 			internalController = this.Actor.GameObject.GetComponent<UnityEngine.CharacterController>();
 		}
-	
+
 
 
 
@@ -72,7 +72,7 @@ namespace Client.Game.Actors
 		}
 
 		public void Update(float dt) {
-			
+
 			if(!IsGrounded) {
 				gravityYv += (GRAVITY_ACC*dt);
 				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 10);
@@ -86,17 +86,17 @@ namespace Client.Game.Actors
 
 		void ConsumeMovement ()
 		{
-		
+
 			internalController.Move(movementAccumulator);
 
 			movementAccumulator = Vector3.zero;
-			
+
 		}
 
 		public void Jump() {
 
 			if(IsGrounded) {
-				var jumpHeight = Actor.Attributes[ActorAttributes.JumpHeight];
+				var jumpHeight = Actor.Attributes[ActorAttributes.JumpPower];
 				internalController.Move(Vector3.up*jumpHeight);
 				//gravityYv = 0;
 				gravityYv = jumpHeight;
@@ -113,7 +113,7 @@ namespace Client.Game.Actors
 	}
 
 
-	
+
 
 }
 

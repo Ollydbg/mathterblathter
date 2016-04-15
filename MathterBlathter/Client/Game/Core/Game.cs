@@ -41,7 +41,7 @@ namespace Client.Game.Core
 
 			CreateManagers();
 
-			PossessedActor = Spawn<Character> (MockActorData.PLAYER_TEST);
+			PossessedActor = Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
 			CameraManager.TargetTransform = PossessedActor.transform;
 			new List<IGameManager>(Managers).ForEach(p => p.Init ());
 

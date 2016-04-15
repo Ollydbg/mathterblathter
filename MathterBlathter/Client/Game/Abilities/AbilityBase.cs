@@ -31,10 +31,9 @@ namespace Client
 			return false;
 		}
 
-		public ProjectileActor FireProjectile() {
-			//var projectile = (GameObject)GameObject.Instantiate (Resources.Load (context.data.spawnableResourcePath));
-			//projectile.transform.position = context.source.transform.position;
-			var projectile = context.source.Game.Spawn<ProjectileActor>(context.data.spawnableResourcePath);
+		public ProjectileActor FireProjectile(string projectileResourcePath) {
+
+			var projectile = context.source.Game.Spawn<ProjectileActor>(projectileResourcePath);
 			projectile.transform.position = context.source.transform.position;
 			projectile.SetMovement (context.direction, 5f);
 

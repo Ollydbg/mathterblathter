@@ -13,7 +13,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			FireProjectile ();
+			FireProjectile (context.data.spawnableResourcePath);
 		}
 
 		public override void Update (float dt)

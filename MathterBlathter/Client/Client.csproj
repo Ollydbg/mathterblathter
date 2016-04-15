@@ -94,6 +94,7 @@
     <Compile Include="Game\UI\Run\ZoneTitle.cs" />
     <Compile Include="Game\Map\Ascii\Chunk.cs" />
     <Compile Include="Game\Data\MockActorData.cs" />
+    <Compile Include="Game\Actors\PlayerCharacter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

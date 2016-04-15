@@ -16,6 +16,8 @@ namespace Client.Game.Managers
 
 		public Transform TargetTransform;
 
+		RoomManager Rooms;
+
 		Vector3 goalPosition {
 			get {
 
@@ -31,18 +33,27 @@ namespace Client.Game.Managers
 			}
 		}
 
+		float goalSize {
+			get {
+				return Mathf.Max(Rooms.CurrentRoom.Width*.5f, Rooms.CurrentRoom.Height*.5f) - 5;
+			}
+		}
+
 		#region IGameManager implementation
 		public void Init ()
 		{
 			camera = Camera.main;	
 			transform = camera.transform;
+			Rooms = Game.Instance.RoomManager;
 		}
 		public void Update (float dt)
 		{
-			//so dumb
-
+		
+			//size
+			camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, goalSize, dt);
+			//position
+			//transform.position = Rooms.CurrentRoom.roomCenter + Vector3.back*10;//goalPosition;
 			transform.position = goalPosition;
-
 		}
 		#endregion
 	}

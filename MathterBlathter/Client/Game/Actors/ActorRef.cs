@@ -7,18 +7,15 @@ namespace Client.Game.Actors
 	{
 		public Actor Actor;
 
-		public ActorRef ()
-		{
-		}
+		void Awake() {}
+		void Start() {}
 
-
-
-		public delegate void CollisionDelegate(Collider Collider);
-		public event CollisionDelegate CollisionEvent;
+		public delegate void TriggerDelegate(Collider Collider);
+		public event TriggerDelegate TriggerEvent;
 
 		void OnTriggerEnter(Collider collider) {
-			if (CollisionEvent != null) {
-				CollisionEvent (collider);
+			if (TriggerEvent != null) {
+				TriggerEvent (collider);
 			}
 		}
 

@@ -2,6 +2,7 @@
 using Client.Game.Map;
 using Client.Game.Data;
 using Client.Game.Enums;
+using UnityEngine;
 
 namespace Client.Game.Actors
 {
@@ -10,6 +11,16 @@ namespace Client.Game.Actors
 		public DoorActor ()
 		{
 		}
+
+		#region implemented abstract members of Actor
+
+		public override ActorType ActorType {
+			get {
+				return ActorType.Door;
+			}
+		}
+
+		#endregion
 
 		public float X;
 		public float Y;
@@ -73,6 +84,22 @@ namespace Client.Game.Actors
 			}
 		}
 
+		void onCollision (UnityEngine.Collider Collider)
+		{
+			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
+			if(hitRef && hitRef.Actor.ActorType == ActorType.Player) {
+				Game.RoomManager.EnterRoom(hitRef.Actor, this.Parent, this);
+			}
+		}
+
+		public override void EnterGame(Client.Game.Core.Game game) {
+
+
+			GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
+
+			base.EnterGame(game);
+
+		}
 
 		public void InitWithData(RoomData.Link link) {
 			this.Data = link;

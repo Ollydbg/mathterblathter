@@ -13,6 +13,16 @@ namespace Client.Game.Actors
 		{
 		}
 
+		#region implemented abstract members of Actor
+
+		public override ActorType ActorType {
+			get {
+				return ActorType.Room;
+			}
+		}
+
+		#endregion
+
 		public int X;
 		public int Y;
 		public int Width;
