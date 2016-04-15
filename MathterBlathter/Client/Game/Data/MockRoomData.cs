@@ -56,9 +56,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
-				ret.Spawns.Add (new RoomData.Spawn (MockActorData.ENEMY_TEST));
 				addDoorsFromAscii (ret);
-				//AddDoors (ret);
+				addSpawnsFromAscii (ret);
 				return ret;
 			}
 		}
@@ -134,9 +133,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffff d fffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
-				ret.Spawns.Add (new RoomData.Spawn (MockActorData.ENEMY_TEST));
 				addDoorsFromAscii (ret);
-				//AddDoors (ret);
+				addSpawnsFromAscii(ret);
 				return ret;
 			}
 		}
@@ -151,12 +149,12 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                    w";
 				ret.AsciiMap += "w                                    w";
 				ret.AsciiMap += "w                                    w";
+				ret.AsciiMap += "w              ppppp                 w";
 				ret.AsciiMap += "w                                    w";
 				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w                   1                 ";
-				ret.AsciiMap += "w                                    d";
 				ret.AsciiMap += "w                                     ";
+				ret.AsciiMap += "w                                    d";
+				ret.AsciiMap += "w                                1    ";
 				ret.AsciiMap += "w                              ppppppw";
 				ret.AsciiMap += "w                                    w";
 				ret.AsciiMap += "w                                    w";
@@ -164,15 +162,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                     pppp            ";
 				ret.AsciiMap += "w                                    d";
 				ret.AsciiMap += "w                                     ";
-				ret.AsciiMap += "w      ppppppp                   ffffw";
+				ret.AsciiMap += "w      ppppppp                   wwwww";
 				ret.AsciiMap += "w     ffffffffff                 ffffw";
-				ret.AsciiMap += "w    pppppppppppppppp            ffffw";
+				ret.AsciiMap += "w    pppppppppppppppp            wwwww";
 				ret.AsciiMap += "ffffffffffffffffffffffffff d fffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
-				ret.Spawns.Add (new RoomData.Spawn (MockActorData.ENEMY_TEST));
 				addDoorsFromAscii (ret);
-				//AddDoors (ret);
+				addSpawnsFromAscii(ret);
 				return ret;
 			}
 		}
@@ -205,9 +202,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff d ffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
-				ret.Spawns.Add (new RoomData.Spawn (MockActorData.ENEMY_TEST));
 				addDoorsFromAscii (ret);
-				//AddDoors (ret);
+				addSpawnsFromAscii(ret);
 				return ret;
 			}
 		}
@@ -238,12 +234,22 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff d ffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
-				ret.Spawns.Add (new RoomData.Spawn (MockActorData.ENEMY_TEST));
 				addDoorsFromAscii (ret);
+				addSpawnsFromAscii(ret);
 				return ret;
 			}
 		}
 
+		static void addSpawnsFromAscii (RoomData room)
+		{
+			var extractor = new AsciiMeshExtractor(room.AsciiMap);
+			foreach( Vector3 match in extractor.getAllMatching('1', true)) {
+				var spawn = new RoomData.Spawn(MockActorData.ENEMY_TEST);
+				spawn.X = match.x;
+				spawn.Y = match.y;
+				room.Spawns.Add(spawn);
+			}
+		}
 
 
 		static void addDoorsFromAscii (RoomData room)

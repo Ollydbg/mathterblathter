@@ -4,6 +4,8 @@ using Client.Game.Map;
 using Client.Game.Data;
 using Client.Game.Actors;
 using Client.Game.Enums;
+using Client.Game.Map.Ascii;
+using UnityEngine;
 
 namespace Client.Game.Data
 {
@@ -51,13 +53,19 @@ namespace Client.Game.Data
 
 		public class Spawn
 		{
-			public CharacterData Character;
+			public int ActorId;
 			//LOCAL SPACE!!
-			public int X;
-			public int Y;
+			public float X;
+			public float Y;
 			public Spawn(CharacterData inData) {
-				this.Character = inData;
+				this.ActorId = inData.Id;
 			}
+			public Vector3 RoomPosition {
+				get {
+					return new Vector3(X, Y);
+				}
+			}
+
 		}
 
 		public RoomData ()

@@ -28,22 +28,18 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 10);
+			Rooms = generator.GenerateFromDataSet (mocked, 50);
 			Rooms.ForEach (p => p.Draw());
 
-			//init spawns just for Head
-			var head = Rooms[0];
-			CreateRoomObjects (head);
 		}
 
 
 		public void CreateRoomObjects(Room room) {
-			
 
 			foreach (var spawn in room.data.Spawns) {
 				
-				var enemyTest = Game.Instance.Spawn <Character> (spawn.Character);
-				enemyTest.transform.position = room.roomCenter;
+				var enemyTest = Game.Instance.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
+				enemyTest.transform.position = spawn.RoomPosition + room.Position;
 				enemyTest.Brain = new Client.Game.AI.Brain (enemyTest);
 
 				var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
@@ -55,12 +51,12 @@ namespace Client.Game.Managers
 			}
 		}
 
+
 		public void EnterRoom (Actor actor, Room room, DoorActor throughDoor = null)
 		{
 			if(CurrentRoom == room) {
 				return;
 			}
-
 
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);
@@ -68,10 +64,14 @@ namespace Client.Game.Managers
 			CurrentRoom = room;
 			CurrentRoom.PlayerEntered(actor, throughDoor);
 
-			if (throughDoor == null) {
+			CreateRoomObjects(room);
+
+
+			if(throughDoor == null) {
 				actor.transform.position = room.roomCenter;
 			}
-			
+
+
 		}
 
 		public void Update (float dt)

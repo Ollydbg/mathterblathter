@@ -32,6 +32,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF GravityScalar = new GameAttributeF(10, -1.8f, "gravity scalar", GameAttributeEncoding.Float16, -10, 1000);
 		public static readonly GameAttributeF JumpSpeedY = new GameAttributeF(11, 8, "rising and falling speed", GameAttributeEncoding.Float16, 0, .5f);
 		public static readonly GameAttributeF JumpSpeedXScalar = new GameAttributeF(12, .5f, "jumping speed xscalar", GameAttributeEncoding.Float16, 0f, 1f); //<-- Air Control
+		public static readonly GameAttributeF MeleeBonusRangePct = new GameAttributeF(13, 1.0f, "Melee Bonus Range Percent", GameAttributeEncoding.Float16, 0f, 1f); //<-- Air Control
+
 	}
 }
 

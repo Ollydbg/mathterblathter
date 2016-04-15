@@ -13,7 +13,8 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			FireProjectile (context.data.spawnableResourcePath);
+			var go = FireProjectile (context.data.spawnableResourcePath);
+			go.transform.position += Vector3.up *.5f;
 		}
 
 		public override void Update (float dt)

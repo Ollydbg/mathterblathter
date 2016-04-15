@@ -19,13 +19,13 @@ namespace Client.Game.Abilities.Scripts
 
 		bool isLeft {
 			get {
-				return context.source.transform.rotation.eulerAngles.y < 0;
+				return context.source.transform.rotation.eulerAngles.y >180;
 			}
 		}
 		Vector3 offset {
 			get {
 				var multiplier = isLeft ? -1 : 1;
-				return multiplier * new Vector3 (1f, 0f, 0f);
+				return multiplier * new Vector3 (Attributes[AbilityAttributes.MeleeRange], 0f, 0f);
 			}
 		}
 

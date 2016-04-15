@@ -13,6 +13,17 @@ namespace Client.Game.Map
 		public const char RAMP = '/';
 		public const char DOOR = 'd';
 		public const char CEILING = 'c';
+		public const char ACTOR_0 = '0';
+		public const char ACTOR_1 = '1';
+		public const char ACTOR_2 = '2';
+		public const char ACTOR_3 = '3';
+		public const char ACTOR_4 = '4';
+		public const char ACTOR_5 = '5';
+		public const char ACTOR_6 = '6';
+		public const char ACTOR_7 = '7';
+		public const char ACTOR_8 = '8';
+		public const char ACTOR_9 = '9';
+
 
 		public AsciiMap ()
 		{

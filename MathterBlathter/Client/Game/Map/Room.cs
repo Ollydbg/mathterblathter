@@ -26,6 +26,10 @@ namespace Client.Game.Map
 
 		private static IRoomDrawer Drawer = new MeshRoomDrawer();
 
+		public Vector3 Position {
+			get {return new Vector3(X,Y); }
+		}
+
 		public Vector3 roomCenter {
 			get {
 				return new Vector3 ((float)(X + Width * .5f), Height * .5f);
