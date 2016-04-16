@@ -37,7 +37,9 @@ namespace Client
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileResourcePath);
 
 			projectile.transform.position = AttachPointPositionOnActor(point, context.source);//context.source.transform.position;
+			projectile.transform.LookAt(projectile.transform.position + context.direction);
 			projectile.SetMovement (context.direction, speed);
+
 
 			
 

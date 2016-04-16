@@ -31,7 +31,7 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 10);
+			Rooms = generator.GenerateFromDataSet (mocked, 30);
 			Rooms.ForEach (p => p.Draw());
 
 		}

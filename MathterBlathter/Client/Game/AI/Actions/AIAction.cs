@@ -24,7 +24,17 @@ namespace Client.Game.AI
 				return possessed.HalfHeight;
 			}
 		}
+
+
+		internal void FaceTarget(Actor selfActor, Vector3 target) {
+
+			float angle = target.x < selfActor.transform.position.x ? -90 : 90;
+
+			selfActor.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+		}
 	}
+
+
 
 	public enum AIResult {
 		Success,

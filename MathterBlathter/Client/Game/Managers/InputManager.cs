@@ -32,7 +32,7 @@ namespace Client.Game.Managers
 		}
 		public void Shutdown ()
 		{
-			throw new NotImplementedException ();
+			
 		}
 
 

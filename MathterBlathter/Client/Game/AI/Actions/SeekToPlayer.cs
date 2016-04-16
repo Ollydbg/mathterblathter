@@ -25,6 +25,8 @@ namespace Client.Game.AI.Actions
 
 			if (inDetectionRange (distanceVec, actor)) {
 
+				FaceTarget(actor, target);
+
 				var moveMagnitude = .08f;
 
 				actor.transform.position += distanceVec.normalized * moveMagnitude;
@@ -35,6 +37,7 @@ namespace Client.Game.AI.Actions
 		}
 
 		#endregion
+
 
 
 		bool inDetectionRange (Vector3 distanceVec, Actor selfActor)

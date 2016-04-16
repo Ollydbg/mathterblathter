@@ -29,7 +29,7 @@ namespace Client.Game.Data
 			return _all[id];
 		}
 
-		/*
+
 		public static RoomData DEATH_TEST_ROOM {
 			get {
 				var ret = new RoomData ();
@@ -47,9 +47,9 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w      L          L         w";
 				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "                             ";
+				ret.AsciiMap += "                         L   ";
 				ret.AsciiMap += "d                           d";
 				ret.AsciiMap += "              1              ";
 				ret.AsciiMap += "fffffffffffffffffffffffffffff";
@@ -62,7 +62,8 @@ namespace Client.Game.Data
 				addSpawnsFromAscii (ret);
 				return ret;
 			}
-		}*/
+		}
+
 
 		public static RoomData STORE_ROOM_TEST {
 			get {
@@ -179,41 +180,7 @@ namespace Client.Game.Data
 		}
 
 
-		public static RoomData ROOM_VERT_TEST {
-			get {
-				var ret = new RoomData ();
-				ret.Id = 3;
-
-				ret.AsciiMap += "ccccccccccccccccc d cccccccccccccccccc";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w               L                    w";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w              ppppp                 w";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w                                  L w";
-				ret.AsciiMap += "w                                     ";
-				ret.AsciiMap += "w                                    d";
-				ret.AsciiMap += "w                                1    ";
-				ret.AsciiMap += "w                              ppppppw";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w                                    w";
-				ret.AsciiMap += "w                     pppp            ";
-				ret.AsciiMap += "w                                    d";
-				ret.AsciiMap += "w                                     ";
-				ret.AsciiMap += "w      ppppppp                   wwwww";
-				ret.AsciiMap += "w     ffffffffff        L        ffffw";
-				ret.AsciiMap += "w    pppppppppppppppp            wwwww";
-				ret.AsciiMap += "ffffffffffffffffffffffffff d fffffffff";
-				ret.Width = ret.AsciiMap.Width;
-				ret.Height = ret.AsciiMap.Height;
-
-				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
-				addDoorsFromAscii (ret);
-				addSpawnsFromAscii(ret);
-				return ret;
-			}
-		}
+	
 
 
 		public static RoomData ROOM_1 {
