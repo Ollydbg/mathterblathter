@@ -20,7 +20,7 @@ namespace Client.Game.Actors
 
 		public override ActorType ActorType {
 			get {
-				return ActorType.AbstractCharacter;
+				return Data.ActorType;
 			}
 		}
 
@@ -40,8 +40,8 @@ namespace Client.Game.Actors
 			base.EnterGame (game);
 		}
 
-		public override void LoadFromData(GameData data) {
-			var charData = (CharacterData)data;
+		public override void LoadFromData(CharacterData data) {
+			var charData = data;
 			Attributes.LoadFromData (charData.attributeData);
 
 			base.LoadFromData (data);

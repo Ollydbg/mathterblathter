@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using Client.Game.Abilities.Payloads;
+using Client.Game.Attributes;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -13,8 +15,13 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var go = FireProjectile (context.data.spawnableResourcePath);
-			go.transform.position += Vector3.up *.5f;
+			var projectile = FireProjectile (context.data.spawnableResourcePath);
+			projectile.transform.position += Vector3.up *.5f;
+
+			projectile.OnHit = (actor) => {
+				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
+				context.source.Game.RemoveActor(projectile);
+			};
 		}
 
 		public override void Update (float dt)

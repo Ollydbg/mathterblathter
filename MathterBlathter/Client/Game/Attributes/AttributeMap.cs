@@ -71,7 +71,7 @@ namespace Client.Game.Attributes
 		public void LoadFromData (List<CharacterData.AttributeData> attributeData)
 		{
 			foreach (var attr in attributeData) {
-				var keyId = GetKeyId (attr.Id, null);
+				var keyId = GetKeyId (attr.Id, attr.Index);
 				var attrValue = attr.ValueI == 0 ? new GameAttributeValue (attr.ValueF) : new GameAttributeValue (attr.ValueI);
 				attributeValues [keyId] = attrValue;
 			}

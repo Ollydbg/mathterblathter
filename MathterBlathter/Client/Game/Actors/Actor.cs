@@ -14,7 +14,7 @@ namespace Client.Game.Actors
 		public AttributeMap Attributes = new AttributeMap (ActorAttributes.GetAll());
 		public Client.Game.Core.Game Game;
 
-		public GameData data;
+		public CharacterData Data;
 
 		public abstract ActorType ActorType {get;}
 
@@ -30,8 +30,8 @@ namespace Client.Game.Actors
 		}
 
 
-		public virtual void LoadFromData(GameData data) {
-			this.data = data;
+		public virtual void LoadFromData(CharacterData data) {
+			this.Data = data;
 		}
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {

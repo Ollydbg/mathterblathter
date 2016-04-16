@@ -17,14 +17,14 @@ namespace Client.Game.Actors
 		private static float GRAVITY_ACC = -1.8f;
 		private float gravityYv = 0f;
 		private static float MAX_DOWN_SPEED = -100f;
-
+		private float jumpPowerAccumulator = 0f;
+		private bool jumpNeedsReset = false;
 		private Vector3 movementAccumulator = Vector3.zero;
 
 		public CharacterController(Character actor) {
 			this.Actor = actor;
 			internalController = this.Actor.GameObject.GetComponent<UnityEngine.CharacterController>();
 		}
-
 
 
 
@@ -42,6 +42,8 @@ namespace Client.Game.Actors
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
+
+			
 
 			Vector3 moveVector = horizontalAxis * RunSpeed * Vector3.right;
 			moveVector*= Time.deltaTime;
@@ -76,8 +78,8 @@ namespace Client.Game.Actors
 			if(!IsGrounded) {
 				gravityYv += (GRAVITY_ACC*dt);
 				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 10);
-
 			} else {
+				jumpPowerAccumulator = 0f;
 				gravityYv = (GRAVITY_ACC*dt);
 			}
 
@@ -93,18 +95,33 @@ namespace Client.Game.Actors
 
 		}
 
-		public void Jump() {
+		public void StopJumping ()
+		{
+			jumpNeedsReset = false;
+		}
 
-			if(IsGrounded) {
-				var jumpHeight = Actor.Attributes[ActorAttributes.JumpPower];
+		public void Jump() {
+			
+			if(IsGrounded && !jumpNeedsReset) {
+				var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 				internalController.Move(Vector3.up*jumpHeight);
 				//gravityYv = 0;
 				gravityYv = jumpHeight;
-
+				jumpPowerAccumulator += jumpHeight;
+			} else if(jumpPowerAccumulator < Actor.Attributes[ActorAttributes.MaxJumpPower] && !jumpNeedsReset) {
+				var boost = Actor.Attributes[ActorAttributes.SustainedJumpPower];
+				internalController.Move(Vector3.up*boost);
+				
+				gravityYv += boost;
+				jumpPowerAccumulator += boost;
+			} else {
+				jumpNeedsReset = true;
 			}
 		}
 
 		public void Attack () {
+
+			var weaponIndex = Actor.Attributes[ActorAttributes.CurrentWeaponIndex];
 			Actor.Game.AbilityManager.ActivateAbility (new AbilityContext(Actor, Actor.transform.forward, MockAbilityData.PLAYER_MELEE));
 		}
 

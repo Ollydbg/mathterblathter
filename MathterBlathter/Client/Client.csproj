@@ -96,6 +96,11 @@
     <Compile Include="Game\Data\MockActorData.cs" />
     <Compile Include="Game\Actors\PlayerCharacter.cs" />
     <Compile Include="Game\Map\Ascii\AsciiVector.cs" />
+    <Compile Include="Game\UI\Run\PlayerStatsHud.cs" />
+    <Compile Include="Game\Abilities\Payloads\KillRewardPayload.cs" />
+    <Compile Include="Game\Enums\RoomEntranceBehavior.cs" />
+    <Compile Include="Game\Abilities\Scripts\PlayerDeathBuff.cs" />
+    <Compile Include="Game\Enums\AbilityType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

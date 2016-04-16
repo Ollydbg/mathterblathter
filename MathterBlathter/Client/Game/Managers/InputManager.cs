@@ -10,7 +10,6 @@ namespace Client.Game.Managers
 	{
 		public static string HORIZONTAL = "Horizontal";
 		public static string HORIZONTAL_D_PAD = "PS4_DpadHorizontal";
-		public static string PS4_X = "PS4_X";
 		public static string PS4_SQ = "PS4_SQ";
 		public static string JUMP = "Jump";
 		public static string SWITCH_WEAPON = "SwitchWeapon";
@@ -26,9 +25,6 @@ namespace Client.Game.Managers
 		}
 
 
-
-		#region IGameManager implementation
-
 		public void Init ()
 		{
 			bindControls ();
@@ -42,9 +38,14 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-			if (Input.GetButtonDown (JUMP) || Input.GetButtonDown(PS4_X)) {
+			
+			if (Input.GetButton (JUMP)) {
 				TargetActor.Controller.Jump ();
 			}
+			if(Input.GetButtonUp(JUMP)) {
+				TargetActor.Controller.StopJumping();
+			}
+			
 
 			var hor = Input.GetAxis (HORIZONTAL);
 			var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
@@ -63,7 +64,9 @@ namespace Client.Game.Managers
 			
 		}
 
-		#endregion
+
 	}
+
+
 }
 

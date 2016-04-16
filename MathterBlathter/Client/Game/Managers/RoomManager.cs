@@ -28,7 +28,7 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 50);
+			Rooms = generator.GenerateFromDataSet (mocked, 10);
 			Rooms.ForEach (p => p.Draw());
 
 		}
@@ -37,16 +37,17 @@ namespace Client.Game.Managers
 		public void CreateRoomObjects(Room room) {
 
 			foreach (var spawn in room.data.Spawns) {
-				
-				var enemyTest = Game.Instance.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
-				enemyTest.transform.position = spawn.RoomPosition + room.Position;
-				enemyTest.Brain = new Client.Game.AI.Brain (enemyTest);
+				var spawned = Game.Instance.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
+				spawned.transform.position = spawn.RoomPosition + room.Position;
 
-				var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
-				var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
-				seekToAction.Next = fireAtAction;
-				fireAtAction.Next = seekToAction;
-				enemyTest.Brain.CurrentAction = seekToAction;
+				if(spawned.Data.ActorType == ActorType.Enemy) {
+					spawned.Brain = new Client.Game.AI.Brain (spawned);
+					var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
+					var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
+					seekToAction.Next = fireAtAction;
+					fireAtAction.Next = seekToAction;
+					spawned.Brain.CurrentAction = seekToAction;
+				}
 
 			}
 		}

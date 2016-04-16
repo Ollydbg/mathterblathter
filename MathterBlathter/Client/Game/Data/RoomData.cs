@@ -16,6 +16,7 @@ namespace Client.Game.Data
 		public int Height;
 		public List<Link> Doors = new List<Link>();
 		public List<Spawn> Spawns = new List<Spawn> ();
+		public Dictionary<char, CharacterData> AsciiSpawnLookup = new Dictionary<char, CharacterData>();
 
 		public AsciiMap AsciiMap = new AsciiMap();
 
@@ -57,6 +58,8 @@ namespace Client.Game.Data
 			//LOCAL SPACE!!
 			public float X;
 			public float Y;
+			public RoomEntranceBehavior EntranceType;
+
 			public Spawn(CharacterData inData) {
 				this.ActorId = inData.Id;
 			}

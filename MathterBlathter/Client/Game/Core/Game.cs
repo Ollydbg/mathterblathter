@@ -40,12 +40,7 @@ namespace Client.Game.Core
 		private void Init() {
 
 			CreateManagers();
-
-			PossessedActor = Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
-			CameraManager.TargetTransform = PossessedActor.transform;
-			new List<IGameManager>(Managers).ForEach(p => p.Init ());
-
-			RoomManager.EnterRoom(PossessedActor, RoomManager.Rooms[0]);
+			StartGame();
 		}
 
 		private void CreateManagers() {
@@ -59,7 +54,20 @@ namespace Client.Game.Core
 			tmp.Add (AbilityManager);
 			tmp.Add (RoomManager);
 			tmp.Add (CameraManager);
+
 			Managers = tmp.ToArray ();
+		}
+
+		public void StartGame() {
+			//remove ALL actors
+
+
+			PossessedActor = Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
+			CameraManager.TargetTransform = PossessedActor.transform;
+
+			new List<IGameManager>(Managers).ForEach(p => p.Init ());
+
+			RoomManager.EnterRoom(PossessedActor, RoomManager.Rooms[0]);
 		}
 
 		public void Update(float dt) {

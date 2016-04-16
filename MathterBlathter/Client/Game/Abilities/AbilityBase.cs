@@ -37,10 +37,7 @@ namespace Client
 			projectile.transform.position = context.source.transform.position;
 			projectile.SetMovement (context.direction, 5f);
 
-			projectile.OnHit = (actor) => {
-				new DamagePayload (context, actor, 10).Apply();
-				context.source.Game.RemoveActor(projectile);
-			};
+
 
 			return projectile;
 

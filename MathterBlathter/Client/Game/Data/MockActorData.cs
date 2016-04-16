@@ -3,6 +3,7 @@ using Client.Game.Attributes;
 using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
+using Client.Game.Enums;
 
 namespace Client.Game.Data
 {
@@ -28,11 +29,37 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Player;
 				ret.Id = 1;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 25f
+					ActorAttributes.Speed.Id, 20f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.JumpPower.Id, .65f
+					ActorAttributes.MinJumpPower.Id, .2f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.SustainedJumpPower.Id, .1f
+				));
+					
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.MaxJumpPower.Id, .8f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.PLAYER_MELEE.Id,
+					(int)AbilityType.Melee
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.PLAYER_RANGED.Id,
+					(int)AbilityType.Ranged
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.PLAYER_DEATH_BUFF.Id,
+					(int)AbilityType.Death
 				));
 
 
@@ -40,7 +67,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData ENEMY_TEST {
+		public static CharacterData GROUNDED_RANGED_ENEMY {
 			get {
 				var ret = new CharacterData ();
 				ret.ResourcePath = "EnemyTest_prefab";
@@ -62,6 +89,47 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 10
+				));;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.ENEMY_PROJECTILE_TEST.Id,
+					0
+				));
+
+
+				return ret;
+			}
+		}
+
+		public static CharacterData SHOPKEEPER {
+			get {
+				var ret = new CharacterData ();
+				ret.ResourcePath = "ShopKeeper_prefab";
+				ret.ActorType = ActorType.ShopKeeper;
+				ret.AIData = new AIData ();
+				ret.Id = 101;
+				ret.Name = "Grapthar";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 1000
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 20.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, .08f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 100
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 300
+				));;
 
 
 

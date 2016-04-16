@@ -10,35 +10,34 @@ namespace Client.Game.Data
 {
 	public class MockRoomData
 	{
-
-
-		static MockRoomData() {
-			_all = new List<RoomData>();
-			_all.Add(ROOM_VERT_TEST);
-			_all.Add(TALL_ROOM);
-			_all.Add(ROOM_RAMP_TEST);
-			_all.Add(ROOM_1);
-			_all.Add(ROOM_2);
+		private static Dictionary<int, RoomData> _all;
+		static void StaticInit() {
+			_all = typeof(MockRoomData).GetProperties()
+				.Select( p => p.GetGetMethod().Invoke(null, null) as RoomData)
+				.ToDictionary(p => p.Id, p=>p);
 
 		}
 
-		public static RoomData ROOM_RAMP_TEST {
+		public static List<RoomData> GetAll() {
+			if(_all == null) StaticInit();
+			return _all.Values.ToList();
+		}
+
+
+		public static RoomData FromId(int id) {
+			if(_all == null) StaticInit();
+			return _all[id];
+		}
+
+
+		public static RoomData DEATH_TEST_ROOM {
 			get {
 				var ret = new RoomData ();
-				ret.Id = 1;
+				ret.Id = 0;
 
 				ret.AsciiMap += "ccccccccccc d ccccccccccccccc";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "                            w";
-				ret.AsciiMap += "d                           w";
-				ret.AsciiMap += "                            w";
-				ret.AsciiMap += "wppppp                      w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w     1                     w";
 				ret.AsciiMap += "w                            ";
 				ret.AsciiMap += "w                           d";
 				ret.AsciiMap += "w                            ";
@@ -50,12 +49,49 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "           pppppppppp        ";
-				ret.AsciiMap += "d         fffffffffff       d";
-				ret.AsciiMap += "         pppppppppppp        ";
+				ret.AsciiMap += "                             ";
+				ret.AsciiMap += "d                           d";
+				ret.AsciiMap += "              1              ";
 				ret.AsciiMap += "fffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+
+				addDoorsFromAscii (ret);
+				addSpawnsFromAscii (ret);
+				return ret;
+			}
+		}
+
+		public static RoomData STORE_ROOM_TEST {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 1;
+
+				ret.AsciiMap += "ccccccccccc d ccccccccccccccc";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                            ";
+				ret.AsciiMap += "w                           d";
+				ret.AsciiMap += "w                            ";
+				ret.AsciiMap += "w                       ppppw";
+				ret.AsciiMap += "w                       f   w";
+				ret.AsciiMap += "w                   ppppp   w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "w                           w";
+				ret.AsciiMap += "                             ";
+				ret.AsciiMap += "d                           d";
+				ret.AsciiMap += "             1               ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffff";
+				ret.Width = ret.AsciiMap.Width;
+				ret.Height = ret.AsciiMap.Height;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.SHOPKEEPER;
+
 				addDoorsFromAscii (ret);
 				addSpawnsFromAscii (ret);
 				return ret;
@@ -67,7 +103,7 @@ namespace Client.Game.Data
 		public static RoomData TALL_ROOM {
 			get {
 				var ret = new RoomData ();
-				ret.Id = 1;
+				ret.Id = 2;
 
 				ret.AsciiMap += "ccccccccccccccc d ccccccccccccccccccc";
 				ret.AsciiMap += "w                                   w";
@@ -133,6 +169,9 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffff d fffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+
 				addDoorsFromAscii (ret);
 				addSpawnsFromAscii(ret);
 				return ret;
@@ -143,7 +182,7 @@ namespace Client.Game.Data
 		public static RoomData ROOM_VERT_TEST {
 			get {
 				var ret = new RoomData ();
-				ret.Id = 1;
+				ret.Id = 3;
 
 				ret.AsciiMap += "ccccccccccccccccc d cccccccccccccccccc";
 				ret.AsciiMap += "w                                    w";
@@ -168,6 +207,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffff d fffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				addDoorsFromAscii (ret);
 				addSpawnsFromAscii(ret);
 				return ret;
@@ -178,7 +219,7 @@ namespace Client.Game.Data
 		public static RoomData ROOM_1 {
 			get {
 				var ret = new RoomData ();
-				ret.Id = 1;
+				ret.Id = 4;
 
 				ret.AsciiMap += "cccccccccccccccccccccc d cccccccccccccccccccccc";
 				ret.AsciiMap += "w                                             w";
@@ -202,6 +243,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff d ffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				addDoorsFromAscii (ret);
 				addSpawnsFromAscii(ret);
 				return ret;
@@ -211,7 +254,7 @@ namespace Client.Game.Data
 		public static RoomData ROOM_2 {
 			get {
 				var ret = new RoomData ();
-				ret.Id = 2;
+				ret.Id = 5;
 				ret.AsciiMap += "ccccccccccc d ccccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "w                                             w";
 				ret.AsciiMap += "w                                             w";
@@ -234,6 +277,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff d ffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				addDoorsFromAscii (ret);
 				addSpawnsFromAscii(ret);
 				return ret;
@@ -243,11 +288,13 @@ namespace Client.Game.Data
 		static void addSpawnsFromAscii (RoomData room)
 		{
 			var extractor = new AsciiMeshExtractor(room.AsciiMap);
-			foreach( Vector3 match in extractor.getAllMatching('1', true)) {
-				var spawn = new RoomData.Spawn(MockActorData.ENEMY_TEST);
-				spawn.X = match.x;
-				spawn.Y = match.y;
-				room.Spawns.Add(spawn);
+			foreach( var spawnType in room.AsciiSpawnLookup) {
+				foreach( Vector3 match in extractor.getAllMatching(spawnType.Key, true)) {
+					var spawn = new RoomData.Spawn(spawnType.Value);
+					spawn.X = match.x;
+					spawn.Y = match.y;
+					room.Spawns.Add(spawn);
+				}
 			}
 		}
 
@@ -285,14 +332,7 @@ namespace Client.Game.Data
 
 				room.Doors.Add (link);
 
-			
 			}
-		}
-
-
-		private static List<RoomData> _all;
-		public static List<RoomData> GetAll() {
-			return _all;
 		}
 
 	}

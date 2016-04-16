@@ -40,7 +40,7 @@ namespace Client.Game.Abilities.Payloads
 			if (newHealth <= 0) {
 
 				if (targetIsPlayer) {
-					new PlayerKilledPayload (Context).Apply ();
+					new PlayerKilledPayload (Context, Target).Apply ();
 				} else {
 					new KillPayload (Context, Target).Apply ();
 				}

@@ -21,7 +21,9 @@ namespace Client.Game.Abilities.Payloads
 
 			if (AbilityManager.NotifyPayloadReceiver (this, Context.target))
 				return;
-			
+		
+			new KillRewardPayload(Context, Target, Context.source).Apply();
+
 			Target.Game.RemoveActor (Target);
 		}
 
