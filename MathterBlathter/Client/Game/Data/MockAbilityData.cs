@@ -3,6 +3,7 @@ using Client.Game.Attributes;
 using Client.Game.Animation;
 using System.Collections.Generic;
 using System.Linq;
+using Client.Game.Enums;
 
 namespace Client.Game.Data
 {
@@ -30,12 +31,18 @@ namespace Client.Game.Data
 				ret.name = "Enemy Projectile test";
 				ret.spawnableResourcePath = "Projectiles/enemyTest_prefab";
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Cooldown.Id, 1.0f
+					AbilityAttributes.Cooldown.Id, .5f
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 18f
+				));
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Damage.Id, 10
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Eyes
+				));
+
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
 
 				return ret;

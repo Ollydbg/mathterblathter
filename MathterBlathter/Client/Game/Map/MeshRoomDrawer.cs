@@ -24,7 +24,7 @@ namespace Client.Game.Map
 			extractor = new AsciiMeshExtractor (room.data.AsciiMap);
 			//get contour
 			var color = RandomColor();
-			CreateLight (room);
+			DrawLights (room);
 			DrawCeiling (room, color);
 			DrawFloors (room, color);
 			DrawWalls (room, color);
@@ -43,12 +43,13 @@ namespace Client.Game.Map
 
 			plane.transform.Rotate(Vector3.right, 270);
 
-			plane.GetComponent<Renderer>().material.color = RandomColor();
+			plane.GetComponent<Renderer>().material.color = color*.5f;
 			GameObject.Destroy(plane.GetComponent<Collider>());
 
 			plane.transform.localScale = new Vector3(room.Width*.1f, 1f, room.Height*.1f);
 			plane.transform.position = new Vector3(room.X + room.Width*.5f, room.Y + room.Height*.5f, 5);
 		}
+
 
 		void DrawPlatforms (Room room, Color color)
 		{
@@ -133,15 +134,20 @@ namespace Client.Game.Map
 		}
 
 
-		void CreateLight (Room room)
+		void DrawLights (Room room)
 		{
-			var lightObj = new GameObject ();
-			var light = lightObj.AddComponent<Light> ();
-			light.range = room.Width;
-			lightObj.transform.position = new Vector3 (room.X, room.Y, -10f);
-			light.type = LightType.Point;
-			light.intensity = 7;
-			lightObj.name = "light";
+			foreach( var lightPos in extractor.getAllMatching(AsciiMap.LIGHT, true)) {
+				var lightObj = new GameObject ();
+				var light = lightObj.AddComponent<Light> ();
+				light.range = room.Width;
+				lightObj.transform.position = new Vector3 (lightPos.x, lightPos.y, -2f) + GridToWorldSpace(room);
+				light.type = LightType.Point;
+				light.gameObject.transform.Rotate(new Vector3(293f, 0, 0));
+
+				light.intensity = 1.7f;
+
+				lightObj.name = "light";
+			}
 		}
 
 		private Color RandomColor() {

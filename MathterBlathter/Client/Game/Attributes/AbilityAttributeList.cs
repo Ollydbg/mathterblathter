@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Linq;
+using Client.Game.Enums;
 
 namespace Client.Game.Attributes
 {
@@ -24,7 +25,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF Cooldown = new GameAttributeF(2, 1f, "cooldown", GameAttributeEncoding.Float16, 0, float.MaxValue);
 		public static readonly GameAttributeI Damage = new GameAttributeI(3, 10, "damage", GameAttributeEncoding.Int, 0, int.MaxValue);
 		public static readonly GameAttributeF MeleeRange = new GameAttributeF(4, 10, "melee range", GameAttributeEncoding.Float16, 0, float.MaxValue);
-
+		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(5, 2, "projectile speed", GameAttributeEncoding.Int, 0, int.MaxValue);
+		public static readonly GameAttributeE FiresFromJoint = new GameAttributeE(6, 0, "weapon attach point", GameAttributeEncoding.Int, 0, int.MaxValue, typeof(AttachPoint));
 	}
 }
 

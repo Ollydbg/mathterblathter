@@ -12,6 +12,7 @@ namespace Client.Game.Map
 		public const char SPIKES = 's';
 		public const char RAMP = '/';
 		public const char DOOR = 'd';
+		public static char LIGHT = 'L';
 		public const char CEILING = 'c';
 		public const char ACTOR_0 = '0';
 		public const char ACTOR_1 = '1';

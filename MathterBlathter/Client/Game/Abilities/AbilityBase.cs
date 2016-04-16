@@ -4,6 +4,7 @@ using UnityEngine;
 using Client.Game.Actors;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
+using Client.Game.Enums;
 
 namespace Client
 {
@@ -31,15 +32,36 @@ namespace Client
 			return false;
 		}
 
-		public ProjectileActor FireProjectile(string projectileResourcePath) {
+		public ProjectileActor FireProjectile(string projectileResourcePath, float speed, AttachPoint point) {
 
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileResourcePath);
-			projectile.transform.position = context.source.transform.position;
-			projectile.SetMovement (context.direction, 5f);
+
+			projectile.transform.position = AttachPointPositionOnActor(point, context.source);//context.source.transform.position;
+			projectile.SetMovement (context.direction, speed);
+
+			
 
 
 
 			return projectile;
+
+		}
+
+		public Vector3 AttachPointPositionOnActor(AttachPoint point, Actor actor) {
+
+			var components = actor.GameObject.GetComponentsInChildren<AttachPointComponent>();
+
+			foreach( var comp in components ) {
+
+				if(comp.Type == point) {
+					return comp.gameObject.transform.position;
+				}
+
+			}
+
+
+			//default just return the feet position of the actor
+			return actor.GameObject.transform.position;
 
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Game.Attributes;
 
 namespace Client.Game.AI
 {
@@ -12,9 +13,9 @@ namespace Client.Game.AI
 		public AIAction Next;
 
 		internal bool inAbilityRange(Vector3 distanceVec, Actor selfActor) {
-			return distanceVec.sqrMagnitude < (8 * 8);
+			
+			return distanceVec.sqrMagnitude < (12 * 12);
 		}
-
 
 		internal Vector3 PlayerMid
 		{
