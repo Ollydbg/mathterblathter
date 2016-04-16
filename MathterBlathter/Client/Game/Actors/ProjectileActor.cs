@@ -51,7 +51,7 @@ namespace Client.Game.Actors
 			this.transform.position += (direction * (speed * dt));
 			lifespan -= dt;
 			if (lifespan <= 0f) {
-				Game.RemoveActor (this);
+				Game.ActorManager.RemoveActor (this);
 			}
 		}
 	}

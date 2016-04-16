@@ -72,7 +72,7 @@ namespace Client.Game.Map
 		}
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
-			var doorActor = Core.Game.Instance.Spawn<DoorActor>(resourceName:"Door_prefab");
+			var doorActor = Core.Game.Instance.ActorManager.Spawn<DoorActor>(resourceName:"Door_prefab");
 			doorActor.GameObject.name = "DoorActor";
 			doorActor.LinkedGuid = doorGuidLink;
 			doorActor.InitWithData(link);

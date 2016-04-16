@@ -87,7 +87,7 @@ namespace Client.Game.Actors
 		void onCollision (UnityEngine.Collider Collider)
 		{
 			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
-			if(hitRef && hitRef.Actor.ActorType == ActorType.Player) {
+ 			if(hitRef && hitRef.Actor.ActorType == ActorType.Player) {
 				Game.RoomManager.EnterRoom(hitRef.Actor, this.Parent, this);
 			}
 		}

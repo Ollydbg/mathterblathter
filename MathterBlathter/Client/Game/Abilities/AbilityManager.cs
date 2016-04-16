@@ -7,6 +7,9 @@ using Client.Game.Abilities.Scripts;
 using System.Linq;
 namespace Client.Game.Abilities
 {
+
+	using Game = Client.Game.Core.Game;
+
 	public class AbilityManager : IGameManager
 	{
 
@@ -20,10 +23,13 @@ namespace Client.Game.Abilities
 			
 		}
 
-
-		public void Init ()
+		public void Start (Game game)
 		{
 			
+		}
+		public void Shutdown ()
+		{
+			throw new NotImplementedException ();
 		}
 
 

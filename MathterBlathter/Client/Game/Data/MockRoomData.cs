@@ -29,7 +29,7 @@ namespace Client.Game.Data
 			return _all[id];
 		}
 
-
+		/*
 		public static RoomData DEATH_TEST_ROOM {
 			get {
 				var ret = new RoomData ();
@@ -62,7 +62,7 @@ namespace Client.Game.Data
 				addSpawnsFromAscii (ret);
 				return ret;
 			}
-		}
+		}*/
 
 		public static RoomData STORE_ROOM_TEST {
 			get {

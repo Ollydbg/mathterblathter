@@ -101,6 +101,8 @@
     <Compile Include="Game\Enums\RoomEntranceBehavior.cs" />
     <Compile Include="Game\Abilities\Scripts\PlayerDeathBuff.cs" />
     <Compile Include="Game\Enums\AbilityType.cs" />
+    <Compile Include="Game\Enums\GameState.cs" />
+    <Compile Include="Game\Managers\ActorManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

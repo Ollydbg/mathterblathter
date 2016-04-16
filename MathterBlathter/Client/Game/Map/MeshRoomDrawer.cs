@@ -30,7 +30,24 @@ namespace Client.Game.Map
 			DrawWalls (room, color);
 			DrawPlatforms(room, color);
 			DrawDoors (room);
+			DrawBackground(room, color);
 
+		}
+
+		void DrawBackground (Room room, Color color)
+		{
+			//var container = new GameObject();
+
+			var plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+			//plane.transform.parent = container.transform;
+
+			plane.transform.Rotate(Vector3.right, 270);
+
+			plane.GetComponent<Renderer>().material.color = RandomColor();
+			GameObject.Destroy(plane.GetComponent<Collider>());
+
+			plane.transform.localScale = new Vector3(room.Width*.1f, 1f, room.Height*.1f);
+			plane.transform.position = new Vector3(room.X + room.Width*.5f, room.Y + room.Height*.5f, 5);
 		}
 
 		void DrawPlatforms (Room room, Color color)

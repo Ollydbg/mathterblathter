@@ -22,13 +22,13 @@ namespace Client.Game.Core
 		}
 
 
-		Dictionary<int, Actor> Actors = new Dictionary<int, Actor>();
 		public Character PossessedActor;
 
 		public InputManager InputManager;
 		public RoomManager RoomManager;
 		public CameraManager CameraManager;
 		public AbilityManager AbilityManager;
+		public ActorManager ActorManager;
 
 		private IGameManager[] Managers;
 
@@ -46,6 +46,7 @@ namespace Client.Game.Core
 		private void CreateManagers() {
 			var tmp = new List<IGameManager> ();
 			InputManager = new InputManager();
+			ActorManager = new ActorManager(this);
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
 			AbilityManager = new AbilityManager ();
@@ -53,19 +54,25 @@ namespace Client.Game.Core
 			tmp.Add (InputManager);
 			tmp.Add (AbilityManager);
 			tmp.Add (RoomManager);
+			tmp.Add (ActorManager);
 			tmp.Add (CameraManager);
 
 			Managers = tmp.ToArray ();
 		}
 
+		public void Restart ()
+		{
+			new List<IGameManager>(Managers).ForEach(p => p.Shutdown());
+
+			StartGame();
+		}
+
 		public void StartGame() {
-			//remove ALL actors
-
-
-			PossessedActor = Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
+			
+			PossessedActor = ActorManager.Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
 			CameraManager.TargetTransform = PossessedActor.transform;
 
-			new List<IGameManager>(Managers).ForEach(p => p.Init ());
+			new List<IGameManager>(Managers).ForEach(p => p.Start (this));
 
 			RoomManager.EnterRoom(PossessedActor, RoomManager.Rooms[0]);
 		}
@@ -76,66 +83,14 @@ namespace Client.Game.Core
 				Managers [i].Update (dt);
 			}
 
-			foreach( var kvp in Actors) 
-				kvp.Value.Update(dt);
 
-			while (deferredAds.Count > 0) {
-				var actor = deferredAds.Dequeue ();
-				Actors.Add (actor.Id, actor);
-			}
-
-			while (deferredRemoves.Count > 0) {
-				var actor = deferredRemoves.Dequeue ();
-				Actors.Remove (actor.Id);
-				GameObject.Destroy (actor.GameObject);
-			}
 		}
 
 		public void FixedUpdate() {
-			foreach( var kvp in Actors) 
-				kvp.Value.FixedUpdate();
-		}
-
-		public T Spawn<T>(CharacterData data) where T : Character, new() {
-			T actor = Spawn<T> (data.ResourcePath);
-			actor.LoadFromData (data);
-			return actor;
-		}
-
-		public T Spawn<T>(string resourceName) where T : Actor, new() {
-
-			var actor = new T ();
-			GameObject obj;
-			if (resourceName != null) {
-				var loaded = Resources.Load (resourceName);
-				obj = (GameObject)GameObject.Instantiate (loaded);
-			} else {
-				obj = new GameObject ();
-			}
-
-			BindActor (actor, obj);
-			
-			actor.EnterGame(this);
-
-			return actor;
+			ActorManager.FixedUpdate();
 		}
 
 
-		private Queue<Actor> deferredRemoves = new Queue<Actor> ();
-		public void RemoveActor(Actor actor) {
-			deferredRemoves.Enqueue (actor);
-		}
-
-		private Queue<Actor> deferredAds = new Queue<Actor>();
-		void BindActor(Actor actor, GameObject obj) {
-			obj.AddComponent<ActorRef> ();
-			obj.GetComponent<ActorRef> ().Actor = actor;
-
-			actor.GameObject = obj;
-
-			deferredAds.Enqueue (actor);
-
-		}
 
 	}
 }

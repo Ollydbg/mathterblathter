@@ -24,13 +24,17 @@ namespace Client.Game.Managers
 		{
 		}
 
-
-		public void Init ()
+		public void Start (Game game)
 		{
 			bindControls ();
 
 			this.TargetActor = Game.Instance.PossessedActor;
 		}
+		public void Shutdown ()
+		{
+			throw new NotImplementedException ();
+		}
+
 
 		private void bindControls() {
 

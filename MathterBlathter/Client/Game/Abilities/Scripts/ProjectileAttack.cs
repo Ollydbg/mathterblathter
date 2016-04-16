@@ -20,7 +20,7 @@ namespace Client.Game.Abilities.Scripts
 
 			projectile.OnHit = (actor) => {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
-				context.source.Game.RemoveActor(projectile);
+				context.source.Game.ActorManager.RemoveActor(projectile);
 			};
 		}
 

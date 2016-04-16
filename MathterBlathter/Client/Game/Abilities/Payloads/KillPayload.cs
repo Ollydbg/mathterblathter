@@ -24,7 +24,7 @@ namespace Client.Game.Abilities.Payloads
 		
 			new KillRewardPayload(Context, Target, Context.source).Apply();
 
-			Target.Game.RemoveActor (Target);
+			Target.Game.ActorManager.RemoveActor (Target);
 		}
 
 

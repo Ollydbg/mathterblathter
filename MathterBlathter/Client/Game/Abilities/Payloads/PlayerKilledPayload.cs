@@ -33,8 +33,6 @@ namespace Client.Game.Abilities.Payloads
 			AbilityManager.ActivateAbility(deathContext);
 			//trigger it
 
-
-			
 		}
 
 	}

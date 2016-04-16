@@ -5,8 +5,9 @@ namespace Client.Game.Managers
 	public interface IGameManager
 	{
 
-		void Init();
+		void Start(Client.Game.Core.Game game);
 		void Update(float dt);
+		void Shutdown();
 	}
 }
 

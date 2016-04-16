@@ -12,7 +12,6 @@ namespace Client.Game.Managers
 	public class RoomManager : IGameManager
 	{
 		
-
 		public List<Room> Rooms;
 		public Room CurrentRoom;
 
@@ -21,8 +20,12 @@ namespace Client.Game.Managers
 			
 		}
 
+		public void Shutdown ()
+		{
+			
+		}
 
-		public void Init ()
+		public void Start (Game game)
 		{
 			//make rooms
 			var mocked = MockRoomData.GetAll();
@@ -37,7 +40,7 @@ namespace Client.Game.Managers
 		public void CreateRoomObjects(Room room) {
 
 			foreach (var spawn in room.data.Spawns) {
-				var spawned = Game.Instance.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
+				var spawned = Game.Instance.ActorManager.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
 				spawned.transform.position = spawn.RoomPosition + room.Position;
 
 				if(spawned.Data.ActorType == ActorType.Enemy) {

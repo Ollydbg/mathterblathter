@@ -40,12 +40,19 @@ namespace Client.Game.Managers
 		}
 
 		#region IGameManager implementation
-		public void Init ()
-		{
+
+		public void Start (Game game)
+		{ 
 			camera = Camera.main;	
 			transform = camera.transform;
 			Rooms = Game.Instance.RoomManager;
 		}
+
+		public void Shutdown ()
+		{
+			throw new NotImplementedException ();
+		}
+
 		public void Update (float dt)
 		{
 		

@@ -33,7 +33,7 @@ namespace Client
 
 		public ProjectileActor FireProjectile(string projectileResourcePath) {
 
-			var projectile = context.source.Game.Spawn<ProjectileActor>(projectileResourcePath);
+			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileResourcePath);
 			projectile.transform.position = context.source.transform.position;
 			projectile.SetMovement (context.direction, 5f);
 
