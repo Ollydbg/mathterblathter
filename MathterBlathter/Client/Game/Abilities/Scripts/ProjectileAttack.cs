@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using Client.Game.Data;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -16,7 +17,10 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var projectile = FireProjectile (context.data.spawnableResourcePath, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+
+			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
+
+			var projectile = FireProjectile (projectileData, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			projectile.OnHit = (actor) => {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();

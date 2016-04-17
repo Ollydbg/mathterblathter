@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Data;
+using System.Linq;
+using Client.Game.Map;
 
 namespace Client.Game.Managers
 {
@@ -14,15 +16,32 @@ namespace Client.Game.Managers
 
 		Game Game;
 
+		private Dictionary<ActorType, Type> ActorTypeLookup;
+		
 		public ActorManager (Game game)
 		{
+			ActorTypeLookup = new Dictionary<ActorType, Type>();
+
+			ActorTypeLookup[ActorType.Player] = typeof(PlayerCharacter);
+			ActorTypeLookup[ActorType.Pickup] = typeof(Pickup);
+			ActorTypeLookup[ActorType.Enemy] = typeof(Character);
+			ActorTypeLookup[ActorType.Friendly] = typeof(Character);
+			ActorTypeLookup[ActorType.Door] = typeof(DoorActor);
+			ActorTypeLookup[ActorType.Projectile] = typeof(ProjectileActor);
+
 			Game = game;
 		}
 
 		#region IGameManager implementation
 
+		public void SetPlayerCharacter (PlayerCharacter player)
+		{
+		}
+
+
 		public void Start (Game game)
 		{
+			
 		}
 
 		public void Update (float dt)
@@ -54,15 +73,28 @@ namespace Client.Game.Managers
 		}
 
 
-		public T Spawn<T>(CharacterData data) where T : Character, new() {
-			T actor = Spawn<T> (data.ResourcePath);
-			actor.LoadFromData (data);
+		//so nasty
+		public IEnumerable<T> GetActorsOfType<T>() where T : Actor {
+			return this.Actors.Values.Where(p => p.GetType() == typeof(T)).Cast<T>();
+		}
+
+		public Actor Spawn(CharacterData data) {
+			//read type from the data
+			var type = ActorTypeLookup[data.ActorType];
+			var actor = Spawn(data.ResourcePath, type);
+			actor.LoadFromData(data);
+			actor.EnterGame(this.Game);
 			return actor;
 		}
 
-		public T Spawn<T>(string resourceName) where T : Actor, new() {
+		public T Spawn<T>(CharacterData data) where T : Actor, new() {
+			return (T)Spawn(data);
+		}
 
-			var actor = new T ();
+
+		public Actor Spawn(string resourceName, Type type) {
+
+			var actor = (Actor)Activator.CreateInstance(type);
 			GameObject obj;
 			if (resourceName != null) {
 				var loaded = Resources.Load (resourceName);
@@ -73,10 +105,14 @@ namespace Client.Game.Managers
 
 			BindActor (actor, obj);
 
-			actor.EnterGame(this.Game);
-
 			return actor;
 		}
+
+		/*
+		public T Spawn<T>(string resourceName) where T : Actor, new() {
+			return (T)Spawn(resourceName, typeof(T));
+		}
+		*/
 
 
 		private Queue<Actor> deferredRemoves = new Queue<Actor> ();

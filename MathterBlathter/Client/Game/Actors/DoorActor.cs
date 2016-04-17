@@ -84,17 +84,23 @@ namespace Client.Game.Actors
 			}
 		}
 
+
 		void onCollision (UnityEngine.Collider Collider)
 		{
 			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
- 			if(hitRef && hitRef.Actor.ActorType == ActorType.Player) {
+			if(hitRef && Game.PossessedActor == hitRef.Actor) {
 				Game.RoomManager.EnterRoom(hitRef.Actor, this.Parent, this);
 			}
 		}
 
+		public override void Update (float dt)
+		{
+			//Debug.Log(transform.position);
+			base.Update(dt);
+		}
+
 		public override void EnterGame(Client.Game.Core.Game game) {
-
-
+			
 			GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
 
 			base.EnterGame(game);

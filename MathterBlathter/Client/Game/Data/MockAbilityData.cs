@@ -29,7 +29,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData ();
 				ret.Id = 100;
 				ret.name = "Enemy Projectile test";
-				ret.spawnableResourcePath = "Projectiles/enemyTest_prefab";
+				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Cooldown.Id, .5f
 				));
@@ -44,7 +44,7 @@ namespace Client.Game.Data
 				));
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
-
+				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}
@@ -67,7 +67,7 @@ namespace Client.Game.Data
 					AbilityAttributes.MeleeRange.Id, 2f
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MeleeAttack);
-
+				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}
@@ -90,7 +90,7 @@ namespace Client.Game.Data
 					AbilityAttributes.MeleeRange.Id, 50
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
-
+				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}
@@ -102,10 +102,11 @@ namespace Client.Game.Data
 				ret.name = "Player Death Ability";
 				ret.animation = States.DEATH;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerDeathBuff);
-
+				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
 		}
+
 
 	}
 }

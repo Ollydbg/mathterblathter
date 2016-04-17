@@ -51,12 +51,12 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "                         L   ";
 				ret.AsciiMap += "d                           d";
-				ret.AsciiMap += "              1              ";
+				ret.AsciiMap += "                      1      ";
 				ret.AsciiMap += "fffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
 
-				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['1'] = MockActorData.RANDOM_WEAPON_PICKUP;
 
 				addDoorsFromAscii (ret);
 				addSpawnsFromAscii (ret);

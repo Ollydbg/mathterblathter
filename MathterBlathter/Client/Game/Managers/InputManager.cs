@@ -16,19 +16,24 @@ namespace Client.Game.Managers
 		public static string ATTACK = "Attack";
 		public static string Aim = "Aim";
 		public static string Interact = "Interact";
+		public static string PICKUP = "Pickup";
 
 
-		public Character TargetActor;
+		public PlayerCharacter TargetActor;
 
 		public InputManager ()
 		{
+		}
+
+		public void SetPlayerCharacter (PlayerCharacter player)
+		{
+			this.TargetActor = player;
 		}
 
 		public void Start (Game game)
 		{
 			bindControls ();
 
-			this.TargetActor = Game.Instance.PossessedActor;
 		}
 		public void Shutdown ()
 		{
@@ -49,7 +54,10 @@ namespace Client.Game.Managers
 			if(Input.GetButtonUp(JUMP)) {
 				TargetActor.Controller.StopJumping();
 			}
-			
+
+			if(Input.GetButtonDown(PICKUP)) {
+				TargetActor.PickupController.PickupClosest();
+			}
 
 			var hor = Input.GetAxis (HORIZONTAL);
 			var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));

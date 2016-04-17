@@ -32,13 +32,16 @@ namespace Client.Game.Actors
 
 		public virtual void LoadFromData(CharacterData data) {
 			this.Data = data;
+
 		}
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {
 			this.Game = game;
+
+			//I should break this out into an actor factory instead of having hard linkages
+			Game.AbilityManager.AddActor(this);
+
 		}
-
-
 
 		public virtual void Update(float dt) {
 			

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Client.Game.Enums;
 
 namespace Client.Game.Data
 {
@@ -9,7 +10,8 @@ namespace Client.Game.Data
 		public List<AttributeData> attributeData = new List<AttributeData>();
 		public string animation;
 		public Type executionScript;
-		public string spawnableResourcePath;
+		public int spawnableDataId;
+		public AbilityType AbilityType;
 
 		public AbilityData ()
 		{

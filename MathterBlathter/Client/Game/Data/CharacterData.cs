@@ -14,21 +14,20 @@ namespace Client.Game.Data
 		public AIData AIData;
 		public List<AttributeData> attributeData = new List<AttributeData>();
 
-		public Dictionary<AbilityType, Type> Abilities = new Dictionary<AbilityType, Type>();
+		public Dictionary<AbilitySlots, Type> Abilities = new Dictionary<AbilitySlots, Type>();
 		//serialized attributes
 
-
 	}
+	
 
 	public enum ActorType {
 		Friendly,
-		ShopKeeper,
 		Player,
 		Enemy,
 		Door,
-		Boss,
 		Room,
 		Projectile,
+		Pickup,
 	}
 
 }

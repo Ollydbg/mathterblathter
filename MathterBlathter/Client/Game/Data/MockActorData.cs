@@ -47,19 +47,19 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.PLAYER_MELEE.Id,
-					(int)AbilityType.Melee
+					(int)AbilitySlots.Melee
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.PLAYER_RANGED.Id,
-					(int)AbilityType.Ranged
+					(int)AbilitySlots.Ranged
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.PLAYER_DEATH_BUFF.Id,
-					(int)AbilityType.Death
+					(int)AbilitySlots.Death
 				));
 
 
@@ -104,11 +104,45 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData RANDOM_WEAPON_PICKUP {
+			get {
+				var ret = new CharacterData();
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Pickup;
+
+				ret.Id = 200;
+				ret.Name = "PickupTest";
+
+				return ret;
+			}
+		}
+
+		public static CharacterData DOOR {
+			get {
+				var ret = new CharacterData();
+				ret.ResourcePath = "Door_prefab";
+				ret.Id = 102;
+				ret.ActorType = ActorType.Door;
+
+				return ret;
+			}
+		}
+
+		public static CharacterData PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.ActorType = ActorType.Projectile;
+				ret.ResourcePath = "Projectiles/enemyTest_prefab";
+
+				return ret;
+			}
+		}
+
 		public static CharacterData SHOPKEEPER {
 			get {
 				var ret = new CharacterData ();
 				ret.ResourcePath = "ShopKeeper_prefab";
-				ret.ActorType = ActorType.ShopKeeper;
+				ret.ActorType = ActorType.Friendly;
 				ret.AIData = new AIData ();
 				ret.Id = 101;
 				ret.Name = "Grapthar";

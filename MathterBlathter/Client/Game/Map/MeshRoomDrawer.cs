@@ -21,20 +21,24 @@ namespace Client.Game.Map
 
 		public void Draw (Room room)
 		{
+			var gameObject = new GameObject();
+			gameObject.transform.position = GridToWorldSpace(room);
+			gameObject.name = "ROOM " + room.data.Id;
+
 			extractor = new AsciiMeshExtractor (room.data.AsciiMap);
 			//get contour
 			var color = RandomColor();
-			DrawLights (room);
-			DrawCeiling (room, color);
-			DrawFloors (room, color);
-			DrawWalls (room, color);
-			DrawPlatforms(room, color);
-			DrawDoors (room);
-			DrawBackground(room, color);
+			DrawLights (room, gameObject);
+			DrawCeiling (room, color, gameObject);
+			DrawFloors (room, color, gameObject);
+			DrawWalls (room, color, gameObject);
+			DrawPlatforms(room, color, gameObject);
+			DrawDoors (room, gameObject);
+			DrawBackground(room, color, gameObject);
 
 		}
 
-		void DrawBackground (Room room, Color color)
+		void DrawBackground (Room room, Color color, GameObject parentObject)
 		{
 			//var container = new GameObject();
 
@@ -43,32 +47,33 @@ namespace Client.Game.Map
 
 			plane.transform.Rotate(Vector3.right, 270);
 
-			plane.GetComponent<Renderer>().material.color = color*.5f;
+			plane.GetComponent<Renderer>().material.color = color*.1f;
 			GameObject.Destroy(plane.GetComponent<Collider>());
 
 			plane.transform.localScale = new Vector3(room.Width*.1f, 1f, room.Height*.1f);
 			plane.transform.position = new Vector3(room.X + room.Width*.5f, room.Y + room.Height*.5f, 5);
+			plane.transform.parent = parentObject.transform;
 		}
 
 
-		void DrawPlatforms (Room room, Color color)
+		void DrawPlatforms (Room room, Color color, GameObject gameObject)
 		{
 			
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.PLATFORM)) {
-				var go = DrawRoomChunk(room, chunk, color, "mesh platform");
+				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh platform");
 				AddColliderForChunk(go, chunk);
 			}
 		}
 
-		void DrawCeiling (Room room, Color color)
+		void DrawCeiling (Room room, Color color, GameObject gameObject)
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.CEILING)) {
-				var go = DrawRoomChunk(room, chunk, color, "mesh ceiling");
+				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh ceiling");
 				AddColliderForChunk(go, chunk);
 			}
 		}
 
-		public void DrawDoors(Room room) {
+		public void DrawDoors(Room room, GameObject gameobject) {
 			foreach (var door in room.Doors) {
 				door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
 
@@ -91,17 +96,17 @@ namespace Client.Game.Map
 			}
 		}
 
-		GameObject DrawRoomChunk(Room room, Chunk chunk, Color color, string name) {
+		GameObject DrawRoomChunk(Room room, Chunk chunk, Color color, GameObject parentObj, string name) {
 			var go = new GameObject ();
 			go.name = name;
 			var mr = go.AddComponent<MeshRenderer> ();
 			var mf = go.AddComponent<MeshFilter> ();
 			AddColliderForChunk(go, chunk);
-
+			go.layer = LayerMask.NameToLayer(Layers.Geometry.ToString());
 			mf.mesh = extractor.chunkToMesh (chunk);
 			mr.material.color = color;
-
-			go.gameObject.transform.position = chunk.Origin + GridToWorldSpace(room);
+			go.gameObject.transform.parent = parentObj.transform;
+			go.gameObject.transform.localPosition = chunk.Origin;
 			return go;
 		}
 
@@ -115,10 +120,10 @@ namespace Client.Game.Map
 			return box;
 		}
 
-		void DrawWalls (Room room, Color color)
+		void DrawWalls (Room room, Color color, GameObject gameobject)
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.WALL)) {
-				var go = DrawRoomChunk(room, chunk, color, "wall");
+				var go = DrawRoomChunk(room, chunk, color, gameobject, "wall");
 				AddColliderForChunk(go, chunk);
 			}
 		}
@@ -126,21 +131,22 @@ namespace Client.Game.Map
 
 
 
-		void DrawFloors(Room room, Color color) {
+		void DrawFloors(Room room, Color color, GameObject gameobject) {
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.FLOOR)) {
-				var go = DrawRoomChunk(room, chunk, color, "floor");
+				var go = DrawRoomChunk(room, chunk, color, gameobject,  "floor");
 				AddColliderForChunk(go, chunk);
 			}
 		}
 
 
-		void DrawLights (Room room)
+		void DrawLights (Room room, GameObject gameObject)
 		{
 			foreach( var lightPos in extractor.getAllMatching(AsciiMap.LIGHT, true)) {
 				var lightObj = new GameObject ();
 				var light = lightObj.AddComponent<Light> ();
 				light.range = room.Width;
-				lightObj.transform.position = new Vector3 (lightPos.x, lightPos.y, -2f) + GridToWorldSpace(room);
+				lightObj.transform.parent = gameObject.transform;
+				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, -2f);
 				light.type = LightType.Point;
 				light.gameObject.transform.Rotate(new Vector3(293f, 0, 0));
 

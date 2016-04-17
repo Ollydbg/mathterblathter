@@ -9,6 +9,7 @@ using Client.Game.Enums;
 namespace Client.Game.Map
 {
 	using DoorLinkMapping = Dictionary<RoomData.Link, DoorActor>;
+	using Game = Game.Core.Game;
 
 	public class MapGenerator
 	{
@@ -72,7 +73,8 @@ namespace Client.Game.Map
 		}
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
-			var doorActor = Core.Game.Instance.ActorManager.Spawn<DoorActor>(resourceName:"Door_prefab");
+			//var doorActor = Core.Game.Instance.ActorManager.Spawn<DoorActor>(resourceName:"Door_prefab");
+			var doorActor = (DoorActor)Game.Instance.ActorManager.Spawn(MockActorData.DOOR);
 			doorActor.GameObject.name = "DoorActor";
 			doorActor.LinkedGuid = doorGuidLink;
 			doorActor.InitWithData(link);
@@ -173,9 +175,11 @@ namespace Client.Game.Map
 		private void SealDoors() {
 			foreach(var unlinked in UnlinkedDoors) {
 				unlinked.Parent.Doors.Remove(unlinked);
-				UnityEngine.Object.Destroy(unlinked.GameObject);
+				Game.Instance.ActorManager.RemoveActor(unlinked);
+				//UnityEngine.Object.Destroy(unlinked.GameObject);
 			}
 		}
+
 
 
 	}

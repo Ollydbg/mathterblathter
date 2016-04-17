@@ -4,6 +4,7 @@ using Client.Game.Attributes;
 using Client.Game.Animation;
 using Client.Game.Abilities;
 using Client.Game.Data;
+using System.Linq;
 
 namespace Client.Game.Actors
 {
@@ -118,6 +119,7 @@ namespace Client.Game.Actors
 				jumpNeedsReset = true;
 			}
 		}
+
 
 		public void Attack () {
 

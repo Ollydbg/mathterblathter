@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.AI;
 using Client.Game.Animation;
 using Client.Game.Data;
+using Client.Game.Items;
 
 namespace Client.Game.Actors
 {
@@ -12,6 +13,8 @@ namespace Client.Game.Actors
 		public CharacterController Controller;
 		public Brain Brain;
 		public float colliderHeight;
+
+
 		public Vector3 HalfHeight {
 			get {
 				return transform.position + new Vector3 (0f, colliderHeight*.5f, 0f);

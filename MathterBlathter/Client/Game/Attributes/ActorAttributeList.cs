@@ -38,7 +38,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF MeleeBonusRangePct = new GameAttributeF(13, 1.0f, "Melee Bonus Range Percent", GameAttributeEncoding.Float16, 0f, 1f); //<-- Air Control
 		public static readonly GameAttributeI BloodBalance = new GameAttributeI(16, 0, "blood", GameAttributeEncoding.Int, 0, int.MaxValue);
 		public static readonly GameAttributeI BloodBounty = new GameAttributeI(17, 0, "blood bounty", GameAttributeEncoding.Int, 0, int.MaxValue);
-		
+		public static readonly GameAttributeF PickupRadius = new GameAttributeF(18, 4, "pickup radius", GameAttributeEncoding.Float16, 0, float.MaxValue);
+		public static readonly GameAttributeE State = new GameAttributeE(19, (int)ActorState.Alive, "Actor's state", GameAttributeEncoding.Int, 0, int.MaxValue, typeof(ActorState));
 
 	}
 }

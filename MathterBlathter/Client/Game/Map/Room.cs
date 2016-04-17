@@ -17,12 +17,18 @@ namespace Client.Game.Map
 		public int Width;
 		public int Height;
 		public RoomData data;
+		public int Id;
+		private static int LastId = 0;
 
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
 			void Draw (Room room);
 		}
 
+		public override int GetHashCode ()
+		{
+			return Id;
+		}
 
 		private static IRoomDrawer Drawer = new MeshRoomDrawer();
 
@@ -79,6 +85,7 @@ namespace Client.Game.Map
 
 		public Room (RoomData data)
 		{
+			this.Id = ++LastId;
 			this.data = data;
 			initFromData (data);
 		}

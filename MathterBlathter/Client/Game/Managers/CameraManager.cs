@@ -16,6 +16,11 @@ namespace Client.Game.Managers
 
 		public Transform TargetTransform;
 
+		public void SetPlayerCharacter (PlayerCharacter player)
+		{
+			TargetTransform = player.transform;
+		}
+
 		RoomManager Rooms;
 
 		Vector3 goalPosition {

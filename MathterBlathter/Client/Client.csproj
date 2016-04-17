@@ -100,10 +100,18 @@
     <Compile Include="Game\Abilities\Payloads\KillRewardPayload.cs" />
     <Compile Include="Game\Enums\RoomEntranceBehavior.cs" />
     <Compile Include="Game\Abilities\Scripts\PlayerDeathBuff.cs" />
-    <Compile Include="Game\Enums\AbilityType.cs" />
     <Compile Include="Game\Enums\GameState.cs" />
     <Compile Include="Game\Managers\ActorManager.cs" />
     <Compile Include="Game\Enums\AttachPoint.cs" />
+    <Compile Include="Game\UI\Run\ItemPickupPopup.cs" />
+    <Compile Include="Game\Actors\Pickup.cs" />
+    <Compile Include="Game\Items\PickupController.cs" />
+    <Compile Include="Game\Enums\Layers.cs" />
+    <Compile Include="Game\Abilities\BuffBase.cs" />
+    <Compile Include="Game\Managers\UIManager.cs" />
+    <Compile Include="Game\Enums\AbilitySlots.cs" />
+    <Compile Include="Game\Enums\AbilityType.cs" />
+    <Compile Include="Game\Enums\ActorState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -125,5 +133,6 @@
     <Folder Include="Game\Map\Ascii\" />
     <Folder Include="Game\UI\" />
     <Folder Include="Game\UI\Run\" />
+    <Folder Include="Game\Items\" />
   </ItemGroup>
 </Project>

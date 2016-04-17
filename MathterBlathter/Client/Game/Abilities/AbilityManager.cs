@@ -5,6 +5,12 @@ using Client.Game.Actors;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Abilities.Scripts;
 using System.Linq;
+using Client.Game.Attributes;
+using Client.Game.Data;
+using Client.Game.Enums;
+using UnityEngine;
+
+
 namespace Client.Game.Abilities
 {
 
@@ -15,6 +21,9 @@ namespace Client.Game.Abilities
 
 		public Dictionary<Actor, List<AbilityBase>> Abilities = new Dictionary<Actor, List<AbilityBase>>();
 
+		public void SetPlayerCharacter (PlayerCharacter player)
+		{
+		}
 
 		public Queue<RemovePair> deferredRemoves = new Queue<RemovePair>();
 
@@ -64,6 +73,29 @@ namespace Client.Game.Abilities
 			ability.Init (ctx);
 			ability.Start ();
 
+		}
+
+		public void AddActor (Actor actor)
+		{
+			if(!ActorUsesAbilities(actor)) {
+				return;
+			}
+
+			Character character = (Character) actor;
+
+			var buffDatasToCreate = actor.Data.attributeData
+				.Where( p=>p.Id == ActorAttributes.Abilities.Id)
+				.Select(p => MockAbilityData.FromId(p.ValueI))
+				.Where(p=>p.AbilityType == AbilityType.Buff);
+
+			foreach( var buffData in buffDatasToCreate) {
+				ActivateAbility( new AbilityContext(character, character, buffData));
+			}
+		}
+
+		bool ActorUsesAbilities (Actor actor)
+		{
+			return actor.ActorType == ActorType.Enemy || actor.ActorType == ActorType.Friendly;
 		}
 
 		//returns true if it got consumed
