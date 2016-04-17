@@ -22,6 +22,7 @@ namespace Client.Game.Managers
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
+			EnterRoom(player, Rooms[0]);
 		}
 
 		public void Shutdown ()
@@ -35,7 +36,7 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 1);
+			Rooms = generator.GenerateFromDataSet (mocked, 20);
 			Rooms.ForEach (p => p.Draw());
 
 		}
@@ -67,13 +68,15 @@ namespace Client.Game.Managers
 			//reject if not actually running
 			if(!Game.Instance.Running)
 				return;
-
-			if(throughDoor != null) 
-				Debug.Log("Enterring room " + throughDoor);
-
+			
 			if(CurrentRoom == room) {
 				return;
 			}
+
+
+			if(throughDoor != null) 
+				Debug.Log("Enterring room " + throughDoor.transform.position);
+			
 
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);

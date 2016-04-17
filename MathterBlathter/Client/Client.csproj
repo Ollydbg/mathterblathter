@@ -98,7 +98,6 @@
     <Compile Include="Game\Map\Ascii\AsciiVector.cs" />
     <Compile Include="Game\UI\Run\PlayerStatsHud.cs" />
     <Compile Include="Game\Abilities\Payloads\KillRewardPayload.cs" />
-    <Compile Include="Game\Enums\RoomEntranceBehavior.cs" />
     <Compile Include="Game\Abilities\Scripts\PlayerDeathBuff.cs" />
     <Compile Include="Game\Enums\GameState.cs" />
     <Compile Include="Game\Managers\ActorManager.cs" />
@@ -112,6 +111,7 @@
     <Compile Include="Game\Enums\AbilitySlots.cs" />
     <Compile Include="Game\Enums\AbilityType.cs" />
     <Compile Include="Game\Enums\ActorState.cs" />
+    <Compile Include="Game\Enums\RoomSpawnType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

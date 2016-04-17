@@ -79,13 +79,10 @@ namespace Client.Game.Core
 			new List<IGameManager>(Managers).ForEach(p => p.Start (this));
 
 			PossessedActor = ActorManager.Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
-			CameraManager.TargetTransform = PossessedActor.transform;
 
 			new List<IGameManager>(Managers).ForEach(p => p.SetPlayerCharacter (PossessedActor));
 
-			RoomManager.EnterRoom(PossessedActor, RoomManager.Rooms[0]);
 		}
-
 
 
 		public void Update(float dt) {

@@ -58,7 +58,7 @@ namespace Client.Game.Data
 			//LOCAL SPACE!!
 			public float X;
 			public float Y;
-			public RoomEntranceBehavior EntranceType;
+			public RoomSpawnType SpawnType;
 
 			public Spawn(CharacterData inData) {
 				this.ActorId = inData.Id;

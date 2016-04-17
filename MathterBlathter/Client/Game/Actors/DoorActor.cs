@@ -95,7 +95,6 @@ namespace Client.Game.Actors
 
 		public override void Update (float dt)
 		{
-			//Debug.Log(transform.position);
 			base.Update(dt);
 		}
 

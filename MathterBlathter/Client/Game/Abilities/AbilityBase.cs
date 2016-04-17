@@ -36,8 +36,8 @@ namespace Client
 		public ProjectileActor FireProjectile(CharacterData projectileData, float speed, AttachPoint point) {
 
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
+			projectile.transform.position = AttachPointPositionOnActor(point, context.source);
 
-			projectile.transform.position = AttachPointPositionOnActor(point, context.source);//context.source.transform.position;
 			projectile.transform.LookAt(projectile.transform.position + context.direction);
 			projectile.SetMovement (context.direction, speed);
 
