@@ -45,6 +45,12 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Weapons.Id,
+					MockWeaponData.MELEE_WEAPON_1.Id,
+					0
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.PLAYER_MELEE.Id,
 					(int)AbilitySlots.Melee

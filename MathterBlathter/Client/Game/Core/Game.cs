@@ -39,11 +39,6 @@ namespace Client.Game.Core
 
 		}
 
-		public bool Running {
-			get {
-				return PossessedActor != null && PossessedActor.Attributes[ActorAttributes.State] == (int)ActorState.Alive;
-			}
-		}
 
 		private void Init() {
 
@@ -76,9 +71,9 @@ namespace Client.Game.Core
 		}
 
 		public void StartGame() {
-			new List<IGameManager>(Managers).ForEach(p => p.Start (this));
-
 			PossessedActor = ActorManager.Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
+
+			new List<IGameManager>(Managers).ForEach(p => p.Start (this));
 
 			new List<IGameManager>(Managers).ForEach(p => p.SetPlayerCharacter (PossessedActor));
 

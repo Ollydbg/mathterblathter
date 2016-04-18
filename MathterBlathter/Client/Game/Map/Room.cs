@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Linq;
 using Client.Game.Core;
 using Client.Game.Actors;
+using Client.Game.Enums;
 
 namespace Client.Game.Map
 {
@@ -19,6 +20,8 @@ namespace Client.Game.Map
 		public RoomData data;
 		public int Id;
 		private static int LastId = 0;
+
+		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
 
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
@@ -70,6 +73,19 @@ namespace Client.Game.Map
 			get {
 				return (float)(Y - .5 * Height);
 			}
+		}
+
+		public bool TryRecordSpawn (RoomData.Spawn spawn)
+		{
+			if(spawn.SpawnType == RoomSpawnType.EveryRoomEntrance)
+				return true;
+
+			if(SpawnHistory.ContainsKey(spawn.Guid)) {
+				return false;
+			} 
+
+			SpawnHistory[spawn.Guid] = true;
+			return true;
 		}
 
 		public void PlayerLeft (Actor actor)

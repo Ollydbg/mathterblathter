@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using Client.Game.Data;
 
 namespace Client.Game.Items
 {
@@ -34,6 +35,9 @@ namespace Client.Game.Items
 
 		void Consume(Pickup actor) {
 			//give to owner
+
+			((PlayerCharacter)Owner).WeaponController.AddWeapon(MockWeaponData.RANGED_WEAPON_1);
+
 			//remove from this world
 			actor.Game.ActorManager.RemoveActor(actor);
 			ClosestPickup = null;
@@ -45,6 +49,7 @@ namespace Client.Game.Items
 			if(ClosestPickup != null) {
 				Consume(ClosestPickup);
 			}
+
 		}
 
 		void UpdateSlow ()

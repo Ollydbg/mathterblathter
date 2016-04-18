@@ -59,9 +59,10 @@ namespace Client.Game.Data
 			public float X;
 			public float Y;
 			public RoomSpawnType SpawnType;
-
+			public Guid Guid;
 			public Spawn(CharacterData inData) {
 				this.ActorId = inData.Id;
+				this.Guid = Guid.NewGuid();
 			}
 			public Vector3 RoomPosition {
 				get {

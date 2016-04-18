@@ -65,7 +65,7 @@ namespace Client.Game.Managers
 
 
 			if (Input.GetButtonDown (SWITCH_WEAPON)) {
-				TargetActor.Controller.SwitchWeapon ();
+				TargetActor.WeaponController.ToggleWeapon ();
 			}
 
 

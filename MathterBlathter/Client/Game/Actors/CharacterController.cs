@@ -63,10 +63,7 @@ namespace Client.Game.Actors
 			}
 		}
 
-		public void SwitchWeapon ()
-		{
 
-		}
 
 		public void FixedUpdate() {
 			ConsumeMovement();

@@ -11,9 +11,11 @@ namespace Client.Game.Actors
 	{
 
 		public PickupController PickupController;
+		public WeaponController WeaponController;
 
 		public PlayerCharacter ()
 		{
+			
 		}
 
 		public override ActorType ActorType {
@@ -24,13 +26,13 @@ namespace Client.Game.Actors
 
 		void onCollision (Collider collider)
 		{
-			//var hitRef = collider.gameObject.GetComponent<ActorRef>();
-		
+			
 		}
 
 		public override void EnterGame (Game game)
 		{
 			base.EnterGame (game);
+			this.WeaponController = new WeaponController(this);
 			this.PickupController = new PickupController(this);
 			GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
 		}
@@ -38,6 +40,7 @@ namespace Client.Game.Actors
 		public override void Update (float dt)
 		{
 			PickupController.Update(dt);
+			WeaponController.Update(dt);
 			base.Update (dt);
 		}
 

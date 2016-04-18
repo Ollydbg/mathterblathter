@@ -29,7 +29,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF SustainedJumpPower = new GameAttributeF(14, 0, "sustained jumping height", GameAttributeEncoding.Float16, 0, 50);
 		public static readonly GameAttributeF MaxJumpPower = new GameAttributeF(15, 0, "max jump power", GameAttributeEncoding.Float16, 0, 100); 
 		public static readonly GameAttributeI Abilities = new GameAttributeI(5, 0, "abilities", GameAttributeEncoding.Int, 0 , int.MaxValue);
-		public static readonly GameAttributeI Weapons = new GameAttributeI(6, 0, "weapons", GameAttributeEncoding.Int, 0, int.MaxValue);
+		public static readonly GameAttributeI Weapons = new GameAttributeI(6, 0, "weapons", GameAttributeEncoding.Int, 0, 10);
 		public static readonly GameAttributeI CurrentWeaponIndex = new GameAttributeI(7, 0, "current weapon index", GameAttributeEncoding.Int, 0, 10);
 		public static readonly GameAttributeF AIDetectionRadius = new GameAttributeF(8, 15, "ai detection radius", GameAttributeEncoding.Float16, 2, 1000);
 		public static readonly GameAttributeF GravityScalar = new GameAttributeF(10, -1.8f, "gravity scalar", GameAttributeEncoding.Float16, -10, 1000);
@@ -40,6 +40,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI BloodBounty = new GameAttributeI(17, 0, "blood bounty", GameAttributeEncoding.Int, 0, int.MaxValue);
 		public static readonly GameAttributeF PickupRadius = new GameAttributeF(18, 4, "pickup radius", GameAttributeEncoding.Float16, 0, float.MaxValue);
 		public static readonly GameAttributeE State = new GameAttributeE(19, (int)ActorState.Alive, "Actor's state", GameAttributeEncoding.Int, 0, int.MaxValue, typeof(ActorState));
+		public static readonly GameAttributeI WeaponCount = new GameAttributeI(20, 0, "Actor's weapon count", GameAttributeEncoding.Int, 0, int.MaxValue);
 
 	}
 }

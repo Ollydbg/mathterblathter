@@ -28,7 +28,7 @@ namespace Client.Game.Managers
 			ActorTypeLookup[ActorType.Friendly] = typeof(Character);
 			ActorTypeLookup[ActorType.Door] = typeof(DoorActor);
 			ActorTypeLookup[ActorType.Projectile] = typeof(ProjectileActor);
-
+			ActorTypeLookup[ActorType.Weapon] = typeof(WeaponActor);
 			Game = game;
 		}
 

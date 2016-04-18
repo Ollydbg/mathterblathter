@@ -260,6 +260,8 @@ namespace Client.Game.Data
 					var spawn = new RoomData.Spawn(spawnType.Value);
 					spawn.X = match.x;
 					spawn.Y = match.y;
+					spawn.SpawnType = RoomSpawnType.FirstRoomEntrance;
+
 					room.Spawns.Add(spawn);
 				}
 			}

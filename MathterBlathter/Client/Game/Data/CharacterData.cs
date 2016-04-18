@@ -28,6 +28,7 @@ namespace Client.Game.Data
 		Room,
 		Projectile,
 		Pickup,
+		Weapon,
 	}
 
 }

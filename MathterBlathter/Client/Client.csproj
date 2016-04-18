@@ -112,6 +112,10 @@
     <Compile Include="Game\Enums\AbilityType.cs" />
     <Compile Include="Game\Enums\ActorState.cs" />
     <Compile Include="Game\Enums\RoomSpawnType.cs" />
+    <Compile Include="Game\UI\Run\LoadoutHud.cs" />
+    <Compile Include="Game\Data\MockWeaponData.cs" />
+    <Compile Include="Game\Items\WeaponController.cs" />
+    <Compile Include="Game\Actors\WeaponActor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

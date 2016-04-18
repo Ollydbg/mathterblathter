@@ -93,8 +93,8 @@ namespace Client.Game.Map
 
 
 				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
-				var box = door.GameObject.AddComponent<BoxCollider>();
-				box.isTrigger = true;
+				/*var box = door.GameObject.AddComponent<BoxCollider>();
+				box.isTrigger = true;*/
 			}
 		}
 

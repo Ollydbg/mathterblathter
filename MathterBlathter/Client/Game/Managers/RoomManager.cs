@@ -4,6 +4,8 @@ using Client.Game.Map;
 using System.Collections.Generic;
 using Client.Game.Actors;
 using UnityEngine;
+using System.Linq;
+using System.Collections;
 
 namespace Client.Game.Managers
 {
@@ -23,6 +25,18 @@ namespace Client.Game.Managers
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
 			EnterRoom(player, Rooms[0]);
+
+			//this is some bullshit, but the door triggers invoke when created on the same frame as the player
+			player.GameObject.GetComponent<ActorRef>().StartCoroutine(LateInit());
+		}
+
+		private IEnumerator LateInit() {
+			yield return new WaitForSeconds(.5f);
+			foreach ( var door in Rooms.SelectMany(p => p.Doors) ) {
+				var box = door.GameObject.AddComponent<BoxCollider>();
+				box.isTrigger = true;
+			}
+
 		}
 
 		public void Shutdown ()
@@ -36,7 +50,7 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 20);
+			Rooms = generator.GenerateFromDataSet (mocked, 2);
 			Rooms.ForEach (p => p.Draw());
 
 		}
@@ -45,18 +59,21 @@ namespace Client.Game.Managers
 		public void CreateRoomObjects(Room room) {
 
 			foreach (var spawn in room.data.Spawns) {
-				var spawned = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
-				//var spawned = Game.Instance.ActorManager.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
-				spawned.transform.position = spawn.RoomPosition + room.Position;
-
-				if(spawned.Data.ActorType == ActorType.Enemy) {
-					var enemyChar = (Character)spawned;
-					enemyChar.Brain = new Client.Game.AI.Brain (spawned);
-					var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
-					var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
-					seekToAction.Next = fireAtAction;
-					fireAtAction.Next = seekToAction;
-					enemyChar.Brain.CurrentAction = seekToAction;
+				if(room.TryRecordSpawn(spawn)) {
+					
+					var spawned = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
+					//var spawned = Game.Instance.ActorManager.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
+					spawned.transform.position = spawn.RoomPosition + room.Position;
+					
+					if(spawned.Data.ActorType == ActorType.Enemy) {
+						var enemyChar = (Character)spawned;
+						enemyChar.Brain = new Client.Game.AI.Brain (spawned);
+						var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
+						var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
+						seekToAction.Next = fireAtAction;
+						fireAtAction.Next = seekToAction;
+						enemyChar.Brain.CurrentAction = seekToAction;
+					}
 				}
 			}
 		}
@@ -64,19 +81,10 @@ namespace Client.Game.Managers
 
 		public void EnterRoom (Actor actor, Room room, DoorActor throughDoor = null)
 		{
-
-			//reject if not actually running
-			if(!Game.Instance.Running)
-				return;
-			
 			if(CurrentRoom == room) {
 				return;
 			}
 
-
-			if(throughDoor != null) 
-				Debug.Log("Enterring room " + throughDoor.transform.position);
-			
 
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);
@@ -95,7 +103,6 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-			
 		}
 
 	}
