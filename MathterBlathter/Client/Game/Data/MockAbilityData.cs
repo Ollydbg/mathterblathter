@@ -40,7 +40,7 @@ namespace Client.Game.Data
 					AbilityAttributes.Damage.Id, 10
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Eyes
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
 				));
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
@@ -86,9 +86,6 @@ namespace Client.Game.Data
 					AbilityAttributes.Damage.Id, 10
 				));
 
-				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.MeleeRange.Id, 50
-				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
 				ret.AbilityType = AbilityType.Instanced;
 				return ret;
@@ -103,6 +100,39 @@ namespace Client.Game.Data
 				ret.animation = States.DEATH;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerDeathBuff);
 				ret.AbilityType = AbilityType.Buff;
+				return ret;
+			}
+		}
+
+		public static AbilityData SHOTGUN_BLAST {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 3;
+				ret.name = "Shotgun blast";
+				ret.animation = States.ATTACK2;
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 5
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 3
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 18f
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileSpread.Id, 45f
+				));
+
+
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
+				ret.AbilityType = AbilityType.Instanced;
+
+
 				return ret;
 			}
 		}

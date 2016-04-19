@@ -70,7 +70,7 @@ namespace Client.Game.Managers
 
 
 			if (Input.GetButtonDown (ATTACK) || Input.GetButtonDown(PS4_SQ)) {
-				TargetActor.Controller.Attack ();
+				TargetActor.WeaponController.Attack ();
 			}
 
 			

@@ -59,7 +59,7 @@ namespace Client.Game.Abilities.Scripts
 		public void DamageFacing() {
 			var point = context.source.HalfHeight + offset;
 
-			var inRange = AbilityUtils.CollideSphere (point, context, Attributes[AbilityAttributes.MeleeRange], AbilityUtils.NotSelfFilter, AbilityUtils.IsEnemyFilter);
+			var inRange = AbilityUtils.CollideSphere (point, context, Attributes[AbilityAttributes.MeleeRange], FilterList.QuickFilters);
 			foreach (var actor in inRange) {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 			}

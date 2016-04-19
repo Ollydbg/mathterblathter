@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using Client.Game.Data;
+using Client.Game.Abilities.Utils;
+using Client.Game.Abilities;
 
 namespace Client.Game.Actors
 {
@@ -10,6 +12,9 @@ namespace Client.Game.Actors
 		private Vector3 direction;
 		private float speed;
 		private float lifespan = 5.0f;
+		private FilterList collisionFilters;
+
+		AbilityContext context;
 
 		private const string PROJECTILES_LAYER = "Projectiles";
 
@@ -38,11 +43,17 @@ namespace Client.Game.Actors
 			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
 		}
 
+		public void SetCollisionFilters(AbilityContext context, FilterList filters) {
+			this.context = context;
+			this.collisionFilters = filters;
+		}
+
 		void onCollision (Collider Collider)
 		{
 			var actorRef = Collider.GetComponent<ActorRef>();
 			if (actorRef != null && OnHit != null) {
-				OnHit (actorRef.Actor);
+				if(collisionFilters.Check(context, actorRef.Actor)) 
+					OnHit (actorRef.Actor);
 			}
 		}
 

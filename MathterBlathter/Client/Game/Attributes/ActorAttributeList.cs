@@ -41,7 +41,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF PickupRadius = new GameAttributeF(18, 4, "pickup radius", GameAttributeEncoding.Float16, 0, float.MaxValue);
 		public static readonly GameAttributeE State = new GameAttributeE(19, (int)ActorState.Alive, "Actor's state", GameAttributeEncoding.Int, 0, int.MaxValue, typeof(ActorState));
 		public static readonly GameAttributeI WeaponCount = new GameAttributeI(20, 0, "Actor's weapon count", GameAttributeEncoding.Int, 0, int.MaxValue);
-
+		public static readonly GameAttributeB TakesDamage = new GameAttributeB(21, 0, "does this actor take damage?", GameAttributeEncoding.Int, 0, 1);
 	}
 }
 

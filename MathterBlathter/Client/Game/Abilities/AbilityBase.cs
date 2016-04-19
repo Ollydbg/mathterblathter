@@ -6,6 +6,7 @@ using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
 using Client.Game.Enums;
 using Client.Game.Data;
+using Client.Game.Abilities.Utils;
 
 namespace Client
 {
@@ -33,18 +34,14 @@ namespace Client
 			return false;
 		}
 
-		public ProjectileActor FireProjectile(CharacterData projectileData, float speed, AttachPoint point) {
+		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
 
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
 			projectile.transform.position = AttachPointPositionOnActor(point, context.source);
 
-			projectile.transform.LookAt(projectile.transform.position + context.direction);
-			projectile.SetMovement (context.direction, speed);
-
-
-			
-
-
+			projectile.transform.LookAt(projectile.transform.position + direction);
+			projectile.SetMovement (direction, speed);
+			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
 
 			return projectile;
 

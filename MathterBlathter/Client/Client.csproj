@@ -116,6 +116,8 @@
     <Compile Include="Game\Data\MockWeaponData.cs" />
     <Compile Include="Game\Items\WeaponController.cs" />
     <Compile Include="Game\Actors\WeaponActor.cs" />
+    <Compile Include="Game\Abilities\Utils\FilterList.cs" />
+    <Compile Include="Game\Abilities\Scripts\ShotgunBlast.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

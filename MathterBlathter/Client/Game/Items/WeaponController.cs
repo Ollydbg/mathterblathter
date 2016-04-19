@@ -5,23 +5,23 @@ using Client.Game.Data;
 using UnityEngine;
 using Client.Game.Enums;
 using System.Collections.Generic;
+using Client.Game.Abilities;
 
 namespace Client.Game.Items
 {
 	public class WeaponController
 	{
-		Actor Owner;
+		Character Owner;
 
 		Dictionary<CharacterData, WeaponActor> ActiveLookup = new Dictionary<CharacterData, WeaponActor>();
 		public WeaponActor currentWeapon;
 
-		public WeaponController (Actor owner)
+		public WeaponController (Character owner)
 		{
 			this.Owner = owner;
 
 			for( int i = 0; i< ActorAttributes.Weapons.MaxValue; i++ ) {
 				int id = Owner.Attributes[ActorAttributes.Weapons, i];
-				Debug.Log(id);
 				if(id == ActorAttributes.Weapons.DefaultValue) {
 					break;
 				} else {
@@ -77,6 +77,21 @@ namespace Client.Game.Items
 		public void Update (float dt)
 		{
 			
+		}
+
+		private Vector3 getMousingDirection() {
+			var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			var worldDir3 = worldPoint - Owner.transform.position;
+			return new Vector3(worldDir3.x, worldDir3.y).normalized;
+
+		}
+
+		public void Attack () {
+			var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities];
+
+			var direction = getMousingDirection();
+
+			Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, direction, MockAbilityData.FromId(abilityId)));
 		}
 	}
 }

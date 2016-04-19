@@ -33,6 +33,7 @@ namespace Client.Game.Actors
 		public virtual void LoadFromData(CharacterData data) {
 			this.Data = data;
 
+			Attributes.LoadFromData (data.attributeData);
 		}
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {

@@ -27,6 +27,9 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF MeleeRange = new GameAttributeF(4, 10, "melee range", GameAttributeEncoding.Float16, 0, float.MaxValue);
 		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(5, 2, "projectile speed", GameAttributeEncoding.Int, 0, int.MaxValue);
 		public static readonly GameAttributeE FiresFromJoint = new GameAttributeE(6, 0, "weapon attach point", GameAttributeEncoding.Int, 0, int.MaxValue, typeof(AttachPoint));
+		public static readonly GameAttributeI ProjectileCount = new GameAttributeI(7, 1, "projectile count for repeated weapons", GameAttributeEncoding.Int, 0, 100);
+		public static readonly GameAttributeF ProjectileSpread = new GameAttributeF(8, 1f, "spread degrees for repeated weapons", GameAttributeEncoding.Float16, 0, 180f); 
+	
 	}
 }
 

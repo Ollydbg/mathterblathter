@@ -32,6 +32,10 @@ namespace Client.Game.Data
 					ActorAttributes.Speed.Id, 20f
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.MinJumpPower.Id, .2f
 				));
@@ -82,6 +86,9 @@ namespace Client.Game.Data
 				ret.Id = 100;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
@@ -160,6 +167,9 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Speed.Id, .08f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 100

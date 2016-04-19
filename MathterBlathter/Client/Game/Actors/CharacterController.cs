@@ -118,12 +118,6 @@ namespace Client.Game.Actors
 		}
 
 
-		public void Attack () {
-
-			var weaponIndex = Actor.Attributes[ActorAttributes.CurrentWeaponIndex];
-			Actor.Game.AbilityManager.ActivateAbility (new AbilityContext(Actor, Actor.transform.forward, MockAbilityData.PLAYER_MELEE));
-		}
-
 
 
 	}

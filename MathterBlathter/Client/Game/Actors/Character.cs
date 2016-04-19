@@ -30,6 +30,7 @@ namespace Client.Game.Actors
 
 		public Character ()
 		{
+			
 		}
 
 	
@@ -43,12 +44,6 @@ namespace Client.Game.Actors
 			base.EnterGame (game);
 		}
 
-		public override void LoadFromData(CharacterData data) {
-			var charData = data;
-			Attributes.LoadFromData (charData.attributeData);
-
-			base.LoadFromData (data);
-		}
 
 		public override void Update(float dt) {
 			if(Brain != null) 

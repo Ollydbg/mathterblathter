@@ -2,6 +2,7 @@
 using UnityEngine;
 using Client.Game.Data;
 using Client.Game.Items;
+using Client.Game.Attributes;
 
 namespace Client.Game.Actors
 {
@@ -43,6 +44,7 @@ namespace Client.Game.Actors
 			WeaponController.Update(dt);
 			base.Update (dt);
 		}
+
 
 	}
 }

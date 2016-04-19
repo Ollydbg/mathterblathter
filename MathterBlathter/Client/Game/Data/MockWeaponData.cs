@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Client.Game.Enums;
+using Client.Game.Attributes;
 
 namespace Client.Game.Data
 {
@@ -25,8 +26,11 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.ResourcePath = "Weapons/MeleeTest";
 				ret.ActorType = ActorType.Weapon;
+				ret.Name = "2x4";
 				ret.Id = 1000;
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.PLAYER_MELEE.Id
+				));
 				return ret;
 			}
 		}
@@ -36,12 +40,31 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Ceramic Blaster";
 				ret.Id = 1001;
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id
+				));
 
 				return ret;
 			}
 		}
 
+
+		public static CharacterData CERAMIC_SHOTGUN {
+			get {
+				var ret = new CharacterData();
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Ceramic Shotgun";
+				ret.Id = 1002;
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id
+				));
+
+				return ret;
+			}
+		}
 	}
 }
 
