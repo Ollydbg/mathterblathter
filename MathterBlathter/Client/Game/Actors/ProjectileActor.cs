@@ -44,7 +44,6 @@ namespace Client.Game.Actors
 			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
 			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += OnCollision;
 
-
 		}
 
 		public void SetCollisionFilters(AbilityContext context, FilterList filters) {

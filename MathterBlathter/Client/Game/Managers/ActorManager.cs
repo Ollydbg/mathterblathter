@@ -70,7 +70,9 @@ namespace Client.Game.Managers
 
 		public void Shutdown ()
 		{
-			
+			foreach( var actor in Actors.Values) {
+				RemoveActor(actor);
+			}
 		}
 
 

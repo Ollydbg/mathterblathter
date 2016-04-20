@@ -72,7 +72,7 @@ namespace Client.Game.Managers
 
 		public void Shutdown ()
 		{
-			throw new NotImplementedException ();
+			TargetTransform = null;
 		}
 
 		public void Update (float dt)

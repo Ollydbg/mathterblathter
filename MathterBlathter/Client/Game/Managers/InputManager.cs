@@ -41,7 +41,7 @@ namespace Client.Game.Managers
 		}
 		public void Shutdown ()
 		{
-			
+			TargetActor = null;
 		}
 
 		private void bindControls() {

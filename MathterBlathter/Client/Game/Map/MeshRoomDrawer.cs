@@ -19,7 +19,7 @@ namespace Client.Game.Map
 		private const int DOOR_HEIGHT = 3;
 
 
-		public void Draw (Room room)
+		public GameObject Draw (Room room)
 		{
 			var gameObject = new GameObject();
 			gameObject.transform.position = GridToWorldSpace(room);
@@ -35,6 +35,8 @@ namespace Client.Game.Map
 			DrawPlatforms(room, color, gameObject);
 			DrawDoors (room, gameObject);
 			DrawBackground(room, color, gameObject);
+
+			return gameObject;
 
 		}
 

@@ -25,9 +25,9 @@ namespace Client.Game.Data
 		public static CharacterData PLAYER_TEST {
 			get {
 				var ret = new CharacterData ();
+				ret.Id = 1;
 				ret.ResourcePath = "Actors/Arthur/Prefabs/arthur_prefab";
 				ret.ActorType = ActorType.Player;
-				ret.Id = 1;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Speed.Id, 20f
 				));
@@ -80,10 +80,47 @@ namespace Client.Game.Data
 		public static CharacterData GROUNDED_RANGED_ENEMY {
 			get {
 				var ret = new CharacterData ();
-				ret.ResourcePath = "EnemyTest_prefab";
+				ret.Id = 2;
+				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = new AIData ();
-				ret.Id = 100;
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 100
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 20.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, .08f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 100
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 10
+				));;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.ENEMY_PROJECTILE_TEST.Id,
+					0
+				));
+
+
+				return ret;
+			}
+		}
+
+		public static CharacterData FLOATING_STATIONARY_TURRET {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = 3;
+				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.AIData = new AIData ();
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -117,13 +154,14 @@ namespace Client.Game.Data
 			}
 		}
 
+
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
 				var ret = new CharacterData();
+				ret.Id = 4;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Pickup;
 
-				ret.Id = 200;
 				ret.Name = "PickupTest";
 
 				return ret;
@@ -133,8 +171,8 @@ namespace Client.Game.Data
 		public static CharacterData DOOR {
 			get {
 				var ret = new CharacterData();
+				ret.Id = 5;
 				ret.ResourcePath = "Door_prefab";
-				ret.Id = 102;
 				ret.ActorType = ActorType.Door;
 
 				return ret;
@@ -144,6 +182,7 @@ namespace Client.Game.Data
 		public static CharacterData PROJECTILE {
 			get {
 				var ret = new CharacterData();
+				ret.Id = 6;
 				ret.ActorType = ActorType.Projectile;
 				ret.ResourcePath = "Projectiles/enemyTest_prefab";
 
@@ -154,10 +193,10 @@ namespace Client.Game.Data
 		public static CharacterData SHOPKEEPER {
 			get {
 				var ret = new CharacterData ();
-				ret.ResourcePath = "ShopKeeper_prefab";
+				ret.Id = 7;
+				ret.ResourcePath = "Actors/NPCS/ShopKeeper_prefab";
 				ret.ActorType = ActorType.Friendly;
 				ret.AIData = new AIData ();
-				ret.Id = 101;
 				ret.Name = "Grapthar";
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 1000

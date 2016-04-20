@@ -1,5 +1,6 @@
 ﻿using System;
 using Client.Game.UI.Run;
+using UnityEngine;
 
 
 namespace Client.Game.Managers
@@ -13,6 +14,9 @@ namespace Client.Game.Managers
 		public PlayerStatsHud StatsHud;
 		public ZoneTitle ZoneTitle;
 
+		private static String Run_Resource = "UI/RunUI";
+
+		public GameObject GameObject;
 
 		public void SetPlayerCharacter (Client.Game.Actors.PlayerCharacter player)
 		{
@@ -25,7 +29,7 @@ namespace Client.Game.Managers
 
 		public void Start (Game game)
 		{
-			
+			this.GameObject = (GameObject)GameObject.Instantiate(Resources.Load(Run_Resource));
 		}
 
 
@@ -36,7 +40,8 @@ namespace Client.Game.Managers
 
 		public void Shutdown ()
 		{
-			
+			UnityEngine.GameObject.Destroy(this.GameObject);
+			this.GameObject = null;
 		}
 
 	}

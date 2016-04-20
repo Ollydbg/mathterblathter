@@ -63,7 +63,17 @@ namespace Client.Game.Actors
 			}
 		}
 
+		bool SubjectToGravity {
+			get {
+				return Actor.Attributes[ActorAttributes.GravityScalar] != 0f;
+			}
+		}
 
+		float GravityScalar {
+			get {
+				return Actor.Attributes[ActorAttributes.GravityScalar];
+			}
+		}
 
 		public void FixedUpdate() {
 			
@@ -71,8 +81,8 @@ namespace Client.Game.Actors
 
 		public void Update(float dt) {
 
-			if(!IsGrounded) {
-				gravityYv += (GRAVITY_ACC*dt);
+			if(!IsGrounded && SubjectToGravity) {
+				gravityYv += (GRAVITY_ACC*dt * GravityScalar);
 				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 10);
 				movementAccumulator += Vector3.up * (gravityYv);
 			} else {

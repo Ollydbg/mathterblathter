@@ -58,7 +58,10 @@ namespace Client.Game.Managers
 
 		public void Shutdown ()
 		{
-			
+			foreach( var room in Rooms) {
+				GameObject.Destroy(room.GameObject);
+			}
+			Rooms.Clear();
 		}
 
 		public void Start (Game game)
@@ -92,6 +95,8 @@ namespace Client.Game.Managers
 				}
 			}
 		}
+
+		
 
 
 		public void EnterRoom (Actor actor, Room room, DoorActor throughDoor = null)

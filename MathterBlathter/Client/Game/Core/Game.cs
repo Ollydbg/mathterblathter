@@ -31,7 +31,7 @@ namespace Client.Game.Core
 		public CameraManager CameraManager;
 		public AbilityManager AbilityManager;
 		public ActorManager ActorManager;
-		
+		public UIManager UIManager;
 		private IGameManager[] Managers;
 
 		public Game ()
@@ -53,13 +53,14 @@ namespace Client.Game.Core
 			ActorManager = new ActorManager(this);
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
+			UIManager = new UIManager();
 
 			tmp.Add (InputManager);
 			tmp.Add (AbilityManager);
 			tmp.Add (RoomManager);
+			tmp.Add (UIManager);
 			tmp.Add (ActorManager);
 			tmp.Add (CameraManager);
-
 			Managers = tmp.ToArray ();
 		}
 

@@ -128,6 +128,8 @@ namespace Client.Game.Data
 				));
 
 
+				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
+
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
 				ret.AbilityType = AbilityType.Instanced;

@@ -21,16 +21,18 @@ namespace Client.Game.Map
 
 		RoomGrid Grid;
 		Room Head;
+		RoomPool Pool;
 
 		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
 
 		//returns head
 		public List<Room> GenerateFromDataSet(List<RoomData> data, int maxRooms) {
 
-			var ret = new List<Room> ();
-			for (var i = 0; i< maxRooms; i++) {
+			Pool = new RoomPool(data, maxRooms);
 
-				var roomData = data [i % data.Count];
+			var ret = new List<Room> ();
+			while(!Pool.Exhausted) {
+				RoomData roomData = Pool.Next();
 
 				int targetX;
 				int targetY;
@@ -87,7 +89,7 @@ namespace Client.Game.Map
 
 		//this this is how we can bias which direction the map grows in
 		int roomSearch = 0;
-		DoorRoomSide[] SearchDirections = new DoorRoomSide[]{DoorRoomSide.Left, DoorRoomSide.Top, DoorRoomSide.Right, DoorRoomSide.Bottom};
+		DoorRoomSide[] SearchDirections = new DoorRoomSide[]{DoorRoomSide.Left, DoorRoomSide.Right, DoorRoomSide.Top, DoorRoomSide.Bottom};
 
 		bool SearchForBlock (RoomData data, out int targetX, out int targetY, out DoorLinkMapping doorLinks)
 		{

@@ -39,7 +39,7 @@ namespace Client.Game.Actors
 			Controller = new CharacterController (this);
 			Animator = new PlayerAnimator3D(this);
 
-			colliderHeight = GameObject.GetComponent<CapsuleCollider> ().height;
+			colliderHeight = GameObject.GetComponent<Collider> ().bounds.extents.y;
 
 			base.EnterGame (game);
 		}

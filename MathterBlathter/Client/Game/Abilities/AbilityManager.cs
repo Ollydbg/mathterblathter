@@ -39,7 +39,8 @@ namespace Client.Game.Abilities
 		}
 		public void Shutdown ()
 		{
-			throw new NotImplementedException ();
+			Abilities.Clear();
+			deferredRemoves.Clear();
 		}
 
 

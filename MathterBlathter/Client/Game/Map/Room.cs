@@ -20,6 +20,7 @@ namespace Client.Game.Map
 		public RoomData data;
 		public int Id;
 		private static int LastId = 0;
+		public GameObject GameObject;
 
 
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
@@ -28,7 +29,7 @@ namespace Client.Game.Map
 
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
-			void Draw (Room room);
+			GameObject Draw (Room room);
 		}
 
 		public override int GetHashCode ()
@@ -120,7 +121,7 @@ namespace Client.Game.Map
 		}
 
 		public void Draw() {
-			Drawer.Draw (this);
+			GameObject = Drawer.Draw (this);
 		}
 
 	}

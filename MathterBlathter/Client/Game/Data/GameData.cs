@@ -5,7 +5,6 @@ namespace Client.Game.Data
 	public class GameData
 	{
 		public int Id;
-
 		public GameData ()
 		{
 		}
@@ -20,6 +19,8 @@ namespace Client.Game.Data
 			public AttributeData(int id, int valueI, int index = -1){ this.Id = id; this.ValueI = valueI; this.Index = index;}
 
 		}
+
+		
 	}
 }
 
