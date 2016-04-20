@@ -23,13 +23,26 @@ namespace Client.Game.Managers
 
 		RoomManager Rooms;
 
+
 		Vector3 goalPosition {
 			get {
 
 				if (TargetTransform != null) {
+
+					var room = Rooms.CurrentRoom;
+
+					var vExtent = camera.orthographicSize;
+					var hExtent = camera.orthographicSize * Screen.width / Screen.height;
+
+
+					var minX = hExtent + room.X;
+					var maxX = minX + room.Width - 2*hExtent;
+					var minY = vExtent + room.Y;
+					var maxY = minY + room.Height - 2*vExtent;
+
 					return new Vector3 (
-						Game.Instance.PossessedActor.GameObject.transform.position.x, 
-						Game.Instance.PossessedActor.GameObject.transform.position.y, 
+						Mathf.Clamp(Game.Instance.PossessedActor.GameObject.transform.position.x, minX, maxX), 
+						Mathf.Clamp(Game.Instance.PossessedActor.GameObject.transform.position.y, minY, maxY), 
 						transform.position.z);
 				} else {
 					return transform.position;
@@ -38,9 +51,13 @@ namespace Client.Game.Managers
 			}
 		}
 
+
+
 		float goalSize {
 			get {
-				return Mathf.Max(Rooms.CurrentRoom.Width*.5f, Rooms.CurrentRoom.Height*.5f) - 5;
+
+				return Rooms.CurrentRoom.Height*.5f;
+
 			}
 		}
 
@@ -62,10 +79,11 @@ namespace Client.Game.Managers
 		{
 		
 			//size
-			camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, goalSize, dt);
+			//camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, goalSize, dt);
 			//position
-			//transform.position = Rooms.CurrentRoom.roomCenter + Vector3.back*10;//goalPosition;
-			transform.position = goalPosition;
+
+			transform.position = Vector3.Lerp(transform.position, goalPosition, .1f);
+
 		}
 		#endregion
 	}

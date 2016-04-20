@@ -73,11 +73,6 @@ namespace Client.Game.Managers
 		}
 
 
-		//so nasty
-		public IEnumerable<T> GetActorsOfType<T>() where T : Actor {
-			return this.Actors.Values.Where(p => p.GetType() == typeof(T)).Cast<T>();
-		}
-
 		public Actor Spawn(CharacterData data) {
 			//read type from the data
 			var type = ActorTypeLookup[data.ActorType];
@@ -107,13 +102,6 @@ namespace Client.Game.Managers
 
 			return actor;
 		}
-
-		/*
-		public T Spawn<T>(string resourceName) where T : Actor, new() {
-			return (T)Spawn(resourceName, typeof(T));
-		}
-		*/
-
 
 		private Queue<Actor> deferredRemoves = new Queue<Actor> ();
 		public void RemoveActor(Actor actor) {

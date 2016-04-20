@@ -21,7 +21,10 @@ namespace Client.Game.Map
 		public int Id;
 		private static int LastId = 0;
 
+
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
+
+		public List<Light> Lights;
 
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
@@ -90,12 +93,11 @@ namespace Client.Game.Map
 
 		public void PlayerLeft (Actor actor)
 		{
-			
 		}
 
 		public void PlayerEntered (Actor actor, DoorActor throughDoor)
 		{
-			
+			Lights.ForEach(l => l.gameObject.SetActive(true));
 		}
 		
 

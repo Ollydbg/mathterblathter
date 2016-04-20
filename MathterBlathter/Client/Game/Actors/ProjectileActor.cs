@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.Data;
 using Client.Game.Abilities.Utils;
 using Client.Game.Abilities;
+using Client.Game.Enums;
 
 namespace Client.Game.Actors
 {
@@ -16,8 +17,8 @@ namespace Client.Game.Actors
 
 		AbilityContext context;
 
-		private const string PROJECTILES_LAYER = "Projectiles";
-
+		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
+		private static int GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.Geometry.ToString());
 
 		public ProjectileActor ()
 		{
@@ -40,7 +41,10 @@ namespace Client.Game.Actors
 		{
 			this.direction = direction;
 			this.speed = speed;
-			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
+			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
+			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += OnCollision;
+
+
 		}
 
 		public void SetCollisionFilters(AbilityContext context, FilterList filters) {
@@ -48,12 +52,21 @@ namespace Client.Game.Actors
 			this.collisionFilters = filters;
 		}
 
-		void onCollision (Collider Collider)
+		void OnCollision (Collision collision)
+		{
+			Game.ActorManager.RemoveActor(this);
+		}
+
+		void OnTrigger (Collider Collider)
 		{
 			var actorRef = Collider.GetComponent<ActorRef>();
 			if (actorRef != null && OnHit != null) {
 				if(collisionFilters.Check(context, actorRef.Actor)) 
 					OnHit (actorRef.Actor);
+			}
+
+			if(Collider.gameObject.layer == GEOMETRY_LAYER) {
+				Game.ActorManager.RemoveActor(this);
 			}
 		}
 

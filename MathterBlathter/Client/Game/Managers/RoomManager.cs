@@ -17,6 +17,8 @@ namespace Client.Game.Managers
 		public List<Room> Rooms;
 		public Room CurrentRoom;
 
+		public const int MAP_SIZE = 10;
+
 		public RoomManager ()
 		{
 			
@@ -50,7 +52,7 @@ namespace Client.Game.Managers
 			var mocked = MockRoomData.GetAll();
 
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, 10);
+			Rooms = generator.GenerateFromDataSet (mocked, MAP_SIZE);
 			Rooms.ForEach (p => p.Draw());
 
 		}

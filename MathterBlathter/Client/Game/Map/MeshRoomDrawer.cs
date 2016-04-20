@@ -61,7 +61,7 @@ namespace Client.Game.Map
 			
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.PLATFORM)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh platform");
-				AddColliderForChunk(go, chunk);
+				AddColliderForChunk(go, chunk, true);
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace Client.Game.Map
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.CEILING)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh ceiling");
-				AddColliderForChunk(go, chunk);
+				AddColliderForChunk(go, chunk, true);
 			}
 		}
 
@@ -93,8 +93,7 @@ namespace Client.Game.Map
 
 
 				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
-				/*var box = door.GameObject.AddComponent<BoxCollider>();
-				box.isTrigger = true;*/
+
 			}
 		}
 
@@ -103,30 +102,33 @@ namespace Client.Game.Map
 			go.name = name;
 			var mr = go.AddComponent<MeshRenderer> ();
 			var mf = go.AddComponent<MeshFilter> ();
-			AddColliderForChunk(go, chunk);
+			AddColliderForChunk(go, chunk, false);
 			go.layer = LayerMask.NameToLayer(Layers.Geometry.ToString());
 			mf.mesh = extractor.chunkToMesh (chunk);
 			mr.material.color = color;
 			go.gameObject.transform.parent = parentObj.transform;
 			go.gameObject.transform.localPosition = chunk.Origin;
+			go.isStatic = true;
+
 			return go;
 		}
 
 
-		Collider AddColliderForChunk(GameObject go, Chunk chunk) {
+		Collider AddColliderForChunk(GameObject go, Chunk chunk, bool trigger) {
 			var box = go.AddComponent<BoxCollider>();
 			box.size = new Vector3(chunk.Width, chunk.Height, 1);
 			var halfSize = box.size*.5f;
 			if(chunk.Height > 1) halfSize.y = -.5f*chunk.Height+1;
 			box.center = halfSize;
+			box.isTrigger = trigger;
 			return box;
 		}
 
 		void DrawWalls (Room room, Color color, GameObject gameobject)
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.WALL)) {
-				var go = DrawRoomChunk(room, chunk, color, gameobject, "wall");
-				AddColliderForChunk(go, chunk);
+				DrawRoomChunk(room, chunk, color, gameobject, "wall");
+
 			}
 		}
 
@@ -135,17 +137,21 @@ namespace Client.Game.Map
 
 		void DrawFloors(Room room, Color color, GameObject gameobject) {
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.FLOOR)) {
-				var go = DrawRoomChunk(room, chunk, color, gameobject,  "floor");
-				AddColliderForChunk(go, chunk);
+				DrawRoomChunk(room, chunk, color, gameobject,  "floor");
 			}
 		}
 
 
 		void DrawLights (Room room, GameObject gameObject)
 		{
+			room.Lights = new List<Light>();
+
 			foreach( var lightPos in extractor.getAllMatching(AsciiMap.LIGHT, true)) {
 				var lightObj = new GameObject ();
 				var light = lightObj.AddComponent<Light> ();
+				room.Lights.Add(light);
+				//disabled by default
+				lightObj.SetActive(false);
 				light.range = room.Width;
 				lightObj.transform.parent = gameObject.transform;
 				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, -2f);
