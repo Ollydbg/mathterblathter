@@ -49,10 +49,10 @@ namespace Client.Game.Core
 		private void CreateManagers() {
 			var tmp = new List<IGameManager> ();
 			InputManager = new InputManager();
+			AbilityManager = new AbilityManager ();
 			ActorManager = new ActorManager(this);
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
-			AbilityManager = new AbilityManager ();
 
 			tmp.Add (InputManager);
 			tmp.Add (AbilityManager);
@@ -88,6 +88,7 @@ namespace Client.Game.Core
 
 
 		}
+
 
 		public void FixedUpdate() {
 			ActorManager.FixedUpdate();

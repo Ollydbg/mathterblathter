@@ -65,6 +65,10 @@ namespace Client.Game.Items
 
 		}
 
+		public void Aim(Vector3 aim) {
+
+		}
+
 		private Transform GetAttachTransform(AttachPoint pt) {
 			foreach( var ap in Owner.GameObject.GetComponentsInChildren<AttachPointComponent>()) {
 				if(ap.Type == pt) {
@@ -83,7 +87,6 @@ namespace Client.Game.Items
 			var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			var worldDir3 = worldPoint - Owner.transform.position;
 			return new Vector3(worldDir3.x, worldDir3.y).normalized;
-
 		}
 
 		public void Attack () {

@@ -77,14 +77,14 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-		
+
 			//size
 			//camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, goalSize, dt);
 			//position
 
 			transform.position = Vector3.Lerp(transform.position, goalPosition, .1f);
-
 		}
+
 		#endregion
 	}
 

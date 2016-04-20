@@ -11,6 +11,10 @@ namespace Client.Game.Managers
 		public static string HORIZONTAL = "Horizontal";
 		public static string HORIZONTAL_D_PAD = "PS4_DpadHorizontal";
 		public static string PS4_SQ = "PS4_SQ";
+		public static string PS4_R1 = "R1";
+		public static string PS4_TRI = "PS4_TRI";
+		public static string PS4_RIGHT_STICK_X = "PS4_RIGHT_STICK_X";
+		public static string PS4_RIGHT_STICK_Y = "PS4_RIGHT_STICK_Y";
 		public static string JUMP = "Jump";
 		public static string SWITCH_WEAPON = "SwitchWeapon";
 		public static string ATTACK = "Attack";
@@ -40,7 +44,6 @@ namespace Client.Game.Managers
 			
 		}
 
-
 		private void bindControls() {
 
 		}
@@ -64,16 +67,40 @@ namespace Client.Game.Managers
 			TargetActor.Controller.MoveRight (hor+controllerHor);
 
 
-			if (Input.GetButtonDown (SWITCH_WEAPON)) {
+			if (Input.GetButtonDown (SWITCH_WEAPON) || Input.GetButtonDown(PS4_TRI)) {
 				TargetActor.WeaponController.ToggleWeapon ();
 			}
 
+			TargetActor.WeaponController.Aim(getAimingVector());
 
 			if (Input.GetButtonDown (ATTACK) || Input.GetButtonDown(PS4_SQ)) {
 				TargetActor.WeaponController.Attack ();
 			}
 
 			
+		}
+
+		private bool mousing = true;
+		private Vector3 getAimingVector() {
+			float controllerX = Input.GetAxis(PS4_RIGHT_STICK_X);
+			float controllerY = Input.GetAxis(PS4_RIGHT_STICK_Y);
+
+			if(controllerX + controllerY != 0) {
+				mousing = false;
+			}
+
+
+			if(mousing) {
+				return getMousingDirection();
+			} else {
+				return Vector3.right*controllerX + Vector3.up*controllerY;
+			}
+
+		}
+		private Vector3 getMousingDirection() {
+			var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			var worldDir3 = worldPoint - TargetActor.transform.position;
+			return new Vector3(worldDir3.x, worldDir3.y).normalized;
 		}
 
 

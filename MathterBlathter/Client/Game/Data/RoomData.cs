@@ -20,6 +20,8 @@ namespace Client.Game.Data
 
 		public AsciiMap AsciiMap = new AsciiMap();
 
+		public bool Solo;
+		public bool Mute;
 
 		public class Link
 		{

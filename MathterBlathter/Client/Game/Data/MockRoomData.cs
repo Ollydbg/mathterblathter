@@ -30,29 +30,32 @@ namespace Client.Game.Data
 		}
 
 
-		public static RoomData DEATH_TEST_ROOM {
+		public static RoomData LURCH_START {
 			get {
 				var ret = new RoomData ();
 				ret.Id = 0;
-
-				ret.AsciiMap += "ccccccccccc d ccccccccccccccc";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                            ";
-				ret.AsciiMap += "w                           d";
-				ret.AsciiMap += "w                            ";
-				ret.AsciiMap += "w                       ppppw";
-				ret.AsciiMap += "w                       f   w";
-				ret.AsciiMap += "w                   ppppp   w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "w      L          L         w";
-				ret.AsciiMap += "w                           w";
-				ret.AsciiMap += "                         L   ";
-				ret.AsciiMap += "d                           d";
-				ret.AsciiMap += "                      1      ";
-				ret.AsciiMap += "fffffffffffffffffffffffffffff";
+				ret.Solo = true;
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "                                                                                     ";
+				ret.AsciiMap += "            L              L                L                L            L      L   ";
+				ret.AsciiMap += "d                                                                                   d";
+				ret.AsciiMap += "                               @                                              1      ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
 
@@ -69,7 +72,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 1;
-
 				ret.AsciiMap += "ccccccccccc d ccccccccccccccc";
 				ret.AsciiMap += "w                           w";
 				ret.AsciiMap += "w         L                 w";

@@ -25,6 +25,7 @@ namespace Client.Game.Abilities
 		{
 		}
 
+
 		public Queue<RemovePair> deferredRemoves = new Queue<RemovePair>();
 
 		public AbilityManager ()

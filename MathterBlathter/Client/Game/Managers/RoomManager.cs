@@ -41,6 +41,21 @@ namespace Client.Game.Managers
 
 		}
 
+
+		int numRoomsToGenerate() {
+			var solod = MockRoomData.GetAll().Count(p => p.Solo);
+			return solod > 0 ? solod : MAP_SIZE;
+		}
+
+		List<RoomData> availableRooms() {
+			var solod = MockRoomData.GetAll().Where( p=> p.Solo).ToList();
+			if(solod.Count > 0) {
+				return solod;
+			} else {
+				return MockRoomData.GetAll().Where( p=>!p.Mute).ToList();
+			}
+		}
+
 		public void Shutdown ()
 		{
 			
@@ -48,11 +63,9 @@ namespace Client.Game.Managers
 
 		public void Start (Game game)
 		{
-			//make rooms
-			var mocked = MockRoomData.GetAll();
-
+			
 			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (mocked, MAP_SIZE);
+			Rooms = generator.GenerateFromDataSet (availableRooms(), numRoomsToGenerate());
 			Rooms.ForEach (p => p.Draw());
 
 		}

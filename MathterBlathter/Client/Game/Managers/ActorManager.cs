@@ -44,6 +44,7 @@ namespace Client.Game.Managers
 			
 		}
 
+
 		public void Update (float dt)
 		{
 			foreach( var kvp in Actors) 

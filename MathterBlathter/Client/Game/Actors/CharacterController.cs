@@ -66,9 +66,7 @@ namespace Client.Game.Actors
 
 
 		public void FixedUpdate() {
-			ConsumeMovement();
-
-
+			
 		}
 
 		public void Update(float dt) {
@@ -76,17 +74,19 @@ namespace Client.Game.Actors
 			if(!IsGrounded) {
 				gravityYv += (GRAVITY_ACC*dt);
 				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 10);
+				movementAccumulator += Vector3.up * (gravityYv);
 			} else {
 				jumpPowerAccumulator = 0f;
 				gravityYv = (GRAVITY_ACC*dt);
 			}
 
-			movementAccumulator += Vector3.up * (gravityYv);
+			ConsumeMovement();
+
 		}
 
 		void ConsumeMovement ()
 		{
-
+			
 			internalController.Move(movementAccumulator);
 
 			movementAccumulator = Vector3.zero;
@@ -99,7 +99,7 @@ namespace Client.Game.Actors
 		}
 
 		public void Jump() {
-			
+
 			if(IsGrounded && !jumpNeedsReset) {
 				var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 				internalController.Move(Vector3.up*jumpHeight);
