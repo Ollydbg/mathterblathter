@@ -11,7 +11,7 @@ namespace Client.Game.Abilities.Payloads
 		public Actor Target;
 		public DamagePayload (AbilityContext ctx, Actor target, int damage) : base(ctx)
 		{
-			Damage = (float)damage;
+			Damage = (float)damage + (float)ctx.source.Attributes[ActorAttributes.BaseDamage];
 			Target = target;
 
 		}
@@ -29,6 +29,7 @@ namespace Client.Game.Abilities.Payloads
 
 			if (AbilityManager.NotifyPayloadReceiver (this, Context.target))
 				return;
+
 
 
 			int totalDamage = (int)Damage;

@@ -49,21 +49,13 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.BaseDamage.Id, 15
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
 					MockWeaponData.MELEE_WEAPON_1.Id,
 					0
-				));
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					MockAbilityData.PLAYER_MELEE.Id,
-					(int)AbilitySlots.Melee
-				));
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					MockAbilityData.PLAYER_RANGED.Id,
-					(int)AbilitySlots.Ranged
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -114,7 +106,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData FLOATING_STATIONARY_TURRET {
+		public static CharacterData FLOATING_TURRET {
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 3;
@@ -157,11 +149,15 @@ namespace Client.Game.Data
 
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
+				var linked = MockWeaponData.RANGED_WEAPON_1;
 				var ret = new CharacterData();
 				ret.Id = 4;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = linked.ResourcePath;
 				ret.ActorType = ActorType.Pickup;
-
+				ret.attributeData.Add( new CharacterData.AttributeData( 
+					ActorAttributes.PickupItemId.Id,
+					linked.Id
+				));
 				ret.Name = "PickupTest";
 
 				return ret;

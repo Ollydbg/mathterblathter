@@ -66,6 +66,7 @@ namespace Client.Game.Abilities
 
 		}
 
+
 		public void ActivateAbility(AbilityContext ctx) {
 			
 			var ability = (AbilityBase)Activator.CreateInstance(ctx.data.executionScript);
@@ -76,6 +77,7 @@ namespace Client.Game.Abilities
 			ability.Start ();
 
 		}
+
 
 		public void AddActor (Actor actor)
 		{

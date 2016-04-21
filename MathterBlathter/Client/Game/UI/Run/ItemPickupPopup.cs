@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Client.Game.Items;
 using Client.Game.Actors;
+using Client.Game.Attributes;
+using Client.Game.Data;
 
 namespace Client.Game.UI.Run
 {
@@ -41,7 +43,9 @@ namespace Client.Game.UI.Run
 		void Show(Pickup item) {
 			if(hidden) {
 				hidden = false;
-				Label.text = item.Data.Name + "\n[E]";
+				var pickupId = item.Attributes[ActorAttributes.PickupItemId];
+				var pickupData = MockWeaponData.FromId(pickupId);
+				Label.text = pickupData.Name + "\n[E]";
 				foreach( Transform child in transform) {
 					child.gameObject.SetActive(true);
 				}

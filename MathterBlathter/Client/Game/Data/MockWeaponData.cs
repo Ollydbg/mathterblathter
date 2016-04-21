@@ -24,10 +24,10 @@ namespace Client.Game.Data
 		public static CharacterData MELEE_WEAPON_1 {
 			get {
 				var ret = new CharacterData();
+				ret.Id = 1000;
 				ret.ResourcePath = "Weapons/MeleeTest";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "2x4";
-				ret.Id = 1000;
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.PLAYER_MELEE.Id
 				));
@@ -38,10 +38,10 @@ namespace Client.Game.Data
 		public static CharacterData RANGED_WEAPON_1 {
 			get {
 				var ret = new CharacterData();
+				ret.Id = 1001;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Ceramic Blaster";
-				ret.Id = 1001;
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id
 				));
@@ -54,12 +54,30 @@ namespace Client.Game.Data
 		public static CharacterData CERAMIC_SHOTGUN {
 			get {
 				var ret = new CharacterData();
+				ret.Id = 1002;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Ceramic Shotgun";
-				ret.Id = 1002;
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData RUSTY_REVOLVER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1003;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Rusty Blaster";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 100f
 				));
 
 				return ret;

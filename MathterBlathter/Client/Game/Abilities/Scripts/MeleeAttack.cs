@@ -7,7 +7,7 @@ using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class MeleeAttack : AbilityBase
+	public class MeleeAttack : BuffBase
 	{
 		public MeleeAttack ()
 		{

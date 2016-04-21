@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class ShotgunBlast : AbilityBase
+	public class ShotgunBlast : BuffBase
 	{
 		public ShotgunBlast ()
 		{

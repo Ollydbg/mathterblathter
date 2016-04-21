@@ -36,7 +36,9 @@ namespace Client.Game.Items
 		void Consume(Pickup actor) {
 			//give to owner
 
-			((PlayerCharacter)Owner).WeaponController.AddWeapon(MockWeaponData.CERAMIC_SHOTGUN);
+			CharacterData weaponGrant = MockWeaponData.FromId(actor.Attributes[ActorAttributes.PickupItemId]);
+
+			((PlayerCharacter)Owner).WeaponController.AddWeapon(weaponGrant);
 
 			//remove from this world
 			actor.Game.ActorManager.RemoveActor(actor);

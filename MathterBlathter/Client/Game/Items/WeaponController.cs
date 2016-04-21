@@ -61,6 +61,8 @@ namespace Client.Game.Items
 			Owner.Attributes[ActorAttributes.Weapons, 0] = data.Id;
 			Owner.Attributes[ActorAttributes.CurrentWeaponIndex] = 0;
 
+
+
 			SwitchWeapon(spawnedActor);
 
 		}
@@ -85,16 +87,20 @@ namespace Client.Game.Items
 
 		private Vector3 getMousingDirection() {
 			var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			var worldDir3 = worldPoint - Owner.transform.position;
+			var worldDir3 = worldPoint - currentWeapon.transform.position;
 			return new Vector3(worldDir3.x, worldDir3.y).normalized;
 		}
 
-		public void Attack () {
+		public void AttackStart () {
 			var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities];
-
 			var direction = getMousingDirection();
 
 			Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, direction, MockAbilityData.FromId(abilityId)));
+		}
+
+
+		public void AttackComplete() {
+			
 		}
 	}
 }

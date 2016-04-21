@@ -139,6 +139,36 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData BULLET_STREAM {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 4;
+				ret.name = "Bullet Stream";
+				ret.animation = States.ATTACK2;
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 1
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 18f
+				));
+
+				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
+
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
+				ret.AbilityType = AbilityType.Instanced;
+
+
+				return ret;
+			}
+		}
+
 
 	}
 }

@@ -111,30 +111,26 @@ namespace Client.Game.Attributes
 
 		public bool IsSettable = true;
 
-		public bool IsInteger { get { return EncodingType == GameAttributeEncoding.Int || EncodingType == GameAttributeEncoding.IntMinMax; } }
-		
 		public GameAttribute() { }
 		
-		public GameAttribute(int id, int defaultValue, string name, GameAttributeEncoding encodingType, int min, int max, string description = null)
+		public GameAttribute(int id, int defaultValue, string name, int min, int max, string description = null)
 		{
 			Id = id;
 			this.defaultValue.Value = defaultValue;
 			Name = name;
 			Description = description;
-			EncodingType = encodingType;
 			Min = new GameAttributeValue(min);
 			Max = new GameAttributeValue(max);
 
 			
 		}
 		
-		public GameAttribute(int id, float defaultValue, string name, GameAttributeEncoding encodingType, float min, float max, string description = null)
+		public GameAttribute(int id, float defaultValue, string name, float min, float max, string description = null)
 		{
 			Id = id;
 			this.defaultValue.ValueF = defaultValue;
 			Name = name;
 			Description = description;
-			EncodingType = encodingType;
 			Min = new GameAttributeValue(min);
 			Max = new GameAttributeValue(max);
 
@@ -152,13 +148,12 @@ namespace Client.Game.Attributes
 
 		}
 		
-		public GameAttribute(int id, double defaultValue, string name, GameAttributeEncoding encodingType, double min, double max, string description = null)
+		public GameAttribute(int id, double defaultValue, string name, double min, double max, string description = null)
 		{
 			Id = id;
 			this.defaultValue.ValueD = defaultValue;
 			Name = name;
 			Description = description;
-			EncodingType = encodingType;
 			Min = new GameAttributeValue(min);
 			Max = new GameAttributeValue(max);
 
@@ -174,23 +169,20 @@ namespace Client.Game.Attributes
 		
 		public GameAttributeI() { }
 		
-		public GameAttributeI(int id, int defaultValue, string name, GameAttributeEncoding encodingType, int min, int max, string description = null)
-			: base(id, defaultValue, name, encodingType, min, max, description)
+		public GameAttributeI(int id, int defaultValue, string name, int min, int max, string description = null)
+			: base(id, defaultValue, name, min, max, description)
 		{
 		}
 	}
 
-	/// <remarks>
-	/// Note that the enum type must start at zero and have an entry for every integer value, no other configurations are supported by the editor.
-	/// </remarks>
 	public class GameAttributeE : GameAttribute
 	{
 		public int DefaultValue { get { return defaultValue.Value; } }
 		public GameAttributeE() { }
 		public Type EnumType;
 		
-		public GameAttributeE(int id, int defaultValue, string name, GameAttributeEncoding encodingType, int min, int max, Type enumType, string description = null)
-			: base(id, defaultValue, name, encodingType, min, max, description)
+		public GameAttributeE(int id, int defaultValue, string name, int min, int max, Type enumType, string description = null)
+			: base(id, defaultValue, name, min, max, description)
 		{
 			EnumType = enumType;
 		}
@@ -205,8 +197,8 @@ namespace Client.Game.Attributes
 		
 		public GameAttributeF() { }
 		
-		public GameAttributeF(int id, float defaultValue, string name, GameAttributeEncoding encodingType, float min, float max, string description = null)
-			: base(id, defaultValue, name, encodingType, min, max, description)
+		public GameAttributeF(int id, float defaultValue, string name, float min, float max, string description = null)
+			: base(id, defaultValue, name, min, max, description)
 		{
 		}
 	}
@@ -217,8 +209,8 @@ namespace Client.Game.Attributes
 		
 		public GameAttributeB() { }
 		
-		public GameAttributeB(int id, int defaultValue, string name, GameAttributeEncoding encodingType, int min, int max, string description = null)
-			: base(id, defaultValue, name, encodingType, min, max, description)
+		public GameAttributeB(int id, int defaultValue, string name, int min, int max, string description = null)
+			: base(id, defaultValue, name, min, max, description)
 		{
 		}
 	}
@@ -231,8 +223,8 @@ namespace Client.Game.Attributes
 		
 		public GameAttributeL() { }
 		
-		public GameAttributeL(int id, long defaultValue, string name, GameAttributeEncoding encodingType, long min, long max, string description = null)
-			: base(id, defaultValue, name, encodingType, min, max, description)
+		public GameAttributeL(int id, long defaultValue, string name, long min, long max, string description = null)
+			: base(id, defaultValue, name, min, max, description)
 		{
 		}
 	}
@@ -245,8 +237,8 @@ namespace Client.Game.Attributes
 		
 		public GameAttributeD() { }
 		
-		public GameAttributeD(int id, double defaultValue, string name, GameAttributeEncoding encodingType, double min, double max,  string description = null)
-			: base(id, defaultValue, name, encodingType, min, max, description)
+		public GameAttributeD(int id, double defaultValue, string name, double min, double max,  string description = null)
+			: base(id, defaultValue, name, min, max, description)
 		{
 		}
 	}

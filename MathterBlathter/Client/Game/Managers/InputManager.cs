@@ -51,7 +51,7 @@ namespace Client.Game.Managers
 		public void Update (float dt)
 		{
 			
-			if (Input.GetButton (JUMP)) {
+			if(Input.GetButton (JUMP)) {
 				TargetActor.Controller.Jump ();
 			}
 			if(Input.GetButtonUp(JUMP)) {
@@ -74,10 +74,13 @@ namespace Client.Game.Managers
 			TargetActor.WeaponController.Aim(getAimingVector());
 
 			if (Input.GetButtonDown (ATTACK) || Input.GetButtonDown(PS4_SQ)) {
-				TargetActor.WeaponController.Attack ();
+				TargetActor.WeaponController.AttackStart ();
 			}
 
-			
+			if(Input.GetButtonUp(ATTACK) || Input.GetButtonDown(PS4_SQ)) {
+				TargetActor.WeaponController.AttackComplete();
+			}
+
 		}
 
 		private bool mousing = true;

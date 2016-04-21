@@ -7,7 +7,7 @@ using Client.Game.Data;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class ProjectileAttack : AbilityBase
+	public class ProjectileAttack : BuffBase
 	{
 		public ProjectileAttack ()
 		{
