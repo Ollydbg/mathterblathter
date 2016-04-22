@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Client.Game.Data;
 
 namespace Client.Game.Actors
 {
@@ -40,6 +41,7 @@ namespace Client.Game.Actors
 		}
 
 		private void TryTriggerActorEvent(Collider collider, TriggerActorDelegate evt) {
+			
 			if(evt != null) {
 				var touchingRef = collider.gameObject.GetComponent<ActorRef>();
 				if(touchingRef != null) {

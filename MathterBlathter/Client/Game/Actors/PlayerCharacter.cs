@@ -8,24 +8,18 @@ using Client.Game.Animation;
 namespace Client.Game.Actors
 {
 	using Game = Client.Game.Core.Game;
+	using CharacterController = Client.Game.Actors.Controllers.CharacterController;
 
 	public class PlayerCharacter : Character
 	{
 
 		public PickupController PickupController;
 		public WeaponController WeaponController;
-		public CharacterController Controller;
 
 
 		public PlayerCharacter ()
 		{
 			
-		}
-
-		public override ActorType ActorType {
-			get {
-				return ActorType.Player;
-			}
 		}
 
 		void onCollision (Collider collider)
@@ -38,7 +32,6 @@ namespace Client.Game.Actors
 			
 			base.EnterGame (game);
 
-			Controller = new CharacterController (this);
 			Animator = new PlayerAnimator3D(this);
 
 			this.WeaponController = new WeaponController(this);
@@ -50,7 +43,6 @@ namespace Client.Game.Actors
 		{
 			PickupController.Update(dt);
 			WeaponController.Update(dt);
-			Controller.Update(dt);
 
 			base.Update (dt);
 		}

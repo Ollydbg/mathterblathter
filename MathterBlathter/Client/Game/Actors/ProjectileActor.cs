@@ -25,11 +25,6 @@ namespace Client.Game.Actors
 			
 		}
 
-		public override ActorType ActorType {
-			get {
-				return ActorType.Projectile;
-			}
-		}
 
 		public override void EnterGame (Client.Game.Core.Game game)
 		{

@@ -10,11 +10,6 @@ namespace Client.Game.Actors
 		{
 		}
 
-		public override ActorType ActorType {
-			get {
-				return ActorType.Pickup;
-			}
-		}
 
 		public bool CanActorPickup(Actor actor) {
 			return true;

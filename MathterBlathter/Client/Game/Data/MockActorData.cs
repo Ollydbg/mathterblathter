@@ -229,7 +229,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData ();
 				ret.Id = 8;
 				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
-				ret.ActorType = ActorType.Enemy;
+				ret.ActorType = ActorType.Fixture;
 				ret.AIData = new AIData ();
 				ret.Name = "Spikes";
 				ret.attributeData.Add (new CharacterData.AttributeData (

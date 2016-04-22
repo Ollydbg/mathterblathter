@@ -59,7 +59,7 @@
     <Compile Include="Game\Managers\RoomManager.cs" />
     <Compile Include="Game\Actors\Character.cs" />
     <Compile Include="Game\Attributes\ActorAttributeList.cs" />
-    <Compile Include="Game\Actors\CharacterController.cs" />
+    <Compile Include="Game\Actors\Controllers\CharacterController.cs" />
     <Compile Include="Game\Data\CharacterData.cs" />
     <Compile Include="Game\AI\Brain.cs" />
     <Compile Include="Game\Data\AIData.cs" />
@@ -120,6 +120,9 @@
     <Compile Include="Game\Map\RoomComparer.cs" />
     <Compile Include="Game\Map\RoomPool.cs" />
     <Compile Include="Game\Abilities\Scripts\DamageOnTouchBuff.cs" />
+    <Compile Include="Game\Actors\Controllers\ICharacterController.cs" />
+    <Compile Include="Game\Actors\Controllers\EmptyCharacterController.cs" />
+    <Compile Include="Game\Actors\FixtureActor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -142,5 +145,6 @@
     <Folder Include="Game\UI\" />
     <Folder Include="Game\UI\Run\" />
     <Folder Include="Game\Items\" />
+    <Folder Include="Game\Actors\Controllers\" />
   </ItemGroup>
 </Project>

@@ -4,29 +4,17 @@ using Client.Game.AI;
 using Client.Game.Animation;
 using Client.Game.Data;
 using Client.Game.Items;
+using Client.Game.Actors.Controllers;
 
 namespace Client.Game.Actors
 {
 	public class Character : Actor
 	{
-		//public IAnimator Animator;
-		//public CharacterController Controller;
+
 		public Brain Brain;
-		public float colliderHeight;
-		public IAnimator Animator = new EmptyAnimator();
+		public ICharacterController Controller = new EmptyCharacterController();
 
 
-		public Vector3 HalfHeight {
-			get {
-				return transform.position + new Vector3 (0f, colliderHeight*.5f, 0f);
-			}
-		}
-
-		public override ActorType ActorType {
-			get {
-				return Data.ActorType;
-			}
-		}
 
 
 		public Character ()
@@ -38,14 +26,16 @@ namespace Client.Game.Actors
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
 			
-			colliderHeight = GameObject.GetComponentInChildren<Collider> ().bounds.extents.y;
-
+			Controller = new Client.Game.Actors.Controllers.CharacterController(this);
 			base.EnterGame (game);
 		}
 
 		public override void Update(float dt) {
 			if(Brain != null) 
 				Brain.Update(dt);
+
+			Controller.Update(dt);
+
 		}
 
 

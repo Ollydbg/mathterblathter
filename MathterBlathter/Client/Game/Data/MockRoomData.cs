@@ -67,6 +67,43 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static RoomData TEST_ROOM {
+
+			get {
+				var ret = new RoomData();
+				ret.Id = 2;
+				ret.Mute = true;
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                              1             ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "     L                   L           L      ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                                  2         ";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffff";
+					
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
+				finalize(ret);
+
+				return ret;
+			}
+
+		}
+
 
 		public static RoomData ROOM_1 {
 			get {
@@ -188,8 +225,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffff d f";
 				ret.AsciiMap += "w                                                    w";
 				ret.AsciiMap += "f L          2                      L                f";
-				ret.AsciiMap += "w                                               wwwwww";
-				ret.AsciiMap += "f                                               ffffff";
+				ret.AsciiMap += "w                                                    w";
+				ret.AsciiMap += "f                                                    f";
 				ret.AsciiMap += "w            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
 				ret.AsciiMap += "f          fffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "w                              L                     w";
@@ -214,11 +251,11 @@ namespace Client.Game.Data
 		}
 
 		static void finalize(RoomData room) {
-			addDoorsFromAscii (room);
-			addSpawnsFromAscii (room);
-
 			room.Width = room.AsciiMap.Width;
 			room.Height = room.AsciiMap.Height;
+
+			addDoorsFromAscii (room);
+			addSpawnsFromAscii (room);
 		}
 
 		static void addSpawnsFromAscii (RoomData room)

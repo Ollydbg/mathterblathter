@@ -85,21 +85,19 @@ namespace Client.Game.Abilities
 				return;
 			}
 
-			Character character = (Character) actor;
-
 			var buffDatasToCreate = actor.Data.attributeData
 				.Where( p=>p.Id == ActorAttributes.Abilities.Id)
 				.Select(p => MockAbilityData.FromId(p.ValueI))
 				.Where(p=>p.AbilityType == AbilityType.Buff);
 
 			foreach( var buffData in buffDatasToCreate) {
-				ActivateAbility( new AbilityContext(character, character, buffData));
+				ActivateAbility( new AbilityContext(actor, actor, buffData));
 			}
 		}
 
 		bool ActorUsesAbilities (Actor actor)
 		{
-			return actor.ActorType == ActorType.Enemy || actor.ActorType == ActorType.Friendly;
+			return actor.ActorType == ActorType.Enemy || actor.ActorType == ActorType.Friendly || actor.ActorType == ActorType.Fixture;
 		}
 
 		//returns true if it got consumed

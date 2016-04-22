@@ -12,15 +12,6 @@ namespace Client.Game.Actors
 		{
 		}
 
-		#region implemented abstract members of Actor
-
-		public override ActorType ActorType {
-			get {
-				return ActorType.Door;
-			}
-		}
-
-		#endregion
 
 		public float X;
 		public float Y;

@@ -30,6 +30,7 @@ namespace Client.Game.Abilities.Scripts
 
 			accumulator += dt;
 			if(accumulator >= rate) {
+				accumulator-= rate;
 				var dps = Owner.Attributes[AbilityAttributes.ZoneDPS];
 				Targets.ForEach(p => DamageTarget(p, dps*rate));
 			}

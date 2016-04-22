@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.Core;
 using Client.Game.Attributes;
 using Client.Game.Data;
+using Client.Game.Animation;
 
 namespace Client.Game.Actors
 {
@@ -14,9 +15,21 @@ namespace Client.Game.Actors
 		public AttributeMap Attributes = new AttributeMap (ActorAttributes.GetAll());
 		public Client.Game.Core.Game Game;
 
+		public IAnimator Animator = new EmptyAnimator();
 		public CharacterData Data;
 
-		public abstract ActorType ActorType {get;}
+		public float colliderHeight;
+		public Vector3 HalfHeight {
+			get {
+				return transform.position + new Vector3 (0f, colliderHeight*.5f, 0f);
+			}
+		}
+
+		public ActorType ActorType {
+			get {
+				return Data.ActorType;
+			}
+		}
 
 		public Transform transform {
 			get {
@@ -38,6 +51,10 @@ namespace Client.Game.Actors
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {
 			this.Game = game;
+			var coll = GameObject.GetComponentInChildren<Collider> ();
+			if(coll != null) {
+				colliderHeight = coll.bounds.extents.y;
+			}
 
 			//I should break this out into an actor factory instead of having hard linkages
 			Game.AbilityManager.AddActor(this);

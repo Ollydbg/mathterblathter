@@ -3,14 +3,12 @@ using Client.Game.Data;
 
 namespace Client.Game.Actors
 {
-	public class WeaponActor : Actor
+	public class FixtureActor : Actor
 	{
-		public WeaponActor ()
+
+		public FixtureActor ()
 		{
 		}
-
-
-
 	}
 }
 

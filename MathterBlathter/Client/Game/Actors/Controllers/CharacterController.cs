@@ -6,9 +6,9 @@ using Client.Game.Abilities;
 using Client.Game.Data;
 using System.Linq;
 
-namespace Client.Game.Actors
+namespace Client.Game.Actors.Controllers
 {
-	public class CharacterController
+	public class CharacterController : ICharacterController
 	{
 		private Character Actor;
 		private int angle = 90;

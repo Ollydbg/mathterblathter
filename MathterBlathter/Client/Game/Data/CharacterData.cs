@@ -28,6 +28,7 @@ namespace Client.Game.Data
 		Projectile,
 		Pickup,
 		Weapon,
+		Fixture
 	}
 
 }
