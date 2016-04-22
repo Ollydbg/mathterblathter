@@ -52,8 +52,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                                     ";
 				ret.AsciiMap += "                                                                                     ";
 				ret.AsciiMap += "            L              L                L                L            L      L   ";
-				ret.AsciiMap += "                                                 d                                  d";
-				ret.AsciiMap += "                               @                                              1      ";
+				ret.AsciiMap += "                                                                                    d";
+				ret.AsciiMap += "                               @               1                                     ";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;

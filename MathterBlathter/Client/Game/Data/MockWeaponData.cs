@@ -31,6 +31,9 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.PLAYER_MELEE.Id
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1f
+				));
 				return ret;
 			}
 		}
@@ -46,6 +49,9 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, .5f
+				));
 				return ret;
 			}
 		}
@@ -61,7 +67,12 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 20f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 2f
+				));
 				return ret;
 			}
 		}
@@ -78,6 +89,10 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 100f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1f
 				));
 
 				return ret;

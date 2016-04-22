@@ -71,15 +71,10 @@ namespace Client.Game.Managers
 				TargetActor.WeaponController.ToggleWeapon ();
 			}
 
-			TargetActor.WeaponController.Aim(getAimingVector());
-
-			if (Input.GetButtonDown (ATTACK) || Input.GetButtonDown(PS4_SQ)) {
-				TargetActor.WeaponController.AttackStart ();
+			if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
+				TargetActor.WeaponController.Attack ();
 			}
 
-			if(Input.GetButtonUp(ATTACK) || Input.GetButtonDown(PS4_SQ)) {
-				TargetActor.WeaponController.AttackComplete();
-			}
 
 		}
 

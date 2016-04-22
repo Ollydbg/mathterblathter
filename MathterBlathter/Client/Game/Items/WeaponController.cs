@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Data;
@@ -9,12 +9,18 @@ using Client.Game.Abilities;
 
 namespace Client.Game.Items
 {
+	using WeaponLookup = Dictionary<CharacterData, WeaponActor>;
+
 	public class WeaponController
 	{
 		Character Owner;
 
-		Dictionary<CharacterData, WeaponActor> ActiveLookup = new Dictionary<CharacterData, WeaponActor>();
+		public WeaponLookup ActiveLookup = new WeaponLookup();
 		public WeaponActor currentWeapon;
+
+		public delegate void ChangedDelegate(WeaponActor currentWeapon, WeaponLookup all);
+		public event ChangedDelegate OnLoadoutChanged;
+
 
 		public WeaponController (Character owner)
 		{
@@ -29,6 +35,8 @@ namespace Client.Game.Items
 				}
 			}
 		}
+
+		
 
 		public void ToggleWeapon() {
 			foreach( var weapon in ActiveLookup.Values) {
@@ -48,6 +56,7 @@ namespace Client.Game.Items
 			}
 			currentWeapon = toWeapon;
 			toWeapon.GameObject.SetActive(true);
+			broadcast();
 		}
 
 		public void AddWeapon(CharacterData data) {
@@ -61,14 +70,17 @@ namespace Client.Game.Items
 			Owner.Attributes[ActorAttributes.Weapons, 0] = data.Id;
 			Owner.Attributes[ActorAttributes.CurrentWeaponIndex] = 0;
 
-
-
 			SwitchWeapon(spawnedActor);
 
+			broadcast();
+
 		}
+	
 
-		public void Aim(Vector3 aim) {
-
+		private void broadcast() {
+			if(OnLoadoutChanged != null) {
+				OnLoadoutChanged(currentWeapon, ActiveLookup);
+			}
 		}
 
 		private Transform GetAttachTransform(AttachPoint pt) {
@@ -91,17 +103,23 @@ namespace Client.Game.Items
 			return new Vector3(worldDir3.x, worldDir3.y).normalized;
 		}
 
-		public void AttackStart () {
-			var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities];
-			var direction = getMousingDirection();
-
-			Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, direction, MockAbilityData.FromId(abilityId)));
+		public bool CanAttack(WeaponActor actor) {
+			var cooldown = currentWeapon.Attributes[ActorAttributes.AttackSpeed] * Owner.Attributes[ActorAttributes.AttackSpeedScalar];
+			float elapsed =  Time.realtimeSinceStartup - currentWeapon.Attributes[ActorAttributes.LastFiredTime];
+			return elapsed >= cooldown;
 		}
 
+		public void Attack () {
 
-		public void AttackComplete() {
-			
+			if(CanAttack(currentWeapon)) {
+				var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities];
+				var direction = getMousingDirection();
+
+				Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, direction, MockAbilityData.FromId(abilityId)));
+				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;
+			}
 		}
+
 	}
 }
 

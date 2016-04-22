@@ -44,6 +44,10 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeB TakesDamage = new GameAttributeB(21, 0, "does this actor take damage?",  0, 1);
 		public static readonly GameAttributeI BaseDamage = new GameAttributeI(22, 0, "base damage amount",  0, int.MaxValue);
 		public static readonly GameAttributeI PickupItemId = new GameAttributeI(23, 0, "item to give player",  0, int.MaxValue);
+		public static readonly GameAttributeF AttackSpeedScalar = new GameAttributeF(24, 1f, "attack multipler", 0, float.MaxValue);
+		public static readonly GameAttributeF AttackSpeed = new GameAttributeF(25, 1f, "attack speed", 0, float.MaxValue);
+		public static readonly GameAttributeF LastFiredTime = new GameAttributeF(26, -10f, "last fired time", 0, float.MaxValue);
+		
 	}
 }
 
