@@ -69,6 +69,8 @@ namespace Client.Game.Data
 			}
 		}
 
+
+
 		public static CharacterData GROUNDED_RANGED_ENEMY {
 			get {
 				var ret = new CharacterData ();
@@ -216,6 +218,37 @@ namespace Client.Game.Data
 					ActorAttributes.BloodBounty.Id, 300
 				));;
 
+
+
+				return ret;
+			}
+		}
+
+		public static CharacterData SPIKES {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = 8;
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.AIData = new AIData ();
+				ret.Name = "Spikes";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 30
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.GravityScalar.Id, 0f
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.DAMAGE_ON_TOUCH_BUFF.Id,
+					0
+				));
 
 
 				return ret;

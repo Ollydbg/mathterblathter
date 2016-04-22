@@ -50,7 +50,6 @@
     <Compile Include="Game\Actors\Actor.cs" />
     <Compile Include="Game\Actors\ActorRef.cs" />
     <Compile Include="Game\Actors\DoorActor.cs" />
-    <Compile Include="Game\Actors\RoomActor.cs" />
     <Compile Include="Game\Attributes\AttributeMap.cs" />
     <Compile Include="Game\Attributes\GameAttribute.cs" />
     <Compile Include="Game\Enums\DoorRoomSide.cs" />
@@ -120,6 +119,7 @@
     <Compile Include="Game\Abilities\Scripts\ShotgunBlast.cs" />
     <Compile Include="Game\Map\RoomComparer.cs" />
     <Compile Include="Game\Map\RoomPool.cs" />
+    <Compile Include="Game\Abilities\Scripts\DamageOnTouchBuff.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

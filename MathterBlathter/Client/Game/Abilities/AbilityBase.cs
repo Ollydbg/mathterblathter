@@ -15,7 +15,11 @@ namespace Client
 		internal AbilityContext context;
 
 		public AttributeMap Attributes = new AttributeMap (AbilityAttributes.GetAll());
-
+		public Actor Owner {
+			get {
+				return this.context.source;
+			}
+		}
 		public AbilityBase ()
 		{
 		}

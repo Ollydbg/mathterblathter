@@ -83,7 +83,7 @@ namespace Client.Game.Managers
 					//var spawned = Game.Instance.ActorManager.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
 					spawned.transform.position = spawn.RoomPosition + room.Position;
 
-					if(spawned.Data.ActorType == ActorType.Enemy) {
+					if(spawned.Data.ActorType == ActorType.Enemy && spawned.Data.Id != MockActorData.SPIKES.Id) {
 						var enemyChar = (Character)spawned;
 						enemyChar.Brain = new Client.Game.AI.Brain (spawned);
 						var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();

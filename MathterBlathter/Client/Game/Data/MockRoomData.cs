@@ -34,6 +34,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
+				ret.Solo = true;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                                     ";
 				ret.AsciiMap += "                                                                                     ";
@@ -54,13 +55,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "            L              L                L                L            L      L   ";
 				ret.AsciiMap += "                                                                                    d";
 				ret.AsciiMap += "                               @               1                                     ";
-				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffff222222fffffffffffffffffffffffffff";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.Width = ret.AsciiMap.Width;
 				ret.Height = ret.AsciiMap.Height;
 				ret.MaxInstances = 1;
 				ret.AsciiSpawnLookup['1'] = MockActorData.RANDOM_WEAPON_PICKUP;
-				
+				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
+
 				finalize(ret);
 
 				return ret;

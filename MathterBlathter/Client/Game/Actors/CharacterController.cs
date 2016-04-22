@@ -75,9 +75,6 @@ namespace Client.Game.Actors
 			}
 		}
 
-		public void FixedUpdate() {
-			
-		}
 
 		public void Update(float dt) {
 

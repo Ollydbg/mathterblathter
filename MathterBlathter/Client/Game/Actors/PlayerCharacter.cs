@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.Data;
 using Client.Game.Items;
 using Client.Game.Attributes;
+using Client.Game.Animation;
 
 namespace Client.Game.Actors
 {
@@ -13,6 +14,8 @@ namespace Client.Game.Actors
 
 		public PickupController PickupController;
 		public WeaponController WeaponController;
+		public CharacterController Controller;
+
 
 		public PlayerCharacter ()
 		{
@@ -32,16 +35,23 @@ namespace Client.Game.Actors
 
 		public override void EnterGame (Game game)
 		{
+			
 			base.EnterGame (game);
+
+			Controller = new CharacterController (this);
+			Animator = new PlayerAnimator3D(this);
+
 			this.WeaponController = new WeaponController(this);
 			this.PickupController = new PickupController(this);
-			GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
+
 		}
 
 		public override void Update (float dt)
 		{
 			PickupController.Update(dt);
 			WeaponController.Update(dt);
+			Controller.Update(dt);
+
 			base.Update (dt);
 		}
 

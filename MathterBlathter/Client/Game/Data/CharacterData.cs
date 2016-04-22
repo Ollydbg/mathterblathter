@@ -25,7 +25,6 @@ namespace Client.Game.Data
 		Player,
 		Enemy,
 		Door,
-		Room,
 		Projectile,
 		Pickup,
 		Weapon,

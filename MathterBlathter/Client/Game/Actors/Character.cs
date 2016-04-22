@@ -9,10 +9,11 @@ namespace Client.Game.Actors
 {
 	public class Character : Actor
 	{
-		public IAnimator Animator;
-		public CharacterController Controller;
+		//public IAnimator Animator;
+		//public CharacterController Controller;
 		public Brain Brain;
 		public float colliderHeight;
+		public IAnimator Animator = new EmptyAnimator();
 
 
 		public Vector3 HalfHeight {
@@ -36,27 +37,17 @@ namespace Client.Game.Actors
 	
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
-			Controller = new CharacterController (this);
-			Animator = new PlayerAnimator3D(this);
-
+			
 			colliderHeight = GameObject.GetComponent<Collider> ().bounds.extents.y;
 
 			base.EnterGame (game);
 		}
 
-
 		public override void Update(float dt) {
 			if(Brain != null) 
-				Brain.Update (dt);
-
-			Controller.Update(dt);
-
-			base.Update (dt);
+				Brain.Update(dt);
 		}
 
-		public override void FixedUpdate() {
-			Controller.FixedUpdate();
-		}
 
 	}
 }

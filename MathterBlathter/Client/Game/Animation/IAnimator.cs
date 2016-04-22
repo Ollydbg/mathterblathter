@@ -9,5 +9,12 @@ namespace Client.Game.Animation
 		                  AnimationBlendMode blendMode = 0, float startTime = 0f, int animName = 0, float animSpeed = 1f);
 
 	}
+
+	public class EmptyAnimator : IAnimator {
+		public void RequestState (string stateString, int activationPriority = 1, int runningPriority = 0, AnimationBlendMode blendMode = AnimationBlendMode.Blend, float startTime = 0f, int animName = 0, float animSpeed = 1f)
+		{
+		}
+
+	}
 }
 

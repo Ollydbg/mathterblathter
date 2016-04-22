@@ -170,6 +170,18 @@ namespace Client.Game.Data
 		}
 
 
+		public static AbilityData DAMAGE_ON_TOUCH_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 5;
+				ret.name = "Damage On Touch Buff";
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DamageOnTouchBuff);
+				ret.AbilityType = AbilityType.Buff;
+			
+				return ret;
+			}
+		}
+
 	}
 }
 
