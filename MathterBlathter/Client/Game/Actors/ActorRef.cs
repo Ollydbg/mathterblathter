@@ -14,8 +14,8 @@ namespace Client.Game.Actors
 		public event TriggerDelegate TriggerEvent;
 
 		public delegate void TriggerActorDelegate(Actor actor);
-		public event TriggerActorDelegate OnTriggerActor;
-
+		public event TriggerActorDelegate OnTriggerActorEnter;
+		public event TriggerActorDelegate OnTriggerActorExit;
 
 		public delegate void CollisionDelegate(Collision collision);
 		public event CollisionDelegate CollisionEvent;
@@ -31,10 +31,19 @@ namespace Client.Game.Actors
 				TriggerEvent (collider);
 			}
 
-			if(OnTriggerActor != null) {
+			TryTriggerActorEvent(collider, OnTriggerActorEnter);
+
+		}
+
+		void OnTriggerExit(Collider collider) {
+			TryTriggerActorEvent(collider, OnTriggerActorExit);
+		}
+
+		private void TryTriggerActorEvent(Collider collider, TriggerActorDelegate evt) {
+			if(evt != null) {
 				var touchingRef = collider.gameObject.GetComponent<ActorRef>();
 				if(touchingRef != null) {
-					OnTriggerActor(touchingRef.Actor);
+					evt(touchingRef.Actor);
 				}
 			}
 		}

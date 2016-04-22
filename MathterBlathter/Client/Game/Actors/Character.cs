@@ -38,7 +38,7 @@ namespace Client.Game.Actors
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
 			
-			colliderHeight = GameObject.GetComponent<Collider> ().bounds.extents.y;
+			colliderHeight = GameObject.GetComponentInChildren<Collider> ().bounds.extents.y;
 
 			base.EnterGame (game);
 		}

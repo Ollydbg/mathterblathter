@@ -34,7 +34,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
-				ret.Solo = true;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                                     ";
 				ret.AsciiMap += "                                                                                     ";
@@ -57,8 +56,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                               @               1                                     ";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffff222222fffffffffffffffffffffffffff";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
-				ret.Width = ret.AsciiMap.Width;
-				ret.Height = ret.AsciiMap.Height;
+
 				ret.MaxInstances = 1;
 				ret.AsciiSpawnLookup['1'] = MockActorData.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
@@ -98,8 +96,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                 w";
 				ret.AsciiMap += "                                      1           w";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffff";
-				ret.Width = ret.AsciiMap.Width;
-				ret.Height = ret.AsciiMap.Height;
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
@@ -138,8 +134,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                 w";
 				ret.AsciiMap += "                                      1           w";
 				ret.AsciiMap += "fffffffffffffffffffffffff d fffffffffffffffffffffff";
-				ret.Width = ret.AsciiMap.Width;
-				ret.Height = ret.AsciiMap.Height;
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
@@ -178,8 +172,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                     1           w";
 				ret.AsciiMap += "fffffffffffffffffffffffff d fffffffffffffffffffffff";
-				ret.Width = ret.AsciiMap.Width;
-				ret.Height = ret.AsciiMap.Height;
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 
@@ -193,25 +185,24 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 104;
-				ret.Mute = true;
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffff d f";
-				ret.AsciiMap += "ww                                                   w";
-				ret.AsciiMap += "ff           2                                       f";
-				ret.AsciiMap += "ww                                              wwwwww";
-				ret.AsciiMap += "ff                                              ffffff";
-				ret.AsciiMap += "ww           wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-				ret.AsciiMap += "ff         fffffffffffffffffffffffffffffffffffffffffff";
-				ret.AsciiMap += "ww       wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-				ret.AsciiMap += "ff     fffffffffffffffffffffffffffffffffffffffffffffff";
-				ret.AsciiMap += "ww                                                   w";
-				ret.AsciiMap += "ff         2                                         f";
-				ret.AsciiMap += "ww  1                                                w";
-				ret.AsciiMap += "fffffffffffffffffffffffffff                          f";
-				ret.AsciiMap += "ww                                                   w";
-				ret.AsciiMap += "ff                                                   f";
-				ret.AsciiMap += "ww                                                   w";
-				ret.AsciiMap += "ff                  1                                f";
-				ret.AsciiMap += "ww            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+				ret.AsciiMap += "w                                                    w";
+				ret.AsciiMap += "f L          2                      L                f";
+				ret.AsciiMap += "w                                               wwwwww";
+				ret.AsciiMap += "f                                               ffffff";
+				ret.AsciiMap += "w            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
+				ret.AsciiMap += "f          fffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "w                              L                     w";
+				ret.AsciiMap += "f                                                    f";
+				ret.AsciiMap += "w                                                    w";
+				ret.AsciiMap += "f          2                                         f";
+				ret.AsciiMap += "w   1                                                w";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff                   f";
+				ret.AsciiMap += "w                                              L     w";
+				ret.AsciiMap += "w                                                    f";
+				ret.AsciiMap += "w                                                    w";
+				ret.AsciiMap += "w                   1                                f";
+				ret.AsciiMap += "w                                                    w";
 				ret.AsciiMap += "ffff d fffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
@@ -225,6 +216,9 @@ namespace Client.Game.Data
 		static void finalize(RoomData room) {
 			addDoorsFromAscii (room);
 			addSpawnsFromAscii (room);
+
+			room.Width = room.AsciiMap.Width;
+			room.Height = room.AsciiMap.Height;
 		}
 
 		static void addSpawnsFromAscii (RoomData room)

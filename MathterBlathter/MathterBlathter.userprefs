@@ -1,0 +1,15 @@
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Client/Client.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Client/Game/Items/WeaponController.cs">
+    <Files>
+      <File FileName="Client/Game/Items/PickupController.cs" Line="65" Column="4" />
+      <File FileName="Client/Game/Actors/ProjectileActor.cs" Line="66" Column="1" />
+      <File FileName="Client/Game/Managers/CameraManager.cs" Line="22" Column="4" />
+      <File FileName="Client/Game/Items/WeaponController.cs" Line="24" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

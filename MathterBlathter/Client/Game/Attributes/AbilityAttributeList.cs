@@ -29,7 +29,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeE FiresFromJoint = new GameAttributeE(6, 0, "weapon attach point", 0, int.MaxValue, typeof(AttachPoint));
 		public static readonly GameAttributeI ProjectileCount = new GameAttributeI(7, 1, "projectile count for repeated weapons", 0, 100);
 		public static readonly GameAttributeF ProjectileSpread = new GameAttributeF(8, 1f, "spread degrees for repeated weapons", 0, 180f); 
-	
+		public static readonly GameAttributeF ZoneDPS = new GameAttributeF(9, 0, "zone damage per second", float.MinValue, float.MaxValue);
+		public static readonly GameAttributeF ZoneUpdateRate = new GameAttributeF(10, .5f, "zone update rate", 0, float.MaxValue);
 	}
 }
 

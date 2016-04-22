@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: cf905860320cc634e9089111f416e3ee
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: game_head
+    100004: game_hipPad_end
+    100006: game_hipPad_end 1
+    100008: game_l_ankle
+    100010: game_l_ball
+    100012: game_l_clavicle
+    100014: game_l_elbow
+    100016: game_l_fingerIndex01
+    100018: game_l_fingerIndex02
+    100020: game_l_fingerIndex03
+    100022: game_l_fingerMiddle01
+    100024: game_l_fingerMiddle02
+    100026: game_l_fingerThumb02
+    100028: game_l_fingerThumb03
+    100030: game_l_handItem
+    100032: game_l_hip
+    100034: game_l_hipPad
+    100036: game_l_knee
+    100038: game_l_shoulder
+    100040: game_l_shoulderPad
+    100042: game_l_wrist
+    100044: game_neck
+    100046: game_r_ankle
+    100048: game_r_ball
+    100050: game_r_clavicle
+    100052: game_r_elbow
+    100054: game_r_fingerIndex01
+    100056: game_r_fingerIndex02
+    100058: game_r_fingerIndex03
+    100060: game_r_fingerMiddle01
+    100062: game_r_fingerMiddle02
+    100064: game_r_fingerThumb02
+    100066: game_r_fingerThumb03
+    100068: game_r_handItem
+    100070: game_r_hip
+    100072: game_r_hipPad
+    100074: game_r_knee
+    100076: game_r_shoulder
+    100078: game_r_shoulderPad
+    100080: game_r_wrist
+    100082: game_root
+    100084: game_spine01
+    100086: game_spine02
+    100088: game_spine03
+    100090: game_waist
+    400000: //RootNode
+    400002: game_head
+    400004: game_hipPad_end
+    400006: game_hipPad_end 1
+    400008: game_l_ankle
+    400010: game_l_ball
+    400012: game_l_clavicle
+    400014: game_l_elbow
+    400016: game_l_fingerIndex01
+    400018: game_l_fingerIndex02
+    400020: game_l_fingerIndex03
+    400022: game_l_fingerMiddle01
+    400024: game_l_fingerMiddle02
+    400026: game_l_fingerThumb02
+    400028: game_l_fingerThumb03
+    400030: game_l_handItem
+    400032: game_l_hip
+    400034: game_l_hipPad
+    400036: game_l_knee
+    400038: game_l_shoulder
+    400040: game_l_shoulderPad
+    400042: game_l_wrist
+    400044: game_neck
+    400046: game_r_ankle
+    400048: game_r_ball
+    400050: game_r_clavicle
+    400052: game_r_elbow
+    400054: game_r_fingerIndex01
+    400056: game_r_fingerIndex02
+    400058: game_r_fingerIndex03
+    400060: game_r_fingerMiddle01
+    400062: game_r_fingerMiddle02
+    400064: game_r_fingerThumb02
+    400066: game_r_fingerThumb03
+    400068: game_r_handItem
+    400070: game_r_hip
+    400072: game_r_hipPad
+    400074: game_r_knee
+    400076: game_r_shoulder
+    400078: game_r_shoulderPad
+    400080: game_r_wrist
+    400082: game_root
+    400084: game_spine01
+    400086: game_spine02
+    400088: game_spine03
+    400090: game_waist
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .200000003
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 1
+  userData: 
