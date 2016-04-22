@@ -255,6 +255,30 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData WALL_TURRET_DOWN {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 9;
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+				ret.ActorType = ActorType.Fixture;
+				ret.AIData = new AIData();
+				ret.Name = "Wall Turret";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 30
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.GravityScalar.Id, 0f
+				));
+				return ret;
+			}
+		}
+
 
 	}
 }

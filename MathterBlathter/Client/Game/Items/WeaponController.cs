@@ -60,20 +60,26 @@ namespace Client.Game.Items
 		}
 
 		public void AddWeapon(CharacterData data) {
-			var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
+			if(CanAdd(data)) {
+				var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
 
-			spawnedActor.transform.parent = GetAttachTransform(AttachPoint.Arm);
-			spawnedActor.transform.localPosition = Vector3.zero;
-			ActiveLookup.Add(data, spawnedActor);
-			Owner.Attributes[ActorAttributes.WeaponCount]++;
-			
-			Owner.Attributes[ActorAttributes.Weapons, 0] = data.Id;
-			Owner.Attributes[ActorAttributes.CurrentWeaponIndex] = 0;
+				spawnedActor.transform.parent = GetAttachTransform(AttachPoint.Arm);
+				spawnedActor.transform.localPosition = Vector3.zero;
+				ActiveLookup.Add(data, spawnedActor);
+				Owner.Attributes[ActorAttributes.WeaponCount]++;
+				
+				Owner.Attributes[ActorAttributes.Weapons, 0] = data.Id;
+				Owner.Attributes[ActorAttributes.CurrentWeaponIndex] = 0;
 
-			SwitchWeapon(spawnedActor);
+				SwitchWeapon(spawnedActor);
 
-			broadcast();
+				broadcast();
+			}
+		}
 
+		private bool CanAdd(CharacterData data) {
+			//for now just do this, TODO: actual weapon type checks
+			return !ActiveLookup.ContainsKey(data);
 		}
 	
 

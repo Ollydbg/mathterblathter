@@ -123,6 +123,7 @@
     <Compile Include="Game\Actors\Controllers\ICharacterController.cs" />
     <Compile Include="Game\Actors\Controllers\EmptyCharacterController.cs" />
     <Compile Include="Game\Actors\FixtureActor.cs" />
+    <Compile Include="Game\Core\Seed.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

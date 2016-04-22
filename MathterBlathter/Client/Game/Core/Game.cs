@@ -34,6 +34,10 @@ namespace Client.Game.Core
 		public UIManager UIManager;
 		private IGameManager[] Managers;
 
+		public Seed Seed {
+			get; private set;
+		}
+
 		public Game ()
 		{
 
@@ -42,8 +46,11 @@ namespace Client.Game.Core
 
 		private void Init() {
 
+			this.Seed = new Seed(100);
+
 			CreateManagers();
 			StartGame();
+
 		}
 
 		private void CreateManagers() {
