@@ -13,7 +13,7 @@ namespace Client.Game.Items
 
 	public class WeaponController
 	{
-		Character Owner;
+		Actor Owner;
 
 		public WeaponLookup ActiveLookup = new WeaponLookup();
 		public WeaponActor currentWeapon;
@@ -22,7 +22,7 @@ namespace Client.Game.Items
 		public event ChangedDelegate OnLoadoutChanged;
 
 
-		public WeaponController (Character owner)
+		public WeaponController (Actor owner)
 		{
 			this.Owner = owner;
 
@@ -116,10 +116,12 @@ namespace Client.Game.Items
 		}
 
 		public void Attack () {
+			Attack(getMousingDirection());
+		}
 
+		public void Attack(Vector3 direction) {
 			if(CanAttack(currentWeapon)) {
 				var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities];
-				var direction = getMousingDirection();
 
 				Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, direction, MockAbilityData.FromId(abilityId)));
 				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;

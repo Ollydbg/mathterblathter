@@ -4,6 +4,7 @@ using Client.Game.Core;
 using Client.Game.Attributes;
 using Client.Game.Data;
 using Client.Game.Animation;
+using Client.Game.Items;
 
 namespace Client.Game.Actors
 {
@@ -14,9 +15,12 @@ namespace Client.Game.Actors
 		public GameObject GameObject;
 		public AttributeMap Attributes = new AttributeMap (ActorAttributes.GetAll());
 		public Client.Game.Core.Game Game;
+		public WeaponController WeaponController;
 
 		public IAnimator Animator = new EmptyAnimator();
 		public CharacterData Data;
+
+		
 
 		public float colliderHeight;
 		public Vector3 HalfHeight {
@@ -55,6 +59,8 @@ namespace Client.Game.Actors
 			if(coll != null) {
 				colliderHeight = coll.bounds.extents.y;
 			}
+
+			this.WeaponController = new WeaponController(this);
 
 			//I should break this out into an actor factory instead of having hard linkages
 			Game.AbilityManager.AddActor(this);

@@ -27,9 +27,8 @@ namespace Client.Game.AI.Actions
 
 			if(accumulator >= speed) {
 				accumulator -= speed;
+				actor.WeaponController.Attack(direction);
 
-
-				actor.Game.AbilityManager.ActivateAbility(new AbilityContext(actor, direction, MockAbilityData.ENEMY_PROJECTILE_TEST));
 			}
 
 			return AIResult.Running;

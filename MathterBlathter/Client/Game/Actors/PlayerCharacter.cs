@@ -14,7 +14,6 @@ namespace Client.Game.Actors
 	{
 
 		public PickupController PickupController;
-		public WeaponController WeaponController;
 
 
 		public PlayerCharacter ()
@@ -32,9 +31,7 @@ namespace Client.Game.Actors
 			
 			base.EnterGame (game);
 
-			Animator = new PlayerAnimator3D(this);
-
-			this.WeaponController = new WeaponController(this);
+			this.Animator = new PlayerAnimator3D(this);
 			this.PickupController = new PickupController(this);
 
 		}

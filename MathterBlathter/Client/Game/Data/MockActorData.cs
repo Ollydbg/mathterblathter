@@ -109,6 +109,11 @@ namespace Client.Game.Data
 					1
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockWeaponData.RANGED_WEAPON_1.Id,
+					0
+				));
 
 				return ret;
 			}
@@ -152,6 +157,12 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.AI_BUFF.Id,
 					1
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockWeaponData.RANGED_WEAPON_1.Id,
+					0
 				));
 
 
@@ -266,7 +277,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData WALL_TURRET_DOWN {
+		public static CharacterData WALL_TURRET {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 9;
@@ -289,6 +300,12 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.FIRING_FIXTURE_BUFF.Id,
+					0
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockWeaponData.RANGED_WEAPON_1.Id,
 					0
 				));
 
