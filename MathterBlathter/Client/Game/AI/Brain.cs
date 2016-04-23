@@ -15,7 +15,7 @@ namespace Client.Game.AI
 
 		public void Update( float dt) {
 			if (CurrentAction != null) {
-				if (CurrentAction.Update (dt, Self) != AIResult.Incomplete) {
+				if (CurrentAction.Update (dt, Self) != AIResult.Running) {
 					CurrentAction = CurrentAction.Next;
 				}
 			}

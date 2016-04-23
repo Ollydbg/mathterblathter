@@ -11,11 +11,7 @@ namespace Client.Game.Actors
 	public class Character : Actor
 	{
 
-		public Brain Brain;
 		public ICharacterController Controller = new EmptyCharacterController();
-
-
-
 
 		public Character ()
 		{
@@ -31,9 +27,6 @@ namespace Client.Game.Actors
 		}
 
 		public override void Update(float dt) {
-			if(Brain != null) 
-				Brain.Update(dt);
-
 			Controller.Update(dt);
 
 		}

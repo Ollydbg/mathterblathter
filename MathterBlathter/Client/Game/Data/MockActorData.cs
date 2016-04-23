@@ -103,6 +103,12 @@ namespace Client.Game.Data
 					0
 				));
 
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					1
+				));
+
 
 				return ret;
 			}
@@ -141,6 +147,11 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.ENEMY_PROJECTILE_TEST.Id,
 					0
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					1
 				));
 
 
@@ -275,6 +286,13 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.GravityScalar.Id, 0f
 				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.FIRING_FIXTURE_BUFF.Id,
+					0
+				));
+
+
 				return ret;
 			}
 		}

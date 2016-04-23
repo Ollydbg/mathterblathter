@@ -4,6 +4,7 @@ using Client.Game.Attributes;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Enums;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -21,13 +22,15 @@ namespace Client.Game.Abilities.Scripts
 			int projectileCount = this.Attributes[AbilityAttributes.ProjectileCount];
 			var totalSpread = this.Attributes[AbilityAttributes.ProjectileSpread];
 			float spreadPer = totalSpread / projectileCount;
-
-
 			for( int i = 0; i<projectileCount; i++ ) {
 
-				float spreadDegrees = -.5f*totalSpread + spreadPer * i;
+
+				int pseudoIndex = -1* (int)Mathf.Floor(projectileCount*.5f) + i;
+
+				var spreadDegrees = pseudoIndex * spreadPer;
 
 				var spreadDirection = Quaternion.AngleAxis(spreadDegrees, Vector3.back) * this.context.direction;
+				
 				var projectile = FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 				projectile.OnHit = (actor) => {

@@ -42,8 +42,8 @@ namespace Client.Game.UI.Run
 			var maxRect = new Vector2(max/startingMax * baselineSize.x, baselineSize.y);
 
 			healthMaxRect.sizeDelta = maxRect;
-			healthCurrentRect.sizeDelta = new Vector2(maxRect.x * (current/max), maxRect.y);
-
+			Vector2 targetRect = new Vector2(maxRect.x * (current/max), maxRect.y);
+			healthCurrentRect.sizeDelta = Vector2.Lerp(healthCurrentRect.sizeDelta, targetRect, .5f);
 			bloodTxt.text = "BLOOD: " + playerAttributes[ActorAttributes.BloodBalance];
 
 		}

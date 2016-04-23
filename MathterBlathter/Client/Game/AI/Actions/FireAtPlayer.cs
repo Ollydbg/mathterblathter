@@ -27,7 +27,7 @@ namespace Client.Game.AI.Actions
 			} else {
 
 				TryActivateAbility (dt, actor);
-				return AIResult.Incomplete;
+				return AIResult.Running;
 			}
 
 

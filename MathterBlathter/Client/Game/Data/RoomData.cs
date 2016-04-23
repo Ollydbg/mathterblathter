@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace Client.Game.Data
 {
+
 	public class RoomData : GameData
 	{
 
@@ -16,7 +17,7 @@ namespace Client.Game.Data
 		public int Height;
 		public List<Link> Doors = new List<Link>();
 		public List<Spawn> Spawns = new List<Spawn> ();
-		public Dictionary<char, CharacterData> AsciiSpawnLookup = new Dictionary<char, CharacterData>();
+		public Dictionary<char, AsciiPlacement> AsciiSpawnLookup = new Dictionary<char, AsciiPlacement>();
 
 		public AsciiMap AsciiMap = new AsciiMap();
 
@@ -55,8 +56,21 @@ namespace Client.Game.Data
 				return new Link (this);
 			}
 
+		}
 
 
+		public class AsciiPlacement {
+			public CharacterData Data;
+			public Vector3 Facing;
+
+			public AsciiPlacement(CharacterData data, Vector3 facing) {
+				this.Data = data;
+				this.Facing = facing;
+			}
+
+			public static implicit operator AsciiPlacement(CharacterData data) {
+				return new AsciiPlacement(data, Vector3.zero);
+			}
 		}
 
 		public class Spawn

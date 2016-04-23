@@ -26,7 +26,8 @@ namespace Client.Game.Abilities
 		}
 
 
-		public Queue<RemovePair> deferredRemoves = new Queue<RemovePair>();
+		private Queue<RemovePair> deferredRemoves = new Queue<RemovePair>();
+		private Queue<AbilityContext> deferredAds = new Queue<AbilityContext>();
 
 		public AbilityManager ()
 		{
@@ -37,15 +38,22 @@ namespace Client.Game.Abilities
 		{
 			
 		}
+
 		public void Shutdown ()
 		{
 			Abilities.Clear();
 			deferredRemoves.Clear();
+			deferredAds.Clear();
 		}
 
 
 		public void Update (float dt)
 		{
+			
+			while(deferredAds.Count>0){
+				readAddQueue(deferredAds.Dequeue());		
+			}
+
 			foreach (var kvp in Abilities) {
 				foreach (var ability in kvp.Value) {
 
@@ -60,22 +68,36 @@ namespace Client.Game.Abilities
 			//cull
 			while (deferredRemoves.Count > 0) {
 				var rp = deferredRemoves.Dequeue ();
-				rp.ability.End ();
-				Abilities [rp.actor].Remove (rp.ability);
+				if(rp.ability != null) {
+					rp.ability.End ();
+					Abilities [rp.actor].Remove (rp.ability);
+				} else {
+					Abilities.Remove(rp.actor);
+				}
 			}
 
 		}
 
 
+
+
 		public void ActivateAbility(AbilityContext ctx) {
-			
+			deferredAds.Enqueue(ctx);
+		}
+
+		private void readAddQueue(AbilityContext ctx) {
 			var ability = (AbilityBase)Activator.CreateInstance(ctx.data.executionScript);
-			Abilities [ctx.source] = new List<AbilityBase> ();
-			Abilities [ctx.source].Add (ability);
+
+			List<AbilityBase> abilities;
+			if(!Abilities.TryGetValue(ctx.source, out abilities)) {
+				abilities = new List<AbilityBase>();
+				Abilities[ctx.source] = abilities;
+			}
+				
+			abilities.Add (ability);
 
 			ability.Init (ctx);
 			ability.Start ();
-
 		}
 
 
@@ -85,6 +107,7 @@ namespace Client.Game.Abilities
 				return;
 			}
 
+
 			var buffDatasToCreate = actor.Data.attributeData
 				.Where( p=>p.Id == ActorAttributes.Abilities.Id)
 				.Select(p => MockAbilityData.FromId(p.ValueI))
@@ -93,6 +116,10 @@ namespace Client.Game.Abilities
 			foreach( var buffData in buffDatasToCreate) {
 				ActivateAbility( new AbilityContext(actor, actor, buffData));
 			}
+		}
+
+		public void RemoveActor(Actor actor) {
+			deferredRemoves.Enqueue(new RemovePair(actor, null));
 		}
 
 		bool ActorUsesAbilities (Actor actor)

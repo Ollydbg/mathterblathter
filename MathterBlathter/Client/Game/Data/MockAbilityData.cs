@@ -139,35 +139,6 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData BULLET_STREAM {
-			get {
-				var ret = new AbilityData();
-				ret.Id = 4;
-				ret.name = "Bullet Stream";
-				ret.animation = States.ATTACK2;
-
-				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 1
-				));
-
-				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.ProjectileCount.Id, 1
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 18f
-				));
-
-				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
-
-
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
-				ret.AbilityType = AbilityType.Instanced;
-
-
-				return ret;
-			}
-		}
 
 
 		public static AbilityData DAMAGE_ON_TOUCH_BUFF {
@@ -178,6 +149,28 @@ namespace Client.Game.Data
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DamageOnTouchBuff);
 				ret.AbilityType = AbilityType.Buff;
 			
+				return ret;
+			}
+		}
+
+		public static AbilityData AI_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 6;
+				ret.name = "AIBUff";
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AIBuff);
+				ret.AbilityType = AbilityType.Buff;
+				return ret;
+			}
+		}
+
+		public static AbilityData FIRING_FIXTURE_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 7;
+				ret.name = "FIXTURE BUFF";
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FiringFixtureBuff);
+				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
 		}

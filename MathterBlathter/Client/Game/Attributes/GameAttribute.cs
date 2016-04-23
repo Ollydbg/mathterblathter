@@ -202,6 +202,7 @@ namespace Client.Game.Attributes
 		{
 		}
 	}
+
 	
 	public class GameAttributeB : GameAttribute
 	{

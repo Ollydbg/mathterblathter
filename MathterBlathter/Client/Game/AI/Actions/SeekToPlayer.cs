@@ -32,7 +32,7 @@ namespace Client.Game.AI.Actions
 				actor.transform.position += distanceVec.normalized * moveMagnitude;
 
 			}
-			return inAbilityRange (distanceVec, actor) ? AIResult.Success : AIResult.Incomplete;
+			return inAbilityRange (distanceVec, actor) ? AIResult.Success : AIResult.Running;
 
 		}
 

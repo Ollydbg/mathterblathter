@@ -71,7 +71,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
@@ -83,19 +83,22 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                      T                     ";
 				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                              1             ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "     L                   L           L      ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
+				ret.AsciiMap += "                         cccc3cccc          ";
+				ret.AsciiMap += "     L                               L      ";
+				ret.AsciiMap += "              1                             ";
+				ret.AsciiMap += "                            L               ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff2222ffffff";
 					
 
-				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				//ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
+				ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET_DOWN, Vector3.down);
+				//ret.AsciiSpawnLookup['T'] = MockActorData.FLOATING_TURRET;
+
 				finalize(ret);
 
 				return ret;
@@ -266,7 +269,7 @@ namespace Client.Game.Data
 			var extractor = new AsciiMeshExtractor(room.AsciiMap);
 			foreach( var spawnType in room.AsciiSpawnLookup) {
 				foreach( Vector3 match in extractor.getAllMatching(spawnType.Key, true)) {
-					var spawn = new RoomData.Spawn(spawnType.Value);
+					var spawn = new RoomData.Spawn(spawnType.Value.Data);
 					spawn.X = match.x;
 					spawn.Y = match.y;
 					spawn.SpawnType = RoomSpawnType.FirstRoomEntrance;

@@ -13,12 +13,15 @@ namespace Client.Game.Actors
 		private Vector3 direction;
 		private float speed;
 		private float lifespan = 5.0f;
+		private float lifetime = 0f;
 		private FilterList collisionFilters;
 
 		AbilityContext context;
 
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
 		private static int GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.Geometry.ToString());
+
+
 
 		public ProjectileActor ()
 		{
@@ -59,16 +62,20 @@ namespace Client.Game.Actors
 					OnHit (actorRef.Actor);
 			}
 
-			if(Collider.gameObject.layer == GEOMETRY_LAYER) {
-				Game.ActorManager.RemoveActor(this);
+			if(lifetime > .1f) {
+
+				if(Collider.gameObject.layer == GEOMETRY_LAYER) {
+					Game.ActorManager.RemoveActor(this);
+				}
 			}
 		}
 
 		public override void Update (float dt)
 		{
 			this.transform.position += (direction * (speed * dt));
-			lifespan -= dt;
-			if (lifespan <= 0f) {
+			lifetime += dt;
+
+			if (lifetime >= lifespan) {
 				Game.ActorManager.RemoveActor (this);
 			}
 		}

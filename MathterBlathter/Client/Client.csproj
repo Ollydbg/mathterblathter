@@ -124,6 +124,9 @@
     <Compile Include="Game\Actors\Controllers\EmptyCharacterController.cs" />
     <Compile Include="Game\Actors\FixtureActor.cs" />
     <Compile Include="Game\Core\Seed.cs" />
+    <Compile Include="Game\Abilities\Scripts\AIBuff.cs" />
+    <Compile Include="Game\Abilities\Scripts\FiringFixtureBuff.cs" />
+    <Compile Include="Game\AI\Actions\FireDirection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

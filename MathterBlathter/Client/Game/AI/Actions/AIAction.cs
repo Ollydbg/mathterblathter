@@ -39,14 +39,14 @@ namespace Client.Game.AI
 	public enum AIResult {
 		Success,
 		Failure,
-		Incomplete
+		Running
 	}
 
 	public class EmptyAction : AIAction {
 		
 		public override AIResult Update (float dt, Actor actor)
 		{
-			return AIResult.Incomplete;
+			return AIResult.Running;
 		}
 
 
