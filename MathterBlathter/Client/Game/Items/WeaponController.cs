@@ -122,8 +122,7 @@ namespace Client.Game.Items
 		public void Attack(Vector3 direction) {
 			if(CanAttack(currentWeapon)) {
 				var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities];
-
-				Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, direction, MockAbilityData.FromId(abilityId)));
+				Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, currentWeapon, direction, MockAbilityData.FromId(abilityId)));
 				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;
 			}
 		}

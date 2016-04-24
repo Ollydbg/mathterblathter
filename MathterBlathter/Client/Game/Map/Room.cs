@@ -9,6 +9,8 @@ using Client.Game.Enums;
 
 namespace Client.Game.Map
 {
+	using Game = Client.Game.Core.Game;
+
 	public class Room
 	{
 
@@ -21,6 +23,8 @@ namespace Client.Game.Map
 		public int Id;
 		private static int LastId = 0;
 		public GameObject GameObject;
+
+		List<int> unlockBlockers = new List<int>();
 
 
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
@@ -99,6 +103,8 @@ namespace Client.Game.Map
 		public void PlayerEntered (Actor actor, DoorActor throughDoor)
 		{
 			Lights.ForEach(l => l.gameObject.SetActive(true));
+
+			SpawnObjects();
 		}
 		
 
@@ -109,6 +115,24 @@ namespace Client.Game.Map
 			initFromData (data);
 		}
 
+		public void SpawnObjects() {
+			foreach (var spawn in data.Spawns) {
+				if(TryRecordSpawn(spawn)) {
+
+					var actor = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
+					if(actorBlocksRoomUnlock(actor)) {
+						unlockBlockers.Add(actor.Id);
+					}
+					actor.transform.position = spawn.RoomPosition + Position;
+
+				}
+			}
+		}
+
+		bool actorBlocksRoomUnlock (Actor actor)
+		{
+			return actor.ActorType == ActorType.Enemy;
+		}
 
 		public void initFromData (RoomData data)
 		{
@@ -116,13 +140,32 @@ namespace Client.Game.Map
 			this.Height = data.Height;
 		}
 
-		public void EnterGame(Game.Core.Game game) { 
+		public void EnterGame(Game game) { 
 			
 		}
 
 		public void Draw() {
 			GameObject = Drawer.Draw (this);
 		}
+
+		private bool Locked {
+			get {
+				return Doors.Count > 0 && Doors[0].isClosed;
+			}
+		}
+
+		/*
+		public void Update(float dt) {
+			
+			if(Locked) {
+				Actor tmp;
+				bool canUnlock = unlockBlockers.All(p => !Game.Instance.ActorManager.TryFromId(p, out tmp));
+				if(canUnlock) {
+					Doors.ForEach(p => p.Open()); 
+				}
+			}
+
+		}*/
 
 	}
 }

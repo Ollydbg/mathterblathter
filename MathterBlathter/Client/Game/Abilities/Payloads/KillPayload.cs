@@ -19,7 +19,7 @@ namespace Client.Game.Abilities.Payloads
 			if (AbilityManager.NotifyPayloadSender(this, Context.source))
 				return;
 
-			if (AbilityManager.NotifyPayloadReceiver (this, Context.target))
+			if (AbilityManager.NotifyPayloadReceiver (this, Target))
 				return;
 		
 			new KillRewardPayload(Context, Target, Context.source).Apply();

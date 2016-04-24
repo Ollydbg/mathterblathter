@@ -52,6 +52,7 @@ namespace Client.Game.Data
 					ActorAttributes.BaseDamage.Id, 15
 				));
 
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
 					MockWeaponData.MELEE_WEAPON_1.Id,
@@ -98,9 +99,7 @@ namespace Client.Game.Data
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					MockAbilityData.ENEMY_PROJECTILE_TEST.Id,
-					0
+					ActorAttributes.AttackSpeedScalar.Id, 2f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -141,6 +140,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 100
 				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AttackSpeedScalar.Id, 2f
+				));
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
@@ -148,11 +152,6 @@ namespace Client.Game.Data
 					ActorAttributes.BloodBounty.Id, 10
 				));;
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					MockAbilityData.ENEMY_PROJECTILE_TEST.Id,
-					0
-				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.AI_BUFF.Id,
@@ -173,7 +172,7 @@ namespace Client.Game.Data
 
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
-				var linked = MockWeaponData.RANGED_WEAPON_1;
+				var linked = MockWeaponData.HOT_RAILS;
 				var ret = new CharacterData();
 				ret.Id = 4;
 				ret.ResourcePath = linked.ResourcePath;
@@ -310,6 +309,16 @@ namespace Client.Game.Data
 				));
 
 
+				return ret;
+			}
+		}
+
+		public static CharacterData RAIL_PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 10;
+				ret.ActorType = ActorType.Projectile;
+				ret.ResourcePath = "Projectiles/HotRail_prefab";
 				return ret;
 			}
 		}

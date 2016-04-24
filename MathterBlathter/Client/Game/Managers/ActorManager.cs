@@ -46,6 +46,10 @@ namespace Client.Game.Managers
 			
 		}
 
+		public bool TryFromId (int id, out Actor actor)
+		{
+			return Actors.TryGetValue(id, out actor);
+		}
 
 		public void Update (float dt)
 		{

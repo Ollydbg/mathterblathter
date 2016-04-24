@@ -127,6 +127,7 @@
     <Compile Include="Game\Abilities\Scripts\AIBuff.cs" />
     <Compile Include="Game\Abilities\Scripts\FiringFixtureBuff.cs" />
     <Compile Include="Game\AI\Actions\FireDirection.cs" />
+    <Compile Include="Game\Abilities\Scripts\RailGunAttack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

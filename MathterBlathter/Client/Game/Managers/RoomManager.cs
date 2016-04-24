@@ -26,19 +26,22 @@ namespace Client.Game.Managers
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
-			EnterRoom(player, Rooms[0]);
 
+			EnterRoom(player, Rooms[0]);
 			//this is some bullshit, but the door triggers invoke when created on the same frame as the player
 			player.GameObject.GetComponent<ActorRef>().StartCoroutine(LateInit());
 		}
 
+		private bool didLateInit = false;
 		private IEnumerator LateInit() {
 			yield return new WaitForSeconds(.5f);
 			foreach ( var door in Rooms.SelectMany(p => p.Doors) ) {
 				var box = door.GameObject.AddComponent<BoxCollider>();
 				box.isTrigger = true;
+				//door.Close();
 			}
 
+			didLateInit = true;
 		}
 
 
@@ -74,28 +77,11 @@ namespace Client.Game.Managers
 		}
 
 
-		public void CreateRoomObjects(Room room) {
-
-			foreach (var spawn in room.data.Spawns) {
-				if(room.TryRecordSpawn(spawn)) {
-					
-					var spawned = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
-					//var spawned = Game.Instance.ActorManager.Spawn <Character> (MockActorData.FromId(spawn.ActorId));
-					spawned.transform.position = spawn.RoomPosition + room.Position;
-
-				}
-			}
-		}
-
-		
-
-
 		public void EnterRoom (Actor actor, Room room, DoorActor throughDoor = null)
 		{
 			if(CurrentRoom == room) {
 				return;
 			}
-
 
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);
@@ -104,7 +90,6 @@ namespace Client.Game.Managers
 			CurrentRoom = room;
 			CurrentRoom.PlayerEntered(actor, throughDoor);
 
-			CreateRoomObjects(room);
 
 			if(throughDoor == null) {
 				actor.transform.position = room.roomCenter;
@@ -114,6 +99,7 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
+			//if(CurrentRoom != null && didLateInit) CurrentRoom.Update(dt);	
 		}
 
 	}

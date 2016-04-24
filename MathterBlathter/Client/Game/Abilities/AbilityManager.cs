@@ -114,7 +114,7 @@ namespace Client.Game.Abilities
 				.Where(p=>p.AbilityType == AbilityType.Buff);
 
 			foreach( var buffData in buffDatasToCreate) {
-				ActivateAbility( new AbilityContext(actor, actor, buffData));
+				ActivateAbility( new AbilityContext(actor, buffData));
 			}
 		}
 

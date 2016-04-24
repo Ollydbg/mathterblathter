@@ -71,7 +71,7 @@ namespace Client.Game.Data
 					ActorAttributes.BaseDamage.Id, 20f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, 2f
+					ActorAttributes.AttackSpeed.Id, 1f
 				));
 				return ret;
 			}
@@ -93,6 +93,28 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData HOT_RAILS {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1004;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Hot Rails";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 300f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1.8f
 				));
 
 				return ret;

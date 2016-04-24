@@ -48,7 +48,17 @@ namespace Client.Game.Attributes
 		{
 			return a.Value == b.Value && a.ValueL == b.ValueL;
 		}
-		
+
+		public override bool Equals (object obj)
+		{
+			return this == (GameAttributeValue)obj;
+		}
+
+		public override int GetHashCode ()
+		{
+			return base.GetHashCode ();
+		}
+
 		public static bool operator !=(GameAttributeValue a, GameAttributeValue b)
 		{
 			return a.Value != b.Value || a.ValueL != b.ValueL;

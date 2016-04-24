@@ -11,21 +11,24 @@ namespace Client.Game.Abilities
 	public class AbilityContext
 	{
 		public Actor source;
-		public Actor target;
+		public Actor sourceWeapon;
+
 		public AbilityData data;
 		public Vector3 direction;
 
-		public AbilityContext(Actor source, Actor target, AbilityData data) {
+		public AbilityContext(Actor source, Actor weapon, Vector3 direction, AbilityData data) {
 			this.source = source;
-			this.target = target;
+			this.sourceWeapon = weapon;
+			this.data = data;
+			this.direction = direction;
+		}
+
+		public AbilityContext(Actor source, AbilityData data)
+		{
+			this.source = source;
 			this.data = data;
 		}
 
-		public AbilityContext(Actor source, Vector3 direction, AbilityData data) {
-			this.source = source;
-			this.direction = direction;
-			this.data = data;
-		}
 
 	}
 

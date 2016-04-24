@@ -24,7 +24,34 @@ namespace Client.Game.Actors
 		public Guid SelfGuid;
 		public Guid LinkedGuid;
 
-		public RoomData.Link Data;
+		public RoomData.Link LinkData;
+
+		private bool _isOpen;
+		public bool isOpen {
+			get {
+				return _isOpen;
+			} 
+			private set {
+				
+				_isOpen = value;
+				this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
+
+			}
+		}
+
+
+		public bool isClosed {
+			get {return !isOpen; }
+		}
+
+		public void Open() {
+			isOpen = true;
+		}
+
+		public void Close() {
+			isOpen = false;
+		}
+		
 
 		public float WorldX {
 			get {
@@ -40,13 +67,13 @@ namespace Client.Game.Actors
 
 		public float MatingX {
 			get {
-				return Data.X + Parent.X + MateOffsetX;
+				return LinkData.X + Parent.X + MateOffsetX;
 			}
 		}
 
 		public float MatingY {
 			get {
-				return Data.Y + Parent.Y + MateOffsetY;
+				return LinkData.Y + Parent.Y + MateOffsetY;
 			}
 		}
 
@@ -76,12 +103,13 @@ namespace Client.Game.Actors
 		}
 
 
-		void onCollision (UnityEngine.Collider Collider)
+		void OnTrigger (UnityEngine.Collider Collider)
 		{
 			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
 			if(hitRef && Game.PossessedActor == hitRef.Actor) {
 				Game.RoomManager.EnterRoom(hitRef.Actor, this.Parent, this);
 			}
+
 		}
 
 		public override void Update (float dt)
@@ -91,14 +119,14 @@ namespace Client.Game.Actors
 
 		public override void EnterGame(Client.Game.Core.Game game) {
 			
-			GameObject.GetComponent<ActorRef> ().TriggerEvent += onCollision;
+			GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
 
 			base.EnterGame(game);
 
 		}
 
 		public void InitWithData(RoomData.Link link) {
-			this.Data = link;
+			this.LinkData = link;
 			this.Width = link.Width;
 			this.Height = link.Height;
 			this.X = link.X;

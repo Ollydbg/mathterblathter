@@ -175,6 +175,24 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData RAIL_GUN {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 8;
+				ret.name = "Rail Gun";
+
+				
+				ret.spawnableDataId = MockActorData.RAIL_PROJECTILE.Id;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RailGunAttack);
+				ret.AbilityType = AbilityType.Instanced;
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 100f
+				));
+				return ret;
+			}
+		}
+
 	}
 }
 
