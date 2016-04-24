@@ -17,8 +17,6 @@ namespace Client.Game.Managers
 		public List<Room> Rooms;
 		public Room CurrentRoom;
 
-		public const int MAP_SIZE = 10;
-
 		public RoomManager ()
 		{
 			
@@ -47,7 +45,7 @@ namespace Client.Game.Managers
 
 		int numRoomsToGenerate() {
 			var solod = MockRoomData.GetAll().Count(p => p.Solo);
-			return solod > 0 ? solod : MAP_SIZE;
+			return solod > 0 ? solod : MockMapData.Map1.NumberOfRooms;
 		}
 
 		List<RoomData> availableRooms() {
@@ -69,11 +67,9 @@ namespace Client.Game.Managers
 
 		public void Start (Game game)
 		{
-			
 			var generator = new MapGenerator ();
 			Rooms = generator.GenerateFromDataSet (availableRooms(), numRoomsToGenerate());
 			Rooms.ForEach (p => p.Draw());
-
 		}
 
 

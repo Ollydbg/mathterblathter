@@ -16,7 +16,8 @@ namespace Client.Game.Map
 	{
 		public MapGenerator ()
 		{
-			Grid = new RoomGrid();
+			var reader = new BitmapReader(MockMapData.Map1);
+			Grid = new RoomGrid(reader);
 		}
 
 		RoomGrid Grid;
@@ -27,6 +28,7 @@ namespace Client.Game.Map
 
 		//returns head
 		public List<Room> GenerateFromDataSet(List<RoomData> data, int maxRooms) {
+
 
 			Pool = new RoomPool(data, maxRooms);
 
@@ -95,8 +97,9 @@ namespace Client.Game.Map
 		{
 
 			if (UnlinkedDoors.Count == 0) {
-				targetX = 0;
-				targetY = 0;
+				var start = this.Grid.GetStart();
+				targetX = (int)start.x;
+				targetY = (int)start.y;
 				doorLinks = new DoorLinkMapping();
 				return true;
 			}
@@ -107,7 +110,6 @@ namespace Client.Game.Map
 			for( int i = 0; i< SearchDirections.Length; i++ ) {
 
 				int index = ((i + roomSearch) % (SearchDirections.Length));
-				//UnityEngine.Debug.Log(SearchDirections[index]);
 				if(SearchForMatchesForSide(data, SearchDirections[index], out targetX, out targetY, out doorLinks)) {
 					return true;
 				}

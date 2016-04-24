@@ -128,6 +128,9 @@
     <Compile Include="Game\Abilities\Scripts\FiringFixtureBuff.cs" />
     <Compile Include="Game\AI\Actions\FireDirection.cs" />
     <Compile Include="Game\Abilities\Scripts\RailGunAttack.cs" />
+    <Compile Include="Game\Map\BitmapReader.cs" />
+    <Compile Include="Game\Data\MapData.cs" />
+    <Compile Include="Game\Data\MockMapData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
