@@ -131,6 +131,7 @@
     <Compile Include="Game\Map\BitmapReader.cs" />
     <Compile Include="Game\Data\MapData.cs" />
     <Compile Include="Game\Data\MockMapData.cs" />
+    <Compile Include="Game\Geometry\PassthroughPlatform.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -154,5 +155,6 @@
     <Folder Include="Game\UI\Run\" />
     <Folder Include="Game\Items\" />
     <Folder Include="Game\Actors\Controllers\" />
+    <Folder Include="Game\Geometry\" />
   </ItemGroup>
 </Project>

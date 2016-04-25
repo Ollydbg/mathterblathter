@@ -11,7 +11,7 @@ namespace Client.Game.Abilities.Utils
 	public class AbilityUtils
 	{
 		public static List<Actor> CollideSphere(Vector3 point, AbilityContext context, float size, FilterList filters ) {
-			var colliders = Physics.OverlapSphere (point, size);
+			var colliders = UnityEngine.Physics.OverlapSphere (point, size);
 			List<Actor> buff = new List<Actor> ();
 			foreach (var coll in colliders) {
 				var actorRef = coll.gameObject.GetComponent<ActorRef> ();

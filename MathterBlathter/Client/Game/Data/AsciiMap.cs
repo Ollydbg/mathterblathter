@@ -8,7 +8,8 @@ namespace Client.Game.Map
 
 		public const char WALL = 'w';
 		public const char FLOOR = 'f';
-		public const char PLATFORM = 'p';
+		public const char PLATFORM = 'P';
+		public const char PASSTHROUGH_PLATFORM = 'p';
 		public const char SPIKES = 's';
 		public const char RAMP = '/';
 		public const char DOOR = 'd';

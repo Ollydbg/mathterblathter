@@ -16,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			Brain = new Brain(context.source);
-			Brain.CurrentAction = new Client.Game.AI.Actions.FireDirection(Vector3.down);
+			Brain.CurrentAction = new Client.Game.AI.Actions.FireDirection(-context.source.transform.rotation.eulerAngles.normalized);
 		}
 
 		public override void Update (float dt)

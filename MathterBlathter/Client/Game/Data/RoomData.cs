@@ -75,6 +75,7 @@ namespace Client.Game.Data
 
 		public class Spawn
 		{
+			public Vector3 Facing;
 			public int ActorId;
 			//LOCAL SPACE!!
 			public float X;

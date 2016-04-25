@@ -140,7 +140,6 @@ namespace Client.Game.Map
 						//Because we don't want to actually overlap the doors, we want them to be adjacent.
 						//Testing Adjacency means we can just add offset for the door side and then test for equality
 
-
 						targetX = (int)mate.MatingX - door.X;
 						targetY = (int)mate.MatingY - door.Y;
 

@@ -49,7 +49,7 @@ namespace Client.Game.Map
 
 		public Vector3 roomCenter {
 			get {
-				return new Vector3 ((float)(X + Width * .5f), Height * .5f);
+				return new Vector3 ((float)(X + Width * .5f), Y + Height * .5f);
 			}
 		}
 
@@ -120,6 +120,7 @@ namespace Client.Game.Map
 				if(TryRecordSpawn(spawn)) {
 
 					var actor = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
+					actor.transform.rotation = Quaternion.Euler(spawn.Facing);
 					if(actorBlocksRoomUnlock(actor)) {
 						unlockBlockers.Add(actor.Id);
 					}

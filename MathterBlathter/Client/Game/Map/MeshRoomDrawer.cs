@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Client.Game.Map.Ascii;
 using Client.Game.Enums;
+using Client.Game.Geometry;
 
 namespace Client.Game.Map
 {
@@ -63,7 +64,14 @@ namespace Client.Game.Map
 			
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.PLATFORM)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh platform");
-				AddColliderForChunk(go, chunk, true);
+				AddColliderForChunk(go, chunk, false);
+			}
+
+
+			foreach (var chunk in extractor.getChunksMatching(AsciiMap.PASSTHROUGH_PLATFORM)) {
+				var go = DrawRoomChunk(room, chunk, color, gameObject, "passthrough platform");
+				AddColliderForChunk(go, chunk, false);
+				go.AddComponent<PassthroughPlatform>();
 			}
 		}
 
@@ -71,7 +79,7 @@ namespace Client.Game.Map
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.CEILING)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh ceiling");
-				AddColliderForChunk(go, chunk, true);
+				AddColliderForChunk(go, chunk, false);
 			}
 		}
 
@@ -104,7 +112,7 @@ namespace Client.Game.Map
 			go.name = name;
 			var mr = go.AddComponent<MeshRenderer> ();
 			var mf = go.AddComponent<MeshFilter> ();
-			AddColliderForChunk(go, chunk, false);
+			//AddColliderForChunk(go, chunk, false);
 			go.layer = LayerMask.NameToLayer(Layers.Geometry.ToString());
 			mf.mesh = extractor.chunkToMesh (chunk);
 			mr.material.color = color;
@@ -129,8 +137,8 @@ namespace Client.Game.Map
 		void DrawWalls (Room room, Color color, GameObject gameobject)
 		{
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.WALL)) {
-				DrawRoomChunk(room, chunk, color, gameobject, "wall");
-
+				var go = DrawRoomChunk(room, chunk, color, gameobject, "wall");
+				AddColliderForChunk(go, chunk, false);
 			}
 		}
 
@@ -139,7 +147,8 @@ namespace Client.Game.Map
 
 		void DrawFloors(Room room, Color color, GameObject gameobject) {
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.FLOOR)) {
-				DrawRoomChunk(room, chunk, color, gameobject,  "floor");
+				var go = DrawRoomChunk(room, chunk, color, gameobject,  "floor");
+				AddColliderForChunk(go, chunk, false);
 			}
 		}
 

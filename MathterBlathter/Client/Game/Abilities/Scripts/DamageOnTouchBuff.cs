@@ -53,7 +53,7 @@ namespace Client.Game.Abilities.Scripts
 		void AddTarget (Actor actor)
 		{
 			//Targets.Add(actor);
-
+			Debug.Log("DAMAGE BUFF SAYS DAMAGE: " + actor.GameObject.name);
 			DamageTarget(actor, Owner.Attributes[ActorAttributes.BaseDamage]);
 
 		}

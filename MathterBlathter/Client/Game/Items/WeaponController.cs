@@ -103,6 +103,15 @@ namespace Client.Game.Items
 			
 		}
 
+		private Vector3 GetAim() {
+
+			if(lastAimVector == Vector3.zero) {
+				return getMousingDirection();
+			} else {
+				return lastAimVector.normalized;
+			}
+		}
+
 		private Vector3 getMousingDirection() {
 			var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			var worldDir3 = worldPoint - currentWeapon.transform.position;
@@ -115,8 +124,16 @@ namespace Client.Game.Items
 			return elapsed >= cooldown;
 		}
 
+
+		Vector3 lastAimVector = Vector3.zero;
+		public void Aim(Vector3 aimVector) {
+			lastAimVector = aimVector;
+
+		}
+
 		public void Attack () {
-			Attack(getMousingDirection());
+			
+			Attack(GetAim());
 		}
 
 		public void Attack(Vector3 direction) {

@@ -28,6 +28,7 @@ namespace Client.Game.Actors
 		}
 
 		void OnTriggerEnter(Collider collider) {
+
 			if (TriggerEvent != null) {
 				TriggerEvent (collider);
 			}

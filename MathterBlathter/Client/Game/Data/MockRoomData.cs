@@ -76,29 +76,29 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "                      T                     ";
-				ret.AsciiMap += "                         ccccccccc          ";
-				ret.AsciiMap += "                         cccc3cccc          ";
-				ret.AsciiMap += "     L                               L      ";
-				ret.AsciiMap += "              1                             ";
-				ret.AsciiMap += "                            L               ";
-				ret.AsciiMap += "                                            ";
-				ret.AsciiMap += "         4                                  ";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "  L                                        w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                         cccccc     3      w";
+				ret.AsciiMap += "     ppppppppppPPPPPPPPPPcccccc            w";
+				ret.AsciiMap += "     L                               L     5";
+				ret.AsciiMap += "                                           5";
+				ret.AsciiMap += "                            L              w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "         4                                 w";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff2222ffffff";
 					
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
 				ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['T'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['4'] = MockActorData.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['5'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
 				finalize(ret);
 
 				return ret;
@@ -115,9 +115,9 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                  ";
 				ret.AsciiMap += "w                                                 d";
 				ret.AsciiMap += "w                       L                          ";
-				ret.AsciiMap += "w                                     ppppppppppppw";
+				ret.AsciiMap += "w                                     PPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                   ffffffffffffffw";
-				ret.AsciiMap += "w                                 ppppppppppppppppw";
+				ret.AsciiMap += "w                                 PPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                                 w";
@@ -153,12 +153,12 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                   ";
 				ret.AsciiMap += "d                                   2             d";
 				ret.AsciiMap += "                        L                          ";
-				ret.AsciiMap += "wpppppppppppppppppppppp    pppp       ppppppppppppw";
+				ret.AsciiMap += "wppppppppppppp          ppppppp       ppppppppppppw";
 				ret.AsciiMap += "w                                   ffffffffffffffw";
 				ret.AsciiMap += "w                                 ppppppppppppppppw";
 				ret.AsciiMap += "w           2                                     w";
 				ret.AsciiMap += "w                                                 w";
-				ret.AsciiMap += "w                                                 w";
+				ret.AsciiMap += "w                ppppppp                          w";
 				ret.AsciiMap += "w                                           L     w";
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                                 w";
@@ -248,7 +248,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 				ret.AsciiSpawnLookup['C'] = MockActorData.RANDOM_WEAPON_PICKUP;
-				ret.AsciiSpawnLookup['T'] = MockActorData.WALL_TURRET;
+				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 
 				finalize(ret);
 
@@ -288,7 +288,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 				ret.AsciiSpawnLookup['C'] = MockActorData.RANDOM_WEAPON_PICKUP;
-				ret.AsciiSpawnLookup['T'] = MockActorData.WALL_TURRET;
+				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 
 				finalize(ret);
 
@@ -352,7 +352,7 @@ namespace Client.Game.Data
 					spawn.X = match.x;
 					spawn.Y = match.y;
 					spawn.SpawnType = RoomSpawnType.FirstRoomEntrance;
-
+					spawn.Facing = spawnType.Value.Facing;
 					room.Spawns.Add(spawn);
 				}
 			}
@@ -370,7 +370,7 @@ namespace Client.Game.Data
 				link.Width = 1;
 				link.X = (int)doorPos.x;
 				link.Y = (int)doorPos.y;
-
+				
 				if (link.X == 0) {
 					link.Side = DoorRoomSide.Left;
 					link.Width = 1;
@@ -384,7 +384,6 @@ namespace Client.Game.Data
 					link.Width = 1;
 					link.Height = 3;
 				} else {
-
 					link.Side = DoorRoomSide.Top;
 					link.Width = 3;
 					link.Height = 1;
