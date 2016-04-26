@@ -101,9 +101,6 @@ namespace Client.Game.Map
 						door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
 				}
 
-
-				door.GameObject.GetComponent<MeshRenderer> ().material.color = Color.cyan;
-
 			}
 		}
 

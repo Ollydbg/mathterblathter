@@ -128,6 +128,10 @@ namespace Client.Game.Map
 
 				}
 			}
+
+			if(unlockBlockers.Count > 0) {
+				this.Doors.ForEach(p => p.Close());
+			}
 		}
 
 		bool actorBlocksRoomUnlock (Actor actor)
@@ -155,9 +159,9 @@ namespace Client.Game.Map
 			}
 		}
 
-		/*
+
 		public void Update(float dt) {
-			
+
 			if(Locked) {
 				Actor tmp;
 				bool canUnlock = unlockBlockers.All(p => !Game.Instance.ActorManager.TryFromId(p, out tmp));
@@ -166,7 +170,7 @@ namespace Client.Game.Map
 				}
 			}
 
-		}*/
+		}
 
 	}
 }

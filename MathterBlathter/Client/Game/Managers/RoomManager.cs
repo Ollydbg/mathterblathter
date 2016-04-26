@@ -94,7 +94,7 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-			//if(CurrentRoom != null && didLateInit) CurrentRoom.Update(dt);	
+			if(CurrentRoom != null && didLateInit) CurrentRoom.Update(dt);	
 		}
 
 	}

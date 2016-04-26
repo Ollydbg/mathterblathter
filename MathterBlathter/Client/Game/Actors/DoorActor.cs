@@ -26,15 +26,18 @@ namespace Client.Game.Actors
 
 		public RoomData.Link LinkData;
 
+		private static Color OPEN_COLOR = Color.white;
+		private static Color CLOSED_COLOR = Color.red;
+
 		private bool _isOpen;
 		public bool isOpen {
 			get {
 				return _isOpen;
 			} 
 			private set {
-				
 				_isOpen = value;
-				this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
+				this.GameObject.GetComponent<Renderer>().material.color = _isOpen ? OPEN_COLOR : CLOSED_COLOR;
+				//this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
 
 			}
 		}

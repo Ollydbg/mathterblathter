@@ -327,7 +327,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 				ret.AsciiSpawnLookup['C'] = MockActorData.RANDOM_WEAPON_PICKUP;
-				ret.AsciiSpawnLookup['T'] = MockActorData.WALL_TURRET;
+				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 
 				finalize(ret);
 

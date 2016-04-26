@@ -53,14 +53,9 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-			foreach( var kvp in Actors) 
-				kvp.Value.Update(dt);
-
-			while (deferredAds.Count > 0) {
-				var actor = deferredAds.Dequeue ();
-				Actors.Add (actor.Id, actor);
-			}
-
+			foreach( var actor in Actors.Values.ToList()) 
+				actor.Update(dt);
+			
 			while (deferredRemoves.Count > 0) {
 				var actor = deferredRemoves.Dequeue ();
 				Actors.Remove (actor.Id);
@@ -117,14 +112,12 @@ namespace Client.Game.Managers
 			deferredRemoves.Enqueue (actor);
 		}
 
-		private Queue<Actor> deferredAds = new Queue<Actor>();
 		void BindActor(Actor actor, GameObject obj) {
 			obj.AddComponent<ActorRef> ();
 			obj.GetComponent<ActorRef> ().Actor = actor;
 
 			actor.GameObject = obj;
-
-			deferredAds.Enqueue (actor);
+			Actors.Add (actor.Id, actor);
 
 		}
 
