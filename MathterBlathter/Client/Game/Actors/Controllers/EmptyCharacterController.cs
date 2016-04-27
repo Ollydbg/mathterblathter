@@ -26,6 +26,10 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+
+		public bool Ducking {
+			get; set;
+		}
 		#endregion
 	}
 }

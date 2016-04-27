@@ -4,12 +4,17 @@ using UnityEngine;
 
 namespace Client.Game.Actors
 {
-	public class Pickup : Actor
+	public class Pickup : Actor , IInteractable
 	{
 		public Pickup ()
 		{
 		}
 
+
+		public void Interact ()
+		{
+			throw new NotImplementedException ();
+		}
 
 		public bool CanActorPickup(Actor actor) {
 			return true;

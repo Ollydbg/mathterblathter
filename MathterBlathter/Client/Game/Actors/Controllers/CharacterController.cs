@@ -5,6 +5,7 @@ using Client.Game.Animation;
 using Client.Game.Abilities;
 using Client.Game.Data;
 using System.Linq;
+using Client.Game.Geometry;
 
 namespace Client.Game.Actors.Controllers
 {
@@ -22,11 +23,14 @@ namespace Client.Game.Actors.Controllers
 		private bool jumpNeedsReset = false;
 		private Vector3 movementAccumulator = Vector3.zero;
 
+
+
 		public CharacterController(Character actor) {
 			this.Actor = actor;
 			internalController = this.Actor.GameObject.GetComponent<UnityEngine.CharacterController>();
 		}
 
+		public bool Ducking { get; set;}
 
 
 		public void MoveRight (float hor)
@@ -107,14 +111,21 @@ namespace Client.Game.Actors.Controllers
 
 		public void Jump() {
 
+			if(Ducking) {
+				tryDuckJump();
+				return;
+			}
+
 			if(IsGrounded && !jumpNeedsReset) {
 				var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
+
 				internalController.Move(Vector3.up*jumpHeight);
 				//gravityYv = 0;
 				gravityYv = jumpHeight;
 				jumpPowerAccumulator += jumpHeight;
 			} else if(jumpPowerAccumulator < Actor.Attributes[ActorAttributes.MaxJumpPower] && !jumpNeedsReset) {
 				var boost = Actor.Attributes[ActorAttributes.SustainedJumpPower];
+
 				internalController.Move(Vector3.up*boost);
 				
 				gravityYv += boost;
@@ -125,6 +136,15 @@ namespace Client.Game.Actors.Controllers
 		}
 
 
+		private void tryDuckJump() {
+			RaycastHit hit;
+			if (Physics.Raycast(new Ray(Actor.transform.position, Vector3.down * 2f), out hit, 2.5f)) {
+				var passthrough = hit.collider.gameObject.GetComponent<PassthroughPlatform>();
+				if(passthrough) {
+					passthrough.Passthrough(Actor);
+				}
+			}
+		}
 
 
 	}

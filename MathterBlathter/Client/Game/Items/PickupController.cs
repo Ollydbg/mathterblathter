@@ -54,7 +54,7 @@ namespace Client.Game.Items
 
 		}
 
-		void UpdateSlow ()
+		void UpdateSlow () 
 		{
 			ClosestPickup = GetClosestPickup();
 		}

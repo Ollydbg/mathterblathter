@@ -56,6 +56,7 @@ namespace Client.Game.Abilities.Scripts
 			DamageTarget(actor, Owner.Attributes[ActorAttributes.BaseDamage]);
 
 		}
+
 	}
 }
 

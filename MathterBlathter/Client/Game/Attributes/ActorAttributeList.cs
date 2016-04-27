@@ -47,8 +47,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF AttackSpeedScalar = new GameAttributeF(24, 1f, "attack multipler", 0, float.MaxValue);
 		public static readonly GameAttributeF AttackSpeed = new GameAttributeF(25, 1f, "attack speed", 0, float.MaxValue);
 		public static readonly GameAttributeF LastFiredTime = new GameAttributeF(26, -10f, "last fired time", 0, float.MaxValue);
-
-		
+		public static readonly GameAttributeB PassesThroughPlatforms = new GameAttributeB(27, 0, "Passes Through Platforms", 0, 1);
 	}
 }
 

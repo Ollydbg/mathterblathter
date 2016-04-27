@@ -21,6 +21,7 @@ namespace Client.Game.Managers
 		public static string Aim = "Aim";
 		public static string Interact = "Interact";
 		public static string PICKUP = "Pickup";
+		public static string DUCK = "Duck";
 
 
 		public PlayerCharacter TargetActor;
@@ -72,12 +73,18 @@ namespace Client.Game.Managers
 				TargetActor.WeaponController.ToggleWeapon ();
 			}
 
+
+
 			if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
 				TargetActor.WeaponController.Attack ();
 			}
 
+			TargetActor.Controller.Ducking = Input.GetButton(DUCK);
+
+
 			var contVert = Input.GetAxis(VERTICAL);
 			TargetActor.WeaponController.Aim(new Vector3(stickHor, contVert));
+
 
 		}
 

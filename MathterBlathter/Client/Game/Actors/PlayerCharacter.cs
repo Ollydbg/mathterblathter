@@ -15,7 +15,6 @@ namespace Client.Game.Actors
 
 		public PickupController PickupController;
 
-
 		public PlayerCharacter ()
 		{
 			

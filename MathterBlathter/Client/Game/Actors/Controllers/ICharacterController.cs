@@ -9,6 +9,10 @@ namespace Client.Game.Actors.Controllers
 		void Jump();
 		void StopJumping();
 		void MoveRight(float amt);
+
+		bool Ducking {
+			get; set;
+		}
 	}
 }
 

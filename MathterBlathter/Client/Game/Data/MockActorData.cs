@@ -32,6 +32,10 @@ namespace Client.Game.Data
 					ActorAttributes.Speed.Id, 20f
 				));
 
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.PassesThroughPlatforms.Id, 1
+				));
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
 				));

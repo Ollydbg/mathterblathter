@@ -55,7 +55,6 @@
     <Compile Include="Game\Enums\DoorRoomSide.cs" />
     <Compile Include="Game\Managers\CameraManager.cs" />
     <Compile Include="Game\Managers\IGameManager.cs" />
-    <Compile Include="Game\Managers\InputManager.cs" />
     <Compile Include="Game\Managers\RoomManager.cs" />
     <Compile Include="Game\Actors\Character.cs" />
     <Compile Include="Game\Attributes\ActorAttributeList.cs" />
@@ -132,6 +131,8 @@
     <Compile Include="Game\Data\MapData.cs" />
     <Compile Include="Game\Data\MockMapData.cs" />
     <Compile Include="Game\Geometry\PassthroughPlatform.cs" />
+    <Compile Include="Game\Managers\InputRouter.cs" />
+    <Compile Include="Game\Actors\IInteractable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
