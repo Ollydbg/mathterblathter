@@ -240,6 +240,33 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static AbilityData ROCKET_LAUNCHER {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 11;
+				ret.name = "Rocket Launcher";
+				ret.spawnableDataId = MockActorData.ROCKET_PROJECTILE.Id;
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.Damage.Id, 100
+				));
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.SplashRadius.Id, 5f
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 0f	
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, 30f
+				));
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RocketProjectileAttack);
+
+
+				return ret;
+			}
+		}
 	}
 }
 

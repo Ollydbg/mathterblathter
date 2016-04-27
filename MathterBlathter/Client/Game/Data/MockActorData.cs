@@ -59,7 +59,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
-					MockWeaponData.MELEE_WEAPON_1.Id,
+					MockWeaponData.RUSTY_REPEATER.Id,
 					0
 				));
 
@@ -190,7 +190,26 @@ namespace Client.Game.Data
 					MockAbilityData.LEVEL_APPROPRIATE_WEAPON.Id
 				));
 
-				ret.Name = "PickupTest";
+				ret.Name = "RandomWeapon";
+
+				return ret;
+			}
+		}
+
+		public static CharacterData FIXED_PICKUP {
+			get {
+				var linked = MockWeaponData.ROCKET_LAUNCHER;
+				var ret = new CharacterData();
+				ret.Id = 12;
+				ret.ResourcePath = linked.ResourcePath;
+				ret.ActorType = ActorType.Pickup;
+				ret.attributeData.Add( new CharacterData.AttributeData( 
+					ActorAttributes.PickupItemId.Id,
+					linked.Id
+				));
+
+
+				ret.Name = "FixedWeapon";
 
 				return ret;
 			}
@@ -328,6 +347,16 @@ namespace Client.Game.Data
 				ret.Id = 10;
 				ret.ActorType = ActorType.Projectile;
 				ret.ResourcePath = "Projectiles/HotRail_prefab";
+				return ret;
+			}
+		}
+
+		public static CharacterData ROCKET_PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 11;
+				ret.ActorType = ActorType.Projectile;
+				ret.ResourcePath = "Projectiles/SmallRocket_prefab";
 				return ret;
 			}
 		}

@@ -11,7 +11,7 @@ namespace Client.Game.Data
 		public string animation;
 		public Type executionScript;
 		public int spawnableDataId;
-		public AbilityType AbilityType;
+		public AbilityType AbilityType = AbilityType.Instanced;
 
 		public AbilityData ()
 		{

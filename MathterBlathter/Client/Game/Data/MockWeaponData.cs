@@ -89,7 +89,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData RUSTY_REVOLVER {
+		public static CharacterData RUSTY_REPEATER {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1003;
@@ -132,6 +132,30 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static CharacterData ROCKET_LAUNCHER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1005;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Rocket Launcher";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 300f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 2f
+				));
+
+
+				return ret;
+			}
+		}
+
 	}
 }
 

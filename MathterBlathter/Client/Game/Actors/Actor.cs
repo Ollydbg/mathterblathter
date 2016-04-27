@@ -19,8 +19,10 @@ namespace Client.Game.Actors
 
 		public IAnimator Animator = new EmptyAnimator();
 		public CharacterData Data;
-
 		
+		
+		public delegate void DestroyedDelegate(Actor actor);
+		public event DestroyedDelegate OnDestroyed;
 
 		public float colliderHeight;
 		public Vector3 HalfHeight {
@@ -46,6 +48,11 @@ namespace Client.Game.Actors
 
 		}
 
+		public virtual void Destroy() {
+			if(OnDestroyed != null) {
+				OnDestroyed(this);
+			}
+		}
 
 		public virtual void LoadFromData(CharacterData data) {
 			this.Data = data;

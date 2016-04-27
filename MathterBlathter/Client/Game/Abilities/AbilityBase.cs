@@ -7,6 +7,7 @@ using Client.Game.Attributes;
 using Client.Game.Enums;
 using Client.Game.Data;
 using Client.Game.Abilities.Utils;
+using System.Collections.Generic;
 
 namespace Client
 {
@@ -20,6 +21,9 @@ namespace Client
 				return this.context.source;
 			}
 		}
+
+		private List<Actor> SpawnedActors = new List<Actor>();
+
 		public AbilityBase ()
 		{
 		}
@@ -35,17 +39,26 @@ namespace Client
 		public abstract void End ();
 
 		public virtual bool isComplete() {
-			return false;
+			return SpawnedActors.Count == 0;
 		}
 
 		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
 
+			Vector3 adjustedDirection = AbilityUtils.AdjustWithAssist(direction, this.Attributes[AbilityAttributes.AimAssistRadius]);
+
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
 			projectile.transform.position = AttachPointPositionOnActor(point, context.source);
 
-			projectile.transform.LookAt(projectile.transform.position + direction);
-			projectile.SetMovement (direction, speed);
+			projectile.transform.LookAt(projectile.transform.position + adjustedDirection);
+			projectile.SetMovement (adjustedDirection, speed);
 			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
+			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(Layers.Projectiles.ToString());
+			SpawnedActors.Add(projectile);
+
+			projectile.OnDestroyed += (Actor actor) => {
+				SpawnedActors.Remove(actor);
+			};
+
 
 			return projectile;
 

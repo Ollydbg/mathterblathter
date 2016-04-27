@@ -10,8 +10,10 @@ namespace Client.Game.Actors
 	public class ProjectileActor : Actor
 	{
 		public Action<Actor> OnHit;
+		public Action OnGeometryHit;
+
 		private Vector3 direction;
-		private float speed;
+		public float Speed;
 		private float lifespan = 5.0f;
 		private float lifetime = 0f;
 		private FilterList collisionFilters;
@@ -38,7 +40,7 @@ namespace Client.Game.Actors
 		public void SetMovement (Vector3 direction, float speed)
 		{
 			this.direction = direction;
-			this.speed = speed;
+			this.Speed = speed;
 			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
 			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += OnCollision;
 
@@ -63,16 +65,18 @@ namespace Client.Game.Actors
 			}
 
 			if(lifetime > .1f) {
-
 				if(Collider.gameObject.layer == GEOMETRY_LAYER) {
+					if(OnGeometryHit != null)
+						OnGeometryHit();
 					Game.ActorManager.RemoveActor(this);
+
 				}
 			}
 		}
 
 		public override void Update (float dt)
 		{
-			this.transform.position += (direction * (speed * dt));
+			this.transform.position += (direction * (Speed * dt));
 			lifetime += dt;
 
 			if (lifetime >= lifespan) {

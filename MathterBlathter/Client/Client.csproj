@@ -139,6 +139,7 @@
     <Compile Include="Game\UI\Run\RunUI.cs" />
     <Compile Include="Game\Abilities\Scripts\LevelAppropriateWeaponDrop.cs" />
     <Compile Include="Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
+    <Compile Include="Game\Abilities\Scripts\RocketProjectileAttack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -58,6 +58,7 @@ namespace Client.Game.Managers
 			
 			while (deferredRemoves.Count > 0) {
 				var actor = deferredRemoves.Dequeue ();
+				actor.Destroy();
 				Actors.Remove (actor.Id);
 				GameObject.Destroy (actor.GameObject);
 			}

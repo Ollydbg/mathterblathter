@@ -85,7 +85,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                         cccccc     3      w";
-				ret.AsciiMap += "      pppppppppPPPPPPPPPPcccccc            w";
+				ret.AsciiMap += "      ppppppppp          cccccc            w";
 				ret.AsciiMap += "     L                               L     5";
 				ret.AsciiMap += "                                           5";
 				ret.AsciiMap += "                            L              w";
@@ -97,7 +97,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
 				//ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['4'] = MockActorData.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['4'] = MockActorData.FIXED_PICKUP;
 				//ret.AsciiSpawnLookup['5'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
 				finalize(ret);
 

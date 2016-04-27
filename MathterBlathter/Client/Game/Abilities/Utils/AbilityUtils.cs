@@ -25,8 +25,9 @@ namespace Client.Game.Abilities.Utils
 		}
 
 
-
-
+		public static Vector3 AdjustWithAssist(Vector3 direction, float adjustAmt) {
+			return direction;
+		}
 
 
 	}
