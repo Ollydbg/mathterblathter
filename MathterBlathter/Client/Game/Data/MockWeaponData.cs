@@ -16,9 +16,21 @@ namespace Client.Game.Data
 
 		}
 
+		private static Dictionary<int, CharacterData> All {
+			get {
+				if (_all == null) {
+					StaticInit();
+				}
+				return _all;
+			}
+		}
+
+		public static List<CharacterData> GetAll() {
+			return All.Values.ToList();
+		}
+
 		public static CharacterData FromId(int id) {
-			if(_all == null) StaticInit();
-			return _all[id];
+			return All[id];
 		}
 
 		public static CharacterData MELEE_WEAPON_1 {
@@ -85,7 +97,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rusty Blaster";
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.DOUBLE_SHOT.Id
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 100f

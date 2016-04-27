@@ -12,6 +12,10 @@ namespace Client.Game.Core
 			random = new Random(Value);
 		}
 
+		public int Next(int max) {
+			return random.Next(max);
+		}
+
 		public int Next() {
 
 			return random.Next();

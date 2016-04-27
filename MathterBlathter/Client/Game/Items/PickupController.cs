@@ -60,7 +60,7 @@ namespace Client.Game.Items
 		}
 
 		Pickup GetClosestPickup() {
-			var colliders = Physics.OverlapSphere(Owner.transform.position, Owner.Attributes[ActorAttributes.PickupRadius], pickupMask);
+			var colliders = Physics.OverlapSphere(Owner.transform.position, Owner.Attributes[ActorAttributes.InteractionRadius], pickupMask);
 
 			float shortestDistance = float.MaxValue;
 			Pickup closestPickup = null;

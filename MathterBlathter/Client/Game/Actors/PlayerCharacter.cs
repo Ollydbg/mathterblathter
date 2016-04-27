@@ -4,6 +4,7 @@ using Client.Game.Data;
 using Client.Game.Items;
 using Client.Game.Attributes;
 using Client.Game.Animation;
+using Client.Game.Actors.Controllers;
 
 namespace Client.Game.Actors
 {
@@ -14,6 +15,7 @@ namespace Client.Game.Actors
 	{
 
 		public PickupController PickupController;
+		public InteractionController InteractionController;
 
 		public PlayerCharacter ()
 		{
@@ -32,6 +34,7 @@ namespace Client.Game.Actors
 
 			this.Animator = new PlayerAnimator3D(this);
 			this.PickupController = new PickupController(this);
+			this.InteractionController = new InteractionController(this);
 
 		}
 
@@ -39,6 +42,8 @@ namespace Client.Game.Actors
 		{
 			PickupController.Update(dt);
 			WeaponController.Update(dt);
+			InteractionController.Update(dt);
+
 
 			base.Update (dt);
 		}

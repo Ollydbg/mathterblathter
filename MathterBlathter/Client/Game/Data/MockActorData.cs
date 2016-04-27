@@ -185,6 +185,11 @@ namespace Client.Game.Data
 					ActorAttributes.PickupItemId.Id,
 					linked.Id
 				));
+				ret.attributeData.Add( new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.LEVEL_APPROPRIATE_WEAPON.Id
+				));
+
 				ret.Name = "PickupTest";
 
 				return ret;

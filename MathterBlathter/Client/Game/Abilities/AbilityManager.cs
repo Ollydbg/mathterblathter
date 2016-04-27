@@ -124,7 +124,7 @@ namespace Client.Game.Abilities
 
 		bool ActorUsesAbilities (Actor actor)
 		{
-			return actor.ActorType == ActorType.Enemy || actor.ActorType == ActorType.Friendly || actor.ActorType == ActorType.Fixture;
+			return actor.Attributes[ActorAttributes.Abilities] != ActorAttributes.Abilities.DefaultValue;//actor.ActorType == ActorType.Enemy || actor.ActorType == ActorType.Friendly || actor.ActorType == ActorType.Fixture || actor.ActorType == ActorType.Pickup;
 		}
 
 		//returns true if it got consumed

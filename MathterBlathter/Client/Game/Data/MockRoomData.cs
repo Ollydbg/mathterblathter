@@ -158,6 +158,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                 PPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w           2                                     w";
 				ret.AsciiMap += "w                                                 w";
+				ret.AsciiMap += "w                                                 w";
+				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                PPPPPPPPPPPPPPPPPPPPPPPPPPpppppppw";
 				ret.AsciiMap += "w                                           L     w";
 				ret.AsciiMap += "w                                                 w";
@@ -197,11 +199,10 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                      PPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                 w";
-				ret.AsciiMap += "w                                           L     w";
+				ret.AsciiMap += "w                          PPPPPPPPP        L     w";
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                                 w";
-				ret.AsciiMap += "w                                                 w";
-				ret.AsciiMap += "w               1                                 w";
+				ret.AsciiMap += "w               1                            2    w";
 				ret.AsciiMap += "w       PPPPPPPPPPP                  PPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                 w";
 				ret.AsciiMap += "w                                                 w";
@@ -213,6 +214,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffff d fffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['2'] = MockActorData.RANDOM_WEAPON_PICKUP;
 
 				finalize(ret);
 
@@ -339,7 +341,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 107;
-				ret.Solo = true;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "w                                     w";
 				ret.AsciiMap += "w                                     w";
@@ -349,11 +350,11 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                     w";
 				ret.AsciiMap += "                                       ";
 				ret.AsciiMap += "d                   L                 d";
-				ret.AsciiMap += "                    1                  ";
+				ret.AsciiMap += "                    1            2     ";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.SHOPKEEPER;
-
+				ret.AsciiSpawnLookup['2'] = MockActorData.RANDOM_WEAPON_PICKUP;
 				finalize(ret);
 
 				return ret;

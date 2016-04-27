@@ -193,6 +193,53 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData LEVEL_APPROPRIATE_WEAPON {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 9;
+				ret.name = "LevelAppropriateWeaponBuff";
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LevelAppropriateWeaponDrop);
+				ret.AbilityType = AbilityType.Buff;
+
+				return ret;
+
+			}
+		}
+
+
+		public static AbilityData DOUBLE_SHOT {
+			get {
+				var ret = new AbilityData ();
+				ret.Id = 10;
+				ret.name = "Double shot";
+				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Cooldown.Id, .5f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 40f
+				));
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatAmount.Id, 2
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatDelay.Id, .1f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
+				));
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
+				ret.AbilityType = AbilityType.Instanced;
+				return ret;
+			}
+		}
 	}
 }
 

@@ -7,7 +7,7 @@ namespace Client.Game.UI.Run
 {
 	using Game = Client.Game.Core.Game;
 
-	public class PlayerStatsHud : MonoBehaviour
+	public class PlayerStatsHud : RunUI
 	{
 		public GameObject healthMax;
 		public GameObject healthCurrent;
@@ -47,6 +47,15 @@ namespace Client.Game.UI.Run
 			bloodTxt.text = "BLOOD: " + playerAttributes[ActorAttributes.BloodBalance];
 
 		}
+
+		public override void Show ()
+		{
+		}
+
+		public override void Hide ()
+		{
+		}
+
 	}
 }
 

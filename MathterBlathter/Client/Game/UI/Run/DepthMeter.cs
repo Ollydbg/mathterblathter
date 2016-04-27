@@ -7,7 +7,7 @@ namespace Client.Game.UI.Run
 {
 	using Game = Client.Game.Core.Game;
 
-	public class DepthMeter : MonoBehaviour
+	public class DepthMeter : RunUI
 	{
 
 		Text text;
@@ -24,6 +24,15 @@ namespace Client.Game.UI.Run
 		void Update() {
 			text.text = roomManager.CurrentRoom.Y.ToString() + "ft";
 		}
+
+		public override void Show ()
+		{
+		}
+
+		public override void Hide ()
+		{
+		}
+
 	}
 }
 

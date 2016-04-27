@@ -25,7 +25,7 @@ namespace Client.Game.Managers
 			ActorTypeLookup[ActorType.Player] = typeof(PlayerCharacter);
 			ActorTypeLookup[ActorType.Pickup] = typeof(Pickup);
 			ActorTypeLookup[ActorType.Enemy] = typeof(Character);
-			ActorTypeLookup[ActorType.Friendly] = typeof(Character);
+			ActorTypeLookup[ActorType.Friendly] = typeof(NPC);
 			ActorTypeLookup[ActorType.Door] = typeof(DoorActor);
 			ActorTypeLookup[ActorType.Projectile] = typeof(ProjectileActor);
 			ActorTypeLookup[ActorType.Weapon] = typeof(WeaponActor);

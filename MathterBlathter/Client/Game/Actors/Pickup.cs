@@ -1,19 +1,41 @@
 ﻿using System;
 using Client.Game.Data;
 using UnityEngine;
+using Client.Game.Attributes;
 
 namespace Client.Game.Actors
 {
-	public class Pickup : Actor , IInteractable
+	public class Pickup : Actor , IInteraction
 	{
 		public Pickup ()
 		{
 		}
 
+		public Actor InteractionTarget {
+			get {
+				return this;
+			}
+		}
+		
+		public CharacterData Item {
+			get {
+				var itemId = this.Attributes[ActorAttributes.PickupItemId];
+				CharacterData weaponData = MockWeaponData.FromId(itemId);
 
-		public void Interact ()
+				return weaponData;
+			}
+		}
+
+
+		public void Interact (Actor withActor)
 		{
-			throw new NotImplementedException ();
+			withActor.WeaponController.AddWeapon(Item);
+			Game.ActorManager.RemoveActor(this);
+		}
+
+		public string GetPrompt ()
+		{
+			return Item.Name;
 		}
 
 		public bool CanActorPickup(Actor actor) {

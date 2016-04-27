@@ -100,7 +100,6 @@
     <Compile Include="Game\Enums\GameState.cs" />
     <Compile Include="Game\Managers\ActorManager.cs" />
     <Compile Include="Game\Enums\AttachPoint.cs" />
-    <Compile Include="Game\UI\Run\ItemPickupPopup.cs" />
     <Compile Include="Game\Actors\Pickup.cs" />
     <Compile Include="Game\Items\PickupController.cs" />
     <Compile Include="Game\Enums\Layers.cs" />
@@ -132,7 +131,14 @@
     <Compile Include="Game\Data\MockMapData.cs" />
     <Compile Include="Game\Geometry\PassthroughPlatform.cs" />
     <Compile Include="Game\Managers\InputRouter.cs" />
-    <Compile Include="Game\Actors\IInteractable.cs" />
+    <Compile Include="Game\Actors\Controllers\InteractionController.cs" />
+    <Compile Include="Game\Actors\IInteraction.cs" />
+    <Compile Include="Game\Actors\NPC.cs" />
+    <Compile Include="Game\UI\Run\InteractionPrompt.cs" />
+    <Compile Include="Game\UI\Run\ShopUI.cs" />
+    <Compile Include="Game\UI\Run\RunUI.cs" />
+    <Compile Include="Game\Abilities\Scripts\LevelAppropriateWeaponDrop.cs" />
+    <Compile Include="Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

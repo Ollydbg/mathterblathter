@@ -20,7 +20,6 @@ namespace Client.Game.Managers
 		public static string ATTACK = "Attack";
 		public static string Aim = "Aim";
 		public static string Interact = "Interact";
-		public static string PICKUP = "Pickup";
 		public static string DUCK = "Duck";
 
 
@@ -59,8 +58,8 @@ namespace Client.Game.Managers
 				TargetActor.Controller.StopJumping();
 			}
 
-			if(Input.GetButtonDown(PICKUP)) {
-				TargetActor.PickupController.PickupClosest();
+			if(Input.GetButtonDown(Interact)) {
+				TargetActor.InteractionController.InteractClosest();
 			}
 
 			var hor = Input.GetAxis (HORIZONTAL);

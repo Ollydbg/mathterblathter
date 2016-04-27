@@ -10,9 +10,10 @@ namespace Client.Game.Managers
 	public class UIManager : IGameManager
 	{
 		public DepthMeter DepthMeter;
-		public ItemPickupPopup PickupPopup;
+		public InteractionPrompt InteractionPrompt;
 		public PlayerStatsHud StatsHud;
 		public ZoneTitle ZoneTitle;
+		public ShopUI ShopUI;
 
 		private static String Run_Resource = "UI/RunUI";
 
@@ -30,6 +31,8 @@ namespace Client.Game.Managers
 		public void Start (Game game)
 		{
 			this.GameObject = (GameObject)GameObject.Instantiate(Resources.Load(Run_Resource));
+
+
 		}
 
 

@@ -86,6 +86,8 @@ namespace Client.Game.Managers
 			CurrentRoom = room;
 			CurrentRoom.PlayerEntered(actor, throughDoor);
 
+			Debug.Log("Enterring Room: " + room.data.Id);
+
 			if(throughDoor == null) {
 				actor.transform.position = room.roomCenter;
 			}
