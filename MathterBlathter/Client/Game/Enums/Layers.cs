@@ -6,7 +6,8 @@ namespace Client.Game.Enums
 	{
 		Pickups,
 		Projectiles,
-		Geometry,
+		HardGeometry,
+		SoftGeometry
 	}
 }
 

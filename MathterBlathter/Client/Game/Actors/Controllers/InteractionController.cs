@@ -23,7 +23,11 @@ namespace Client.Game.Actors.Controllers
 
 		public void InteractClosest() {
 			if(Closest != null) {
-				Closest.Interact(Owner);
+				
+				//a "true" result means it got consumed
+				if(Closest.Interact(Owner)) {
+					Closest = null;
+				}
 			}
 		}
 
@@ -65,6 +69,7 @@ namespace Client.Game.Actors.Controllers
 				accumulator -= updateInterval;
 				UpdateSlow();
 			}
+
 		}
 	}
 }

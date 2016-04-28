@@ -39,11 +39,23 @@ namespace Client.Game.Abilities.Scripts
 
 			var projectile = FireProjectile (projectileData, context.direction, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
+			string effectPath = "Projectiles/VFX/enemyTestHit_prefab";
+
 			projectile.OnHit = (actor) => {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
+
+				ProjectileImpactEffect(projectile, effectPath);
 			};
+			projectile.OnGeometryHit = () => {
+				ProjectileImpactEffect(projectile, effectPath);
+			};
+
+
 		}
+
+
+
 
 		public override void Update (float dt)
 		{

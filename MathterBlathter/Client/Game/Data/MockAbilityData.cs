@@ -187,7 +187,7 @@ namespace Client.Game.Data
 				ret.AbilityType = AbilityType.Instanced;
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 100f
+					AbilityAttributes.ProjectileSpeed.Id, 200f
 				));
 				return ret;
 			}
@@ -256,7 +256,7 @@ namespace Client.Game.Data
 					AbilityAttributes.SplashRadius.Id, 5f
 				));
 				ret.attributeData.Add( new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 0f	
+					AbilityAttributes.ProjectileSpeed.Id, 10f	
 				));
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.ProjectileAccel.Id, 30f

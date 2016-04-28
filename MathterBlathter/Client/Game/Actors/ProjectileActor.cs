@@ -21,9 +21,8 @@ namespace Client.Game.Actors
 		AbilityContext context;
 
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
-		private static int GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.Geometry.ToString());
-
-
+		private static int HARD_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
+		private static int SOFT_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.SoftGeometry.ToString());
 
 		public ProjectileActor ()
 		{
@@ -56,16 +55,37 @@ namespace Client.Game.Actors
 			Game.ActorManager.RemoveActor(this);
 		}
 
+		public TriggerTestResult TestTrigger(Collider collider, out Actor actor) {
+			if(collider.gameObject.layer == HARD_GEOMETRY_LAYER) {
+				actor = null;
+				return TriggerTestResult.Geometry;
+			}
+
+			var actorRef = collider.GetComponent<ActorRef>();
+			if (actorRef != null) {
+				
+				if (collisionFilters.Check(context, actorRef.Actor)) {
+					actor = actorRef.Actor;
+					return TriggerTestResult.Ok;
+				}
+			}
+
+			actor = null;
+
+			return TriggerTestResult.Bad;
+		}
+
 		void OnTrigger (Collider Collider)
 		{
-			var actorRef = Collider.GetComponent<ActorRef>();
-			if (actorRef != null && OnHit != null) {
-				if(collisionFilters.Check(context, actorRef.Actor)) 
-					OnHit (actorRef.Actor);
+
+			Actor actor;
+			var result = TestTrigger(Collider, out actor);
+			if(OnHit != null && result == TriggerTestResult.Ok) {
+				OnHit(actor);
 			}
 
 			if(lifetime > .1f) {
-				if(Collider.gameObject.layer == GEOMETRY_LAYER) {
+				if(result == TriggerTestResult.Geometry) {
 					if(OnGeometryHit != null)
 						OnGeometryHit();
 					Game.ActorManager.RemoveActor(this);
@@ -83,6 +103,13 @@ namespace Client.Game.Actors
 				Game.ActorManager.RemoveActor (this);
 			}
 		}
+
+	}
+
+	public enum TriggerTestResult {
+		Ok,
+		Bad,
+		Geometry
 	}
 }
 

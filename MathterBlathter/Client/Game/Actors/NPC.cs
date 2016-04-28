@@ -16,9 +16,9 @@ namespace Client.Game.Actors
 
 		#region IInteraction implementation
 
-		public void Interact (Actor withActor)
+		public bool Interact (Actor withActor)
 		{
-			
+			return false;
 		}
 
 		public string GetPrompt ()

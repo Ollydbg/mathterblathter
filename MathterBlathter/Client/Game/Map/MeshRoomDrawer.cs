@@ -73,6 +73,7 @@ namespace Client.Game.Map
 				//for now, lets just scale this down and move it up
 				go.transform.localScale = new Vector3(1, .25f, 1f);
 				go.transform.position = go.transform.position + new Vector3(0, .75f, 0);
+				go.layer = LayerMask.NameToLayer(Layers.SoftGeometry.ToString());
 				AddColliderForChunk(go, chunk, false);
 				PassthroughPlatformFactory.Init(go);
 			}
@@ -113,7 +114,7 @@ namespace Client.Game.Map
 			var mr = go.AddComponent<MeshRenderer> ();
 			var mf = go.AddComponent<MeshFilter> ();
 			//AddColliderForChunk(go, chunk, false);
-			go.layer = LayerMask.NameToLayer(Layers.Geometry.ToString());
+			go.layer = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
 			mf.mesh = extractor.chunkToMesh (chunk);
 			mr.material.color = color;
 			go.gameObject.transform.parent = parentObj.transform;

@@ -24,9 +24,19 @@ namespace Client.Game.Abilities.Scripts
 
 			currentProjectile = FireProjectile (projectileData, context.direction, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
-			currentProjectile.OnHit = (actor) => {
-				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
-			};
+			var projectilePos = currentProjectile.transform.position;
+			var hits = Physics.RaycastAll(new Ray(projectilePos, context.direction), 100.0f);
+			foreach( var hit in hits ) {
+				Actor hitActor;
+				var result = currentProjectile.TestTrigger(hit.collider, out hitActor);
+				if(result == TriggerTestResult.Ok) {
+					new DamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
+				} else if (result == TriggerTestResult.Geometry) {
+					break;
+				}
+
+			}
+
 		}
 		public override void Update (float dt)
 		{

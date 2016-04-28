@@ -27,10 +27,11 @@ namespace Client.Game.Actors
 		}
 
 
-		public void Interact (Actor withActor)
+		public bool Interact (Actor withActor)
 		{
 			withActor.WeaponController.AddWeapon(Item);
 			Game.ActorManager.RemoveActor(this);
+			return true;
 		}
 
 		public string GetPrompt ()

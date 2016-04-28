@@ -42,6 +42,13 @@ namespace Client
 			return SpawnedActors.Count == 0;
 		}
 
+		public GameObject ProjectileImpactEffect(ProjectileActor projectile, String resourcePath) {
+			Quaternion targetRotation = projectile.transform.rotation;
+			var go = (GameObject)GameObject.Instantiate(Resources.Load(resourcePath), projectile.transform.position, targetRotation);
+			EffectTTL.AddToObject(go, 2f);
+			return go;
+		}
+
 		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
 
 			Vector3 adjustedDirection = AbilityUtils.AdjustWithAssist(direction, this.Attributes[AbilityAttributes.AimAssistRadius]);

@@ -80,7 +80,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 20f
+					ActorAttributes.BaseDamage.Id, 20
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
@@ -100,7 +100,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.DOUBLE_SHOT.Id
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 100f
+					ActorAttributes.BaseDamage.Id, 100
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -122,7 +122,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 300f
+					ActorAttributes.BaseDamage.Id, 300
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -144,7 +144,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 300f
+					ActorAttributes.BaseDamage.Id, 300
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

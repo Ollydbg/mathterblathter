@@ -27,7 +27,7 @@ namespace Client.Game.UI.Run
 			controller = Game.Instance.PossessedActor.InteractionController;	
 		}
 
-		void Update() {
+		void LateUpdate() {
 			var interaction = controller.Closest;
 			if(interaction != null && interaction.InteractionTarget != null) {
 				Show(interaction);
@@ -50,7 +50,6 @@ namespace Client.Game.UI.Run
 		public void Show(IInteraction interaction) {
 			if(hidden) {
 				hidden = false;
-				//var pickupId = interaction.InteractionTarget.Attributes[ActorAttributes.PickupItemId];
 
 				Label.text = interaction.GetPrompt() + "\n [E]";
 

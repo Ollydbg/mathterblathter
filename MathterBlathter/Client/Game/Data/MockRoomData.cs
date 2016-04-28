@@ -71,7 +71,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
@@ -80,22 +80,23 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                        1  w";
+				ret.AsciiMap += "  L                                   pppppw";
 				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "  L                                        w";
-				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "                         cccccc     3      w";
+				ret.AsciiMap += "                           1  1            w";
+				ret.AsciiMap += "        1                cccccc     3      w";
 				ret.AsciiMap += "      ppppppppp          cccccc            w";
 				ret.AsciiMap += "     L                               L     5";
-				ret.AsciiMap += "                                           5";
-				ret.AsciiMap += "                            L              w";
-				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "         4                                 w";
+				ret.AsciiMap += "                         w                 5";
+				ret.AsciiMap += "                         w  L              w";
+				ret.AsciiMap += "                         w                 w";
+				ret.AsciiMap += "         4               w 1  1  1     1 1 w";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff2222ffffff";
 					
 
-				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				//ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
+
 				//ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 				ret.AsciiSpawnLookup['4'] = MockActorData.FIXED_PICKUP;
 				//ret.AsciiSpawnLookup['5'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
