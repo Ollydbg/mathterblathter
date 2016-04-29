@@ -54,7 +54,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData ();
 				ret.Id = 0;
 				ret.name = "Player Melee Attack";
-				ret.animation = States.ATTACK1;
+				ret.animation = CharacterAnimState.ATTACK1;
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Cooldown.Id, 1.0f
 				));
@@ -77,7 +77,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData ();
 				ret.Id = 1;
 				ret.name = "Player Ranged Attack";
-				ret.animation = States.ATTACK2;
+				ret.animation = CharacterAnimState.ATTACK2;
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Cooldown.Id, .2f
 				));
@@ -97,7 +97,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData ();
 				ret.Id = 2;
 				ret.name = "Player Death Ability";
-				ret.animation = States.DEATH;
+				ret.animation = CharacterAnimState.DEATH;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerDeathBuff);
 				ret.AbilityType = AbilityType.Buff;
 				return ret;
@@ -109,7 +109,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 3;
 				ret.name = "Shotgun blast";
-				ret.animation = States.ATTACK2;
+				ret.animation = CharacterAnimState.ATTACK2;
 
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Damage.Id, 5

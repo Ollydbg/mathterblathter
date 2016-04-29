@@ -7,6 +7,7 @@ using Client.Game.Data;
 using System.Linq;
 using Client.Game.Geometry;
 
+
 namespace Client.Game.Actors.Controllers
 {
 	public class CharacterController : ICharacterController
@@ -55,7 +56,7 @@ namespace Client.Game.Actors.Controllers
 
 			movementAccumulator+= moveVector;
 
-			string animTarget = horizontalAxis != 0 ? States.RUN : States.IDLE ;
+			string animTarget = horizontalAxis != 0 ? CharacterAnimState.RUN : CharacterAnimState.IDLE ;
 			Actor.Animator.RequestState(animTarget, 0);
 
 		}

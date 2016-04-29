@@ -36,7 +36,7 @@ namespace Client.Game.Abilities.Scripts
 		#region implemented abstract members of AbilityBase
 		public override void Start ()
 		{
-			this.context.source.Animator.RequestState (States.ATTACK1, 1, 1);	
+			this.context.source.Animator.RequestState (CharacterAnimState.ATTACK1, 1, 1);	
 			accumulator = 0f;
 			
 		}

@@ -6,6 +6,7 @@ using Client.Game.Core;
 using Client.Game.Actors;
 using Client.Game.Enums;
 using UnityEngine;
+using System.Collections;
 
 namespace Client.Game.Map
 {
@@ -25,6 +26,7 @@ namespace Client.Game.Map
 		RoomPool Pool;
 
 		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
+		private List<Room> returnBuffer = new List<Room>();
 
 		//returns head
 		public List<Room> GenerateFromDataSet(List<RoomData> data, int maxRooms) {
@@ -32,7 +34,6 @@ namespace Client.Game.Map
 
 			Pool = new RoomPool(data, maxRooms);
 
-			var ret = new List<Room> ();
 			while(!Pool.Exhausted) {
 				RoomData roomData = Pool.Next();
 
@@ -44,8 +45,8 @@ namespace Client.Game.Map
 					var room = new Room (roomData);
 					room.X = targetX;
 					room.Y = targetY;
-					
-					ret.Add (room);
+
+					returnBuffer.Add (room);
 					Grid.Block(targetX, targetY, room.Width, room.Height);
 
 					//spawn all doors for the room that got mates
@@ -74,8 +75,10 @@ namespace Client.Game.Map
 
 			SealDoors();
 
-			return ret;
+			return returnBuffer;
 		}
+
+
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
 			//var doorActor = Core.Game.Instance.ActorManager.Spawn<DoorActor>(resourceName:"Door_prefab");

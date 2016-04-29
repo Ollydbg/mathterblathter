@@ -22,6 +22,11 @@ namespace Client.Game.Managers
 			
 		}
 
+		public void SetRooms (List<Room> rooms)
+		{
+			Rooms = rooms;
+		}
+
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
 
@@ -43,19 +48,8 @@ namespace Client.Game.Managers
 		}
 
 
-		int numRoomsToGenerate() {
-			var solod = MockRoomData.GetAll().Count(p => p.Solo);
-			return solod > 0 ? solod : MockMapData.Map1.NumberOfRooms;
-		}
 
-		List<RoomData> availableRooms() {
-			var solod = MockRoomData.GetAll().Where( p=> p.Solo).ToList();
-			if(solod.Count > 0) {
-				return solod;
-			} else {
-				return MockRoomData.GetAll().Where( p=>!p.Mute).ToList();
-			}
-		}
+
 
 		public void Shutdown ()
 		{
@@ -67,8 +61,6 @@ namespace Client.Game.Managers
 
 		public void Start (Game game)
 		{
-			var generator = new MapGenerator ();
-			Rooms = generator.GenerateFromDataSet (availableRooms(), numRoomsToGenerate());
 			Rooms.ForEach (p => p.Draw());
 		}
 
@@ -86,7 +78,7 @@ namespace Client.Game.Managers
 			CurrentRoom = room;
 			CurrentRoom.PlayerEntered(actor, throughDoor);
 
-			Debug.Log("Enterring Room: " + room.data.Id);
+			Debug.Log("Entering Room: " + room.data.Id);
 
 			if(throughDoor == null) {
 				actor.transform.position = room.roomCenter;

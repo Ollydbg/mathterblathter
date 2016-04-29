@@ -7,6 +7,7 @@ using Client.Game.Abilities;
 using Client.Game.Data;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using Client.Game.States;
 
 namespace Client.Game.Core
 {
@@ -32,7 +33,9 @@ namespace Client.Game.Core
 		public AbilityManager AbilityManager;
 		public ActorManager ActorManager;
 		public UIManager UIManager;
+		public FSM States;
 		private IGameManager[] Managers;
+
 
 		public Seed Seed {
 			get; private set;
@@ -49,52 +52,38 @@ namespace Client.Game.Core
 			this.Seed = new Seed(100);
 
 			CreateManagers();
-			StartGame();
+			States.Start(this);
 
 		}
 
 		private void CreateManagers() {
 			var tmp = new List<IGameManager> ();
+
+			States = new FSM();
+
 			InputManager = new InputManager();
 			AbilityManager = new AbilityManager ();
 			ActorManager = new ActorManager(this);
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
-			UIManager = new UIManager();
+			UIManager = new UIManager(this);
 
-			tmp.Add (InputManager);
-			tmp.Add (AbilityManager);
-			tmp.Add (RoomManager);
-			tmp.Add (UIManager);
-			tmp.Add (ActorManager);
-			tmp.Add (CameraManager);
+
 			Managers = tmp.ToArray ();
+
+
 		}
 
 		public void Restart ()
 		{
-			new List<IGameManager>(Managers).ForEach(p => p.Shutdown());
-
-			StartGame();
+			States.CurrentState = new InitState();
 		}
 
-		public void StartGame() {
-			PossessedActor = ActorManager.Spawn<PlayerCharacter> (MockActorData.PLAYER_TEST);
-
-			new List<IGameManager>(Managers).ForEach(p => p.Start (this));
-
-			new List<IGameManager>(Managers).ForEach(p => p.SetPlayerCharacter (PossessedActor));
-
-		}
 
 
 		public void Update(float dt) {
 
-			for (int i = 0; i < Managers.Length; i++) {
-				Managers [i].Update (dt);
-			}
-
-
+			States.Update(dt);
 		}
 
 

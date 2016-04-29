@@ -12,7 +12,7 @@ namespace Client.Game.Animation
 		private GameObject gameObject;
 		private Animation animation;
 
-		private string currentLocomotive = States.IDLE;
+		private string currentLocomotive = CharacterAnimState.IDLE;
 
 		public PlayerAnimator3D (Actor animationTarget)
 		{
@@ -21,7 +21,7 @@ namespace Client.Game.Animation
 		}
 
 		private bool isLocomotive(String state) {
-			return state==States.RUN || state == States.IDLE;
+			return state==CharacterAnimState.RUN || state == CharacterAnimState.IDLE;
 		}
 
 
