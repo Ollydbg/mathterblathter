@@ -65,7 +65,6 @@
     <Compile Include="Game\Abilities\AbilityManager.cs" />
     <Compile Include="Game\Animation\PlayerAnimator3D.cs" />
     <Compile Include="Game\Animation\IAnimator.cs" />
-    <Compile Include="Game\Animation\States.cs" />
     <Compile Include="Game\Animation\PriorityState.cs" />
     <Compile Include="Game\Abilities\AbilityBase.cs" />
     <Compile Include="Game\Abilities\Payloads\Payload.cs" />
@@ -141,6 +140,11 @@
     <Compile Include="Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
     <Compile Include="Game\Abilities\Scripts\RocketProjectileAttack.cs" />
     <Compile Include="Game\Abilities\Utils\EffectTTL.cs" />
+    <Compile Include="Game\Animation\CharacterAnimStates.cs" />
+    <Compile Include="Game\States\FSM.cs" />
+    <Compile Include="Game\States\InitState.cs" />
+    <Compile Include="Game\States\GenerateMapState.cs" />
+    <Compile Include="Game\States\RunState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -165,5 +169,6 @@
     <Folder Include="Game\Items\" />
     <Folder Include="Game\Actors\Controllers\" />
     <Folder Include="Game\Geometry\" />
+    <Folder Include="Game\States\" />
   </ItemGroup>
 </Project>

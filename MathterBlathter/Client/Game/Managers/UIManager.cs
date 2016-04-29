@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Game.UI.Run;
 using UnityEngine;
+using Client.Game.States;
 
 
 namespace Client.Game.Managers
@@ -15,22 +16,39 @@ namespace Client.Game.Managers
 		public ZoneTitle ZoneTitle;
 		public ShopUI ShopUI;
 
-		private static String Run_Resource = "UI/RunUI";
+		private static String RUN_RESOURCE = "UI/RunUI";
+		private static String GENERATION_RESOURCE = "UI/MapGenerationUI";
 
-		public GameObject GameObject;
+		public GameObject CurrentUI;
 
 		public void SetPlayerCharacter (Client.Game.Actors.PlayerCharacter player)
 		{
 		}
 
-		public UIManager ()
+		public UIManager (Game game)
 		{
+			game.States.OnStateChanged += HandleState;
 		}
 
 
 		public void Start (Game game)
 		{
-			this.GameObject = (GameObject)GameObject.Instantiate(Resources.Load(Run_Resource));
+			
+
+		}
+
+		void HandleState (State from, State to)
+		{
+
+			TearDown(CurrentUI);
+
+			if(to is GenerateMapState) {
+				this.CurrentUI = (GameObject)GameObject.Instantiate(Resources.Load(GENERATION_RESOURCE));
+			}
+
+			if(to is RunState) {
+				this.CurrentUI = (GameObject)GameObject.Instantiate(Resources.Load(RUN_RESOURCE));
+			}
 
 
 		}
@@ -41,10 +59,17 @@ namespace Client.Game.Managers
 			
 		}
 
+		void TearDown(GameObject ui) {
+
+			if(ui != null) {
+				UnityEngine.GameObject.Destroy(ui);
+			}
+
+		}
+
 		public void Shutdown ()
 		{
-			UnityEngine.GameObject.Destroy(this.GameObject);
-			this.GameObject = null;
+			
 		}
 
 	}

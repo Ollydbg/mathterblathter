@@ -31,7 +31,8 @@ namespace Client.Game.Managers
 			ActorTypeLookup[ActorType.Weapon] = typeof(WeaponActor);
 			ActorTypeLookup[ActorType.Fixture] = typeof(FixtureActor);
 
-			Game = game;
+			this.Game = game;
+
 		}
 
 		#region IGameManager implementation
@@ -43,7 +44,6 @@ namespace Client.Game.Managers
 
 		public void Start (Game game)
 		{
-			
 		}
 
 		public bool TryFromId (int id, out Actor actor)

@@ -2,7 +2,7 @@
 
 namespace Client.Game.Animation
 {
-	public static class States
+	public static class CharacterAnimState
 	{
 		public static string DEATH = "death";
 		public static string IDLE = "idle01";
