@@ -174,6 +174,8 @@ namespace Client.Game.Data
 		}
 
 
+
+
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
 				var linked = MockWeaponData.HOT_RAILS;
@@ -357,6 +359,57 @@ namespace Client.Game.Data
 				ret.Id = 11;
 				ret.ActorType = ActorType.Projectile;
 				ret.ResourcePath = "Projectiles/SmallRocket_prefab";
+				return ret;
+			}
+		}
+
+		public static CharacterData ROCKET_TURRET {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = 12;
+				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.AIData = new AIData ();
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 50
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 40.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, .05f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 100
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AttackSpeedScalar.Id, 2f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 10
+				));;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					1
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockWeaponData.ROCKET_LAUNCHER.Id,
+					0
+				));
+
+
 				return ret;
 			}
 		}

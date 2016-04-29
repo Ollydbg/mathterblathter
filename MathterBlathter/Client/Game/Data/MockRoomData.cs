@@ -362,6 +362,41 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static RoomData ROOM_8 {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 108;
+				ret.AsciiMap += "ccccccccccccccccccccccccc d cccccccccccccccccccccccc";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w  ppppppppppppppppppppppppppppppppppppppppppppp   w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                            1           1         w";
+				ret.AsciiMap += "w     L                                            w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w  pppppppppppppppppppppppppppppppppppppppppppppp  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                   L              w";
+				ret.AsciiMap += "w  pppppppppppppppppppppppppppppppppppppppppppppp  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "                                                    ";
+				ret.AsciiMap += "d                                                  d";
+				ret.AsciiMap += "                                              2     ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffw";
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.ROCKET_TURRET;
+				ret.AsciiSpawnLookup['2'] = MockActorData.RANDOM_WEAPON_PICKUP;
+				finalize(ret);
+
+				return ret;
+			}
+		}
+
 		static void finalize(RoomData room) {
 			room.Width = room.AsciiMap.Width;
 			room.Height = room.AsciiMap.Height;
