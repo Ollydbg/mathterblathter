@@ -1,19 +1,17 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Client/Client.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Client/Game/Abilities/Payloads/KillPayload.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Client/Game/Data/MockRoomData.cs">
     <Files>
-      <File FileName="Client/Game/Map/Room.cs" Line="170" Column="6" />
       <File FileName="Client/Game/Map/MeshRoomDrawer.cs" Line="1" Column="1" />
-      <File FileName="Client/Game/Data/MockRoomData.cs" Line="1" Column="1" />
-      <File FileName="Client/Game/Actors/Pickup.cs" Line="1" Column="1" />
-      <File FileName="Client/Game/Actors/Controllers/InteractionController.cs" Line="59" Column="6" NotebookId="1" />
-      <File FileName="Client/Game/Abilities/Payloads/DropPayload.cs" Line="10" Column="4" NotebookId="1" />
-      <File FileName="Client/Game/Abilities/Payloads/Payload.cs" Line="8" Column="33" NotebookId="1" />
-      <File FileName="Client/Game/Abilities/Payloads/KillPayload.cs" Line="15" Column="3" NotebookId="1" />
+      <File FileName="Client/Game/Abilities/Payloads/DropPayload.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Data/MockRoomData.cs" Line="16" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Client/Game/Actors/Pickup.cs" line="32" column="1" />
+      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Client/Game/Actors/Actor.cs" line="70" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

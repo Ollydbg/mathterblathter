@@ -202,7 +202,6 @@ namespace Client.Game.Data
 			}
 		}
 
-
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
 				var linked = MockActorData.HOT_RAILS;
