@@ -397,6 +397,42 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static RoomData ROOM_9 {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 109;
+				ret.AsciiMap += "ccccccccccccccccccccccccc d cccccccccccccccccccccccc";
+				ret.AsciiMap += "w                                                   ";
+				ret.AsciiMap += "w                                                  d";
+				ret.AsciiMap += "w    2                                   2          ";
+				ret.AsciiMap += "w  ppppppppppppppppppppppppppppppppppppppppppppppppw";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w     L                                            w";
+				ret.AsciiMap += "w                            1          1          w";
+				ret.AsciiMap += "w  ppppppppppppppppppppppppppppppppppppppppppppppppw";
+				ret.AsciiMap += "w                                      w           w";
+				ret.AsciiMap += "w                                      w    L      w";
+				ret.AsciiMap += "w                                      w           w";
+				ret.AsciiMap += "w                                      w           w";
+				ret.AsciiMap += "w                                   L  w 3    1  1 w";
+				ret.AsciiMap += "w  ppppppppppppppppppppppppppppppppppppPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "                       L                            ";
+				ret.AsciiMap += "d                                                  d";
+				ret.AsciiMap += "                                              1     ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffw";
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
+				ret.AsciiSpawnLookup['3'] = MockActorData.RANDOM_WEAPON_PICKUP;
+
+				finalize(ret);
+
+				return ret;
+			}
+		}
+
 		static void finalize(RoomData room) {
 			room.Width = room.AsciiMap.Width;
 			room.Height = room.AsciiMap.Height;
