@@ -3,6 +3,7 @@ using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Data;
 using UnityEngine;
+using Client.Game.Core;
 
 namespace Client.Game.Abilities.Payloads
 {
@@ -19,7 +20,7 @@ namespace Client.Game.Abilities.Payloads
 				bool shouldDrop = killedActor.Game.Seed.RollAgainst(dropPct);
 
 				if(shouldDrop) {
-					CharacterData dataToDrop = MockActorData.RANDOM_WEAPON_PICKUP;
+					CharacterData dataToDrop = getDrop(killedActor.Game.Seed);
 					var actor = killedActor.Game.ActorManager.Spawn(dataToDrop);
 					actor.transform.position = killedActor.transform.position;
 				}
@@ -28,6 +29,13 @@ namespace Client.Game.Abilities.Payloads
 			}
 		}
 
+		private CharacterData getDrop(Seed seed) {
+			if(seed.RollAgainst(.5f)) {
+				return MockActorData.RANDOM_WEAPON_PICKUP;
+			} else {
+				return MockActorData.FIXED_PICKUP;
+			}
+		}
 
 		#region implemented abstract members of Payload
 

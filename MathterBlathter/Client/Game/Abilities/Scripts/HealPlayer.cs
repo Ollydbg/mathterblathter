@@ -1,12 +1,13 @@
 ﻿using System;
 using Client.Game.Attributes;
 using Client.Game.Abilities.Payloads;
+using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class Heal : AbilityBase
+	public class HealPlayer : BuffBase
 	{
-		public Heal ()
+		public HealPlayer ()
 		{
 		}
 
@@ -14,11 +15,17 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			new HealPayload(this.context,  -this.Attributes[AbilityAttributes.Damage]).Apply();
+
+			new HealPayload(this.context, this.context.source.Game.PossessedActor,  -this.Attributes[AbilityAttributes.Damage]).Apply();
 		}
 
 		public override void Update (float dt)
 		{
+			
+		}
+		public override bool isComplete ()
+		{
+			return true;
 		}
 
 		public override void End ()

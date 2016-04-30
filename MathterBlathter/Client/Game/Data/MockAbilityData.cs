@@ -275,7 +275,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.Damage.Id, -100
 				));
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Heal);
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.HealPlayer);
 				return ret;
 			}
 		}

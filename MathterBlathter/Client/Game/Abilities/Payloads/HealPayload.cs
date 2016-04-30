@@ -10,9 +10,9 @@ namespace Client.Game.Abilities.Payloads
 		public float HealAmount;
 		public Actor Target;
 
-		public HealPayload (AbilityContext ctx, int amt) : base(ctx)
+		public HealPayload (AbilityContext ctx, Actor target, int amt) : base(ctx)
 		{
-			this.Target = ctx.source;
+			this.Target = target;
 			this.HealAmount = (float)amt;
 
 		}
@@ -31,9 +31,8 @@ namespace Client.Game.Abilities.Payloads
 			int total = (int)HealAmount;
 
 			int newHealth = Target.Attributes [ActorAttributes.Health] + total;
-
+			newHealth = newHealth > Target.Attributes[ActorAttributes.MaxHealth] ? Target.Attributes[ActorAttributes.MaxHealth] : newHealth;
 			Target.Attributes [ActorAttributes.Health] = newHealth;
-
 
 		}
 

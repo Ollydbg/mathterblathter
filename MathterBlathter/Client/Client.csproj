@@ -145,8 +145,8 @@
     <Compile Include="Game\States\GenerateMapState.cs" />
     <Compile Include="Game\States\RunState.cs" />
     <Compile Include="Game\Abilities\Payloads\DropPayload.cs" />
-    <Compile Include="Game\Abilities\Scripts\Heal.cs" />
     <Compile Include="Game\Abilities\Payloads\HealPayload.cs" />
+    <Compile Include="Game\Abilities\Scripts\HealPlayer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
