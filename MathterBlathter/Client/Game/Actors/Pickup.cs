@@ -20,7 +20,7 @@ namespace Client.Game.Actors
 		public CharacterData Item {
 			get {
 				var itemId = this.Attributes[ActorAttributes.PickupItemId];
-				CharacterData weaponData = MockWeaponData.FromId(itemId);
+				CharacterData weaponData = MockActorData.FromId(itemId);
 
 				return weaponData;
 			}
@@ -29,7 +29,15 @@ namespace Client.Game.Actors
 
 		public bool Interact (Actor withActor)
 		{
-			withActor.WeaponController.AddWeapon(Item);
+			if(Item.ActorType == ActorType.Weapon) {
+				withActor.WeaponController.AddWeapon(Item);
+
+			} else {
+
+				//just spawn it and see what happens!
+				Game.ActorManager.Spawn(Item);
+			}
+
 			Game.ActorManager.RemoveActor(this);
 			return true;
 		}

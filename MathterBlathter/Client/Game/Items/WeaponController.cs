@@ -31,7 +31,7 @@ namespace Client.Game.Items
 				if(id == ActorAttributes.Weapons.DefaultValue) {
 					break;
 				} else {
-					AddWeapon(MockWeaponData.FromId(id));
+					AddWeapon(MockActorData.FromId(id));
 				}
 			}
 		}

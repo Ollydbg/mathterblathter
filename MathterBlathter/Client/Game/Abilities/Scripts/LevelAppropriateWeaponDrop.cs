@@ -2,6 +2,7 @@
 using UnityEngine;
 using Client.Game.Attributes;
 using Client.Game.Data;
+using System.Linq;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -15,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var allWeapons = MockWeaponData.GetAll();
+			var allWeapons = MockActorData.GetAll().Where(p => p.ActorType == ActorType.Weapon).ToList();
 
 			var index = Owner.Game.Seed.Next(allWeapons.Count-1);
 

@@ -1,4 +1,0 @@
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client.dll.mdb
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Client/obj/Debug/Client.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Client/obj/Debug/Client.dll.mdb

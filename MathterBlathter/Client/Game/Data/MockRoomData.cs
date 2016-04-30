@@ -71,7 +71,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
@@ -367,6 +367,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 108;
+
 				ret.AsciiMap += "ccccccccccccccccccccccccc d cccccccccccccccccccccccc";
 				ret.AsciiMap += "w                                                  w";
 				ret.AsciiMap += "w                                                  w";

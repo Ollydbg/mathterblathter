@@ -50,9 +50,7 @@ namespace Client.Game.UI.Run
 		public void Show(IInteraction interaction) {
 			if(hidden) {
 				hidden = false;
-
 				Label.text = interaction.GetPrompt() + "\n [E]";
-
 				Show();
 			}
 

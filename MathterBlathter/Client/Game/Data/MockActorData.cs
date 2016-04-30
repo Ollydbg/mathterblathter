@@ -7,7 +7,7 @@ using Client.Game.Enums;
 
 namespace Client.Game.Data
 {
-	public static class MockActorData
+	public static partial class MockActorData
 	{
 		private static Dictionary<int, CharacterData> _all;
 		static void StaticInit() {
@@ -17,9 +17,21 @@ namespace Client.Game.Data
 			
 		}
 
+		private static Dictionary<int, CharacterData> All {
+			get {
+				if (_all == null) {
+					StaticInit();
+				}
+				return _all;
+			}
+		}
+
+		public static List<CharacterData> GetAll() {
+			return All.Values.ToList();
+		}
+
 		public static CharacterData FromId(int id) {
-			if(_all == null) StaticInit();
-			return _all[id];
+			return All[id];
 		}
 
 		public static CharacterData PLAYER_TEST {
@@ -59,7 +71,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
-					MockWeaponData.RUSTY_REPEATER.Id,
+					MockActorData.RUSTY_REPEATER.Id,
 					0
 				));
 
@@ -112,9 +124,10 @@ namespace Client.Game.Data
 					1
 				));
 
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					MockWeaponData.RANGED_WEAPON_1.Id,
+					MockActorData.RANGED_WEAPON_1.Id,
 					0
 				));
 
@@ -164,7 +177,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					MockWeaponData.RANGED_WEAPON_1.Id,
+					MockActorData.RANGED_WEAPON_1.Id,
 					0
 				));
 
@@ -174,11 +187,25 @@ namespace Client.Game.Data
 		}
 
 
+		public static CharacterData HEALTH_PICKUP {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 14;
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.ActorType = ActorType.Pickup;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.HEAL.Id
+				));
+				ret.Name = "HealthPickup";
+				return ret;
+			}
+		}
 
 
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
-				var linked = MockWeaponData.HOT_RAILS;
+				var linked = MockActorData.HOT_RAILS;
 				var ret = new CharacterData();
 				ret.Id = 4;
 				ret.ResourcePath = linked.ResourcePath;
@@ -200,7 +227,7 @@ namespace Client.Game.Data
 
 		public static CharacterData FIXED_PICKUP {
 			get {
-				var linked = MockWeaponData.ROCKET_LAUNCHER;
+				var linked = MockActorData.HEALTH_PICKUP;
 				var ret = new CharacterData();
 				ret.Id = 12;
 				ret.ResourcePath = linked.ResourcePath;
@@ -211,7 +238,7 @@ namespace Client.Game.Data
 				));
 
 
-				ret.Name = "FixedWeapon";
+				ret.Name = "FixedPickup";
 
 				return ret;
 			}
@@ -334,10 +361,9 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					MockWeaponData.RANGED_WEAPON_1.Id,
+					MockActorData.RANGED_WEAPON_1.Id,
 					0
 				));
-
 
 				return ret;
 			}
@@ -366,7 +392,7 @@ namespace Client.Game.Data
 		public static CharacterData ROCKET_TURRET {
 			get {
 				var ret = new CharacterData ();
-				ret.Id = 12;
+				ret.Id = 13;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = new AIData ();
@@ -405,7 +431,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					MockWeaponData.ROCKET_LAUNCHER.Id,
+					MockActorData.ROCKET_LAUNCHER.Id,
 					0
 				));
 

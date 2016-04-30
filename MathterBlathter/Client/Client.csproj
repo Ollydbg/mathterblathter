@@ -100,7 +100,6 @@
     <Compile Include="Game\Managers\ActorManager.cs" />
     <Compile Include="Game\Enums\AttachPoint.cs" />
     <Compile Include="Game\Actors\Pickup.cs" />
-    <Compile Include="Game\Items\PickupController.cs" />
     <Compile Include="Game\Enums\Layers.cs" />
     <Compile Include="Game\Abilities\BuffBase.cs" />
     <Compile Include="Game\Managers\UIManager.cs" />
@@ -145,6 +144,9 @@
     <Compile Include="Game\States\InitState.cs" />
     <Compile Include="Game\States\GenerateMapState.cs" />
     <Compile Include="Game\States\RunState.cs" />
+    <Compile Include="Game\Abilities\Payloads\DropPayload.cs" />
+    <Compile Include="Game\Abilities\Scripts\Heal.cs" />
+    <Compile Include="Game\Abilities\Payloads\HealPayload.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

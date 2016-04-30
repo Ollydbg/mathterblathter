@@ -35,8 +35,7 @@ namespace Client.Game.Abilities.Payloads
 
 			if (AbilityManager.NotifyPayloadReceiver (this, Target))
 				return;
-
-
+			
 
 			int totalDamage = (int)Damage;
 

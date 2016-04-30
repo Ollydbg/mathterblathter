@@ -263,7 +263,19 @@ namespace Client.Game.Data
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RocketProjectileAttack);
 
+				return ret;
+			}
+		}
 
+		public static AbilityData HEAL {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 12;
+				ret.name = "Heal";
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.Damage.Id, -100
+				));
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Heal);
 				return ret;
 			}
 		}

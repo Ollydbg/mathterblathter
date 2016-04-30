@@ -12,7 +12,7 @@ namespace Client.Game.Abilities
 	{
 		public Actor source;
 		public Actor sourceWeapon;
-
+		
 		public AbilityData data;
 		public Vector3 direction;
 

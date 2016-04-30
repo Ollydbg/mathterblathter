@@ -6,33 +6,9 @@ using Client.Game.Attributes;
 
 namespace Client.Game.Data
 {
-	public static class MockWeaponData
+	public static partial class MockActorData
 	{
-		private static Dictionary<int, CharacterData> _all;
-		static void StaticInit() {
-			_all = typeof(MockWeaponData).GetProperties()
-				.Select( p => p.GetGetMethod().Invoke(null, null) as CharacterData)
-				.ToDictionary(p => p.Id, p=>p);
-
-		}
-
-		private static Dictionary<int, CharacterData> All {
-			get {
-				if (_all == null) {
-					StaticInit();
-				}
-				return _all;
-			}
-		}
-
-		public static List<CharacterData> GetAll() {
-			return All.Values.ToList();
-		}
-
-		public static CharacterData FromId(int id) {
-			return All[id];
-		}
-
+		
 		public static CharacterData MELEE_WEAPON_1 {
 			get {
 				var ret = new CharacterData();

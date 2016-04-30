@@ -13,8 +13,7 @@ namespace Client.Game.Actors
 
 	public class PlayerCharacter : Character
 	{
-
-		public PickupController PickupController;
+		
 		public InteractionController InteractionController;
 
 		public PlayerCharacter ()
@@ -33,14 +32,12 @@ namespace Client.Game.Actors
 			base.EnterGame (game);
 
 			this.Animator = new PlayerAnimator3D(this);
-			this.PickupController = new PickupController(this);
 			this.InteractionController = new InteractionController(this);
 
 		}
 
 		public override void Update (float dt)
 		{
-			PickupController.Update(dt);
 			WeaponController.Update(dt);
 			InteractionController.Update(dt);
 
