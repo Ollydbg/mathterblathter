@@ -37,6 +37,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id, 0
 				));
 
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, .5f
 				));
@@ -60,7 +61,7 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 20
+					ActorAttributes.BaseDamage.Id, 40
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
@@ -75,7 +76,7 @@ namespace Client.Game.Data
 				ret.Id = 1003;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
-				ret.Name = "Rusty Blaster";
+				ret.Name = "Rusty Repeater";
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.DOUBLE_SHOT.Id, 0
 				));
@@ -85,11 +86,11 @@ namespace Client.Game.Data
 					1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 100
+					ActorAttributes.BaseDamage.Id, 10
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, 1f
+					ActorAttributes.AttackSpeed.Id, 1.3f
 				));
 
 				return ret;

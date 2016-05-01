@@ -120,17 +120,16 @@ namespace Client.Game.Actors.Controllers
 			if(IsGrounded && !jumpNeedsReset) {
 				var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 
-				internalController.Move(Vector3.up*jumpHeight);
-				//gravityYv = 0;
+				movementAccumulator += Vector3.up * jumpHeight;
+
 				gravityYv = jumpHeight;
 				jumpPowerAccumulator += jumpHeight;
 			} else if(jumpPowerAccumulator < Actor.Attributes[ActorAttributes.MaxJumpPower] && !jumpNeedsReset) {
 				var boost = Actor.Attributes[ActorAttributes.SustainedJumpPower];
+				movementAccumulator += Vector3.up * boost * Time.deltaTime;
 
-				internalController.Move(Vector3.up*boost);
-				
-				gravityYv += boost;
-				jumpPowerAccumulator += boost;
+				gravityYv += boost * Time.deltaTime;
+				jumpPowerAccumulator += boost * Time.deltaTime;
 			} else {
 				jumpNeedsReset = true;
 			}

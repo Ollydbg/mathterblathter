@@ -53,11 +53,11 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.MinJumpPower.Id, .2f
+					ActorAttributes.MinJumpPower.Id, .3f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.SustainedJumpPower.Id, .1f
+					ActorAttributes.SustainedJumpPower.Id, 10f
 				));
 					
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -113,7 +113,7 @@ namespace Client.Game.Data
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 2f
+					ActorAttributes.AttackSpeedScalar.Id, 3f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -154,7 +154,7 @@ namespace Client.Game.Data
 				));
 			
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 2f
+					ActorAttributes.AttackSpeedScalar.Id, 3f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -200,18 +200,17 @@ namespace Client.Game.Data
 
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
-				var linked = MockActorData.HOT_RAILS;
 				var ret = new CharacterData();
 				ret.Id = 4;
-				ret.ResourcePath = linked.ResourcePath;
 				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add( new CharacterData.AttributeData( 
+				/*ret.attributeData.Add( new CharacterData.AttributeData( 
 					ActorAttributes.PickupItemId.Id,
 					linked.Id
-				));
+				));*/
 				ret.attributeData.Add( new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.LEVEL_APPROPRIATE_WEAPON.Id
+					MockAbilityData.LEVEL_APPROPRIATE_WEAPON.Id,
+					0
 				));
 
 				ret.Name = "RandomWeapon";
