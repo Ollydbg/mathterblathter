@@ -104,18 +104,18 @@ namespace Client.Game.Abilities
 
 		public void AddActor (Actor actor)
 		{
-			if(!ActorUsesAbilities(actor)) {
-				return;
-			}
+			
+			for( int i = 0; i< int.MaxValue; i++ ) {
+				var dataId = actor.Attributes[ActorAttributes.Abilities, i];
+				if(dataId == ActorAttributes.Abilities.DefaultValue) 
+					break;
 
+				var data = MockAbilityData.FromId(dataId);
+				if(data.AbilityType == AbilityType.Buff) {
 
-			var buffDatasToCreate = actor.Data.attributeData
-				.Where( p=>p.Id == ActorAttributes.Abilities.Id)
-				.Select(p => MockAbilityData.FromId(p.ValueI))
-				.Where(p=>p.AbilityType == AbilityType.Buff);
-
-			foreach( var buffData in buffDatasToCreate) {
-				ActivateAbility( new AbilityContext(actor, buffData));
+					var context = new AbilityContext(actor, data);
+					ActivateAbility(context);
+				}
 			}
 		}
 

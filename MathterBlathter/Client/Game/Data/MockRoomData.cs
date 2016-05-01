@@ -233,7 +233,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                    w";
 				ret.AsciiMap += "f                                                    f";
 				ret.AsciiMap += "w            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww";
-				ret.AsciiMap += "f          fffffffffffffffffffffffffffffffffffffffTfff";
+				ret.AsciiMap += "f          fffffffffffffffffffffffffffffffffffffffffTf";
 				ret.AsciiMap += "w                              L                     w";
 				ret.AsciiMap += "f                                                    f";
 				ret.AsciiMap += "w                                                    w";
@@ -244,7 +244,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                    f";
 				ret.AsciiMap += "w                                                    w";
 				ret.AsciiMap += "w                   1                                f";
-				ret.AsciiMap += "w                                                 C  w";
+				ret.AsciiMap += "w                                                   Cw";
 				ret.AsciiMap += "ffff d ffffffffffffffffffffffffffffffffffssssssfffffff";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
@@ -426,6 +426,45 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['3'] = MockActorData.RANDOM_WEAPON_PICKUP;
+
+				finalize(ret);
+
+				return ret;
+			}
+		}
+
+		public static RoomData ROOM_10 {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 110;
+				ret.AsciiMap += "ccccccccccccccccccccccccc d cccccccccccccccccccccccc";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w       2                                  2       w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w         1                                        w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w             1   1                     2          w";
+				ret.AsciiMap += "w      1             L            L                w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w        1                                        L ";
+				ret.AsciiMap += "w                                                  d";
+				ret.AsciiMap += "w                                                   ";
+				ret.AsciiMap += "w                                     PPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                            L                     w";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffff d ffffffffffffw";
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.ROCKET_LAUNCHER;
+				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 
 				finalize(ret);
 

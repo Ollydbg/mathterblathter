@@ -11,7 +11,7 @@ namespace Client.Game.Abilities.Scripts
 		private bool isFalling;
 		private static float EPSILON = .001f;
 		private float peakFallingVelocity = 0f;
-
+		private bool completed = false;
 
 		public FireOnFall ()
 		{
@@ -26,6 +26,7 @@ namespace Client.Game.Abilities.Scripts
 				
 		}
 
+
 		public override void Update (float dt)
 		{
 			var normalYV = Mathf.Abs(rigidBody.velocity.y);
@@ -37,8 +38,8 @@ namespace Client.Game.Abilities.Scripts
 
 			if(isFalling && normalYV <= EPSILON) {
 				isFalling = false;
-
-				if(peakFallingVelocity > Owner.Attributes[ActorAttributes.FallFireVelocity])
+				completed = true;
+				if(peakFallingVelocity > Owner.Attributes[ActorAttributes.FallFireVelocity]) 
 					Owner.WeaponController.Attack();
 				
 			}
@@ -48,7 +49,7 @@ namespace Client.Game.Abilities.Scripts
 		public override bool isComplete ()
 		{
 			//we abort this buff when something picks up the item
-			return Owner.GameObject.transform.parent != null;
+			return completed || Owner.GameObject.transform.parent != null;
 		}
 
 		public override void End ()
