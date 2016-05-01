@@ -8,6 +8,12 @@ namespace Client.Game.Actors
 		{
 		}
 
+		public bool InteractionEnabled {
+			get {
+				return true;
+			}
+		}
+
 		public Actor InteractionTarget {
 			get {
 				return this;

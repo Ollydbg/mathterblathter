@@ -2,6 +2,7 @@
 using Client.Game.Data;
 using UnityEngine;
 using Client.Game.Attributes;
+using Client.Game.Abilities;
 
 namespace Client.Game.Actors
 {
@@ -16,35 +17,34 @@ namespace Client.Game.Actors
 				return this;
 			}
 		}
-		
-		public CharacterData Item {
-			get {
-				var itemId = this.Attributes[ActorAttributes.PickupItemId];
-				CharacterData weaponData = MockActorData.FromId(itemId);
 
-				return weaponData;
+		public bool InteractionEnabled {
+			get {
+				return true;
 			}
 		}
 
 
 		public bool Interact (Actor withActor)
 		{
-			if(Item.ActorType == ActorType.Weapon) {
-				withActor.WeaponController.AddWeapon(Item);
+			//dump all our abilities onto the interactor
+			for( int i = 0; i< int.MaxValue; i++ ) {
+				var dataId = this.Attributes[ActorAttributes.Abilities, i];
+				if(dataId == ActorAttributes.Abilities.DefaultValue) 
+					break;
 
-			} else {
-
-				//just spawn it and see what happens!
-				Game.ActorManager.Spawn(Item);
+				var context = new AbilityContext(this, withActor, MockAbilityData.FromId(dataId));
+				Game.AbilityManager.ActivateAbility(context);
 			}
 
 			Game.ActorManager.RemoveActor(this);
+
 			return true;
 		}
 
 		public string GetPrompt ()
 		{
-			return Item.Name;
+			return Data.Name;
 		}
 
 		public bool CanActorPickup(Actor actor) {

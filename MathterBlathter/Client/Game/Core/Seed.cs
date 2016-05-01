@@ -12,6 +12,10 @@ namespace Client.Game.Core
 			random = new Random(Value);
 		}
 
+		public float NextFloat() {
+			return (float)random.NextDouble();
+		}
+
 		public bool RollAgainst(float ltOrEqualTo) {
 			return random.NextDouble() <= ((double)ltOrEqualTo);
 		}

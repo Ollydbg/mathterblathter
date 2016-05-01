@@ -36,7 +36,6 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF SplashRadius = new GameAttributeF(13, 0f, "splashRadius", 0, float.MaxValue);
 		public static readonly GameAttributeF ProjectileAccel = new GameAttributeF(14, 0f, "projectileAcceleration", 0, int.MaxValue);
 		public static readonly GameAttributeF AimAssistRadius = new GameAttributeF(15, 1f, "AimAssist", 0, int.MaxValue);
-
 	}
 }
 

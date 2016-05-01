@@ -195,7 +195,8 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.HEAL.Id
+					MockAbilityData.HEAL.Id,
+					0
 				));
 				ret.Name = "HealthPickup";
 				return ret;
@@ -219,25 +220,6 @@ namespace Client.Game.Data
 				));
 
 				ret.Name = "RandomWeapon";
-
-				return ret;
-			}
-		}
-
-		public static CharacterData FIXED_PICKUP {
-			get {
-				var linked = MockActorData.HEALTH_PICKUP;
-				var ret = new CharacterData();
-				ret.Id = 12;
-				ret.ResourcePath = linked.ResourcePath;
-				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add( new CharacterData.AttributeData( 
-					ActorAttributes.PickupItemId.Id,
-					linked.Id
-				));
-
-
-				ret.Name = "FixedPickup";
 
 				return ret;
 			}

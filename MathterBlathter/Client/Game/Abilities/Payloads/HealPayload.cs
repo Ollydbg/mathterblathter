@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Game.Actors;
 using Client.Game.Attributes;
+using UnityEngine;
 
 namespace Client.Game.Abilities.Payloads
 {
@@ -26,10 +27,8 @@ namespace Client.Game.Abilities.Payloads
 
 			if (AbilityManager.NotifyPayloadReceiver (this, Target))
 				return;
-
-
+			
 			int total = (int)HealAmount;
-
 			int newHealth = Target.Attributes [ActorAttributes.Health] + total;
 			newHealth = newHealth > Target.Attributes[ActorAttributes.MaxHealth] ? Target.Attributes[ActorAttributes.MaxHealth] : newHealth;
 			Target.Attributes [ActorAttributes.Health] = newHealth;

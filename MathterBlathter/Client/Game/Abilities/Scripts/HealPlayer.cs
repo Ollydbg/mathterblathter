@@ -15,8 +15,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-
-			new HealPayload(this.context, this.context.source.Game.PossessedActor,  -this.Attributes[AbilityAttributes.Damage]).Apply();
+			new HealPayload(this.context, this.context.target,  -this.Attributes[AbilityAttributes.Damage]).Apply();
 		}
 
 		public override void Update (float dt)

@@ -81,25 +81,25 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                        1  w";
-				ret.AsciiMap += "  L                                   pppppw";
+				ret.AsciiMap += "           L                          pppppw";
 				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "                           1  1            w";
+				ret.AsciiMap += "           4               1  1            w";
 				ret.AsciiMap += "        1                cccccc     3      w";
-				ret.AsciiMap += "      ppppppppp          cccccc            w";
+				ret.AsciiMap += "      ppp                cccccc            w";
 				ret.AsciiMap += "     L                               L     5";
 				ret.AsciiMap += "                         w                 5";
 				ret.AsciiMap += "                         w  L              w";
 				ret.AsciiMap += "                         w                 w";
-				ret.AsciiMap += "         4               w 1  1  1     1 1 w";
+				ret.AsciiMap += "                       6 w 1  1  1     1 1 w";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff2222ffffff";
 					
 
-				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				//ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
 
 				//ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['4'] = MockActorData.FIXED_PICKUP;
-				//ret.AsciiSpawnLookup['5'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
+				ret.AsciiSpawnLookup['4'] = MockActorData.ROCKET_LAUNCHER;
+				ret.AsciiSpawnLookup['6'] = MockActorData.HEALTH_PICKUP;
 				finalize(ret);
 
 				return ret;
@@ -387,7 +387,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                    ";
 				ret.AsciiMap += "d                                                  d";
 				ret.AsciiMap += "                                              2     ";
-				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffw";
+				ret.AsciiMap += "ffffffffffffffffffffffff d ffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.ROCKET_TURRET;
 				ret.AsciiSpawnLookup['2'] = MockActorData.RANDOM_WEAPON_PICKUP;
@@ -421,7 +421,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                       L                            ";
 				ret.AsciiMap += "d                                                  d";
 				ret.AsciiMap += "                                              1     ";
-				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffw";
+				ret.AsciiMap += "ffffffffffffffffffffffffff d ffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;

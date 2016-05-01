@@ -20,8 +20,9 @@ namespace Client.Game.Abilities.Scripts
 
 			var index = Owner.Game.Seed.Next(allWeapons.Count-1);
 
-			this.Owner.Attributes[ActorAttributes.PickupItemId] = allWeapons[index].Id;
-		
+			var replacement = Owner.Game.ActorManager.Spawn(allWeapons[index]);
+			replacement.transform.position = Owner.transform.position;
+			Owner.Game.ActorManager.RemoveActor(Owner);
 
 		}
 

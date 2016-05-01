@@ -91,7 +91,8 @@ namespace Client.Game.Abilities
 			List<AbilityBase> abilities;
 			if(!Abilities.TryGetValue(ctx.source, out abilities)) {
 				abilities = new List<AbilityBase>();
-				Abilities[ctx.source] = abilities;
+				Actor owner = ctx.source;
+				Abilities[owner] = abilities;
 			}
 				
 			abilities.Add (ability);

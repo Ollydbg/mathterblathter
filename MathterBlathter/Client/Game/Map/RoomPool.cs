@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Client.Game.Map
 {
+	using Game = Client.Game.Core.Game;
 	
 	public class RoomPool
 	{
@@ -19,7 +20,6 @@ namespace Client.Game.Map
 		public RoomPool (List<RoomData> datas, int maximum)
 		{
 			
-
 			buildPool(datas);
 			this.Maximum = maximum;
 		}
@@ -31,6 +31,7 @@ namespace Client.Game.Map
 
 			this.InstancesRemaining = datas.ToDictionary(p => p.Id, p=>p.MaxInstances);
 			this.PristineSet = datas.ToDictionary(p => p.Id, p=>p);
+
 		}
 
 		public RoomData Next() {

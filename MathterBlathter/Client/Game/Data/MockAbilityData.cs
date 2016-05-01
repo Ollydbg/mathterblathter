@@ -275,8 +275,18 @@ namespace Client.Game.Data
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.Damage.Id, -100
 				));
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.HealPlayer);
+				return ret;
+			}
+		}
+
+		public static AbilityData FIRE_ON_FALL {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 13;
+				ret.name = "HairTrigger";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FireOnFall);
 				return ret;
 			}
 		}

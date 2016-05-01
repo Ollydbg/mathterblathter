@@ -47,12 +47,13 @@ namespace Client.Game.Actors.Controllers
 			foreach( var collider in colliders ) {
 				var actorRef = collider.GetComponent<ActorRef>();
 				if(actorRef != null) {
-					if(actorRef.Actor is IInteraction) {
+					var interaction = actorRef.Actor as IInteraction;
+					if(interaction != null && interaction.InteractionEnabled) {
 						var distance = (Owner.transform.position - collider.gameObject.transform.position).sqrMagnitude;
 
 						if(distance < shortestDistance) {
 							shortestDistance = distance;
-							closestObject = (IInteraction)actorRef.Actor;
+							closestObject = interaction;
 						}
 					}
 

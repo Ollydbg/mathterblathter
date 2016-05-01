@@ -17,7 +17,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "2x4";
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.PLAYER_MELEE.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.PLAYER_MELEE.Id, 0
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
@@ -34,7 +34,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Ceramic Blaster";
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id, 0
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -53,7 +53,11 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Ceramic Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id, 0
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 20
@@ -73,7 +77,12 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rusty Blaster";
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.DOUBLE_SHOT.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.DOUBLE_SHOT.Id, 0
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id,
+					1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 100
@@ -95,7 +104,13 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Hot Rails";
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
+					0
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id,
+					1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 300
@@ -116,8 +131,14 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rocket Launcher";
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id,
+					1
+				));
+
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id
+					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id, 0
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 300

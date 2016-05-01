@@ -19,6 +19,7 @@ namespace Client.Game.Managers
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
 			TargetTransform = player.transform;
+			transform.position = goalPosition;
 		}
 
 		RoomManager Rooms;
