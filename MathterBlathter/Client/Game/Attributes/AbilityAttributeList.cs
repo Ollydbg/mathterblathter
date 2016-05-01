@@ -34,8 +34,9 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF RepeatDelay = new GameAttributeF(11, .1f, "repeatDelay", 0, float.MaxValue);
 		public static readonly GameAttributeI RepeatAmount = new GameAttributeI(12, 0, "repeatCount", 0, 10);
 		public static readonly GameAttributeF SplashRadius = new GameAttributeF(13, 0f, "splashRadius", 0, float.MaxValue);
-		public static readonly GameAttributeF ProjectileAccel = new GameAttributeF(14, 0f, "projectileAcceleration", 0, int.MaxValue);
-		public static readonly GameAttributeF AimAssistRadius = new GameAttributeF(15, 1f, "AimAssist", 0, int.MaxValue);
+		public static readonly GameAttributeF ProjectileAccel = new GameAttributeF(14, 0f, "projectileAcceleration", float.MinValue, float.MaxValue);
+		public static readonly GameAttributeF AimAssistRadius = new GameAttributeF(15, 1f, "AimAssist", 0, float.MaxValue);
+
 	}
 }
 

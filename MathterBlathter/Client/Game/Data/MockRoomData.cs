@@ -83,14 +83,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                        1  w";
 				ret.AsciiMap += "           L                          pppppw";
 				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "           4               1  1            w";
-				ret.AsciiMap += "        1                cccccc     3      w";
-				ret.AsciiMap += "      ppp                cccccc            w";
-				ret.AsciiMap += "     L                               L     5";
-				ret.AsciiMap += "                         w                 5";
-				ret.AsciiMap += "                         w  L              w";
-				ret.AsciiMap += "                         w                 w";
-				ret.AsciiMap += "                       6 w 1  1  1     1 1 w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "     L                                     w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "            4                              w";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff2222ffffff";
 					
 
@@ -98,7 +98,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
 
 				//ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['4'] = MockActorData.ROCKET_LAUNCHER;
+				ret.AsciiSpawnLookup['4'] = MockActorData.MAX_HEALTH_BOOST;
 				ret.AsciiSpawnLookup['6'] = MockActorData.HEALTH_PICKUP;
 				finalize(ret);
 
@@ -476,6 +476,42 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 
 				finalize(ret);
+
+				return ret;
+			}
+		}
+
+		public static RoomData ROOM_11 {
+			get {
+				var ret = new RoomData();
+				ret.Id = 111;
+				ret.AsciiMap += "ccccccccccccccccccccccccc d cccccccccccccccccccccccc";
+				ret.AsciiMap += "                                                   w";
+				ret.AsciiMap += "d   L                                              w";
+				ret.AsciiMap += "                                                   w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP            w";
+				ret.AsciiMap += "wPPPPTPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP            w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w              L                             L      ";
+				ret.AsciiMap += "w                                                  d";
+				ret.AsciiMap += "w                                                   ";
+				ret.AsciiMap += "w                                     PPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w         2                                        4";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                       L          w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w                                                  w";
+				ret.AsciiMap += "w     1                                            w";
+				ret.AsciiMap += "fffffffffffffsssssssssffffffffffffff d ffffffffffffw";
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.MAX_HEALTH_BOOST;
+				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
+				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['4'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
+				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
+
 
 				return ret;
 			}

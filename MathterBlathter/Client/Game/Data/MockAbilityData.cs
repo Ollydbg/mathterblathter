@@ -120,13 +120,15 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 18f
+					AbilityAttributes.ProjectileSpeed.Id, 58f
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, -90f
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.ProjectileSpread.Id, 45f
 				));
-
 
 				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
 
@@ -287,6 +289,16 @@ namespace Client.Game.Data
 				ret.name = "HairTrigger";
 				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FireOnFall);
+				return ret;
+			}
+		}
+
+		public static AbilityData STAT_UP {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 14;
+				ret.name = "StatUp";
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.StatUp);
 				return ret;
 			}
 		}

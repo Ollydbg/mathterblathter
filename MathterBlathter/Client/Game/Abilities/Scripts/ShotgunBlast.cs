@@ -5,15 +5,17 @@ using Client.Game.Abilities.Payloads;
 using Client.Game.Enums;
 using UnityEngine;
 using System.Collections.Generic;
+using Client.Game.Actors;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class ShotgunBlast : BuffBase
+	public class ShotgunBlast : AbilityBase
 	{
 		public ShotgunBlast ()
 		{
 		}
 
+		private List<ProjectileActor> projectiles = new List<ProjectileActor>();
 
 		public override void Start ()
 		{
@@ -33,6 +35,8 @@ namespace Client.Game.Abilities.Scripts
 				
 				var projectile = FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
+				projectiles.Add(projectile);
+
 				projectile.OnHit = (actor) => {
 					new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 					context.source.Game.ActorManager.RemoveActor(projectile);
@@ -40,9 +44,22 @@ namespace Client.Game.Abilities.Scripts
 			}
 		}
 
+
 		public override void Update (float dt)
 		{
+			foreach( var proj in projectiles.ToArray() ) {
+				float spd = proj.Speed + this.Attributes[AbilityAttributes.ProjectileAccel] * dt;
+				if(spd >=0) {
+					proj.Speed = spd;
+				} else {
+					proj.Game.ActorManager.RemoveActor(proj);
+					projectiles.Remove(proj);
+				}
+
+			}
+
 		}
+
 
 		public override void End ()
 		{

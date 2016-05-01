@@ -8,6 +8,13 @@ namespace Client.Game.Abilities
 		{
 		}
 
+		public virtual void Stack() {
+
+		}
+
+		public virtual void UnStack() {
+
+		}
 
 		public override bool isComplete ()
 		{

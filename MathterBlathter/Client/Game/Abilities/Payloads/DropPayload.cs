@@ -33,7 +33,7 @@ namespace Client.Game.Abilities.Payloads
 			if(seed.RollAgainst(.5f)) {
 				return MockActorData.RANDOM_WEAPON_PICKUP;
 			} else {
-				return MockActorData.HEALTH_PICKUP;
+				return MockActorData.MAX_HEALTH_BOOST;
 			}
 		}
 

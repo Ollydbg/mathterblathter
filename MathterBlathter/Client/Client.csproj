@@ -148,6 +148,7 @@
     <Compile Include="Game\Abilities\Payloads\HealPayload.cs" />
     <Compile Include="Game\Abilities\Scripts\HealPlayer.cs" />
     <Compile Include="Game\Abilities\Scripts\FireOnFall.cs" />
+    <Compile Include="Game\Abilities\Scripts\StatUp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

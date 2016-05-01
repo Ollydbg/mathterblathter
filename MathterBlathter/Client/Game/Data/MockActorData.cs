@@ -182,22 +182,6 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData HEALTH_PICKUP {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 14;
-				ret.ResourcePath = "Items/SmallHealth_prefab";
-				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					MockAbilityData.HEAL.Id,
-					0
-				));
-				ret.Name = "HealthPickup";
-				return ret;
-			}
-		}
-
 		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
 				var ret = new CharacterData();
@@ -408,6 +392,46 @@ namespace Client.Game.Data
 				));
 
 
+				return ret;
+			}
+		}
+
+		public static CharacterData MAX_HEALTH_BOOST {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 14;
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.ActorType = ActorType.Pickup;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.STAT_UP.Id,
+					0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.MaxHealth.Id,
+					10
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Health.Id,
+					10
+				));
+				ret.Name = "Iron Lungs";
+				return ret;
+			}
+		}
+
+		public static CharacterData HEALTH_PICKUP {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 15;
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.ActorType = ActorType.Pickup;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.HEAL.Id,
+					0
+				));
+				ret.Name = "HealthPickup";
 				return ret;
 			}
 		}
