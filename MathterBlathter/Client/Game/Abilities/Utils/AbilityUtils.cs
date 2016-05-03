@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Actors;
+using Client.Game.Attributes;
 
 namespace Client.Game.Abilities.Utils
 {
@@ -25,8 +26,15 @@ namespace Client.Game.Abilities.Utils
 		}
 
 
-		public static Vector3 AdjustWithAssist(Vector3 direction, float adjustAmt) {
-			return direction;
+		public static Vector3 AdjustWithInaccuracy(Vector3 direction, AbilityContext context) {
+			float weaponInacc = context.sourceWeapon.Attributes[ActorAttributes.Inaccuracy];
+			float sourceInacc = context.source.Attributes[ActorAttributes.Inaccuracy];
+
+			float adjustAmt = Mathf.Clamp(weaponInacc + sourceInacc, 0, float.MaxValue);
+			adjustAmt = UnityEngine.Random.Range(-adjustAmt, adjustAmt);
+			return Quaternion.AngleAxis(adjustAmt, Vector3.back) * direction;
+
+			//return direction;
 		}
 
 

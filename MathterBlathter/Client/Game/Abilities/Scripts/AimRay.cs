@@ -19,13 +19,13 @@ namespace Client.Game.Abilities.Scripts
 			var go = (GameObject)GameObject.Instantiate(Resources.Load(path));
 
 			lr = go.GetComponent<LineRenderer>();
-			lr.SetWidth(.01f, .01f);
+			lr.SetWidth(.1f, .01f);
 
 		}
 
 		public override void Update (float dt)
 		{
-			lr.SetPosition(0, AttachPointPositionOnActor(Client.Game.Enums.AttachPoint.Eyes, context.source));
+			lr.SetPosition(0, AttachPointPositionOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source));
 			lr.SetPosition(1, context.source.Game.PossessedActor.HalfHeight);
 		}
 

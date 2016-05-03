@@ -50,8 +50,9 @@ namespace Client
 		}
 
 		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
+			
+			Vector3 adjustedDirection = AbilityUtils.AdjustWithInaccuracy(direction, context);
 
-			Vector3 adjustedDirection = AbilityUtils.AdjustWithAssist(direction, this.Attributes[AbilityAttributes.AimAssistRadius]);
 
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
 			projectile.transform.position = AttachPointPositionOnActor(point, context.source);

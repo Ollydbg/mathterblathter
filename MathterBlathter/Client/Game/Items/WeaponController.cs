@@ -39,11 +39,22 @@ namespace Client.Game.Items
 		
 
 		public void ToggleWeapon() {
-			foreach( var weapon in ActiveLookup.Values) {
-				if(currentWeapon != weapon) {
-					SwitchWeapon(weapon);
-					return;
+			
+			var notCurrent = NotCurrent;
+			if(notCurrent != null) {
+				SwitchWeapon(notCurrent);
+			}
+
+		}
+
+		public WeaponActor NotCurrent {
+			get {
+				foreach( var weapon in ActiveLookup.Values) {
+					if(currentWeapon != weapon) {
+						return weapon;
+					}
 				}
+				return null;
 			}
 		}
 
@@ -59,14 +70,26 @@ namespace Client.Game.Items
 			broadcast();
 		}
 
+
+		public void RemoveWeapon(WeaponActor wpn) {
+			ActiveLookup.Remove(wpn.Data);
+			Owner.Game.ActorManager.RemoveActor(wpn);
+		}
+
 		public void AddWeapon(CharacterData data) {
 			if(CanAdd(data)) {
+				
+
 				var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
 				AddWeapon(spawnedActor);
+
 			}
 		}
 
 		public void AddWeapon(WeaponActor actor) {
+			if(ActiveLookup.Count == Owner.Attributes[ActorAttributes.MaxWeapons])
+				RemoveWeapon(currentWeapon);
+
 			actor.transform.parent = GetAttachTransform(AttachPoint.Arm);
 			actor.transform.localPosition = Vector3.zero;
 
@@ -137,7 +160,6 @@ namespace Client.Game.Items
 		}
 
 		public void Attack () {
-			
 			Attack(GetAim());
 		}
 

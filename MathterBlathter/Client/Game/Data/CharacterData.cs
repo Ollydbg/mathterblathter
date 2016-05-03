@@ -13,7 +13,6 @@ namespace Client.Game.Data
 		public ActorType ActorType;
 		public AIData AIData;
 		public List<AttributeData> attributeData = new List<AttributeData>();
-
 		public Dictionary<AbilitySlots, Type> Abilities = new Dictionary<AbilitySlots, Type>();
 		//serialized attributes
 

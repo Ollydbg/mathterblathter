@@ -26,8 +26,7 @@ namespace Client.Game.AI.Actions
 			if (ActionUtil.InDetectionRange (distanceVec, actor)) {
 
 				FaceTarget(actor, target);
-				var moveVec = new Vector3(distanceVec.x, 0, 0);
-				actor.transform.position += moveVec.normalized * actor.Attributes[ActorAttributes.Speed];
+				actor.transform.position += distanceVec.normalized * actor.Attributes[ActorAttributes.Speed];
 
 			}
 			return inAbilityRange (distanceVec, actor) ? AIResult.Success : AIResult.Running;

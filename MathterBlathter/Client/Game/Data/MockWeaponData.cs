@@ -153,6 +153,71 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData WAVE_GUN {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1006;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Wave Gun";
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.CONTINUOUS_BEAM.Id,
+					0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 2
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Inaccuracy.Id, -float.MinValue
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 0f
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData RUST_MACHINE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1007;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Rust Machine";
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id,
+					1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
+					0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Inaccuracy.Id, 2f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, .1f
+				));
+
+				return ret;
+			}
+		}
+
+
 	}
 }
 

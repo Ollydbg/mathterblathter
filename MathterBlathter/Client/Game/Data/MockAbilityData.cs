@@ -116,7 +116,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.ProjectileCount.Id, 3
+					AbilityAttributes.ProjectileCount.Id, 5
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -322,6 +322,17 @@ namespace Client.Game.Data
 				ret.AbilityType = AbilityType.Buff;
 				ret.spawnableDataId = MockActorData.AIM_RAY.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AimRay);
+				return ret;
+			}
+		}
+
+		public static AbilityData CONTINUOUS_BEAM {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 17;
+				ret.name = "wave gun";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ContinuousBeam);
 				return ret;
 			}
 		}

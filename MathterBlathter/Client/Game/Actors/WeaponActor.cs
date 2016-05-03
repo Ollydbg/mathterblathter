@@ -1,5 +1,6 @@
 ﻿using System;
 using Client.Game.Data;
+using Client.Game.Abilities;
 
 namespace Client.Game.Actors
 {
@@ -15,6 +16,7 @@ namespace Client.Game.Actors
 				return transform.parent == null;
 			}
 		}
+
 
 		public bool Interact (Actor withActor)
 		{

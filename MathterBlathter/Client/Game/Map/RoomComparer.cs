@@ -31,7 +31,7 @@ namespace Client.Game.Map
 			if(x.MinElevation > y.MinElevation) {
 				return 1;
 			} else if( x.SortOrder == y.SortOrder) {
-				return CompareRoomId(x, y);
+				return CompareSeed(x, y);
 			} else {
 				return -1;
 			}
@@ -41,14 +41,18 @@ namespace Client.Game.Map
 			if( x.MaxElevation < y.MaxElevation) {
 				return -1;
 			} else if(x.MaxElevation == y.MaxElevation) {
-				return CompareRoomId(x, y);
+				return CompareSeed(x, y);
 			} else {
 				return 1;
 			}
 		}
 
-		private int CompareRoomId(RoomData x, RoomData y) {
-			return x.Id.CompareTo(y.Id);
+		private int CompareSeed(RoomData x, RoomData y) {
+			if( Game.Instance.Seed.RollAgainst(.5f)) {
+				return 1;
+			} else {
+				return -1;
+			}
 		}
 	}
 

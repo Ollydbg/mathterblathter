@@ -154,6 +154,7 @@
     <Compile Include="Game\Abilities\Scripts\AimRay.cs" />
     <Compile Include="Game\AI\Actions\ActionExtensions.cs" />
     <Compile Include="Game\AI\Actions\WaitThenFire.cs" />
+    <Compile Include="Game\Abilities\Scripts\ContinuousBeam.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

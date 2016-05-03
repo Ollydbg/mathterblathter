@@ -56,6 +56,10 @@ namespace Client.Game.Data
 					ActorAttributes.MinJumpPower.Id, .3f
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.MaxWeapons.Id, 2
+				));
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.SustainedJumpPower.Id, 10f
 				));
@@ -66,6 +70,10 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.BaseDamage.Id, 15
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Inaccuracy.Id, 2f
 				));
 
 
