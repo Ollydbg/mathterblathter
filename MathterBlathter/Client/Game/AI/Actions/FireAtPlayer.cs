@@ -25,18 +25,13 @@ namespace Client.Game.AI.Actions
 				return AIResult.Failure;
 			} else {
 
-				TryActivateAbility (dt, actor);
+				ActionUtil.TryActivateAbility (PlayerMid, actor);
 				return AIResult.Running;
 			}
 
-
 		}
 
-		void TryActivateAbility (float dt, Actor selfActor)
-		{
-			var direction = (PlayerMid - selfActor.transform.position).normalized;
-			selfActor.WeaponController.Attack(direction);
-		}
+
 	}
 }
 

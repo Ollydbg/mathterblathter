@@ -71,7 +71,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
@@ -80,26 +80,21 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "                                        1  w";
-				ret.AsciiMap += "           L                          pppppw";
+				ret.AsciiMap += "                                      1    w";
+				ret.AsciiMap += "           L                PPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                             L             w";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "     L                                     w";
 				ret.AsciiMap += "                                           w";
+				ret.AsciiMap += "                                  L        w";
 				ret.AsciiMap += "                                           w";
 				ret.AsciiMap += "                                           w";
-				ret.AsciiMap += "            4                              w";
-				ret.AsciiMap += "ffffffffffffffffffffffffffffffffff2222ffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffff";
 					
 
-				//ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
-				ret.AsciiSpawnLookup['2'] = MockActorData.SPIKES;
-
-				//ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['4'] = MockActorData.MAX_HEALTH_BOOST;
-				ret.AsciiSpawnLookup['6'] = MockActorData.HEALTH_PICKUP;
+				ret.AsciiSpawnLookup['1'] = MockActorData.SNIPER;
 				finalize(ret);
 
 				return ret;

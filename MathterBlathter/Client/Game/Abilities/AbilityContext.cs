@@ -13,16 +13,17 @@ namespace Client.Game.Abilities
 		public Actor source;
 		public Actor sourceWeapon;
 
-		public Actor target;
+		public Actor targetActor;
 
 		public AbilityData data;
-		public Vector3 direction;
+		public Vector3 targetDirection;
+		public Vector3 targetPosition;
 
 		public AbilityContext(Actor source, Actor weapon, Vector3 direction, AbilityData data) {
 			this.source = source;
 			this.sourceWeapon = weapon;
 			this.data = data;
-			this.direction = direction;
+			this.targetDirection = direction;
 		}
 
 		public AbilityContext(Actor source, AbilityData data)
@@ -34,7 +35,7 @@ namespace Client.Game.Abilities
 		public AbilityContext(Actor source, Actor target, AbilityData data)
 		{
 			this.source = source;
-			this.target = target;
+			this.targetActor = target;
 			this.data = data;
 		}
 

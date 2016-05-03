@@ -436,6 +436,50 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData SNIPER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 16;
+				ret.ResourcePath = "Actors/Enemies/Sniper_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.Name = "Sniper";
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockActorData.HOT_RAILS.Id,
+					0
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.SNIPER_AI_BUFF.Id,
+					0
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AIM_RAY_BUFF.Id,
+					1
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Speed.Id,
+					.03f
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.AIDetectionRadius.Id,
+					30f
+				));
+				return ret;
+			}
+		}
+
+		public static CharacterData AIM_RAY {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 17;
+				ret.ResourcePath = "Projectiles/VFX/aimLine_prefab";
+				ret.ActorType = ActorType.Projectile;
+				return ret;
+			}
+		}
+
 
 	}
 }

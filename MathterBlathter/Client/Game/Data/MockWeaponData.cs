@@ -37,7 +37,6 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id, 0
 				));
 
-
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, .5f
 				));

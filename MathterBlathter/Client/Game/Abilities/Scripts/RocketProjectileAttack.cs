@@ -23,7 +23,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
 
-			currentProjectile = FireProjectile (projectileData, context.direction, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+			currentProjectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			currentProjectile.OnGeometryHit = OnHit;
 			currentProjectile.OnHit = (actor) => OnHit();

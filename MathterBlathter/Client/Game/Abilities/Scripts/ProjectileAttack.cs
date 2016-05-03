@@ -20,7 +20,7 @@ namespace Client.Game.Abilities.Scripts
 
 			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
 
-			var projectile = FireProjectile (projectileData, context.direction, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+			var projectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			projectile.OnHit = (actor) => {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();

@@ -22,10 +22,10 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
 
-			currentProjectile = FireProjectile (projectileData, context.direction, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+			currentProjectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			var projectilePos = currentProjectile.transform.position;
-			var hits = Physics.RaycastAll(new Ray(projectilePos, context.direction), 100.0f);
+			var hits = Physics.RaycastAll(new Ray(projectilePos, context.targetDirection), 100.0f);
 			foreach( var hit in hits ) {
 				Actor hitActor;
 				var result = currentProjectile.TestTrigger(hit.collider, out hitActor);

@@ -37,7 +37,7 @@ namespace Client.Game.Abilities.Scripts
 			repeatCount ++;
 			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
 
-			var projectile = FireProjectile (projectileData, context.direction, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+			var projectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			string effectPath = "Projectiles/VFX/enemyTestHit_prefab";
 

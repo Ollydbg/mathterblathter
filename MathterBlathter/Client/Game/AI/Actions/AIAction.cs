@@ -9,6 +9,9 @@ namespace Client.Game.AI
 
 	public abstract class AIAction
 	{
+		public virtual void Start(Actor selfActor) {}
+		public virtual void End(){}
+
 		public abstract AIResult Update(float dt, Actor actor);
 		public AIAction Next;
 

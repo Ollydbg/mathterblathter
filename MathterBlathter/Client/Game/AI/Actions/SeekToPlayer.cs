@@ -23,13 +23,11 @@ namespace Client.Game.AI.Actions
 
 			var distanceVec = target - actor.transform.position;
 
-			if (inDetectionRange (distanceVec, actor)) {
+			if (ActionUtil.InDetectionRange (distanceVec, actor)) {
 
 				FaceTarget(actor, target);
-
-				var moveMagnitude = .08f;
-
-				actor.transform.position += distanceVec.normalized * moveMagnitude;
+				var moveVec = new Vector3(distanceVec.x, 0, 0);
+				actor.transform.position += moveVec.normalized * actor.Attributes[ActorAttributes.Speed];
 
 			}
 			return inAbilityRange (distanceVec, actor) ? AIResult.Success : AIResult.Running;
@@ -40,11 +38,6 @@ namespace Client.Game.AI.Actions
 
 
 
-		bool inDetectionRange (Vector3 distanceVec, Actor selfActor)
-		{
-			var detectionRange = selfActor.Attributes [ActorAttributes.AIDetectionRadius];
-			return distanceVec.sqrMagnitude <= (detectionRange * detectionRange);
-		}
 	}
 }
 

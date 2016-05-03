@@ -302,6 +302,30 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static AbilityData SNIPER_AI_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 15;
+				ret.name = "SniperAIBuff";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SniperAIBuff);
+				return ret;
+			}
+		}
+
+		public static AbilityData AIM_RAY_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 16;
+				ret.name = "aiming ray";
+				ret.AbilityType = AbilityType.Buff;
+				ret.spawnableDataId = MockActorData.AIM_RAY.Id;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AimRay);
+				return ret;
+			}
+		}
+
 	}
 }
 

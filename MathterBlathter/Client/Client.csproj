@@ -149,6 +149,11 @@
     <Compile Include="Game\Abilities\Scripts\HealPlayer.cs" />
     <Compile Include="Game\Abilities\Scripts\FireOnFall.cs" />
     <Compile Include="Game\Abilities\Scripts\StatUp.cs" />
+    <Compile Include="Game\Abilities\Scripts\SniperAIBuff.cs" />
+    <Compile Include="Game\AI\Actions\SeekToPlayerLOS.cs" />
+    <Compile Include="Game\Abilities\Scripts\AimRay.cs" />
+    <Compile Include="Game\AI\Actions\ActionExtensions.cs" />
+    <Compile Include="Game\AI\Actions\WaitThenFire.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
