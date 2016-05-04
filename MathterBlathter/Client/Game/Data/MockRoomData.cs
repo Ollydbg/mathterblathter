@@ -71,7 +71,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
 				ret.AsciiMap += "                                            ";
@@ -95,11 +95,7 @@ namespace Client.Game.Data
 					
 
 				//ret.AsciiSpawnLookup['1'] = MockActorData.SNIPER;
-				ret.AsciiSpawnLookup['2'] = MockActorData.WAVE_GUN;
-				ret.AsciiSpawnLookup['3'] = MockActorData.CERAMIC_SHOTGUN;
-				ret.AsciiSpawnLookup['4'] = MockActorData.HOT_RAILS;
-				ret.AsciiSpawnLookup['5'] = MockActorData.RUST_MACHINE;
-
+				ret.AsciiSpawnLookup['3'] = MockActorData.WAVE_GUN;
 
 				finalize(ret);
 

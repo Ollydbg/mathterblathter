@@ -14,6 +14,7 @@ namespace Client
 	public abstract partial class AbilityBase
 	{
 		internal AbilityContext context;
+		public InstanceId InstanceId;
 
 		public AttributeMap Attributes = new AttributeMap (AbilityAttributes.GetAll());
 		public Actor Owner {

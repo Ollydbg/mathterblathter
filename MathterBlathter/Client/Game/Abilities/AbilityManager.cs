@@ -15,11 +15,12 @@ namespace Client.Game.Abilities
 {
 
 	using Game = Client.Game.Core.Game;
+	using AbilityMap = Dictionary<InstanceId, AbilityBase>;
 
 	public class AbilityManager : IGameManager
 	{
 
-		public Dictionary<Actor, List<AbilityBase>> Abilities = new Dictionary<Actor, List<AbilityBase>>();
+		public Dictionary<Actor, AbilityMap> Abilities = new Dictionary<Actor, AbilityMap>();
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
@@ -55,13 +56,12 @@ namespace Client.Game.Abilities
 			}
 
 			foreach (var kvp in Abilities) {
-				foreach (var ability in kvp.Value) {
+				foreach (var ability in kvp.Value.Values) {
 
 					ability.Update(dt);
 					if (ability.isComplete ()) {
 						deferredRemoves.Enqueue (new RemovePair (kvp.Key, ability));
 					}
-
 				}
 			}
 
@@ -70,15 +70,12 @@ namespace Client.Game.Abilities
 				var rp = deferredRemoves.Dequeue ();
 				if(rp.ability != null) {
 					rp.ability.End ();
-					Abilities [rp.actor].Remove (rp.ability);
+					Abilities [rp.actor].Remove (rp.ability.InstanceId);
 				} else {
 					Abilities.Remove(rp.actor);
 				}
 			}
-
 		}
-
-
 
 
 		public void ActivateAbility(AbilityContext ctx) {
@@ -86,21 +83,39 @@ namespace Client.Game.Abilities
 		}
 
 		private void readAddQueue(AbilityContext ctx) {
-			var ability = (AbilityBase)Activator.CreateInstance(ctx.data.executionScript);
 
-			List<AbilityBase> abilities;
+			AbilityMap abilities;
 			if(!Abilities.TryGetValue(ctx.source, out abilities)) {
-				abilities = new List<AbilityBase>();
+				abilities = new AbilityMap();
 				Actor owner = ctx.source;
 				Abilities[owner] = abilities;
 			}
 				
-			abilities.Add (ability);
+			//look for pre-existing instance
+			if(ctx.data.AbilityType == AbilityType.Buff) {
+				AbilityBase ability;
+				if(abilities.TryGetValue(ctx, out ability)) {
+					var buff = ability as BuffBase;
+					buff.Stack(ctx);
+				} else {
+					abilities.Add (ctx, CreateAndStart(ctx));
+				}
 
-			ability.Init (ctx);
-			ability.Start ();
+			} else {
+				var ability = CreateAndStart(ctx);
+				abilities.Add (ability.InstanceId, ability);
+
+			}
 		}
 
+		private AbilityBase CreateAndStart(AbilityContext ctx) {
+			var ability = (AbilityBase)Activator.CreateInstance(ctx.data.executionScript);
+			ability.Init (ctx);
+			ability.InstanceId = ctx;
+			ability.Start ();
+
+			return ability;
+		}
 
 		public void AddActor (Actor actor)
 		{
@@ -145,6 +160,36 @@ namespace Client.Game.Abilities
 			public AbilityBase ability;
 			public RemovePair(Actor actor, AbilityBase ability) {this.actor = actor; this.ability = ability;}
 		}
+
+	}
+
+	public class InstanceId : IEquatable<InstanceId> {
+		public static int buffOffset = 0xFF;
+		public int lastId = 1;
+		private int Id;
+
+		public InstanceId(AbilityContext ctx) {
+			if(ctx.data.AbilityType == AbilityType.Buff) {
+				Id = ctx.data.Id << 16 | buffOffset;
+			} else {
+				Id = ctx.data.Id << 16 | ++lastId;
+			}
+		}
+
+		public static implicit operator InstanceId(AbilityContext ctx) {
+			return new InstanceId(ctx);
+		}
+
+		public override int GetHashCode ()
+		{
+			return Id.GetHashCode();
+		}
+
+		public bool Equals (InstanceId other)
+		{
+			return Id == other.Id;
+		}
+
 	}
 
 

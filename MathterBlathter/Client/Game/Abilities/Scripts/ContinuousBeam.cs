@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -20,9 +21,14 @@ namespace Client.Game.Abilities.Scripts
 			
 		}
 
-		public override void End ()
+		public override void Stack (AbilityContext ctx)
 		{
 			
+		}
+
+		public override void End ()
+		{
+			Debug.Log("Ending");
 		}
 
 

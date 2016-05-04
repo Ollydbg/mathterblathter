@@ -8,7 +8,7 @@ namespace Client.Game.Abilities
 		{
 		}
 
-		public virtual void Stack() {
+		public virtual void Stack(AbilityContext ctx) {
 
 		}
 
