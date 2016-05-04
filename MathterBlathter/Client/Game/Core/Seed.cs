@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Client.Game.Core
 {
@@ -22,6 +23,10 @@ namespace Client.Game.Core
 
 		public int Next(int max) {
 			return random.Next(max);
+		}
+
+		public T RandomInList<T>(List<T> items) {
+			return items[Next(items.Count)];
 		}
 
 		public int Next() {

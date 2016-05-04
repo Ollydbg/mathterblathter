@@ -4,6 +4,8 @@ using Client.Game.Attributes;
 using Client.Game.Data;
 using UnityEngine;
 using Client.Game.Core;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Client.Game.Abilities.Payloads
 {
@@ -33,7 +35,13 @@ namespace Client.Game.Abilities.Payloads
 			if(seed.RollAgainst(.5f)) {
 				return MockActorData.RANDOM_WEAPON_PICKUP;
 			} else {
-				return MockActorData.MAX_HEALTH_BOOST;
+				var pickups = new CharacterData[]{
+					MockActorData.MAX_HEALTH_BOOST,
+					MockActorData.HEALTH_PICKUP
+				}.ToList();
+
+				return seed.RandomInList(pickups);
+				
 			}
 		}
 
