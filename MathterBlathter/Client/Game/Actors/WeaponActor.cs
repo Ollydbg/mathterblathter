@@ -10,6 +10,11 @@ namespace Client.Game.Actors
 		{
 		}
 
+		public delegate void AttackToggle();
+		public delegate void AttackContext(AbilityContext context);
+		public event AttackContext OnAttackStart;
+		public event AttackToggle OnAttackEnd;
+
 		public bool InteractionEnabled {
 			get {
 				//use this to flag that we're not currently held by anyone
@@ -17,6 +22,15 @@ namespace Client.Game.Actors
 			}
 		}
 
+		public void AttackStart(AbilityContext ctx) {
+			if(OnAttackStart != null) 
+				OnAttackStart(ctx); 
+		}
+
+		public void AttackStop() {
+			if(OnAttackEnd != null)
+				OnAttackEnd();
+		}
 
 		public bool Interact (Actor withActor)
 		{

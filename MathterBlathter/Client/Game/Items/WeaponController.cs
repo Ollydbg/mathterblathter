@@ -159,6 +159,11 @@ namespace Client.Game.Items
 
 		}
 
+		public void AttackStop ()
+		{
+			currentWeapon.AttackStop();
+		}
+
 		public void Attack () {
 			Attack(GetAim());
 		}
@@ -166,8 +171,11 @@ namespace Client.Game.Items
 		public void Attack(Vector3 direction) {
 			if(CanAttack(currentWeapon)) {
 				var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities, 0];
-				Owner.Game.AbilityManager.ActivateAbility (new AbilityContext(Owner, currentWeapon, direction, MockAbilityData.FromId(abilityId)));
+				var context = new AbilityContext(Owner, currentWeapon, direction, MockAbilityData.FromId(abilityId));
+				Owner.Game.AbilityManager.ActivateAbility (context);
 				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;
+
+				currentWeapon.AttackStart(context);
 			}
 		}
 

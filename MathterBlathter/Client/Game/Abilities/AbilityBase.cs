@@ -29,6 +29,12 @@ namespace Client
 		{
 		}
 
+		public WeaponActor SourceWeapon {
+			get {
+				return context.source.ActorType == ActorType.Weapon ? (WeaponActor)context.source : context.sourceWeapon;
+			}
+		}
+
 		public virtual void Init(AbilityContext ctx) {
 			this.context = ctx;
 			this.Attributes.LoadFromData (ctx.data.attributeData);	

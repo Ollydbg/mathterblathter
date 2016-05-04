@@ -96,6 +96,8 @@ namespace Client.Game.Data
 
 				//ret.AsciiSpawnLookup['1'] = MockActorData.SNIPER;
 				ret.AsciiSpawnLookup['3'] = MockActorData.WAVE_GUN;
+				ret.AsciiSpawnLookup['2'] = MockActorData.HOT_RAILS;
+				ret.AsciiSpawnLookup['4'] = MockActorData.RUSTY_REPEATER;
 
 				finalize(ret);
 

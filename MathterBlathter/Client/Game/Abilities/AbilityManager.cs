@@ -165,7 +165,7 @@ namespace Client.Game.Abilities
 
 	public class InstanceId : IEquatable<InstanceId> {
 		public static int buffOffset = 0xFF;
-		public int lastId = 1;
+		public static int lastId = 1;
 		private int Id;
 
 		public InstanceId(AbilityContext ctx) {

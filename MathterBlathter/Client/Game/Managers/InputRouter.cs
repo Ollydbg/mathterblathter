@@ -76,6 +76,9 @@ namespace Client.Game.Managers
 
 			if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
 				TargetActor.WeaponController.Attack ();
+			} 
+			if(Input.GetButtonUp(ATTACK) || Input.GetButtonUp(PS4_SQ)) {
+				TargetActor.WeaponController.AttackStop();
 			}
 
 			TargetActor.Controller.Ducking = Input.GetButton(DUCK);
