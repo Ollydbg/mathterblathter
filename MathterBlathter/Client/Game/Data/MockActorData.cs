@@ -89,6 +89,12 @@ namespace Client.Game.Data
 					(int)AbilitySlots.Death
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.INVULNERABLE_AFTER_HIT_BUFF.Id,
+					0
+				));
+
 
 				return ret;
 			}
@@ -281,7 +287,7 @@ namespace Client.Game.Data
 					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
 				));
 				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 30
+					ActorAttributes.BaseDamage.Id, 5
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 0
@@ -312,7 +318,7 @@ namespace Client.Game.Data
 					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
 				));
 				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 30
+					ActorAttributes.BaseDamage.Id, 0
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 0

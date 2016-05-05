@@ -36,10 +36,10 @@ namespace Client.Game.Abilities.Payloads
 			if (AbilityManager.NotifyPayloadReceiver (this, Target))
 				return;
 			
-
 			int totalDamage = (int)Damage;
 
 			int newHealth = Target.Attributes [ActorAttributes.Health] - totalDamage;
+			Debug.Log(totalDamage);
 
 			Target.Attributes [ActorAttributes.Health] = newHealth;
 

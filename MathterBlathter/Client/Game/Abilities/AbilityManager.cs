@@ -146,12 +146,20 @@ namespace Client.Game.Abilities
 		//returns true if it got consumed
 		public bool NotifyPayloadSender (Payload payload, Actor actor)
 		{
-			return false;	
+			foreach( AbilityBase ability in Abilities[actor].Values) {
+				if(ability.OnPayloadSend(payload))
+					return true;
+			}
+			return false;
 		}
 
 		//returns true if it got consumed
 		public bool NotifyPayloadReceiver (Payload payload, Actor actor)
 		{
+			foreach( AbilityBase ability in Abilities[actor].Values) {
+				if(ability.OnPayloadReceive(payload))
+					return true;
+			}
 			return false;
 		}
 

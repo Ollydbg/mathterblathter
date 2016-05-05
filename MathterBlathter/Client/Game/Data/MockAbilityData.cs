@@ -337,6 +337,31 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData INVULNERABLE_AFTER_HIT_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 18;
+				ret.name = "Invulnerable after hit";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.InvulnerableAfterHitBuff);
+				
+				return ret;
+			}
+		}
+		public static AbilityData INVULNERABILITY_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 19;
+				ret.name = "Invulnerability";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.InvulnerabilityBuff);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Duration.Id, 1f
+				));
+				return ret;
+			}
+		}
+
 	}
 }
 

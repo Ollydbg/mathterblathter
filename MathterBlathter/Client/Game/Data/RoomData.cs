@@ -29,6 +29,11 @@ namespace Client.Game.Data
 		public bool Solo;
 		public bool Mute;
 
+		public override string ToString ()
+		{
+			return string.Format ("[RoomData Id:{0}, Width:{1}, Height:{2}]", Id, Width, Height);
+		}
+
 		public class Link
 		{
 			public int X;

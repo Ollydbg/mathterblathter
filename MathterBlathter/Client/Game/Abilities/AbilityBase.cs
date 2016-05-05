@@ -79,6 +79,14 @@ namespace Client
 
 		}
 
+
+		public virtual bool OnPayloadSend(Payload payload){
+			return false;
+		}
+		public virtual bool OnPayloadReceive(Payload payload){
+			return false;
+		}
+
 		public Vector3 AttachPointPositionOnActor(AttachPoint point, Actor actor) {
 
 			var components = actor.GameObject.GetComponentsInChildren<AttachPointComponent>();
