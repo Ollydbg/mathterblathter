@@ -39,7 +39,6 @@ namespace Client.Game.Abilities.Payloads
 			int totalDamage = (int)Damage;
 
 			int newHealth = Target.Attributes [ActorAttributes.Health] - totalDamage;
-			Debug.Log(totalDamage);
 
 			Target.Attributes [ActorAttributes.Health] = newHealth;
 
