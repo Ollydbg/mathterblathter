@@ -420,6 +420,20 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData RABBITS_FOOT_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 23;
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DropQualityBuff);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Duration.Id, float.MaxValue
+				));
+
+				return ret;
+			}
+		}
+
 	}
 }
 

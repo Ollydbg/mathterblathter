@@ -165,6 +165,8 @@
     <Compile Include="Game\Abilities\Scripts\JumpBuff.cs" />
     <Compile Include="Game\Abilities\Scripts\FallDamage.cs" />
     <Compile Include="Game\Items\ItemBuffScript.cs" />
+    <Compile Include="Game\Abilities\Scripts\DropQualityBuff.cs" />
+    <Compile Include="Game\Abilities\Scripts\ItemBuff.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -104,6 +104,66 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static CharacterData RABBITS_FOOT {
+			get {
+				var ret = new CharacterData();
+				ret.Id = OFFSET + 6;
+				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.ActorType = ActorType.Pickup;
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.RABBITS_FOOT_BUFF.Id,
+					0
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.DropQuality.Id,
+					.5f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.DropRate.Id,
+					0f
+				));
+
+				ret.Name = "Rabbit's Foot";
+
+				return ret;
+			}
+		}
+
+
+		public static CharacterData CURSED_RABBITS_FOOT {
+			get {
+				var ret = new CharacterData();
+				ret.Id = OFFSET + 7;
+				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.ActorType = ActorType.Pickup;
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.RABBITS_FOOT_BUFF.Id,
+					0
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.DropQuality.Id,
+					.75f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.DropRate.Id,
+					-.1f
+				));
+
+				ret.Name = "Cursed Rabbit's Foot";
+
+				return ret;
+			}
+		}
+
 	}
 }
 

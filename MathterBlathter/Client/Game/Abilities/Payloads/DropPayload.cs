@@ -11,7 +11,7 @@ namespace Client.Game.Abilities.Payloads
 {
 	public class DropPayload : Payload
 	{
-
+		
 
 		public DropPayload(AbilityContext ctx, Actor killedActor) : base(ctx) {
 
@@ -39,7 +39,10 @@ namespace Client.Game.Abilities.Payloads
 					MockActorData.MAX_HEALTH_BOOST,
 					MockActorData.HEALTH_PICKUP,
 					MockActorData.MOVE_BOOST_PICKUP,
-					MockActorData.SHORTENED_TENDONS_PICKUP
+					MockActorData.SHORTENED_TENDONS_PICKUP,
+					MockActorData.CURSED_RABBITS_FOOT,
+					MockActorData.RABBITS_FOOT,
+				
 				}.ToList();
 
 				return seed.RandomInList(pickups);

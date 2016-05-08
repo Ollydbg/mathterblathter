@@ -1,41 +1,22 @@
 ﻿using System;
 using Client.Game.Attributes;
+using System.Collections.Generic;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class JumpBuff : BuffBase
+	public class JumpBuff : ItemBuff
 	{
 		public JumpBuff ()
 		{
 		}
 
-		private float timeLeft = 0f;
 
-		public override void Start ()
+		#region implemented abstract members of ItemBuff
+		public override void ApplyDirection (int dir)
 		{
-			timeLeft = this.Attributes[AbilityAttributes.Duration];
-			ApplyDirection(1);
+			throw new NotImplementedException ();
 		}
-
-		void ApplyDirection(int dir) {
-			context.targetActor.Attributes[ActorAttributes.MaxJumpPower] += (dir)*this.Attributes[ActorAttributes.MaxJumpPower];
-		}
-
-		public override void Update (float dt)
-		{
-			timeLeft -= dt;
-		}
-
-		public override bool isComplete ()
-		{
-			return timeLeft <= 0f;
-		}
-
-		public override void End ()
-		{
-			ApplyDirection(-1);	
-		}
-
+		#endregion
 	}
 }
 

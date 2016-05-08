@@ -54,6 +54,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF FallFireVelocity = new GameAttributeF(31, 10f, "FallFireVelocity", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeF Inaccuracy = new GameAttributeF(32, 0f, "inaccuracy", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeI MaxWeapons = new GameAttributeI(33, 2, "maxWeapons", 0, int.MaxValue);
+		public static readonly GameAttributeF DropQuality = new GameAttributeF(34, 1, "dropQuality", 0, float.MaxValue);
 	}
 }
 
