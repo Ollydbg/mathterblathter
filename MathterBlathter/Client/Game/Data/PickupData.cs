@@ -85,7 +85,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = OFFSET + 5;
-				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.ResourcePath = "Items/ItemBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
