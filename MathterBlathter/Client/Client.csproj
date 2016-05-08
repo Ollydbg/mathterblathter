@@ -43,7 +43,6 @@
     <Compile Include="Game\Data\RoomData.cs" />
     <Compile Include="Game\Map\MapGenerator.cs" />
     <Compile Include="Game\Data\GameData.cs" />
-    <Compile Include="Game\Map\RoomGrid.cs" />
     <Compile Include="Game\Core\Game.cs" />
     <Compile Include="Game\Core\GameManagerProxy.cs" />
     <Compile Include="Game\Map\Room.cs" />
@@ -157,6 +156,9 @@
     <Compile Include="Game\Abilities\Scripts\ContinuousBeam.cs" />
     <Compile Include="Game\Abilities\Scripts\InvulnerableAfterHitBuff.cs" />
     <Compile Include="Game\Abilities\Scripts\InvulnerabilityBuff.cs" />
+    <Compile Include="Game\Map\GenConstraints\GridOverlapConstraint.cs" />
+    <Compile Include="Game\Map\GenConstraints\StorePerTierConstraint.cs" />
+    <Compile Include="Game\Map\GenConstraints\IGenConstraint.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -182,5 +184,6 @@
     <Folder Include="Game\Actors\Controllers\" />
     <Folder Include="Game\Geometry\" />
     <Folder Include="Game\States\" />
+    <Folder Include="Game\Map\GenConstraints\" />
   </ItemGroup>
 </Project>

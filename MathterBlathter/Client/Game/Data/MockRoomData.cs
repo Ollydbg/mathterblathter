@@ -34,6 +34,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
+				ret.Type = RoomType.LurchStart;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                        ";
 				ret.AsciiMap += "                                                                        ";
@@ -367,7 +368,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 107;
-
+				ret.Type = RoomType.Store;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "w                                              w";
 				ret.AsciiMap += "w                                              w";

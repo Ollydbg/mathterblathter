@@ -7,6 +7,7 @@ using Client.Game.Actors;
 using Client.Game.Enums;
 using UnityEngine;
 using System.Collections;
+using Client.Game.Map.GenConstraints;
 
 namespace Client.Game.Map
 {
@@ -15,13 +16,15 @@ namespace Client.Game.Map
 
 	public class MapGenerator
 	{
+		MapData mapData;
+		ConstraintList Constraints;
 		public MapGenerator ()
 		{
-			var reader = new BitmapReader(MockMapData.Map1);
-			Grid = new RoomGrid(reader);
+			mapData = MockMapData.Map1;
+			Constraints = new ConstraintList();
+			Constraints.InitWithMap(mapData);
 		}
 
-		RoomGrid Grid;
 		Room Head;
 		RoomPool Pool;
 
@@ -47,7 +50,7 @@ namespace Client.Game.Map
 					room.Y = targetY;
 
 					returnBuffer.Add (room);
-					Grid.Block(targetX, targetY, room.Width, room.Height);
+					Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
 
 					//spawn all doors for the room that got mates
 					foreach( var kvp in doorLinks) {
@@ -100,7 +103,7 @@ namespace Client.Game.Map
 		{
 
 			if (UnlinkedDoors.Count == 0) {
-				var start = this.Grid.GetStart();
+				var start = new BitmapReader(mapData).GetStart();
 				targetX = (int)start.x;
 				targetY = (int)start.y;
 				doorLinks = new DoorLinkMapping();
@@ -146,10 +149,11 @@ namespace Client.Game.Map
 						targetX = (int)mate.MatingX - door.X;
 						targetY = (int)mate.MatingY - door.Y;
 
-						if (!Grid.IsBlocked (targetX, targetY, data.Width, data.Height)) {
+						if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
 							doorLinks.Add(door, mate);
 							return true;
 						}
+
 					}
 				}
 

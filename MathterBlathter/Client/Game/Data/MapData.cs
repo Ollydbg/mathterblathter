@@ -10,6 +10,7 @@ namespace Client.Game.Data
 
 		public float ReadScale;
 
+
 		public MapData ()
 		{
 		}
