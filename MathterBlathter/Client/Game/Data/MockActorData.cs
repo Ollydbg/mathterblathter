@@ -196,26 +196,7 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData RANDOM_WEAPON_PICKUP {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 4;
-				ret.ActorType = ActorType.Pickup;
-				/*ret.attributeData.Add( new CharacterData.AttributeData( 
-					ActorAttributes.PickupItemId.Id,
-					linked.Id
-				));*/
-				ret.attributeData.Add( new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id,
-					MockAbilityData.LEVEL_APPROPRIATE_WEAPON.Id,
-					0
-				));
 
-				ret.Name = "RandomWeapon";
-
-				return ret;
-			}
-		}
 
 		public static CharacterData DOOR {
 			get {
@@ -275,72 +256,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData SPIKES {
-			get {
-				var ret = new CharacterData ();
-				ret.Id = 8;
-				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
-				ret.ActorType = ActorType.Fixture;
-				ret.AIData = new AIData ();
-				ret.Name = "Spikes";
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
-				));
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 5
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.GravityScalar.Id, 0f
-				));
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id, 
-					MockAbilityData.DAMAGE_ON_TOUCH_BUFF.Id,
-					0
-				));
 
-
-				return ret;
-			}
-		}
-
-		public static CharacterData WALL_TURRET {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 9;
-				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
-				ret.ActorType = ActorType.Fixture;
-				ret.AIData = new AIData();
-				ret.Name = "Wall Turret";
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
-				));
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.GravityScalar.Id, 0f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id, 
-					MockAbilityData.FIRING_FIXTURE_BUFF.Id,
-					0
-				));
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id,
-					MockActorData.RANGED_WEAPON_1.Id,
-					0
-				));
-
-				return ret;
-			}
-		}
 
 		public static CharacterData RAIL_PROJECTILE {
 			get {
@@ -410,45 +326,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData MAX_HEALTH_BOOST {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 14;
-				ret.ResourcePath = "Items/SmallHealth_prefab";
-				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					MockAbilityData.STAT_UP.Id,
-					0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.MaxHealth.Id,
-					10
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Health.Id,
-					10
-				));
-				ret.Name = "Iron Lungs";
-				return ret;
-			}
-		}
 
-		public static CharacterData HEALTH_PICKUP {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 15;
-				ret.ResourcePath = "Items/SmallHealth_prefab";
-				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					MockAbilityData.HEAL.Id,
-					0
-				));
-				ret.Name = "HealthPickup";
-				return ret;
-			}
-		}
 
 		public static CharacterData SNIPER {
 			get {

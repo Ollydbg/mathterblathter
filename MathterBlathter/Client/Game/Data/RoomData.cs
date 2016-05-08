@@ -21,9 +21,10 @@ namespace Client.Game.Data
 
 		public AsciiMap AsciiMap = new AsciiMap();
 
+		public int MinElevation;
+		public int MaxElevation;
 		public int MaxInstances = int.MaxValue;
-		public int MinElevation = 0;
-		public int MaxElevation = 0;
+
 		public int SortOrder = 100; //<-- used for explicit layout/ starting sequence
 
 		public bool Solo;

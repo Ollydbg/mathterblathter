@@ -32,12 +32,14 @@ namespace Client.Game.Abilities.Payloads
 		}
 
 		private CharacterData getDrop(Seed seed) {
-			if(seed.RollAgainst(.5f)) {
+			if(seed.RollAgainst(.3f)) {
 				return MockActorData.RANDOM_WEAPON_PICKUP;
 			} else {
 				var pickups = new CharacterData[]{
 					MockActorData.MAX_HEALTH_BOOST,
-					MockActorData.HEALTH_PICKUP
+					MockActorData.HEALTH_PICKUP,
+					MockActorData.MOVE_BOOST_PICKUP,
+					MockActorData.SHORTENED_TENDONS_PICKUP
 				}.ToList();
 
 				return seed.RandomInList(pickups);

@@ -75,6 +75,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
+				ret.Solo = true;
 				ret.AsciiMap += "                                                ";
 				ret.AsciiMap += "                                                ";
 				ret.AsciiMap += "                                                ";
@@ -97,7 +98,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                               w";
 				ret.AsciiMap += "                                      L        w";
 				ret.AsciiMap += "                                               w";
-				ret.AsciiMap += "           2    3         4     5              w";
+				ret.AsciiMap += "                3               5              w";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffsfffffffffff";
 					
 
@@ -105,6 +106,8 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['3'] = MockActorData.WAVE_GUN;
 				ret.AsciiSpawnLookup['2'] = MockActorData.HOT_RAILS;
 				ret.AsciiSpawnLookup['4'] = MockActorData.RUSTY_REPEATER;
+				ret.AsciiSpawnLookup['5'] = MockActorData.SHORTENED_TENDONS_PICKUP;
+
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 				finalize(ret);
@@ -420,7 +423,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                      w                     w";
 				ret.AsciiMap += "w               L                      w                     w";
 				ret.AsciiMap += "w                                      w                 2   w";
-				ret.AsciiMap += "w            pppppppppppppppppppppppppppPPPPPPPPPPPPPPPPPPPPPw";
+				ret.AsciiMap += "w            ppppppppppppppppppppppppppPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                            w";
 				ret.AsciiMap += "w                                                            w";
 				ret.AsciiMap += "w                                                            w";

@@ -24,10 +24,12 @@ namespace Client.Game.UI.Run
 			weaponController.OnLoadoutChanged += Rebuild;
 
 			Template.gameObject.SetActive(false);
+
+			Rebuild(weaponController.currentWeapon, weaponController.ActiveLookup);
 		}
 
 		public void Update() {
-
+			
 		}
 
 		public void Rebuild(WeaponActor currentWeapon, Dictionary<CharacterData, WeaponActor> lookup)

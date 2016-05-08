@@ -21,6 +21,8 @@ namespace Client.Game.Attributes
 			return _all;
 		}
 
+
+		//THIS IS DUMB, AND THEY SHOULD ALL BE MOVED INTO ACTORATTRIBUTELIST
 		public static readonly GameAttributeF Duration = new GameAttributeF(1, 2f, "duration", 0, float.MaxValue);
 		public static readonly GameAttributeF Cooldown = new GameAttributeF(2, 1f, "cooldown", 0, float.MaxValue);
 		public static readonly GameAttributeI Damage = new GameAttributeI(3, 10, "damage", int.MinValue, int.MaxValue);
@@ -36,6 +38,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF SplashRadius = new GameAttributeF(13, 0f, "splashRadius", 0, float.MaxValue);
 		public static readonly GameAttributeF ProjectileAccel = new GameAttributeF(14, 0f, "projectileAcceleration", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeF AimAssistRadius = new GameAttributeF(15, 1f, "AimAssist", 0, float.MaxValue);
+		public static readonly GameAttributeF SpeedBoost = new GameAttributeF(16, 0f, "SpeedBoost", float.MinValue, float.MaxValue);
+		public static readonly GameAttributeF MaxJumpPower = new GameAttributeF(15, 0, "max jump power", 0, 100); 
 
 	}
 }

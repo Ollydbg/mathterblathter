@@ -362,6 +362,64 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData MOVE_BOOST_TEMP {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 20;
+				ret.name = "Move Boost Temp";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MoveBoostTempBuff);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Duration.Id, 10f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.SpeedBoost.Id, 10f
+				));
+
+				return ret;
+			}
+		}
+
+		public static AbilityData JUMP_BUFF_PERM {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 21;
+				ret.name = "JumpBuff";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpBuff);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Duration.Id, float.MaxValue
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.MaxJumpPower.Id, 1f
+				));
+
+
+				return ret;
+			}
+		}
+
+		public static AbilityData FALL_DAMAGE_PERM {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 22;
+				ret.name = "FallDamage";
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FallDamage);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Duration.Id, float.MaxValue
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Damage.Id, 1
+				));
+
+				return ret;
+			}
+		}
+
 	}
 }
 

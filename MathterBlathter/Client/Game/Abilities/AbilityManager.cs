@@ -128,7 +128,7 @@ namespace Client.Game.Abilities
 				var data = MockAbilityData.FromId(dataId);
 				if(data.AbilityType == AbilityType.Buff) {
 
-					var context = new AbilityContext(actor, data);
+					var context = new AbilityContext(actor, actor, data);
 					ActivateAbility(context);
 				}
 			}

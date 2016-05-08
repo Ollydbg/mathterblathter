@@ -20,6 +20,7 @@ namespace Client.Game.Abilities
 		{
 			return false;
 		}
+
 	}
 }
 
