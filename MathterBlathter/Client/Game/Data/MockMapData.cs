@@ -26,7 +26,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Maps/Map1";
 				ret.Id = 1;
 				ret.ReadScale = 1f;
-				ret.NumberOfRooms = 200;
+				ret.NumberOfRooms = 90;
 				return ret;
 			}
 		}

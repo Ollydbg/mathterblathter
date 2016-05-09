@@ -120,6 +120,7 @@ namespace Client.Game.Map
 				if(TryRecordSpawn(spawn)) {
 
 					var actor = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
+
 					actor.transform.rotation = Quaternion.Euler(spawn.Facing);
 					if(actorBlocksRoomUnlock(actor)) {
 						unlockBlockers.Add(actor.Id);

@@ -57,13 +57,7 @@ namespace Client.Game.Map
 					returnBuffer.Add (room);
 					Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
 
-					//spawn all doors for the room that got mates
-					foreach( var kvp in doorLinks) {
-						kvp.Value.LinkedGuid = kvp.Key.Id;
-						spawnDoorToRoom (kvp.Key, room, kvp.Value.SelfGuid);
-					}
-
-					ConsumeLinkedDoors(doorLinks);
+					ConsumeLinkedDoors(doorLinks, room);
 
 					//spawn doors for unmated links, but put them into the unlinked pile for consumption on the next placement
 					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
@@ -88,27 +82,36 @@ namespace Client.Game.Map
 			return returnBuffer;
 		}
 
-		void ConsumeLinkedDoors(DoorLinkMapping linkedDoors) {
+		void ConsumeLinkedDoors(DoorLinkMapping linkedDoors, Room room) {
 			foreach( var kvp in linkedDoors) {
+				kvp.Value.LinkedGuid = kvp.Key.Id;
+				spawnDoorToRoom (kvp.Key, room, kvp.Value.SelfGuid);
+
 				UnlinkedDoors.Remove(kvp.Value);
 				var searchVector = new Vector3(kvp.Value.MatingX, kvp.Value.MatingY, 0f);
+
 				MatingLookup.Remove(searchVector);
+
 			}
 		}
 
 		void AddUnlinkedDoors (List<DoorActor> orphanedDoors)
 		{
 			foreach( var door in orphanedDoors) {
-				MatingLookup.Add(new Vector3(door.MatingX, door.MatingY, 0f), door);
+				Vector3 searchVector = new Vector3(door.MatingX, door.MatingY, 0f);
+				if(MatingLookup.ContainsKey(searchVector)) {
+				
+				} else {
+					MatingLookup.Add(searchVector, door);
+					UnlinkedDoors.Add(door);
+				}
 			}
 
-			UnlinkedDoors.AddRange (orphanedDoors);
 			
 		}
 
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
-			//var doorActor = Core.Game.Instance.ActorManager.Spawn<DoorActor>(resourceName:"Door_prefab");
 			var doorActor = (DoorActor)Game.Instance.ActorManager.Spawn(MockActorData.DOOR);
 			doorActor.GameObject.name = "DoorActor";
 			doorActor.LinkedGuid = doorGuidLink;

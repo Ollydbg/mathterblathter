@@ -38,7 +38,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, .5f
+					ActorAttributes.AttackSpeed.Id, 1f
 				));
 				return ret;
 			}

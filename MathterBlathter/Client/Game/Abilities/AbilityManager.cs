@@ -146,7 +146,6 @@ namespace Client.Game.Abilities
 		//returns true if it got consumed
 		public bool NotifyPayloadSender (Payload payload, Actor actor)
 		{
-			Debug.Log(actor);
 			foreach( AbilityBase ability in Abilities[actor].Values) {
 				if(ability.OnPayloadSend(payload))
 					return true;

@@ -169,6 +169,8 @@
     <Compile Include="Game\Abilities\Scripts\ItemBuff.cs" />
     <Compile Include="Game\Abilities\Scripts\LevelAppropriateBuffDrop.cs" />
     <Compile Include="Game\Data\RoomTemplates.cs" />
+    <Compile Include="Game\AI\Actions\FireFacingDirection.cs" />
+    <Compile Include="Game\Utils\VectorUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -195,5 +197,6 @@
     <Folder Include="Game\Geometry\" />
     <Folder Include="Game\States\" />
     <Folder Include="Game\Map\GenConstraints\" />
+    <Folder Include="Game\Utils\" />
   </ItemGroup>
 </Project>
