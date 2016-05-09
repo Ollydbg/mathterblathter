@@ -32,6 +32,7 @@ namespace Client.Game.Data
 
 		public RoomType Type;
 
+
 		public override string ToString ()
 		{
 			return string.Format ("[RoomData Id:{0}, Width:{1}, Height:{2}]", Id, Width, Height);
@@ -90,6 +91,7 @@ namespace Client.Game.Data
 			public float Y;
 			public RoomSpawnType SpawnType;
 			public Guid Guid;
+
 			public Spawn(CharacterData inData) {
 				this.ActorId = inData.Id;
 				this.Guid = Guid.NewGuid();
