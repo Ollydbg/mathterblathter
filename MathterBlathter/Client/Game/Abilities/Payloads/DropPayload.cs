@@ -22,7 +22,7 @@ namespace Client.Game.Abilities.Payloads
 				bool shouldDrop = killedActor.Game.Seed.RollAgainst(dropPct);
 
 				if(shouldDrop) {
-					CharacterData dataToDrop = getDrop(killedActor.Game.Seed);
+					CharacterData dataToDrop = getDrop(ctx.source, killedActor, killedActor.Game.Seed);
 					var actor = killedActor.Game.ActorManager.Spawn(dataToDrop);
 					actor.transform.position = killedActor.transform.position;
 				}
@@ -31,32 +31,32 @@ namespace Client.Game.Abilities.Payloads
 			}
 		}
 
-		private CharacterData getDrop(Seed seed) {
-			if(seed.RollAgainst(.3f)) {
-				return MockActorData.RANDOM_WEAPON_PICKUP;
-			} else {
-				var pickups = new CharacterData[]{
-					MockActorData.MAX_HEALTH_BOOST,
-					MockActorData.HEALTH_PICKUP,
-					MockActorData.MOVE_BOOST_PICKUP,
-					MockActorData.SHORTENED_TENDONS_PICKUP,
-					MockActorData.CURSED_RABBITS_FOOT,
-					MockActorData.RABBITS_FOOT,
-				
-				}.ToList();
+		private CharacterData getDrop(Actor killer, Actor killed, Seed seed) {
+			
+			var dropList = DropList(killed.Attributes[ActorAttributes.DropType]);
 
-				return seed.RandomInList(pickups);
-				
-			}
+			return seed.RandomInList(dropList);
 		}
 
-		#region implemented abstract members of Payload
 
 		public override void Apply ()
 		{
 		}
 
-		#endregion
+		private List<PickupData> DropList(int type) {
+
+			var items = MockActorData.GetAll()
+				.Where(p=>p.GetType() == typeof(PickupData))
+				.Cast<PickupData>();
+
+			if(type == (int)PickupData.Type.Unassigned) {
+				return items.ToList();
+			} else {
+				return items.Where(p=>p.PickupType == (PickupData.Type)type).ToList();
+			}
+			
+		}
+
 	}
 }
 

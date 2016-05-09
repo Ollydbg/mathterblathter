@@ -83,7 +83,7 @@ namespace Client.Game.Actors
 
 		public override string ToString ()
 		{
-			return string.Format ("[Actor: name={0}]", GameObject.name);
+			return string.Format ("[Actor: name={0}, id={1}, dataId={2}]", GameObject.name, this.Id, this.Data.Id);
 		}
 
 	}

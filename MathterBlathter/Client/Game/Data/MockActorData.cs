@@ -129,7 +129,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AttackSpeedScalar.Id, 3f
 				));
-
+				
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.AI_BUFF.Id,

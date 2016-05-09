@@ -11,6 +11,7 @@ namespace Client.Game.Data
 		public string Name;
 		public string ResourcePath;
 		public ActorType ActorType;
+
 		public AIData AIData;
 		public List<AttributeData> attributeData = new List<AttributeData>();
 		public Dictionary<AbilitySlots, Type> Abilities = new Dictionary<AbilitySlots, Type>();
@@ -20,7 +21,7 @@ namespace Client.Game.Data
 		//serialized attributes
 
 	}
-	
+
 
 	public enum ActorType {
 		Friendly,
@@ -30,8 +31,7 @@ namespace Client.Game.Data
 		Projectile,
 		Pickup,
 		Weapon,
-		Fixture,
-		Buff
+		Fixture
 	}
 
 }

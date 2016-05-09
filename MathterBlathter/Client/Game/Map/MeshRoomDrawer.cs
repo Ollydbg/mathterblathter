@@ -71,8 +71,8 @@ namespace Client.Game.Map
 			foreach (var chunk in extractor.getChunksMatching(AsciiMap.PASSTHROUGH_PLATFORM)) {
 				var go = DrawRoomChunk(room, chunk, color*.5f, gameObject, "passthrough platform");
 				//for now, lets just scale this down and move it up
-				go.transform.localScale = new Vector3(1, .25f, 1f);
-				go.transform.position = go.transform.position + new Vector3(0, .75f, 0);
+				go.transform.localScale = new Vector3(1, .5f, 1f);
+				go.transform.position = go.transform.position + new Vector3(0, .5f, 0);
 				go.layer = LayerMask.NameToLayer(Layers.SoftGeometry.ToString());
 				AddColliderForChunk(go, chunk, false);
 				PassthroughPlatformFactory.Init(go);
