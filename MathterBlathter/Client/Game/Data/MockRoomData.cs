@@ -386,7 +386,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                       1                      w";
 				ret.AsciiMap += "                    wwwwwwwwww                  ";
 				ret.AsciiMap += "d                fffffffffffffff               d";
-				ret.AsciiMap += "               wwwwwwwwwwwwwwwwwww   2          ";
+				ret.AsciiMap += "               wwwwwwwwwwwwwwwwwww              ";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.SHOPKEEPER;
@@ -594,6 +594,34 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['4'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 
+
+				return ret;
+			}
+		}
+
+		public static RoomData BUFF_ROOM {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 113;
+				ret.AsciiMap += "cccccccccccccccccccccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w             L                 L              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                                              w";
+				ret.AsciiMap += "w                       1                      w";
+				ret.AsciiMap += "                    wwwwwwwwww                  ";
+				ret.AsciiMap += "d                fffffffffffffff               d";
+				ret.AsciiMap += "               wwwwwwwwwwwwwwwwwww              ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffw";
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.RANDOM_BUFF;
+				finalize(ret);
 
 				return ret;
 			}

@@ -434,6 +434,17 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData LEVEL_APPROPRIATE_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 24;
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LevelAppropriateBuffDrop);
+
+				return ret;
+			}
+		}
+
 	}
 }
 

@@ -43,6 +43,8 @@ namespace Client.Game.Abilities.Payloads
 		{
 		}
 
+		
+
 		private List<PickupData> DropList(int type) {
 
 			var items = MockActorData.GetAll()
@@ -50,7 +52,7 @@ namespace Client.Game.Abilities.Payloads
 				.Cast<PickupData>();
 
 			if(type == (int)PickupData.Type.Unassigned) {
-				return items.ToList();
+				return items.Where(p => p.PickupType != PickupData.Type.Buff).ToList();
 			} else {
 				return items.Where(p=>p.PickupType == (PickupData.Type)type).ToList();
 			}

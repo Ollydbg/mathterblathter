@@ -41,7 +41,7 @@ namespace Client.Game.Data
 				ret.Id = OFFSET + 2;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupData.Type.Item;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.STAT_UP.Id,
@@ -49,13 +49,13 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					10
+					1
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Health.Id,
-					10
+					1
 				));
-				ret.Name = "Iron Lungs";
+				ret.Name = "Blood Thinner";
 				return ret;
 			}
 		}
@@ -91,7 +91,7 @@ namespace Client.Game.Data
 					MockAbilityData.HEAL.Id,
 					0
 				));
-				ret.Name = "HealthPickup";
+				ret.Name = "Blood Pack";
 				return ret;
 			}
 		}
@@ -177,6 +177,22 @@ namespace Client.Game.Data
 				));
 
 				ret.Name = "Cursed Rabbit's Foot";
+
+				return ret;
+			}
+		}
+
+		public static PickupData RANDOM_BUFF {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 8;
+				ret.ActorType = ActorType.Pickup;
+				ret.PickupType = PickupData.Type.Buff;
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.LEVEL_APPROPRIATE_BUFF.Id,
+					0
+				));
 
 				return ret;
 			}

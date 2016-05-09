@@ -1,28 +1,29 @@
 ﻿using System;
-using UnityEngine;
-using Client.Game.Attributes;
 using Client.Game.Data;
 using System.Linq;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class LevelAppropriateWeaponDrop : BuffBase
+	public class LevelAppropriateBuffDrop : BuffBase
 	{
-		public LevelAppropriateWeaponDrop ()
+		public LevelAppropriateBuffDrop ()
 		{
 		}
 
-		#region implemented abstract members of AbilityBase
-
 		public override void Start ()
 		{
-			var allWeapons = MockActorData.GetAll().Where(p => p.ActorType == ActorType.Weapon).ToList();
+			var playerBuffs = MockActorData.GetAll()
+				.Where(p=>p.GetType() == typeof(PickupData))
+				.Cast<PickupData>()
+				.Where( p=>p.PickupType == PickupData.Type.Buff)
+				.ToList();
 
-			var dataToSpawn = Owner.Game.Seed.RandomInList(allWeapons);
+
+			var dataToSpawn = Owner.Game.Seed.RandomInList(playerBuffs);
 			var replacement = Owner.Game.ActorManager.Spawn(dataToSpawn);
 			replacement.transform.position = Owner.transform.position;
-			Owner.Game.ActorManager.RemoveActor(Owner);
 
+			Owner.Game.ActorManager.RemoveActor(Owner);
 		}
 
 		public override bool isComplete ()
@@ -30,11 +31,15 @@ namespace Client.Game.Abilities.Scripts
 			return true;
 		}
 
+		#region implemented abstract members of AbilityBase
+
 		public override void Update (float dt)
 		{
 		}
+
 		public override void End ()
 		{
+
 		}
 
 		#endregion
