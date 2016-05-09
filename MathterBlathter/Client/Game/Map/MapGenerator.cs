@@ -12,18 +12,23 @@ using Client.Game.Map.GenConstraints;
 namespace Client.Game.Map
 {
 	using DoorLinkMapping = Dictionary<RoomData.Link, DoorActor>;
+	using MatingLookup = Dictionary<Vector3, DoorActor>;
 	using Game = Game.Core.Game;
 
 	public class MapGenerator
 	{
 		MapData mapData;
 		ConstraintList Constraints;
+		MatingLookup MatingLookup = new MatingLookup();
+
 		public MapGenerator ()
 		{
 			mapData = MockMapData.Map1;
 			Constraints = new ConstraintList();
 			Constraints.InitWithMap(mapData);
 		}
+
+
 
 		Room Head;
 		RoomPool Pool;
@@ -56,8 +61,9 @@ namespace Client.Game.Map
 					foreach( var kvp in doorLinks) {
 						kvp.Value.LinkedGuid = kvp.Key.Id;
 						spawnDoorToRoom (kvp.Key, room, kvp.Value.SelfGuid);
-						UnlinkedDoors.Remove(kvp.Value);
 					}
+
+					ConsumeLinkedDoors(doorLinks);
 
 					//spawn doors for unmated links, but put them into the unlinked pile for consumption on the next placement
 					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
@@ -67,7 +73,8 @@ namespace Client.Game.Map
 					room.EnterGame (Core.Game.Instance);
 
 					//add new unlinked doors
-					UnlinkedDoors.AddRange (orphanedDoors);
+					AddUnlinkedDoors(orphanedDoors);
+
 
 					if(Head == null) Head = room;
 
@@ -81,6 +88,23 @@ namespace Client.Game.Map
 			return returnBuffer;
 		}
 
+		void ConsumeLinkedDoors(DoorLinkMapping linkedDoors) {
+			foreach( var kvp in linkedDoors) {
+				UnlinkedDoors.Remove(kvp.Value);
+				var searchVector = new Vector3(kvp.Value.MatingX, kvp.Value.MatingY, 0f);
+				MatingLookup.Remove(searchVector);
+			}
+		}
+
+		void AddUnlinkedDoors (List<DoorActor> orphanedDoors)
+		{
+			foreach( var door in orphanedDoors) {
+				MatingLookup.Add(new Vector3(door.MatingX, door.MatingY, 0f), door);
+			}
+
+			UnlinkedDoors.AddRange (orphanedDoors);
+			
+		}
 
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
@@ -141,7 +165,7 @@ namespace Client.Game.Map
 				foreach (RoomData.Link door in doors) {
 					var potentialMates = SideDoors (UnlinkedDoors, Opposite (side));
 
-					foreach (var mate in potentialMates) {
+					foreach (DoorActor mate in potentialMates) {
 
 						//Because we don't want to actually overlap the doors, we want them to be adjacent.
 						//Testing Adjacency means we can just add offset for the door side and then test for equality
@@ -150,7 +174,9 @@ namespace Client.Game.Map
 						targetY = (int)mate.MatingY - door.Y;
 
 						if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
-							doorLinks.Add(door, mate);
+							//doorLinks.Add(door, mate);
+							doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
+
 							return true;
 						}
 
@@ -158,7 +184,21 @@ namespace Client.Game.Map
 				}
 
 			}
+
 			return false;
+		}
+
+		private DoorLinkMapping GetMatingDoorsAtPosition(int x, int y, RoomData data) {
+			DoorLinkMapping ret = new DoorLinkMapping();
+			foreach( var link in data.Doors) {
+				var searchVector = new Vector3(x + link.X, y + link.Y, 0f);
+				DoorActor linkedActor;
+				if(MatingLookup.TryGetValue(searchVector, out linkedActor)) {
+					ret.Add(link, linkedActor);
+				}
+			}
+				
+			return ret;
 		}
 
 		private DoorRoomSide Opposite(DoorRoomSide side) {

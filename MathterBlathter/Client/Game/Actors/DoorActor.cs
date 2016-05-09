@@ -80,7 +80,7 @@ namespace Client.Game.Actors
 			}
 		}
 
-		private float MateOffsetY {
+		public float MateOffsetY {
 			get{
 				if (Side == DoorRoomSide.Top) {
 					return +1f;
@@ -93,7 +93,7 @@ namespace Client.Game.Actors
 
 		}
 
-		private float MateOffsetX {
+		public float MateOffsetX {
 			get {
 				if (Side == DoorRoomSide.Left) {
 					return -1;
