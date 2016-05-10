@@ -34,7 +34,6 @@ namespace Client.Game.Core
 		public ActorManager ActorManager;
 		public UIManager UIManager;
 		public FSM States;
-		private IGameManager[] Managers;
 
 
 		public Seed Seed {
@@ -49,7 +48,8 @@ namespace Client.Game.Core
 
 		private void Init() {
 
-			this.Seed = new Seed(UnityEngine.Random.Range(0, int.MaxValue));
+
+			this.Seed = new Seed(DateTime.UtcNow.Millisecond);
 
 			CreateManagers();
 			States.Start(this);
@@ -57,8 +57,7 @@ namespace Client.Game.Core
 		}
 
 		private void CreateManagers() {
-			var tmp = new List<IGameManager> ();
-
+			
 			States = new FSM();
 
 			InputManager = new InputManager();
@@ -67,10 +66,6 @@ namespace Client.Game.Core
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
 			UIManager = new UIManager(this);
-
-
-			Managers = tmp.ToArray ();
-
 
 		}
 

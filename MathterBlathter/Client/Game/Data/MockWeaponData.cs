@@ -207,7 +207,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 2
+					ActorAttributes.BaseDamage.Id, 8
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -215,7 +215,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, .2f
+					ActorAttributes.AttackSpeed.Id, .09f
 				));
 
 				return ret;
