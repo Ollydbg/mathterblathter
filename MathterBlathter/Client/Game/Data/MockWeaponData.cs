@@ -9,7 +9,7 @@ namespace Client.Game.Data
 	public static partial class MockActorData
 	{
 		
-		public static CharacterData MELEE_WEAPON_1 {
+		/*public static CharacterData MELEE_WEAPON_1 {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1000;
@@ -24,7 +24,7 @@ namespace Client.Game.Data
 				));
 				return ret;
 			}
-		}
+		}*/
 
 		public static CharacterData WALL_TURRET_WEAPON {
 			get {
@@ -35,6 +35,11 @@ namespace Client.Game.Data
 				ret.Name = "Ceramic Blaster";
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id, 0
+				));
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id, 1
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -202,7 +207,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 1
+					ActorAttributes.BaseDamage.Id, 2
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -210,7 +215,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, .1f
+					ActorAttributes.AttackSpeed.Id, .2f
 				));
 
 				return ret;

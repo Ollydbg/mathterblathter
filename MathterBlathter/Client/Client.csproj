@@ -163,7 +163,6 @@
     <Compile Include="Game\Data\PickupData.cs" />
     <Compile Include="Game\Abilities\Scripts\MoveBoostTempBuff.cs" />
     <Compile Include="Game\Abilities\Scripts\JumpBuff.cs" />
-    <Compile Include="Game\Abilities\Scripts\FallDamage.cs" />
     <Compile Include="Game\Items\ItemBuffScript.cs" />
     <Compile Include="Game\Abilities\Scripts\DropQualityBuff.cs" />
     <Compile Include="Game\Abilities\Scripts\ItemBuff.cs" />
@@ -171,6 +170,7 @@
     <Compile Include="Game\Data\RoomTemplates.cs" />
     <Compile Include="Game\AI\Actions\FireFacingDirection.cs" />
     <Compile Include="Game\Utils\VectorUtils.cs" />
+    <Compile Include="Game\Abilities\Scripts\JumpDamage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

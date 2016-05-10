@@ -32,6 +32,8 @@ namespace Client.Game.Actors
 		private static Color OPEN_COLOR = Color.white;
 		private static Color CLOSED_COLOR = Color.red;
 
+		public bool Set = false;
+
 		private bool _isOpen;
 		public bool isOpen {
 			get {
@@ -40,7 +42,7 @@ namespace Client.Game.Actors
 			private set {
 				_isOpen = value;
 				this.GameObject.GetComponent<Renderer>().material.color = _isOpen ? OPEN_COLOR : CLOSED_COLOR;
-				//this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
+				this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
 
 			}
 		}
@@ -114,33 +116,30 @@ namespace Client.Game.Actors
 		}
 
 
-		void OnTrigger (UnityEngine.Collider Collider)
-		{
-			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
-			if(hitRef && Game.PossessedActor == hitRef.Actor) {
-				//get intended direction
-				var side = getEntranceSide(hitRef);
+		void OnTriggerExit(Actor actor) {
+			if(actor == Game.PossessedActor) {
+
+				//get exit direction
+				var side = getExitSide(actor);
 				//lookup linkage
 				Room targetRoom;
-				if(Portals.TryGetValue(DoorRoom.Opposite(side), out targetRoom)) {
+				if(Portals.TryGetValue(side, out targetRoom)) {
 					//move them there
-					Game.RoomManager.EnterRoom(hitRef.Actor, targetRoom, this);
+					Game.RoomManager.EnterRoom(actor, targetRoom, this);
 				} else {
 					Debug.LogWarning("Couldn't get desired room from door entrance, this shouldn't have happened!");
 				}
-
 			}
-
 		}
 
-		DoorRoomSide getEntranceSide (ActorRef hitRef)
+		DoorRoomSide getExitSide (Actor actor)
 		{
 			if(WallDoor) {
 				//test for left or right
-				return hitRef.Actor.transform.position.x < this.transform.position.x? DoorRoomSide.Left : DoorRoomSide.Right;
+				return actor.transform.position.x < this.transform.position.x? DoorRoomSide.Left : DoorRoomSide.Right;
 			} else {
 				//test for above or below
-				return hitRef.Actor.transform.position.y > this.transform.position.y? DoorRoomSide.Top : DoorRoomSide.Bottom;
+				return actor.transform.position.y > this.transform.position.y? DoorRoomSide.Top : DoorRoomSide.Bottom;
 			}
 		}
 
@@ -151,7 +150,7 @@ namespace Client.Game.Actors
 
 		public override void EnterGame(Client.Game.Core.Game game) {
 			
-			GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
+			GameObject.GetComponent<ActorRef> ().OnTriggerActorExit += OnTriggerExit;
 
 			base.EnterGame(game);
 

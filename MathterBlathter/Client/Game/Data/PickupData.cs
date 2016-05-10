@@ -100,7 +100,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new PickupData();
 				ret.Id = OFFSET + 5;
-				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
 
 				ret.PickupType = PickupData.Type.Buff;
@@ -116,7 +116,7 @@ namespace Client.Game.Data
 				));
 
 				//better jumps, but takes a little damage on falling from heights
-				ret.Name = "Shorter Tendons";
+				ret.Name = "Shortened Achilles Tendon";
 
 				return ret;
 			}

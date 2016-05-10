@@ -76,8 +76,6 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
-
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -99,20 +97,20 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                           wwwwwwwU                            w";
-                ret.AsciiMap += "w                           lwwwwwwR                            w";
-                ret.AsciiMap += "w                           wwwwwwww                            w";
-                ret.AsciiMap += "w                           wwwwTwww                            w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                pppppppppppp                                   w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                   L                                           w";
+                ret.AsciiMap += "w             ppppppppppppp                                     w";
+                ret.AsciiMap += "w                                              L                w";
                 ret.AsciiMap += "                                                                 ";
-                ret.AsciiMap += "d                                                               d";
+                ret.AsciiMap += "d                                          5                    d";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
@@ -195,7 +193,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 102;
-
 				ret.AsciiMap += "wcccccccccccccccccccccccccccccc d cccccccccccccccccccccccccccccw";
 				ret.AsciiMap += "                                                                ";
 				ret.AsciiMap += "d            2                                   2             d";
@@ -225,7 +222,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPP                               PPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                 PPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                 PPPPPPPPPPPPPw";
-				ret.AsciiMap += "w                                             wwwwwwwwwwwwwwwwww";
+				ret.AsciiMap += "w                                             fffffffffffffffffw";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";

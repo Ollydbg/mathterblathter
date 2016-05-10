@@ -65,7 +65,7 @@ namespace Client.Game.Data
 				));
 					
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.MaxJumpPower.Id, .8f
+					ActorAttributes.MaxJumpPower.Id, .45f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (

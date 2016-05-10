@@ -19,11 +19,14 @@ namespace Client.Game.Actors.Controllers
 		public float horizontalAxis = 0f;
 		private static float GRAVITY_ACC = -1.8f;
 		private float gravityYv = 0f;
-		private static float MAX_DOWN_SPEED = -100f;
+		private static float MAX_DOWN_SPEED = -1000f;
 		private float jumpPowerAccumulator = 0f;
 		private bool jumpNeedsReset = false;
 		private Vector3 movementAccumulator = Vector3.zero;
 
+		public delegate void GroundingHandler(Vector3 groundingVelocity);
+		private bool wasGrounded;
+		public event GroundingHandler OnGrounded;
 
 
 		public CharacterController(Character actor) {
@@ -48,8 +51,6 @@ namespace Client.Game.Actors.Controllers
 			transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
-
-			
 
 			Vector3 moveVector = horizontalAxis * RunSpeed * Vector3.right;
 			moveVector*= Time.deltaTime;
@@ -82,14 +83,15 @@ namespace Client.Game.Actors.Controllers
 
 
 		public void Update(float dt) {
-
-			if(!IsGrounded && SubjectToGravity) {
+			
+			if(SubjectToGravity) {
 				gravityYv += (GRAVITY_ACC*dt * GravityScalar);
-				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 10);
+				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 1000);
 				movementAccumulator += Vector3.up * (gravityYv);
-			} else {
+			} 
+
+			if(wasGrounded) {
 				jumpPowerAccumulator = 0f;
-				gravityYv = (GRAVITY_ACC*dt);
 			}
 
 			ConsumeMovement();
@@ -98,8 +100,18 @@ namespace Client.Game.Actors.Controllers
 
 		void ConsumeMovement ()
 		{
-			
 			internalController.Move(movementAccumulator);
+			var grounded = IsGrounded;
+			if(grounded && !wasGrounded) {
+				if(OnGrounded != null) {
+					OnGrounded(internalController.velocity);
+				}
+
+			}
+			if(grounded) {
+				gravityYv = 0;
+			}
+			wasGrounded = grounded;
 
 			movementAccumulator = Vector3.zero;
 
@@ -119,15 +131,13 @@ namespace Client.Game.Actors.Controllers
 
 			if(IsGrounded && !jumpNeedsReset) {
 				var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
-
 				movementAccumulator += Vector3.up * jumpHeight;
-
 				gravityYv = jumpHeight;
 				jumpPowerAccumulator += jumpHeight;
+
 			} else if(jumpPowerAccumulator < Actor.Attributes[ActorAttributes.MaxJumpPower] && !jumpNeedsReset) {
 				var boost = Actor.Attributes[ActorAttributes.SustainedJumpPower];
 				movementAccumulator += Vector3.up * boost * Time.deltaTime;
-
 				gravityYv += boost * Time.deltaTime;
 				jumpPowerAccumulator += boost * Time.deltaTime;
 			} else {

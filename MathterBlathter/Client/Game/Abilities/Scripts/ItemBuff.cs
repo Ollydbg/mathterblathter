@@ -29,6 +29,17 @@ namespace Client.Game.Abilities.Scripts
 			return TimeLeft <= 0f;
 		}
 
+		public override void Stack (AbilityContext ctx)
+		{
+			context = ctx;
+			ApplyDirection(+1);
+		}
+
+		public override void UnStack ()
+		{
+			ApplyDirection(-1);
+		}
+
 		public override void End ()
 		{
 			ApplyDirection(-1);

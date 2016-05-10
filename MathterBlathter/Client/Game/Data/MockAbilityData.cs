@@ -393,8 +393,9 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.MaxJumpPower.Id, 1f
+					ActorAttributes.MaxJumpPower.Id, .15f
 				));
+
 
 
 				return ret;
@@ -407,9 +408,13 @@ namespace Client.Game.Data
 				ret.Id = 22;
 				ret.name = "FallDamage";
 				ret.AbilityType = AbilityType.Buff;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FallDamage);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpDamage);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, float.MaxValue
+				));
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.FallDamageThreshold.Id, 30f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

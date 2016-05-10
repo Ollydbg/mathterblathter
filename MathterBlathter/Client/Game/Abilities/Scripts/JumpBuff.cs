@@ -14,7 +14,7 @@ namespace Client.Game.Abilities.Scripts
 		#region implemented abstract members of ItemBuff
 		public override void ApplyDirection (int dir)
 		{
-			throw new NotImplementedException ();
+			context.targetActor.Attributes[ActorAttributes.MaxJumpPower] += dir * Attributes[ActorAttributes.MaxJumpPower];
 		}
 		#endregion
 	}

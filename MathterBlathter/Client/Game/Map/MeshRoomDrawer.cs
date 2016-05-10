@@ -89,22 +89,25 @@ namespace Client.Game.Map
 
 		public void DrawDoors(Room room, GameObject gameobject) {
 			foreach (var door in room.Doors) {
-				door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
+				if(!door.Set) {
+					door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
 
-				//the offsets are an artifact of the fact that the doors are just box primitives
-				//instead of meshes like the walls
-			
-				if(door.WallDoor) {
-					
-					door.transform.position = new Vector3 (
-						door.X + .5f*door.Width,
-						door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
-					
-				} else {
-
-					door.transform.position = new Vector3 (
-						door.X + .5f*door.Width -1,
-						door.Y - .5f*door.Height+2) + GridToWorldSpace(room);
+					//the offsets are an artifact of the fact that the doors are just box primitives
+					//instead of meshes like the walls
+				
+					if(door.WallDoor) {
+						float offset = door.Side == DoorRoomSide.Left? -1 : 0;
+						door.transform.position = new Vector3 (
+							door.X + .5f*door.Width + offset,
+							door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
+						
+					} else {
+						float offset = door.Side == DoorRoomSide.Bottom? -1 : 0;
+						door.transform.position = new Vector3 (
+							door.X + .5f*door.Width -1,
+							door.Y - .5f*door.Height+2 + offset) + GridToWorldSpace(room);
+					}
+					door.Set = true;
 				}
 
 			}

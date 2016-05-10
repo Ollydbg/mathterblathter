@@ -86,6 +86,9 @@ namespace Client.Game.Map
 			foreach( var kvp in linkedDoors) {
 				kvp.Value.Portals[kvp.Value.Side] = room;
 				UnlinkedDoors.Remove(kvp.Value);
+
+				room.Doors.Add(kvp.Value);
+
 				var searchVector = new Vector3(kvp.Value.MatingX, kvp.Value.MatingY, 0f);
 
 				MatingLookup.Remove(searchVector);
