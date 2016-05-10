@@ -64,7 +64,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					MockActorData.RANGED_WEAPON_1.Id,
+					MockActorData.WALL_TURRET_WEAPON.Id,
 					0
 				));
 

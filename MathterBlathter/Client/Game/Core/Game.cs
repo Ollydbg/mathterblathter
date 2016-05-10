@@ -49,7 +49,7 @@ namespace Client.Game.Core
 
 		private void Init() {
 
-			this.Seed = new Seed(100);
+			this.Seed = new Seed(UnityEngine.Random.Range(0, int.MaxValue));
 
 			CreateManagers();
 			States.Start(this);

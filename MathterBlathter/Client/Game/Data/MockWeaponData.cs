@@ -26,7 +26,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData RANGED_WEAPON_1 {
+		public static CharacterData WALL_TURRET_WEAPON {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1001;
