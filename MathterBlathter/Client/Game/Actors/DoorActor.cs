@@ -3,6 +3,7 @@ using Client.Game.Map;
 using Client.Game.Data;
 using Client.Game.Enums;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Client.Game.Actors
 {
@@ -19,10 +20,12 @@ namespace Client.Game.Actors
 		public int Height;
 
 		public Room Parent;
+
+		public Dictionary<DoorRoomSide, Room> Portals = new Dictionary<DoorRoomSide, Room>();
+
 		public DoorRoomSide Side;
 
 		public Guid SelfGuid;
-		public Guid LinkedGuid;
 
 		public RoomData.Link LinkData;
 
@@ -42,6 +45,11 @@ namespace Client.Game.Actors
 			}
 		}
 
+		public bool WallDoor {
+			get {
+				return this.Side == DoorRoomSide.Left || this.Side == DoorRoomSide.Right;
+			}
+		}
 
 		public bool isClosed {
 			get {return !isOpen; }
@@ -110,9 +118,30 @@ namespace Client.Game.Actors
 		{
 			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
 			if(hitRef && Game.PossessedActor == hitRef.Actor) {
-				Game.RoomManager.EnterRoom(hitRef.Actor, this.Parent, this);
+				//get intended direction
+				var side = getEntranceSide(hitRef);
+				//lookup linkage
+				Room targetRoom;
+				if(Portals.TryGetValue(DoorRoom.Opposite(side), out targetRoom)) {
+					//move them there
+					Game.RoomManager.EnterRoom(hitRef.Actor, targetRoom, this);
+				} else {
+					Debug.LogWarning("Couldn't get desired room from door entrance, this shouldn't have happened!");
+				}
+
 			}
 
+		}
+
+		DoorRoomSide getEntranceSide (ActorRef hitRef)
+		{
+			if(WallDoor) {
+				//test for left or right
+				return hitRef.Actor.transform.position.x < this.transform.position.x? DoorRoomSide.Left : DoorRoomSide.Right;
+			} else {
+				//test for above or below
+				return hitRef.Actor.transform.position.y > this.transform.position.y? DoorRoomSide.Top : DoorRoomSide.Bottom;
+			}
 		}
 
 		public override void Update (float dt)

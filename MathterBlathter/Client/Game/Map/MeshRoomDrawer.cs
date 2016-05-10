@@ -94,15 +94,17 @@ namespace Client.Game.Map
 				//the offsets are an artifact of the fact that the doors are just box primitives
 				//instead of meshes like the walls
 			
-				if(door.Side == DoorRoomSide.Top || door.Side == DoorRoomSide.Bottom) {
-					door.transform.position = new Vector3 (
-						door.X + .5f*door.Width -1,
-						door.Y - .5f*door.Height + 1) + GridToWorldSpace(room);
-
-				} else {
+				if(door.WallDoor) {
+					
 					door.transform.position = new Vector3 (
 						door.X + .5f*door.Width,
 						door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
+					
+				} else {
+
+					door.transform.position = new Vector3 (
+						door.X + .5f*door.Width -1,
+						door.Y - .5f*door.Height+2) + GridToWorldSpace(room);
 				}
 
 			}

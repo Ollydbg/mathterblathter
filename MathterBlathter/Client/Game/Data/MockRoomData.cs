@@ -822,27 +822,26 @@ namespace Client.Game.Data
 			var matches = extractor.getAllMatching (AsciiMap.DOOR);
 			foreach (Vector3 doorPos in matches) {
 				var link = new RoomData.Link ();
-				link.Height = 1;
-				link.Width = 1;
+
 				link.X = (int)doorPos.x;
 				link.Y = (int)doorPos.y;
 				
 				if (link.X == 0) {
 					link.Side = DoorRoomSide.Left;
-					link.Width = 1;
+					link.Width = 2;
 					link.Height = 3;
 				} else if (link.Y == 0) {
 					link.Side = DoorRoomSide.Bottom;
 					link.Width = 3;
-					link.Height = 1;
+					link.Height = 2;
 				} else if (link.X == room.Width-1) {
 					link.Side = DoorRoomSide.Right;
-					link.Width = 1;
+					link.Width = 2;
 					link.Height = 3;
 				} else {
 					link.Side = DoorRoomSide.Top;
 					link.Width = 3;
-					link.Height = 1;
+					link.Height = 2;
 				}
 
 				room.Doors.Add (link);

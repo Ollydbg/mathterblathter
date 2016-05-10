@@ -61,7 +61,7 @@ namespace Client.Game.Map
 
 					//spawn doors for unmated links, but put them into the unlinked pile for consumption on the next placement
 					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
-						.Select(p=>spawnDoorToRoom(p, room, Guid.Empty))
+						.Select(p=>spawnDoorToRoom(p, room))
 						.ToList();
 
 					room.EnterGame (Core.Game.Instance);
@@ -84,9 +84,7 @@ namespace Client.Game.Map
 
 		void ConsumeLinkedDoors(DoorLinkMapping linkedDoors, Room room) {
 			foreach( var kvp in linkedDoors) {
-				kvp.Value.LinkedGuid = kvp.Key.Id;
-				spawnDoorToRoom (kvp.Key, room, kvp.Value.SelfGuid);
-
+				kvp.Value.Portals[kvp.Value.Side] = room;
 				UnlinkedDoors.Remove(kvp.Value);
 				var searchVector = new Vector3(kvp.Value.MatingX, kvp.Value.MatingY, 0f);
 
@@ -107,17 +105,17 @@ namespace Client.Game.Map
 				}
 			}
 
-			
 		}
 
 
-		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent, Guid doorGuidLink) {
+		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent) {
 			var doorActor = (DoorActor)Game.Instance.ActorManager.Spawn(MockActorData.DOOR);
+			doorActor.Portals[DoorRoom.Opposite(link.Side)] = parent;
+			doorActor.Parent = parent;
 			doorActor.GameObject.name = "DoorActor";
-			doorActor.LinkedGuid = doorGuidLink;
 			doorActor.InitWithData(link);
 			//link coords are just in gridspace, need to convert to world space
-			doorActor.Parent = parent;
+
 			parent.Doors.Add(doorActor);
 			return doorActor;
 		}
@@ -166,7 +164,7 @@ namespace Client.Game.Map
 			var doors = SideDoors (data, side);
 			if (doors.Count() > 0) {
 				foreach (RoomData.Link door in doors) {
-					var potentialMates = SideDoors (UnlinkedDoors, Opposite (side));
+					var potentialMates = SideDoors (UnlinkedDoors, DoorRoom.Opposite (side));
 
 					foreach (DoorActor mate in potentialMates) {
 
@@ -204,19 +202,7 @@ namespace Client.Game.Map
 			return ret;
 		}
 
-		private DoorRoomSide Opposite(DoorRoomSide side) {
-			switch (side) {
-			case DoorRoomSide.Bottom:
-				return DoorRoomSide.Top;
-			case DoorRoomSide.Left:
-				return DoorRoomSide.Right;
-			case DoorRoomSide.Right:
-				return DoorRoomSide.Left;
-			case DoorRoomSide.Top:
-				return DoorRoomSide.Bottom;
-			}
-			return default(DoorRoomSide);
-		}
+
 
 		private IEnumerable<DoorActor> SideDoors(List<DoorActor> doors, DoorRoomSide side) {
 			return doors.Where (p => p.Side == side);
