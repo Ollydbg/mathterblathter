@@ -133,9 +133,11 @@ namespace Client.Game.Map
 			go.layer = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
 			mf.mesh = extractor.chunkToMesh (chunk);
 			mr.material.color = color;
+			
 			go.gameObject.transform.parent = parentObj.transform;
 			go.gameObject.transform.localPosition = chunk.Origin;
 			go.isStatic = true;
+		
 
 			return go;
 		}
@@ -178,15 +180,22 @@ namespace Client.Game.Map
 				var lightObj = new GameObject ();
 				var light = lightObj.AddComponent<Light> ();
 				room.Lights.Add(light);
-				//disabled by default
 				lightObj.SetActive(false);
+				/*light.type = LightType.Directional;
+				light.intensity = .3f;
+				light.bounceIntensity = 0f;
+				light.transform.parent = gameObject.transform;
+				light.transform.localRotation = Quaternion.Euler(22.75f, 0, 0);
+				light.transform.localPosition = new Vector3(lightPos.x, lightPos.y, -53f);
+				*/
 				light.range = room.Width;
 				lightObj.transform.parent = gameObject.transform;
 				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, -2f);
 				light.type = LightType.Point;
 				light.gameObject.transform.Rotate(new Vector3(293f, 0, 0));
 
-				light.intensity = 1.7f;
+				light.intensity = 1f;
+
 
 				lightObj.name = "light";
 			}

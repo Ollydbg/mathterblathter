@@ -273,6 +273,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.ProjectileAccel.Id, 30f
 				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
+				));
+
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RocketProjectileAttack);
 
 				return ret;
@@ -481,7 +486,7 @@ namespace Client.Game.Data
 					AbilityAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 80f
+					AbilityAttributes.ProjectileSpeed.Id, 70f
 				));
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Damage.Id, 9
@@ -492,7 +497,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.RepeatDelay.Id, .05f
+					AbilityAttributes.RepeatDelay.Id, .1f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -502,6 +507,15 @@ namespace Client.Game.Data
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
 				ret.AbilityType = AbilityType.Instanced;
+
+				var fireTimeline = new TimelineData();
+				fireTimeline.AsciiMap += "eeeeeee     ";
+				fireTimeline.AsciiMap += "sssssss     ";
+				fireTimeline.Duration = .5f;
+
+				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/laser_discharge", AttachPoint.Muzzle);
+				ret.Timelines.Add(fireTimeline);
 				return ret;
 			}
 		}
