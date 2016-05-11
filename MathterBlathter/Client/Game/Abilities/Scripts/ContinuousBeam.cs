@@ -54,7 +54,7 @@ namespace Client.Game.Abilities.Scripts
 		Vector3 BeamEndPosition(AbilityContext ctx) {
 			RaycastHit hit;
 
-			var startLocation = AttachPointPositionOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
+			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
 			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString()});
 
 			if(Physics.Raycast(startLocation, ctx.targetDirection, out hit, 100f, layerMask)) {

@@ -239,6 +239,16 @@ namespace Client.Game.Data
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
 				ret.AbilityType = AbilityType.Instanced;
+
+				var fireTimeline = new TimelineData();
+				fireTimeline.AsciiMap += "eeeeeee     ";
+				fireTimeline.AsciiMap += "sssssss     ";
+				fireTimeline.Duration = .5f;
+
+				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/smith_wesson", AttachPoint.Muzzle);
+
+				ret.Timelines.Add(fireTimeline);
 				return ret;
 			}
 		}
@@ -488,6 +498,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
 				));
+
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
 				ret.AbilityType = AbilityType.Instanced;

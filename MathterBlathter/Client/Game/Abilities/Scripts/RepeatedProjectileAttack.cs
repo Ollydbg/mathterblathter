@@ -41,10 +41,11 @@ namespace Client.Game.Abilities.Scripts
 
 			string effectPath = "Projectiles/VFX/enemyTestHit_prefab";
 
+			PlayTimeline(context.data.Timelines[0], context.source);
+
 			projectile.OnHit = (actor) => {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
-
 				ProjectileImpactEffect(projectile, effectPath);
 			};
 			projectile.OnGeometryHit = () => {
@@ -53,7 +54,6 @@ namespace Client.Game.Abilities.Scripts
 
 
 		}
-
 
 
 

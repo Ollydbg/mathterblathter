@@ -157,7 +157,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new PickupData();
 				ret.Id = OFFSET + 7;
-				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
 				ret.PickupType = PickupData.Type.Buff;
 				ret.attributeData.Add(new CharacterData.AttributeData(

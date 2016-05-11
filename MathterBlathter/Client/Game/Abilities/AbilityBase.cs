@@ -8,6 +8,7 @@ using Client.Game.Enums;
 using Client.Game.Data;
 using Client.Game.Abilities.Utils;
 using System.Collections.Generic;
+using Client.Game.Abilities.Timelines;
 
 namespace Client
 {
@@ -15,8 +16,9 @@ namespace Client
 	{
 		internal AbilityContext context;
 		public InstanceId InstanceId;
-
+		public TimelineRunner TimelineRunner = new TimelineRunner();
 		public AttributeMap Attributes = new AttributeMap (AbilityAttributes.GetAll());
+
 		public Actor Owner {
 			get {
 				return this.context.source;
@@ -62,7 +64,7 @@ namespace Client
 
 
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
-			projectile.transform.position = AttachPointPositionOnActor(point, context.source);
+			projectile.transform.position = AttachPointComponent.AttachPointPositionOnActor(point, context.source);
 
 			projectile.transform.LookAt(projectile.transform.position + adjustedDirection);
 			projectile.SetMovement (adjustedDirection, speed);
@@ -80,6 +82,14 @@ namespace Client
 		}
 
 
+
+
+		public void PlayTimeline (TimelineData timelineData, Actor target)
+		{
+			TimelineRunner.Play(timelineData, target);
+		}
+
+
 		public virtual bool OnPayloadSend(Payload payload){
 			return false;
 		}
@@ -87,23 +97,11 @@ namespace Client
 			return false;
 		}
 
-		public Vector3 AttachPointPositionOnActor(AttachPoint point, Actor actor) {
-
-			var components = actor.GameObject.GetComponentsInChildren<AttachPointComponent>();
-
-			foreach( var comp in components ) {
-
-				if(comp.Type == point) {
-					return comp.gameObject.transform.position;
-				}
-
-			}
-
-
-			//default just return the feet position of the actor
-			return actor.GameObject.transform.position;
-
+		public Vector3 PointOnActor(AttachPoint point, Actor actor) {
+			return AttachPointComponent.AttachPointPositionOnActor(point, actor);
 		}
+
+
 	}
 }
 

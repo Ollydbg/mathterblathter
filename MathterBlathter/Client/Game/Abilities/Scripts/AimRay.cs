@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Client.Game.Data;
+using Client.Game.Enums;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -25,7 +26,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Update (float dt)
 		{
-			lr.SetPosition(0, AttachPointPositionOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source));
+			lr.SetPosition(0, PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source));
 			lr.SetPosition(1, context.source.Game.PossessedActor.HalfHeight);
 		}
 
