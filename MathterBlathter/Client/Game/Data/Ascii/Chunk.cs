@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Client.Game.Map.Ascii
+namespace Client.Game.Data.Ascii
 {
 	public class Chunk : List<Vector3>
 	{

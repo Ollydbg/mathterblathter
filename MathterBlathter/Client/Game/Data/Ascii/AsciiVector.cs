@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
+using Client.Game.Data;
 
-namespace Client.Game.Map.Ascii
+namespace Client.Game.Data.Ascii
 {
 	public class AsciiVector
 	{

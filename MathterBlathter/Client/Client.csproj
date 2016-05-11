@@ -83,15 +83,10 @@
     <Compile Include="Game\Abilities\Utils\AbilityUtils.cs" />
     <Compile Include="Game\Map\MeshRoomDrawer.cs" />
     <Compile Include="Game\Data\MockRoomData.cs" />
-    <Compile Include="Game\Data\AsciiMap.cs" />
-    <Compile Include="Game\Map\Ascii\FloodFill.cs" />
-    <Compile Include="Game\Map\Ascii\AsciiMeshExtractor.cs" />
     <Compile Include="Game\UI\Run\DepthMeter.cs" />
     <Compile Include="Game\UI\Run\ZoneTitle.cs" />
-    <Compile Include="Game\Map\Ascii\Chunk.cs" />
     <Compile Include="Game\Data\MockActorData.cs" />
     <Compile Include="Game\Actors\PlayerCharacter.cs" />
-    <Compile Include="Game\Map\Ascii\AsciiVector.cs" />
     <Compile Include="Game\UI\Run\PlayerStatsHud.cs" />
     <Compile Include="Game\Abilities\Payloads\KillRewardPayload.cs" />
     <Compile Include="Game\Abilities\Scripts\PlayerDeathBuff.cs" />
@@ -172,6 +167,13 @@
     <Compile Include="Game\Utils\VectorUtils.cs" />
     <Compile Include="Game\Abilities\Scripts\JumpDamage.cs" />
     <Compile Include="Game\Abilities\Scripts\ShieldBlock.cs" />
+    <Compile Include="Game\Data\TimelineData.cs" />
+    <Compile Include="Game\Data\Ascii\AsciiLookup.cs" />
+    <Compile Include="Game\Data\Ascii\AsciiMap.cs" />
+    <Compile Include="Game\Data\Ascii\AsciiMeshExtractor.cs" />
+    <Compile Include="Game\Data\Ascii\AsciiVector.cs" />
+    <Compile Include="Game\Data\Ascii\Chunk.cs" />
+    <Compile Include="Game\Data\Ascii\FloodFill.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -190,7 +192,6 @@
     <Folder Include="Game\Abilities\Scripts\" />
     <Folder Include="Game\AI\Actions\" />
     <Folder Include="Game\Abilities\Utils\" />
-    <Folder Include="Game\Map\Ascii\" />
     <Folder Include="Game\UI\" />
     <Folder Include="Game\UI\Run\" />
     <Folder Include="Game\Items\" />

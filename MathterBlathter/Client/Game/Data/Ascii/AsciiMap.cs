@@ -1,31 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Client.Game.Map
+namespace Client.Game.Data.Ascii
 {
 	public class AsciiMap
 	{
-
-		public const char WALL = 'w';
-		public const char FLOOR = 'f';
-		public const char PLATFORM = 'P';
-		public const char PASSTHROUGH_PLATFORM = 'p';
-		public const char SPIKES = 's';
-		public const char RAMP = '/';
-		public const char DOOR = 'd';
-		public static char LIGHT = 'L';
-		public const char CEILING = 'c';
-		public const char ACTOR_0 = '0';
-		public const char ACTOR_1 = '1';
-		public const char ACTOR_2 = '2';
-		public const char ACTOR_3 = '3';
-		public const char ACTOR_4 = '4';
-		public const char ACTOR_5 = '5';
-		public const char ACTOR_6 = '6';
-		public const char ACTOR_7 = '7';
-		public const char ACTOR_8 = '8';
-		public const char ACTOR_9 = '9';
-
+		
 
 		public AsciiMap ()
 		{

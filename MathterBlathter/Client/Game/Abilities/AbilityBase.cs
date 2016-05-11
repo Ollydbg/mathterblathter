@@ -75,8 +75,8 @@ namespace Client
 			};
 
 
-			return projectile;
 
+			return projectile;
 		}
 
 

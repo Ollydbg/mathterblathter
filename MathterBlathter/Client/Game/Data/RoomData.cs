@@ -4,8 +4,8 @@ using Client.Game.Map;
 using Client.Game.Data;
 using Client.Game.Actors;
 using Client.Game.Enums;
-using Client.Game.Map.Ascii;
 using UnityEngine;
+using Client.Game.Data.Ascii;
 
 namespace Client.Game.Data
 {
@@ -17,7 +17,7 @@ namespace Client.Game.Data
 		public int Height;
 		public List<Link> Doors = new List<Link>();
 		public List<Spawn> Spawns = new List<Spawn> ();
-		public Dictionary<char, AsciiPlacement> AsciiSpawnLookup = new Dictionary<char, AsciiPlacement>();
+		public AsciiLookup AsciiSpawnLookup = new AsciiLookup();
 
 		public AsciiMap AsciiMap = new AsciiMap();
 
@@ -70,19 +70,7 @@ namespace Client.Game.Data
 		}
 
 
-		public class AsciiPlacement {
-			public CharacterData Data;
-			public Vector3 Facing;
 
-			public AsciiPlacement(CharacterData data, Vector3 facing) {
-				this.Data = data;
-				this.Facing = facing;
-			}
-
-			public static implicit operator AsciiPlacement(CharacterData data) {
-				return new AsciiPlacement(data, Vector3.zero);
-			}
-		}
 
 		public class Spawn
 		{

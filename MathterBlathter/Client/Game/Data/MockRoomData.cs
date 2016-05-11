@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Client.Game.Enums;
-using Client.Game.Map.Ascii;
+using Client.Game.Data.Ascii;
 using Client.Game.Map;
 using UnityEngine;
 
@@ -62,7 +62,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = MockActorData.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['1'] = MockActorData.STATIC_REPEATER;
 
 				finalize(ret);
 
@@ -106,17 +106,19 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                pppppppppppp                                   w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "R                                                               w";
+                ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                   L                                           w";
                 ret.AsciiMap += "w             ppppppppppppp                                     w";
                 ret.AsciiMap += "w                                              L                w";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                      R H                      d";
-                ret.AsciiMap += "                                                                 ";
+                ret.AsciiMap += "                          1                                      ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
 				ret.AsciiSpawnLookup['H'] = MockActorData.RUSTY_SHIELD;
 				ret.AsciiSpawnLookup['R'] = MockActorData.STATIC_REPEATER;
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.SHOPKEEPER;
 
 				//ret.AsciiSpawnLookup['R'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 
@@ -310,7 +312,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 				ret.AsciiSpawnLookup['C'] = MockActorData.RANDOM_WEAPON_PICKUP;
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 
 				finalize(ret);
 
@@ -361,7 +363,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                                                                                                ";
 				ret.AsciiMap += "fffffffffTfffffffffffffffffffffffffffffffffffffffffffffffffffff d ffffffffTTTTfffffffffffffffff d fffffffffffffffffffffffffffffff";
 
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.up);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.up);
 				ret.AsciiSpawnLookup['1'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUNDED_RANGED_ENEMY;
 
@@ -448,8 +450,8 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUNDED_RANGED_ENEMY;
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['3'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 
 				finalize(ret);
 
@@ -502,8 +504,8 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['3'] = MockActorData.ROCKET_TURRET;
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
-				ret.AsciiSpawnLookup['U'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.up);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
+				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.up);
 				
 
 				finalize(ret);
@@ -658,7 +660,7 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.ROCKET_LAUNCHER;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 				finalize(ret);
 
@@ -695,8 +697,8 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.MAX_HEALTH_BOOST;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['4'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['4'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
 
 
@@ -749,7 +751,7 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['C'] = MockActorData.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
-				ret.AsciiSpawnLookup['R'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
+				ret.AsciiSpawnLookup['R'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 
 				finalize(ret);
 
@@ -836,7 +838,7 @@ namespace Client.Game.Data
 		{
 			//this really needs a floodfill instead
 			var extractor = new AsciiMeshExtractor (room.AsciiMap);
-			var matches = extractor.getAllMatching (AsciiMap.DOOR);
+			var matches = extractor.getAllMatching (MeshRoomDrawer.DOOR);
 			foreach (Vector3 doorPos in matches) {
 				var link = new RoomData.Link ();
 

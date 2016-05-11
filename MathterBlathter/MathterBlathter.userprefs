@@ -2,7 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Client/Game/Data/MockRoomData.cs">
     <Files>
-      <File FileName="Client/Game/Data/MockRoomData.cs" Line="522" Column="5" />
+      <File FileName="Client/Game/Map/RoomPool.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Abilities/Scripts/MeleeAttack.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Abilities/Scripts/ShieldBlock.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Abilities/Utils/AbilityUtils.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Data/MockRoomData.cs" Line="65" Column="62" />
+      <File FileName="Client/Game/Items/WeaponController.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Data/MockAbilityData.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Data/MockActorData.cs" Line="1" Column="1" />
+      <File FileName="Client/Game/Data/MockWeaponData.cs" Line="257" Column="3" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

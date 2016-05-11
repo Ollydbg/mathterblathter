@@ -2,8 +2,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Client.Game.Data;
 
-namespace Client.Game.Map.Ascii
+namespace Client.Game.Data.Ascii
 {
 	using VecMap = Dictionary<Vector3, bool>;
 
