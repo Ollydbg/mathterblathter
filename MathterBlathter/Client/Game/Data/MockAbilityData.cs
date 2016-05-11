@@ -29,7 +29,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData ();
 				ret.Id = 100;
 				ret.name = "Enemy Projectile test";
-				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
+				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Cooldown.Id, .5f
 				));
@@ -130,7 +130,7 @@ namespace Client.Game.Data
 					AbilityAttributes.ProjectileSpread.Id, 45f
 				));
 
-				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
+				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
 
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
@@ -214,7 +214,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData ();
 				ret.Id = 10;
 				ret.name = "Double shot";
-				ret.spawnableDataId = MockActorData.PROJECTILE.Id;
+				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Cooldown.Id, .5f
 				));
@@ -446,6 +446,51 @@ namespace Client.Game.Data
 				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LevelAppropriateBuffDrop);
 
+				return ret;
+			}
+		}
+
+		public static AbilityData SHIELD_BLOCK {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 25;
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShieldBlock);
+				ret.spawnableDataId = MockActorData.SHIELD_BLOCK_PROJECTILE.Id;
+				return ret;
+			}
+		}
+
+		public static AbilityData STATIC_REPEATER_ABILITY {
+			get {
+				var ret = new AbilityData ();
+				ret.Id = 26;
+				ret.name = "Double shot";
+				ret.spawnableDataId = MockActorData.BLUE_PROJECTILE.Id;
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Cooldown.Id, 1f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 80f
+				));
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 9
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatAmount.Id, 4
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatDelay.Id, .05f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
+				));
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
+				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}

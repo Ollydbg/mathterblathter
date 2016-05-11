@@ -222,6 +222,76 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData RUSTY_SHIELD {
+			get {
+				var ret = new CharacterData();
+
+				ret.Id = 1008;
+				ret.ResourcePath = "Weapons/Shield_prefab";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Rusty Shield";
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.SHIELD_BLOCK.Id,
+					0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Inaccuracy.Id, 0
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData SHIELD_BLOCK_PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1009;
+				ret.ResourcePath = "Weapons/Shield_prefab";
+				ret.ActorType = ActorType.Projectile;
+				return ret;
+			}
+		}
+
+		public static CharacterData STATIC_REPEATER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1010;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Static Repeater";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.STATIC_REPEATER_ABILITY.Id, 0
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id,
+					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1.3f
+				));
+
+				return ret;
+			}
+		}
+		public static CharacterData BLUE_PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1011;
+				ret.ActorType = ActorType.Projectile;
+				ret.ResourcePath = "Projectiles/BlueProjectile_prefab";
+				return ret;
+
+			}
+		}
+
 
 	}
 }

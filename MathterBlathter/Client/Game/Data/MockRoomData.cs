@@ -75,7 +75,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
+
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -105,28 +106,20 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                pppppppppppp                                   w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "R                                                               w";
                 ret.AsciiMap += "w                   L                                           w";
                 ret.AsciiMap += "w             ppppppppppppp                                     w";
                 ret.AsciiMap += "w                                              L                w";
                 ret.AsciiMap += "                                                                 ";
-                ret.AsciiMap += "d                                          5                    d";
+                ret.AsciiMap += "d                                      R H                      d";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
+				ret.AsciiSpawnLookup['H'] = MockActorData.RUSTY_SHIELD;
+				ret.AsciiSpawnLookup['R'] = MockActorData.STATIC_REPEATER;
 
-				//ret.AsciiSpawnLookup['1'] = MockActorData.SNIPER;
-				ret.AsciiSpawnLookup['3'] = MockActorData.WAVE_GUN;
-				ret.AsciiSpawnLookup['2'] = MockActorData.HOT_RAILS;
-				ret.AsciiSpawnLookup['4'] = MockActorData.RUSTY_REPEATER;
-				ret.AsciiSpawnLookup['5'] = MockActorData.SHORTENED_TENDONS_PICKUP;
+				//ret.AsciiSpawnLookup['R'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 
-				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
-				ret.AsciiSpawnLookup['T'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['R'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
-				ret.AsciiSpawnLookup['l'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
-				ret.AsciiSpawnLookup['U'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.up);
-				
 				
 				finalize(ret);
 

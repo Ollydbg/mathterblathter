@@ -171,6 +171,7 @@
     <Compile Include="Game\AI\Actions\FireFacingDirection.cs" />
     <Compile Include="Game\Utils\VectorUtils.cs" />
     <Compile Include="Game\Abilities\Scripts\JumpDamage.cs" />
+    <Compile Include="Game\Abilities\Scripts\ShieldBlock.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

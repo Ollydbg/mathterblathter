@@ -209,7 +209,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData PROJECTILE {
+		public static CharacterData PINK_PROJECTILE {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 6;
