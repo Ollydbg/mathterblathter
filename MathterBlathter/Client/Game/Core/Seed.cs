@@ -17,8 +17,14 @@ namespace Client.Game.Core
 			return (float)random.NextDouble();
 		}
 
+
 		public bool RollAgainst(float ltOrEqualTo) {
-			return random.NextDouble() <= ((double)ltOrEqualTo);
+			return NextFloat() <= ltOrEqualTo;
+		}
+
+		public float InRange(float min, float max) {
+			float range = max - min;
+			return (NextFloat() + min) * range;
 		}
 
 		public int Next(int max) {

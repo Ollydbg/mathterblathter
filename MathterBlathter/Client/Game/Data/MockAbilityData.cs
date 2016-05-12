@@ -520,6 +520,18 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData FLY_BOT_SPAWN {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 27;
+				ret.spawnableDataId = MockActorData.FLY_BOT.Id;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SpawnEnemy);
+				ret.AbilityType = AbilityType.Instanced;
+
+				return ret;
+			}
+		}
+
 	}
 }
 

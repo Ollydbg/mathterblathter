@@ -3,6 +3,7 @@ using Client.Game.Managers;
 using System.Collections.Generic;
 using Client.Game.Actors;
 using Client.Game.Data;
+using UnityEngine;
 
 namespace Client.Game.States
 {
@@ -36,7 +37,6 @@ namespace Client.Game.States
 			new List<IGameManager>(TickManagers).ForEach(p => p.Start (Game.Instance));
 
 			new List<IGameManager>(TickManagers).ForEach(p => p.SetPlayerCharacter (Game.Instance.PossessedActor));
-
 
 		}
 

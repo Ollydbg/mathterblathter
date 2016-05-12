@@ -292,6 +292,22 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData FLY_BOT_CANNON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1012;
+				ret.ResourcePath = "Weapons/Ranged_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "FLY_BOT_CANNON";
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.FLY_BOT_SPAWN.Id, 0
+				));
+
+				return ret;
+			}
+		}
+
 
 	}
 }

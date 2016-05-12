@@ -372,6 +372,153 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData FLY_BOT_SPAWNER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 18;
+				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
+				ret.ActorType = ActorType.Enemy;
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.MaxHealth.Id,
+					1000
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Health.Id,
+					1000
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id,
+					0f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BloodBounty.Id,
+					100f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 40.0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockActorData.FLY_BOT_CANNON.Id,
+					0
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					0
+				));
+
+				return ret;
+			}
+		}
+
+
+		public static CharacterData GROUND_TURRET {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 19;
+				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
+				ret.ActorType = ActorType.Enemy;
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.MaxHealth.Id,
+					500
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Health.Id,
+					1000
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id,
+					0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeedScalar.Id, 3f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 20.0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockActorData.STATIC_REPEATER.Id,
+					0
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					0
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData FLY_BOT {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 20;
+
+				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.AIData = new AIData ();
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 10
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 80.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, .1f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AttackSpeedScalar.Id, 3f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 1
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.DropRate.Id, 0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					0
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockActorData.WALL_TURRET_WEAPON.Id,
+					0
+				));
+
+
+				return ret;
+			}
+		}
+
 
 	}
 }
