@@ -20,7 +20,7 @@ namespace Client.Game.Items
 
 		public delegate void ChangedDelegate(WeaponActor currentWeapon, WeaponLookup all);
 		public event ChangedDelegate OnLoadoutChanged;
-
+		public TargetingProps TargetingProps = new TargetingProps();
 
 		public WeaponController (Actor owner)
 		{
@@ -131,12 +131,12 @@ namespace Client.Game.Items
 			
 		}
 
-		private Vector3 GetAim() {
+		public Vector3 GetAimDirection() {
 
-			if(lastAimVector == Vector3.zero) {
+			if(TargetingProps.Direction == Vector3.zero) {
 				return getMousingDirection();
 			} else {
-				return lastAimVector.normalized;
+				return TargetingProps.Direction;
 			}
 		}
 
@@ -153,10 +153,8 @@ namespace Client.Game.Items
 		}
 
 
-		Vector3 lastAimVector = Vector3.zero;
-		public void Aim(Vector3 aimVector) {
-			lastAimVector = aimVector;
-
+		public void AimDirection(Vector3 aimVector) {
+			this.TargetingProps.Direction = aimVector;
 		}
 
 		public void AttackStop ()
@@ -165,7 +163,7 @@ namespace Client.Game.Items
 		}
 
 		public void Attack () {
-			Attack(GetAim());
+			Attack(GetAimDirection());
 		}
 
 		public void Attack(Vector3 direction) {
@@ -179,6 +177,11 @@ namespace Client.Game.Items
 			}
 		}
 
+	}
+
+	public class TargetingProps {
+		public Vector3 Direction;
+		public Vector3 EndPoint;
 	}
 }
 

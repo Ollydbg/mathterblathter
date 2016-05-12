@@ -7,7 +7,8 @@ namespace Client.Game.Enums
 		Pickups,
 		Projectiles,
 		HardGeometry,
-		SoftGeometry
+		SoftGeometry,
+		Player
 	}
 }
 

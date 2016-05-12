@@ -176,6 +176,10 @@
     <Compile Include="Game\Abilities\Timelines\TimelineRunner.cs" />
     <Compile Include="Game\Data\MusicData.cs" />
     <Compile Include="Game\Abilities\Scripts\SpawnEnemy.cs" />
+    <Compile Include="Game\AI\Actions\AimScanForPlayer.cs" />
+    <Compile Include="Game\Utils\ActorUtils.cs" />
+    <Compile Include="Game\AI\Actions\FireAimingDirection.cs" />
+    <Compile Include="Game\Abilities\Scripts\SentryAIBuff.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

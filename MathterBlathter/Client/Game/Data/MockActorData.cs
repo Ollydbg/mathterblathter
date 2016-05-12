@@ -420,7 +420,7 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData GROUND_TURRET {
+		public static CharacterData GROUND_STATIC_TURRET {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 19;
@@ -459,8 +459,14 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
-					MockAbilityData.AI_BUFF.Id,
+					MockAbilityData.SENTRY_AI_BUFF.Id,
 					0
+				));
+
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.AIM_RAY_BUFF.Id,
+					1
 				));
 
 				return ret;

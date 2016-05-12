@@ -17,7 +17,11 @@ namespace Client.Game.AI
 
 		internal bool inAbilityRange(Vector3 distanceVec, Actor selfActor) {
 			
-			return distanceVec.sqrMagnitude < (12 * 12);
+			return distanceVec.sqrMagnitude < (AbilityRange() * AbilityRange());
+		}
+
+		internal float AbilityRange() {
+			return 100f;
 		}
 
 		internal Vector3 PlayerMid
@@ -31,7 +35,7 @@ namespace Client.Game.AI
 
 		internal void FaceTarget(Actor selfActor, Vector3 target) {
 
-			float angle = target.x < selfActor.transform.position.x ? -90 : 90;
+			float angle = target.x < selfActor.transform.position.x ? -180 : 0;
 
 			selfActor.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 		}

@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -112,13 +112,13 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                              L                w";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                        R                      d";
-                ret.AsciiMap += "                          1                                      ";
+                ret.AsciiMap += "                 1                                               ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
 				ret.AsciiSpawnLookup['H'] = MockActorData.RUSTY_SHIELD;
 				ret.AsciiSpawnLookup['R'] = MockActorData.STATIC_REPEATER;
 
-				ret.AsciiSpawnLookup['1'] = MockActorData.SHOPKEEPER;
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUND_STATIC_TURRET;
 
 				//ret.AsciiSpawnLookup['R'] = new RoomData.AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 
@@ -900,7 +900,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffff d ffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.FLY_BOT_SPAWNER;
-				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_TURRET;
+				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
 
 				finalize(ret);
 				

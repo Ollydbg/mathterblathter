@@ -532,6 +532,16 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData SENTRY_AI_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 28;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SentryAIBuff);
+				ret.AbilityType = AbilityType.Buff;
+				return ret;
+			}
+		}
+
 	}
 }
 

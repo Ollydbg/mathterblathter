@@ -2,6 +2,8 @@
 using UnityEngine;
 using Client.Game.Data;
 using Client.Game.Enums;
+using Client.Utils;
+using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -26,12 +28,23 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Update (float dt)
 		{
-			lr.SetPosition(0, PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source));
-			lr.SetPosition(1, context.source.Game.PossessedActor.HalfHeight);
+			Vector3 origin = PointOnActor(AttachPoint.Muzzle, context.source);
+			lr.SetPosition(0, origin);
+			lr.SetPosition(1, origin + context.source.WeaponController.GetAimDirection()*100f);
 		}
+
 
 		public override void End ()
 		{
+			GameObject.Destroy(lr.gameObject);
+		}
+
+		public override bool OnPayloadReceive (Payload payload)
+		{
+			if( payload is KillPayload ) {
+				Abort();
+			}
+			return false;
 		}
 
 		#endregion

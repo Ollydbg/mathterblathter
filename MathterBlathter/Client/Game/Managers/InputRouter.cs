@@ -85,7 +85,7 @@ namespace Client.Game.Managers
 
 
 			var contVert = Input.GetAxis(VERTICAL);
-			TargetActor.WeaponController.Aim(new Vector3(stickHor, contVert));
+			TargetActor.WeaponController.AimDirection(new Vector3(stickHor, contVert));
 
 
 		}
