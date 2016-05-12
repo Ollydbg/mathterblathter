@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C9FB02F1-C283-A5EE-25F6-1FDEEE666AF5}</ProjectGuid>
+    <ProjectGuid>{58248E77-0707-6F07-BD23-7075654A4631}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -45,15 +45,149 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\BloomEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\EdgeDetectionEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\TonemappingEditor.cs" />
-     <Compile Include="Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AIAction.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\ActionExtensions.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimScanForPlayer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAimingDirection.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAtPlayer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitThenFire.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Brain.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityBase.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityContext.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\BuffBase.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DamagePayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DropPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\HealPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillRewardPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\Payload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\PlayerKilledPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AIBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AimRay.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ContinuousBeam.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DamageOnTouchBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DropQualityBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FireOnFall.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FiringFixtureBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\HealPlayer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\InvulnerabilityBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\InvulnerableAfterHitBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ItemBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpDamage.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateBuffDrop.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateWeaponDrop.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MeleeAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MoveBoostTempBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\PlayerDeathBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ProjectileAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RailGunAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RocketProjectileAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SentryAIBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShieldBlock.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShotgunBlast.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SniperAIBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SpawnEnemy.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StatUp.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Timelines\TimelineRunner.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\AbilityUtils.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\EffectTTL.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\FilterList.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Actor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\ActorRef.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\AttachPointComponent.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Character.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\CharacterController.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\EmptyCharacterController.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\ICharacterController.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\InteractionController.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\DoorActor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\FixtureActor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\IInteraction.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\NPC.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Pickup.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\PlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\ProjectileActor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\WeaponActor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimStates.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Animation\IAnimator.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Animation\PlayerAnimator3D.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Animation\PriorityState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Attributes\AbilityAttributeList.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Attributes\ActorAttributeList.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Attributes\AttributeMap.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Attributes\GameAttribute.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Core\Game.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Core\GameManagerProxy.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Core\Seed.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\AIData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\AbilityData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiLookup.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMap.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMeshExtractor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiVector.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\Chunk.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\FloodFill.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\CharacterData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\GameData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MapData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockAbilityData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockActorData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockMapData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockRoomData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockWeaponData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MusicData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\PickupData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\RoomData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\RoomTemplates.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\TrapData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\AbilitySlots.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\AbilityType.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\ActorState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\AttachPoint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\DoorRoomSide.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\GameState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\Layers.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\RoomSpawnType.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Geometry\PassthroughPlatform.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Items\DropFactory.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Items\ItemBuffScript.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Items\WeaponController.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\ActorManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\CameraManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\IGameManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\InputRouter.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\RoomManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\BitmapReader.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\GridOverlapConstraint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\IGenConstraint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\StorePerTierConstraint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\MeshRoomDrawer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\RoomComparer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\RoomPool.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\States\FSM.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\States\RunState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\DepthMeter.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\InteractionPrompt.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\LoadoutHud.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\LoadoutHudItem.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\PlayerStatsHud.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\RunUI.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\ShopUI.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\ZoneTitle.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Utils\ActorUtils.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Utils\VectorUtils.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -132,45 +266,19 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
- <Reference Include="UnityEditor.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.EditorTestsRunner">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.TreeEditor">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.OSXStandalone.Extensions">
- <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{B7C8424D-1CAC-3745-06A4-95AA6D26446B}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{58248E77-0707-6F07-BD23-7075654A4631}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
