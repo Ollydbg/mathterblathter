@@ -17,6 +17,9 @@ namespace Client.Game.Managers
 		public List<Room> Rooms;
 		public Room CurrentRoom;
 
+		public delegate void RoomEntered(Actor actor, Room room);
+		public event RoomEntered OnRoomEntered;
+
 		public RoomManager ()
 		{
 			
@@ -29,7 +32,6 @@ namespace Client.Game.Managers
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
-
 			EnterRoom(player, Rooms[0]);
 			//this is some bullshit, but the door triggers invoke when created on the same frame as the player
 			player.GameObject.GetComponent<ActorRef>().StartCoroutine(LateInit());
@@ -83,6 +85,9 @@ namespace Client.Game.Managers
 			if(throughDoor == null) {
 				actor.transform.position = room.roomCenter;
 			}
+
+			if(OnRoomEntered != null) 
+				OnRoomEntered(actor, room);
 
 		}
 

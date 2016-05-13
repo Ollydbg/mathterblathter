@@ -8,9 +8,8 @@ using Client.Game.Actors;
 
 namespace Client.Game.UI.Run
 {
-	using Game = Client.Game.Core.Game;
-
-	public class LoadoutHud : MonoBehaviour
+	
+	public class LoadoutHud : RunUI
 	{
 
 
@@ -21,7 +20,7 @@ namespace Client.Game.UI.Run
 		public static Vector3 SPACING = Vector3.right*100;
 		public void Start ()
 		{
-			weaponController = Game.Instance.PossessedActor.WeaponController;
+			weaponController = Game.PossessedActor.WeaponController;
 			weaponController.OnLoadoutChanged += Rebuild;
 
 			Template.gameObject.SetActive(false);
@@ -53,6 +52,20 @@ namespace Client.Game.UI.Run
 				i++;
 			}
 		}
+
+		#region implemented abstract members of RunUI
+
+		public override void Show ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		public override void Hide ()
+		{
+			throw new NotImplementedException ();
+		}
+
+		#endregion
 	}
 
 

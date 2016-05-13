@@ -26,10 +26,5 @@ namespace Client.Game.UI.Run
 
 	}
 
-	public class ShopItem : MonoBehaviour {
-		public Text NameLabel;
-		public Text CostLabel;
-		public Text DescriptionLabel;
-	}
 }
 

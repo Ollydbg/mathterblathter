@@ -24,8 +24,8 @@ namespace Client.Game.States
 
 			tmp.Add(Game.Instance.InputManager);
 			tmp.Add(Game.Instance.AbilityManager);
-			tmp.Add(Game.Instance.RoomManager);
 			tmp.Add(Game.Instance.UIManager);
+			tmp.Add(Game.Instance.RoomManager);
 			tmp.Add(Game.Instance.ActorManager);
 			tmp.Add(Game.Instance.CameraManager);
 

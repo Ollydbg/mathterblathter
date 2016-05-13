@@ -179,12 +179,15 @@
      <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\RunState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\DepthMeter.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\Indicators\IndicatorItem.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\Indicators\Indicators.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\InteractionPrompt.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\LoadoutHud.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\LoadoutHudItem.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\PlayerStatsHud.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\RunUI.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\UI\Run\ShopUI.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\Shop\ShopItem.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\Shop\ShopUI.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\ZoneTitle.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\ActorUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\VectorUtils.cs" />

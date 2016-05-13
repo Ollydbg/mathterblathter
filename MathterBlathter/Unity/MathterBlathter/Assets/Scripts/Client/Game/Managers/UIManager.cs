@@ -2,6 +2,7 @@
 using Client.Game.UI.Run;
 using UnityEngine;
 using Client.Game.States;
+using Client.Game.UI.Run.Indicators;
 
 
 namespace Client.Game.Managers
@@ -15,6 +16,7 @@ namespace Client.Game.Managers
 		public PlayerStatsHud StatsHud;
 		public ZoneTitle ZoneTitle;
 		public ShopUI ShopUI;
+		public Indicators Indicators;
 
 		private static String RUN_RESOURCE = "UI/RunUI";
 		private static String GENERATION_RESOURCE = "UI/MapGenerationUI";

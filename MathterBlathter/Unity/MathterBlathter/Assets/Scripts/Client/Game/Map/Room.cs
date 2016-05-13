@@ -24,7 +24,7 @@ namespace Client.Game.Map
 		private static int LastId = 0;
 		public GameObject GameObject;
 
-		List<int> unlockBlockers = new List<int>();
+		public List<Actor> RoomObjectives = new List<Actor>();
 
 
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
@@ -128,14 +128,15 @@ namespace Client.Game.Map
 					} 
 					actor.transform.rotation = targetRotation;
 					if(actorBlocksRoomUnlock(actor)) {
-						unlockBlockers.Add(actor.Id);
+						RoomObjectives.Add(actor);
+						actor.OnDestroyed += (Actor deadActor) => RoomObjectives.Remove(deadActor);
 					}
 					actor.transform.position = spawn.RoomPosition + Position;
 
 				}
 			}
 
-			if(unlockBlockers.Count > 0) {
+			if(RoomObjectives.Count > 0) {
 				this.Doors.ForEach(p => p.Close());
 			}
 		}
@@ -167,10 +168,9 @@ namespace Client.Game.Map
 
 
 		public void Update(float dt) {
-
 			if(Locked) {
-				Actor tmp;
-				bool canUnlock = unlockBlockers.All(p => !Game.Instance.ActorManager.TryFromId(p, out tmp));
+				bool canUnlock = RoomObjectives.Count == 0;//roomObjectives.All(p => !Game.Instance.ActorManager.TryFromId(p, out tmp));
+
 				if(canUnlock) {
 					Doors.ForEach(p => p.Open()); 
 				}

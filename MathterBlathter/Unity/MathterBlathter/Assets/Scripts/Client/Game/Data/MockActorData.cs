@@ -435,7 +435,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					500
+					200
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

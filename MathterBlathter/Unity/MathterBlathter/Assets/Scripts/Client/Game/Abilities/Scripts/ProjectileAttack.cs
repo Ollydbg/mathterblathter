@@ -26,6 +26,8 @@ namespace Client.Game.Abilities.Scripts
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
 			};
+
+			//PlayTimeline(context.data.Timelines[0], context.source);
 		}
 
 		public override void Update (float dt)
