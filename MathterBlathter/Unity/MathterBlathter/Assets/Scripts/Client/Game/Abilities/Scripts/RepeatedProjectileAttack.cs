@@ -29,6 +29,8 @@ namespace Client.Game.Abilities.Scripts
 			accumulator = 0f;
 			repeatCount = 0;
 
+			ApplyEnergyCost(this.Attributes[AbilityAttributes.EnergyCost], context.source);
+
 			Fire();
 		}
 
@@ -51,6 +53,7 @@ namespace Client.Game.Abilities.Scripts
 			projectile.OnGeometryHit = () => {
 				ProjectileImpactEffect(projectile, effectPath);
 			};
+
 
 
 		}

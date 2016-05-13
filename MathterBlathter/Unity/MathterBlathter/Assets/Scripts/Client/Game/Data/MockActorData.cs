@@ -89,12 +89,18 @@ namespace Client.Game.Data
 					(int)AbilitySlots.Death
 				));
 
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.INVULNERABLE_AFTER_HIT_BUFF.Id,
 					0
 				));
 
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.ENERGY_REGEN_BUFF.Id,
+					1
+				));
 
 				return ret;
 			}

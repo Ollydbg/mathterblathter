@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -119,7 +119,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['R'] = MockActorData.STATIC_REPEATER;
 
 				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.GROUND_STATIC_TURRET, Vector3.left);
-				//ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
+				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 
 				//ret.AsciiSpawnLookup['R'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
 

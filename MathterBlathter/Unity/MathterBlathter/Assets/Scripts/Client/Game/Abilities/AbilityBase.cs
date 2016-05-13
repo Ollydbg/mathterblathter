@@ -83,6 +83,10 @@ namespace Client
 
 
 
+		public void ApplyEnergyCost(int amt, Actor actor) {
+			actor.Attributes[ActorAttributes.Energy] -= amt;
+		}
+
 
 		public void PlayTimeline (TimelineData timelineData, Actor target)
 		{

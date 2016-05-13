@@ -553,6 +553,17 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData ENERGY_REGEN_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 29;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergyRegenBuff);
+				ret.AbilityType = AbilityType.Buff;
+			
+				return ret;
+			}
+		}
+
 	}
 }
 

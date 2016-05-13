@@ -14,6 +14,9 @@ namespace Client.Game.UI.Run
 		private RectTransform healthMaxRect;
 		private RectTransform healthCurrentRect;
 
+		public GameObject EnergyMax;
+		public GameObject EnergyCurrent;
+
 		public Text bloodTxt;
 
 		private Vector2 baselineSize;
@@ -21,29 +24,25 @@ namespace Client.Game.UI.Run
 
 		private float startingMax;
 
+		private Bar healthBar;
+		private Bar energyBar;
 
 		void Awake() {
 
-			healthMaxRect = healthMax.GetComponent<RectTransform>();
-			healthCurrentRect = healthCurrent.GetComponent<RectTransform>();
-			baselineSize = healthMaxRect.sizeDelta;
 		}
 
 
 		void Start() {
 			playerAttributes = Game.Instance.PossessedActor.Attributes;
-			startingMax = playerAttributes[ActorAttributes.MaxHealth];
+
+			healthBar = new Bar(healthCurrent, healthMax, ActorAttributes.Health, ActorAttributes.MaxHealth, playerAttributes);
+			energyBar = new Bar(EnergyCurrent, EnergyMax, ActorAttributes.Energy, ActorAttributes.MaxEnergy, playerAttributes);
+
 		}
 
 		void Update() {
-			var current = (float)playerAttributes[ActorAttributes.Health];	
-			var max = (float)playerAttributes[ActorAttributes.MaxHealth];
-
-			var maxRect = new Vector2(max/startingMax * baselineSize.x, baselineSize.y);
-
-			healthMaxRect.sizeDelta = maxRect;
-			Vector2 targetRect = new Vector2(maxRect.x * (current/max), maxRect.y);
-			healthCurrentRect.sizeDelta = Vector2.Lerp(healthCurrentRect.sizeDelta, targetRect, .5f);
+			healthBar.Update();
+			energyBar.Update();
 			bloodTxt.text = "BLOOD: " + playerAttributes[ActorAttributes.BloodBalance];
 
 		}
@@ -55,6 +54,45 @@ namespace Client.Game.UI.Run
 		public override void Hide ()
 		{
 		}
+
+		public class Bar {
+			public GameObject currentBar;
+			public GameObject maxBar;
+			public GameAttributeI currentAttr;
+			public GameAttributeI maxAttr;
+
+			private RectTransform maxRect;
+			private RectTransform currentRect;
+
+			private float startingMax;
+			private Vector2 baselineSize;
+			AttributeMap map;
+			public Bar(GameObject cbar, GameObject maxBar, GameAttributeI currentAtr, GameAttributeI maxAttr, AttributeMap map) {
+				maxRect = maxBar.GetComponent<RectTransform>();
+				currentRect = cbar.GetComponent<RectTransform>();
+				baselineSize = maxRect.sizeDelta;
+				this.currentAttr = currentAtr;
+				this.maxAttr = maxAttr;
+
+				this.map = map;
+				startingMax = map[maxAttr];
+			}
+
+
+
+			public void Update() {
+				var current = (float)map[currentAttr];	
+				var max = (float)map[maxAttr];
+
+				var newMaxRect = new Vector2(max/startingMax * baselineSize.x, baselineSize.y);
+
+				maxRect.sizeDelta = newMaxRect;
+				Vector2 targetRect = new Vector2(newMaxRect.x * (current/max), newMaxRect.y);
+				currentRect.sizeDelta = Vector2.Lerp(currentRect.sizeDelta, targetRect, .5f);
+			}
+
+		}
+
 
 	}
 }
