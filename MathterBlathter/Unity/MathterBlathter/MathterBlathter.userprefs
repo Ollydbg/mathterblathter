@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/MockAbilityData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/MockRoomData.cs">
     <Files>
-      <File FileName="Assets/Scripts/Client/Game/Animation/PlayerAnimator3D.cs" Line="10" Column="40" />
-      <File FileName="Assets/Scripts/Client/Game/Animation/IAnimator.cs" Line="8" Column="93" />
-      <File FileName="Assets/Scripts/Client/Game/Data/MockAbilityData.cs" Line="40" Column="35" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/SniperAIBuff.cs" Line="29" Column="21" />
+      <File FileName="Assets/Scripts/Client/Game/Map/Room.cs" Line="132" Column="7" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/AbilityManager.cs" Line="50" Column="3" />
+      <File FileName="Assets/Scripts/Client/Game/Data/MockRoomData.cs" Line="897" Column="88" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
