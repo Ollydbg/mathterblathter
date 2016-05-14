@@ -28,6 +28,8 @@ namespace Client.Game.Abilities.Scripts
 			currentProjectile.OnGeometryHit = OnHit;
 			currentProjectile.OnHit = (actor) => OnHit();
 
+
+			ApplyEnergyCost(context.source);
 		}
 
 		private void OnHit() {

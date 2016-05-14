@@ -1,5 +1,7 @@
 ﻿using System;
 using Client.Game.Attributes;
+using Client.Game.Abilities.Payloads;
+using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -15,16 +17,40 @@ namespace Client.Game.Abilities.Scripts
 		{
 		}
 
+		private float refreshRate = 1f;
+
 		float accum = 0f;
+		float timeUntilBonus = 0f;
+		float regenScalar = 1f;
+		bool givingBoost = false;
+
+		private void ResetIdleBonus() {
+			timeUntilBonus = this.Attributes[AbilityAttributes.EnergyRegenBoostDelay];
+			regenScalar = 1f;
+			givingBoost = false;
+		}
+
+		private void tickBoost(float dt) {
+
+			if(!givingBoost) {
+				timeUntilBonus -= dt;
+				if(timeUntilBonus <= 0f) {
+					regenScalar = this.Attributes[AbilityAttributes.EnergyRegenScalar];
+					givingBoost = true;
+				}
+			}
+		}
 
 		public override void Update (float dt) {
 			accum += dt;
 
-			if( accum >= 1f) {
-				accum -= 1f;
+			tickBoost(dt);
+
+			if( accum >= refreshRate) {
+				accum -= refreshRate;
 
 				var max = context.source.Attributes[ActorAttributes.MaxEnergy];
-				var projected = context.source.Attributes[ActorAttributes.Energy] + context.source.Attributes[ActorAttributes.EnergyRegen];
+				var projected = context.source.Attributes[ActorAttributes.Energy] + (int)(regenScalar * context.source.Attributes[ActorAttributes.EnergyRegen]);
 
 				if(projected > max) {
 					projected = max;
@@ -35,6 +61,15 @@ namespace Client.Game.Abilities.Scripts
 
 			}
 
+		}
+
+		public override bool OnPayloadReceive (Payload payload)
+		{
+			if(payload is EnergyCostPayload) {
+				ResetIdleBonus();
+			}
+
+			return base.OnPayloadReceive(payload);
 		}
 
 		public override void End ()

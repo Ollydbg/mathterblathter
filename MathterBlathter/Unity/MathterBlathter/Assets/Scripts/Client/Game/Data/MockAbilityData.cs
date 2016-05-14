@@ -194,6 +194,15 @@ namespace Client.Game.Data
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RailGunAttack);
 				ret.AbilityType = AbilityType.Instanced;
 
+				var fireTimeline = new TimelineData();
+
+				fireTimeline.AsciiMap += "sssssss     ";
+				fireTimeline.Duration = .5f;
+
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/hotRails", AttachPoint.Muzzle);
+
+				ret.Timelines.Add(fireTimeline);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f
 				));
@@ -273,6 +282,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.SplashRadius.Id, 5f
 				));
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.WeaponEnergyCost.Id, 14
+				));
+
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 10f	
 				));

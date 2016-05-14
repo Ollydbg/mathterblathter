@@ -415,7 +415,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BloodBounty.Id,
-					100f
+					20
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
@@ -463,6 +463,11 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BloodBounty.Id,
+					12
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

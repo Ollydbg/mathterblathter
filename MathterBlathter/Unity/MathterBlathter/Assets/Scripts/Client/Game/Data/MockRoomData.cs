@@ -63,7 +63,7 @@ namespace Client.Game.Data
 
 				ret.MaxInstances = 1;
 				ret.AsciiSpawnLookup['1'] = MockActorData.STATIC_REPEATER;
-				ret.AsciiSpawnLookup['2'] = MockActorData.CERAMIC_SHOTGUN;
+				ret.AsciiSpawnLookup['2'] = MockActorData.HOT_RAILS;
 
 				finalize(ret);
 

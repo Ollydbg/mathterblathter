@@ -21,6 +21,9 @@ namespace Client.Game.Managers
 		public static string Aim = "Aim";
 		public static string Interact = "Interact";
 		public static string DUCK = "Duck";
+		public static string AIM_RAY = "AIM_RAY";
+		public static string PS4_RSTICK_H = "PS4_RSTICK_H";
+		public static string PS4_RSTICK_V = "PS4_RSTICK_V";
 
 
 		public PlayerCharacter TargetActor;
@@ -81,17 +84,25 @@ namespace Client.Game.Managers
 				TargetActor.WeaponController.AttackStop();
 			}
 
+			if(Input.GetButtonDown(AIM_RAY)) {
+				AddControllerAiming();
+			}
+
 			TargetActor.Controller.Ducking = Input.GetButton(DUCK);
 
 
 			var contVert = Input.GetAxis(VERTICAL);
-			TargetActor.WeaponController.AimDirection(new Vector3(stickHor, contVert));
+
+			TargetActor.WeaponController.AimDirection(new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V)));
 
 
 		}
 
 
-
+		private void AddControllerAiming() {
+			var context = new Client.Game.Abilities.AbilityContext(TargetActor, Client.Game.Data.MockAbilityData.AIM_RAY_BUFF);
+			TargetActor.Game.AbilityManager.ActivateAbility(context);
+		}
 
 	}
 

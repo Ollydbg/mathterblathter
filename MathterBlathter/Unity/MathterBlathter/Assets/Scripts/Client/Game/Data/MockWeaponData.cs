@@ -118,7 +118,9 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 70
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponEnergyCost.Id, 13
+				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1.8f
 				));

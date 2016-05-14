@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\BuffBase.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DropPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\EnergyCostPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\HealPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillRewardPayload.cs" />

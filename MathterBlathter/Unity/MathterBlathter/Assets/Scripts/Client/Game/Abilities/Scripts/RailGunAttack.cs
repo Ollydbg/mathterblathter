@@ -34,8 +34,10 @@ namespace Client.Game.Abilities.Scripts
 				} else if (result == TriggerTestResult.Geometry) {
 					break;
 				}
-
 			}
+
+			ApplyEnergyCost(context.source);
+			PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 
 		}
 		public override void Update (float dt)

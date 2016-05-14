@@ -132,6 +132,8 @@ namespace Client.Game.Items
 		}
 
 		public Vector3 GetAimDirection() {
+			Debug.Log(TargetingProps.Direction);
+
 
 			if(TargetingProps.Direction == Vector3.zero) {
 				return getMousingDirection();
@@ -160,6 +162,7 @@ namespace Client.Game.Items
 
 
 		public void AimDirection(Vector3 aimVector) {
+			Debug.Log(aimVector);
 			this.TargetingProps.Direction = aimVector;
 		}
 

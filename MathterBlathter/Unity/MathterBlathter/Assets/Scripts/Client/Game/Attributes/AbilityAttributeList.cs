@@ -44,7 +44,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF MaxJumpPower = new GameAttributeF(OFFSET + 15, 0, "max jump power", 0, 100); 
 		public static readonly GameAttributeF FallDamageThreshold = new GameAttributeF(OFFSET + 16, 0, "fall damage threshold", 0, float.MaxValue);
 		public static readonly GameAttributeI EnergyCost = new GameAttributeI(OFFSET + 17, 10, "energy cost", 0, int.MaxValue); 
-	
+		public static readonly GameAttributeF EnergyRegenScalar = new GameAttributeF(OFFSET + 18, 2f, "energyRegenScalar", 0, float.MaxValue);
+		public static readonly GameAttributeF EnergyRegenBoostDelay = new GameAttributeF(OFFSET + 19, 4f, "regenBoostDelay", 0, float.MaxValue);
 	}
 }
 
