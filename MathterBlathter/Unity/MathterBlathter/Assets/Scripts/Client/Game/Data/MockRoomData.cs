@@ -63,7 +63,7 @@ namespace Client.Game.Data
 
 				ret.MaxInstances = 1;
 				ret.AsciiSpawnLookup['1'] = MockActorData.STATIC_REPEATER;
-				ret.AsciiSpawnLookup['2'] = MockActorData.RUST_MACHINE;
+				ret.AsciiSpawnLookup['2'] = MockActorData.CERAMIC_SHOTGUN;
 
 				finalize(ret);
 
@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -101,16 +101,16 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w 1                                                             w";
-				ret.AsciiMap += "wPPPP                            PPPPPPPPPPPPPPPPPPPP           w";
-                ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                pppppppppppp                                   w";
+				ret.AsciiMap += "wPPPP                                                           w";
+                ret.AsciiMap += "w                     1                                         w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w     2                                                         w";
                 ret.AsciiMap += "w                   L                                           w";
-                ret.AsciiMap += "w             ppppppppppppp                                     w";
-                ret.AsciiMap += "w                                              L                w";
-                ret.AsciiMap += "                                                                 ";
+                ret.AsciiMap += "w                      PPPP                                     w";
+                ret.AsciiMap += "w                      lPPP                    L                w";
+                ret.AsciiMap += "                       PPPP                                      ";
                 ret.AsciiMap += "d                                        R                      d";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
@@ -118,11 +118,9 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['H'] = MockActorData.RUSTY_SHIELD;
 				ret.AsciiSpawnLookup['R'] = MockActorData.STATIC_REPEATER;
 
-				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.GROUND_STATIC_TURRET, Vector3.left);
-				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
 
-				//ret.AsciiSpawnLookup['R'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.right);
-
+				ret.AsciiSpawnLookup['l'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.left);
+				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.FLOATING_TURRET, Vector3.left);
 				
 				finalize(ret);
 

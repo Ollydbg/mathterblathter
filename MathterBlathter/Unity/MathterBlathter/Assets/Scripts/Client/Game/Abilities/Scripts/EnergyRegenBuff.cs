@@ -23,8 +23,18 @@ namespace Client.Game.Abilities.Scripts
 			if( accum >= 1f) {
 				accum -= 1f;
 
-				context.source.Attributes[ActorAttributes.Energy] += context.source.Attributes[ActorAttributes.EnergyRegen];
+				var max = context.source.Attributes[ActorAttributes.MaxEnergy];
+				var projected = context.source.Attributes[ActorAttributes.Energy] + context.source.Attributes[ActorAttributes.EnergyRegen];
+
+				if(projected > max) {
+					projected = max;
+				}
+
+
+				context.source.Attributes[ActorAttributes.Energy] = projected;
+
 			}
+
 		}
 
 		public override void End ()

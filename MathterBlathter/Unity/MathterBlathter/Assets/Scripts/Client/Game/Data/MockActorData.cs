@@ -52,6 +52,14 @@ namespace Client.Game.Data
 					ActorAttributes.TakesDamage.Id, 1
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Energy.Id, 100
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.MaxEnergy.Id, 100
+				));
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.MinJumpPower.Id, .3f
 				));
@@ -192,7 +200,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					MockActorData.WALL_TURRET_WEAPON.Id,
+					MockActorData.RANGED_ENEMY_WEAPON.Id,
 					0
 				));
 
@@ -398,7 +406,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Health.Id,
-					1000
+					100
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -441,7 +449,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					200
+					100
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

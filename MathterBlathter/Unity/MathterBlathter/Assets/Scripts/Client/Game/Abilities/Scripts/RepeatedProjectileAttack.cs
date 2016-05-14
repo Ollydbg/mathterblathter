@@ -29,7 +29,7 @@ namespace Client.Game.Abilities.Scripts
 			accumulator = 0f;
 			repeatCount = 0;
 
-			ApplyEnergyCost(this.Attributes[AbilityAttributes.EnergyCost], context.source);
+			ApplyEnergyCost(context.source);
 
 			Fire();
 		}

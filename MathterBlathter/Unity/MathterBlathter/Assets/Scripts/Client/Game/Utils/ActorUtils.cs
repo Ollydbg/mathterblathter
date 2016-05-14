@@ -29,6 +29,23 @@ namespace Client.Game.Utils
 			}
 		}
 
+		public static void FaceRelativeDirection(Actor actor, Vector3 direction) {
+			
+			Quaternion targetRotation = Quaternion.identity;
+			if(direction == Vector3.left) {
+				targetRotation = Quaternion.AngleAxis(-180, Vector3.up);
+				var pos = actor.transform.position;
+				//this is SO dirty
+				actor.transform.position = new Vector3(pos.x+1f, pos.y, pos.z);
+			} else if (direction == Vector3.up || direction == Vector3.down) {
+				targetRotation = Quaternion.Euler(direction);
+			} 
+
+			actor.transform.rotation = targetRotation;
+
+
+		}
+
 	}
 }
 

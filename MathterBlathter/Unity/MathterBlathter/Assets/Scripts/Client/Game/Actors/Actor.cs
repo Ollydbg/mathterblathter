@@ -19,7 +19,7 @@ namespace Client.Game.Actors
 
 		public IAnimator Animator = new EmptyAnimator();
 		public CharacterData Data;
-		
+		public RoomData.Spawn SpawnData;
 		
 		public delegate void DestroyedDelegate(Actor actor);
 		public event DestroyedDelegate OnDestroyed;

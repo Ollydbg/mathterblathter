@@ -13,10 +13,8 @@ namespace Client.Game.AI.Actions
 
 		public override AIResult Update (float dt, Client.Game.Actors.Actor actor)
 		{
-
-			var rotation = VectorUtils.GetFacingVector(actor.GameObject);
-
-			actor.WeaponController.Attack(rotation.normalized);
+			
+			actor.WeaponController.Attack(actor.SpawnData.Facing);
 		
 			return AIResult.Running;
 

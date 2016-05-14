@@ -57,9 +57,10 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF DropQuality = new GameAttributeF(34, 1, "dropQuality", 0, float.MaxValue);
 		public static readonly GameAttributeE DropType = new GameAttributeE(35, 0, "DropType", 0, int.MaxValue, typeof(Client.Game.Data.PickupData.Type));
 		public static readonly GameAttributeF AIScanDegrees = new GameAttributeF(36, 90, "AiScanDegrees", 0, 360);
-		public static readonly GameAttributeI Energy = new GameAttributeI(37, 100, "energy", 0, int.MaxValue);
-		public static readonly GameAttributeI MaxEnergy = new GameAttributeI(38, 100, "max energy", 0, int.MaxValue);
-		public static readonly GameAttributeI EnergyRegen = new GameAttributeI(39, 1, "energy regen", 0, int.MaxValue);
+		public static readonly GameAttributeI Energy = new GameAttributeI(37, int.MaxValue, "energy", 0, int.MaxValue);
+		public static readonly GameAttributeI MaxEnergy = new GameAttributeI(38, int.MaxValue, "max energy", 0, int.MaxValue);
+		public static readonly GameAttributeI EnergyRegen = new GameAttributeI(39, 2, "energy regen", 0, int.MaxValue);
+		public static readonly GameAttributeI WeaponEnergyCost = new GameAttributeI(40, 10, "energy cost", 0, int.MaxValue); 
 
 	}
 }

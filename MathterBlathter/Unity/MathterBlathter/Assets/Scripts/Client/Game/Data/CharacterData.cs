@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Client.Game.Data;
 using Client.Game.Enums;
+using UnityEngine;
 
 namespace Client.Game.Data
 {
@@ -19,9 +20,15 @@ namespace Client.Game.Data
 		public int MinElevation;
 		public int MaxElevation;
 		//serialized attributes
-
+		public Availability Availability;
 	}
 
+
+	public enum Availability {
+		None,
+		Droppable,
+		Earnable
+	}
 
 	public enum ActorType {
 		Friendly,

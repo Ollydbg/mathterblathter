@@ -30,7 +30,7 @@ namespace Client.Game.Data
 					0
 				));
 				ret.Name = "RandomWeapon";
-
+				ret.Availability = Availability.Droppable;
 				return ret;
 			}
 		}
@@ -55,6 +55,8 @@ namespace Client.Game.Data
 					ActorAttributes.Health.Id,
 					1
 				));
+
+				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Thinner";
 				return ret;
 			}
@@ -73,6 +75,8 @@ namespace Client.Game.Data
 					MockAbilityData.MOVE_BOOST_TEMP.Id,
 					0
 				));
+
+				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pump";
 				return ret;
 			}
@@ -91,6 +95,8 @@ namespace Client.Game.Data
 					MockAbilityData.HEAL.Id,
 					0
 				));
+
+				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pack";
 				return ret;
 			}
@@ -115,6 +121,7 @@ namespace Client.Game.Data
 					1
 				));
 
+				ret.Availability = Availability.Droppable;
 				//better jumps, but takes a little damage on falling from heights
 				ret.Name = "Shortened Achilles Tendon";
 
@@ -146,6 +153,8 @@ namespace Client.Game.Data
 					0f
 				));
 
+				ret.Availability = Availability.Droppable;
+
 				ret.Name = "Rabbit's Foot";
 
 				return ret;
@@ -176,6 +185,7 @@ namespace Client.Game.Data
 					-.1f
 				));
 
+				ret.Availability = Availability.Droppable;
 				ret.Name = "Cursed Rabbit's Foot";
 
 				return ret;
@@ -194,7 +204,30 @@ namespace Client.Game.Data
 					0
 				));
 
+				ret.Availability = Availability.Droppable;
 				return ret;
+			}
+		}
+
+		public static PickupData ENERGY_PILL {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 9;
+				ret.ActorType = ActorType.Pickup;
+				ret.ResourcePath = "Items/GoldenPill_prefab";
+
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.ENERGY_HEAL.Id,
+					0
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.DropRate.Id,
+					.8f
+				));
+				ret.Name = "5 Hour Anxiety";
+				ret.Availability = Availability.Droppable;
+				return ret; 
 			}
 		}
 

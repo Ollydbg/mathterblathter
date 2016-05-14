@@ -82,8 +82,9 @@ namespace Client
 		}
 
 
-
-		public void ApplyEnergyCost(int amt, Actor actor) {
+		//TODO: Move this into a payload
+		public void ApplyEnergyCost(Actor actor) {
+			var amt = context.sourceWeapon.Attributes[ActorAttributes.WeaponEnergyCost];
 			actor.Attributes[ActorAttributes.Energy] -= amt;
 		}
 

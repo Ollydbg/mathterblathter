@@ -6,6 +6,7 @@ using System.Linq;
 using Client.Game.Core;
 using Client.Game.Actors;
 using Client.Game.Enums;
+using Client.Game.Utils;
 
 namespace Client.Game.Map
 {
@@ -120,18 +121,14 @@ namespace Client.Game.Map
 				if(TryRecordSpawn(spawn)) {
 
 					var actor = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
-					Quaternion targetRotation = Quaternion.identity;
-					if(spawn.Facing == Vector3.left) {
-						targetRotation = Quaternion.AngleAxis(-180, Vector3.up);
-					} else if (spawn.Facing == Vector3.up || spawn.Facing == Vector3.down) {
-						targetRotation = Quaternion.Euler(spawn.Facing);
-					} 
-					actor.transform.rotation = targetRotation;
+					actor.SpawnData = spawn;
+
 					if(actorBlocksRoomUnlock(actor)) {
 						RoomObjectives.Add(actor);
 						actor.OnDestroyed += (Actor deadActor) => RoomObjectives.Remove(deadActor);
 					}
 					actor.transform.position = spawn.RoomPosition + Position;
+					ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
 
 				}
 			}

@@ -16,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var allWeapons = MockActorData.GetAll().Where(p => p.ActorType == ActorType.Weapon).ToList();
+			var allWeapons = MockActorData.GetAll().Where(p => p.ActorType == ActorType.Weapon && p.Availability== Availability.Droppable).ToList();
 
 			var dataToSpawn = Owner.Game.Seed.RandomInList(allWeapons);
 			var replacement = Owner.Game.ActorManager.Spawn(dataToSpawn);

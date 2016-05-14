@@ -21,6 +21,8 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
 
+			ApplyEnergyCost(context.source);
+
 			int projectileCount = this.Attributes[AbilityAttributes.ProjectileCount];
 			var totalSpread = this.Attributes[AbilityAttributes.ProjectileSpread];
 			float spreadPer = totalSpread / projectileCount;
@@ -36,6 +38,8 @@ namespace Client.Game.Abilities.Scripts
 				var projectile = FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 				projectiles.Add(projectile);
+
+				PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 
 				projectile.OnHit = (actor) => {
 					new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();

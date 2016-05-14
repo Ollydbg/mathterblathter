@@ -9,22 +9,6 @@ namespace Client.Game.Data
 	public static partial class MockActorData
 	{
 		
-		/*public static CharacterData MELEE_WEAPON_1 {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 1000;
-				ret.ResourcePath = "Weapons/MeleeTest";
-				ret.ActorType = ActorType.Weapon;
-				ret.Name = "2x4";
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.PLAYER_MELEE.Id, 0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, 1f
-				));
-				return ret;
-			}
-		}*/
 
 		public static CharacterData WALL_TURRET_WEAPON {
 			get {
@@ -32,7 +16,7 @@ namespace Client.Game.Data
 				ret.Id = 1001;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
-				ret.Name = "Ceramic Blaster";
+				ret.Name = "Wall Turret Weapon";
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.ENEMY_PROJECTILE_TEST.Id, 0
 				));
@@ -70,6 +54,15 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponEnergyCost.Id, 8
+				));
+
+
+
+
+				ret.Availability = Availability.Droppable;
+
 				return ret;
 			}
 		}
@@ -89,13 +82,18 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponEnergyCost.Id, 2));
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 10
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, 1.3f
+					ActorAttributes.AttackSpeed.Id, .8f
 				));
+
+				ret.Availability = Availability.Droppable;
+
 
 				return ret;
 			}
@@ -125,6 +123,9 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 1.8f
 				));
 
+				ret.Availability = Availability.Droppable;
+
+
 				return ret;
 			}
 		}
@@ -152,6 +153,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 2f
 				));
+
+				ret.Availability = Availability.Droppable;
 
 
 				return ret;
@@ -218,6 +221,9 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, .09f
 				));
 
+				ret.Availability = Availability.Droppable;
+
+
 				return ret;
 			}
 		}
@@ -278,6 +284,13 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 1.3f
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponEnergyCost.Id, 10
+				));
+
+				ret.Availability = Availability.Droppable;
+
+
 				return ret;
 			}
 		}
@@ -304,6 +317,33 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.FLY_BOT_SPAWN.Id, 0
 				));
 
+				return ret;
+			}
+		}
+
+		public static CharacterData RANGED_ENEMY_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1013;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Ranged Enemy Weapon";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.RANGED_ENEMY_ATTACK.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.EnergyCost.Id, 0
+				));
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1f
+				));
 				return ret;
 			}
 		}

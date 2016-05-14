@@ -45,16 +45,6 @@ namespace Client.Game.Data
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
 
-				var fireTimeline = new TimelineData();
-				fireTimeline.AsciiMap += "eeeeeee     ";
-				fireTimeline.AsciiMap += "sssssss     ";
-				fireTimeline.Duration = .5f;
-
-				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
-				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/smith_wesson", AttachPoint.Muzzle);
-
-				ret.Timelines.Add(fireTimeline);
-
 				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
@@ -142,7 +132,12 @@ namespace Client.Game.Data
 				));
 
 				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
+				var timeline = new TimelineData();
+				timeline.AsciiMap += "s";
+				timeline.Duration = 1f;
+				timeline.Lookup['s'] = new TimelineData.Point("SFX/shotgun", AttachPoint.Muzzle);
 
+				ret.Timelines.Add(timeline);
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
 				ret.AbilityType = AbilityType.Instanced;
@@ -560,6 +555,56 @@ namespace Client.Game.Data
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergyRegenBuff);
 				ret.AbilityType = AbilityType.Buff;
 			
+				return ret;
+			}
+		}
+			
+		public static AbilityData RANGED_ENEMY_ATTACK {
+			get {
+				
+				var ret = new AbilityData ();
+				ret.Id = 30;
+				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Cooldown.Id, .5f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 15f
+				));
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 8
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
+				));
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
+
+				var fireTimeline = new TimelineData();
+				fireTimeline.AsciiMap += "eeeeeee     ";
+				fireTimeline.AsciiMap += "sssssss     ";
+				fireTimeline.Duration = .5f;
+
+				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/smith_wesson", AttachPoint.Muzzle);
+
+				ret.Timelines.Add(fireTimeline);
+
+				ret.AbilityType = AbilityType.Instanced;
+				return ret;
+			}
+
+		}
+
+		public static AbilityData ENERGY_HEAL {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 31;
+				ret.name = "EnergyHeal";
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Energy.Id, 100
+				));
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergyHealPlayer);
 				return ret;
 			}
 		}

@@ -149,7 +149,13 @@ namespace Client.Game.Items
 		public bool CanAttack(WeaponActor actor) {
 			var cooldown = currentWeapon.Attributes[ActorAttributes.AttackSpeed] * Owner.Attributes[ActorAttributes.AttackSpeedScalar];
 			float elapsed =  Time.realtimeSinceStartup - currentWeapon.Attributes[ActorAttributes.LastFiredTime];
-			return elapsed >= cooldown;
+
+			if(elapsed < cooldown)
+				return false;
+			
+			//checking energy
+			return Owner.Attributes[ActorAttributes.Energy] > currentWeapon.Attributes[ActorAttributes.WeaponEnergyCost];
+
 		}
 
 
