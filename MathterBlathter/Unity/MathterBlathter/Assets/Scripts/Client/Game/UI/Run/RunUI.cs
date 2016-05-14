@@ -15,7 +15,12 @@ namespace Client
 
 		public abstract void Show();
 		public abstract void Hide();
+		public bool ConsumeInput() {
+			return false;
+		}
+
 	}
+
 
 }
 

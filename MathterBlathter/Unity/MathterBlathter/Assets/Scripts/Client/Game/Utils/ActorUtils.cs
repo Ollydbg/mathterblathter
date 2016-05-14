@@ -47,6 +47,24 @@ namespace Client.Game.Utils
 
 
 		}
+
+
+		//works as long as we only change it by 1 unit each time.
+		public static void SetDataIdAttributes(Actor actor, GameAttributeI attr, List<int> ids) {
+			for (int i = 0; i< int.MaxValue; i++) {
+				var currentId = actor.Attributes[attr,i];
+				if(currentId == attr.DefaultValue) {
+					return;
+				} else {
+					if(i < ids.Count) {
+						actor.Attributes[attr, i] = ids[i];
+					} else {
+						actor.Attributes[attr, i] = attr.DefaultValue;
+					}
+				}
+			}
+		}
+
 		public static List<int> IterateAttributes(Actor actor, GameAttributeI attr) {
 			List<int> buffer = new List<int>();
 			for( int i = 0; i< int.MaxValue; i++ ) {

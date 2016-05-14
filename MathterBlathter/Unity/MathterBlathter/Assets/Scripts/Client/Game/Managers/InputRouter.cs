@@ -24,6 +24,7 @@ namespace Client.Game.Managers
 		public static string AIM_RAY = "AIM_RAY";
 		public static string PS4_RSTICK_H = "PS4_RSTICK_H";
 		public static string PS4_RSTICK_V = "PS4_RSTICK_V";
+		public static KeyCode PAUSE = KeyCode.Escape;
 
 
 		public PlayerCharacter TargetActor;
@@ -88,6 +89,10 @@ namespace Client.Game.Managers
 				AddControllerAiming();
 			}
 
+			if(Input.GetKeyDown(PAUSE)) {
+				Game.Instance.UIManager.PauseScreen.Toggle();
+			}
+
 			TargetActor.Controller.Ducking = Input.GetButton(DUCK);
 
 
@@ -95,8 +100,9 @@ namespace Client.Game.Managers
 
 			TargetActor.WeaponController.AimDirection(new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V)));
 
-
 		}
+
+
 
 
 		private void AddControllerAiming() {

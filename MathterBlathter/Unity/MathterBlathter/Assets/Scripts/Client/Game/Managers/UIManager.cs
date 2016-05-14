@@ -4,6 +4,7 @@ using UnityEngine;
 using Client.Game.States;
 using Client.Game.UI.Run.Indicators;
 using Client.Game.UI.Run.Shop;
+using Client.Game.UI;
 
 
 namespace Client.Game.Managers
@@ -18,6 +19,7 @@ namespace Client.Game.Managers
 		public ZoneTitle ZoneTitle;
 		public ShopUI ShopUI;
 		public Indicators Indicators;
+		public PauseScreen PauseScreen;
 
 		private static string RUN_RESOURCE = "UI/RunUI";
 		private static string GENERATION_RESOURCE = "UI/MapGenerationUI";

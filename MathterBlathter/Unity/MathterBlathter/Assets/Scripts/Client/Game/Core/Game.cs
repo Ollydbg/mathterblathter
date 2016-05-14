@@ -24,6 +24,7 @@ namespace Client.Game.Core
 			}
 		}
 
+		public bool Paused;
 
 		public PlayerCharacter PossessedActor;
 
@@ -77,7 +78,6 @@ namespace Client.Game.Core
 
 
 		public void Update(float dt) {
-
 			States.Update(dt);
 		}
 
