@@ -255,16 +255,14 @@ namespace Client.Game.Data
 					ActorAttributes.TakesDamage.Id, 1
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 100
+					ActorAttributes.Abilities.Id, MockAbilityData.SHOPKEEPER_INVENTORY_CREATOR.Id, 0
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData( 
 					ActorAttributes.BloodBounty.Id, 300
-				));;
-
-
+				));
 
 				return ret;
 			}

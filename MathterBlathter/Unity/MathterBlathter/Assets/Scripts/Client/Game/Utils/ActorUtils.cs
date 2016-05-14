@@ -1,6 +1,8 @@
 ﻿using System;
 using Client.Game.Actors;
 using UnityEngine;
+using System.Collections.Generic;
+using Client.Game.Attributes;
 
 namespace Client.Game.Utils
 {
@@ -44,6 +46,18 @@ namespace Client.Game.Utils
 			actor.transform.rotation = targetRotation;
 
 
+		}
+		public static List<int> IterateAttributes(Actor actor, GameAttributeI attr) {
+			List<int> buffer = new List<int>();
+			for( int i = 0; i< int.MaxValue; i++ ) {
+				var dataId = actor.Attributes[attr, i];
+				if(dataId == attr.DefaultValue) 
+					break;
+				else 
+					buffer.Add(dataId);
+			}
+
+			return buffer;
 		}
 
 	}

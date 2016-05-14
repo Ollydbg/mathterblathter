@@ -864,10 +864,10 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                               ";
 				ret.AsciiMap += "w                                                              d";
 				ret.AsciiMap += "w                                                               ";
+				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                             Pw";
 				ret.AsciiMap += "w                                                            ffw";
 				ret.AsciiMap += "w                                                     PPPPPPPPPw";
-				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
@@ -879,10 +879,10 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                    PPPP                      w";
 				ret.AsciiMap += "w                                    PPPP                      w";
 				ret.AsciiMap += "w                         fffffffffffffff                      w";
+				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w               L                                              w";
 				ret.AsciiMap += "w                                                              w";
@@ -896,7 +896,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "        PPPPPPPPPPPPPPPPP              L     PPPPPPPPPPP        ";
 				ret.AsciiMap += "d       PPPPPPPPPPPPPPPPP                    PPPPPPPPPPP       d";
 				ret.AsciiMap += "        PPPPPPPPPPPPPPPPP             1      PPPPPPPPPPP        ";
-				ret.AsciiMap += "fffffffffffffffffffffffffffffff d ffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.FLY_BOT_SPAWNER;
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
@@ -958,6 +958,57 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static RoomData Room_15 {
+			get {
+				var ret = new RoomData();
+				ret.Id = 117;
+				ret.Solo = true;
+
+				ret.AsciiMap += "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                    L    L       L            w";
+				ret.AsciiMap += "                                                                ";
+				ret.AsciiMap += "d                                                              d";
+				ret.AsciiMap += "                                        1                       ";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.SHOPKEEPER;
+
+				finalize(ret);
+				return ret;
+			}
+		}
 		static void finalize(RoomData room) {
 			room.Width = room.AsciiMap.Width;
 			room.Height = room.AsciiMap.Height;

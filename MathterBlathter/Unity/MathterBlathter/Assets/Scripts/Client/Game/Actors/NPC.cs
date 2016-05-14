@@ -24,7 +24,9 @@ namespace Client.Game.Actors
 
 		public bool Interact (Actor withActor)
 		{
+			Game.UIManager.ShopUI.ShowWithKeeper(this);
 			return false;
+
 		}
 
 		public string GetPrompt ()

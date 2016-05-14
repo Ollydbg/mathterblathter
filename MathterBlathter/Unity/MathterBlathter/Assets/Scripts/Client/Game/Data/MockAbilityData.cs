@@ -623,6 +623,16 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData SHOPKEEPER_INVENTORY_CREATOR {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 32;
+				ret.AbilityType = AbilityType.Buff;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShopkeeperBuff);
+				return ret;
+			}
+		}
+
 	}
 }
 

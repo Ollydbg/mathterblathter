@@ -94,6 +94,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RocketProjectileAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SentryAIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShieldBlock.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShopkeeperBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShotgunBlast.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SniperAIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SpawnEnemy.cs" />

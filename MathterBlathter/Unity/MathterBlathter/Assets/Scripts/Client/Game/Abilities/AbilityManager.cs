@@ -9,6 +9,7 @@ using Client.Game.Attributes;
 using Client.Game.Data;
 using Client.Game.Enums;
 using UnityEngine;
+using Client.Game.Utils;
 
 
 namespace Client.Game.Abilities
@@ -120,11 +121,7 @@ namespace Client.Game.Abilities
 		public void AddActor (Actor actor)
 		{
 			
-			for( int i = 0; i< int.MaxValue; i++ ) {
-				var dataId = actor.Attributes[ActorAttributes.Abilities, i];
-				if(dataId == ActorAttributes.Abilities.DefaultValue) 
-					break;
-
+			foreach( int dataId in ActorUtils.IterateAttributes(actor, ActorAttributes.Abilities) ) {
 				var data = MockAbilityData.FromId(dataId);
 				if(data.AbilityType == AbilityType.Buff) {
 
@@ -140,7 +137,7 @@ namespace Client.Game.Abilities
 
 		bool ActorUsesAbilities (Actor actor)
 		{
-			return actor.Attributes[ActorAttributes.Abilities] != ActorAttributes.Abilities.DefaultValue;//actor.ActorType == ActorType.Enemy || actor.ActorType == ActorType.Friendly || actor.ActorType == ActorType.Fixture || actor.ActorType == ActorType.Pickup;
+			return actor.Attributes[ActorAttributes.Abilities] != ActorAttributes.Abilities.DefaultValue;
 		}
 
 		//returns true if it got consumed

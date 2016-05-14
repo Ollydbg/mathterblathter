@@ -3,6 +3,7 @@ using Client.Game.UI.Run;
 using UnityEngine;
 using Client.Game.States;
 using Client.Game.UI.Run.Indicators;
+using Client.Game.UI.Run.Shop;
 
 
 namespace Client.Game.Managers
@@ -18,8 +19,9 @@ namespace Client.Game.Managers
 		public ShopUI ShopUI;
 		public Indicators Indicators;
 
-		private static String RUN_RESOURCE = "UI/RunUI";
-		private static String GENERATION_RESOURCE = "UI/MapGenerationUI";
+		private static string RUN_RESOURCE = "UI/RunUI";
+		private static string GENERATION_RESOURCE = "UI/MapGenerationUI";
+
 
 		public GameObject CurrentUI;
 
@@ -30,6 +32,7 @@ namespace Client.Game.Managers
 		public UIManager (Game game)
 		{
 			game.States.OnStateChanged += HandleState;
+
 		}
 
 
