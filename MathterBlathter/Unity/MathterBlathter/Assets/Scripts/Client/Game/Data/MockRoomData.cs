@@ -1016,10 +1016,11 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 118;
 
+				ret.SortOrder = 4;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
-				ret.AsciiMap += "                                                                                                                                 ";
-				ret.AsciiMap += "d                                                                                                                               d";
-				ret.AsciiMap += "                                                                                                                                 ";
+				ret.AsciiMap += "w                                                                                                                                ";
+				ret.AsciiMap += "w                                                                                                                               d";
+				ret.AsciiMap += "w                                                                                                                                ";
 				ret.AsciiMap += "wPPPPPPPP                                                            4                                                          w";
 				ret.AsciiMap += "w                          PPPPPPPPPPP                                                                                          w";
 				ret.AsciiMap += "w                    wwwwwwwwwwww                                                                                               w";
