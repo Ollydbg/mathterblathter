@@ -71,7 +71,11 @@ namespace Client.Game.Abilities
 				var rp = deferredRemoves.Dequeue ();
 				if(rp.ability != null) {
 					rp.ability.End ();
-					Abilities [rp.actor].Remove (rp.ability.InstanceId);
+					AbilityMap actorAbils;
+					if(Abilities.TryGetValue(rp.actor, out actorAbils)) {
+						Abilities [rp.actor].Remove (rp.ability.InstanceId);
+					}
+					
 				} else {
 					Abilities.Remove(rp.actor);
 				}

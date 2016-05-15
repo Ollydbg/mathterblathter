@@ -52,7 +52,7 @@ namespace Client.Game.Abilities.Payloads
 				.Cast<PickupData>();
 
 			if(type == (int)PickupData.Type.Unassigned) {
-				return items.Where(p => p.PickupType != PickupData.Type.Buff && p.Availability != Availability.None).ToList();
+				return items.Where(p => p.Availability != Availability.None).ToList();
 			} else {
 				return items.Where(p=>p.PickupType == (PickupData.Type)type).ToList();
 			}

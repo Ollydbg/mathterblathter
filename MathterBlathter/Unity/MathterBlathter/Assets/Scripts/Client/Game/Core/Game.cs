@@ -49,7 +49,6 @@ namespace Client.Game.Core
 
 		private void Init() {
 
-
 			this.Seed = new Seed(DateTime.UtcNow.Millisecond);
 
 			CreateManagers();

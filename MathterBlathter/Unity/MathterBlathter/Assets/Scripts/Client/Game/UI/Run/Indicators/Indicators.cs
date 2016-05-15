@@ -49,9 +49,11 @@ namespace Client.Game.UI.Run.Indicators
 
 		void HandleActorDeath (Actor actor)
 		{
-			var indicator = this.indicators[actor];
-			GameObject.Destroy(indicator);
-			this.indicators.Remove(actor);
+			GameObject indicator;
+			if(indicators.TryGetValue(actor, out indicator)) {
+				GameObject.Destroy(indicator);
+				this.indicators.Remove(actor);
+			}
 		}
 		
 

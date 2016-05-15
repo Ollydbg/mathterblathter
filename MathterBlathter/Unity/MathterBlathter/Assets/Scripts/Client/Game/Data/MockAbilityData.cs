@@ -518,7 +518,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.RepeatAmount.Id, 4
+					AbilityAttributes.RepeatAmount.Id, 3
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

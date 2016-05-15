@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace Client.Game.Core
@@ -10,11 +11,13 @@ namespace Client.Game.Core
 
 		public Seed (int seedValue)
 		{
-			random = new Random(Value);
+			Random.seed = seedValue;
 		}
 
 		public float NextFloat() {
-			return (float)random.NextDouble();
+
+			return Random.value;
+
 		}
 
 
@@ -23,22 +26,17 @@ namespace Client.Game.Core
 		}
 
 		public float InRange(float min, float max) {
-			float range = max - min;
-			return (NextFloat() * range) + min;
+			return Random.Range(min, max);
 		}
 
 		public int Next(int max) {
-			return random.Next(max);
+			return Random.Range(0, max);
 		}
 
 		public T RandomInList<T>(List<T> items) {
 			return items[Next(items.Count)];
 		}
 
-		public int Next() {
-			
-			return random.Next();
-		}
 	}
 }
 

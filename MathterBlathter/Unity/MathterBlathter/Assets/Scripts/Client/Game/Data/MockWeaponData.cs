@@ -292,8 +292,13 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 1.3f
 				));
 
+
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponEnergyCost.Id, 10
+					ActorAttributes.Inaccuracy.Id, .1f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponEnergyCost.Id, 12
 				));
 
 

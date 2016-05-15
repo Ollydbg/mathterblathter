@@ -43,13 +43,15 @@ namespace Client.Game.Abilities.Timelines
 
 		static void PlayVFX (TimelineData.Point pt, TimelineData data, Actor actor) {
 
-			var go = (GameObject)GameObject.Instantiate(
-				Resources.Load(pt.Resource),
-				AttachPointComponent.AttachPointPositionOnActor(pt.AttachPoint, actor),
-				Quaternion.identity
-			);
-			var ttl = go.AddComponent<EffectTTL>();
-			ttl.TimeToLive = data.Duration;
+			if(actor.GameObject){
+				var go = (GameObject)GameObject.Instantiate(
+					Resources.Load(pt.Resource),
+					AttachPointComponent.AttachPointPositionOnActor(pt.AttachPoint, actor),
+					Quaternion.identity
+				);
+				var ttl = go.AddComponent<EffectTTL>();
+				ttl.TimeToLive = data.Duration;
+			}
 
 		}
 
