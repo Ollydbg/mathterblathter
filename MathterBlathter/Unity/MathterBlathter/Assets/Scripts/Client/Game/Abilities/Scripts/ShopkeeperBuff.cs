@@ -2,6 +2,7 @@
 using Client.Game.Attributes;
 using Client.Game.Data;
 using UnityEngine;
+using System.Linq;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -14,11 +15,10 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			//add some items to the npc
-			addItem(MockActorData.CURSED_RABBITS_FOOT);
-			addItem(MockActorData.CERAMIC_SHOTGUN);
-			addItem(MockActorData.HEALTH_PICKUP);
-			addItem(MockActorData.ROCKET_LAUNCHER);
+			var allInShop = MockActorData.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop);
+			foreach( var item in allInShop)
+				addItem(item);
+
 		}
 		
 		int index = 0;

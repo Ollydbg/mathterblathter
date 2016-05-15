@@ -9,6 +9,12 @@ namespace Client.Game.Data
 		{
 		}
 
+		public override int GetHashCode ()
+		{
+			return Id;
+		}
+
+
 		public class AttributeData
 		{
 			public int Id;

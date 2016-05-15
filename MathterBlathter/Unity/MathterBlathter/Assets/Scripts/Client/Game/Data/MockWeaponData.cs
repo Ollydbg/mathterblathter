@@ -61,7 +61,8 @@ namespace Client.Game.Data
 
 
 
-				ret.Availability = Availability.Droppable;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 100;
 
 				return ret;
 			}
@@ -92,8 +93,7 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, .8f
 				));
 
-				ret.Availability = Availability.Droppable;
-
+				ret.Availability = Availability.None;
 
 				return ret;
 			}
@@ -125,8 +125,8 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 1.8f
 				));
 
-				ret.Availability = Availability.Droppable;
-
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 40;
 
 				return ret;
 			}
@@ -156,8 +156,8 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 2f
 				));
 
-				ret.Availability = Availability.Droppable;
-
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 70;
 
 				return ret;
 			}
@@ -212,7 +212,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 8
+					ActorAttributes.BaseDamage.Id, 30
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -223,8 +223,12 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, .09f
 				));
 
-				ret.Availability = Availability.Droppable;
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.WeaponEnergyCost.Id, 1
+				));
 
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 100;
 
 				return ret;
 			}
@@ -248,6 +252,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0
 				));
+
+				ret.Cost = 120;
 
 				return ret;
 			}
@@ -290,8 +296,9 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponEnergyCost.Id, 10
 				));
 
-				ret.Availability = Availability.Droppable;
 
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 200;
 
 				return ret;
 			}
@@ -349,6 +356,30 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static CharacterData ENERGY_SAPPER_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1014;
+				ret.ResourcePath = "Weapons/None";
+				ret.ActorType = ActorType.Weapon;
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.ENERGY_SAP_ABILITY.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.EnergyCost.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1f
+				));
+
+				return ret;
+			}
+		}
+
 
 
 	}

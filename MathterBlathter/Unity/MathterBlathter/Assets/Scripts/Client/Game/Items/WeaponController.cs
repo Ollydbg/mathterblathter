@@ -79,7 +79,6 @@ namespace Client.Game.Items
 		public void AddWeapon(CharacterData data) {
 			if(CanAdd(data)) {
 				
-
 				var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
 				AddWeapon(spawnedActor);
 

@@ -21,7 +21,7 @@ namespace Client.Game.AI
 		}
 
 		internal float AbilityRange() {
-			return 100f;
+			return 15;
 		}
 
 		internal Vector3 PlayerMid

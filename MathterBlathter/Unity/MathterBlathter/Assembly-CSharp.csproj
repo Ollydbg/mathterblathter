@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DropQualityBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\EnergyHealPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\EnergyRegenBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\EnergySap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FireOnFall.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FiringFixtureBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\HealPlayer.cs" />

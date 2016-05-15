@@ -24,7 +24,7 @@ namespace Client.Game.Core
 
 		public float InRange(float min, float max) {
 			float range = max - min;
-			return (NextFloat() + min) * range;
+			return (NextFloat() * range) + min;
 		}
 
 		public int Next(int max) {

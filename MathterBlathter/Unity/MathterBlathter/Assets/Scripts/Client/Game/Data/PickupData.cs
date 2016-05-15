@@ -56,7 +56,9 @@ namespace Client.Game.Data
 					1
 				));
 
-				ret.Availability = Availability.Droppable;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 10;
+
 				ret.Name = "Blood Thinner";
 				return ret;
 			}
@@ -96,7 +98,8 @@ namespace Client.Game.Data
 					0
 				));
 
-				ret.Availability = Availability.Droppable;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 30;
 				ret.Name = "Blood Pack";
 				return ret;
 			}
@@ -121,7 +124,8 @@ namespace Client.Game.Data
 					1
 				));
 
-				ret.Availability = Availability.Droppable;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 70;
 				//better jumps, but takes a little damage on falling from heights
 				ret.Name = "Shortened Achilles Tendon";
 
@@ -153,7 +157,8 @@ namespace Client.Game.Data
 					0f
 				));
 
-				ret.Availability = Availability.Droppable;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 50;
 
 				ret.Name = "Rabbit's Foot";
 
@@ -185,7 +190,9 @@ namespace Client.Game.Data
 					-.1f
 				));
 
-				ret.Availability = Availability.Droppable;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 60;
+
 				ret.Name = "Cursed Rabbit's Foot";
 
 				return ret;
@@ -227,6 +234,7 @@ namespace Client.Game.Data
 				));
 				ret.Name = "5 Hour Anxiety";
 				ret.Availability = Availability.Droppable;
+
 				return ret; 
 			}
 		}

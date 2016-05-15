@@ -549,6 +549,65 @@ namespace Client.Game.Data
 		}
 
 
+		public static CharacterData ENERGY_SAPPER_ENEMY {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 21;
+
+				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
+				ret.ActorType = ActorType.Enemy;
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.MaxHealth.Id,
+					20
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Health.Id,
+					20
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id,
+					.4f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BloodBounty.Id,
+					15
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeedScalar.Id, 1f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 40.0f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockActorData.ENERGY_SAPPER_WEAPON.Id,
+					0
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					0
+				));
+
+
+				return ret;
+			}
+		}
+
 	}
 }
 

@@ -18,6 +18,9 @@ namespace Client.Game.UI.Run.Shop
 		}
 
 		List<ShopItem> Items = new List<ShopItem>();
+		int rowSize = 7;
+		float horizontalSpacer = 100;
+		float verticalSpacer = 120;
 
 		#region implemented abstract members of RunUI
 		public ShopItem Template;
@@ -50,12 +53,15 @@ namespace Client.Game.UI.Run.Shop
 				itemComp.InitWith(data);
 
 				itemComp.OnBuy += () => {
-					BuyItem(data, owner, Game.PossessedActor);
-					ShowInventory(owner);
+					bool bought = BuyItem(data, owner, Game.PossessedActor);
+					if(bought)
+						ShowInventory(owner);
 				};
 
 				var pos = ItemOrigin;
-				pos.x += 100 * index;
+				int row = (int)(Math.Floor((double)(index/rowSize)));
+				pos.x += horizontalSpacer * index - horizontalSpacer*rowSize * row;
+				pos.y -= verticalSpacer * row;
 
 				itemComp.transform.position = pos;
 
@@ -65,20 +71,27 @@ namespace Client.Game.UI.Run.Shop
 			}
 		}
 
-		public void BuyItem(CharacterData data, Actor fromActor, Actor toActor) {
-
+		public bool BuyItem(CharacterData data, Actor fromActor, Actor toActor) {
+			if(!CanBuy(data, toActor))
+				return false;
+			
 			List<int> keeperIds = ActorUtils.IterateAttributes(fromActor, ActorAttributes.ShopkeeperInventory);
 			keeperIds.Remove(data.Id);
 			ActorUtils.SetDataIdAttributes(fromActor, ActorAttributes.ShopkeeperInventory, keeperIds);
 
 			var actor = Game.ActorManager.Spawn(data);
 
-			float rangeX = Game.Seed.InRange(-5, 5);
+			float spawnRange = 6f;
+			float rangeX = Game.Seed.InRange(-spawnRange, spawnRange);
 
 			Vector3 sellerPos = fromActor.transform.position;
-
 			actor.transform.position = new Vector3(sellerPos.x + rangeX, sellerPos.y + 1f, sellerPos.z);
+			return true;
+		}
 
+		bool CanBuy (CharacterData data, Actor toActor)
+		{
+			return data.Cost <= toActor.Attributes[ActorAttributes.BloodBalance];
 		}
 
 		void Clean ()

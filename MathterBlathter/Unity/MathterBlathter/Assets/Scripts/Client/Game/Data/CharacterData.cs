@@ -21,13 +21,16 @@ namespace Client.Game.Data
 		public int MaxElevation;
 		//serialized attributes
 		public Availability Availability;
+		public int Cost;
+
 	}
 
 
-	public enum Availability {
-		None,
-		Droppable,
-		Earnable
+	[FlagsAttribute]
+	public enum Availability : short {
+		None = 0,
+		Droppable = 1,
+		InShop = 2
 	}
 
 	public enum ActorType {

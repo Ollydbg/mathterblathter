@@ -633,6 +633,26 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData ENERGY_SAP_ABILITY {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 33;
+				ret.AbilityType = AbilityType.Instanced;
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.Damage.Id, 4
+				));
+
+				var sapTimeline = new TimelineData();
+				
+				sapTimeline.AsciiMap += "eeeeee   ";
+				sapTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/rocketExplosion_prefab", AttachPoint.WeaponSlot);
+				ret.Timelines.Add(sapTimeline);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergySap);
+
+				return ret;
+			}
+		}
 	}
 }
 
