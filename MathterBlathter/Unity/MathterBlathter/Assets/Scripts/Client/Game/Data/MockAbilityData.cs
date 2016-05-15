@@ -201,7 +201,12 @@ namespace Client.Game.Data
 
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/hotRails", AttachPoint.Muzzle);
 
+				var hitTimeline = new TimelineData();
+				hitTimeline.AsciiMap += "eeee";
+				hitTimeline.Lookup['e'] = new TimelineData.Point("enemeyTestHit_prefab", AttachPoint.WeaponSlot);
+
 				ret.Timelines.Add(fireTimeline);
+				ret.Timelines.Add(hitTimeline);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f

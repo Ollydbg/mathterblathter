@@ -31,6 +31,9 @@ namespace Client.Game.Abilities.Scripts
 				var result = currentProjectile.TestTrigger(hit.collider, out hitActor);
 				if(result == TriggerTestResult.Ok) {
 					new DamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
+
+					PlayTimeline(context.data.Timelines[1], hitActor);
+
 				} else if (result == TriggerTestResult.Geometry) {
 					break;
 				}

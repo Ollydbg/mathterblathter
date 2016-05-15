@@ -369,6 +369,10 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.DamageScalar.Id, .25f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
 				));
 

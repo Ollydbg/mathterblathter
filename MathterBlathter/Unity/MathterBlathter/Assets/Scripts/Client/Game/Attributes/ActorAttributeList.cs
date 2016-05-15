@@ -62,6 +62,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI EnergyRegen = new GameAttributeI(39, 2, "energy regen", 0, int.MaxValue);
 		public static readonly GameAttributeI WeaponEnergyCost = new GameAttributeI(40, 10, "energy cost", 0, int.MaxValue); 
 		public static readonly GameAttributeI ShopkeeperInventory = new GameAttributeI(41, -1, "inventory", 0, int.MaxValue);
+		public static readonly GameAttributeF DamageScalar = new GameAttributeF(42, 1, "damage scalar", float.MinValue, float.MinValue);
 	}
 }
 

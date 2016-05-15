@@ -18,6 +18,8 @@ namespace Client.Game.Abilities.Payloads
 
 
 			Damage = (float)damage + weaponBaseDamage + (float)ctx.source.Attributes[ActorAttributes.BaseDamage];
+			Damage *= ctx.source.Attributes[ActorAttributes.DamageScalar];
+
 			Target = target;
 
 		}
