@@ -41,17 +41,16 @@ namespace Client.Game.Abilities.Scripts
 
 			var projectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
-			string effectPath = "Projectiles/VFX/enemyTestHit_prefab";
-
 			PlayTimeline(context.data.Timelines[0], context.source);
 
 			projectile.OnHit = (actor) => {
 				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
-				ProjectileImpactEffect(projectile, effectPath);
+				PlayTimeline(context.data.Timelines[1], actor);
+
 			};
 			projectile.OnGeometryHit = () => {
-				ProjectileImpactEffect(projectile, effectPath);
+				ProjectileImpactEffect(projectile, context.data.Timelines[1].Lookup['e'].Resource);
 			};
 
 

@@ -53,11 +53,15 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Energy.Id, 100
+					ActorAttributes.Anxiety.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData( 
+					ActorAttributes.MaxAnxiety.Id, 200
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.MaxEnergy.Id, 100
+					ActorAttributes.AnxietyRegen.Id, 2
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -106,7 +110,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.ENERGY_REGEN_BUFF.Id,
+					MockAbilityData.ANXIETY_REGEN_BUFF.Id,
 					1
 				));
 
@@ -340,7 +344,7 @@ namespace Client.Game.Data
 
 
 
-		public static CharacterData SNIPER {
+		public static CharacterData RAIL_SNIPER_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 16;
@@ -354,7 +358,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
-					MockAbilityData.SENTRY_AI_BUFF.Id,
+					MockAbilityData.SNIPER_AI_BUFF.Id,
 					0
 				));
 

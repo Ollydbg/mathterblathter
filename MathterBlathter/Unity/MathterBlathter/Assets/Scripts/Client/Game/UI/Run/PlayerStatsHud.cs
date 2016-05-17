@@ -14,8 +14,8 @@ namespace Client.Game.UI.Run
 		private RectTransform healthMaxRect;
 		private RectTransform healthCurrentRect;
 
-		public GameObject EnergyMax;
-		public GameObject EnergyCurrent;
+		public GameObject AnxietyMax;
+		public GameObject AnxietyCurrent;
 
 		public Text bloodTxt;
 
@@ -36,7 +36,7 @@ namespace Client.Game.UI.Run
 			playerAttributes = Game.Instance.PossessedActor.Attributes;
 
 			healthBar = new Bar(healthCurrent, healthMax, ActorAttributes.Health, ActorAttributes.MaxHealth, playerAttributes);
-			energyBar = new Bar(EnergyCurrent, EnergyMax, ActorAttributes.Energy, ActorAttributes.MaxEnergy, playerAttributes);
+			energyBar = new Bar(AnxietyCurrent, AnxietyMax, ActorAttributes.Anxiety, ActorAttributes.MaxAnxiety, playerAttributes);
 
 		}
 

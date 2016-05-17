@@ -1,5 +1,6 @@
 ﻿using System;
 using Client.Game.Actors;
+using System.Collections.Generic;
 
 namespace Client.Game.AI
 {
@@ -22,6 +23,7 @@ namespace Client.Game.AI
 				}
 			}
 		}
+
 	}
 }
 

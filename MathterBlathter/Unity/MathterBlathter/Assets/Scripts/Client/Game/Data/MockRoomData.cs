@@ -91,35 +91,32 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                           PPPPw";
-                ret.AsciiMap += "w                      PPPPPP                                   w";
+                ret.AsciiMap += "w     1                                                         w";
+                ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                                                     ppppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "wPPPP                                                           w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+                ret.AsciiMap += "w                                                       ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                    C          w";
                 ret.AsciiMap += "w                   L                                           w";
                 ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "                       PPPP                                      ";
                 ret.AsciiMap += "d                                                               d";
-                ret.AsciiMap += "                                                        C        ";
+                ret.AsciiMap += "                                    C       1      1      11 111 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				ret.AsciiSpawnLookup['H'] = MockActorData.RUSTY_SHIELD;
-				ret.AsciiSpawnLookup['R'] = MockActorData.STATIC_REPEATER;
-
-
-				ret.AsciiSpawnLookup['C'] = MockActorData.SHOPKEEPER;
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['C'] = MockActorData.HOT_RAILS;
 				
 				finalize(ret);
 
@@ -742,8 +739,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffff d fffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
-				ret.AsciiSpawnLookup['2'] = new AsciiPlacement(MockActorData.SNIPER, Vector3.left);
-				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(MockActorData.SNIPER, Vector3.right);
+				ret.AsciiSpawnLookup['2'] = new AsciiPlacement(MockActorData.RAIL_SNIPER_ENEMY, Vector3.left);
+				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(MockActorData.RAIL_SNIPER_ENEMY, Vector3.right);
 				ret.AsciiSpawnLookup['4'] = MockActorData.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['5'] = MockActorData.ENERGY_SAPPER_ENEMY;
 
@@ -1000,7 +997,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                  PPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffff d ffffffffffffffffffffffffffffff";
 
-				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.SNIPER, Vector3.left);
+				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.RAIL_SNIPER_ENEMY, Vector3.left);
 				ret.AsciiSpawnLookup['2'] = new AsciiPlacement(MockActorData.GROUND_STATIC_TURRET, Vector3.left);
 				ret.AsciiSpawnLookup['3'] = MockActorData.FLOATING_TURRET;
 				finalize(ret);
@@ -1105,8 +1102,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                         PPP                                                    w";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff d fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
-				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.SNIPER, Vector3.right);
-				ret.AsciiSpawnLookup['2'] = new AsciiPlacement(MockActorData.SNIPER, Vector3.left);
+				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.RAIL_SNIPER_ENEMY, Vector3.right);
+				ret.AsciiSpawnLookup['2'] = new AsciiPlacement(MockActorData.RAIL_SNIPER_ENEMY, Vector3.left);
 				ret.AsciiSpawnLookup['3'] = MockActorData.ENERGY_SAPPER_ENEMY;
 				ret.AsciiSpawnLookup['4'] = MockActorData.FLOATING_TURRET;
 				ret.AsciiSpawnLookup['5'] = MockActorData.GROUNDED_RANGED_ENEMY;

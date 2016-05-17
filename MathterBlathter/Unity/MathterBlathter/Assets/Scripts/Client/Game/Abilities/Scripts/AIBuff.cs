@@ -17,12 +17,18 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			Brain = new Brain(context.source);
+			var sequence = new Sequence();
+			
+			var losAction = new Client.Game.AI.Actions.TestPlayerLOS();
 			var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
 			var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
-			fireAtAction.Next = seekToAction;
-			seekToAction.Next = fireAtAction;
+			sequence.Next = sequence;
 
-			Brain.CurrentAction = seekToAction;
+			sequence.Actions.Add(losAction);
+			sequence.Actions.Add(seekToAction);
+			sequence.Actions.Add(fireAtAction);
+
+			Brain.CurrentAction = sequence;
 		}
 
 		public override void Update (float dt)

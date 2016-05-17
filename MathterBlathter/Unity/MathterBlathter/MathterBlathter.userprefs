@@ -1,22 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Core/Seed.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/MockAbilityData.cs">
     <Files>
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Payloads/HealPayload.cs" Line="42" Column="1" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/AbilityManager.cs" Line="107" Column="49" />
-      <File FileName="Assets/Scripts/Client/Game/Data/MockActorData.cs" Line="373" Column="8" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Payloads/DamagePayload.cs" Line="22" Column="4" />
-      <File FileName="Assets/Scripts/Client/Game/Actors/Controllers/InteractionController.cs" Line="37" Column="17" />
-      <File FileName="Assets/Scripts/Client/Game/Actors/Pickup.cs" Line="45" Column="26" />
-      <File FileName="Assets/Scripts/Client/Game/UI/Run/InteractionPrompt.cs" Line="53" Column="11" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/RailGunAttack.cs" Line="35" Column="44" />
-      <File FileName="Assets/Scripts/Client/Game/Data/MockAbilityData.cs" Line="204" Column="8" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/LevelAppropriateWeaponDrop.cs" Line="21" Column="45" />
-      <File FileName="Assets/Scripts/Client/Game/Core/Seed.cs" Line="35" Column="36" />
+      <File FileName="Assets/Scripts/Client/Game/AI/Actions/SeekToPlayer.cs" Line="30" Column="5" />
+      <File FileName="Assets/Scripts/Client/Game/Data/MockRoomData.cs" Line="79" Column="14" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/RailGunAttack.cs" Line="57" Column="7" />
+      <File FileName="Assets/Scripts/Client/Game/Data/MockAbilityData.cs" Line="44" Column="8" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/RepeatedProjectileAttack.cs" Line="9" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Core/Seed.cs" line="37" column="1" />
+      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Core/Seed.cs" line="33" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

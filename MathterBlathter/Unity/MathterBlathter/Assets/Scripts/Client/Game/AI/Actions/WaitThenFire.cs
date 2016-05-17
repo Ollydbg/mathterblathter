@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Game.Attributes;
 
 namespace Client.Game.AI.Actions
 {
@@ -22,7 +23,7 @@ namespace Client.Game.AI.Actions
 		{
 			if(ActionUtil.HasLOS(actor, PlayerMid)) {
 				time += dt;
-				if(time >= 3f) {
+				if(time >= actor.Attributes[ActorAttributes.AIAttackDelay]) {
 					actor.WeaponController.Attack(direction.normalized);
 					return AIResult.Success;
 				}

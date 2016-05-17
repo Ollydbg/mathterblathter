@@ -216,7 +216,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData ENERGY_PILL {
+		public static PickupData CALM_DOWN_PILLS {
 			get {
 				var ret = new PickupData();
 				ret.Id = OFFSET + 9;
@@ -232,7 +232,7 @@ namespace Client.Game.Data
 					ActorAttributes.DropRate.Id,
 					.8f
 				));
-				ret.Name = "5 Hour Anxiety";
+				ret.Name = "Calmdown pills";
 				ret.Availability = Availability.Droppable;
 
 				return ret; 

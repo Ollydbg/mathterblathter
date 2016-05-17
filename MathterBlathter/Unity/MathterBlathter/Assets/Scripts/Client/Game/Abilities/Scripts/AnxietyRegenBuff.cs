@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class EnergyRegenBuff : BuffBase
+	public class AnxietyRegenBuff : BuffBase
 	{
-		public EnergyRegenBuff ()
+		public AnxietyRegenBuff ()
 		{
 		}
 
@@ -25,7 +25,7 @@ namespace Client.Game.Abilities.Scripts
 		bool givingBoost = false;
 
 		private void ResetIdleBonus() {
-			timeUntilBonus = this.Attributes[AbilityAttributes.EnergyRegenBoostDelay];
+			timeUntilBonus = this.Attributes[AbilityAttributes.CalmdownBoostDelay];
 			regenScalar = 1f;
 			givingBoost = false;
 		}
@@ -35,7 +35,7 @@ namespace Client.Game.Abilities.Scripts
 			if(!givingBoost) {
 				timeUntilBonus -= dt;
 				if(timeUntilBonus <= 0f) {
-					regenScalar = this.Attributes[AbilityAttributes.EnergyRegenScalar];
+					regenScalar = this.Attributes[AbilityAttributes.AnxietyRegenScalar];
 					givingBoost = true;
 				}
 			}
@@ -49,15 +49,14 @@ namespace Client.Game.Abilities.Scripts
 			if( accum >= refreshRate) {
 				accum -= refreshRate;
 
-				var max = context.source.Attributes[ActorAttributes.MaxEnergy];
-				var projected = context.source.Attributes[ActorAttributes.Energy] + (int)(regenScalar * context.source.Attributes[ActorAttributes.EnergyRegen]);
+				var projected = context.source.Attributes[ActorAttributes.Anxiety] - (int)(regenScalar * context.source.Attributes[ActorAttributes.AnxietyRegen]);
 
-				if(projected > max) {
-					projected = max;
+				if(projected < 0) {
+					projected = 0;
 				}
 
 
-				context.source.Attributes[ActorAttributes.Energy] = projected;
+				context.source.Attributes[ActorAttributes.Anxiety] = projected;
 
 			}
 
@@ -65,7 +64,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override bool OnPayloadReceive (Payload payload)
 		{
-			if(payload is EnergyCostPayload) {
+			if(payload is AnxietyCostPayload) {
 				ResetIdleBonus();
 			}
 

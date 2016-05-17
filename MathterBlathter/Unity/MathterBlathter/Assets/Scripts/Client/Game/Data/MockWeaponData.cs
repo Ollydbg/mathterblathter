@@ -55,7 +55,7 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponEnergyCost.Id, 8
+					ActorAttributes.WeaponAnxietyCost.Id, 8
 				));
 
 
@@ -83,7 +83,7 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponEnergyCost.Id, 2));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 10
@@ -119,7 +119,7 @@ namespace Client.Game.Data
 					ActorAttributes.BaseDamage.Id, 70
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponEnergyCost.Id, 13
+					ActorAttributes.WeaponAnxietyCost.Id, 13
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1.8f
@@ -224,7 +224,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.WeaponEnergyCost.Id, 1
+					ActorAttributes.WeaponAnxietyCost.Id, 1
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -298,7 +298,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponEnergyCost.Id, 12
+					ActorAttributes.WeaponAnxietyCost.Id, 12
 				));
 
 
@@ -347,7 +347,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.EnergyCost.Id, 0
+					AbilityAttributes.AnxietyCost.Id, 0
 				));
 
 				ret.attributeData.Add( new GameData.AttributeData(
@@ -374,7 +374,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.EnergyCost.Id, 0
+					AbilityAttributes.AnxietyCost.Id, 0
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

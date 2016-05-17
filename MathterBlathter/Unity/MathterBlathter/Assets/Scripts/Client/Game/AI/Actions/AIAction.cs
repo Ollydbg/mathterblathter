@@ -2,6 +2,7 @@
 using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Attributes;
+using System.Collections.Generic;
 
 namespace Client.Game.AI
 {
@@ -47,6 +48,27 @@ namespace Client.Game.AI
 		Success,
 		Failure,
 		Running
+	}
+
+	public class Sequence : AIAction {
+		public List<AIAction> Actions = new List<AIAction>();
+
+		public override AIResult Update (float dt, Actor actor)
+		{
+			var allSuccess = false;
+
+
+			foreach( var action in Actions) {
+				var result = action.Update(dt, actor);
+				if(result != AIResult.Success) {
+					return AIResult.Failure;
+				}
+
+				allSuccess &= result == AIResult.Success;
+
+			}
+			return allSuccess ? AIResult.Success : AIResult.Failure;
+		}
 	}
 
 	public class EmptyAction : AIAction {

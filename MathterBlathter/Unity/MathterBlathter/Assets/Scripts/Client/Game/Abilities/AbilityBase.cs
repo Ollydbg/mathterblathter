@@ -83,7 +83,7 @@ namespace Client
 
 
 		public void ApplyEnergyCost(Actor actor) {
-			new EnergyCostPayload(context, actor,context.sourceWeapon.Attributes[ActorAttributes.WeaponEnergyCost])
+			new AnxietyCostPayload(context, actor,context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost])
 				.Apply();
 		}
 

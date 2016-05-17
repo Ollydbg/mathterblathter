@@ -203,7 +203,7 @@ namespace Client.Game.Data
 
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeee";
-				hitTimeline.Lookup['e'] = new TimelineData.Point("enemeyTestHit_prefab", AttachPoint.WeaponSlot);
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
 
 				ret.Timelines.Add(fireTimeline);
 				ret.Timelines.Add(hitTimeline);
@@ -268,7 +268,16 @@ namespace Client.Game.Data
 				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/smith_wesson", AttachPoint.Muzzle);
 
+				var hitTimeline = new TimelineData();
+				hitTimeline.AsciiMap += "eeeeeee     ";
+				hitTimeline.AsciiMap += "sssssss     ";
+				hitTimeline.Duration = .5f;
+
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
+
+
 				ret.Timelines.Add(fireTimeline);
+				ret.Timelines.Add(hitTimeline);
 				return ret;
 			}
 		}
@@ -289,7 +298,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.WeaponEnergyCost.Id, 14
+					ActorAttributes.WeaponAnxietyCost.Id, 14
 				));
 
 				ret.attributeData.Add( new GameData.AttributeData(
@@ -540,6 +549,14 @@ namespace Client.Game.Data
 
 				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/laser_discharge", AttachPoint.Muzzle);
+
+				var hitTimeline = new TimelineData();
+				hitTimeline.AsciiMap += "eeeeeee     ";
+				hitTimeline.AsciiMap += "sssssss     ";
+				hitTimeline.Duration = .5f;
+
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
+				ret.Timelines.Add(hitTimeline);
 				ret.Timelines.Add(fireTimeline);
 				return ret;
 			}
@@ -567,11 +584,11 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData ENERGY_REGEN_BUFF {
+		public static AbilityData ANXIETY_REGEN_BUFF {
 			get {
 				var ret = new AbilityData();
 				ret.Id = 29;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergyRegenBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyRegenBuff);
 				ret.AbilityType = AbilityType.Buff;
 			
 				return ret;
@@ -607,6 +624,14 @@ namespace Client.Game.Data
 				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/smith_wesson", AttachPoint.Muzzle);
 
+
+				var hitTimeline = new TimelineData();
+				hitTimeline.AsciiMap += "eeeeeee     ";
+				hitTimeline.AsciiMap += "sssssss     ";
+				hitTimeline.Duration = .5f;
+
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
+				ret.Timelines.Add(hitTimeline);
 				ret.Timelines.Add(fireTimeline);
 
 				ret.AbilityType = AbilityType.Instanced;
@@ -621,9 +646,9 @@ namespace Client.Game.Data
 				ret.Id = 31;
 				ret.name = "EnergyHeal";
 				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Energy.Id, 100
+					ActorAttributes.Anxiety.Id, 100
 				));
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergyHealPlayer);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyHealPlayer);
 				return ret;
 			}
 		}

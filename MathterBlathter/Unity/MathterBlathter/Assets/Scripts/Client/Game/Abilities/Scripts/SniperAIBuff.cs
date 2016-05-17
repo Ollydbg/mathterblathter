@@ -17,11 +17,12 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			Brain = new Brain(context.source);
-			var seekToAction = new Client.Game.AI.Actions.SeekToPlayerLOS ();
-			var fireAtAction = new Client.Game.AI.Actions.WaitThenFire ();
-			seekToAction.Next = fireAtAction;
-			fireAtAction.Next = seekToAction;
-			Brain.CurrentAction = seekToAction;
+			var aim = new Client.Game.AI.Actions.AimScanForPlayer();
+			var waitThenFire = new Client.Game.AI.Actions.WaitThenFire ();
+
+			aim.Next = waitThenFire;
+			waitThenFire.Next = aim;
+			Brain.CurrentAction = aim;
 		}
 
 		public override void Update (float dt)

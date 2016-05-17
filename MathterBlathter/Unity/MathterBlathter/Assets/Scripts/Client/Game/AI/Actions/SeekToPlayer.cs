@@ -22,7 +22,7 @@ namespace Client.Game.AI.Actions
 			var target = PlayerMid;
 
 			var distanceVec = target - actor.transform.position;
-
+			
 			if (ActionUtil.InDetectionRange (distanceVec, actor)) {
 
 				FaceTarget(actor, target);

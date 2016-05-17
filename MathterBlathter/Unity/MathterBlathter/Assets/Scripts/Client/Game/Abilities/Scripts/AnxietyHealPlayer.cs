@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class EnergyHealPlayer : BuffBase
+	public class AnxietyHealPlayer : BuffBase
 	{
-		public EnergyHealPlayer ()
+		public AnxietyHealPlayer ()
 		{
 		}
 
@@ -15,7 +15,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			context.targetActor.Attributes[ActorAttributes.Energy] += this.Attributes[ActorAttributes.Energy];
+			context.targetActor.Attributes[ActorAttributes.Anxiety] -= this.Attributes[ActorAttributes.Anxiety];
 
 		}
 
