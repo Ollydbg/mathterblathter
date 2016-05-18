@@ -196,6 +196,7 @@
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Shop\ShopItem.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Shop\ShopUI.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\ZoneTitle.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Titles\TitleScreen.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\ActorUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\VectorUtils.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
