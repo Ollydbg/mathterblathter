@@ -12,6 +12,8 @@ namespace Client.Game.Abilities.Scripts
 		{
 		}
 
+
+		private LineRenderer lineRenderer;
 		ProjectileActor projectile;
 		private bool attacking;
 		
@@ -19,12 +21,16 @@ namespace Client.Game.Abilities.Scripts
 		{
 			SourceWeapon.OnAttackStart += SourceWeapon_OnAttackStart;
 			SourceWeapon.OnAttackEnd += SourceWeapon_OnAttackEnd;
+
+
 		}
 
 
 		void SourceWeapon_OnAttackEnd ()
 		{
 			attacking = false;
+			projectile.Game.ActorManager.RemoveActor(projectile);
+			projectile = null;
 		}
 
 		void SourceWeapon_OnAttackStart (AbilityContext ctx)
@@ -33,8 +39,10 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 
 			if(projectile == null) {
-				projectile = FireProjectile(MockActorData.ROCKET_PROJECTILE, Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
+				projectile = FireProjectile(MockActorData.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
+				this.lineRenderer = projectile.GameObject.GetComponent<LineRenderer>();
 				projectile.OnDestroyed += Projectile_OnDestroyed;
+
 			}
 		}
 
@@ -46,7 +54,13 @@ namespace Client.Game.Abilities.Scripts
 		public override void Update (float dt)
 		{
 			if(attacking && projectile != null) {
-				projectile.transform.position = BeamEndPosition(context);
+				var endPosition = BeamEndPosition(context);
+				projectile.transform.position = endPosition;
+
+				
+				var startPosition = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
+				Debug.Log(startPosition.z + " " + endPosition.z);
+				lineRenderer.SetPositions(new Vector3[]{startPosition, endPosition});
 			}
 		}
 

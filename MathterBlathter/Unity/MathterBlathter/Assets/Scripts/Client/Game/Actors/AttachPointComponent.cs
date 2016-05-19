@@ -14,7 +14,8 @@ namespace Client.Game.Actors
 			foreach( var comp in components ) {
 
 				if(comp.Type == point) {
-					return comp.gameObject.transform.position;
+					var position = comp.gameObject.transform.position;
+					return new Vector3(position.x, position.y);
 				}
 
 			}

@@ -616,6 +616,16 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData BEAM_PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 22;
+				ret.ResourcePath = "Projectiles/BeamProjectile_prefab";
+				ret.ActorType = ActorType.Projectile;
+				return ret;
+			}
+		}
+
 	}
 }
 

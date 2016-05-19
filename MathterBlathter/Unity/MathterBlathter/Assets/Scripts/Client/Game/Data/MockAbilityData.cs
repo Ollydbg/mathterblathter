@@ -381,6 +381,7 @@ namespace Client.Game.Data
 				ret.Id = 17;
 				ret.name = "wave gun";
 				ret.AbilityType = AbilityType.Buff;
+				ret.spawnableDataId = MockActorData.BEAM_PROJECTILE.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ContinuousBeam);
 				return ret;
 			}
