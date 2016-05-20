@@ -15,6 +15,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
+			context.source.Game.RoomManager.OnCurrentRoomUnlocked += OnRoomUnlocked;
 		}
 
 		private float refreshRate = 1f;
@@ -28,6 +29,13 @@ namespace Client.Game.Abilities.Scripts
 			timeUntilBonus = this.Attributes[AbilityAttributes.CalmdownBoostDelay];
 			regenScalar = 1f;
 			givingBoost = false;
+
+		}
+
+		void OnRoomUnlocked (Client.Game.Map.Room room)
+		{
+			context.source.Attributes[ActorAttributes.Anxiety] = 0;
+			PlayTimeline(context.data.Timelines[0], context.source);
 		}
 
 		private void tickBoost(float dt) {

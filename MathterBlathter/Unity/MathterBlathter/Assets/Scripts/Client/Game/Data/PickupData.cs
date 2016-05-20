@@ -239,6 +239,25 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static PickupData SAFETY_BLANKET {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 10;
+				ret.ActorType = ActorType.Pickup;
+				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.LOWER_ANXIETY_DAMAGE_BUFF.Id,
+					0
+				));
+
+				ret.Name = "Safety Blanket";
+				ret.Availability = Availability.InShop;
+				return ret;
+
+			}
+		}
+
 	}
 }
 

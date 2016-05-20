@@ -15,7 +15,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var target = context.source.Game.PossessedActor;
 
-			target.Attributes[ActorAttributes.Anxiety] -= this.Attributes[AbilityAttributes.Damage];
+			target.Attributes[ActorAttributes.Anxiety] += this.Attributes[AbilityAttributes.Damage];
 			PlayTimeline(context.data.Timelines[0], target);
 			PlayTimeline(context.data.Timelines[0], context.source);
 		}

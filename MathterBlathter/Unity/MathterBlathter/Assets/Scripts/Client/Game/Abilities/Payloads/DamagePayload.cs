@@ -11,15 +11,7 @@ namespace Client.Game.Abilities.Payloads
 		public Actor Target;
 		public DamagePayload (AbilityContext ctx, Actor target, int damage) : base(ctx)
 		{
-			float weaponBaseDamage = 0f;
-			if(ctx.sourceWeapon != null) {
-				weaponBaseDamage = (float)ctx.sourceWeapon.Attributes[ActorAttributes.BaseDamage];
-			}
-
-
-			Damage = (float)damage + weaponBaseDamage + (float)ctx.source.Attributes[ActorAttributes.BaseDamage];
-			Damage *= ctx.source.Attributes[ActorAttributes.DamageScalar];
-
+			Damage = (float)damage;
 			Target = target;
 
 		}
@@ -32,6 +24,9 @@ namespace Client.Game.Abilities.Payloads
 		}
 
 		public override void Apply() {
+
+			Damage *= Context.source.Attributes[ActorAttributes.DamageScalar];
+
 			if (AbilityManager.NotifyPayloadSender(this, Context.source))
 				return;
 

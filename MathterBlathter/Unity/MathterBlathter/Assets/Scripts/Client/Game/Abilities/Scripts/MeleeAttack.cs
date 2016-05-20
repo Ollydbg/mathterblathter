@@ -61,7 +61,7 @@ namespace Client.Game.Abilities.Scripts
 
 			var inRange = AbilityUtils.CollideSphere (point, context, Attributes[AbilityAttributes.MeleeRange], FilterList.QuickFilters);
 			foreach (var actor in inRange) {
-				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
+				new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 			}
 
 		}

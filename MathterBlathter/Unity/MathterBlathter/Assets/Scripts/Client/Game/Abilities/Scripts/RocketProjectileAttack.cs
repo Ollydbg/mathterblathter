@@ -38,7 +38,7 @@ namespace Client.Game.Abilities.Scripts
 			currentProjectile.Game.ActorManager.RemoveActor(currentProjectile);
 			var inRange = AbilityUtils.CollideSphere(currentProjectile.transform.position, context, this.Attributes[AbilityAttributes.SplashRadius], new FilterList(Filters.Hittable));
 			foreach( Actor tgt in inRange) {
-				new DamagePayload (context, tgt, Attributes[AbilityAttributes.Damage]).Apply();
+				new WeaponDamagePayload (context, tgt, Attributes[AbilityAttributes.Damage]).Apply();
 			}
 		}
 

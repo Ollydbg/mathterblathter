@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -1111,6 +1111,60 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['7'] = MockActorData.GROUNDED_RANGED_ENEMY;
 
 				finalize(ret);
+				return ret;
+			}
+		}
+
+
+		public static RoomData Room_17 {
+			get {
+				var ret = new RoomData();
+				ret.Id = 119;
+				ret.SortOrder = 3;
+				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d cccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "                                                                ";
+				ret.AsciiMap += "d                 L                                            d";
+				ret.AsciiMap += "                                                                ";
+				ret.AsciiMap += "wP                                                    1       Pw";
+				ret.AsciiMap += "wcc                                                          ccw";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPpppppppppppppppPPPPPPPPPPPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                     1        w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w     1                                                        w";
+				ret.AsciiMap += "w             2                                                w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPPpppppppp                             w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPP                           L         w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPP                                     w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPP                                     w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPP              PPPPPPPPPPP            w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPP              PPPPPPPPPPP            w";
+				ret.AsciiMap += "w          PPPPPPPPPPPPPPP          ppppPPPPPPPPPPP            w";
+				ret.AsciiMap += "w     L                                 PPPPPPPPPPP            w";
+				ret.AsciiMap += "w                                       PPPPPPPPPPP            w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w            2                                                 w";
+				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwPPPP        w";
+				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww            w";
+				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww            w";
+				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww            w";
+				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww            w";
+				ret.AsciiMap += "w                                                          PPPPw";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "      L                                                         ";
+				ret.AsciiMap += "d                                                     1        d";
+				ret.AsciiMap += "                                                                ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffff d ffffffffffffffffffffffffffffff";
+
+
+				ret.AsciiSpawnLookup['1'] = MockActorData.ENERGY_SAPPER_ENEMY;
+				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
+
+				finalize(ret);
+
 				return ret;
 			}
 		}

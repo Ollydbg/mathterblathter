@@ -52,7 +52,7 @@ namespace Client.Game.Abilities.Scripts
 					Actor hitActor;
 					var result = currentProjectile.TestTrigger(hit.collider, out hitActor);
 					if(result == TriggerTestResult.Ok) {
-						new DamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
+						new WeaponDamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
 
 						PlayTimeline(context.data.Timelines[1], hitActor);
 

@@ -19,6 +19,7 @@ namespace Client.Game.Managers
 
 		public delegate void RoomEntered(Actor actor, Room room);
 		public event RoomEntered OnRoomEntered;
+		public event Room.OnUnlock OnCurrentRoomUnlocked;
 
 		public RoomManager ()
 		{
@@ -29,6 +30,8 @@ namespace Client.Game.Managers
 		{
 			Rooms = rooms;
 		}
+
+
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
@@ -88,6 +91,9 @@ namespace Client.Game.Managers
 
 			if(OnRoomEntered != null) 
 				OnRoomEntered(actor, room);
+
+			
+			room.UnlockEvent += OnCurrentRoomUnlocked;
 
 		}
 

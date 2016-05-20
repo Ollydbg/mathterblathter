@@ -42,7 +42,7 @@ namespace Client.Game.Abilities.Scripts
 				PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 
 				projectile.OnHit = (actor) => {
-					new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
+					new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 					context.source.Game.ActorManager.RemoveActor(projectile);
 				};
 			}

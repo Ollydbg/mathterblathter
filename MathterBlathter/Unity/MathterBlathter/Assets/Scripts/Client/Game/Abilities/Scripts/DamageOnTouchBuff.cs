@@ -43,7 +43,7 @@ namespace Client.Game.Abilities.Scripts
 
 		void DamageTarget (Actor obj, float damage)
 		{
-			new DamagePayload(this.context, obj, (int)damage).Apply();
+			new WeaponDamagePayload(this.context, obj, (int)damage).Apply();
 		}
 
 		void RemoveTarget(Actor actor) {

@@ -577,8 +577,9 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Speed.Id,
-					.4f
+					.1f
 				));
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
 				));

@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\BuffBase.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\AnxietyCostPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\AnxietyDamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DropPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\HealPayload.cs" />
@@ -69,9 +70,11 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillRewardPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\Payload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\PlayerKilledPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponDamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AimRay.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyDamageReductionBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyHealPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyRegenBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ContinuousBeam.cs" />

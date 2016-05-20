@@ -31,12 +31,11 @@ namespace Client.Game.Abilities.Payloads
 
 			if(newTotal > max) {
 				var overage = newTotal - max;
-				new DamagePayload(Context, Target, overage).Apply();
+				new AnxietyDamagePayload(Context, Target, overage).Apply();
 				newTotal = max;
 			}
 
 			Target.Attributes[ActorAttributes.Anxiety] = newTotal;
-
 
 		}
 

@@ -592,6 +592,12 @@ namespace Client.Game.Data
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyRegenBuff);
 				ret.AbilityType = AbilityType.Buff;
 			
+				var unlockTimeline = new TimelineData();
+				unlockTimeline.AsciiMap += "sssss    ";
+				unlockTimeline.Lookup['s'] = new TimelineData.Point("SFX/room_cleared", AttachPoint.WeaponSlot);
+
+				ret.Timelines.Add(unlockTimeline);
+
 				return ret;
 			}
 		}
@@ -680,6 +686,21 @@ namespace Client.Game.Data
 				sapTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/rocketExplosion_prefab", AttachPoint.WeaponSlot);
 				ret.Timelines.Add(sapTimeline);
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergySap);
+
+				return ret;
+			}
+		}
+
+		public static AbilityData LOWER_ANXIETY_DAMAGE_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 34;
+				ret.AbilityType = AbilityType.Buff;
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.AnxietyDamageScalar.Id, .5f
+				));
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyDamageReductionBuff);
 
 				return ret;
 			}

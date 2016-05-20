@@ -23,7 +23,7 @@ namespace Client.Game.Abilities.Scripts
 			var projectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			projectile.OnHit = (actor) => {
-				new DamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
+				new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
 			};
 

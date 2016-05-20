@@ -29,6 +29,8 @@ namespace Client.Game.Map
 
 
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
+		public delegate void OnUnlock(Room room);
+		public event OnUnlock UnlockEvent;
 
 		public List<Light> Lights;
 
@@ -164,12 +166,19 @@ namespace Client.Game.Map
 		}
 
 
+		public void UnlockDoors() {
+			Doors.ForEach(p => p.Open()); 
+			if(UnlockEvent != null) {
+				UnlockEvent(this);
+			}
+		}
+
 		public void Update(float dt) {
 			if(Locked) {
 				bool canUnlock = RoomObjectives.Count == 0;//roomObjectives.All(p => !Game.Instance.ActorManager.TryFromId(p, out tmp));
 
 				if(canUnlock) {
-					Doors.ForEach(p => p.Open()); 
+					UnlockDoors();
 				}
 			}
 

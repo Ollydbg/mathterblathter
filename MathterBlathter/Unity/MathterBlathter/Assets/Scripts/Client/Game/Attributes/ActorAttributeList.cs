@@ -64,6 +64,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI ShopkeeperInventory = new GameAttributeI(41, -1, "inventory", 0, int.MaxValue);
 		public static readonly GameAttributeF DamageScalar = new GameAttributeF(42, 1, "damage scalar", float.MinValue, float.MinValue);
 		public static readonly GameAttributeF AIAttackDelay = new GameAttributeF(43, 1, "waitThenAttackDelay", 0, float.MaxValue); 
+		public static readonly GameAttributeF AnxietyDamageScalar = new GameAttributeF(44, 1f, "anxietyDamageScalar", 0, float.MaxValue);
 	}
 }
 
