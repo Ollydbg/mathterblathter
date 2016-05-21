@@ -1170,6 +1170,54 @@ namespace Client.Game.Data
 		}
 
 
+		public static RoomData Room_18 {
+			get {
+				var ret = new RoomData();
+				ret.Id = 120;
+				ret.SortOrder = 2;
+				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d cccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "                                                                ";
+				ret.AsciiMap += "d                                                              d";
+				ret.AsciiMap += "                                                                ";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP                         cw";
+				ret.AsciiMap += "w                                                            PPw";
+				ret.AsciiMap += "w                                                      ccccccccw";
+				ret.AsciiMap += "w                                                    PPPPPPPPPPw";
+				ret.AsciiMap += "w                                                  ccccccccccccw";
+				ret.AsciiMap += "w                                        PPPPPPPPPPPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w          L                                                   w";
+				ret.AsciiMap += "w                                               L              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPPwwwwwwwwwwwwwwww                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                      ccccccccw";
+				ret.AsciiMap += "w                                                    PPPPPPPPPPw";
+				ret.AsciiMap += "w                                                  ccccccccccccw";
+				ret.AsciiMap += "w                                                PPPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                    L                         w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPppppppppppPPPPPPPPPPPPPPP          w";
+				ret.AsciiMap += "       wPPPPPPPPPPPPPPPPPPPP          PPPPPPPPPPPPPPPw          ";
+				ret.AsciiMap += "d     PwPPPPPPPPPPPPPPPPPPPP          PPPPPPPPPPPPPPPwP        d";
+				ret.AsciiMap += "     wPwPPPPPPPPPPPPPPPPPPPP          PPPPPPPPPPPPPPPwPw        ";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffff d ffffffffffffffffffffffffffffff";
+
+				finalize(ret);
+				return ret;
+			}
+		}
+
 		static void finalize(RoomData room) {
 			room.Width = room.AsciiMap.Width;
 			room.Height = room.AsciiMap.Height;
