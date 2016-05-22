@@ -386,6 +386,32 @@ namespace Client.Game.Data
 		}
 
 
+		public static CharacterData SWAP_RIFLE_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1015;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Swap Rifle";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.SWAP_POSITIONS.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.AnxietyCost.Id, 10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Inaccuracy.Id, 0f
+				));
+
+				return ret;
+			}
+		}
+
 
 	}
 }

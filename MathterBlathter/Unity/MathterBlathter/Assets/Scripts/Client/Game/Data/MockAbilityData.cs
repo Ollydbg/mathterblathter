@@ -705,6 +705,37 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static AbilityData SWAP_POSITIONS {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 35;
+
+				ret.spawnableDataId = MockActorData.RAIL_PROJECTILE.Id;
+				ret.AbilityType = AbilityType.Instanced;
+
+				var fireTimeline = new TimelineData();
+
+				fireTimeline.AsciiMap += "sssssss     ";
+				fireTimeline.Duration = .5f;
+
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/hotRails", AttachPoint.Muzzle);
+
+				var hitTimeline = new TimelineData();
+				hitTimeline.AsciiMap += "eeee";
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
+
+				ret.Timelines.Add(fireTimeline);
+				ret.Timelines.Add(hitTimeline);
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 200f
+				));
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SwapActorPositions);
+				return ret;
+			}
+		}
 	}
 }
 

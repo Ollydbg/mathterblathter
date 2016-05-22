@@ -104,6 +104,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SniperAIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SpawnEnemy.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StatUp.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SwapActorPositions.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Timelines\TimelineRunner.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\AbilityUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\EffectTTL.cs" />

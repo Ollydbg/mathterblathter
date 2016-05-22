@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "ccccccccccccccccccccccccccccccc d ccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "d                                                               d";
@@ -103,7 +103,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "wPPPP                                                           w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                            2      w";
                 ret.AsciiMap += "w                                                       ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
@@ -115,8 +115,8 @@ namespace Client.Game.Data
                 ret.AsciiMap += "                                    C       1      1      11 111 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				//ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
-				ret.AsciiSpawnLookup['C'] = MockActorData.WAVE_GUN;
+				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
+				ret.AsciiSpawnLookup['C'] = MockActorData.SWAP_RIFLE_WEAPON;
 				
 				finalize(ret);
 
