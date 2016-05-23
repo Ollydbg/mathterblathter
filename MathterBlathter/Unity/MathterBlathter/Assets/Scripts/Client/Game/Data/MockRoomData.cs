@@ -112,11 +112,11 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "                       PPPP                                      ";
                 ret.AsciiMap += "d                                                               d";
-                ret.AsciiMap += "                                    C       1      1      11 111 ";
+                ret.AsciiMap += "                              C             1      1      11 111 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
-				ret.AsciiSpawnLookup['C'] = MockActorData.SWAP_RIFLE_WEAPON;
+				ret.AsciiSpawnLookup['C'] = MockActorData.MATTE_BLACK_REVOLVER;
 				
 				finalize(ret);
 

@@ -93,7 +93,7 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, .8f
 				));
 
-				ret.Availability = Availability.None;
+				ret.Availability = Availability.Droppable;
 
 				return ret;
 			}
@@ -406,6 +406,38 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0f
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData MATTE_BLACK_REVOLVER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1016;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Black Ulver";
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.SHORT_PROJECTILE.Id, 0
+				));
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id,
+					1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, .8f
 				));
 
 				return ret;

@@ -736,6 +736,50 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static AbilityData SHORT_PROJECTILE {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 36;
+
+				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
+				ret.AbilityType = AbilityType.Instanced;
+
+				var fireTimeline = new TimelineData();
+
+				fireTimeline.AsciiMap += "sssssss     ";
+				fireTimeline.Duration = .5f;
+
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/shotgun", AttachPoint.Muzzle);
+
+				var hitTimeline = new TimelineData();
+				hitTimeline.AsciiMap += "eeee";
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
+
+				ret.Timelines.Add(fireTimeline);
+				ret.Timelines.Add(hitTimeline);
+
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 30
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 60f
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, -90f
+				));
+
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
+				return ret;
+			}
+		}
 	}
 }
 
