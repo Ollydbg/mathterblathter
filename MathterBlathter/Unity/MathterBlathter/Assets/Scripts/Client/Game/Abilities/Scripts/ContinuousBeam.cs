@@ -3,6 +3,8 @@ using UnityEngine;
 using Client.Game.Data;
 using Client.Game.Actors;
 using Client.Game.Enums;
+using Client.Game.Abilities.Payloads;
+using Client.Game.Attributes;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -51,16 +53,40 @@ namespace Client.Game.Abilities.Scripts
 			projectile = null;
 		}
 
+
+		float accum = 0f;
+		float costAccum = 0f;
 		public override void Update (float dt)
 		{
+			
 			if(attacking && projectile != null) {
+				accum += dt;
 				var endPosition = BeamEndPosition(context);
 				projectile.transform.position = endPosition;
 
-				
+
+
 				var startPosition = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
-				Debug.Log(startPosition.z + " " + endPosition.z);
-				lineRenderer.SetPositions(new Vector3[]{startPosition, endPosition});
+				var midPoint = startPosition + (endPosition - startPosition)/2;
+
+				var wiggle = 60f;
+				var wiggleAmt = (endPosition - startPosition).magnitude / 20f;
+				var wiggleVector = wiggleAmt * new Vector3((float)Math.Cos(accum * wiggle), (float)Math.Sin(accum * wiggle));
+				midPoint += wiggleVector;
+
+				lineRenderer.SetVertexCount(3);
+				lineRenderer.SetPositions(new Vector3[]{startPosition, midPoint, endPosition});
+
+
+				costAccum += dt;
+				if(costAccum > .1f) {
+					costAccum -= .1f;
+					new AnxietyCostPayload(context, context.source, (int)(context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost] / .1f))
+						.Apply();
+						
+				}
+
+
 			}
 		}
 

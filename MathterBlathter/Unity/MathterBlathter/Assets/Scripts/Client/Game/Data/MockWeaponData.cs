@@ -163,7 +163,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData WAVE_GUN {
+		public static CharacterData WAVE_GUN_WEAPON {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1006;
@@ -174,6 +174,10 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.CONTINUOUS_BEAM.Id,
 					0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponAnxietyCost.Id, 1
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(

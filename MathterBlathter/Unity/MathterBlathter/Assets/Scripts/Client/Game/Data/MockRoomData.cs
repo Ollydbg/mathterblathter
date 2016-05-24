@@ -116,7 +116,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
-				ret.AsciiSpawnLookup['C'] = MockActorData.MATTE_BLACK_REVOLVER;
+				ret.AsciiSpawnLookup['C'] = MockActorData.WAVE_GUN_WEAPON;
 				
 				finalize(ret);
 
