@@ -88,6 +88,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ItemBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpDamage.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LaunchPadBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateBuffDrop.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateWeaponDrop.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MeleeAttack.cs" />

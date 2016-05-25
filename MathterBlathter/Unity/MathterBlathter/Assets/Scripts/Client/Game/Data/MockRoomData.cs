@@ -113,9 +113,12 @@ namespace Client.Game.Data
                 ret.AsciiMap += "                       PPPP                                      ";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "                              C             1      1      11 111 ";
-                ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
+                ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffUffsssssffffffffffw";
 					
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
+				ret.AsciiSpawnLookup['U'] = MockActorData.LAUNCH_PAD;
+				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
+
 				ret.AsciiSpawnLookup['C'] = MockActorData.WAVE_GUN_WEAPON;
 				
 				finalize(ret);

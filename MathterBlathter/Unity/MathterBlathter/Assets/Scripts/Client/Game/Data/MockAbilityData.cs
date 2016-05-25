@@ -780,6 +780,16 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static AbilityData LAUNCH_PAD_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 37;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LaunchPadBuff);
+				ret.AbilityType = AbilityType.Buff;
+				return ret;
+			}
+		}
 	}
 }
 

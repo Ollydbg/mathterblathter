@@ -26,6 +26,9 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void KnockDirection (UnityEngine.Vector3 direction, float force)
+		{
+		}
 
 		public bool Ducking {
 			get; set;

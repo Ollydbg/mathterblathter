@@ -145,6 +145,12 @@ namespace Client.Game.Actors.Controllers
 			}
 		}
 
+		public void KnockDirection (Vector3 direction, float force)
+		{
+			if(direction == Vector3.up) {
+				movementAccumulator += (direction * force);
+			}
+		}
 
 		private void tryDuckJump() {
 			RaycastHit hit;

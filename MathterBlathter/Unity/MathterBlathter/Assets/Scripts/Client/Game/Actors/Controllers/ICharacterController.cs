@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Client.Game.Actors.Controllers
 {
@@ -9,6 +10,7 @@ namespace Client.Game.Actors.Controllers
 		void Jump();
 		void StopJumping();
 		void MoveRight(float amt);
+		void KnockDirection(Vector3 direction, float force);
 
 		bool Ducking {
 			get; set;
