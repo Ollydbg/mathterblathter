@@ -57,6 +57,10 @@ namespace Client
 			EffectTTL.AddToObject(go, 2f);
 			return go;
 		}
+		
+		public void KnockBack(Character actor, Vector3 direction) {
+			new KnockbackPayload(context, actor, direction).Apply();
+		}
 
 		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
 			

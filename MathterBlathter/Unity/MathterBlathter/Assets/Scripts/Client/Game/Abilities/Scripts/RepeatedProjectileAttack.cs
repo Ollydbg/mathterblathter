@@ -22,7 +22,6 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-
 			maxRepeats = this.Attributes[AbilityAttributes.RepeatAmount];
 			repeatDelay = this.Attributes[AbilityAttributes.RepeatDelay];
 
@@ -47,6 +46,8 @@ namespace Client.Game.Abilities.Scripts
 				new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
 				PlayTimeline(context.data.Timelines[1], actor);
+				
+				KnockBack(actor as Actors.Character, (actor.transform.position - projectile.transform.position).normalized);
 
 			};
 			projectile.OnGeometryHit = () => {

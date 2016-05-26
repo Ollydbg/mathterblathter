@@ -46,6 +46,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI AnxietyCost = new GameAttributeI(OFFSET + 17, 10, "energy cost", 0, int.MaxValue); 
 		public static readonly GameAttributeF AnxietyRegenScalar = new GameAttributeF(OFFSET + 18, 2f, "energyRegenScalar", 0, float.MaxValue);
 		public static readonly GameAttributeF CalmdownBoostDelay = new GameAttributeF(OFFSET + 19, 4f, "regenBoostDelay", 0, float.MaxValue);
+		
 	}
 }
 

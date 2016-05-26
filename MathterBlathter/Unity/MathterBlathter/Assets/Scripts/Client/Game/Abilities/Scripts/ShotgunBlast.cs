@@ -28,7 +28,6 @@ namespace Client.Game.Abilities.Scripts
 			float spreadPer = totalSpread / projectileCount;
 			for( int i = 0; i<projectileCount; i++ ) {
 
-
 				int pseudoIndex = -1* (int)Mathf.Floor(projectileCount*.5f) + i;
 
 				var spreadDegrees = pseudoIndex * spreadPer;
@@ -44,6 +43,7 @@ namespace Client.Game.Abilities.Scripts
 				projectile.OnHit = (actor) => {
 					new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 					context.source.Game.ActorManager.RemoveActor(projectile);
+					this.KnockBack((Character)actor, (actor.transform.position - projectile.transform.position).normalized);
 				};
 			}
 		}

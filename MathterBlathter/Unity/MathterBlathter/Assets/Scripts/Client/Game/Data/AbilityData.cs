@@ -12,15 +12,19 @@ namespace Client.Game.Data
 		public string animation;
 		public Type executionScript;
 		public int spawnableDataId;
-		public AbilityType AbilityType = AbilityType.Instanced;
 
 		public List<TimelineData> Timelines = new List<TimelineData>();
+
+		public Boolean IsBuff{
+			get {
+				return typeof(Abilities.BuffBase).IsAssignableFrom(executionScript);
+			}	
+		
+		}
 
 		public AbilityData ()
 		{
 		}
-
-
 
 	}
 

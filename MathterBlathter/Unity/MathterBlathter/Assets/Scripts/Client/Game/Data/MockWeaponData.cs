@@ -29,6 +29,9 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
+				));
 				return ret;
 			}
 		}
@@ -56,6 +59,9 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 8
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
 				));
 
 
@@ -91,6 +97,10 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, .8f
+				));
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
 				));
 
 				ret.Availability = Availability.Droppable;
@@ -192,6 +202,10 @@ namespace Client.Game.Data
 					ActorAttributes.AttackSpeed.Id, 0f
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .1f
+				));
+				
 				return ret;
 			}
 		}
@@ -231,6 +245,10 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponAnxietyCost.Id, 1
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .01f
+				));
+
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 100;
 
@@ -252,7 +270,9 @@ namespace Client.Game.Data
 					MockAbilityData.SHIELD_BLOCK.Id,
 					0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 2f
+				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0
 				));
@@ -295,7 +315,10 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1.3f
 				));
-
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
+				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, .1f
@@ -354,6 +377,10 @@ namespace Client.Game.Data
 					AbilityAttributes.AnxietyCost.Id, 0
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
+				));
+					
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id, 1
@@ -433,7 +460,11 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
-
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 1.2f
+				));
+				
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
 
 				ret.attributeData.Add(new GameData.AttributeData(

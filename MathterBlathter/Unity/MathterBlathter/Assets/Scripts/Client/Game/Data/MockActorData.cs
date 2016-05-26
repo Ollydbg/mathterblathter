@@ -407,12 +407,12 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					1000
+					200
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Health.Id,
-					100
+					200
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -455,12 +455,12 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					100
+					200
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Health.Id,
-					1000
+					200
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -498,6 +498,12 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.AIM_RAY_BUFF.Id,
 					1
+				));
+				
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.STATIONARY_BUFF.Id,
+					2
 				));
 
 				return ret;

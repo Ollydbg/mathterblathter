@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\HealPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KillRewardPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KnockbackPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\Payload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\PlayerKilledPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponDamagePayload.cs" />
@@ -105,6 +106,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SniperAIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SpawnEnemy.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StatUp.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StationaryBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SwapActorPositions.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Timelines\TimelineRunner.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\AbilityUtils.cs" />
@@ -159,7 +161,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomTemplates.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\TrapData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\AbilitySlots.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Enums\AbilityType.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\ActorState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\AttachPoint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\DoorRoomSide.cs" />

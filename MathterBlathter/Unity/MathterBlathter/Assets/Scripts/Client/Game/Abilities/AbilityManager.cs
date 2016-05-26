@@ -97,7 +97,7 @@ namespace Client.Game.Abilities
 			}
 				
 			//look for pre-existing instance
-			if(ctx.data.AbilityType == AbilityType.Buff) {
+			if(ctx.data.IsBuff) {
 				AbilityBase ability;
 				if(abilities.TryGetValue(ctx, out ability)) {
 					var buff = ability as BuffBase;
@@ -127,13 +127,13 @@ namespace Client.Game.Abilities
 			
 			foreach( int dataId in ActorUtils.IterateAttributes(actor, ActorAttributes.Abilities) ) {
 				var data = MockAbilityData.FromId(dataId);
-				if(data.AbilityType == AbilityType.Buff) {
-
+				if(data.IsBuff) {
 					var context = new AbilityContext(actor, actor, data);
 					ActivateAbility(context);
 				}
 			}
 		}
+				
 
 		public void RemoveActor(Actor actor) {
 			deferredRemoves.Enqueue(new RemovePair(actor, null));
@@ -178,7 +178,7 @@ namespace Client.Game.Abilities
 		private int Id;
 
 		public InstanceId(AbilityContext ctx) {
-			if(ctx.data.AbilityType == AbilityType.Buff) {
+			if(ctx.data.IsBuff) {
 				Id = ctx.data.Id << 16 | buffOffset;
 			} else {
 				Id = ctx.data.Id << 16 | ++lastId;

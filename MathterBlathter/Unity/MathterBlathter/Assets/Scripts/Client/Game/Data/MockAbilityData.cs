@@ -44,8 +44,6 @@ namespace Client.Game.Data
 				));
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
-
-				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}
@@ -68,7 +66,6 @@ namespace Client.Game.Data
 					AbilityAttributes.MeleeRange.Id, 2f
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MeleeAttack);
-				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}
@@ -88,7 +85,6 @@ namespace Client.Game.Data
 				));
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
-				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 		}
@@ -100,7 +96,6 @@ namespace Client.Game.Data
 				ret.name = "Player Death Ability";
 				ret.animation = CharacterAnimState.DEATH;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerDeathBuff);
-				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
 		}
@@ -140,9 +135,7 @@ namespace Client.Game.Data
 				ret.Timelines.Add(timeline);
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
-				ret.AbilityType = AbilityType.Instanced;
-
-
+				
 				return ret;
 			}
 		}
@@ -155,8 +148,7 @@ namespace Client.Game.Data
 				ret.Id = 5;
 				ret.name = "Damage On Touch Buff";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DamageOnTouchBuff);
-				ret.AbilityType = AbilityType.Buff;
-			
+				
 				return ret;
 			}
 		}
@@ -167,7 +159,6 @@ namespace Client.Game.Data
 				ret.Id = 6;
 				ret.name = "AIBUff";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AIBuff);
-				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
 		}
@@ -178,7 +169,6 @@ namespace Client.Game.Data
 				ret.Id = 7;
 				ret.name = "FIXTURE BUFF";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FiringFixtureBuff);
-				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
 		}
@@ -192,8 +182,7 @@ namespace Client.Game.Data
 				
 				ret.spawnableDataId = MockActorData.RAIL_PROJECTILE.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RailGunAttack);
-				ret.AbilityType = AbilityType.Instanced;
-
+				
 				var fireTimeline = new TimelineData();
 
 				fireTimeline.AsciiMap += "sssssss     ";
@@ -221,8 +210,7 @@ namespace Client.Game.Data
 				ret.Id = 9;
 				ret.name = "LevelAppropriateWeaponBuff";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LevelAppropriateWeaponDrop);
-				ret.AbilityType = AbilityType.Buff;
-
+				
 				return ret;
 
 			}
@@ -258,8 +246,7 @@ namespace Client.Game.Data
 				));
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
-				ret.AbilityType = AbilityType.Instanced;
-
+				
 				var fireTimeline = new TimelineData();
 				fireTimeline.AsciiMap += "eeeeeee     ";
 				fireTimeline.AsciiMap += "sssssss     ";
@@ -336,7 +323,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 13;
 				ret.name = "HairTrigger";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FireOnFall);
 				return ret;
 			}
@@ -357,7 +343,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 15;
 				ret.name = "SniperAIBuff";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SniperAIBuff);
 				return ret;
 			}
@@ -368,7 +353,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 16;
 				ret.name = "aiming ray";
-				ret.AbilityType = AbilityType.Buff;
 				ret.spawnableDataId = MockActorData.AIM_RAY.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AimRay);
 				return ret;
@@ -380,7 +364,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 17;
 				ret.name = "wave gun";
-				ret.AbilityType = AbilityType.Buff;
 				ret.spawnableDataId = MockActorData.BEAM_PROJECTILE.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ContinuousBeam);
 				return ret;
@@ -392,7 +375,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 18;
 				ret.name = "Invulnerable after hit";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.InvulnerableAfterHitBuff);
 				
 				return ret;
@@ -403,7 +385,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 19;
 				ret.name = "Invulnerability";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.InvulnerabilityBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, 1f
@@ -417,7 +398,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 20;
 				ret.name = "Move Boost Temp";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MoveBoostTempBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, 10f
@@ -436,7 +416,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 21;
 				ret.name = "JumpBuff";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, float.MaxValue
@@ -457,7 +436,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 22;
 				ret.name = "FallDamage";
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpDamage);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, float.MaxValue
@@ -479,7 +457,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 23;
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DropQualityBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, float.MaxValue
@@ -493,7 +470,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 24;
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LevelAppropriateBuffDrop);
 
 				return ret;
@@ -504,7 +480,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 25;
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShieldBlock);
 				ret.spawnableDataId = MockActorData.SHIELD_BLOCK_PROJECTILE.Id;
 				return ret;
@@ -541,8 +516,7 @@ namespace Client.Game.Data
 
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RepeatedProjectileAttack);
-				ret.AbilityType = AbilityType.Instanced;
-
+				
 				var fireTimeline = new TimelineData();
 				fireTimeline.AsciiMap += "eeeeeee     ";
 				fireTimeline.AsciiMap += "sssssss     ";
@@ -569,8 +543,6 @@ namespace Client.Game.Data
 				ret.Id = 27;
 				ret.spawnableDataId = MockActorData.FLY_BOT.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SpawnEnemy);
-				ret.AbilityType = AbilityType.Instanced;
-
 				return ret;
 			}
 		}
@@ -580,7 +552,6 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 28;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SentryAIBuff);
-				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
 		}
@@ -590,8 +561,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 29;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyRegenBuff);
-				ret.AbilityType = AbilityType.Buff;
-			
+				
 				var unlockTimeline = new TimelineData();
 				unlockTimeline.AsciiMap += "sssss    ";
 				unlockTimeline.Lookup['s'] = new TimelineData.Point("SFX/room_cleared", AttachPoint.WeaponSlot);
@@ -641,7 +611,6 @@ namespace Client.Game.Data
 				ret.Timelines.Add(hitTimeline);
 				ret.Timelines.Add(fireTimeline);
 
-				ret.AbilityType = AbilityType.Instanced;
 				return ret;
 			}
 
@@ -664,7 +633,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 32;
-				ret.AbilityType = AbilityType.Buff;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShopkeeperBuff);
 				return ret;
 			}
@@ -674,8 +642,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 33;
-				ret.AbilityType = AbilityType.Instanced;
-
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Damage.Id, 4
 				));
@@ -695,7 +662,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 34;
-				ret.AbilityType = AbilityType.Buff;
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.AnxietyDamageScalar.Id, .5f
 				));
@@ -712,8 +678,6 @@ namespace Client.Game.Data
 				ret.Id = 35;
 
 				ret.spawnableDataId = MockActorData.RAIL_PROJECTILE.Id;
-				ret.AbilityType = AbilityType.Instanced;
-
 				var fireTimeline = new TimelineData();
 
 				fireTimeline.AsciiMap += "sssssss     ";
@@ -743,8 +707,6 @@ namespace Client.Game.Data
 				ret.Id = 36;
 
 				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
-				ret.AbilityType = AbilityType.Instanced;
-
 				var fireTimeline = new TimelineData();
 
 				fireTimeline.AsciiMap += "sssssss     ";
@@ -786,9 +748,20 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 37;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LaunchPadBuff);
-				ret.AbilityType = AbilityType.Buff;
 				return ret;
 			}
+		}
+		
+		public static AbilityData STATIONARY_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 38;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.StationaryBuff);
+				return ret;
+				
+			
+			}
+			
 		}
 	}
 }

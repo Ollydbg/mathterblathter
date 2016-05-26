@@ -65,6 +65,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF DamageScalar = new GameAttributeF(42, 1, "damage scalar", float.MinValue, float.MinValue);
 		public static readonly GameAttributeF AIAttackDelay = new GameAttributeF(43, 1, "waitThenAttackDelay", 0, float.MaxValue); 
 		public static readonly GameAttributeF AnxietyDamageScalar = new GameAttributeF(44, 1f, "anxietyDamageScalar", 0, float.MaxValue);
+		public static readonly GameAttributeF KnockbackForce = new GameAttributeF(45, 0f, "knockback force", 0, float.MaxValue);
+		
 	}
 }
 

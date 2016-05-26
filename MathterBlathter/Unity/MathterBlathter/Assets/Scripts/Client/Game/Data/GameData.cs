@@ -2,11 +2,15 @@
 
 namespace Client.Game.Data
 {
-	public class GameData
+	public class GameData : IEquatable<GameData>
 	{
 		public int Id;
 		public GameData ()
 		{
+		}
+
+		public bool Equals(GameData other) {
+			return other.Id == this.Id;
 		}
 
 		public override int GetHashCode ()
