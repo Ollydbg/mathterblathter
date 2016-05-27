@@ -13,6 +13,12 @@ namespace Client.Game.Abilities.Payloads
 			this.Target = target;
 			this.Cost = (float)amount;
 		}
+		
+		public AnxietyCostPayload (AbilityContext ctx, Actor target, float amount) : base(ctx)
+		{
+			this.Target = target;
+			this.Cost = amount;
+		}
 
 		#region implemented abstract members of Payload
 

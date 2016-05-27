@@ -237,7 +237,8 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-
+		
+		
 		public static CharacterData SHOPKEEPER {
 			get {
 				var ret = new CharacterData ();
@@ -633,6 +634,17 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static CharacterData FAT_BLACK_SLUG_PROJECTILE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 23;
+				ret.ActorType = ActorType.Projectile;
+				ret.ResourcePath = "Projectiles/FatSlug_prefab";
+				return ret;
+			}
+			
+		}
 
 	}
 }

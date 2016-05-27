@@ -5,6 +5,7 @@ using Client.Game.Actors;
 using Client.Game.Enums;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
+using Client.Game.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -56,15 +57,16 @@ namespace Client.Game.Abilities.Scripts
 
 		float accum = 0f;
 		float costAccum = 0f;
+		float tickRate = .1f;
+		
 		public override void Update (float dt)
 		{
 			
 			if(attacking && projectile != null) {
 				accum += dt;
-				var endPosition = BeamEndPosition(context);
+				Actor hitActor;
+				var endPosition = BeamEndPosition(context, out hitActor);
 				projectile.transform.position = endPosition;
-
-
 
 				var startPosition = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
 				var midPoint = startPosition + (endPosition - startPosition)/2;
@@ -79,11 +81,15 @@ namespace Client.Game.Abilities.Scripts
 
 
 				costAccum += dt;
-				if(costAccum > .1f) {
-					costAccum -= .1f;
-					new AnxietyCostPayload(context, context.source, (int)(context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost] / .1f))
+				if(costAccum > tickRate) {
+					costAccum -= tickRate;
+					new AnxietyCostPayload(context, context.source, context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost] * tickRate)
 						.Apply();
 						
+				}
+				
+				if(hitActor != null) {
+					new DamagePayload(context, hitActor, this.Attributes[AbilityAttributes.Damage] * dt).Apply();
 				}
 
 
@@ -91,17 +97,18 @@ namespace Client.Game.Abilities.Scripts
 		}
 
 
-		Vector3 BeamEndPosition(AbilityContext ctx) {
+		Vector3 BeamEndPosition(AbilityContext ctx, out Actor hitActor) {
 			RaycastHit hit;
 
 			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
-			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString()});
+			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
 
 			if(Physics.Raycast(startLocation, ctx.targetDirection, out hit, 100f, layerMask)) {
+				ActorUtils.TryHitToActor(hit, out hitActor);
 				return hit.point;
 			} 
 
-
+			hitActor = null;
 			return ctx.source.transform.position + ctx.targetDirection * 100f;
 		}
 

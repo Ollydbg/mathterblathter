@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyHealPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyRegenBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ContinuousBeam.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\CursedCourageBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DamageOnTouchBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DropQualityBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FireOnFall.cs" />

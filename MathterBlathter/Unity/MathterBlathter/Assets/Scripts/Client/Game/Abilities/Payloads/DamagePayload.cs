@@ -13,6 +13,12 @@ namespace Client.Game.Abilities.Payloads
 		{
 			Damage = (float)damage;
 			Target = target;
+		}
+		
+		public DamagePayload (AbilityContext ctx, Actor target, float damage) : base(ctx)
+		{
+			Damage = damage;
+			Target = target;
 
 		}
 

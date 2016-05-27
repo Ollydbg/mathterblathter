@@ -561,7 +561,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 29;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyRegenBuff);
-				
+				ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.AnxietyRegenScalar.Id, 6f));
 				var unlockTimeline = new TimelineData();
 				unlockTimeline.AsciiMap += "sssss    ";
 				unlockTimeline.Lookup['s'] = new TimelineData.Point("SFX/room_cleared", AttachPoint.WeaponSlot);
@@ -706,7 +706,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 36;
 
-				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
+				ret.spawnableDataId = MockActorData.FAT_BLACK_SLUG_PROJECTILE.Id;
 				var fireTimeline = new TimelineData();
 
 				fireTimeline.AsciiMap += "sssssss     ";
@@ -734,8 +734,9 @@ namespace Client.Game.Data
 					AbilityAttributes.ProjectileSpeed.Id, 60f
 				));
 				ret.attributeData.Add( new GameData.AttributeData(
-					AbilityAttributes.ProjectileAccel.Id, -90f
+					AbilityAttributes.ProjectileAccel.Id, -120f
 				));
+				
 
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
@@ -758,10 +759,20 @@ namespace Client.Game.Data
 				ret.Id = 38;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.StationaryBuff);
 				return ret;
-				
-			
 			}
-			
+		}
+		
+		public static AbilityData CURSED_COURAGE_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 39;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.MaxHealth.Id, -50));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.DamageScalar.Id, 1.5f));
+				
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.CursedCourageBuff);
+				return ret;
+				
+			}
 		}
 	}
 }

@@ -257,6 +257,28 @@ namespace Client.Game.Data
 
 			}
 		}
+		
+		public static PickupData CURSED_COURAGE {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 11;
+				ret.Name = "Cuh Cuh Cursed Courage";
+				ret.ActorType = ActorType.Pickup;
+				ret.ResourcePath = "Items/CursedBuff_prefab";
+				ret.PickupType = PickupData.Type.Buff;
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.CURSED_COURAGE_BUFF.Id,
+					0
+				));
+
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				
+				return ret;
+				
+			}
+			
+		}
 
 	}
 }

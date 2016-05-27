@@ -147,6 +147,7 @@ namespace Client.Game.Actors.Controllers
 
 		public void KnockDirection (Vector3 direction, float force)
 		{
+			direction.z = 0;
 			movementAccumulator += (direction * force);
 		}
 

@@ -186,12 +186,13 @@ namespace Client.Game.Data
 					0
 				));
 
+
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponAnxietyCost.Id, 1
+					ActorAttributes.WeaponAnxietyCost.Id, 10
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 2
+					ActorAttributes.BaseDamage.Id, 40
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -205,6 +206,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, .1f
 				));
+				
+				ret.Availability = Availability.Droppable | Availability.InShop;
 				
 				return ret;
 			}
@@ -450,6 +453,8 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Black Ulver";
+				
+				ret.Availability = Availability.InShop;
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.SHORT_PROJECTILE.Id, 0

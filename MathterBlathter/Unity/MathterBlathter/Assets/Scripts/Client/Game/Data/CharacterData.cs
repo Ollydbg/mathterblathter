@@ -30,7 +30,8 @@ namespace Client.Game.Data
 	public enum Availability : short {
 		None = 0,
 		Droppable = 1,
-		InShop = 2
+		InShop = 2,
+		CursedShop = 3
 	}
 
 	public enum ActorType {
