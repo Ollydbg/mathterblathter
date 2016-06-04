@@ -634,6 +634,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 32;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShopkeeperBuff);
+				ret.spawnableDataId = MockActorData.SHOP_CLOSED_SIGN.Id;
 				return ret;
 			}
 		}

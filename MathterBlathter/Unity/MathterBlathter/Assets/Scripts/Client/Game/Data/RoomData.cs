@@ -100,12 +100,16 @@ namespace Client.Game.Data
 
 	}
 
-	[Flags]
+	[FlagsAttribute]
 	public enum RoomType {
 		Normal,
 		Challenge,
 		Store,
 		LurchStart,
+		Cursed,
+		Blessed,
+		Secret,
+		Terminal,
 		BossGate,
 	}
 }

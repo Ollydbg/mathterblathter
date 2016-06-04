@@ -645,6 +645,17 @@ namespace Client.Game.Data
 			}
 			
 		}
+		
+		public static CharacterData SHOP_CLOSED_SIGN {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 24;
+				ret.ActorType = ActorType.Friendly;
+				ret.ResourcePath = "Actors/NPCS/SignPost_prefab";
+				return ret;
+			}
+			
+		}
 
 	}
 }

@@ -7,9 +7,8 @@ namespace Client.Game.Data
 		public string ResourcePath;
 
 		public int NumberOfRooms;
-
+		
 		public float ReadScale;
-
 
 		public MapData ()
 		{

@@ -12,9 +12,10 @@ namespace Client.Game.States
 	public class RunState : State
 	{
 		private IGameManager[] TickManagers;
-
+		
 		public RunState ()
 		{
+			
 		}
 
 
@@ -28,7 +29,6 @@ namespace Client.Game.States
 			tmp.Add(Game.Instance.RoomManager);
 			tmp.Add(Game.Instance.ActorManager);
 			tmp.Add(Game.Instance.CameraManager);
-
 
 			TickManagers = tmp.ToArray();
 

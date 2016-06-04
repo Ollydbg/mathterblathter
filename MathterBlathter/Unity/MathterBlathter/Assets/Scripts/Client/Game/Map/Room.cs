@@ -26,8 +26,7 @@ namespace Client.Game.Map
 		public GameObject GameObject;
 
 		public List<Actor> RoomObjectives = new List<Actor>();
-
-
+		
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
 		public delegate void OnUnlock(Room room);
 		public event OnUnlock UnlockEvent;
@@ -129,6 +128,7 @@ namespace Client.Game.Map
 						RoomObjectives.Add(actor);
 						actor.OnDestroyed += (Actor deadActor) => RoomObjectives.Remove(deadActor);
 					}
+					
 					actor.transform.position = spawn.RoomPosition + Position;
 					ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
 

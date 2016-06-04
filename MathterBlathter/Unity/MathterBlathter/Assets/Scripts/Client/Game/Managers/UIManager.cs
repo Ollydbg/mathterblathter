@@ -20,6 +20,7 @@ namespace Client.Game.Managers
 		public ShopUI ShopUI;
 		public Indicators Indicators;
 		public PauseScreen PauseScreen;
+		public MiniMap MiniMap;
 
 		private static string RUN_RESOURCE = "UI/RunUI";
 		private static string GENERATION_RESOURCE = "UI/MapGenerationUI";

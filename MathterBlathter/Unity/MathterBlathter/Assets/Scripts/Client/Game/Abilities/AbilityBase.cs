@@ -24,6 +24,12 @@ namespace Client
 				return this.context.source;
 			}
 		}
+		
+		public Game.Core.Game Game {
+			get {
+				return this.context.source.Game;
+			}
+		}
 
 		private List<Actor> SpawnedActors = new List<Actor>();
 

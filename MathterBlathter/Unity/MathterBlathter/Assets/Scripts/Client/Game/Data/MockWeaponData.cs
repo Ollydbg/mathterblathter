@@ -311,6 +311,7 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 10
 				));
@@ -338,6 +339,7 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+		
 		public static CharacterData BLUE_PROJECTILE {
 			get {
 				var ret = new CharacterData();

@@ -91,7 +91,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w     1                                                         w";
+                ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
@@ -111,10 +111,11 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "                       PPPP                                      ";
-                ret.AsciiMap += "d                             C                                 d";
-                ret.AsciiMap += "                                            1      1      11 111 ";
+                ret.AsciiMap += "d                             C               1                 d";
+                ret.AsciiMap += "                                                                 ";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
+				ret.AsciiSpawnLookup['1'] = MockActorData.SHOP_CLOSED_SIGN;
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
 				ret.AsciiSpawnLookup['U'] = MockActorData.LAUNCH_PAD;
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
@@ -860,6 +861,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 114;
+				ret.Type = RoomType.Store;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "w                               ";
 				ret.AsciiMap += "w      l               L       d";

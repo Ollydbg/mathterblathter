@@ -17,7 +17,7 @@ namespace Client.Game.Managers
 		public List<Room> Rooms;
 		public Room CurrentRoom;
 
-		public delegate void RoomEntered(Actor actor, Room room);
+		public delegate void RoomEntered(Actor actor, Room oldRoom, Room newRoom);
 		public event RoomEntered OnRoomEntered;
 		public event Room.OnUnlock OnCurrentRoomUnlocked;
 
@@ -79,6 +79,8 @@ namespace Client.Game.Managers
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);
 			}
+			
+			var leavingRoom = CurrentRoom;
 
 			CurrentRoom = room;
 			CurrentRoom.PlayerEntered(actor, throughDoor);
@@ -89,8 +91,9 @@ namespace Client.Game.Managers
 				actor.transform.position = room.roomCenter;
 			}
 
+
 			if(OnRoomEntered != null) 
-				OnRoomEntered(actor, room);
+				OnRoomEntered(actor, leavingRoom, room);
 
 			
 			room.UnlockEvent += OnCurrentRoomUnlocked;

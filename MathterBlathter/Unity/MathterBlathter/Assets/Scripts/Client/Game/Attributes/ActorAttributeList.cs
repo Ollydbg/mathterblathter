@@ -66,6 +66,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF AIAttackDelay = new GameAttributeF(43, 1, "waitThenAttackDelay", 0, float.MaxValue); 
 		public static readonly GameAttributeF AnxietyDamageScalar = new GameAttributeF(44, 1f, "anxietyDamageScalar", 0, float.MaxValue);
 		public static readonly GameAttributeF KnockbackForce = new GameAttributeF(45, 0f, "knockback force", 0, float.MaxValue);
+		public static readonly GameAttributeI ShopsSkipped = new GameAttributeI(46, 0, "shops skipped", 0, int.MaxValue);
 		
 	}
 }

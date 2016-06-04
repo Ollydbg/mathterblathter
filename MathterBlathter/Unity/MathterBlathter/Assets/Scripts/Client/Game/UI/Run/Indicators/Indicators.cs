@@ -18,33 +18,43 @@ namespace Client.Game.UI.Run.Indicators
 
 		void Start() {
 			Game.RoomManager.OnRoomEntered += OnRoomEntered;
+			Game.RoomManager.OnCurrentRoomUnlocked += OnRoomUnlocked;
+			
 			playerTransform = Game.PossessedActor.transform;
 
 			Template.SetActive(false);
 
 			//invoke manually, since we get intanced late
-			OnRoomEntered(Game.PossessedActor, Game.RoomManager.CurrentRoom);
-
+			OnRoomEntered(Game.PossessedActor, null, Game.RoomManager.CurrentRoom);
+					
 		}
 
-		void Cleanup() {
+        private void OnRoomUnlocked(Room room)
+        {
+			
+        }
+
+        void Cleanup() {
 			indicators = new Dictionary<Actor, GameObject>();
 		}
 
-		void OnRoomEntered (Actor actor, Room room)
+		void OnRoomEntered (Actor actor, Room oldRoom, Room newRoom)
 		{
 			Cleanup();
 
-			foreach( var obj in room.RoomObjectives) {
+			foreach( var obj in newRoom.RoomObjectives) {
 				obj.OnDestroyed += HandleActorDeath;
-
-				var indicator = GameObject.Instantiate(Template, Template.transform.position, Template.transform.rotation) as GameObject;
-				indicator.SetActive(true);
-				indicator.transform.SetParent(this.transform, false);
-				indicator.transform.position = Template.transform.position;
-				indicators[obj] = indicator;
-
+				SpawnForObject(obj);
 			}
+		}
+		
+		private void SpawnForObject(Actor obj) {
+
+			var indicator = GameObject.Instantiate(Template, Template.transform.position, Template.transform.rotation) as GameObject;
+			indicator.SetActive(true);
+			indicator.transform.SetParent(this.transform, false);
+			indicator.transform.position = Template.transform.position;
+			indicators[obj] = indicator;
 		}
 
 		void HandleActorDeath (Actor actor)

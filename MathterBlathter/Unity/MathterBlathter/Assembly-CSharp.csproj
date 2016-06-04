@@ -197,6 +197,7 @@
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\InteractionPrompt.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\LoadoutHud.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\LoadoutHudItem.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\Minimap\MiniMap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\PauseScreen.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\PlayerStatsHud.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\RunUI.cs" />
