@@ -115,7 +115,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				ret.AsciiSpawnLookup['1'] = MockActorData.SHOP_CLOSED_SIGN;
+				ret.AsciiSpawnLookup['1'] = MockActorData.ENERGY_SAPPER_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
 				ret.AsciiSpawnLookup['U'] = MockActorData.LAUNCH_PAD;
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;

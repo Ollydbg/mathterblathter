@@ -18,7 +18,7 @@ namespace Client.Game.AI.Actions
 		public override AIResult Update (float dt, Actor actor)
 		{
 			//Get player transform
-
+			
 			var target = PlayerMid;
 
 			var distanceVec = target - actor.transform.position;

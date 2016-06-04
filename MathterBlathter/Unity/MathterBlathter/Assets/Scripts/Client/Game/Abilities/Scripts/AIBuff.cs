@@ -22,12 +22,12 @@ namespace Client.Game.Abilities.Scripts
 			var losAction = new Client.Game.AI.Actions.TestPlayerLOS();
 			var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
 			var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
-			sequence.Next = sequence;
-
+			sequence.Next = fireAtAction;
+			fireAtAction.Next = sequence;
+			
 			sequence.Actions.Add(losAction);
 			sequence.Actions.Add(seekToAction);
-			sequence.Actions.Add(fireAtAction);
-
+			
 			Brain.CurrentAction = sequence;
 		}
 

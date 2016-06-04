@@ -23,7 +23,6 @@ namespace Client.Game.AI.Actions
 			if (!inAbilityRange (distanceVec, actor)) {
 				return AIResult.Failure;
 			} else {
-
 				ActionUtil.TryActivateAbility (PlayerMid, actor);
 				return AIResult.Running;
 			}
