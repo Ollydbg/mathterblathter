@@ -283,7 +283,7 @@ namespace Client.Game.Data
 		public static PickupData TRIGGER_FINGERS {
 			get {
 				var ret = new PickupData();
-				ret.Id = OFFSET + 11;
+				ret.Id = OFFSET + 12;
 				ret.Name = "TRIGGER FINGERS";
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add(new CharacterData.AttributeData(
