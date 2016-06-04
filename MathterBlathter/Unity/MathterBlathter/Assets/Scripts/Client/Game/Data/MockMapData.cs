@@ -28,7 +28,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Maps/Map1";
 				ret.Id = 1;
 				ret.ReadScale = 1f;
-				ret.NumberOfRooms = 100;
+				ret.NumberOfRooms = 200;
 				
 				var lurchZone = new ZoneData();
 				lurchZone.Name = "The Lurch";

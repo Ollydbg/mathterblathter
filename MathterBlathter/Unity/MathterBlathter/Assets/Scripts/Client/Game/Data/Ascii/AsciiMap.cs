@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Client.Game.Data.Ascii
 {
@@ -13,9 +14,7 @@ namespace Client.Game.Data.Ascii
 
 		}
 
-
-		public List<string> columns = new List<string> ();
-		public List<string> rows = new List<string>();
+		public List<char[]> rows = new List<char[]>();
 
 
 		public int Height {
@@ -34,8 +33,17 @@ namespace Client.Game.Data.Ascii
 			get {
 				return rows [y] [x];
 			}
+			set {
+				rows[y][x] = value;
+			}
 		}
 
+		public AsciiMap Clone() {
+			var clone = new AsciiMap();
+			clone.rows = this.rows.ToList();
+			return clone;
+			
+		}
 
 		public static AsciiMap operator +(AsciiMap map, string row) {
 			if (map.rows.Count > 0) {
@@ -43,7 +51,7 @@ namespace Client.Game.Data.Ascii
 					throw new Exception (String.Format("row not the same length, expected {0}", map.rows[0].Length));
 				}
 			}
-			map.rows.Add(row);
+			map.rows.Add(row.ToCharArray());
 			return map;
 		}
 	}

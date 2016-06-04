@@ -35,7 +35,9 @@ namespace Client.Game.Actors
 		public bool Set = false;
 
 		private bool _isOpen;
-		public bool isOpen {
+
+
+        public bool isOpen {
 			get {
 				return _isOpen;
 			} 
@@ -43,7 +45,6 @@ namespace Client.Game.Actors
 				_isOpen = value;
 				this.GameObject.GetComponent<Renderer>().material.color = _isOpen ? OPEN_COLOR : CLOSED_COLOR;
 				this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
-
 			}
 		}
 

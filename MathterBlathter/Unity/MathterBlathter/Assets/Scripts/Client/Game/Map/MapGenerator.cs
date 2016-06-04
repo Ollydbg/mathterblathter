@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Client.Game.Data;
 using System.Linq;
-using Client.Game.Core;
 using Client.Game.Actors;
 using Client.Game.Enums;
 using UnityEngine;
-using System.Collections;
 using Client.Game.Map.GenConstraints;
+
 
 namespace Client.Game.Map
 {
-	using DoorLinkMapping = Dictionary<RoomData.Link, DoorActor>;
-	using MatingLookup = Dictionary<Vector3, DoorActor>;
-	using Game = Game.Core.Game;
+    using DoorLinkMapping = Dictionary<RoomData.Link, DoorActor>;
+    using MatingLookup = Dictionary<Vector3, DoorActor>;
+    using Game = Game.Core.Game;
+    using Client.Game.Data.Ascii;
 
-	public class MapGenerator
+    public class MapGenerator
 	{
 		MapData mapData;
 		ConstraintList Constraints;
@@ -63,8 +62,6 @@ namespace Client.Game.Map
 					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
 						.Select(p=>spawnDoorToRoom(p, room))
 						.ToList();
-
-					room.EnterGame (Core.Game.Instance);
 
 					//add new unlinked doors
 					AddUnlinkedDoors(orphanedDoors);
@@ -178,9 +175,7 @@ namespace Client.Game.Map
 						targetY = (int)mate.MatingY - door.Y;
 
 						if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
-							//doorLinks.Add(door, mate);
 							doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
-
 							return true;
 						}
 
@@ -216,13 +211,18 @@ namespace Client.Game.Map
 		}
 
 		private void SealDoors() {
+			
 			foreach(var unlinked in UnlinkedDoors) {
+				
 				unlinked.Parent.Doors.Remove(unlinked);
 				Game.Instance.ActorManager.RemoveActor(unlinked);
-				//UnityEngine.Object.Destroy(unlinked.GameObject);
+				
+				Debug.Log(string.Format("Sealing door: {0}, {1}, {2}", unlinked.X, unlinked.Y, unlinked.Side));
+				
+				var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
+				ff.Fill(MeshRoomDrawer.SEALED_DOOR, unlinked.LinkData.ChunkData);	
 			}
 		}
-
 
 
 	}

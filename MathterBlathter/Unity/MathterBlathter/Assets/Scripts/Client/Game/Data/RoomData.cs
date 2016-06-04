@@ -6,6 +6,7 @@ using Client.Game.Actors;
 using Client.Game.Enums;
 using UnityEngine;
 using Client.Game.Data.Ascii;
+using System.Linq;
 
 namespace Client.Game.Data
 {
@@ -45,6 +46,8 @@ namespace Client.Game.Data
 			public int Width;
 			public int Height;
 			public DoorRoomSide Side;
+
+			public Chunk ChunkData;
 
 			public Guid Id = Guid.NewGuid();
 
@@ -96,6 +99,26 @@ namespace Client.Game.Data
 
 		public RoomData ()
 		{
+		}
+		
+		
+		public RoomData Clone() {
+			var clone = new RoomData();
+			clone.Width = this.Width;
+			clone.Height = this.Height;
+			clone.Doors = this.Doors.ToList();	
+			clone.AsciiSpawnLookup = this.AsciiSpawnLookup;
+			clone.AsciiMap = this.AsciiMap.Clone();
+			clone.MinElevation = this.MinElevation;
+			clone.MaxElevation = this.MaxElevation;
+			clone.SortOrder = this.SortOrder;
+			clone.Solo = this.Solo;
+			clone.Mute = this.Mute;
+			clone.Type = this.Type;
+			clone.Spawns = this.Spawns.ToList();
+			
+			return clone;
+			
 		}
 
 	}

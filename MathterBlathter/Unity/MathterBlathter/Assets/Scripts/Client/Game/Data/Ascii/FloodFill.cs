@@ -24,12 +24,28 @@ namespace Client.Game.Data.Ascii
 		  this.width = map.Width;
 		}
 		
+		public void Fill(char fillChar, int x, int y) {
+			
+			var atPos = map[x, y];
+			Fill(fillChar, GetRegion(atPos, x, y));
+		}
+		
+		public void Fill(char fillChar, Chunk worldSpaceChunk) {
+			foreach( var worldSpace in worldSpaceChunk) {
+				var gridSpace = InvertAsciiSpace(worldSpace);
+				map[(int)gridSpace.x, (int)gridSpace.y] = fillChar;	
+			}
+		}
 
-		public List<Vector3> GetRegion(char match, int x, int y) {
+		public Vector3 InvertAsciiSpace(Vector3 vec) {
+			return new Vector3(vec.x, map.Height-1 -vec.y, vec.z);
+		}
+
+		public Chunk GetRegion(char match, int x, int y) {
 			var matches = new VecMap();
 			var visited = new VecMap();
 			GetRegion (match, x, y, matches, visited);
-			return matches.Keys.ToList();
+			return new Chunk(matches.Keys);
 		}
 
 		private void GetRegion(char match, int x, int y, VecMap matches, VecMap visited)

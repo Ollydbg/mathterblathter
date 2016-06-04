@@ -19,6 +19,12 @@ namespace Client.Game.Data.Ascii
 		float minY = float.MaxValue;
 		float maxY = float.MinValue;
 
+		public Vector3 Center {
+			get {
+				return new Vector3(minX + .5f*Width, minY + .5f*Height, 0f);
+			}
+		}
+
 		public float Width {
 			get {
 				return maxX - minX + 1;
@@ -30,6 +36,7 @@ namespace Client.Game.Data.Ascii
 				return maxY - minY + 1;
 			}
 		}
+
 
 
 		public Chunk (IEnumerable<Vector3> enumerable)

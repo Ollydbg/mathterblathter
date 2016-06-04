@@ -23,6 +23,8 @@ namespace Client.Game.Map
 		public static char LIGHT = 'L';
 		public const char CEILING = 'c';
 
+		public const char SEALED_DOOR = 'X';
+		
 		public MeshRoomDrawer ()
 		{
 			
@@ -44,6 +46,7 @@ namespace Client.Game.Map
 			DrawCeiling (room, color, gameObject);
 			DrawFloors (room, color, gameObject);
 			DrawWalls (room, color, gameObject);
+			DrawSealedDoors(room, color, gameObject);
 			DrawPlatforms(room, color, gameObject);
 			DrawDoors (room, gameObject);
 			DrawBackground(room, color, gameObject);
@@ -52,7 +55,9 @@ namespace Client.Game.Map
 
 		}
 
-		void DrawBackground (Room room, Color color, GameObject parentObject)
+        
+
+        void DrawBackground (Room room, Color color, GameObject parentObject)
 		{
 			//var container = new GameObject();
 
@@ -89,6 +94,14 @@ namespace Client.Game.Map
 				PassthroughPlatformFactory.Init(go);
 			}
 		}
+		
+		private void DrawSealedDoors(Room room, Color color, GameObject gameObject)
+        {
+            foreach (var chunk in extractor.getChunksMatching(SEALED_DOOR)) {
+				var go = DrawRoomChunk(room, chunk, color, gameObject, "sealed door");
+				AddColliderForChunk(go, chunk, false);
+			}
+        }
 
 		void DrawCeiling (Room room, Color color, GameObject gameObject)
 		{

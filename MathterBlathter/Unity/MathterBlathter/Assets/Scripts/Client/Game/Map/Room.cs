@@ -113,7 +113,7 @@ namespace Client.Game.Map
 		public Room (RoomData data)
 		{
 			this.Id = ++LastId;
-			this.data = data;
+			this.data = data.Clone();
 			initFromData (data);
 		}
 
