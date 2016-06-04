@@ -279,6 +279,27 @@ namespace Client.Game.Data
 			}
 			
 		}
+		
+		public static PickupData TRIGGER_FINGERS {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 11;
+				ret.Name = "TRIGGER FINGERS";
+				ret.ActorType = ActorType.Pickup;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TRIGGER_FINGERS_BUFF.Id,
+					0
+				));
+					
+				ret.ResourcePath = "Items/ItemBuff_prefab";
+				
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				
+				return ret;
+			}
+			
+		}
 
 	}
 }

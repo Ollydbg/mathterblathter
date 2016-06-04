@@ -36,6 +36,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			
 		}
+		
 		public override void End ()
 		{
 		}

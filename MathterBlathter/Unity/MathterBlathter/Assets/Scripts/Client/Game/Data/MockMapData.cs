@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace Client.Game.Data
 {
+	using ZReq = ZoneData.Requirement;
+	
 	public static class MockMapData
 	{
 
@@ -27,6 +29,43 @@ namespace Client.Game.Data
 				ret.Id = 1;
 				ret.ReadScale = 1f;
 				ret.NumberOfRooms = 100;
+				
+				var lurchZone = new ZoneData();
+				lurchZone.Name = "The Lurch";
+				lurchZone.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
+				lurchZone.MinElevation = 0;
+				lurchZone.MaxElevation = 120;
+				ret.Zones.Add(lurchZone);
+				
+				
+				var zone1 = new ZoneData();
+				zone1.Name = "The Gallows";
+				zone1.Requirements.Add(new ZReq(RoomType.BossGate, 1, ZoneData.Occurance.Guaranteed));
+				zone1.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
+				zone1.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
+				zone1.MinElevation = 120;
+				zone1.MaxElevation = 250;
+				ret.Zones.Add(zone1);
+				
+				var zone2 = new ZoneData();
+				zone2.Name = "The Lab";
+				zone2.Requirements.Add(new ZReq(RoomType.BossGate, 1, ZoneData.Occurance.Guaranteed));
+				zone2.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
+				zone2.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
+				zone2.MinElevation = 250;
+				zone2.MaxElevation = 400;
+				ret.Zones.Add(zone1);
+				
+				var zone3 = new ZoneData();
+				zone3.Name = "The Temple";
+				zone3.Requirements.Add(new ZReq(RoomType.BossGate, 1, ZoneData.Occurance.Guaranteed));
+				zone3.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
+				zone3.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
+				zone3.MinElevation = 400;
+				zone3.MaxElevation = 600;
+				ret.Zones.Add(zone1);
+				
+				
 				return ret;
 			}
 		}

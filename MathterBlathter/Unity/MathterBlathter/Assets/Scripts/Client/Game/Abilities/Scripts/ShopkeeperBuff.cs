@@ -61,6 +61,9 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var signData = MockActorData.FromId(context.data.spawnableDataId);
 			this.Game.ActorManager.Spawn(signData);
+			
+			//also remove parent!
+			context.source.Destroy();
 		}
 		
 

@@ -775,6 +775,17 @@ namespace Client.Game.Data
 				
 			}
 		}
+		
+		public static AbilityData TRIGGER_FINGERS_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 40;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AttackSpeedScalar.Id, .7f));
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AttackSpeedBuff);
+				return ret;
+			}
+			
+		}
 	}
 }
 

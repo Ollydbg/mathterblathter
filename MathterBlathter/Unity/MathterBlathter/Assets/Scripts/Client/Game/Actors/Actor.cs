@@ -48,7 +48,11 @@ namespace Client.Game.Actors
 
 		}
 
-		public virtual void Destroy() {
+		public void Destroy() {
+			this.Game.ActorManager.RemoveActor(this);
+		}
+
+		public virtual void NotifyDestroyed() {
 			if(OnDestroyed != null) {
 				OnDestroyed(this);
 			}
