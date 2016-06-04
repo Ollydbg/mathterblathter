@@ -40,7 +40,9 @@ namespace Client.Game.Data.Ascii
 
 		public AsciiMap Clone() {
 			var clone = new AsciiMap();
-			clone.rows = this.rows.ToList();
+			foreach( var row in rows ) {
+				clone.rows.Add(new String(row).ToCharArray());
+			}
 			return clone;
 			
 		}

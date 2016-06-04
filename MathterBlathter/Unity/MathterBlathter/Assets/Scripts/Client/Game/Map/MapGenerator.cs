@@ -217,8 +217,6 @@ namespace Client.Game.Map
 				unlinked.Parent.Doors.Remove(unlinked);
 				Game.Instance.ActorManager.RemoveActor(unlinked);
 				
-				Debug.Log(string.Format("Sealing door: {0}, {1}, {2}", unlinked.X, unlinked.Y, unlinked.Side));
-				
 				var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
 				ff.Fill(MeshRoomDrawer.SEALED_DOOR, unlinked.LinkData.ChunkData);	
 			}
