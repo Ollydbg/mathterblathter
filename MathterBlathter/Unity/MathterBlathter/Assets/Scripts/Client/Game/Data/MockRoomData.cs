@@ -1014,6 +1014,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 117;
+				
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";

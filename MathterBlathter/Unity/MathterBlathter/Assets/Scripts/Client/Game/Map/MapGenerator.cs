@@ -52,7 +52,9 @@ namespace Client.Game.Map
 					var room = new Room (roomData);
 					room.X = targetX;
 					room.Y = targetY;
-
+					
+					room.Zone = ZoneForRoom(room);
+					
 					returnBuffer.Add (room);
 					Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
 
@@ -77,6 +79,18 @@ namespace Client.Game.Map
 			SealDoors();
 
 			return returnBuffer;
+		}
+
+		ZoneData ZoneForRoom(Room room) {
+			foreach( var zone in this.mapData.Zones) {
+				if(room.X >= zone.MinX
+				&& room.X <= zone.MaxX
+				&& room.Y >= zone.MinElevation
+				&& room.Y <= zone.MaxElevation) {
+					return zone;
+				}
+			}
+			return mapData.Zones[0];
 		}
 
 		void ConsumeLinkedDoors(DoorLinkMapping linkedDoors, Room room) {

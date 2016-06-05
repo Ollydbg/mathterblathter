@@ -27,6 +27,10 @@ namespace Client.Game.Data
 		public int MinElevation;
 		public int MaxElevation;
 		
+		public int MinX = int.MinValue;
+		
+		public int MaxX = int.MaxValue;
+		
 		public class Requirement {
 			public RoomType RoomType;
 			public int Amount;

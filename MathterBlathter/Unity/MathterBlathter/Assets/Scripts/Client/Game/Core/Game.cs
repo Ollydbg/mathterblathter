@@ -49,7 +49,7 @@ namespace Client.Game.Core
 
 		private void Init() {
 
-			this.Seed = new Seed(100);//DateTime.UtcNow.Millisecond);
+			this.Seed = new Seed(DateTime.UtcNow.Millisecond);
 
 			CreateManagers();
 			States.Start(this);

@@ -21,6 +21,8 @@ namespace Client.Game.Map
 		public int Width;
 		public int Height;
 		public RoomData data;
+		public ZoneData Zone;
+		
 		public int Id;
 		private static int LastId = 0;
 		public GameObject GameObject;
