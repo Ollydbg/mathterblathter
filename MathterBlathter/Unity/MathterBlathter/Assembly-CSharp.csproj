@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\TestPlayerLOS.cs" />
@@ -101,7 +102,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RailGunAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RocketProjectileAttack.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SentryAIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShieldBlock.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShopkeeperBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShotgunBlast.cs" />
@@ -152,6 +152,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\CharacterData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\GameData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MapData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockAIData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockAbilityData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockActorData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockMapData.cs" />

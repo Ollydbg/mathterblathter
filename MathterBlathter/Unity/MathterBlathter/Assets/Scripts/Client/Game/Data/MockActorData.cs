@@ -124,9 +124,12 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 2;
+				
+				ret.AIData = MockAIData.SEEK_TO_FIRE;
+				
 				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = new AIData ();
+				ret.AIData = MockAIData.SEEK_TO_FIRE;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -171,7 +174,7 @@ namespace Client.Game.Data
 				ret.Id = 3;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = new AIData ();
+				ret.AIData = MockAIData.SEEK_TO_FIRE;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -245,7 +248,6 @@ namespace Client.Game.Data
 				ret.Id = 7;
 				ret.ResourcePath = "Actors/NPCS/ShopKeeper_prefab";
 				ret.ActorType = ActorType.Friendly;
-				ret.AIData = new AIData ();
 				ret.Name = "Grapthar";
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 1000
@@ -301,7 +303,7 @@ namespace Client.Game.Data
 				ret.Id = 13;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = new AIData ();
+				ret.AIData = MockAIData.SEEK_TO_FIRE;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 50
 				));
@@ -351,6 +353,7 @@ namespace Client.Game.Data
 				ret.Id = 16;
 				ret.ResourcePath = "Actors/Enemies/Sniper_prefab";
 				ret.ActorType = ActorType.Enemy;
+				ret.AIData = MockAIData.SNIPER_AI;
 				ret.Name = "Sniper";
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
@@ -359,7 +362,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
-					MockAbilityData.SNIPER_AI_BUFF.Id,
+					MockAbilityData.AI_BUFF.Id,
 					0
 				));
 
@@ -453,7 +456,7 @@ namespace Client.Game.Data
 				ret.Id = 19;
 				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
 				ret.ActorType = ActorType.Enemy;
-
+				ret.AIData = MockAIData.SENTRY_AI;
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
 					200
@@ -491,7 +494,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id, 
-					MockAbilityData.SENTRY_AI_BUFF.Id,
+					MockAbilityData.AI_BUFF.Id,
 					0
 				));
 
@@ -518,7 +521,7 @@ namespace Client.Game.Data
 
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = new AIData ();
+				ret.AIData = MockAIData.SEEK_TO_FIRE;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 10

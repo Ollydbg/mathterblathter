@@ -33,7 +33,7 @@ namespace Client.Game.Actors
 				if(dataId == ActorAttributes.Abilities.DefaultValue) 
 					break;
 
-				var context = new AbilityContext(this, withActor, MockAbilityData.FromId(dataId));
+				var context = new AbilityContext(withActor, withActor, MockAbilityData.FromId(dataId));
 				Game.AbilityManager.ActivateAbility(context);
 			}
 

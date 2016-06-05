@@ -16,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			var delta = this.Attributes[ActorAttributes.AttackSpeedScalar];
-			this.context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] += delta;
+			this.context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] *= delta;
 		}
 
 		public override void Update(float dt) {}
@@ -24,7 +24,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void End ()
 		{
 			var delta = this.Attributes[ActorAttributes.AttackSpeedScalar];
-			this.context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] -= delta;
+			this.context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] /= delta;
 		}
 
 		#endregion

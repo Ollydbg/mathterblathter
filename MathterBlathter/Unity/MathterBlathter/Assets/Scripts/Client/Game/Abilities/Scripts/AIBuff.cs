@@ -1,9 +1,9 @@
-﻿using System;
-using Client.Game.AI;
-
+﻿using Client.Game.AI;
+using Client.Game.Data;
+using UnityEngine;
 namespace Client.Game.Abilities.Scripts
 {
-	public class AIBuff : BuffBase
+    public class AIBuff : BuffBase
 	{
 
 		public Brain Brain;
@@ -17,19 +17,19 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			Brain = new Brain(context.source);
-			var sequence = new Sequence();
 			
-			var losAction = new Client.Game.AI.Actions.TestPlayerLOS();
-			var seekToAction = new Client.Game.AI.Actions.SeekToPlayer ();
-			var fireAtAction = new Client.Game.AI.Actions.FireAtPlayer ();
-			sequence.Next = fireAtAction;
-			fireAtAction.Next = sequence;
+			var aiData = context.source.Data.AIData;
 			
-			sequence.Actions.Add(losAction);
-			sequence.Actions.Add(seekToAction);
+			if(aiData == null) {
+				Debug.LogError(string.Format("NO AIDATA SPECIFIED FOR AI BUFF TO LOAD FOR SOURCE ACTOR ID: {0}!!", context.source.Data.Id));
+				Abort();
+			} else {
+				Brain.LoadFromData(aiData);
+			}
 			
-			Brain.CurrentAction = sequence;
+			
 		}
+
 
 		public override void Update (float dt)
 		{

@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "d                                                               d";
@@ -115,13 +115,8 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				ret.AsciiSpawnLookup['1'] = MockActorData.ENERGY_SAPPER_ENEMY;
+				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
-				ret.AsciiSpawnLookup['U'] = MockActorData.LAUNCH_PAD;
-				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
-
-				ret.AsciiSpawnLookup['C'] = MockActorData.CURSED_COURAGE;
-				
 				finalize(ret);
 
 				return ret;

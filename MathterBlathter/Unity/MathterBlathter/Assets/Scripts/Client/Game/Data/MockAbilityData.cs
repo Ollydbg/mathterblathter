@@ -338,16 +338,6 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData SNIPER_AI_BUFF {
-			get {
-				var ret = new AbilityData();
-				ret.Id = 15;
-				ret.name = "SniperAIBuff";
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SniperAIBuff);
-				return ret;
-			}
-		}
-
 		public static AbilityData AIM_RAY_BUFF {
 			get {
 				var ret = new AbilityData();
@@ -547,15 +537,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData SENTRY_AI_BUFF {
-			get {
-				var ret = new AbilityData();
-				ret.Id = 28;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SentryAIBuff);
-				return ret;
-			}
-		}
-
+		
 		public static AbilityData ANXIETY_REGEN_BUFF {
 			get {
 				var ret = new AbilityData();
