@@ -140,10 +140,10 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w     1                                                        w";
 				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                 L     w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                                1             w";
 				ret.AsciiMap += "w                                   PPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
@@ -155,21 +155,22 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "fffffffffffff                                                  w";
-				ret.AsciiMap += "wwwwwwwwwwwwwww                                                w";
+				ret.AsciiMap += "wwwwwwwwwwwwwww            3                          1        w";
 				ret.AsciiMap += "ffffffffffffffffffff               pppppppppp     pppppppppppppw";
-				ret.AsciiMap += "ffffffffffffffffffff                1                          w";
+				ret.AsciiMap += "ffffffffffffffffffff                                           w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                    L         w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "d           L                                                  d";
 				ret.AsciiMap += "d                                                              d";
-				ret.AsciiMap += "d                                                  1           d";
+				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
 				ret.AsciiSpawnLookup['2'] = MockActorData.FLOATING_TURRET;
+				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(MockActorData.BULLET_STAR, Vector3.up);
 
 				finalize(ret);
 
