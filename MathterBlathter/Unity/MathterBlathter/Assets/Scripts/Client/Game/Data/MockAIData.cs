@@ -26,12 +26,10 @@ namespace Client.Game.Data
             get {
                 var ret = new AIData();
                 ret.Name = "Seek To Fire";
-                ret.ActionData = new ActionData(
-                    typeof(TestPlayerLOS),
-                    typeof(SeekToPlayer),
-                    typeof(FireAtPlayer)
-                    );
-                
+                ret.ActionData = new ActionData(typeof(SeekToPlayer));
+                ret.ActionData.Next = new ActionData(
+                    typeof(FireAtPlayer), 
+                    typeof(HasPlayerLOS));
                 return ret;
             }
             

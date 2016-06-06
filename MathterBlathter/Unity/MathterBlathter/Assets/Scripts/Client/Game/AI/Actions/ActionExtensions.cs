@@ -2,6 +2,7 @@
 using UnityEngine;
 using Client.Game.Actors;
 using Client.Game.Attributes;
+using Client.Game.Enums;
 
 namespace Client.Game.AI.Actions
 {
@@ -23,6 +24,7 @@ namespace Client.Game.AI.Actions
 			var direction = target - selfAIActor.HalfHeight;
 			RaycastHit hit;
 
+			var layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString()});
 			Physics.Raycast(new Ray(selfAIActor.HalfHeight, direction.normalized), out hit);
 
 			var transform = hit.transform;

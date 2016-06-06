@@ -115,7 +115,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.BULLET_STAR, Vector3.up);
+				ret.AsciiSpawnLookup['1'] = MockActorData.FLOATING_TURRET;
 				finalize(ret);
 
 				return ret;
