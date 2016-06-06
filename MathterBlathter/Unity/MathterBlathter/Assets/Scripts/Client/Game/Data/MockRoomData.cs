@@ -76,7 +76,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "d                                                               d";
@@ -91,7 +91,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                   1                                           w";
                 ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
@@ -111,12 +111,11 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
-                ret.AsciiMap += "d                             C               1                 d";
+                ret.AsciiMap += "d                             C                                 d";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
 				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
-				ret.AsciiSpawnLookup['2'] = MockActorData.GROUND_STATIC_TURRET;
 				finalize(ret);
 
 				return ret;

@@ -22,8 +22,31 @@ namespace Client.Game.AI.Actions
 				return AIResult.Failure;
 			}
 		}
+		#endregion
+	}
+	
+	public class HasPlayerLOS : AIAction 
+	{
+		public HasPlayerLOS ()
+		{
+		}
+
+		#region implemented abstract members of AIAction
+
+		public override AIResult Update (float dt, Actor actor)
+		{
+			var target = PlayerMid;
+			var distanceVec = target-actor.transform.position;
+
+			if(ActionUtil.InDetectionRange(distanceVec, actor)) {
+				return ActionUtil.HasLOS(actor, target) ? AIResult.Running : AIResult.Failure;
+			} else {
+				return AIResult.Failure;
+			}
+		}
 
 		#endregion
+		
 	}
 }
 

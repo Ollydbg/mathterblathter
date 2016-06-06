@@ -6,7 +6,7 @@ namespace Client.Game.Data
 	public class AIData : GameData
 	{
 		public ActionData ActionData;
-		
+		public string Name;
 		public AIData ()
 		{
 		}

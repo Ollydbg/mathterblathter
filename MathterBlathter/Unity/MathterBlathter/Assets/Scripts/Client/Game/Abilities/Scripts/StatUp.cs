@@ -12,8 +12,8 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			context.targetActor.Attributes[ActorAttributes.Health] += context.source.Attributes[ActorAttributes.Health];
-			context.targetActor.Attributes[ActorAttributes.MaxHealth] += context.source.Attributes[ActorAttributes.MaxHealth];
+			context.targetActor.Attributes[ActorAttributes.Health] += this.Attributes[ActorAttributes.Health];
+			context.targetActor.Attributes[ActorAttributes.MaxHealth] += this.Attributes[ActorAttributes.MaxHealth];
 		}
 
 		public override void Update (float dt)

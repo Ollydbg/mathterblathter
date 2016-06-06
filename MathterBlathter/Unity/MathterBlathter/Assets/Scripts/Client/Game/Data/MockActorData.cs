@@ -125,11 +125,10 @@ namespace Client.Game.Data
 				var ret = new CharacterData ();
 				ret.Id = 2;
 				
-				ret.AIData = MockAIData.SEEK_TO_FIRE;
+				ret.AIData = MockAIData.PATROL_THEN_PURSUE;
 				
 				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = MockAIData.SEEK_TO_FIRE;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -574,7 +573,9 @@ namespace Client.Game.Data
 
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
-
+				
+				ret.AIData = MockAIData.SEEK_TO_FIRE;
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
 					20

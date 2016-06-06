@@ -7,6 +7,7 @@ namespace Client.Game.AI
 {
 	public class Brain
 	{
+		public AIAction Head;
 		public AIAction CurrentAction;
 		public Actor Self;
 
@@ -15,13 +16,34 @@ namespace Client.Game.AI
 			this.Self = actor;
 		}
 
+		private bool Logs = true;
+		void Log(string msg, params object[] args) {
+			if(Logs) 
+				UnityEngine.Debug.Log(string.Format(msg, args));
+				
+		}
 		public void Update( float dt) {
 			if (CurrentAction != null) {
-				if (CurrentAction.Update (dt, Self) != AIResult.Running) {
+				
+				var result = CurrentAction.Update(dt, Self);
+				
+				if(result == AI.AIResult.Running)
+					return;
+					
+				if(result == AIResult.Success) {
 					CurrentAction.End();
+					//Log("Action {0} was successful, moving to Next action: {1}", CurrentAction, CurrentAction.Next);
 					CurrentAction = CurrentAction.Next;
 					CurrentAction.Start(Self);
 				}
+				
+				if(result == AIResult.Failure) {
+					CurrentAction.End();
+					//this should probably go back to logical parent
+					CurrentAction = Head;
+					CurrentAction.Start(Self);
+				}
+				
 			}
 		}
 
@@ -29,6 +51,7 @@ namespace Client.Game.AI
         {
 			var actionData = aiData.ActionData;
 			this.CurrentAction = RecurseData(null, actionData);
+			this.Head = CurrentAction;
         }
 		
 		AIAction RecurseData(AIAction head, ActionData action) {
