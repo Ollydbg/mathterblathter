@@ -485,6 +485,29 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+		
+		public static CharacterData QUAD_SHOT_ENEMY_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1017;
+				
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Quad Shot Turret Weapon";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.QUAD_SHOT.Id, 0
+				));
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
+				));
+				ret.Availability = Availability.None;
+				return ret;
+			}
+		}
 
 
 	}

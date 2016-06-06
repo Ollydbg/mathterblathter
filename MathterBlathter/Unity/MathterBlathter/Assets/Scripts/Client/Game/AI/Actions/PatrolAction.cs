@@ -84,7 +84,7 @@ namespace Client.Game.AI.Actions
 		
 		
 		private bool PositionIsTraversable(Vector3 position, Actor byActor) {
-			int mask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString()});
+			int mask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Door.ToString()});
 			
 			//is that position a wall?
 			var offsetTest = position + new Vector3(0, .5f, 0);

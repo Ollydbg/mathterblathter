@@ -5,6 +5,7 @@ namespace Client.Game.Data
 {
 	public class PickupData : CharacterData {
 		public float Rarity = 0;
+		public string Description;
 		public Type PickupType;
 		public enum Type {
 			Unassigned,
@@ -40,6 +41,8 @@ namespace Client.Game.Data
 				var ret = new PickupData();
 				ret.Id = OFFSET + 2;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.Description = "A very small health boost";
+				
 				ret.ActorType = ActorType.Pickup;
 				ret.PickupType = PickupData.Type.Item;
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -68,7 +71,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new PickupData();
 				ret.Id = OFFSET + 3;
-
+				ret.Description = "A temporary run speed upgrade";
 				ret.PickupType = PickupData.Type.Buff;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
@@ -88,6 +91,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new PickupData();
 				ret.Id = OFFSET + 4;
+				ret.Description = "A generous health pickup";
 
 				ret.PickupType = PickupData.Type.Item;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
@@ -111,7 +115,7 @@ namespace Client.Game.Data
 				ret.Id = OFFSET + 5;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
-
+				ret.Description = "Improved jumping height, but you sometimes take damage on big falls";
 				ret.PickupType = PickupData.Type.Buff;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
@@ -138,6 +142,7 @@ namespace Client.Game.Data
 				var ret = new PickupData();
 				ret.Id = OFFSET + 6;
 				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.Description = "Improved Drop quality";
 				ret.ActorType = ActorType.Pickup;
 
 				ret.PickupType = PickupData.Type.Buff;
@@ -173,12 +178,14 @@ namespace Client.Game.Data
 				ret.Id = OFFSET + 7;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
+				ret.Description = "Lower drop rate, but they're better, I swear";
 				ret.PickupType = PickupData.Type.Buff;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.RABBITS_FOOT_BUFF.Id,
 					0
 				));
+				
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -222,7 +229,7 @@ namespace Client.Game.Data
 				ret.Id = OFFSET + 9;
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/GoldenPill_prefab";
-
+				ret.Description = "Decrease your Anxiety";
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.ENERGY_HEAL.Id,
@@ -244,6 +251,7 @@ namespace Client.Game.Data
 				var ret = new PickupData();
 				ret.Id = OFFSET + 10;
 				ret.ActorType = ActorType.Pickup;
+				ret.Description = "Take Less Anxiety Damage";
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
@@ -263,6 +271,7 @@ namespace Client.Game.Data
 				var ret = new PickupData();
 				ret.Id = OFFSET + 11;
 				ret.Name = "Cuh Cuh Cursed Courage";
+				ret.Description = "At the cost of your max health, fire faster and have a higher anxiety threshold.";
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.PickupType = PickupData.Type.Buff;
@@ -285,6 +294,7 @@ namespace Client.Game.Data
 				var ret = new PickupData();
 				ret.Id = OFFSET + 12;
 				ret.Name = "TRIGGER FINGERS";
+				ret.Description = "Better firing speed";
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
@@ -300,7 +310,29 @@ namespace Client.Game.Data
 			}
 			
 		}
-
+		
+		public static PickupData ANIMAL_HEART {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 13;
+				ret.Name = "ANIMAL HEART";
+				ret.Description = "Do more damage when at low health";
+				ret.ActorType = ActorType.Pickup;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.LOW_HEALTH_DAMAGE_AMP_BUFF.Id,
+					0
+				));
+					
+				ret.ResourcePath = "Items/ItemBuff_prefab";
+				
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				
+				return ret;
+			}
+			
+		}
+		
 	}
 }
 

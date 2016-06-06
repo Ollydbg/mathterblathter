@@ -85,7 +85,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DamageOnTouchBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\DropQualityBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FireOnFall.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\FiringFixtureBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\HealPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\InvulnerabilityBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\InvulnerableAfterHitBuff.cs" />
@@ -95,6 +94,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LaunchPadBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateBuffDrop.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateWeaponDrop.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LowHealthDamageAmpBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MeleeAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MoveBoostTempBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\PlayerDeathBuff.cs" />
@@ -213,6 +213,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\Scripts\Shaders\PixelationShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
      <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />

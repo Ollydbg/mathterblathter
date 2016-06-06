@@ -163,16 +163,6 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData FIRING_FIXTURE_BUFF {
-			get {
-				var ret = new AbilityData();
-				ret.Id = 7;
-				ret.name = "FIXTURE BUFF";
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.FiringFixtureBuff);
-				return ret;
-			}
-		}
-
 		public static AbilityData RAIL_GUN {
 			get {
 				var ret = new AbilityData();
@@ -751,7 +741,7 @@ namespace Client.Game.Data
 				ret.Id = 39;
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.MaxHealth.Id, -50));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.DamageScalar.Id, 1.5f));
-				
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AttackSpeedScalar.Id, .6f));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.CursedCourageBuff);
 				return ret;
 				
@@ -768,6 +758,61 @@ namespace Client.Game.Data
 			}
 			
 		}
+		
+		public static AbilityData QUAD_SHOT {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 41;
+				ret.name = "quad shot";
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.Damage.Id, 5
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 4
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 50f
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, -90f
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileSpread.Id, 360f
+				));
+
+				ret.spawnableDataId = MockActorData.PINK_PROJECTILE.Id;
+				var timeline = new TimelineData();
+				timeline.AsciiMap += "s";
+				timeline.Duration = 1f;
+				timeline.Lookup['s'] = new TimelineData.Point("SFX/laser_discharge", AttachPoint.Muzzle);
+
+				ret.Timelines.Add(timeline);
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShotgunBlast);
+				
+				return ret;
+			}
+		}
+		
+		public static AbilityData LOW_HEALTH_DAMAGE_AMP_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 42;
+				ret.name = "Low Health Damage Amplifier";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.DamageScalar.Id, 1f
+				));
+				
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LowHealthDamageAmpBuff);
+				return ret;
+				
+			}
+		}
+		
 	}
 }
 

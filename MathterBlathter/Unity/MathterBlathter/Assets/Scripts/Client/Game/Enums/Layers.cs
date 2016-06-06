@@ -8,7 +8,8 @@ namespace Client.Game.Enums
 		Projectiles,
 		HardGeometry,
 		SoftGeometry,
-		Player
+		Player,
+		Door
 	}
 }
 

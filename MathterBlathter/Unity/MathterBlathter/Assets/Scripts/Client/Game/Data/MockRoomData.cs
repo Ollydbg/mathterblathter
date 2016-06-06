@@ -91,7 +91,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                   1                                           w";
+                ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
@@ -102,7 +102,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "wPPPP                                                           w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                                   1                           w";
                 ret.AsciiMap += "w                PPPPPPPPPPPP                            2      w";
                 ret.AsciiMap += "w                                                       ppppppppw";
                 ret.AsciiMap += "w                                                               w";
@@ -115,7 +115,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				ret.AsciiSpawnLookup['1'] = MockActorData.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['1'] = new AsciiPlacement(MockActorData.BULLET_STAR, Vector3.up);
 				finalize(ret);
 
 				return ret;

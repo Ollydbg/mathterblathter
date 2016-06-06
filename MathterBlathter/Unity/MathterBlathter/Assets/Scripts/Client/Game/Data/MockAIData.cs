@@ -57,8 +57,17 @@ namespace Client.Game.Data
                 ret.ActionData.Next = new ActionData(typeof(WaitThenFire));
                 return ret;
                 
-            }
-            
+            }   
+        }
+        
+        public static AIData FIRING_FIXTURE_AI {
+            get {
+                var ret = new AIData();
+                ret.Name = "Fixture AI";
+                ret.ActionData = new ActionData(typeof(FireFacingDirection));
+                return ret;
+            }    
+        
         }
         
     }

@@ -658,8 +658,58 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/NPCS/SignPost_prefab";
 				return ret;
 			}
-			
 		}
+		
+		public static CharacterData BULLET_STAR {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 25;
+				
+				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ActorType = ActorType.Enemy;
+				
+				ret.AIData = MockAIData.FIRING_FIXTURE_AI;
+				
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 150
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 20.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, 0f
+				));
+			
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AttackSpeedScalar.Id, 3f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 15
+				));;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					MockAbilityData.AI_BUFF.Id,
+					0
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					MockActorData.QUAD_SHOT_ENEMY_WEAPON.Id,
+					0
+				));
+
+				return ret;	
+			}
+		}
+		
 
 	}
 }

@@ -13,7 +13,6 @@ namespace Client.Game.Data
 				ret.Id = TRAP_OFFSET + 1;
 				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
 				ret.ActorType = ActorType.Fixture;
-				ret.AIData = new AIData ();
 				ret.Name = "Spikes";
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
@@ -44,7 +43,7 @@ namespace Client.Game.Data
 				ret.Id = TRAP_OFFSET + 2;
 				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
 				ret.ActorType = ActorType.Fixture;
-				ret.AIData = new AIData();
+				ret.AIData = MockAIData.FIRING_FIXTURE_AI;
 				ret.Name = "Wall Turret";
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
@@ -60,7 +59,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id, 
-					MockAbilityData.FIRING_FIXTURE_BUFF.Id,
+					MockAbilityData.AI_BUFF.Id,
 					0
 				));
 

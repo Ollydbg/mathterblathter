@@ -8,10 +8,13 @@ namespace Client.Game.Abilities.Payloads
 	public class DamagePayload : Payload
 	{
 		public float Damage;
+		public float DamageScalar;
+		
 		public Actor Target;
 		public DamagePayload (AbilityContext ctx, Actor target, int damage) : base(ctx)
 		{
 			Damage = (float)damage;
+			DamageScalar = Context.source.Attributes[ActorAttributes.DamageScalar];
 			Target = target;
 		}
 		
@@ -31,13 +34,13 @@ namespace Client.Game.Abilities.Payloads
 
 		public override void Apply() {
 
-			Damage *= Context.source.Attributes[ActorAttributes.DamageScalar];
-
 			if (AbilityManager.NotifyPayloadSender(this, Context.source))
 				return;
 
 			if (AbilityManager.NotifyPayloadReceiver (this, Target))
 				return;
+				
+			Damage *= DamageScalar;
 			
 			int totalDamage = (int)Damage;
 
