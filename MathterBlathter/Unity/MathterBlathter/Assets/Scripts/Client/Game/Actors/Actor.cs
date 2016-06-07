@@ -37,6 +37,12 @@ namespace Client.Game.Actors
 			}
 		}
 
+		public bool IsHeld {
+			get {
+				return this.GameObject.transform.parent != null;
+			}
+		}
+
 		public Transform transform {
 			get {
 				return GameObject.transform;

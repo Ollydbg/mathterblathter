@@ -83,7 +83,6 @@ namespace Client.Game.Items
 				var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
 				AddWeapon(spawnedActor);
 
-				ActorUtils.PropogateBuffs(spawnedActor, Owner);
 			}
 		}
 
