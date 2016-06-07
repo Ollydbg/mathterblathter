@@ -813,6 +813,59 @@ namespace Client.Game.Data
 			}
 		}
 		
+		public static AbilityData WEAPON_DE_CURSER {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 43;
+				return ret;
+			}
+		}
+		
+		public static AbilityData WEAPON_CURSE {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 44;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.WeaponCurse);
+				return ret;
+			}
+		}
+		public static AbilityData TOWER_WEAPON_ABSORBER {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 45;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TowerWeaponAbsorber);
+				return ret;
+			}
+		}
+		
+		public static AbilityData LAUNCH_GRENADE {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 46;
+				ret.spawnableDataId = MockActorData.GRENADE_PROJECTILE.Id;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LaunchGrenade);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 48f
+				));
+
+				var explosionEffect = new TimelineData();
+				explosionEffect.AsciiMap += "eeeeeee";
+				explosionEffect.Lookup['e'] = "Projectiles/VFX/rocketExplosion_prefab";
+				explosionEffect.Duration = 1f;
+
+				ret.Timelines.Add(explosionEffect);
+
+
+
+
+				return ret;
+			}
+		}
+		
 	}
 }
 

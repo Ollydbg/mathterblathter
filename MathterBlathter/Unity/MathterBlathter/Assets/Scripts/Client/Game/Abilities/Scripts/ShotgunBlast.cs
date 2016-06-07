@@ -52,9 +52,9 @@ namespace Client.Game.Abilities.Scripts
 		public override void Update (float dt)
 		{
 			foreach( var proj in projectiles.ToArray() ) {
-				float spd = proj.Speed + this.Attributes[AbilityAttributes.ProjectileAccel] * dt;
+				float spd = proj.Movement.Speed + this.Attributes[AbilityAttributes.ProjectileAccel] * dt;
 				if(spd >=0) {
-					proj.Speed = spd;
+					proj.Movement.Speed = spd;
 				} else {
 					proj.Game.ActorManager.RemoveActor(proj);
 					projectiles.Remove(proj);

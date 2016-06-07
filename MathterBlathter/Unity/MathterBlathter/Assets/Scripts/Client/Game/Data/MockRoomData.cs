@@ -111,11 +111,11 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
-                ret.AsciiMap += "d                             C                                 d";
+				ret.AsciiMap += "d                            C                                  d";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 					
-				ret.AsciiSpawnLookup['1'] = MockActorData.FLOATING_TURRET;
+				ret.AsciiSpawnLookup['C'] = MockActorData.GRENADE_LAUNCHER_WEAPON;
 				finalize(ret);
 
 				return ret;

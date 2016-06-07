@@ -62,6 +62,9 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityContext.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\BuffBase.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\Linear.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\Movement.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\RigidBodyAddForce.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\AnxietyCostPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\AnxietyDamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\DamagePayload.cs" />
@@ -73,6 +76,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\Payload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\PlayerKilledPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponDamagePayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponPickupPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AimRay.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyAttack.cs" />
@@ -91,6 +95,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ItemBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpDamage.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LaunchGrenade.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LaunchPadBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateBuffDrop.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateWeaponDrop.cs" />
@@ -109,6 +114,8 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StatUp.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StationaryBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SwapActorPositions.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\TowerWeaponAbsorber.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\WeaponCurse.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Timelines\TimelineRunner.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\AbilityUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\EffectTTL.cs" />
@@ -155,6 +162,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\MockAbilityData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockActorData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockMapData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockProjectileData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockRoomData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockWeaponData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MusicData.cs" />

@@ -43,13 +43,19 @@ namespace Client.Game.Data
 				ret.Id = 1002;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
-				ret.Name = "Ceramic Shotgun";
+				ret.Name = "Ceramic Sawed Off Shotgun";
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.SHOTGUN_BLAST.Id, 0
 				));
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id, 1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 40
@@ -89,6 +95,12 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+				));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -120,10 +132,16 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
 					0
 				));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 70
@@ -154,7 +172,12 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+				));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id, 0
 				));
@@ -185,7 +208,12 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.CONTINUOUS_BEAM.Id,
 					0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
+				
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 10
@@ -204,7 +232,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .1f
+					ActorAttributes.KnockbackForce.Id, 0f
 				));
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -220,18 +248,26 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rust Machine";
-
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
 					0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.WEAPON_CURSE.Id,
+					1
+				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 30
 				));
@@ -267,11 +303,16 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/Shield_prefab";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rusty Shield";
-
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.MELEE_ONE_HANDED));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, 
 					MockAbilityData.SHIELD_BLOCK.Id,
 					0
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, 2f
@@ -286,16 +327,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData SHIELD_BLOCK_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 1009;
-				ret.ResourcePath = "Weapons/Shield_prefab";
-				ret.ActorType = ActorType.Projectile;
-				return ret;
-			}
-		}
-
+		
 		public static CharacterData STATIC_REPEATER {
 			get {
 				var ret = new CharacterData();
@@ -303,6 +335,8 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Static Repeater";
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.STATIC_REPEATER_ABILITY.Id, 0
 				));
@@ -311,7 +345,10 @@ namespace Client.Game.Data
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
 				));
-				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 10
 				));
@@ -340,16 +377,7 @@ namespace Client.Game.Data
 			}
 		}
 		
-		public static CharacterData BLUE_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 1011;
-				ret.ActorType = ActorType.Projectile;
-				ret.ResourcePath = "Projectiles/BlueProjectile_prefab";
-				return ret;
-
-			}
-		}
+		
 
 		public static CharacterData FLY_BOT_CANNON {
 			get {
@@ -429,8 +457,13 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Swap Rifle";
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.SWAP_POSITIONS.Id, 0
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -461,11 +494,14 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.SHORT_PROJECTILE.Id, 0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id,
 					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -497,7 +533,6 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.QUAD_SHOT.Id, 0
 				));
-				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1f
 				));
@@ -508,7 +543,47 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-
+		
+		public static CharacterData GRENADE_LAUNCHER_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1018;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Dredgling Grenade Launcher";
+				
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.LAUNCH_GRENADE.Id, 0
+				));
+				
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.FIRE_ON_FALL.Id, 1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 50
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, .8f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponAnxietyCost.Id, 10
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 1f
+				));
+				
+				ret.Cost = 750;
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				
+				return ret;
+			}
+		}
 
 	}
 }

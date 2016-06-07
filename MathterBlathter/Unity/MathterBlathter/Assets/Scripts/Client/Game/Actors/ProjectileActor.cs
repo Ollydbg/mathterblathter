@@ -4,6 +4,7 @@ using Client.Game.Data;
 using Client.Game.Abilities.Utils;
 using Client.Game.Abilities;
 using Client.Game.Enums;
+using Client.Game.Abilities.Movement;
 
 namespace Client.Game.Actors
 {
@@ -12,8 +13,6 @@ namespace Client.Game.Actors
 		public Action<Actor> OnHit;
 		public Action OnGeometryHit;
 
-		private Vector3 direction;
-		public float Speed;
 		private float lifespan = 5.0f;
 		private float lifetime = 0f;
 		private FilterList collisionFilters;
@@ -23,6 +22,8 @@ namespace Client.Game.Actors
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
 		private static int HARD_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
 		private static int SOFT_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.SoftGeometry.ToString());
+
+		public Movement Movement;
 
 		public ProjectileActor ()
 		{
@@ -36,14 +37,12 @@ namespace Client.Game.Actors
 			base.EnterGame (game);
 		}
 
-		public void SetMovement (Vector3 direction, float speed)
-		{
-			this.direction = direction;
-			this.Speed = speed;
+		public void SetMovement(Movement movement) {
+			this.Movement = movement;
 			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
 			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += OnCollision;
-
 		}
+
 
 		public void SetCollisionFilters(AbilityContext context, FilterList filters) {
 			this.context = context;
@@ -96,7 +95,9 @@ namespace Client.Game.Actors
 
 		public override void Update (float dt)
 		{
-			this.transform.position += (direction * (Speed * dt));
+			if(Movement != null)
+				this.Movement.Update(dt);
+
 			lifetime += dt;
 
 			if (lifetime >= lifespan) {

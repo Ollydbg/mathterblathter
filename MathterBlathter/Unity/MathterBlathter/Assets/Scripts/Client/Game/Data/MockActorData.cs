@@ -113,7 +113,7 @@ namespace Client.Game.Data
 					MockAbilityData.ANXIETY_REGEN_BUFF.Id,
 					1
 				));
-
+				
 				return ret;
 			}
 		}
@@ -229,17 +229,6 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData PINK_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 6;
-				ret.ActorType = ActorType.Projectile;
-				ret.ResourcePath = "Projectiles/enemyTest_prefab";
-
-				return ret;
-			}
-		}
-		
 		
 		public static CharacterData SHOPKEEPER {
 			get {
@@ -270,28 +259,6 @@ namespace Client.Game.Data
 					ActorAttributes.BloodBounty.Id, 300
 				));
 
-				return ret;
-			}
-		}
-
-
-
-		public static CharacterData RAIL_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 10;
-				ret.ActorType = ActorType.Projectile;
-				ret.ResourcePath = "Projectiles/HotRail_prefab";
-				return ret;
-			}
-		}
-
-		public static CharacterData ROCKET_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 11;
-				ret.ActorType = ActorType.Projectile;
-				ret.ResourcePath = "Projectiles/SmallRocket_prefab";
 				return ret;
 			}
 		}
@@ -391,16 +358,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData AIM_RAY {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 17;
-				ret.ResourcePath = "Projectiles/VFX/aimLine_prefab";
-				ret.ActorType = ActorType.Projectile;
-				return ret;
-			}
-		}
-
+		
 		public static CharacterData FLY_BOT_SPAWNER {
 			get {
 				var ret = new CharacterData();
@@ -628,27 +586,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData BEAM_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 22;
-				ret.ResourcePath = "Projectiles/BeamProjectile_prefab";
-				ret.ActorType = ActorType.Projectile;
-				return ret;
-			}
-		}
-
-
-		public static CharacterData FAT_BLACK_SLUG_PROJECTILE {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 23;
-				ret.ActorType = ActorType.Projectile;
-				ret.ResourcePath = "Projectiles/FatSlug_prefab";
-				return ret;
-			}
-			
-		}
+		
 		
 		public static CharacterData SHOP_CLOSED_SIGN {
 			get {

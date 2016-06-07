@@ -12,7 +12,7 @@ namespace Client.Game.Abilities.Timelines
 	{
 		public const char SFX_TRACK = 's';
 		public const char VFX_TRACK = 'e';
-		public delegate void Handler(TimelineData.Point pt, TimelineData data, Actor actor);
+		public delegate void Handler(TimelineData.Point pt, TimelineData data, GameObject gameObject);
 		public static Dictionary<char, Handler> HandlerMap;
 
 		public TimelineRunner ()
@@ -28,25 +28,37 @@ namespace Client.Game.Abilities.Timelines
 		{
 			//lets keep this dumb for now and only add persisted ticking when we need it
 			foreach( var kvp in timelineData.Lookup) {
-				HandlerMap[kvp.Key](kvp.Value, timelineData, target);
+				HandlerMap[kvp.Key](kvp.Value, timelineData, target.GameObject);
+			}
+		}
+
+		public void Play (TimelineData timelineData, Vector3 worldPos)
+		{
+			//lets keep this dumb for now and only add persisted ticking when we need it
+			var go = new GameObject();
+			go.transform.position = worldPos;
+			foreach( var kvp in timelineData.Lookup) {
+				HandlerMap[kvp.Key](kvp.Value, timelineData, go);
 			}
 		}
 
 
-		static void PlaySFX (TimelineData.Point pt,TimelineData data, Actor actor)
+
+
+		static void PlaySFX (TimelineData.Point pt,TimelineData data, GameObject go)
 		{
 
 			var ac = Resources.Load(pt.Resource) as AudioClip;
-			AudioSource.PlayClipAtPoint(ac, AttachPointComponent.AttachPointPositionOnActor(pt.AttachPoint, actor));
+			AudioSource.PlayClipAtPoint(ac, AttachPointComponent.AttachPointPositionOnGameObject(pt.AttachPoint, go));
 
 		}
 
-		static void PlayVFX (TimelineData.Point pt, TimelineData data, Actor actor) {
+		static void PlayVFX (TimelineData.Point pt, TimelineData data, GameObject gameObject) {
 
-			if(actor.GameObject){
+			if(gameObject){
 				var go = (GameObject)GameObject.Instantiate(
 					Resources.Load(pt.Resource),
-					AttachPointComponent.AttachPointPositionOnActor(pt.AttachPoint, actor),
+					AttachPointComponent.AttachPointPositionOnGameObject(pt.AttachPoint, gameObject),
 					Quaternion.identity
 				);
 				var ttl = go.AddComponent<EffectTTL>();

@@ -11,6 +11,7 @@ namespace Client.Game.Enums
 		WeaponSlot,
 		Face,
 		Eyes,
+		None,
 	}
 
 }

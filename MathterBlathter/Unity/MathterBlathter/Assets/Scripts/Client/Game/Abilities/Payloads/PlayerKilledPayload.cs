@@ -26,9 +26,10 @@ namespace Client.Game.Abilities.Payloads
 				return;
 			
 			//find player death ability
+			
 			var id = Target.Attributes[ActorAttributes.Abilities, (int)AbilitySlots.Death];
 			var deathBuff = MockAbilityData.FromId(id);
-
+			
 			var deathContext = new AbilityContext(this.Context.source, deathBuff);
 			AbilityManager.ActivateAbility(deathContext);
 			//trigger it

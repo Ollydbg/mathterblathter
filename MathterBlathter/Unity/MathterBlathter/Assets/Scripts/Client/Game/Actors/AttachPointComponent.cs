@@ -24,6 +24,24 @@ namespace Client.Game.Actors
 			return actor.GameObject.transform.position;
 
 		}
+
+		public static Vector3 AttachPointPositionOnGameObject(AttachPoint point, GameObject go) {
+
+			var components = go.GetComponentsInChildren<AttachPointComponent>();
+
+			foreach( var comp in components ) {
+
+				if(comp.Type == point) {
+					var position = comp.gameObject.transform.position;
+					return new Vector3(position.x, position.y);
+				}
+
+			}
+
+			//default just return the feet position of the actor
+			return go.transform.position;
+
+		}
 	}
 }
 

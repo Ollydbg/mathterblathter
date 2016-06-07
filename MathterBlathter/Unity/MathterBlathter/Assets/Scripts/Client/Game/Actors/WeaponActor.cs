@@ -1,6 +1,7 @@
 ﻿using System;
 using Client.Game.Data;
 using Client.Game.Abilities;
+using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Actors
 {
@@ -34,7 +35,12 @@ namespace Client.Game.Actors
 
 		public bool Interact (Actor withActor)
 		{
-			withActor.WeaponController.AddWeapon(this);
+			//having a null ability data will eventually get me in trouble!
+			var ctx = new AbilityContext(withActor, this, UnityEngine.Vector3.zero, null);
+			
+			//routes to WeaponController.AddWeapon on success
+			new WeaponPickupPayload(ctx).Apply();
+			
 			return true;
 		}
 

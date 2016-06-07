@@ -3,6 +3,8 @@ using Client.Game.Actors;
 using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Attributes;
+using Client.Game.Data;
+using Client.Game.Abilities;
 
 namespace Client.Game.Utils
 {
@@ -78,6 +80,21 @@ namespace Client.Game.Utils
 			return buffer;
 		}
 
+
+		public static void PropogateBuffs(Actor pickup, Actor toActor) {
+			for( int i = 0; i< int.MaxValue; i++ ) {
+				var dataId = pickup.Attributes[ActorAttributes.Abilities, i];
+				
+				if(dataId == ActorAttributes.Abilities.DefaultValue) 
+					break;
+
+				var data = MockAbilityData.FromId(dataId);
+				if(data.IsBuff) {
+					var context = new AbilityContext(pickup, toActor, data);
+					toActor.Game.AbilityManager.ActivateAbility(context);
+				}
+			}
+		}
 	}
 }
 

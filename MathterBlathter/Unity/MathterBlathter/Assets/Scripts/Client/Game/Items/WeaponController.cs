@@ -6,6 +6,7 @@ using UnityEngine;
 using Client.Game.Enums;
 using System.Collections.Generic;
 using Client.Game.Abilities;
+using Client.Game.Utils;
 
 namespace Client.Game.Items
 {
@@ -82,6 +83,7 @@ namespace Client.Game.Items
 				var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
 				AddWeapon(spawnedActor);
 
+				ActorUtils.PropogateBuffs(spawnedActor, Owner);
 			}
 		}
 

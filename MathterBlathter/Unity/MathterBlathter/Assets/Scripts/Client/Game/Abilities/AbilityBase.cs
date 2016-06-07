@@ -9,6 +9,7 @@ using Client.Game.Data;
 using Client.Game.Abilities.Utils;
 using System.Collections.Generic;
 using Client.Game.Abilities.Timelines;
+using Client.Game.Abilities.Movement;
 
 namespace Client
 {
@@ -69,15 +70,17 @@ namespace Client
 		}
 
 		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
-			
+
+
 			Vector3 adjustedDirection = AbilityUtils.AdjustWithInaccuracy(direction, context);
 
-
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
+			
 			projectile.transform.position = AttachPointComponent.AttachPointPositionOnActor(point, context.source);
 
 			projectile.transform.LookAt(projectile.transform.position + adjustedDirection);
-			projectile.SetMovement (adjustedDirection, speed);
+
+			projectile.SetMovement (new Linear(projectile, adjustedDirection, speed));
 			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
 			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(Layers.Projectiles.ToString());
 			SpawnedActors.Add(projectile);
@@ -86,7 +89,24 @@ namespace Client
 				SpawnedActors.Remove(actor);
 			};
 
+			return projectile;
+		}
 
+		public ProjectileActor FireProjectile(CharacterData projectileData, Movement movement, AttachPoint point) {
+
+			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
+			projectile.transform.position = AttachPointComponent.AttachPointPositionOnActor(point, context.source);
+
+			projectile.transform.LookAt(projectile.transform.position + movement.Heading());
+
+			projectile.SetMovement (movement);
+			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
+			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(Layers.Projectiles.ToString());
+			SpawnedActors.Add(projectile);
+
+			projectile.OnDestroyed += (Actor actor) => {
+				SpawnedActors.Remove(actor);
+			};
 
 			return projectile;
 		}
@@ -101,6 +121,11 @@ namespace Client
 		public void PlayTimeline (TimelineData timelineData, Actor target)
 		{
 			TimelineRunner.Play(timelineData, target);
+		}
+
+		public void PlayTimeline (TimelineData timelineData, Vector3 position)
+		{
+			TimelineRunner.Play(timelineData, position);
 		}
 
 

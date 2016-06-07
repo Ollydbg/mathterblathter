@@ -39,6 +39,10 @@ namespace Client.Game.Data
 				this.Resource = resouce;
 				this.AttachPoint = ap;
 			}
+
+			public static implicit operator Point(string str) {
+				return new Point(str, AttachPoint.None);
+			}
 		}
 
 		public Dictionary<char, Point> Lookup = new Dictionary<char, Point>();

@@ -333,6 +333,26 @@ namespace Client.Game.Data
 			
 		}
 		
+		public static PickupData WEAPON_DE_CURSER {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 14;
+				ret.Name = "Weapon De-Curser";
+				ret.Description = "Removes curses from your current weapons";
+				ret.ActorType = ActorType.Pickup;
+				ret.ResourcePath = "Items/ItemBuff_prefab";
+				ret.Cost = 500;	
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.WEAPON_DE_CURSER.Id,
+					0
+				));
+				ret.Availability = Availability.InShop;
+				return ret;
+			}
+		}
+		
+		
 	}
 }
 

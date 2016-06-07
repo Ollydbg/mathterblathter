@@ -23,6 +23,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
 
+			
 			currentProjectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			currentProjectile.OnGeometryHit = OnHit;
@@ -45,7 +46,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void Update (float dt)
 		{
 			if(currentProjectile != null) {
-				currentProjectile.Speed += this.Attributes[AbilityAttributes.ProjectileAccel] * dt;
+				currentProjectile.Movement.Speed += this.Attributes[AbilityAttributes.ProjectileAccel] * dt;
 			}
 
 		}

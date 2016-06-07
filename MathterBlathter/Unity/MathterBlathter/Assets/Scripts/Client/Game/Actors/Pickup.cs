@@ -3,6 +3,7 @@ using Client.Game.Data;
 using UnityEngine;
 using Client.Game.Attributes;
 using Client.Game.Abilities;
+using Client.Game.Utils;
 
 namespace Client.Game.Actors
 {
@@ -28,15 +29,7 @@ namespace Client.Game.Actors
 		public bool Interact (Actor withActor)
 		{
 			//dump all our abilities onto the interactor
-			for( int i = 0; i< int.MaxValue; i++ ) {
-				var dataId = this.Attributes[ActorAttributes.Abilities, i];
-				if(dataId == ActorAttributes.Abilities.DefaultValue) 
-					break;
-
-				var context = new AbilityContext(withActor, withActor, MockAbilityData.FromId(dataId));
-				Game.AbilityManager.ActivateAbility(context);
-			}
-
+			ActorUtils.PropogateBuffs(this, withActor);
 			Game.ActorManager.RemoveActor(this);
 
 			return true;
