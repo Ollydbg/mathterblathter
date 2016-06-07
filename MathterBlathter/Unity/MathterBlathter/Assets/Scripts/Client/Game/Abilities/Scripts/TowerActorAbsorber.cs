@@ -9,7 +9,7 @@ using Client.Game.Map;
 
 namespace Client.Game.Abilities.Scripts
 {
-    public class TowerWeaponAbsorber : BuffBase
+    public class TowerActorAbsorber : BuffBase
     {
         public override void End()
         {

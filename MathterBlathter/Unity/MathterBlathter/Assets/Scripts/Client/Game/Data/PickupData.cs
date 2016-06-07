@@ -50,6 +50,10 @@ namespace Client.Game.Data
 					MockAbilityData.STAT_UP.Id,
 					0
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
 					1
@@ -80,7 +84,10 @@ namespace Client.Game.Data
 					MockAbilityData.MOVE_BOOST_TEMP.Id,
 					0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pump";
 				return ret;
@@ -100,6 +107,10 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.HEAL.Id,
 					0
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -127,7 +138,10 @@ namespace Client.Game.Data
 					MockAbilityData.FALL_DAMAGE_PERM.Id,
 					1
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+				));
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 70;
 				//better jumps, but takes a little damage on falling from heights
@@ -151,7 +165,10 @@ namespace Client.Game.Data
 					MockAbilityData.RABBITS_FOOT_BUFF.Id,
 					0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
 					.5f
@@ -185,7 +202,10 @@ namespace Client.Game.Data
 					MockAbilityData.RABBITS_FOOT_BUFF.Id,
 					0
 				));
-				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -235,6 +255,10 @@ namespace Client.Game.Data
 					MockAbilityData.ENERGY_HEAL.Id,
 					0
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id,
 					.8f
@@ -258,6 +282,10 @@ namespace Client.Game.Data
 					MockAbilityData.LOWER_ANXIETY_DAMAGE_BUFF.Id,
 					0
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 
 				ret.Name = "Safety Blanket";
 				ret.Availability = Availability.InShop;
@@ -280,7 +308,10 @@ namespace Client.Game.Data
 					MockAbilityData.CURSED_COURAGE_BUFF.Id,
 					0
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				
 				return ret;
@@ -301,7 +332,10 @@ namespace Client.Game.Data
 					MockAbilityData.TRIGGER_FINGERS_BUFF.Id,
 					0
 				));
-					
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));	
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -323,7 +357,10 @@ namespace Client.Game.Data
 					MockAbilityData.LOW_HEALTH_DAMAGE_AMP_BUFF.Id,
 					0
 				));
-					
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+				));	
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -346,6 +383,10 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.WEAPON_DE_CURSER.Id,
 					0
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
 				));
 				ret.Availability = Availability.InShop;
 				return ret;

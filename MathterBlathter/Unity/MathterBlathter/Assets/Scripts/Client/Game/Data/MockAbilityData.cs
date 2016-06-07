@@ -833,7 +833,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 45;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TowerWeaponAbsorber);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TowerActorAbsorber);
 				return ret;
 			}
 		}
