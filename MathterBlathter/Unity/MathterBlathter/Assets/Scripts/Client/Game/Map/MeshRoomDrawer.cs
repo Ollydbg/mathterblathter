@@ -20,10 +20,11 @@ namespace Client.Game.Map
 		public const char SPIKES = 's';
 		public const char RAMP = '/';
 		public const char DOOR = 'd';
-		public static char LIGHT = 'L';
+		public const char LIGHT = 'L';
 		public const char CEILING = 'c';
-
+		public const char GROUNDED_SPAWN = '.';
 		public const char SEALED_DOOR = 'X';
+		public const char AIR_SPAWN = ' ';
 		
 		public MeshRoomDrawer ()
 		{

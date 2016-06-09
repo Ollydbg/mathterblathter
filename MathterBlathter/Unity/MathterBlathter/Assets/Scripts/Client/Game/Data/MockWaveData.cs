@@ -51,6 +51,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
 				ret.Spawns.Add(MockActorData.BULLET_STAR);
 				ret.Spawns.Add(MockActorData.ENERGY_SAPPER_ENEMY);
+				ret.Spawns.Add(MockActorData.RAIL_SNIPER_ENEMY);
 
 				ret.Difficulty = 2;
 				return ret;
@@ -72,6 +73,28 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+
+
+		public static WaveData WAVE_4 {
+			get {
+				var ret = new WaveData();
+				ret.Id = 4;
+				ret.PreDelay = 1f;
+
+				ret.Spawns.Add(MockActorData.GROUNDED_RANGED_ENEMY);
+				ret.Spawns.Add(MockActorData.GROUNDED_RANGED_ENEMY);
+				ret.Spawns.Add(MockActorData.GROUNDED_RANGED_ENEMY);
+				ret.Spawns.Add(MockActorData.BULLET_STAR);
+				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
+				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
+
+
+				ret.Difficulty = 8;
+				return ret;
+			}
+		}
+
 	}
 }
 

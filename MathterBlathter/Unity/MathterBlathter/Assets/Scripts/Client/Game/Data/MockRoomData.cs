@@ -91,12 +91,12 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w ...................................................           w";
                 ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                                                       ....... w";
                 ret.AsciiMap += "w                                                     ppppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
@@ -112,7 +112,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
 				ret.AsciiMap += "d                            C                                  d";
-                ret.AsciiMap += "d                                                               d";
+                ret.AsciiMap += "d                                .......................        d";
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 
@@ -141,7 +141,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w     1                                                        w";
+				ret.AsciiMap += "w     1    ........                                            w";
 				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                 L     w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                1             w";
@@ -165,7 +165,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "d           L                                                  d";
 				ret.AsciiMap += "d                                                              d";
-				ret.AsciiMap += "d                                                              d";
+				ret.AsciiMap += "d                                          ..............      d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 				finalize(ret);
@@ -213,7 +213,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "d           L                                                  d";
 				ret.AsciiMap += "d                                                              d";
-				ret.AsciiMap += "d                                                  1           d";
+				ret.AsciiMap += "d                ...........                       1           d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 				finalize(ret);
@@ -241,7 +241,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w           L                                                  w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                  1           w";
+				ret.AsciiMap += "w                ......                            1           w";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['2'] = MockActorData.RANDOM_WEAPON_PICKUP;
@@ -265,7 +265,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "f                                                              f";
 				ret.AsciiMap += "f                                                              f";
 				ret.AsciiMap += "f                                                              f";
-				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w                                    ..............            w";
 				ret.AsciiMap += "w                    fffffffffffffffffffffffffffffffffffffffffTf";
 				ret.AsciiMap += "w              PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                              w";
@@ -279,7 +279,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "f                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "f          2                                                   w";
-				ret.AsciiMap += "w   1                                                          w";
+				ret.AsciiMap += "w   1                     .................                    w";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffTfffpppppw";
 				ret.AsciiMap += "w                                                        L     w";
 				ret.AsciiMap += "w                                                              w";
@@ -291,7 +291,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "d                   1                                          d";
-				ret.AsciiMap += "d                                 C                            d";
+				ret.AsciiMap += "d       ...........               C                            d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffssssssfffffff";
 
 				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
@@ -313,7 +313,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                              L                                                            L   d";
 				ret.AsciiMap += "d                                                                                               L                               d";
 				ret.AsciiMap += "d                                                             1                                                                 d";
-				ret.AsciiMap += "wf                                             2                                                 2                             fw";
+				ret.AsciiMap += "wf                                             2       ..........                                2                             fw";
 				ret.AsciiMap += "wPPPPP      1                          PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP             PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                                                  PP                                           w";
 				ret.AsciiMap += "w                                                                                                                               w";
@@ -344,7 +344,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                        wwww                                                                                                   w";
 				ret.AsciiMap += "w                                                                                                                               d";
 				ret.AsciiMap += "w                                                           L                                    L                              d";
-				ret.AsciiMap += "w                                                                                                                               d";
+				ret.AsciiMap += "w                    .............                                                                                              d";
 				ret.AsciiMap += "fffffffffTfffffffffffffffffffffffffffffffffffffffffffffffffffffdddffffffffTTTTfffffffffffffffffdddfffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.up);
@@ -427,7 +427,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                    ww                  ww                    w";
 				ret.AsciiMap += "d                    ww                  ww                 L  d";
 				ret.AsciiMap += "d                    ww     L            ww                    d";
-				ret.AsciiMap += "d                    ww                  ww                    d";
+				ret.AsciiMap += "d    ....            ww                  ww                    d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
@@ -460,7 +460,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                 wwwwww                                       w";
 				ret.AsciiMap += "w                 wwwwww                                       w";
 				ret.AsciiMap += "w                 wwwwww                                       w";
-				ret.AsciiMap += "w            PPPPPwwwwww                                       w";
+				ret.AsciiMap += "w            PPPPPwwwwww     .....                             w";
 				ret.AsciiMap += "w                 Twwwww   wwwwwwwwUwwwwwwUwwwwwwwwww          w";
 				ret.AsciiMap += "w                 wwwwww   wwwwwwwwwwwwwwwwwwwwwwwwww          w";
 				ret.AsciiMap += "w                 wwwwwwpppwwwwwwwwwwwwwwwwwwwwwwwwww          w";
@@ -521,7 +521,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                               L              w";
+				ret.AsciiMap += "w               .........                       L              w";
 				ret.AsciiMap += "w              pppppppppppppppppppppppppppppppppppppppppppppp  w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "d                                                              d";
@@ -558,7 +558,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w       2                                                       w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                   L                                        1  w";
+                ret.AsciiMap += "w      ........     L                                        1  w";
 				ret.AsciiMap += "w     wwwwwwwwwwwwwppppppppfffffffffffffffffffffssssssssssssffffw";
 				ret.AsciiMap += "w     wwwwwwwwwwwww        fffffffffffffffffffffffffffffffffffffw";
                 ret.AsciiMap += "w     wwwwwwwwwwwww                                             w";
@@ -570,7 +570,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPPPPPPP          w";
                 ret.AsciiMap += "w                          ffff                                 w";
                 ret.AsciiMap += "w        L                 ffff                                 w";
-                ret.AsciiMap += "w                          ffff                             L   w";
+                ret.AsciiMap += "w              ........    ffff                             L   w";
                 ret.AsciiMap += "w       wwwwwwwwwwwwwwwwwwwwwww                                 w";
                 ret.AsciiMap += "w       wwwwwwwwwwwwwwwwwwwwwww        L                        w";
                 ret.AsciiMap += "d       wwwwwwwwwwwwwwwwwwwwwww       wwwwwwwwwwwwwwwwwwww      d";
@@ -609,7 +609,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                              w";
 				ret.AsciiMap += "w                              w";
 				ret.AsciiMap += "w                              w";
-				ret.AsciiMap += "w                              w";
+				ret.AsciiMap += "w .....                        w";
 				ret.AsciiMap += "wPPPPPPPPP                     w";
 				ret.AsciiMap += "w                              w";
 				ret.AsciiMap += "w                              w";
@@ -621,7 +621,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                              w";
 				ret.AsciiMap += "w                              w";
 				ret.AsciiMap += "w                              w";
-				ret.AsciiMap += "w          L                   w";
+				ret.AsciiMap += "w          L       ...         w";
 				ret.AsciiMap += "w                 wwwwwww      w";
 				ret.AsciiMap += "w                 wwwwwww      w";
 				ret.AsciiMap += "d                 wwwwwww      d";
@@ -647,7 +647,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "w                                                           L fw";
-				ret.AsciiMap += "wpppppPPPPPPPPPPPP                            1              ppw";
+				ret.AsciiMap += "wpppppPPPPPPPPPPPP                            1              PPw";
 				ret.AsciiMap += "w                ffffffffffffffffffffffffffffffffffffffffffffffw";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
@@ -659,7 +659,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                      L                                       w";
-				ret.AsciiMap += "w                       3                                      w";
+				ret.AsciiMap += "w ..........            3                                      w";
 				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPP                                  w";
 				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPP                                  w";
 				ret.AsciiMap += "w                                                              w";
@@ -679,7 +679,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "wP                                                             w";
-				ret.AsciiMap += "wPw                                                            w";
+				ret.AsciiMap += "wPw    ................                                        w";
 				ret.AsciiMap += "wPwPPPPPPPPPPPPPPPPPPPPPP                                      w";
 				ret.AsciiMap += "wPwPPPPPPPPPPPPPPPPPPPPPPwPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPppppw";
 				ret.AsciiMap += "wPwPPPPPPPPPPPPPPPPPPPPPPw                                     w";
@@ -754,7 +754,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
+				ret.AsciiMap += "w              .............                                   w";
 				ret.AsciiMap += "w             wwwwwwwwwwwwwww             L                    w";
 				ret.AsciiMap += "d             wwwwwwwwwwwwwww                                  d";
 				ret.AsciiMap += "d             wwwwwwwwwwwwwww                                  d";
@@ -799,7 +799,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                              w";
                 ret.AsciiMap += "w                              w";
                 ret.AsciiMap += "w                              w";
-                ret.AsciiMap += "w                              w";
+                ret.AsciiMap += "w    .....         ......      w";
 				ret.AsciiMap += "wppppppppppppp   ppppppppppppppw";
                 ret.AsciiMap += "w                              w";
                 ret.AsciiMap += "w                              w";
@@ -841,13 +841,13 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                              w";
 				ret.AsciiMap += "w                           L  w";
 				ret.AsciiMap += "w                       1      w";
-				ret.AsciiMap += "wPPPPP                  L      w";
+				ret.AsciiMap += "wPPPPP               ..  L     w";
 				ret.AsciiMap += "w                 fffffffffffffw";
 				ret.AsciiMap += "w                 fffffffffffffw";
 				ret.AsciiMap += "w                 fffffffffffffw";
 				ret.AsciiMap += "w                 fffffffffffffw";
 				ret.AsciiMap += "w                 fffffffffffffw";
-				ret.AsciiMap += "w                 fffffffffffffw";
+				ret.AsciiMap += "w   ....          fffffffffffffw";
 				ret.AsciiMap += "wPPPPPPPPP        fffffffffffffw";
 				ret.AsciiMap += "w                 fffffffffffffw";
 				ret.AsciiMap += "w                 fffffffffffffw";
@@ -906,7 +906,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                            L                 w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                            2                 w";
-				ret.AsciiMap += "w                                            PPPPPPPPPPP       w";
+				ret.AsciiMap += "w            ...........                     PPPPPPPPPPP       w";
 				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPP                    PPPPPPPPPPP       w";
 				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPP                    PPPPPPPPPPP       w";
 				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPP                    PPPPPPPPPPP       w";
@@ -940,14 +940,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                       w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                 2            w";
+				ret.AsciiMap += "w                                     .......     2            w";
 				ret.AsciiMap += "w             3                    PPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                      L                       w";
+				ret.AsciiMap += "w             ..........               L                       w";
 				ret.AsciiMap += "wppppppPPPPPPPPPPPPPPPPPPP                                     w";
 				ret.AsciiMap += "w      PPPPPPPPPPPPPPPPPPP                                     w";
 				ret.AsciiMap += "w      PPPPPPPPPPPPPPPPPPP                                     w";
@@ -1054,7 +1054,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                                                               w";
 				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                                                               w";
 				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPPwwwwwwwwwwwwwwwwwwwwwww                                                        w";
-				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPPwwwwwwwwwwwwwwwwwwwwwwwww                                                      w";
+				ret.AsciiMap += "w     ..............       PPPPPPPPPPPPPPPPPPPPPPwwwwwwwwwwwwwwwwwwwwwwwww                                                      w";
 				ret.AsciiMap += "wppppppppppppppppppppppppppPPPPPPPPPPPPPPPPPPPPPPwwwwwwwwwwwwwwwwwwwwwwwwwww                                                    w";
 				ret.AsciiMap += "w                                                                        PPP                                                    w";
 				ret.AsciiMap += "w                                                                        PPP                                                    w";
@@ -1062,7 +1062,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                                        PPP                                                    w";
 				ret.AsciiMap += "d                                                                        PPP                                                    w";
 				ret.AsciiMap += "d                                                                        PPP                                                    w";
-				ret.AsciiMap += "d                                                                        PPP                                                    w";
+				ret.AsciiMap += "d                                                                        PPP                      ..............                w";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				finalize(ret);
@@ -1100,7 +1100,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w            2                                                 w";
+				ret.AsciiMap += "w            2      .................                          w";
 				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwPPPP        w";
 				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww            w";
 				ret.AsciiMap += "w        wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww            w";
@@ -1141,7 +1141,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w          L                                                   w";
 				ret.AsciiMap += "w                                               L              w";
 				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                3                                             w";
+				ret.AsciiMap += "w          ....................                                w";
 				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
 				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";
 				ret.AsciiMap += "w       PPPPPPPPPPPPPPPPPPPPPPP                                w";

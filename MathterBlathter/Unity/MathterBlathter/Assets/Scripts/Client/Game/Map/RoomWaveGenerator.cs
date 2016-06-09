@@ -31,17 +31,16 @@ namespace Client.Game.Map
 		public List<GeneratedWave> Generate(Room room, int difficulty) {
 
 			var extractor = new AsciiMeshExtractor(room.data.AsciiMap);
-			AirCoords = extractor.getAllMatching(' ');
-			GroundCoords = extractor.getAllMatching(MeshRoomDrawer.FLOOR);
-			GroundCoords.AddRange(extractor.getAllMatching(MeshRoomDrawer.PLATFORM));
-			GroundCoords.AddRange(extractor.getAllMatching(MeshRoomDrawer.PASSTHROUGH_PLATFORM));
+			AirCoords = extractor.getAllMatching(MeshRoomDrawer.AIR_SPAWN);
+			GroundCoords = extractor.getAllMatching(MeshRoomDrawer.GROUNDED_SPAWN);
 
 			var buff = new List<GeneratedWave>();
 
 			foreach( var wave in GetRoomWaves(room, difficulty)) {
 				var test = new GeneratedWave();
 				foreach( var waveChar in wave.Spawns ) {
-					test.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, RandomAirPosition(room)));
+					var position = waveChar.SpawnType == CharacterSpawnType.Floor ? RandomFloorPosition(room) : RandomAirPosition(room);
+					test.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position));
 				}
 				buff.Add(test);
 			}
