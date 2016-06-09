@@ -7,6 +7,7 @@ using Client.Game.Core;
 using Client.Game.Actors;
 using Client.Game.Enums;
 using Client.Game.Utils;
+using Client.Game.Attributes;
 
 namespace Client.Game.Map
 {
@@ -27,8 +28,6 @@ namespace Client.Game.Map
 		private static int LastId = 0;
 		public GameObject GameObject;
 
-		public List<Actor> RoomObjectives = new List<Actor>();
-		
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
 		public delegate void OnUnlock(Room room);
 		public event OnUnlock UnlockEvent;
@@ -39,6 +38,8 @@ namespace Client.Game.Map
 		public interface IRoomDrawer {
 			GameObject Draw (Room room);
 		}
+
+		public RoomWaveManager Waves = new RoomWaveManager();
 
 		public override int GetHashCode ()
 		{
@@ -102,13 +103,14 @@ namespace Client.Game.Map
 
 		public void PlayerLeft (Actor actor)
 		{
+			
 		}
 
 		public void PlayerEntered (Actor actor, DoorActor throughDoor)
 		{
 			Lights.ForEach(l => l.gameObject.SetActive(true));
 
-			SpawnObjects();
+			SpawnObjects(actor);
 		}
 		
 
@@ -119,32 +121,31 @@ namespace Client.Game.Map
 			initFromData (data);
 		}
 
-		public void SpawnObjects() {
+		public void SpawnObjects(Actor forActor) {
+
+			if(this.data.SpawnsWaves) {
+				if(!Waves.IsComplete) {
+					var difficulty = forActor.Attributes[ActorAttributes.RunDifficulty];
+					var waveData = new RoomWaveGenerator().Generate(this, difficulty);
+					Waves.Start(waveData);
+
+					this.Doors.ForEach(p => p.Close());
+
+				}
+			}
+
+
 			foreach (var spawn in data.Spawns) {
 				if(TryRecordSpawn(spawn)) {
 
 					var actor = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
 					actor.SpawnData = spawn;
-
-					if(actorBlocksRoomUnlock(actor)) {
-						RoomObjectives.Add(actor);
-						actor.OnDestroyed += (Actor deadActor) => RoomObjectives.Remove(deadActor);
-					}
-					
 					actor.transform.position = spawn.RoomPosition + Position;
 					ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
 
 				}
 			}
 
-			if(RoomObjectives.Count > 0) {
-				this.Doors.ForEach(p => p.Close());
-			}
-		}
-
-		bool actorBlocksRoomUnlock (Actor actor)
-		{
-			return actor.ActorType == ActorType.Enemy;
 		}
 
 		public void initFromData (RoomData data)
@@ -153,9 +154,6 @@ namespace Client.Game.Map
 			this.Height = data.Height;
 		}
 
-		public void EnterGame(Game game) { 
-			
-		}
 
 		public void Draw() {
 			GameObject = Drawer.Draw (this);
@@ -177,11 +175,10 @@ namespace Client.Game.Map
 
 		public void Update(float dt) {
 			if(Locked) {
-				bool canUnlock = RoomObjectives.Count == 0;//roomObjectives.All(p => !Game.Instance.ActorManager.TryFromId(p, out tmp));
-
-				if(canUnlock) {
+				this.Waves.Update(dt);
+				if(this.Waves.IsComplete) 
 					UnlockDoors();
-				}
+
 			}
 
 		}

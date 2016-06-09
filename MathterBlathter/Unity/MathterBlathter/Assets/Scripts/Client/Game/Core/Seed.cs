@@ -37,6 +37,10 @@ namespace Client.Game.Core
 			return items[Next(items.Count)];
 		}
 
+		public Vector3 RandomUnitVector() {
+			return new Vector3(NextFloat(), NextFloat(), 0f);
+		}
+
 	}
 }
 

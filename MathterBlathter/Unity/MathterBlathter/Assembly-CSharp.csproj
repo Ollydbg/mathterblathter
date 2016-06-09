@@ -103,6 +103,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MeleeAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\MoveBoostTempBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\PlayerDeathBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\PlayerRunHardenerBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ProjectileAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RailGunAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
@@ -164,12 +165,14 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\MockMapData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockProjectileData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockRoomData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockWaveData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockWeaponData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MusicData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\PickupData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomTemplates.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\TrapData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\WaveData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\AbilitySlots.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\ActorState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\AttachPoint.cs" />
@@ -196,6 +199,8 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomComparer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomPool.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveGenerator.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\FSM.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />

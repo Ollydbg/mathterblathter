@@ -11,17 +11,14 @@ namespace Client.Game.Abilities.Scripts
     {
         public override void End()
         {
-            throw new NotImplementedException();
         }
 
         public override void Start()
         {
-            throw new NotImplementedException();
         }
 
         public override void Update(float dt)
         {
-            throw new NotImplementedException();
         }
 		
 		float getDamageScalar() {

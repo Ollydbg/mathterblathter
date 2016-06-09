@@ -28,10 +28,11 @@ namespace Client.Game.Abilities.Scripts
 
         private void OnRoomEntered(Actor actor, Room oldRoom, Room newRoom)
         {
-			if(!context.source.IsHeld) {
+			/*if(!context.source.IsHeld) {
 				context.source.Destroy();
 				Debug.Log("The tower grows stronger");
 			}
+			*/
         }
 
         public override void Update(float dt)

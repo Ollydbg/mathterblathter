@@ -78,8 +78,9 @@ namespace Client.Game.Managers
 
 			if(CurrentRoom != null) {
 				CurrentRoom.PlayerLeft(actor);
+				CurrentRoom.UnlockEvent -= OnCurrentUnlocked;
 			}
-			
+
 			var leavingRoom = CurrentRoom;
 
 			CurrentRoom = room;
@@ -94,10 +95,14 @@ namespace Client.Game.Managers
 
 			if(OnRoomEntered != null) 
 				OnRoomEntered(actor, leavingRoom, room);
-
 			
-			room.UnlockEvent += OnCurrentRoomUnlocked;
+			CurrentRoom.UnlockEvent += OnCurrentUnlocked;
 
+		}
+
+		void OnCurrentUnlocked (Room room)
+		{
+			OnCurrentRoomUnlocked(room);
 		}
 
 		public void Update (float dt)

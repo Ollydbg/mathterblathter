@@ -20,11 +20,18 @@ namespace Client.Game.Data
 		public int MaxElevation;
 		//serialized attributes
 		public Availability Availability;
-		
+
+		public CharacterSpawnType SpawnType;
 		public int Cost;
 
 	}
 
+	public enum CharacterSpawnType {
+		Floor,
+		Air,
+		Ceiling,
+		TrapFixture,
+	}
 
 	[FlagsAttribute]
 	public enum Availability : short {

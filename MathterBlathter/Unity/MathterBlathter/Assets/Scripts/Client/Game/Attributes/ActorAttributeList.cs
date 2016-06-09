@@ -68,7 +68,9 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF KnockbackForce = new GameAttributeF(45, 0f, "knockback force", 0, float.MaxValue);
 		public static readonly GameAttributeI ShopsSkipped = new GameAttributeI(46, 0, "shops skipped", 0, int.MaxValue);
 		public static readonly GameAttributeE WeaponFlags = new GameAttributeE(47, 0, "weapon flags", 0, int.MaxValue, typeof(WeaponFlags));
-		
+		public static readonly GameAttributeI RunDifficulty = new GameAttributeI(48, 1, "run difficulty", 0, int.MaxValue);
+		public static readonly GameAttributeI RoomUnlockDifficultyIncr = new GameAttributeI(49, 0, "difficulty increment", 0, int.MaxValue);
+
 	}
 }
 

@@ -42,7 +42,7 @@ namespace Client.Game.UI.Run.Indicators
 		{
 			Cleanup();
 
-			foreach( var obj in newRoom.RoomObjectives) {
+			foreach( var obj in newRoom.Waves.AliveActors) {
 				obj.OnDestroyed += HandleActorDeath;
 				SpawnForObject(obj);
 			}

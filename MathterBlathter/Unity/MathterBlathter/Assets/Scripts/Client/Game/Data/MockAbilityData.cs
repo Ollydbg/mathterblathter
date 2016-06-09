@@ -860,12 +860,23 @@ namespace Client.Game.Data
 				ret.Timelines.Add(explosionEffect);
 
 
-
-
 				return ret;
 			}
 		}
-		
+
+		public static AbilityData ROOM_UNLOCK_HARDENER {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 47;
+				ret.attributeData.Add(
+					new GameData.AttributeData(ActorAttributes.RoomUnlockDifficultyIncr.Id, 2)
+				);
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerRunHardenerBuff);
+				return ret;
+			}
+		}
+
 	}
 }
 
