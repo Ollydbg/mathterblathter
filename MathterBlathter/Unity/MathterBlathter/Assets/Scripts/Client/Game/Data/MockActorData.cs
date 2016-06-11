@@ -290,6 +290,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 40.0f
 				));
+				
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIAttackDelay.Id, 2.0f
+				));
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Speed.Id, .05f
 				));

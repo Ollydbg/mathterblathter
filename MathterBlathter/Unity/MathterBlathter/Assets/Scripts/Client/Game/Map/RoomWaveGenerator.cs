@@ -12,51 +12,99 @@ namespace Client.Game.Map
 	{
 		public RoomWaveGenerator ()
 		{
+			if(sorted == null) 
+				StaticInit();
 		}
 
-		List<WaveData> _sorted;
-
+		private static List<WaveData> sorted;
+		private static Dictionary<int, List<WaveData>> waveBuckets = new Dictionary<int, List<WaveData>>();
 		List<Vector3> AirCoords;
 		List<Vector3> GroundCoords;
 
-		public List<WaveData> SortedWaves {
-			get {
-				if(_sorted == null) {
-					_sorted = MockWaveData.All();
+
+		public static List<WaveData> StaticInit() {
+			if(sorted == null) {
+				sorted = MockWaveData.All();
+				sorted.Sort(new WaveSorter());
+				
+				foreach( var wave in sorted) {
+					if(!waveBuckets.ContainsKey(wave.Difficulty))
+						waveBuckets[wave.Difficulty] = new List<WaveData>();
+						
+					waveBuckets[wave.Difficulty].Add(wave);
+					
 				}
-				return _sorted;
 			}
+			return sorted;
+			
+		}
+		
+		public List<WaveData> WavesForDifficulty(int difficulty, out int remainder) {
+			//errs on easier
+			var buffer = new List<WaveData>();
+			int matchedDifficulty = difficulty;
+			
+			while(matchedDifficulty > 0) {
+				if(waveBuckets.ContainsKey(matchedDifficulty)) {
+					buffer = waveBuckets[matchedDifficulty];
+					break;
+				} else {
+					matchedDifficulty--;
+				}		
+			}
+			
+			remainder = difficulty - matchedDifficulty;
+			
+			return buffer;
 		}
 
-		public List<GeneratedWave> Generate(Room room, int difficulty) {
-
+		public GeneratedWave Generate(Room room, int difficulty) {
+			
 			var extractor = new AsciiMeshExtractor(room.data.AsciiMap);
 			AirCoords = extractor.getAllMatching(MeshRoomDrawer.AIR_SPAWN);
 			GroundCoords = extractor.getAllMatching(MeshRoomDrawer.GROUNDED_SPAWN);
 
-			var buff = new List<GeneratedWave>();
-
+			GeneratedWave waveHead = null;
+			GeneratedWave tail = null;
+			
 			foreach( var wave in GetRoomWaves(room, difficulty)) {
-				var test = new GeneratedWave();
+				
+				var newWave = new GeneratedWave();
+				newWave.WaveData = wave;
+				
 				foreach( var waveChar in wave.Spawns ) {
 					var position = waveChar.SpawnType == CharacterSpawnType.Floor ? RandomFloorPosition(room) : RandomAirPosition(room);
-					test.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position));
+					newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position));
 				}
-				buff.Add(test);
+				
+				
+				if(tail != null) {
+					tail.Next = newWave;
+				}
+				
+				
+				if(waveHead == null)
+					waveHead = newWave;
+				
+				tail = newWave;
 			}
 
-			return buff;
+			return waveHead;
 		}
 
 		private List<WaveData> GetRoomWaves(Room room, int difficulty) {
 			var buff = new List<WaveData>();
-
+			
+			
 			while(difficulty > 0) {
-				var random = Game.Instance.Seed.RandomInList(SortedWaves);
-				difficulty-= random.Difficulty;
+				Debug.Log("Generating for difficulty: " + difficulty);
+				var waves = WavesForDifficulty(difficulty, out difficulty);
+				if(waves.Count == 0)
+					break;
+					
+				var random = Game.Instance.Seed.RandomInList(waves);
 				buff.Add(random);
 			}
-
 
 			return buff;
 		}

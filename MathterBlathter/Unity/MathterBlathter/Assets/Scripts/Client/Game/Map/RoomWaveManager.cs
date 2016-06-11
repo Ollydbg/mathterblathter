@@ -15,28 +15,38 @@ namespace Client.Game.Map
 		{
 		}
 
-		public List<GeneratedWave> Waves;
-		public int currentWaveIndex = -1;
+		public float currentWaveTimer;
+		public GeneratedWave CurrentWave;
 
-		public GeneratedWave CurrentWave {
-			get {
-				return Waves[currentWaveIndex];
-			}
-		}
+		
 		public List<Actor> AliveActors = new List<Actor>();
 		public bool DidStart = false;
 
 
 
-		public void Start(List<GeneratedWave> waves) {
-			Waves = waves;
+		public void Start(GeneratedWave waveList) {
+			
+			CurrentWave = waveList;
 			DidStart = true;
-			Advance();
+			InitCurrentWave();
+		}
+		
+		private void InitCurrentWave() {
+			foreach( var spawnPair in CurrentWave.Generated ) {
+					var actor = Game.Instance.ActorManager.Spawn(spawnPair.Data);
+					actor.transform.position = spawnPair.Position;
+					actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
+
+					actor.SpawnData = new RoomData.Spawn(spawnPair.Data);
+					actor.SpawnData.Facing = Vector3.right;
+					currentWaveTimer = CurrentWave.WaveData.Delay;
+					AliveActors.Add(actor);
+				}
 		}
 
-		public bool LastWave {
+		public bool HasWavesRemaining {
 			get {
-				return Waves.Count == 0 || currentWaveIndex == Waves.Count;
+				return CurrentWave != null && CurrentWave.Next != null;
 			}
 		}
 
@@ -49,32 +59,26 @@ namespace Client.Game.Map
 		public Boolean IsComplete {
 			get {
 				return DidStart 
-					&& LastWave
+					&& !HasWavesRemaining
 					&& WaveComplete;
 				}
 		}
 
 		public void Advance() {
-			currentWaveIndex ++;
-
-			if(!IsComplete) {
-				foreach( var spawnPair in CurrentWave.Generated ) {
-					var actor = Game.Instance.ActorManager.Spawn(spawnPair.Data);
-					actor.transform.position = spawnPair.Position;
-					actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
-
-					actor.SpawnData = new RoomData.Spawn(spawnPair.Data);
-					actor.SpawnData.Facing = Vector3.right;
-
-					AliveActors.Add(actor);
-				}
+			if(HasWavesRemaining) {
+				CurrentWave = CurrentWave.Next;
+				
+				InitCurrentWave();
 			}
 			
 		}
 
 		public void Update(float dt) {
-			if(DidStart && WaveComplete) {
-				Advance();
+			if(HasWavesRemaining) {
+				currentWaveTimer -= dt;
+				if(DidStart && (WaveComplete || currentWaveTimer <= 0f)) {
+					Advance();
+				}
 			}
 		}
 	}

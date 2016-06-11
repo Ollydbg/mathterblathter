@@ -38,14 +38,18 @@ namespace Client.Game.UI.Run.Indicators
 			indicators = new Dictionary<Actor, GameObject>();
 		}
 
+		void diffIndicators() {
+			foreach(var obj in Game.RoomManager.CurrentRoom.Waves.AliveActors) {
+				if(!indicators.ContainsKey(obj)) {
+					obj.OnDestroyed += HandleActorDeath;
+					SpawnForObject(obj);
+				}
+			}
+		}
+
 		void OnRoomEntered (Actor actor, Room oldRoom, Room newRoom)
 		{
 			Cleanup();
-
-			foreach( var obj in newRoom.Waves.AliveActors) {
-				obj.OnDestroyed += HandleActorDeath;
-				SpawnForObject(obj);
-			}
 		}
 		
 		private void SpawnForObject(Actor obj) {
@@ -69,6 +73,9 @@ namespace Client.Game.UI.Run.Indicators
 
 		Vector3 constrained = Vector3.zero;
 		void Update() {
+			
+			diffIndicators();
+			
 			foreach( var kvp in indicators) {
 				var item = kvp.Value;
 				var actor = kvp.Key;

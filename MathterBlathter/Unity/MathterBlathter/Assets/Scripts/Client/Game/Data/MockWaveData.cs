@@ -26,6 +26,7 @@ namespace Client.Game.Data
 			return _all[id];
 		}
 
+		
 		public static WaveData EASY_BLOOD_BOTS {
 			get {
 				var ret = new WaveData();
@@ -36,7 +37,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(MockActorData.ENERGY_SAPPER_ENEMY);
 				ret.Spawns.Add(MockActorData.ENERGY_SAPPER_ENEMY);
 
-				ret.Difficulty = 2;
+				ret.Difficulty = 1;
 				return ret;
 			}
 		}
@@ -91,6 +92,38 @@ namespace Client.Game.Data
 
 
 				ret.Difficulty = 8;
+				return ret;
+			}
+		}
+		
+		public static WaveData ROCKETS_2 {
+			get {
+				var ret = new WaveData();
+				ret.Id = 5;
+				ret.PreDelay = 1f;
+				
+				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
+				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
+
+				ret.Difficulty = 5;
+				return ret;
+			}
+		}
+		
+		public static WaveData ROCKETS_MIX {
+			get {
+				var ret = new WaveData();
+				ret.Id = 6;
+				ret.PreDelay = 1f;
+				
+				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
+				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
+				
+				ret.Spawns.Add(MockActorData.BULLET_STAR);
+				
+				ret.Spawns.Add(MockActorData.FLY_BOT_SPAWNER);
+
+				ret.Difficulty = 9;
 				return ret;
 			}
 		}
