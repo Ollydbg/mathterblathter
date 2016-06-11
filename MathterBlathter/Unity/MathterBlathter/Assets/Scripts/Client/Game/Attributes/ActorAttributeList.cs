@@ -70,6 +70,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeE WeaponFlags = new GameAttributeE(47, 0, "weapon flags", 0, int.MaxValue, typeof(WeaponFlags));
 		public static readonly GameAttributeI RunDifficulty = new GameAttributeI(48, 1, "run difficulty", 0, int.MaxValue);
 		public static readonly GameAttributeI RoomUnlockDifficultyIncr = new GameAttributeI(49, 0, "difficulty increment", 0, int.MaxValue);
+		public static readonly GameAttributeF ShopPriceScalar = new GameAttributeF(50, 1f, "shop price scalar", 0f, float.MaxValue);
 
 	}
 }

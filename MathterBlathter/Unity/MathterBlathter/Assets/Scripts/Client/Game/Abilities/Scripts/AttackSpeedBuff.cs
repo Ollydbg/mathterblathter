@@ -1,7 +1,4 @@
-using System;
 using Client.Game.Attributes;
-using Client.Game.Abilities.Payloads;
-using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts
 {

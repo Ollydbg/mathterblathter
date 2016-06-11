@@ -55,7 +55,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 40
@@ -97,7 +97,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
@@ -128,11 +128,11 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Hot Rails";
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
 					0
 				));
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
@@ -141,7 +141,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 70
@@ -167,6 +167,11 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rocket Launcher";
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id, 0
+				));
+
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id,
@@ -174,13 +179,11 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.ROCKET_LAUNCHER.Id, 0
-				));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 40
 				));
@@ -210,7 +213,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
 				
@@ -250,6 +253,10 @@ namespace Client.Game.Data
 				ret.Name = "Rust Machine";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
+					0
+				));
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.FIRE_ON_FALL.Id,
@@ -257,16 +264,13 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.RAIL_GUN.Id,
-					0
-				));
+				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.WEAPON_CURSE.Id,
-					1
+					3
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 30
@@ -312,7 +316,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, 2f
@@ -347,7 +351,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 10
@@ -463,7 +467,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, MockAbilityData.SWAP_POSITIONS.Id, 0
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -501,7 +505,7 @@ namespace Client.Game.Data
 					1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -563,7 +567,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 50

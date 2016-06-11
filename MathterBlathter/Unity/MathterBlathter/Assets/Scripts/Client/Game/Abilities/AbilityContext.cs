@@ -39,6 +39,14 @@ namespace Client.Game.Abilities
 			this.data = data;
 		}
 
+		public override string ToString() {
+			var targetId = targetActor != null ? targetActor.Id.ToString() : "none";
+			var sourceId = source != null ? source.Id.ToString() : "none";
+			var targetName = targetActor != null? targetActor.Data.Name : "none";
+			var sourceName = source != null ? source.Data.Name : "none";
+			
+			return string.Format("[AbilityContext source:[{0}:{1}], target:[{2}:{3}], abilityId:{4}]", sourceName, sourceId, targetName, targetId, data.Id);
+		}
 
 	}
 

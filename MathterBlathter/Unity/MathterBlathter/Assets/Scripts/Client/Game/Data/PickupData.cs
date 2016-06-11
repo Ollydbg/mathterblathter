@@ -52,7 +52,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
@@ -86,7 +86,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pump";
@@ -110,7 +110,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -140,7 +140,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 2
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 70;
@@ -167,7 +167,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -204,7 +204,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -257,7 +257,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id,
@@ -284,7 +284,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 
 				ret.Name = "Safety Blanket";
@@ -310,7 +310,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				
@@ -334,7 +334,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));	
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
@@ -359,7 +359,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));	
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
@@ -386,11 +386,38 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					MockAbilityData.TOWER_WEAPON_ABSORBER.Id, 1
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 				ret.Availability = Availability.InShop;
 				return ret;
 			}
+		}
+
+		public static PickupData SHOP_CHEAPENER {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 15;
+				ret.Name = "A Fancy Hat";
+				ret.Description = "+5 charisma makes shop keepers give you a discount";
+				ret.ActorType = ActorType.Pickup;
+				ret.Cost = 1000;
+				
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.SHOP_CHEAPENER_BUFF.Id,
+					1
+				));
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
+				));
+				
+				ret.Availability = Availability.InShop | Availability.Droppable;
+				
+				return ret;
+			}
+
 		}
 		
 		

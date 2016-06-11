@@ -21,16 +21,9 @@ namespace Client.Game.Data
 		//serialized attributes
 		public Availability Availability;
 
-		public CharacterSpawnType SpawnType;
+		public char SpawnType;
 		public int Cost;
 
-	}
-
-	public enum CharacterSpawnType {
-		Floor,
-		Air,
-		Ceiling,
-		TrapFixture,
 	}
 
 	[FlagsAttribute]

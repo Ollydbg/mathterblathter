@@ -13,7 +13,7 @@ namespace Client.Game.Abilities.Scripts
     {
         public override void End()
         {
-			
+			Game.RoomManager.OnRoomEntered -= OnRoomEntered;
         }
 
         public override void Start()
@@ -28,15 +28,21 @@ namespace Client.Game.Abilities.Scripts
 
         private void OnRoomEntered(Actor actor, Room oldRoom, Room newRoom)
         {
-			/*if(!context.source.IsHeld) {
-				context.source.Destroy();
-				Debug.Log("The tower grows stronger");
-			}
-			*/
+            context.source.Destroy();
+
+            //new TowerAbsorptionPayload().Apply();
+            Game.PossessedActor.Attributes[ActorAttributes.RunDifficulty] += 1;
+            
+            Debug.Log("The tower grows stronger");    
+            Abort(); 
         }
+			
 
         public override void Update(float dt)
         {
+            if(context.source.IsHeld) {
+                Abort();
+            }
         }
     }
 }

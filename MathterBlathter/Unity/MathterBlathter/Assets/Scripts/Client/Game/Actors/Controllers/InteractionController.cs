@@ -65,11 +65,13 @@ namespace Client.Game.Actors.Controllers
 		}
 
 		public void Update(float dt) {
+			UpdateSlow();
+			/*
 			accumulator+= dt;
 			if(accumulator >= updateInterval) {
 				accumulator -= updateInterval;
 				UpdateSlow();
-			}
+			}*/
 
 		}
 	}

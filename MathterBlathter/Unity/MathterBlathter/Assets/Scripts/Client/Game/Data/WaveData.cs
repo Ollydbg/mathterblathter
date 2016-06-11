@@ -10,7 +10,9 @@ namespace Client.Game.Data
 		public List<CharacterData> Spawns = new List<CharacterData>();
 		public float PreDelay;
 		public int Difficulty;
-		public float Delay = 10f;
+		public float Delay = 4f;
+		public List<ZoneData> RestrictToZones = new List<ZoneData>();
+
 		public WaveData ()
 		{
 			

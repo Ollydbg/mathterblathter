@@ -232,7 +232,7 @@ namespace Client.Game.Map
 				Game.Instance.ActorManager.RemoveActor(unlinked);
 				
 				var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
-				ff.Fill(MeshRoomDrawer.SEALED_DOOR, unlinked.LinkData.ChunkData);	
+				ff.Fill(AsciiConstants.SEALED_DOOR, unlinked.LinkData.ChunkData);	
 			}
 		}
 

@@ -829,7 +829,7 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-		public static AbilityData TOWER_WEAPON_ABSORBER {
+		public static AbilityData TOWER_ACTOR_ABSORBER {
 			get {
 				var ret = new AbilityData();
 				ret.Id = 45;
@@ -873,6 +873,18 @@ namespace Client.Game.Data
 				);
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerRunHardenerBuff);
+				return ret;
+			}
+		}
+
+		public static AbilityData SHOP_CHEAPENER_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 48;
+				ret.attributeData.Add(
+					new GameData.AttributeData(ActorAttributes.ShopPriceScalar.Id, .8f)	
+				);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShopCheapenerBuff);
 				return ret;
 			}
 		}

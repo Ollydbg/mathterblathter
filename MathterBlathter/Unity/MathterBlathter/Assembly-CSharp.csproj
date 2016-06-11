@@ -109,6 +109,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RocketProjectileAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShieldBlock.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShopCheapenerBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShopkeeperBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShotgunBlast.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SpawnEnemy.cs" />
@@ -150,6 +151,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Core\Seed.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\AIData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\AbilityData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiConstants.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiLookup.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMeshExtractor.cs" />

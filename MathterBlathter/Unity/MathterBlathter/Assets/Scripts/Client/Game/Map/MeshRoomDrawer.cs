@@ -13,18 +13,7 @@ namespace Client.Game.Map
 	{
 		AsciiMeshExtractor extractor;
 
-		public const char WALL = 'w';
-		public const char FLOOR = 'f';
-		public const char PLATFORM = 'P';
-		public const char PASSTHROUGH_PLATFORM = 'p';
-		public const char SPIKES = 's';
-		public const char RAMP = '/';
-		public const char DOOR = 'd';
-		public const char LIGHT = 'L';
-		public const char CEILING = 'c';
-		public const char GROUNDED_SPAWN = '.';
-		public const char SEALED_DOOR = 'X';
-		public const char AIR_SPAWN = ' ';
+		
 		
 		public MeshRoomDrawer ()
 		{
@@ -79,13 +68,13 @@ namespace Client.Game.Map
 		void DrawPlatforms (Room room, Color color, GameObject gameObject)
 		{
 			
-			foreach (var chunk in extractor.getChunksMatching(PLATFORM)) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiConstants.PLATFORM)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh platform");
 				AddColliderForChunk(go, chunk, false);
 			}
 
 
-			foreach (var chunk in extractor.getChunksMatching(PASSTHROUGH_PLATFORM)) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiConstants.PASSTHROUGH_PLATFORM)) {
 				var go = DrawRoomChunk(room, chunk, color*.5f, gameObject, "passthrough platform");
 				//for now, lets just scale this down and move it up
 				go.transform.localScale = new Vector3(1, .5f, 1f);
@@ -98,7 +87,7 @@ namespace Client.Game.Map
 		
 		private void DrawSealedDoors(Room room, Color color, GameObject gameObject)
         {
-            foreach (var chunk in extractor.getChunksMatching(SEALED_DOOR)) {
+            foreach (var chunk in extractor.getChunksMatching(AsciiConstants.SEALED_DOOR)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "sealed door");
 				AddColliderForChunk(go, chunk, false);
 			}
@@ -106,7 +95,7 @@ namespace Client.Game.Map
 
 		void DrawCeiling (Room room, Color color, GameObject gameObject)
 		{
-			foreach (var chunk in extractor.getChunksMatching(CEILING)) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiConstants.CEILING)) {
 				var go = DrawRoomChunk(room, chunk, color, gameObject, "mesh ceiling");
 				AddColliderForChunk(go, chunk, false);
 			}
@@ -169,7 +158,7 @@ namespace Client.Game.Map
 
 		void DrawWalls (Room room, Color color, GameObject gameobject)
 		{
-			foreach (var chunk in extractor.getChunksMatching(WALL)) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiConstants.WALL)) {
 				var go = DrawRoomChunk(room, chunk, color, gameobject, "wall");
 				AddColliderForChunk(go, chunk, false);
 			}
@@ -179,7 +168,7 @@ namespace Client.Game.Map
 
 
 		void DrawFloors(Room room, Color color, GameObject gameobject) {
-			foreach (var chunk in extractor.getChunksMatching(FLOOR)) {
+			foreach (var chunk in extractor.getChunksMatching(AsciiConstants.FLOOR)) {
 				var go = DrawRoomChunk(room, chunk, color, gameobject,  "floor");
 				AddColliderForChunk(go, chunk, false);
 			}
@@ -190,7 +179,7 @@ namespace Client.Game.Map
 		{
 			room.Lights = new List<Light>();
 
-			foreach( var lightPos in extractor.getAllMatching(LIGHT, true)) {
+			foreach( var lightPos in extractor.getAllMatching(AsciiConstants.LIGHT, true)) {
 				var lightObj = new GameObject ();
 				var light = lightObj.AddComponent<Light> ();
 				room.Lights.Add(light);

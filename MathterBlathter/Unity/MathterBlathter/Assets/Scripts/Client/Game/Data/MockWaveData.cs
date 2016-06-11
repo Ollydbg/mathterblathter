@@ -50,7 +50,7 @@ namespace Client.Game.Data
 
 				ret.Spawns.Add(MockActorData.ENERGY_SAPPER_ENEMY);
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
-				ret.Spawns.Add(MockActorData.BULLET_STAR);
+				ret.Spawns.Add(MockActorData.BULLET_STAR_ENEMY);
 				ret.Spawns.Add(MockActorData.ENERGY_SAPPER_ENEMY);
 				ret.Spawns.Add(MockActorData.RAIL_SNIPER_ENEMY);
 
@@ -68,7 +68,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
-				ret.Spawns.Add(MockActorData.BULLET_STAR);
+				ret.Spawns.Add(MockActorData.BULLET_STAR_ENEMY);
 
 				ret.Difficulty = 6;
 				return ret;
@@ -86,7 +86,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(MockActorData.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(MockActorData.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(MockActorData.GROUNDED_RANGED_ENEMY);
-				ret.Spawns.Add(MockActorData.BULLET_STAR);
+				ret.Spawns.Add(MockActorData.BULLET_STAR_ENEMY);
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
 				ret.Spawns.Add(MockActorData.FLOATING_TURRET);
 
@@ -102,8 +102,8 @@ namespace Client.Game.Data
 				ret.Id = 5;
 				ret.PreDelay = 1f;
 				
-				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
-				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
+				ret.Spawns.Add(MockActorData.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(MockActorData.FLOATING_ROCKET_TURRET_ENEMY);
 
 				ret.Difficulty = 5;
 				return ret;
@@ -116,14 +116,28 @@ namespace Client.Game.Data
 				ret.Id = 6;
 				ret.PreDelay = 1f;
 				
-				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
-				ret.Spawns.Add(MockActorData.ROCKET_TURRET);
+				ret.Spawns.Add(MockActorData.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(MockActorData.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(MockActorData.BULLET_STAR_ENEMY);
+				ret.Spawns.Add(MockActorData.FLY_BOT_SPAWNER_ENEMY);
 				
-				ret.Spawns.Add(MockActorData.BULLET_STAR);
-				
-				ret.Spawns.Add(MockActorData.FLY_BOT_SPAWNER);
-
 				ret.Difficulty = 9;
+				return ret;
+			}
+		}
+
+		public static WaveData SNIPERS_MIX {
+			get {
+				var ret = new WaveData();
+				ret.Id = 7;
+				ret.PreDelay = 1f;
+				
+				ret.Spawns.Add(MockActorData.RAIL_SNIPER_ENEMY);
+				ret.Spawns.Add(MockActorData.RAIL_SNIPER_ENEMY);
+				ret.Spawns.Add(MockActorData.GROUND_STATIC_TURRET_ENEMY);
+				ret.Spawns.Add(MockActorData.FLY_BOT_SPAWNER_ENEMY);
+
+				ret.Difficulty = 12;
 				return ret;
 			}
 		}

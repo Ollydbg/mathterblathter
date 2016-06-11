@@ -130,7 +130,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 2;
-				ret.SpawnType = CharacterSpawnType.Floor;
+				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.AIData = MockAIData.PATROL_THEN_PURSUE;
 				
 				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
@@ -178,7 +178,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData ();
 				ret.Id = 3;
 
-				ret.SpawnType = CharacterSpawnType.Air;
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = MockAIData.SEEK_TO_FIRE;
@@ -273,11 +273,11 @@ namespace Client.Game.Data
 		}
 
 		
-		public static CharacterData ROCKET_TURRET {
+		public static CharacterData FLOATING_ROCKET_TURRET_ENEMY {
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 13;
-				ret.SpawnType = CharacterSpawnType.Air;
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = MockAIData.SEEK_TO_FIRE;
@@ -334,7 +334,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 16;
 
-				ret.SpawnType = CharacterSpawnType.Floor;
+				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/Sniper_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = MockAIData.SNIPER_AI;
@@ -377,12 +377,12 @@ namespace Client.Game.Data
 		}
 
 		
-		public static CharacterData FLY_BOT_SPAWNER {
+		public static CharacterData FLY_BOT_SPAWNER_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 18;
-
-				ret.SpawnType = CharacterSpawnType.Floor;
+				ret.AIData = MockAIData.FIRING_FIXTURE_AI;
+				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
 				ret.ActorType = ActorType.Enemy;
 
@@ -427,12 +427,12 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData GROUND_STATIC_TURRET {
+		public static CharacterData GROUND_STATIC_TURRET_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 19;
 
-				ret.SpawnType = CharacterSpawnType.Floor;
+				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = MockAIData.SENTRY_AI;
@@ -498,7 +498,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 20;
 
-				ret.SpawnType = CharacterSpawnType.Air;
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = MockAIData.SEEK_TO_FIRE;
@@ -552,7 +552,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 21;
 
-				ret.SpawnType = CharacterSpawnType.Air;
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
 				
@@ -622,12 +622,12 @@ namespace Client.Game.Data
 			}
 		}
 		
-		public static CharacterData BULLET_STAR {
+		public static CharacterData BULLET_STAR_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 25;
 
-				ret.SpawnType = CharacterSpawnType.Air;
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				

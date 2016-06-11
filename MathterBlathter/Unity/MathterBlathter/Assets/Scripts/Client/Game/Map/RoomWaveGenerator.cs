@@ -6,21 +6,30 @@ using Client.Game.Data.Ascii;
 
 namespace Client.Game.Map
 {
-	using Game = Game.Core.Game;
+    using System.Linq;
+    using Game = Game.Core.Game;
 
-	public class RoomWaveGenerator
+    public class RoomWaveGenerator
 	{
 		public RoomWaveGenerator ()
 		{
 			if(sorted == null) 
 				StaticInit();
+
+			SpawnFactoryLookup[AsciiConstants.AIR_SPAWN] = RandomAirPosition;
+			SpawnFactoryLookup[AsciiConstants.GROUNDED_SPAWN] = RandomFloorPosition;
+			SpawnFactoryLookup[AsciiConstants.GROUND_SNIPER_PERCH] = RandomSniperPosition;
+			
 		}
 
 		private static List<WaveData> sorted;
 		private static Dictionary<int, List<WaveData>> waveBuckets = new Dictionary<int, List<WaveData>>();
 		List<Vector3> AirCoords;
 		List<Vector3> GroundCoords;
+		List<Vector3> SniperCoords;
 
+		private delegate Vector3 RandomRoomPosition(Room room);
+		private Dictionary<char, RandomRoomPosition> SpawnFactoryLookup = new Dictionary<char, RandomRoomPosition>();
 
 		public static List<WaveData> StaticInit() {
 			if(sorted == null) {
@@ -39,14 +48,16 @@ namespace Client.Game.Map
 			
 		}
 		
-		public List<WaveData> WavesForDifficulty(int difficulty, out int remainder) {
+		public List<WaveData> WavesForDifficulty(int difficulty, ZoneData zone, out int remainder) {
 			//errs on easier
 			var buffer = new List<WaveData>();
 			int matchedDifficulty = difficulty;
 			
 			while(matchedDifficulty > 0) {
 				if(waveBuckets.ContainsKey(matchedDifficulty)) {
-					buffer = waveBuckets[matchedDifficulty];
+					buffer = waveBuckets[matchedDifficulty]
+						.Where(p=>p.RestrictToZones.Count == 0 || p.RestrictToZones.Contains(zone))
+						.ToList();
 					break;
 				} else {
 					matchedDifficulty--;
@@ -61,8 +72,9 @@ namespace Client.Game.Map
 		public GeneratedWave Generate(Room room, int difficulty) {
 			
 			var extractor = new AsciiMeshExtractor(room.data.AsciiMap);
-			AirCoords = extractor.getAllMatching(MeshRoomDrawer.AIR_SPAWN);
-			GroundCoords = extractor.getAllMatching(MeshRoomDrawer.GROUNDED_SPAWN);
+			AirCoords = extractor.getAllMatching(AsciiConstants.AIR_SPAWN);
+			GroundCoords = extractor.getAllMatching(AsciiConstants.GROUNDED_SPAWN);
+			SniperCoords = extractor.getAllMatching(AsciiConstants.GROUND_SNIPER_PERCH);
 
 			GeneratedWave waveHead = null;
 			GeneratedWave tail = null;
@@ -73,8 +85,15 @@ namespace Client.Game.Map
 				newWave.WaveData = wave;
 				
 				foreach( var waveChar in wave.Spawns ) {
-					var position = waveChar.SpawnType == CharacterSpawnType.Floor ? RandomFloorPosition(room) : RandomAirPosition(room);
-					newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position));
+					
+					if(SpawnFactoryLookup.ContainsKey(waveChar.SpawnType)) {
+						var position = SpawnFactoryLookup[waveChar.SpawnType](room);
+						if(position == default(Vector3)) {
+							Debug.Log("Couldn't find spawn location for type: " + waveChar.SpawnType);
+						} else {
+							newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position));
+						}
+					}
 				}
 				
 				
@@ -98,7 +117,7 @@ namespace Client.Game.Map
 			
 			while(difficulty > 0) {
 				Debug.Log("Generating for difficulty: " + difficulty);
-				var waves = WavesForDifficulty(difficulty, out difficulty);
+				var waves = WavesForDifficulty(difficulty, room.Zone, out difficulty);
 				if(waves.Count == 0)
 					break;
 					
@@ -118,6 +137,12 @@ namespace Client.Game.Map
 		public Vector3 RandomFloorPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var airSpace = seed.RandomInList(GroundCoords);
+			return airSpace + new Vector3((float)room.X, (float)room.Y);
+		}
+
+		public Vector3 RandomSniperPosition(Room room) {
+			var seed = Game.Instance.Seed;
+			var airSpace = seed.RandomInList(SniperCoords);
 			return airSpace + new Vector3((float)room.X, (float)room.Y);
 		}
 	}
