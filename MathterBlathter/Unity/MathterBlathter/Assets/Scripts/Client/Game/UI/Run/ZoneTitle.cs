@@ -9,6 +9,7 @@ namespace Client.Game.UI.Run
 		
 		private int currentZoneId = -1;
 		public Text UIText;
+		public Text NowEntering;
 		public Text PopulationText;
 		public Text ElevationText;
 		
@@ -44,11 +45,13 @@ namespace Client.Game.UI.Run
         {
 			UIText.CrossFadeAlpha(1f, 1f, false);
 			PopulationText.CrossFadeAlpha(1f, 1f, false);
+			NowEntering.CrossFadeAlpha(1f, 1f, false);
 			
 			yield return new WaitForSeconds(2f);
 			
 			UIText.CrossFadeAlpha(0f, 1f, false);
 			PopulationText.CrossFadeAlpha(0f, 1f, false);
+			NowEntering.CrossFadeAlpha(0f, 1f, false);
 			
         }
 

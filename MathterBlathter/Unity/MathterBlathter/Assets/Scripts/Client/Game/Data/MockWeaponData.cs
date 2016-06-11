@@ -70,11 +70,8 @@ namespace Client.Game.Data
 					ActorAttributes.KnockbackForce.Id, .5f
 				));
 
-
-
-
 				ret.Availability = Availability.Droppable | Availability.InShop;
-				ret.Cost = 100;
+				ret.Cost = 250;
 
 				return ret;
 			}
@@ -116,7 +113,7 @@ namespace Client.Game.Data
 				));
 
 				ret.Availability = Availability.Droppable;
-
+				ret.Cost = 80;
 				return ret;
 			}
 		}
@@ -152,9 +149,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AttackSpeed.Id, 1.8f
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Inaccuracy.Id, 0f
+				));
 				ret.Availability = Availability.Droppable | Availability.InShop;
-				ret.Cost = 40;
+				ret.Cost = 200;
 
 				return ret;
 			}
@@ -185,7 +184,7 @@ namespace Client.Game.Data
 				
 				
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 40
+					ActorAttributes.BaseDamage.Id, 20
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -193,7 +192,7 @@ namespace Client.Game.Data
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
-				ret.Cost = 70;
+				ret.Cost = 150;
 
 				return ret;
 			}
@@ -239,7 +238,7 @@ namespace Client.Game.Data
 				));
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
-				
+				ret.Cost = 220;
 				return ret;
 			}
 		}
@@ -293,7 +292,7 @@ namespace Client.Game.Data
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
-				ret.Cost = 100;
+				ret.Cost = 150;
 
 				return ret;
 			}
@@ -394,7 +393,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.FLY_BOT_SPAWN.Id, 0
 				));
-
+				ret.Cost = 300;
 				return ret;
 			}
 		}
@@ -454,13 +453,14 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData SWAP_RIFLE_WEAPON {
+		public static CharacterData CURSED_RAIL_GUN_WEAPON {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1015;
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
-				ret.Name = "Swap Rifle";
+				
+				ret.Name = "Cursed Rails";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -469,17 +469,25 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
-
+				
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.AnxietyCost.Id, 10
+					AbilityAttributes.AnxietyCost.Id, 20
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeed.Id, 1f
+					ActorAttributes.BaseDamage.Id, 70
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AttackSpeed.Id, 1.3f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0f
 				));
+
+
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 300;
 
 				return ret;
 			}

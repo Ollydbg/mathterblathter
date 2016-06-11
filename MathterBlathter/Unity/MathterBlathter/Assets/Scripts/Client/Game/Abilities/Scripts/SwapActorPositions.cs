@@ -4,6 +4,7 @@ using UnityEngine;
 using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -46,6 +47,7 @@ namespace Client.Game.Abilities.Scripts
 			var sourcePos = source.transform.position;
 			var targetPos = hitActor.transform.position;
 
+			
 			source.transform.position = targetPos;
 			hitActor.transform.position = sourcePos;
 		}
@@ -62,9 +64,10 @@ namespace Client.Game.Abilities.Scripts
 					Actor hitActor;
 					var result = currentProjectile.TestTrigger(hitInfo.collider, out hitActor);
 					if(result == TriggerTestResult.Ok) {
-
+						
 						Swap(context.source, hitActor);
-
+						new WeaponDamagePayload(context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
+			
 					} else if (result == TriggerTestResult.Geometry) {
 						aborted = true;
 					}

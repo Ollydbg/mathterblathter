@@ -149,7 +149,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 10
+					ActorAttributes.BloodBounty.Id, 6
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -307,7 +307,7 @@ namespace Client.Game.Data
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 10
+					ActorAttributes.BloodBounty.Id, 12
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -524,7 +524,7 @@ namespace Client.Game.Data
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 1
+					ActorAttributes.BloodBounty.Id, 0
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id, 0f
@@ -579,7 +579,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BloodBounty.Id,
-					15
+					2
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -654,7 +654,7 @@ namespace Client.Game.Data
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 15
+					ActorAttributes.BloodBounty.Id, 8
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
