@@ -405,7 +405,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.SHOP_CHEAPENER_BUFF.Id,
-					1
+					0
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -416,6 +416,34 @@ namespace Client.Game.Data
 				ret.Availability = Availability.InShop | Availability.Droppable;
 				
 				return ret;
+			}
+
+		}
+
+		public static PickupData KILL_DE_STRESSER {
+			get {
+				var ret = new PickupData();
+				ret.Id = OFFSET + 16;
+				ret.Name = "Spiteful Heart";
+				ret.Description = "Killing synth-heads reduces Anxiety";
+				ret.ActorType = ActorType.Pickup;
+				ret.Cost = 250;
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.KILL_DE_STRESSER_BUFF.Id,
+					0
+				));
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
+				));
+				
+				ret.Availability = Availability.InShop | Availability.Droppable;
+
+				return ret;
+
 			}
 
 		}

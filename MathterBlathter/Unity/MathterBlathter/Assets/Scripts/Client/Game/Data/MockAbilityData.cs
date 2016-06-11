@@ -889,6 +889,18 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData KILL_DE_STRESSER_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 49;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.Anxiety.Id, 20));
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.KillDeStresserBuff);
+				return ret;
+
+			}
+
+		}
+
 	}
 }
 

@@ -95,6 +95,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ItemBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpDamage.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\KillDeStresserBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LaunchGrenade.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LaunchPadBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\LevelAppropriateBuffDrop.cs" />
