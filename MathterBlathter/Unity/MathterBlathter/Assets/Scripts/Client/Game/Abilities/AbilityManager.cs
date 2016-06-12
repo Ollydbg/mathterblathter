@@ -84,7 +84,6 @@ namespace Client.Game.Abilities
 
 
 		public void ActivateAbility(AbilityContext ctx) {
-			Debug.Log("Activating ability: " + ctx.ToString());
 			deferredAds.Enqueue(ctx);
 		}
 

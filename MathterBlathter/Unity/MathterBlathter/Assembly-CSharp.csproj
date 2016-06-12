@@ -109,6 +109,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RailGunAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RepeatedProjectileAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RocketProjectileAttack.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\RoomClearDropBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShieldBlock.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShopCheapenerBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ShopkeeperBuff.cs" />
@@ -119,6 +120,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SwapActorPositions.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\TowerActorAbsorber.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\WeaponCurse.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\YeeHawBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Timelines\TimelineRunner.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\AbilityUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\EffectTTL.cs" />

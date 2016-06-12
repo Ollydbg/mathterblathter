@@ -301,7 +301,7 @@ namespace Client.Game.Data
 				ret.Id = 12;
 				ret.name = "Heal";
 				ret.attributeData.Add( new GameData.AttributeData(
-					AbilityAttributes.Damage.Id, -100
+					AbilityAttributes.Damage.Id, -20
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.HealPlayer);
 				return ret;
@@ -898,7 +898,29 @@ namespace Client.Game.Data
 				return ret;
 
 			}
+		}
 
+		public static AbilityData YEE_HAW_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 50;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.Speed.Id, .1f));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AttackSpeedScalar.Id, 1.1f));
+				
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.YeeHawBuff);
+				
+				return ret;
+
+			}
+		}
+
+		public static AbilityData ROOM_UNLOCK_DROP_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 51;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RoomClearDropBuff);
+				return ret;
+			}
 		}
 
 	}

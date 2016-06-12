@@ -63,7 +63,7 @@ namespace Client.Game.Data
 					1
 				));
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 10;
 
 				ret.Name = "Blood Thinner";
@@ -113,7 +113,7 @@ namespace Client.Game.Data
 					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 30;
 				ret.Name = "Blood Pack";
 				return ret;
@@ -443,12 +443,36 @@ namespace Client.Game.Data
 				ret.Availability = Availability.InShop | Availability.Droppable;
 
 				return ret;
-
 			}
 
 		}
 		
-		
+		public static PickupData YEE_HAW {
+			get {
+				var ret = new PickupData();
+				ret.Cost = 50;
+				ret.Name = "Yee Haw: A Beverage";
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+				
+				ret.ActorType = ActorType.Pickup;
+				ret.PickupType = PickupData.Type.Item;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.YEE_HAW_BUFF.Id,
+					0
+				));
+				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
+				));
+
+				ret.Availability = Availability.InShop | Availability.Droppable | Availability.RoomClearReward;
+				ret.Description = "Move faster until hit. Next hit costs anxiety instead of health";
+				return ret;
+			}
+
+		}
 	}
 }
 

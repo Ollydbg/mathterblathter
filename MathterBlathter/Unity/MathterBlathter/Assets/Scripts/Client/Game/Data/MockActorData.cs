@@ -119,6 +119,12 @@ namespace Client.Game.Data
 					MockAbilityData.ROOM_UNLOCK_HARDENER.Id,
 					2
 				));
+
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					MockAbilityData.ROOM_UNLOCK_DROP_BUFF.Id,
+					3
+				));
 				
 				return ret;
 			}

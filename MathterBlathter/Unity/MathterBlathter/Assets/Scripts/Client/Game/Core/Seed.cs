@@ -36,6 +36,7 @@ namespace Client.Game.Core
 		public T RandomInList<T>(List<T> items) {
 			if(items.Count == 0)
 				return default(T);
+					
 			return items[Next(items.Count)];
 		}
 

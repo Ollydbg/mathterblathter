@@ -31,7 +31,8 @@ namespace Client.Game.Data
 		None = 0,
 		Droppable = 1,
 		InShop = 2,
-		CursedShop = 3
+		CursedShop = 4,
+		RoomClearReward = 8,
 	}
 
 	public enum ActorType {
