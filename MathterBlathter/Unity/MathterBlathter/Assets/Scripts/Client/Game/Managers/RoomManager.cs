@@ -10,7 +10,7 @@ using System.Collections;
 namespace Client.Game.Managers
 {
 	using Game = Game.Core.Game;
-
+	using RoomTypeMap = Dictionary<RoomType, List<Room>>;
 	public class RoomManager : IGameManager
 	{
 		
@@ -21,15 +21,38 @@ namespace Client.Game.Managers
 		public event RoomEntered OnRoomEntered;
 		public event Room.OnUnlock OnCurrentRoomUnlocked;
 
+		private RoomTypeMap typeIndices = new RoomTypeMap();
+
 		public RoomManager ()
 		{
 			
 		}
 
+			
+		public List<Room> RoomsOfType(RoomType type) {
+			//if this fails, we need to have built an index
+			return typeIndices[type];
+		}
+
 		public void SetRooms (List<Room> rooms)
 		{
 			Rooms = rooms;
+			AddIndices(RoomType.Store, rooms, typeIndices);
+			AddIndices(RoomType.BossGate, rooms, typeIndices);
 		}
+
+		private void AddIndices(RoomType type, List<Room> rooms, RoomTypeMap mapping) {
+			List<Room> buffer;
+			if(!mapping.TryGetValue(type, out buffer)) {
+				buffer = new List<Room>();
+			}
+			foreach( var room in rooms ) {
+				if((room.data.Type & type) == type) {
+					buffer.Add(room);
+				}
+			}
+			mapping[type] = buffer;
+		}	
 
 
 
@@ -61,6 +84,7 @@ namespace Client.Game.Managers
 			foreach( var room in Rooms) {
 				GameObject.Destroy(room.GameObject);
 			}
+			typeIndices.Clear();
 			Rooms.Clear();
 		}
 
