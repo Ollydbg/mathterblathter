@@ -131,17 +131,17 @@ namespace Client.Game.Data
 	}
 
 	[FlagsAttribute]
-	public enum RoomType {
-		Normal,
-		Challenge,
-		Store,
-		LurchStart,
-		Cursed,
-		Blessed,
-		Secret,
-		Terminal,
-		BossGate,
-		NoWaves
+	public enum RoomType : short {
+		Normal = 0,
+		Challenge = 1,
+		Store = 2,
+		LurchStart = 4,
+		Cursed = 8,
+		Blessed = 16,
+		Secret = 32,
+		Terminal = 64,
+		BossGate = 128,
+		NoWaves = 256
 	}
 }
 
