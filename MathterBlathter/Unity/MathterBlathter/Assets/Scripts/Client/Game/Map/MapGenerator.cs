@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Client.Game.Data;
 using System.Linq;
 using Client.Game.Actors;
@@ -35,50 +36,50 @@ namespace Client.Game.Map
 		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
 		private List<Room> returnBuffer = new List<Room>();
 
+		public bool IsComplete {
+			get {
+				return Pool.Exhausted;
+			}
+		}
+
+
 		//returns head
-		public List<Room> GenerateFromDataSet(List<RoomData> data, int maxRooms) {
+		public void InitPool(List<RoomData> data, int maxRooms) {
+			Pool = new RoomPool(data, maxRooms);	
+		}
 
+		public IEnumerable<Room> Emit() {
+			RoomData roomData = Pool.Next();
 
-			Pool = new RoomPool(data, maxRooms);
+			int targetX;
+			int targetY;
+			//existing doors to links in the data we're trying to place
+			DoorLinkMapping doorLinks;
+			if (SearchForBlock (roomData, out targetX, out targetY, out doorLinks)) {
+				var room = new Room (roomData);
+				room.X = targetX;
+				room.Y = targetY;
+				
+				room.Zone = ZoneForRoom(room);
+				
+				returnBuffer.Add (room);
+				Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
 
-			while(!Pool.Exhausted) {
-				RoomData roomData = Pool.Next();
+				ConsumeLinkedDoors(doorLinks, room);
 
-				int targetX;
-				int targetY;
-				//existing doors to links in the data we're trying to place
-				DoorLinkMapping doorLinks;
-				if (SearchForBlock (roomData, out targetX, out targetY, out doorLinks)) {
-					var room = new Room (roomData);
-					room.X = targetX;
-					room.Y = targetY;
-					
-					room.Zone = ZoneForRoom(room);
-					
-					returnBuffer.Add (room);
-					Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
+				//spawn doors for unmated links, but put them into the unlinked pile for consumption on the next placement
+				var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
+					.Select(p=>spawnDoorToRoom(p, room))
+					.ToList();
 
-					ConsumeLinkedDoors(doorLinks, room);
+				//add new unlinked doors
+				AddUnlinkedDoors(orphanedDoors);
 
-					//spawn doors for unmated links, but put them into the unlinked pile for consumption on the next placement
-					var orphanedDoors = roomData.Doors.Except (doorLinks.Keys)
-						.Select(p=>spawnDoorToRoom(p, room))
-						.ToList();
+				if(Head == null) Head = room;
 
-					//add new unlinked doors
-					AddUnlinkedDoors(orphanedDoors);
-
-
-					if(Head == null) Head = room;
-
-				}
-
+				yield return room;
 			}
 
-
-			SealDoors();
-
-			return returnBuffer;
 		}
 
 		ZoneData ZoneForRoom(Room room) {
@@ -224,7 +225,7 @@ namespace Client.Game.Map
 			return data.Doors.Where (p => p.Side == side);
 		}
 
-		private void SealDoors() {
+		public void SealDoors() {
 			
 			foreach(var unlinked in UnlinkedDoors) {
 				

@@ -1173,6 +1173,55 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static RoomData BOSS_FIGHT_1 {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 121;
+				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddcccccccccccccccccccccccccccccdddcccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "d                                                                                                                               d";
+				ret.AsciiMap += "d                                                                                                                               d";
+				ret.AsciiMap += "d                                                                                                                               d";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "d                                                                                                                               d";
+				ret.AsciiMap += "d                                                                                                                               d";
+				ret.AsciiMap += "d                                                                                                                               d";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffff";
+				
+				finalize(ret);
+
+				return ret;
+			}
+		}
+
+
 		static void finalize(RoomData room) {
 			room.Width = room.AsciiMap.Width;
 			room.Height = room.AsciiMap.Height;

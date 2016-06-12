@@ -35,9 +35,21 @@ namespace Client.Game.Data
 			public RoomType RoomType;
 			public int Amount;
 			public Occurance Occurance;
-			
+			public int RoomId = -1;
+
+			public bool RoomSpecified {
+				get {
+					return RoomId != -1;
+				}
+			}
+
 			public Requirement(RoomType roomType, int amount, Occurance occurance) {
 				this.RoomType = roomType;
+				this.Amount = amount;
+				this.Occurance = occurance;
+			}
+			public Requirement(RoomData room, int amount, Occurance occurance) {
+				this.RoomId = room.Id;
 				this.Amount = amount;
 				this.Occurance = occurance;
 			}

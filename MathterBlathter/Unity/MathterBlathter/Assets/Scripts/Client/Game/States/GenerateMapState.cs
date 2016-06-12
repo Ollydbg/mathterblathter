@@ -13,7 +13,7 @@ namespace Client.Game.States
 	public class GenerateMapState : State
 	{
 		private MapGenerator generator;
-		List<Room> Rooms;
+		List<Room> Rooms = new List<Room>();
 
 		public GenerateMapState ()
 		{
@@ -37,7 +37,7 @@ namespace Client.Game.States
 
 		public override void Enter ()
 		{
-			
+			generator.InitPool(availableRooms(), numRoomsToGenerate());
 		}
 
 		public override void Exit ()
@@ -45,17 +45,22 @@ namespace Client.Game.States
 			Game.Instance.RoomManager.SetRooms(Rooms);
 		}
 
-		//TODO: Refactor MapGenerator to yield rooms so this doesn't need to be so dumb
-		float warmup = .1f;
+		private int generationsPerFrame = 10;
+
 		public override void Update (float dt)
 		{
-			warmup -= dt;
-			if(warmup <= 0f) {
-				Rooms = generator.GenerateFromDataSet(availableRooms(), numRoomsToGenerate());
-				Change<RunState>();
+				int i = generationsPerFrame;
+				while(i-- > 0) {
+					if(!generator.IsComplete) {
+						Rooms.AddRange(generator.Emit());
+					} else {
+						generator.SealDoors();
+						Change<RunState>();
+						break;
+					}
+				}
 
-			}
-
+				
 		}
 
 	}

@@ -147,7 +147,6 @@ namespace Client.Game.UI.Run.Indicators
 					item.transform.rotation = PointToPosition(constrained);
 				} else {
 					item.SetActive(false);
-
 				}
 			}
 		}
