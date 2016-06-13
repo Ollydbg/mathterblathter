@@ -33,7 +33,7 @@ namespace Client.Game.Abilities.Scripts
             //new TowerAbsorptionPayload().Apply();
             Game.PossessedActor.Attributes[ActorAttributes.RunDifficulty] += 1;
             
-            Debug.Log("The tower grows stronger");    
+            UI.EventLog.Post("The tower grows stronger");    
             Abort(); 
         }
 			

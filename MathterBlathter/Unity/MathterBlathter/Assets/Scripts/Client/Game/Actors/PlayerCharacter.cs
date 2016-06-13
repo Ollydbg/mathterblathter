@@ -15,6 +15,7 @@ namespace Client.Game.Actors
 	{
 		
 		public InteractionController InteractionController;
+		public WeaponController ActiveItemController;
 
 		public PlayerCharacter ()
 		{
@@ -33,12 +34,13 @@ namespace Client.Game.Actors
 
 			this.Animator = new PlayerAnimator3D(this);
 			this.InteractionController = new InteractionController(this);
-
+			this.ActiveItemController = new WeaponController(this);
 		}
 
 		public override void Update (float dt)
 		{
 			WeaponController.Update(dt);
+			ActiveItemController.Update(dt);
 			InteractionController.Update(dt);
 
 

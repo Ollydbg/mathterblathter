@@ -64,6 +64,8 @@ namespace Client.Game.Abilities.Scripts
 			
 			//also remove parent!
 			context.source.Destroy();
+
+            UI.EventLog.Post("See you later");
 		}
 		
 

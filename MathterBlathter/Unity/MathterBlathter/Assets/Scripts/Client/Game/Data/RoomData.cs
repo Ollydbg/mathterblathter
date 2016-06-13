@@ -109,6 +109,7 @@ namespace Client.Game.Data
 		
 		
 		public RoomData Clone() {
+
 			var clone = new RoomData();
 			clone.Width = this.Width;
 			clone.Height = this.Height;

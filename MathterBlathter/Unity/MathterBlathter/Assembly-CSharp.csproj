@@ -167,6 +167,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\MockAIData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockAbilityData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockActorData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\MockItemData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockMapData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockProjectileData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MockRoomData.cs" />
@@ -211,6 +212,7 @@
      <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\RunState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\DepthMeter.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\EventLog.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Indicators\IndicatorItem.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Indicators\Indicators.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\InteractionPrompt.cs" />
