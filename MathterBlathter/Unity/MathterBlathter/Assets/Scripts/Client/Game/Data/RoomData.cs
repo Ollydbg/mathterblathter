@@ -137,12 +137,12 @@ namespace Client.Game.Data
 		Challenge = 1,
 		Store = 2,
 		LurchStart = 4,
-		Cursed = 8,
-		Blessed = 16,
-		Secret = 32,
-		Terminal = 64,
-		BossGate = 128,
-		NoWaves = 256
+		Secret = 8,
+		Terminal = 16,
+		BossGate = 32,
+		NoWaves = 64,
+		WeaponRoom = 128,
+		ItemRoom = 256
 	}
 }
 

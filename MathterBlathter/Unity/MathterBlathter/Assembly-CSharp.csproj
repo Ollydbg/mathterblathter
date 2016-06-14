@@ -187,6 +187,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Enums\Layers.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\RoomSpawnType.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Geometry\PassthroughPlatform.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Items\ActiveItemController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\DropFactory.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ItemBuffScript.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\WeaponController.cs" />
@@ -211,6 +212,7 @@
      <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\RunState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\ActiveItemHud.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\DepthMeter.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\EventLog.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Indicators\IndicatorItem.cs" />

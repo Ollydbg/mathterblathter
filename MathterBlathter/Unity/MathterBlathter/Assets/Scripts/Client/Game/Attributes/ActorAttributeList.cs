@@ -71,7 +71,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI RunDifficulty = new GameAttributeI(48, 1, "run difficulty", 0, int.MaxValue);
 		public static readonly GameAttributeI RoomUnlockDifficultyIncr = new GameAttributeI(49, 0, "difficulty increment", 0, int.MaxValue);
 		public static readonly GameAttributeF ShopPriceScalar = new GameAttributeF(50, 1f, "shop price scalar", 0f, float.MaxValue);
-
+		public static readonly GameAttributeI ActiveItemId = new GameAttributeI(51, 0, "ActiveItem Id",  int.MinValue, int.MaxValue);
+		
 	}
 }
 

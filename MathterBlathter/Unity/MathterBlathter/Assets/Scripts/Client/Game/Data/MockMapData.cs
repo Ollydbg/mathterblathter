@@ -34,7 +34,12 @@ namespace Client.Game.Data
 				lurchZone.Id = 0;
 				lurchZone.Name = "The Lurch";
 				lurchZone.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
+				lurchZone.Requirements.Add(new ZReq(MockRoomData.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
+				lurchZone.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
+				lurchZone.Requirements.Add(new ZReq(RoomType.WeaponRoom | RoomType.ItemRoom, 1, ZoneData.Occurance.Guaranteed));
 				
+				lurchZone.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
+
 				lurchZone.MinElevation = 0;
 				lurchZone.MaxElevation = 120;
 				ret.Zones.Add(lurchZone);
