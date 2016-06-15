@@ -48,11 +48,13 @@ namespace Client.Game.Data
             get {
                 var ret = new CharacterData();
                 ret.Id = 3004;
+				ret.ActorType = ActorType.ActiveItem;
 				ret.Availability = Availability.InShop;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.ANXIETY_DAMAGE_ITEM.Id, 0
 				));
+				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.Name = "OverSharer";
                 return ret;
             }

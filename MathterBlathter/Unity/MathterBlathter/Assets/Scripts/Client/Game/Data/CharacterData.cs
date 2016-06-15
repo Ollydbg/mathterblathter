@@ -37,6 +37,7 @@ namespace Client.Game.Data
 		RoomClearReward = 8,
 	}
 
+	
 	public enum ActorType {
 		Friendly,
 		Player,
@@ -45,7 +46,8 @@ namespace Client.Game.Data
 		Projectile,
 		Pickup,
 		Weapon,
-		Fixture
+		Fixture,
+		ActiveItem,
 	}
 
 }

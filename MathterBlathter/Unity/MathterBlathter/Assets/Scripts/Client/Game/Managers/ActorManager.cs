@@ -30,7 +30,7 @@ namespace Client.Game.Managers
 			ActorTypeLookup[ActorType.Projectile] = typeof(ProjectileActor);
 			ActorTypeLookup[ActorType.Weapon] = typeof(WeaponActor);
 			ActorTypeLookup[ActorType.Fixture] = typeof(FixtureActor);
-
+			ActorTypeLookup[ActorType.ActiveItem] = typeof(ActiveItemPickup);
 			this.Game = game;
 
 		}

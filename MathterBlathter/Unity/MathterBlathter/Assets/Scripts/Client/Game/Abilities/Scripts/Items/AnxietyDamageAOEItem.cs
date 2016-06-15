@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Client.Game.Abilities.Scripts.Items
 {
@@ -12,7 +13,7 @@ namespace Client.Game.Abilities.Scripts.Items
 
 		public override void Start ()
 		{
-			
+			Debug.Log("STARTING");
 		}
 
 		public override void Update (float dt)

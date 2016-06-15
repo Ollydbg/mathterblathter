@@ -23,7 +23,7 @@ namespace Client.Game.Actors
 		}
 
 
-		public bool Interact (Actor withActor)
+		public virtual bool Interact (Actor withActor)
 		{
 			//dump all our abilities onto the interactor
 			ActorUtils.PropogateBuffs(this, withActor);
@@ -56,6 +56,14 @@ namespace Client.Game.Actors
 			base.EnterGame (game);
 		}
 
+	}
+
+	public class ActiveItemPickup : Pickup {
+		public override bool Interact (Actor withActor)
+		{
+			(withActor as PlayerCharacter).ActiveItemController.AddItem(this.Data);
+			return base.Interact(withActor);
+		}
 	}
 }
 

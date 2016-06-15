@@ -24,6 +24,8 @@ namespace Client.Game.Managers
 		public static string AIM_RAY = "AIM_RAY";
 		public static string PS4_RSTICK_H = "PS4_RSTICK_H";
 		public static string PS4_RSTICK_V = "PS4_RSTICK_V";
+		public static string ACTIVE_ITEM = "ActiveItem";
+
 		public static KeyCode PAUSE = KeyCode.Escape;
 
 
@@ -76,7 +78,9 @@ namespace Client.Game.Managers
 				TargetActor.WeaponController.ToggleWeapon ();
 			}
 
-
+			if(Input.GetButtonDown(ACTIVE_ITEM)) {
+				TargetActor.ActiveItemController.UseCurrent();
+			}
 
 			if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
 				TargetActor.WeaponController.Attack ();

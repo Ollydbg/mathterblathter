@@ -33,11 +33,12 @@ namespace Client.Game.Items
 		}
 
 
-		public void Use () {
-			var abilityId = Owner.Attributes[ActorAttributes.ActiveItemId];
+		public void UseCurrent () {
+			/*var itemId = Owner.Attributes[ActorAttributes.ActiveItemId];
+			var itemData = CharacterDataTable.FromId(itemId);
+
 			var context = new AbilityContext(Owner,  AbilityDataTable.FromId(abilityId));
-			Owner.Game.AbilityManager.ActivateAbility (context);
-			
+			Owner.Game.AbilityManager.ActivateAbility (context);*/
 		}
 
 	}
