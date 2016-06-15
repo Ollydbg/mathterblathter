@@ -35,7 +35,7 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 			attacking = true;
 			if(projectile == null) {
-				projectile = FireProjectile(MockActorData.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle);
+				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle);
 
 
 			}

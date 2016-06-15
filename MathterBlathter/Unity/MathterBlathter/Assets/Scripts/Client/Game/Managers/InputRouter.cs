@@ -106,7 +106,7 @@ namespace Client.Game.Managers
 
 
 		private void AddControllerAiming() {
-			var context = new Client.Game.Abilities.AbilityContext(TargetActor, Client.Game.Data.MockAbilityData.AIM_RAY_BUFF);
+			var context = new Client.Game.Abilities.AbilityContext(TargetActor, Client.Game.Data.AbilityDataTable.AIM_RAY_BUFF);
 			TargetActor.Game.AbilityManager.ActivateAbility(context);
 		}
 

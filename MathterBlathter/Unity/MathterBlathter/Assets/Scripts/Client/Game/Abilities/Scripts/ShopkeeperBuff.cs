@@ -20,7 +20,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var allInShop = MockActorData.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop);
+			var allInShop = CharacterDataTable.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop);
 			foreach( var item in allInShop)
 				addItem(item);
 				
@@ -59,7 +59,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void End ()
 		{
-			var signData = MockActorData.FromId(context.data.spawnableDataId);
+			var signData = CharacterDataTable.FromId(context.data.spawnableDataId);
 			this.Game.ActorManager.Spawn(signData);
 			
 			//also remove parent!

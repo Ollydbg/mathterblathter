@@ -49,7 +49,7 @@ namespace Client.Game.UI.Run.Shop
 				item.SetActive(true);
 				item.transform.SetParent(Template.transform.parent, false);
 				var itemComp = item.GetComponent<ShopItem>();
-				var data = MockActorData.FromId(dataId);
+				var data = CharacterDataTable.FromId(dataId);
 				itemComp.InitWith(data);
 
 				itemComp.OnBuy += () => {

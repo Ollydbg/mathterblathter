@@ -26,7 +26,7 @@ namespace Client.Game.Abilities.Payloads
 
 		}
 
-		private CharacterData getDrop(List<PickupData> datas, Seed seed) {
+		private PickupData getDrop(List<PickupData> datas, Seed seed) {
 					
 			return seed.RandomInList(datas);
 		}
@@ -61,7 +61,7 @@ namespace Client.Game.Abilities.Payloads
 
 		private List<PickupData> DropList(int type) {
 
-			var items = MockActorData.GetAll()
+			var items = CharacterDataTable.GetAll()
 				.Where(p=>p.GetType() == typeof(PickupData))
 				.Cast<PickupData>();
 

@@ -14,7 +14,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var spawnData = MockActorData.FromId(context.data.spawnableDataId);
+			var spawnData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			var actor = context.source.Game.ActorManager.Spawn(spawnData);
 			var pos = PointOnActor(AttachPoint.WeaponSlot, context.source);

@@ -12,7 +12,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var playerBuffs = MockActorData.GetAll()
+			var playerBuffs = CharacterDataTable.GetAll()
 				.Where(p=>p.GetType() == typeof(PickupData))
 				.Cast<PickupData>()
 				.Where( p=>p.PickupType == PickupData.Type.Buff)

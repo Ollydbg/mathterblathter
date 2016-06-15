@@ -35,7 +35,7 @@ namespace Client.Game.Items
 
 		public void Use () {
 			var abilityId = Owner.Attributes[ActorAttributes.ActiveItemId];
-			var context = new AbilityContext(Owner,  MockAbilityData.FromId(abilityId));
+			var context = new AbilityContext(Owner,  AbilityDataTable.FromId(abilityId));
 			Owner.Game.AbilityManager.ActivateAbility (context);
 			
 		}

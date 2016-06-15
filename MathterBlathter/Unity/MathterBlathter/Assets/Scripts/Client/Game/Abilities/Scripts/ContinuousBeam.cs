@@ -42,7 +42,7 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 
 			if(projectile == null) {
-				projectile = FireProjectile(MockActorData.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
+				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
 				this.lineRenderer = projectile.GameObject.GetComponent<LineRenderer>();
 				projectile.OnDestroyed += Projectile_OnDestroyed;
 

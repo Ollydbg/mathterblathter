@@ -32,7 +32,7 @@ namespace Client.Game.Items
 				if(id == ActorAttributes.Weapons.DefaultValue) {
 					break;
 				} else {
-					AddWeapon(MockActorData.FromId(id));
+					AddWeapon(CharacterDataTable.FromId(id));
 				}
 			}
 		}
@@ -170,7 +170,7 @@ namespace Client.Game.Items
 		public void Attack(Vector3 direction) {
 			if(CanAttack(currentWeapon)) {
 				var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities, 0];
-				var context = new AbilityContext(Owner, currentWeapon, direction, MockAbilityData.FromId(abilityId));
+				var context = new AbilityContext(Owner, currentWeapon, direction, AbilityDataTable.FromId(abilityId));
 				Owner.Game.AbilityManager.ActivateAbility (context);
 				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;
 

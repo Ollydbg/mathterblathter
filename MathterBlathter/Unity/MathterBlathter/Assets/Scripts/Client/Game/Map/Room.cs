@@ -138,7 +138,7 @@ namespace Client.Game.Map
 			foreach (var spawn in data.Spawns) {
 				if(TryRecordSpawn(spawn)) {
 
-					var actor = Game.Instance.ActorManager.Spawn(MockActorData.FromId(spawn.ActorId));
+					var actor = Game.Instance.ActorManager.Spawn(CharacterDataTable.FromId(spawn.ActorId));
 					actor.SpawnData = spawn;
 					actor.transform.position = spawn.RoomPosition + Position;
 					ActorUtils.FaceRelativeDirection(actor, spawn.Facing);

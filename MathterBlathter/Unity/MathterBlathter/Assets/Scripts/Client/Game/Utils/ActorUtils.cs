@@ -88,7 +88,7 @@ namespace Client.Game.Utils
 				if(dataId == ActorAttributes.Abilities.DefaultValue) 
 					break;
 
-				var data = MockAbilityData.FromId(dataId);
+				var data = AbilityDataTable.FromId(dataId);
 				if(data.DoesPropogate) {
 					var context = new AbilityContext(pickup, toActor, data);
 					toActor.Game.AbilityManager.ActivateAbility(context);

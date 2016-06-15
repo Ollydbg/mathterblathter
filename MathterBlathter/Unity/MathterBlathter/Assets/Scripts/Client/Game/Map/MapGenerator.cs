@@ -23,7 +23,7 @@ namespace Client.Game.Map
 
 		public MapGenerator ()
 		{
-			mapData = MockMapData.Map1;
+			mapData = MapDataTable.Map1;
 			Constraints = new ConstraintList();
 			Constraints.InitWithMap(mapData);
 		}
@@ -124,7 +124,7 @@ namespace Client.Game.Map
 
 
 		DoorActor spawnDoorToRoom(RoomData.Link link, Room parent) {
-			var doorActor = (DoorActor)Game.Instance.ActorManager.Spawn(MockActorData.DOOR);
+			var doorActor = (DoorActor)Game.Instance.ActorManager.Spawn(CharacterDataTable.DOOR);
 			doorActor.Portals[DoorRoom.Opposite(link.Side)] = parent;
 			doorActor.Parent = parent;
 			doorActor.GameObject.name = "DoorActor";

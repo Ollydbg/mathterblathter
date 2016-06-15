@@ -19,7 +19,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
+			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			ApplyEnergyCost(context.source);
 

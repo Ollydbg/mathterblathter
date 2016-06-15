@@ -33,7 +33,7 @@ namespace Client.Game.Map
 
 		public static List<WaveData> StaticInit() {
 			if(sorted == null) {
-				sorted = MockWaveData.All();
+				sorted = WaveDataTable.All();
 				sorted.Sort(new WaveSorter());
 				
 				foreach( var wave in sorted) {

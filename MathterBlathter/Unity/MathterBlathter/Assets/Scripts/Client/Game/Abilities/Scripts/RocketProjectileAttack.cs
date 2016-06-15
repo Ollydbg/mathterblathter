@@ -21,7 +21,7 @@ namespace Client.Game.Abilities.Scripts
 		#region implemented abstract members of AbilityBase
 		public override void Start ()
 		{
-			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
+			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			
 			currentProjectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);

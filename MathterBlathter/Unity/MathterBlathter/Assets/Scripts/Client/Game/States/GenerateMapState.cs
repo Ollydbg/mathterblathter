@@ -22,16 +22,16 @@ namespace Client.Game.States
 
 
 		int numRoomsToGenerate() {
-			var solod = MockRoomData.GetAll().Count(p => p.Solo);
-			return solod > 0 ? solod : MockMapData.Map1.NumberOfRooms;
+			var solod = RoomDataTable.GetAll().Count(p => p.Solo);
+			return solod > 0 ? solod : MapDataTable.Map1.NumberOfRooms;
 		}
 
 		List<RoomData> availableRooms() {
-			var solod = MockRoomData.GetAll().Where( p=> p.Solo).ToList();
+			var solod = RoomDataTable.GetAll().Where( p=> p.Solo).ToList();
 			if(solod.Count > 0) {
 				return solod;
 			} else {
-				return MockRoomData.GetAll().Where( p=>!p.Mute).ToList();
+				return RoomDataTable.GetAll().Where( p=>!p.Mute).ToList();
 			}
 		}
 

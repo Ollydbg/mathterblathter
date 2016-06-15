@@ -29,7 +29,7 @@ namespace Client.Game.Abilities.Scripts
 		public override bool OnPayloadReceive (Payload payload)
 		{
 			if(payload is DamagePayload) {
-				var buffContext = new AbilityContext(context.source, MockAbilityData.INVULNERABILITY_BUFF);
+				var buffContext = new AbilityContext(context.source, AbilityDataTable.INVULNERABILITY_BUFF);
 				context.source.Game.AbilityManager.ActivateAbility(buffContext);
 			}
 

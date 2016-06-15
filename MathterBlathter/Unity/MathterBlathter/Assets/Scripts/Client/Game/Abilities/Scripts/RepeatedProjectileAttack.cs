@@ -36,7 +36,7 @@ namespace Client.Game.Abilities.Scripts
 		public void Fire() {
 
 			repeatCount ++;
-			var projectileData = MockActorData.FromId(context.data.spawnableDataId);
+			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			var projectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 

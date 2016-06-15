@@ -27,7 +27,7 @@ namespace Client.Game.Abilities.Scripts
         }
 
 		private List<PickupData> DroppablePickups() {
-			var items = MockActorData.GetAll()
+			var items = CharacterDataTable.GetAll()
 				.Where(p=>p.GetType() == typeof(PickupData))
 				.Cast<PickupData>();
 

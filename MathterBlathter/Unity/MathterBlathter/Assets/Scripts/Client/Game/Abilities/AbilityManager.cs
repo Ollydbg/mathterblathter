@@ -127,7 +127,7 @@ namespace Client.Game.Abilities
 		{
 			
 			foreach( int dataId in ActorUtils.IterateAttributes(actor, ActorAttributes.Abilities) ) {
-				var data = MockAbilityData.FromId(dataId);
+				var data = AbilityDataTable.FromId(dataId);
 				if(data.IsBuff) {
 					var context = new AbilityContext(actor, actor, data);
 					ActivateAbility(context);
