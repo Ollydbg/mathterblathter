@@ -68,6 +68,7 @@ namespace Client.Game.Attributes
 			}
 		}
 
+
 		public void LoadFromData (List<CharacterData.AttributeData> attributeData)
 		{
 			foreach (var attr in attributeData) {

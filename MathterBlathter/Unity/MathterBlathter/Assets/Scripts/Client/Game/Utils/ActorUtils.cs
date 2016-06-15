@@ -89,7 +89,7 @@ namespace Client.Game.Utils
 					break;
 
 				var data = MockAbilityData.FromId(dataId);
-				if(data.IsBuff) {
+				if(data.DoesPropogate) {
 					var context = new AbilityContext(pickup, toActor, data);
 					toActor.Game.AbilityManager.ActivateAbility(context);
 				}

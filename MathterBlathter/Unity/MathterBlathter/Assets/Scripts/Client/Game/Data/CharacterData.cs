@@ -15,6 +15,8 @@ namespace Client.Game.Data
 
 		public AIData AIData;
 		public List<AttributeData> attributeData = new List<AttributeData>();
+		public List<AttributeData> overrideAttributes = new List<AttributeData>();
+		
 		public Dictionary<AbilitySlots, Type> Abilities = new Dictionary<AbilitySlots, Type>();
 		public int MinElevation;
 		public int MaxElevation;

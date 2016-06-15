@@ -77,6 +77,8 @@ namespace Client.Game.Abilities
 					}
 					
 				} else {
+					var killMap = Abilities[rp.actor];
+					killMap.Values.ToList().ForEach(p=>p.End());
 					Abilities.Remove(rp.actor);
 				}
 			}
@@ -90,10 +92,9 @@ namespace Client.Game.Abilities
 		private void readAddQueue(AbilityContext ctx) {
 
 			AbilityMap abilities;
-			if(!Abilities.TryGetValue(ctx.source, out abilities)) {
+			if(!Abilities.TryGetValue(ctx.Executor, out abilities)) {
 				abilities = new AbilityMap();
-				Actor owner = ctx.source;
-				Abilities[owner] = abilities;
+				Abilities[ctx.Executor] = abilities;
 			}
 				
 			//look for pre-existing instance
@@ -109,7 +110,7 @@ namespace Client.Game.Abilities
 			} else {
 				var ability = CreateAndStart(ctx);
 				abilities.Add (ability.InstanceId, ability);
-
+				
 			}
 		}
 
@@ -173,15 +174,18 @@ namespace Client.Game.Abilities
 	}
 
 	public class InstanceId : IEquatable<InstanceId> {
-		public static int buffOffset = 0xFF;
-		public static int lastId = 1;
-		private int Id;
-
+		public static long buffOffset = 0xFF;
+		public static long lastId = 1;
+		private long Id;
+		
 		public InstanceId(AbilityContext ctx) {
+			int target = ctx.targetActor != null ? ctx.targetActor.Id : 0;
+			long targetId = ((long)target) << 16;
+			long dataIdComp = ((long)ctx.data.Id) << 32;
 			if(ctx.data.IsBuff) {
-				Id = ctx.data.Id << 16 | buffOffset;
+				Id = dataIdComp | targetId | buffOffset;
 			} else {
-				Id = ctx.data.Id << 16 | ++lastId;
+				Id = dataIdComp | targetId | ++lastId;
 			}
 		}
 

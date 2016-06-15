@@ -12,16 +12,16 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			var delta = this.Attributes[ActorAttributes.AttackSpeedScalar];
-			this.context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] *= delta;
+			var delta = this.Attributes[ActorAttributes.WeaponCooldownScalar];
+			this.context.targetActor.Attributes[ActorAttributes.WeaponCooldownScalar] *= delta;
 		}
 
 		public override void Update(float dt) {}
 		
 		public override void End ()
 		{
-			var delta = this.Attributes[ActorAttributes.AttackSpeedScalar];
-			this.context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] /= delta;
+			var delta = this.Attributes[ActorAttributes.WeaponCooldownScalar];
+			this.context.targetActor.Attributes[ActorAttributes.WeaponCooldownScalar] /= delta;
 		}
 
 		#endregion

@@ -18,7 +18,11 @@ namespace Client.Game.Abilities
 		public AbilityData data;
 		public Vector3 targetDirection;
 		public Vector3 targetPosition;
-
+		public Actor Executor {
+			get {
+				return targetActor??source;
+			}
+		}
 		public AbilityContext(Actor source, WeaponActor weapon, Vector3 direction, AbilityData data) {
 			this.source = source;
 			this.sourceWeapon = weapon;

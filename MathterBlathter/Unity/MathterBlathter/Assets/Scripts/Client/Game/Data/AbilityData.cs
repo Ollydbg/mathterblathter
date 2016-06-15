@@ -14,7 +14,7 @@ namespace Client.Game.Data
 		public int spawnableDataId;
 
 		public List<TimelineData> Timelines = new List<TimelineData>();
-
+		public bool DoesPropogate = false;
 		public Boolean IsBuff{
 			get {
 				return typeof(Abilities.BuffBase).IsAssignableFrom(executionScript);

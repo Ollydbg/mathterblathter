@@ -159,7 +159,7 @@ namespace Client.Game.Data
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 3f
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 				
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -202,7 +202,7 @@ namespace Client.Game.Data
 				));
 			
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 3f
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -306,7 +306,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 2f
+					ActorAttributes.WeaponCooldownScalar.Id, 2f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -466,7 +466,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeedScalar.Id, 3f
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
@@ -523,7 +523,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 3f
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -593,7 +593,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.AttackSpeedScalar.Id, 1f
+					ActorAttributes.WeaponCooldownScalar.Id, 1f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 40.0f
@@ -653,7 +653,7 @@ namespace Client.Game.Data
 				));
 			
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AttackSpeedScalar.Id, 3f
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (

@@ -58,12 +58,13 @@ namespace Client.Game.Data
 				ret.AsciiMap += "            L              L                L               L       L  d";
 				ret.AsciiMap += "                                               1     2                 d";
 				ret.AsciiMap += "                               @                                       d";
-				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsfffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = MockActorData.STATIC_REPEATER;
-				ret.AsciiSpawnLookup['2'] = MockActorData.HOT_RAILS;
+				ret.AsciiSpawnLookup['1'] = MockActorData.YEE_HAW;
+				ret.AsciiSpawnLookup['2'] = MockActorData.MAX_HEALTH_BOOST;
+				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES_FIXTURE;
 
 				finalize(ret);
 
@@ -294,7 +295,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d       ..........................................             d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffssssssfffffff";
 
-				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
+				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES_FIXTURE;
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
 
 				finalize(ret);
@@ -579,7 +580,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffffw";
 
 
-				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
+				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES_FIXTURE;
 
 				finalize(ret);
 
@@ -630,7 +631,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffssssfffffffffffffffff";
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(MockActorData.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES;
+				ret.AsciiSpawnLookup['s'] = MockActorData.SPIKES_FIXTURE;
 				finalize(ret);
 
 				return ret;

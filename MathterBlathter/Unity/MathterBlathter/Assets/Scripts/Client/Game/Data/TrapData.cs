@@ -7,7 +7,7 @@ namespace Client.Game.Data
 	{
 		private static int TRAP_OFFSET = 2<<8;
 
-		public static CharacterData SPIKES {
+		public static CharacterData SPIKES_FIXTURE {
 			get {
 				var ret = new CharacterData ();
 				ret.Id = TRAP_OFFSET + 1;

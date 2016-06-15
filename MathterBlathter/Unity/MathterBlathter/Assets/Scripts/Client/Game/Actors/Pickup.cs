@@ -27,7 +27,7 @@ namespace Client.Game.Actors
 		{
 			//dump all our abilities onto the interactor
 			ActorUtils.PropogateBuffs(this, withActor);
-			Game.ActorManager.RemoveActor(this);
+			Destroy();
 
 			return true;
 		}

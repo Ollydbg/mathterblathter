@@ -28,7 +28,7 @@ namespace Client.Game.Data
                 ret.Name = "Seek To Fire";
                 ret.ActionData = new ActionData(typeof(SeekToPlayer));
                 ret.ActionData.Next = new ActionData(
-                    typeof(FireAtPlayer), 
+                typeof(FireAtPlayer), 
                     typeof(HasPlayerLOS));
                 return ret;
             }

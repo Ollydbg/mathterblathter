@@ -56,6 +56,8 @@ namespace Client.Game.Actors
 
 		public void Destroy() {
 			this.Game.ActorManager.RemoveActor(this);
+			this.Game.AbilityManager.RemoveActor(this);
+			
 		}
 
 		public virtual void NotifyDestroyed() {

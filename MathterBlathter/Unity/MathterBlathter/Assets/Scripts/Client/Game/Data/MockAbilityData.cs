@@ -299,6 +299,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 12;
+				ret.DoesPropogate = true;
 				ret.name = "Heal";
 				ret.attributeData.Add( new GameData.AttributeData(
 					AbilityAttributes.Damage.Id, -20
@@ -322,7 +323,16 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 14;
+				ret.DoesPropogate = true;
 				ret.name = "StatUp";
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.MaxHealth.Id,
+					1
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Health.Id,
+					1
+				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.StatUp);
 				return ret;
 			}
@@ -360,10 +370,12 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
 		public static AbilityData INVULNERABILITY_BUFF {
 			get {
 				var ret = new AbilityData();
 				ret.Id = 19;
+				ret.DoesPropogate = true;
 				ret.name = "Invulnerability";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.InvulnerabilityBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -377,6 +389,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 20;
+				ret.DoesPropogate = true;
 				ret.name = "Move Boost Temp";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MoveBoostTempBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -395,6 +408,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 21;
+				ret.DoesPropogate = true;
 				ret.name = "JumpBuff";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -415,6 +429,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 22;
+				ret.DoesPropogate = true;
 				ret.name = "FallDamage";
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpDamage);
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -437,6 +452,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 23;
+				ret.DoesPropogate = true;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DropQualityBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, float.MaxValue
@@ -532,6 +548,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 29;
+				ret.DoesPropogate = true;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyRegenBuff);
 				ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.AnxietyRegenScalar.Id, 6f));
 				var unlockTimeline = new TimelineData();
@@ -593,6 +610,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 31;
 				ret.name = "EnergyHeal";
+				ret.DoesPropogate = true;
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Anxiety.Id, 100
 				));
@@ -635,6 +653,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 34;
+				ret.DoesPropogate = true;
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.AnxietyDamageScalar.Id, .5f
 				));
@@ -739,9 +758,10 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 39;
+				ret.DoesPropogate = true;
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.MaxHealth.Id, -50));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.DamageScalar.Id, 1.5f));
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AttackSpeedScalar.Id, .6f));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponCooldownScalar.Id, .6f));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.CursedCourageBuff);
 				return ret;
 				
@@ -752,7 +772,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 40;
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AttackSpeedScalar.Id, .7f));
+				ret.DoesPropogate = true;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponCooldownScalar.Id, .7f));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AttackSpeedBuff);
 				return ret;
 			}
@@ -802,6 +823,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 42;
+				ret.DoesPropogate = true;
 				ret.name = "Low Health Damage Amplifier";
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.DamageScalar.Id, 1f
@@ -817,6 +839,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 43;
+				ret.DoesPropogate = true;
 				return ret;
 			}
 		}
@@ -825,6 +848,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 44;
+				ret.DoesPropogate = true;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.WeaponCurse);
 				return ret;
 			}
@@ -881,6 +905,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 48;
+				ret.DoesPropogate = true;
 				ret.attributeData.Add(
 					new GameData.AttributeData(ActorAttributes.ShopPriceScalar.Id, .8f)	
 				);
@@ -893,6 +918,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 49;
+				ret.DoesPropogate = true;
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.Anxiety.Id, 20));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.KillDeStresserBuff);
 				return ret;
@@ -904,9 +930,11 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 50;
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.Speed.Id, .1f));
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AttackSpeedScalar.Id, 1.1f));
-				
+				ret.DoesPropogate = true;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.Speed.Id, 5.2f));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponCooldownScalar.Id, .7f));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AnxietyDamageScalar.Id, 3f));
+
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.YeeHawBuff);
 				
 				return ret;

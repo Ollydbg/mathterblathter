@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Client.Game.Attributes;
 
 namespace Client.Game.Data
@@ -6,6 +7,7 @@ namespace Client.Game.Data
 	public class PickupData : CharacterData {
 		public float Rarity = 0;
 		public string Description;
+		
 		public Type PickupType;
 		public enum Type {
 			Unassigned,
@@ -54,15 +56,14 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					MockAbilityData.TOWER_ACTOR_ABSORBER.Id, 1
 				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
+				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
 					1
 				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
+				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.Health.Id,
 					1
 				));
-
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 10;
 

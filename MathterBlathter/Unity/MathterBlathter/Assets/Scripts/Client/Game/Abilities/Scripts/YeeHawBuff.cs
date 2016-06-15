@@ -14,7 +14,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			context.targetActor.Attributes[ActorAttributes.Speed] += this.Attributes[ActorAttributes.Speed];
-			context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] *= this.Attributes[ActorAttributes.AttackSpeedScalar];
+			context.targetActor.Attributes[ActorAttributes.WeaponCooldownScalar] *= this.Attributes[ActorAttributes.WeaponCooldownScalar];
 			
 
 		}
@@ -31,14 +31,15 @@ namespace Client.Game.Abilities.Scripts
 		public override void End ()
 		{
 			context.targetActor.Attributes[ActorAttributes.Speed] -= this.Attributes[ActorAttributes.Speed];
-			context.targetActor.Attributes[ActorAttributes.AttackSpeedScalar] /= this.Attributes[ActorAttributes.AttackSpeedScalar];
+			context.targetActor.Attributes[ActorAttributes.WeaponCooldownScalar] /= this.Attributes[ActorAttributes.WeaponCooldownScalar];
 		}
 
 		public override bool OnPayloadReceive(Payload payload) {
 			var dp = payload as DamagePayload;
 
 			if(dp != null) {
-				new AnxietyCostPayload(context, dp.Target, (int)dp.Damage).Apply();
+				var anxietyScale = this.Attributes[ActorAttributes.AnxietyDamageScalar];
+				new AnxietyCostPayload(context, dp.Target, anxietyScale * dp.Damage).Apply();
 				Abort();
 				return true;
 			}
