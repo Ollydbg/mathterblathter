@@ -56,9 +56,9 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "            L              L                L               L       L  d";
-				ret.AsciiMap += "                                               1     2                 d";
+				ret.AsciiMap += "                                               1                       d";
 				ret.AsciiMap += "                               @                                       d";
-				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsfffffffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.MaxInstances = 1;

@@ -62,8 +62,8 @@ namespace Client.Game.Data
 				zone2.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
 				zone2.MinElevation = 250;
 				zone2.MaxElevation = 400;
-				ret.Zones.Add(zone1);
-				
+				ret.Zones.Add(zone2);
+
 				var zone3 = new ZoneData();
 				zone3.Id = 3;
 				zone3.Name = "The Temple";
@@ -71,7 +71,7 @@ namespace Client.Game.Data
 				zone3.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
 				zone3.MinElevation = 400;
 				zone3.MaxElevation = 600;
-				ret.Zones.Add(zone1);
+				ret.Zones.Add(zone3);
 				
 				
 				return ret;

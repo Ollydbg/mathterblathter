@@ -21,6 +21,7 @@ namespace Client.Game.Abilities.Payloads
 		public DamagePayload (AbilityContext ctx, Actor target, float damage) : base(ctx)
 		{
 			Damage = damage;
+			DamageScalar = Context.source.Attributes[ActorAttributes.DamageScalar];
 			Target = target;
 
 		}

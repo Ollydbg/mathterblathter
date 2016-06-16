@@ -201,7 +201,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\BitmapReader.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\GridOverlapConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\IGenConstraint.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\StorePerTierConstraint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\ZoneRequirementConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\MeshRoomDrawer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
@@ -231,6 +231,7 @@
      <Compile Include="Assets\Scripts\Client\Game\UI\Titles\TitleScreen.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Titles\VortexWigglerEffect.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\ActorUtils.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Utils\MapUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\VectorUtils.cs" />
      <Compile Include="Assets\ThirdParty\AmplifyBloom\Plugins\AmplifyBloomBase.cs" />
      <Compile Include="Assets\ThirdParty\AmplifyBloom\Plugins\AmplifyBloomEffect.cs" />
@@ -265,6 +266,8 @@
      <Compile Include="Assets\ThirdParty\Detailed_Pyro_FX\Scripts\LoadLevel_Ground_Explosion.cs" />
      <Compile Include="Assets\ThirdParty\Detailed_Pyro_FX\Scripts\LoadLevel_Smoke.cs" />
      <Compile Include="Assets\ThirdParty\Detailed_Pyro_FX\Scripts\LoadLevel_Smoke_02.cs" />
+     <Compile Include="Assets\ThirdParty\GeometryFXParticles\Scripts\AssetsViewer.cs" />
+     <Compile Include="Assets\ThirdParty\GeometryFXParticles\Scripts\CameraRotate.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Demo\DemoConstraintSwitcher.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Demo\DemoMouseController.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Demo\DemoParticleEmitterSwitcher.cs" />
@@ -333,6 +336,7 @@
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Clamp01\SFN_Clamp01.shader" />
+     <None Include="Assets\ThirdParty\GeometryFXParticles\Scripts\ParticleSimpleAlphaBlend.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_SPD_ANG.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Screen.shader" />
      <None Include="Assets\Scripts\Shaders\PixelationShader.shader" />
@@ -585,6 +589,7 @@
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\Common\FillColor.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectScale\SFN_ObjectScale_Reciprocal.shader" />
+     <None Include="Assets\ThirdParty\GeometryFXParticles\Scripts\ParticleAlphaBlendStroke.shader" />
      <None Include="Assets\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />

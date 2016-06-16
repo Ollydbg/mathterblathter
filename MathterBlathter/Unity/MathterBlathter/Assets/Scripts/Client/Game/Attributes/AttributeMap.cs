@@ -34,6 +34,9 @@ namespace Client.Game.Attributes
 			indexedAttributes = indexed;
 		}
 
+		public AttributeMap(List<CharacterData.AttributeData> attributeData) {
+			this.LoadFromData(attributeData);
+		}
 
 		private GameAttribute GetGameAttribute(KeyId keyId) {
 			return indexedAttributes [GetId (keyId) - 1];

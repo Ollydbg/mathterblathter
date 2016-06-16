@@ -956,6 +956,9 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 52;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Items.AnxietyDamageAOEItem);
+
+				ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.AnxietyToDamageScalar.Id, 2f));
+
 				return ret;
 			}
 		}

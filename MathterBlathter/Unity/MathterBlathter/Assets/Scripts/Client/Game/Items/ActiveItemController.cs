@@ -8,7 +8,10 @@ namespace Client.Game.Items
 
     public class ActiveItemController
 	{
-		Actor Owner;
+		Actor Owner; 
+
+		public CharacterData CurrentItem;
+		private AbilityData CurrentAbility;
 
 		public ActiveItemController (Actor owner)
 		{
@@ -18,7 +21,15 @@ namespace Client.Game.Items
 
 
 		public void AddItem(CharacterData data) {
+			CurrentItem = data;
+
+
 			Owner.Attributes[ActorAttributes.ActiveItemId] = data.Id;
+
+			var map = new AttributeMap(data.attributeData);
+			CurrentAbility = AbilityDataTable.FromId(map[ActorAttributes.Abilities, 0]);
+
+
 		}
 
 
@@ -34,11 +45,8 @@ namespace Client.Game.Items
 
 
 		public void UseCurrent () {
-			/*var itemId = Owner.Attributes[ActorAttributes.ActiveItemId];
-			var itemData = CharacterDataTable.FromId(itemId);
-
-			var context = new AbilityContext(Owner,  AbilityDataTable.FromId(abilityId));
-			Owner.Game.AbilityManager.ActivateAbility (context);*/
+			var context = new AbilityContext(Owner, CurrentAbility);
+			Owner.Game.AbilityManager.ActivateAbility (context);
 		}
 
 	}

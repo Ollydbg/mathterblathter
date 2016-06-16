@@ -6,6 +6,7 @@ using Client.Game.Actors;
 using Client.Game.Enums;
 using UnityEngine;
 using Client.Game.Map.GenConstraints;
+using Client.Game.Utils;
 
 
 namespace Client.Game.Map
@@ -60,7 +61,7 @@ namespace Client.Game.Map
 				room.X = targetX;
 				room.Y = targetY;
 				
-				room.Zone = ZoneForRoom(room);
+				room.Zone = MapUtils.ZoneForRoom(room, this.mapData);
 				
 				returnBuffer.Add (room);
 				Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
@@ -82,17 +83,7 @@ namespace Client.Game.Map
 
 		}
 
-		ZoneData ZoneForRoom(Room room) {
-			foreach( var zone in this.mapData.Zones) {
-				if(room.X >= zone.MinX
-				&& room.X <= zone.MaxX
-				&& room.Y >= zone.MinElevation
-				&& room.Y <= zone.MaxElevation) {
-					return zone;
-				}
-			}
-			return mapData.Zones[0];
-		}
+
 
 		void ConsumeLinkedDoors(DoorLinkMapping linkedDoors, Room room) {
 			foreach( var kvp in linkedDoors) {
