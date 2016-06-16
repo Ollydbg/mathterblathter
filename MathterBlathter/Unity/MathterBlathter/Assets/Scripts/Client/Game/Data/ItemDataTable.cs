@@ -54,6 +54,10 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.ANXIETY_DAMAGE_ITEM.Id, 0
 				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.ItemCooldownScalar.Id,
+					60f
+				));
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.Name = "OverSharer";
                 return ret;

@@ -46,7 +46,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI PickupItemId = new GameAttributeI(23, 0, "item to give player",  0, int.MaxValue);
 		public static readonly GameAttributeF WeaponCooldownScalar = new GameAttributeF(24, 1f, "attack multipler", 0, float.MaxValue);
 		public static readonly GameAttributeF WeaponCooldown = new GameAttributeF(25, 1f, "attack speed", 0, float.MaxValue);
-		public static readonly GameAttributeF LastFiredTime = new GameAttributeF(26, -10f, "last fired time", 0, float.MaxValue);
+		public static readonly GameAttributeF LastFiredTime = new GameAttributeF(26, float.MinValue, "last fired time", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeB PassesThroughPlatforms = new GameAttributeB(27, 0, "Passes Through Platforms", 0, 1);
 		public static readonly GameAttributeI MinLevelSpawn = new GameAttributeI(28, 0, "MinimumElevationForSpawn", int.MinValue, int.MaxValue);
 		public static readonly GameAttributeI MaxLevelSpawn = new GameAttributeI(29, 0, "MaximumElevationForSpawn", int.MinValue, int.MaxValue);
@@ -72,7 +72,9 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI RoomUnlockDifficultyIncr = new GameAttributeI(49, 0, "difficulty increment", 0, int.MaxValue);
 		public static readonly GameAttributeF ShopPriceScalar = new GameAttributeF(50, 1f, "shop price scalar", 0f, float.MaxValue);
 		public static readonly GameAttributeI ActiveItemId = new GameAttributeI(51, 0, "ActiveItem Id",  int.MinValue, int.MaxValue);
-		
+		public static readonly GameAttributeF ItemActivationTime = new GameAttributeF(52, -10f, "Last used time", 0, float.MaxValue);
+		public static readonly GameAttributeF ItemCooldownScalar = new GameAttributeF(53, 1f, "Item cooldown scalar", 0, float.MaxValue);
+
 	}
 }
 

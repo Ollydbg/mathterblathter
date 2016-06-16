@@ -30,8 +30,6 @@ namespace Client.Game.Map.GenConstraints
 
 			var zd = MapUtils.ZoneForXY(x, y, mapData);
 
-
-
 			return true;
 		}
 
@@ -68,7 +66,7 @@ namespace Client.Game.Map.GenConstraints
 
 				var flagSet = (mask & flag) == flag;
 				if(flagSet) {
-					records[(RoomType)flag]++;
+					records[(RoomType)i]++;
 				}
 
 			}
