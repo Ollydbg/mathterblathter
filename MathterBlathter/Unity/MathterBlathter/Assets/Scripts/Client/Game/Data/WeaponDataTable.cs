@@ -475,11 +475,11 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 70
+					ActorAttributes.BaseDamage.Id, 110
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Cooldown.Id, 1.3f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0f
