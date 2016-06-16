@@ -27,7 +27,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, .5f
@@ -61,7 +61,7 @@ namespace Client.Game.Data
 					ActorAttributes.BaseDamage.Id, 40
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 8
@@ -105,7 +105,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, .8f
+					ActorAttributes.Cooldown.Id, .8f
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -147,7 +147,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponAnxietyCost.Id, 13
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1.8f
+					ActorAttributes.Cooldown.Id, 1.8f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0f
@@ -188,7 +188,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 2f
+					ActorAttributes.Cooldown.Id, 2f
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -230,7 +230,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 0f
+					ActorAttributes.Cooldown.Id, 0f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -280,7 +280,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, .09f
+					ActorAttributes.Cooldown.Id, .09f
 				));
 
 				ret.attributeData.Add( new GameData.AttributeData(
@@ -357,7 +357,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1.3f
+					ActorAttributes.Cooldown.Id, 1.3f
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -423,7 +423,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 				return ret;
 			}
@@ -445,7 +445,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 
 				return ret;
@@ -479,7 +479,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1.3f
+					ActorAttributes.Cooldown.Id, 1.3f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0f
@@ -527,7 +527,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, .8f
+					ActorAttributes.Cooldown.Id, .8f
 				));
 
 				return ret;
@@ -546,7 +546,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, AbilityDataTable.QUAD_SHOT.Id, 0
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, 1f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, .5f
@@ -581,7 +581,7 @@ namespace Client.Game.Data
 					ActorAttributes.BaseDamage.Id, 50
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldown.Id, .8f
+					ActorAttributes.Cooldown.Id, .8f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 10

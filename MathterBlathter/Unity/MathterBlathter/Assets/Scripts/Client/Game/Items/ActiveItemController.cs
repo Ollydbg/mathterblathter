@@ -42,7 +42,7 @@ namespace Client.Game.Items
 		}
 
 		public bool CanUseCurrent() {
-			var cooldown = CurrentItem.UsableAt;
+			var cooldown = CurrentItem.Cooldown;
 			float elapsed =  Time.realtimeSinceStartup - Owner.Attributes[ActorAttributes.LastFiredTime, CurrentItem.ItemData.Id];
 			return elapsed >= cooldown;
 		}
@@ -64,9 +64,9 @@ namespace Client.Game.Items
 		public AttributeMap Attributes;
 		Actor Owner;
 
-		public float UsableAt {
+		public float Cooldown {
 			get {
-				return Attributes[ActorAttributes.WeaponCooldown] * Owner.Attributes[ActorAttributes.ItemCooldownScalar];
+				return Attributes[ActorAttributes.Cooldown] * Owner.Attributes[ActorAttributes.ItemCooldownScalar];
 			}
 		}
 

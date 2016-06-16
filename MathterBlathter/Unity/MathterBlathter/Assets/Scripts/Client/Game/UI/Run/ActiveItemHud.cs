@@ -32,7 +32,9 @@ namespace Client.Game.UI
             playerCharacter = Game.PossessedActor;
 			playerCharacter.ActiveItemController.OnItemAdded += DisplayItem;
             DisplayItem(null);
-			normalYScale = this.gameObject.transform.localScale.y;
+			var rt = LoadBar.GetComponent<RectTransform>();
+
+			normalYScale = rt.localScale.y;
         }
 
 		void DisplayItem(CharacterData data) {
@@ -53,7 +55,7 @@ namespace Client.Game.UI
 
 				float firedAt = playerCharacter.Attributes[ActorAttributes.LastFiredTime, Current.ItemData.Id];
 				float now = Time.realtimeSinceStartup;
-				float usableAt = Current.UsableAt;
+				float usableAt = Current.Cooldown + firedAt;
 
 				var pct = (now - firedAt) / (usableAt - firedAt);
 				pct = Mathf.Clamp01(pct);
