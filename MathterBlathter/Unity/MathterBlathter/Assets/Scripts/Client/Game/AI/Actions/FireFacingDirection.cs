@@ -13,8 +13,9 @@ namespace Client.Game.AI.Actions
 
 		public override AIResult Update (float dt, Client.Game.Actors.Actor actor)
 		{
+			var facing = GetFacingVector(actor);
 			
-			actor.WeaponController.Attack(actor.SpawnData.Facing);
+			actor.WeaponController.Attack(facing);
 		
 			return AIResult.Running;
 

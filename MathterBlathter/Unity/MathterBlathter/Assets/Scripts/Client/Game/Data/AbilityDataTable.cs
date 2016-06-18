@@ -112,18 +112,18 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.ProjectileCount.Id, 5
+					AbilityAttributes.ProjectileCount.Id, 3
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 58f
+					AbilityAttributes.ProjectileSpeed.Id, 65f
 				));
 				ret.attributeData.Add( new GameData.AttributeData(
-					AbilityAttributes.ProjectileAccel.Id, -90f
+					AbilityAttributes.ProjectileAccel.Id, -70f
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.ProjectileSpread.Id, 45f
+					AbilityAttributes.ProjectileSpread.Id, 20f
 				));
 
 				ret.spawnableDataId = CharacterDataTable.PINK_PROJECTILE.Id;

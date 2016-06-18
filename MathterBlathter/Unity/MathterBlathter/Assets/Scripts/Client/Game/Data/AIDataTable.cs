@@ -4,7 +4,7 @@ namespace Client.Game.Data
 {
     public static partial class AIDataTable {
         
-        public static AIData PATROL_THEN_PURSUE {
+        public static AIData PATROL_THEN_PURSUE_AI {
             get {
                 var ret = new AIData();
                 ret.Name = "Patrol Then Pursue";
@@ -22,7 +22,7 @@ namespace Client.Game.Data
             }
         }
         
-        public static AIData SEEK_TO_FIRE {
+        public static AIData SEEK_TO_FIRE_AI {
             get {
                 var ret = new AIData();
                 ret.Name = "Seek To Fire";
@@ -67,6 +67,20 @@ namespace Client.Game.Data
             }    
         
         }
+
+		public static AIData ROVING_FIRING_FIXTURE_AI {
+			get {
+				var ret = new AIData();
+				ret.Name = "Roving Firing Fixture AI";
+
+				ret.ActionData = new ActionData (
+					typeof(PatrolAction),
+					typeof(FireFacingDirection)
+				);
+
+				return ret;
+			}
+		}
         
     }
 }

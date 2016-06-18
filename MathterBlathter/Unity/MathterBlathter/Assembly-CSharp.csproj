@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\TestPlayerLOS.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitThenFire.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Brain.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\PatrolPlanning\PatrolPlan.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityBase.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityContext.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityManager.cs" />

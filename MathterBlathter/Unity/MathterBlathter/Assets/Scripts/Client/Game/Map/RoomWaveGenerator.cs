@@ -91,7 +91,9 @@ namespace Client.Game.Map
 						if(position == default(Vector3)) {
 							Debug.Log("Couldn't find spawn location for type: " + waveChar.SpawnType);
 						} else {
-							newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position));
+							//always try to face into the center of the room
+							var facingDirection = position.x < room.roomCenter.x? Vector3.right : Vector3.left;
+							newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position, facingDirection));
 						}
 					}
 				}
@@ -136,14 +138,14 @@ namespace Client.Game.Map
 
 		public Vector3 RandomFloorPosition(Room room) {
 			var seed = Game.Instance.Seed;
-			var airSpace = seed.RandomInList(GroundCoords);
-			return airSpace + new Vector3((float)room.X, (float)room.Y);
+			var groundSpace = seed.RandomInList(GroundCoords);
+			return groundSpace + new Vector3((float)room.X, (float)room.Y);
 		}
 
 		public Vector3 RandomSniperPosition(Room room) {
 			var seed = Game.Instance.Seed;
-			var airSpace = seed.RandomInList(SniperCoords);
-			return airSpace + new Vector3((float)room.X, (float)room.Y);
+			var sniperPos = seed.RandomInList(SniperCoords);
+			return sniperPos + new Vector3((float)room.X, (float)room.Y);
 		}
 	}
 }

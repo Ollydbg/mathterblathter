@@ -28,12 +28,15 @@ namespace Client.Game.Data
 		public GeneratedWave Next;
 		
 		public class GeneratedSpawn {
+			
 			public CharacterData Data;
 			public Vector3 Position;
+			public Vector3 Facing;
 
-			public GeneratedSpawn(CharacterData data, Vector3 position) {
+			public GeneratedSpawn(CharacterData data, Vector3 position, Vector3 facingDirection) {
 				this.Data = data;
 				this.Position = position;
+				this.Facing = facingDirection;
 			}
 		}
 	}

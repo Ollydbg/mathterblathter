@@ -1,8 +1,9 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using Client.Game.Data;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Game.Utils;
 
 namespace Client.Game.Map
 {
@@ -33,15 +34,18 @@ namespace Client.Game.Map
 		
 		private void InitCurrentWave() {
 			foreach( var spawnPair in CurrentWave.Generated ) {
-					var actor = Game.Instance.ActorManager.Spawn(spawnPair.Data);
-					actor.transform.position = spawnPair.Position;
-					actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
 
-					actor.SpawnData = new RoomData.Spawn(spawnPair.Data);
-					actor.SpawnData.Facing = Vector3.right;
-					currentWaveTimer = CurrentWave.WaveData.Delay;
-					AliveActors.Add(actor);
-				}
+				var actor = Game.Instance.ActorManager.Spawn(spawnPair.Data);
+				actor.transform.position = spawnPair.Position;
+				actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
+				
+				actor.SpawnData = new RoomData.Spawn(spawnPair.Data);
+				ActorUtils.FaceRelativeDirection(actor, spawnPair.Facing);
+				
+				currentWaveTimer = CurrentWave.WaveData.Delay;
+				AliveActors.Add(actor);
+
+			}
 		}
 
 		public bool HasWavesRemaining {

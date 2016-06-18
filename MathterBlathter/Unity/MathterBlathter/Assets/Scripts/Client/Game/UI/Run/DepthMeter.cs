@@ -12,17 +12,45 @@ namespace Client.Game.UI.Run
 
 		Text text;
 		RoomManager roomManager;
+		private float MaxHeight = float.MinValue;
+		private float MinHeight = float.MaxValue;
 
 		void Awake() {
 			text = GetComponentInChildren<Text>();
 		}
 
+		void CacheHeight ()
+		{
+			foreach( var room in roomManager.Rooms) {
+				if(room.Y > MaxHeight)
+					MaxHeight = room.Y;
+
+				if(room.Y < MinHeight) 
+					MinHeight = room.Y;
+			}
+		}
+
 		void Start() {
 			roomManager = Game.Instance.RoomManager;
+
+			CacheHeight();
 		}
 
 		void Update() {
-			text.text = roomManager.CurrentRoom.Y.ToString() + "ft";
+			var currentY = (int)Game.PossessedActor.transform.position.y; 
+
+			text.text = currentY.ToString() + "ft";
+
+			var pctTowerClimb = (currentY - MinHeight) / (MaxHeight-MinHeight);
+			float usableScreenSize = Screen.height - (2*text.rectTransform.rect.height);
+
+			var screenSpaceRange = .5f*usableScreenSize;
+
+			var xPos = text.rectTransform.anchoredPosition.x;
+
+
+			text.rectTransform.anchoredPosition = new Vector2(xPos, pctTowerClimb * screenSpaceRange - screenSpaceRange);
+			
 		}
 
 		public override void Show ()

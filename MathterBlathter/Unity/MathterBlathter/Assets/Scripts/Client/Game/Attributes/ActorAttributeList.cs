@@ -74,6 +74,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI ActiveItemId = new GameAttributeI(51, 0, "ActiveItem Id",  int.MinValue, int.MaxValue);
 		public static readonly GameAttributeF ItemActivationTime = new GameAttributeF(52, -10f, "Last used time", 0, float.MaxValue);
 		public static readonly GameAttributeF ItemCooldownScalar = new GameAttributeF(53, 1f, "Item cooldown scalar", 0, float.MaxValue);
+		public static readonly GameAttributeI Charges = new GameAttributeI(54, -1, "charges", -1, int.MaxValue);
+
 
 	}
 }

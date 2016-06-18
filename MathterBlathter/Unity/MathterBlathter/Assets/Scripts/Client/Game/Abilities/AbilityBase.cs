@@ -44,10 +44,14 @@ namespace Client
 			}
 		}
 
+
 		public virtual void Init(AbilityContext ctx) {
 			this.context = ctx;
 			this.Attributes.LoadFromData (ctx.data.attributeData);	
 			this.Attributes.LoadFromData(ctx.source.Data.overrideAttributes);
+
+			if(context.sourceWeapon != null) 
+				this.Attributes.LoadFromData(context.sourceWeapon.Data.overrideAttributes);
 		}
 
 

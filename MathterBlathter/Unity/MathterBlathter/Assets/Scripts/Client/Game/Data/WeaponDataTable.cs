@@ -54,6 +54,11 @@ namespace Client.Game.Data
 					AbilityDataTable.FIRE_ON_FALL.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Charges.Id,
+					30
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
@@ -69,6 +74,22 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, .5f
 				));
+					
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 5
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 58f
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, -90f
+				));
+
+				ret.attributeData.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileSpread.Id, 45f
+				));
+
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 250;
@@ -593,6 +614,63 @@ namespace Client.Game.Data
 				ret.Cost = 750;
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				
+				return ret;
+			}
+		}
+
+		public static CharacterData LONG_BARREL_SHOTGUN_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1019;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Long Barrel Shotgun";
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, AbilityDataTable.SHOTGUN_BLAST.Id, 0
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.FIRE_ON_FALL.Id, 1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 40
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, .9f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponAnxietyCost.Id, 10
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .5f
+				));
+
+
+				ret.overrideAttributes.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 3
+				));
+
+				ret.overrideAttributes.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 65f
+				));
+				ret.overrideAttributes.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, -70f
+				));
+
+				ret.overrideAttributes.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileSpread.Id, 20f
+				));
+
+
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 350;
+
 				return ret;
 			}
 		}

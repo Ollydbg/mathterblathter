@@ -2,6 +2,7 @@
 using Client.Game.Data;
 using Client.Game.Abilities;
 using Client.Game.Abilities.Payloads;
+using Client.Game.Attributes;
 
 namespace Client.Game.Actors
 {
@@ -43,6 +44,8 @@ namespace Client.Game.Actors
 			
 			return true;
 		}
+
+
 
 		public override void EnterGame (Client.Game.Core.Game game)
 		{

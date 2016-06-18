@@ -173,10 +173,11 @@ namespace Client.Game.Items
 				var context = new AbilityContext(Owner, currentWeapon, direction, AbilityDataTable.FromId(abilityId));
 				Owner.Game.AbilityManager.ActivateAbility (context);
 				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;
-
 				currentWeapon.AttackStart(context);
+
 			}
 		}
+		
 
 	}
 

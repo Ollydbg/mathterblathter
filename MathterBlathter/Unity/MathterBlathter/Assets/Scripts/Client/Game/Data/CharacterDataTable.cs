@@ -137,7 +137,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData ();
 				ret.Id = 2;
 				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
-				ret.AIData = AIDataTable.PATROL_THEN_PURSUE;
+				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 				
 				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
 				ret.ActorType = ActorType.Enemy;
@@ -187,7 +187,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -286,7 +286,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 50
 				));
@@ -441,7 +441,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SENTRY_AI;
+				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
 					200
@@ -507,7 +507,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 10
@@ -562,7 +562,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
 				
-				ret.AIData = AIDataTable.SEEK_TO_FIRE;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
 				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
@@ -628,7 +628,7 @@ namespace Client.Game.Data
 			}
 		}
 		
-		public static CharacterData BULLET_STAR_ENEMY {
+		public static CharacterData QUAD_SHOT_TURRET_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 25;
@@ -636,8 +636,8 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				
-				ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
+
+				ret.AIData = AIDataTable.ROVING_FIRING_FIXTURE_AI;
 				
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 150
@@ -649,7 +649,7 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 0f
+					ActorAttributes.Speed.Id, .1f
 				));
 			
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -668,6 +668,13 @@ namespace Client.Game.Data
 					AbilityDataTable.AI_BUFF.Id,
 					0
 				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.STATIONARY_BUFF.Id,
+					1
+				));
+
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,

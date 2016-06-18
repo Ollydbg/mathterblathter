@@ -8,7 +8,6 @@ namespace Client.Game.Attributes
 	public partial class AbilityAttributes
 	{
 
-		private static int OFFSET = 2<<8;
 
 		static void AbilityAttribute() {
 			_all = typeof(AbilityAttributes).GetFields ()
@@ -23,6 +22,7 @@ namespace Client.Game.Attributes
 			return _all;
 		}
 
+		private static int OFFSET = 2<<8;
 
 		//THIS IS DUMB, AND THEY SHOULD ALL BE MOVED INTO ACTORATTRIBUTELIST
 		public static readonly GameAttributeF Duration = new GameAttributeF(OFFSET + 1, 2f, "duration", 0, float.MaxValue);

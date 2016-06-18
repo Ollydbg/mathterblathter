@@ -50,7 +50,7 @@ namespace Client.Game.Data
 
 				ret.Spawns.Add(CharacterDataTable.ENERGY_SAPPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
-				ret.Spawns.Add(CharacterDataTable.BULLET_STAR_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.ENERGY_SAPPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 
@@ -68,7 +68,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
-				ret.Spawns.Add(CharacterDataTable.BULLET_STAR_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 
 				ret.Difficulty = 6;
 				return ret;
@@ -86,7 +86,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.BULLET_STAR_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 
@@ -102,8 +102,10 @@ namespace Client.Game.Data
 				ret.Id = 5;
 				ret.PreDelay = 1f;
 				
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.GROUND_STATIC_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLY_BOT_SPAWNER_ENEMY);
+
+
 
 				ret.Difficulty = 5;
 				return ret;
@@ -117,8 +119,8 @@ namespace Client.Game.Data
 				ret.PreDelay = 1f;
 				
 				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.BULLET_STAR_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.GROUND_STATIC_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLY_BOT_SPAWNER_ENEMY);
 				
 				ret.Difficulty = 9;
