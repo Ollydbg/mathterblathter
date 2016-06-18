@@ -4,28 +4,16 @@ using Client.Game.Attributes;
 
 namespace Client.Game.Data
 {
-	public class PickupData : CharacterData {
-		public float Rarity = 0;
-		public string Description;
-		
-		public Type PickupType;
-		public enum Type {
-			Unassigned,
-			Weapon,
-			Buff,
-			Item
-		}
-	}
-
+	
 	public static partial class CharacterDataTable
 	{
 		private static int OFFSET = 256;
 
-		public static PickupData RANDOM_WEAPON_PICKUP {
+		public static CharacterData RANDOM_WEAPON_PICKUP {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 1;
-				ret.PickupType = PickupData.Type.Weapon;
+				ret.PickupType = PickupType.Weapon;
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add( new CharacterData.AttributeData (
 					ActorAttributes.Abilities.Id,
@@ -38,15 +26,15 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData MAX_HEALTH_BOOST {
+		public static CharacterData MAX_HEALTH_BOOST {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 2;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.Description = "A very small health boost";
 				
 				ret.ActorType = ActorType.Pickup;
-				ret.PickupType = PickupData.Type.Item;
+				ret.PickupType = PickupType.Item;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.STAT_UP.Id,
@@ -72,12 +60,12 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData MOVE_BOOST_PICKUP {
+		public static CharacterData MOVE_BOOST_PICKUP {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 3;
 				ret.Description = "A temporary run speed upgrade";
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupType.Buff;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -95,13 +83,13 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData HEALTH_PICKUP {
+		public static CharacterData HEALTH_PICKUP {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 4;
 				ret.Description = "A generous health pickup";
 
-				ret.PickupType = PickupData.Type.Item;
+				ret.PickupType = PickupType.Item;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -121,14 +109,14 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData SHORTENED_TENDONS_PICKUP {
+		public static CharacterData SHORTENED_TENDONS_PICKUP {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 5;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
 				ret.Description = "Improved jumping height, but you sometimes take damage on big falls";
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupType.Buff;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.JUMP_BUFF_PERM.Id,
@@ -152,15 +140,15 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData RABBITS_FOOT {
+		public static CharacterData RABBITS_FOOT {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 6;
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				ret.Description = "Improved Drop quality";
 				ret.ActorType = ActorType.Pickup;
 
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupType.Buff;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.RABBITS_FOOT_BUFF.Id,
@@ -190,14 +178,14 @@ namespace Client.Game.Data
 		}
 
 
-		public static PickupData CURSED_RABBITS_FOOT {
+		public static CharacterData CURSED_RABBITS_FOOT {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 7;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.ActorType = ActorType.Pickup;
 				ret.Description = "Lower drop rate, but they're better, I swear";
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupType.Buff;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.RABBITS_FOOT_BUFF.Id,
@@ -227,12 +215,12 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData RANDOM_BUFF {
+		public static CharacterData RANDOM_BUFF {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 8;
 				ret.ActorType = ActorType.Pickup;
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupType.Buff;
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.LEVEL_APPROPRIATE_BUFF.Id,
@@ -244,9 +232,9 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData CALM_DOWN_PILLS {
+		public static CharacterData CALM_DOWN_PILLS {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 9;
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/GoldenPill_prefab";
@@ -271,9 +259,9 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData SAFETY_BLANKET {
+		public static CharacterData SAFETY_BLANKET {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 10;
 				ret.ActorType = ActorType.Pickup;
 				ret.Description = "Take Less Anxiety Damage";
@@ -295,15 +283,15 @@ namespace Client.Game.Data
 			}
 		}
 		
-		public static PickupData CURSED_COURAGE {
+		public static CharacterData CURSED_COURAGE {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 11;
 				ret.Name = "Cuh Cuh Cursed Courage";
 				ret.Description = "At the cost of your max health, fire faster and have a higher anxiety threshold.";
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
-				ret.PickupType = PickupData.Type.Buff;
+				ret.PickupType = PickupType.Buff;
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.CURSED_COURAGE_BUFF.Id,
@@ -321,9 +309,9 @@ namespace Client.Game.Data
 			
 		}
 		
-		public static PickupData TRIGGER_FINGERS {
+		public static CharacterData TRIGGER_FINGERS {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 12;
 				ret.Name = "TRIGGER FINGERS";
 				ret.Description = "Better firing speed";
@@ -346,9 +334,9 @@ namespace Client.Game.Data
 			
 		}
 		
-		public static PickupData ANIMAL_HEART {
+		public static CharacterData ANIMAL_HEART {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 13;
 				ret.Name = "ANIMAL HEART";
 				ret.Description = "Do more damage when at low health";
@@ -371,9 +359,9 @@ namespace Client.Game.Data
 			
 		}
 		
-		public static PickupData WEAPON_DE_CURSER {
+		public static CharacterData WEAPON_DE_CURSER {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 14;
 				ret.Name = "Weapon De-Curser";
 				ret.Description = "Removes curses from your current weapons";
@@ -394,9 +382,9 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static PickupData SHOP_CHEAPENER {
+		public static CharacterData SHOP_CHEAPENER {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 15;
 				ret.Name = "A Fancy Hat";
 				ret.Description = "+5 charisma makes shop keepers give you a discount";
@@ -421,9 +409,9 @@ namespace Client.Game.Data
 
 		}
 
-		public static PickupData KILL_DE_STRESSER {
+		public static CharacterData KILL_DE_STRESSER {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Id = OFFSET + 16;
 				ret.Name = "Spiteful Heart";
 				ret.Description = "Killing synth-heads reduces Anxiety";
@@ -448,15 +436,15 @@ namespace Client.Game.Data
 
 		}
 		
-		public static PickupData YEE_HAW {
+		public static CharacterData YEE_HAW {
 			get {
-				var ret = new PickupData();
+				var ret = new CharacterData();
 				ret.Cost = 50;
 				ret.Name = "Yee Haw: A Beverage";
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				
 				ret.ActorType = ActorType.Pickup;
-				ret.PickupType = PickupData.Type.Item;
+				ret.PickupType = PickupType.Item;
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.YEE_HAW_BUFF.Id,

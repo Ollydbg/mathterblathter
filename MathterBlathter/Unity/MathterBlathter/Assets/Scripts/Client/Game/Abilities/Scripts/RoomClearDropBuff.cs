@@ -5,6 +5,7 @@ using Client.Game.Abilities.Payloads;
 using Client.Game.AI;
 using Client.Game.Data;
 using UnityEngine;
+using Client.Game.Attributes;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -26,10 +27,9 @@ namespace Client.Game.Abilities.Scripts
         {
         }
 
-		private List<PickupData> DroppablePickups() {
+		private List<CharacterData> DroppablePickups() {
 			var items = CharacterDataTable.GetAll()
-				.Where(p=>p.GetType() == typeof(PickupData))
-				.Cast<PickupData>();
+				.Where(p=>p.ActorType == ActorType.Pickup);
 
 			return items.Where(p => (p.Availability & Availability.RoomClearReward)==Availability.RoomClearReward).ToList();
 		}
@@ -40,7 +40,7 @@ namespace Client.Game.Abilities.Scripts
 				var waves = Game.RoomManager.CurrentRoom.Waves;
 				if(!waves.HasWavesRemaining && waves.AliveActors.Count == 1) {
 					var clearedPickups = DroppablePickups();
-					dp.DropSets.Add(new DropSet(.25f, clearedPickups));
+					dp.DropSets.Add(new DropSet(Attributes[ActorAttributes.DropRate], clearedPickups));
 				}
 			}
 			return false;

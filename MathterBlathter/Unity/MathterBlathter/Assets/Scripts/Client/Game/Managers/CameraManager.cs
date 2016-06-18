@@ -14,7 +14,8 @@ namespace Client.Game.Managers
 		Camera camera;
 
 		public Transform TargetTransform;
-		float shakeAccum = 0f;
+		Vector3 shakeAccum = Vector3.zero;
+		public float shakeScalar = 2f;
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
@@ -52,7 +53,7 @@ namespace Client.Game.Managers
 			}
 		}
 
-		public void Shake(float amt) {	
+		public void Shake(Vector3 amt) {	
 			shakeAccum += amt;
 		}
 
@@ -82,9 +83,9 @@ namespace Client.Game.Managers
 
 		Vector3 AddShake (Vector3 pos)
 		{
-			if(shakeAccum > 0f) {
-				pos += new Vector3(Random.value, Random.value, 0f) * shakeAccum;
-				shakeAccum = 0f;
+			if(shakeAccum != Vector3.zero) {
+				pos += shakeAccum * shakeScalar;
+				shakeAccum = Vector3.zero;
 				return pos;
 			}
 			return pos;

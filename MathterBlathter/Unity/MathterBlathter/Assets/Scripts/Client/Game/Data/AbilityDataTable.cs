@@ -957,6 +957,9 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 51;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RoomClearDropBuff);
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.DropRate.Id, 1f
+				));
 				return ret;
 			}
 		}

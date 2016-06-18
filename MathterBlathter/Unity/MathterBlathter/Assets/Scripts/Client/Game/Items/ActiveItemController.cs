@@ -49,10 +49,12 @@ namespace Client.Game.Items
 
 
 		public void UseCurrent () {
-			if(CanUseCurrent()) {
-				var context = new AbilityContext(Owner, CurrentItem.AbilityData);
-				Owner.Game.AbilityManager.ActivateAbility (context);
-				Owner.Attributes[ActorAttributes.LastFiredTime, CurrentItem.ItemData.Id] = Time.realtimeSinceStartup;	
+			if(CurrentItem != null) {
+				if(CanUseCurrent()) {
+					var context = new AbilityContext(Owner, CurrentItem.AbilityData);
+					Owner.Game.AbilityManager.ActivateAbility (context);
+					Owner.Attributes[ActorAttributes.LastFiredTime, CurrentItem.ItemData.Id] = Time.realtimeSinceStartup;	
+				}
 			}
 		}
 

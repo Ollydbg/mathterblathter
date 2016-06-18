@@ -485,12 +485,6 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
-					AbilityDataTable.AIM_RAY_BUFF.Id,
-					1
-				));
-				
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
 					AbilityDataTable.STATIONARY_BUFF.Id,
 					2
 				));

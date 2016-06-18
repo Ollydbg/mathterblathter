@@ -17,7 +17,7 @@ namespace Client.Game.Data
 		public List<AttributeData> attributeData = new List<AttributeData>();
 		public List<AttributeData> overrideAttributes = new List<AttributeData>();
 		
-		public Dictionary<AbilitySlots, Type> Abilities = new Dictionary<AbilitySlots, Type>();
+		public Dictionary<AbilitySlots, PickupType> Abilities = new Dictionary<AbilitySlots, PickupType>();
 		public int MinElevation;
 		public int MaxElevation;
 		//serialized attributes
@@ -25,6 +25,12 @@ namespace Client.Game.Data
 
 		public char SpawnType;
 		public int Cost;
+
+		//pickup stuff
+		public float Rarity = 0;
+		public string Description;
+		public PickupType PickupType;
+
 
 	}
 
@@ -37,7 +43,14 @@ namespace Client.Game.Data
 		RoomClearReward = 8,
 	}
 
-	
+	public enum PickupType {
+		Unassigned,
+		Weapon,
+		Buff,
+		Item,
+		ActiveItem
+	}
+
 	public enum ActorType {
 		Friendly,
 		Player,

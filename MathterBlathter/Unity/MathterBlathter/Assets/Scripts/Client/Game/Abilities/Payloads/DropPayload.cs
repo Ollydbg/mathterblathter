@@ -26,7 +26,7 @@ namespace Client.Game.Abilities.Payloads
 
 		}
 
-		private PickupData getDrop(List<PickupData> datas, Seed seed) {
+		private CharacterData getDrop(List<CharacterData> datas, Seed seed) {
 					
 			return seed.RandomInList(datas);
 		}
@@ -43,7 +43,7 @@ namespace Client.Game.Abilities.Payloads
 
 			foreach( var drop in DropSets ) {
 
-				while(drop.DropPercentage > 0) {
+				//while(drop.DropPercentage > 0) {
 					bool shouldDrop = killedActor.Game.Seed.RollAgainst(drop.DropPercentage);
 
 					if(shouldDrop) {
@@ -53,22 +53,21 @@ namespace Client.Game.Abilities.Payloads
 					}
 					
 					drop.DropPercentage -= 1f;
-				}
+				//}
 			}
 		}
 
 		
 
-		private List<PickupData> DropList(int type) {
+		private List<CharacterData> DropList(int type) {
 
 			var items = CharacterDataTable.GetAll()
-				.Where(p=>p.GetType() == typeof(PickupData))
-				.Cast<PickupData>();
+				.Where(p=>p.ActorType == ActorType.Pickup);
 
-			if(type == (int)PickupData.Type.Unassigned) {
+			if(type == (int)PickupType.Unassigned) {
 				return items.Where(p => p.Availability != Availability.None).ToList();
 			} else {
-				return items.Where(p=>p.PickupType == (PickupData.Type)type).ToList();
+				return items.Where(p=>p.PickupType == (PickupType)type).ToList();
 			} 
 			
 		}
@@ -77,8 +76,8 @@ namespace Client.Game.Abilities.Payloads
 
 	public class DropSet {
 		public float DropPercentage;
-		public List<PickupData> PotentialDrops;
-		public DropSet(float percentage, List<PickupData> drops) {
+		public List<CharacterData> PotentialDrops;
+		public DropSet(float percentage, List<CharacterData> drops) {
 			this.DropPercentage = percentage;
 			this.PotentialDrops = drops;
 		}

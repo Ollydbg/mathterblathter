@@ -32,6 +32,24 @@ namespace Client.Game.Core
 			return Random.Range(0, max);
 		}
 
+		public List<T> TakeFromList<T>(List<T> items, int num) {
+			Dictionary<T, bool> taken = new Dictionary<T, bool>();
+			var buff = new List<T>();
+			while (num > 0) {
+				var item = RandomInList(items);
+				if(item == null)
+					return buff;
+				
+				if(!taken.ContainsKey(item)){
+					buff.Add(item);
+					num--;
+				}
+
+			}
+
+			return buff;
+		}
+
 		public T RandomInList<T>(List<T> items) {
 			if(items.Count == 0)
 				return default(T);

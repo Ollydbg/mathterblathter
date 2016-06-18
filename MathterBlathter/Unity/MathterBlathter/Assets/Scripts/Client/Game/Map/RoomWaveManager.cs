@@ -31,20 +31,24 @@ namespace Client.Game.Map
 			DidStart = true;
 			InitCurrentWave();
 		}
-		
+
+		public void AddActor(Actor actor) {
+			actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
+			AliveActors.Add(actor);
+		}
+
 		private void InitCurrentWave() {
 			foreach( var spawnPair in CurrentWave.Generated ) {
 
 				var actor = Game.Instance.ActorManager.Spawn(spawnPair.Data);
 				actor.transform.position = spawnPair.Position;
-				actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
-				
+
 				actor.SpawnData = new RoomData.Spawn(spawnPair.Data);
 				ActorUtils.FaceRelativeDirection(actor, spawnPair.Facing);
 				
 				currentWaveTimer = CurrentWave.WaveData.Delay;
-				AliveActors.Add(actor);
 
+				AddActor(actor);
 			}
 		}
 

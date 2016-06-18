@@ -17,17 +17,38 @@ namespace Client.Game.Abilities.Scripts
 		}
 		
 		int ParentRoom;
+		int numWeapons = 5;
+		int numBuffs = 3;
+		int numItems = 3;
+		int numActiveItems = 1;
 
 		public override void Start ()
 		{
-			var allInShop = CharacterDataTable.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop);
-			foreach( var item in allInShop)
-				addItem(item);
-				
-			
+			var allInShop = CharacterDataTable.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop && p.ActorType == ActorType.Pickup);
+			var buffs = allInShop.Where( p=>p.PickupType == PickupType.Buff).ToList();
+			var items = allInShop.Where( p=>p.PickupType == PickupType.Item).ToList();
+
+			Game.Seed.TakeFromList(buffs, numBuffs).ForEach(addItem);
+			Game.Seed.TakeFromList(items, numItems).ForEach(addItem);
+
+			AddWeapons();
+			AddActiveItems();
+
 			this.Game.RoomManager.OnRoomEntered += OnRoomEntered;
 
 			this.ParentRoom = this.Game.RoomManager.CurrentRoom.Id;
+
+		}
+
+		
+		private void AddActiveItems() {
+			var allActive = CharacterDataTable.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop && p.ActorType == ActorType.ActiveItem);
+			Game.Seed.TakeFromList(allActive.ToList(), numActiveItems).ForEach(addItem);
+		}
+
+		private void AddWeapons() {
+			var allWeapons = CharacterDataTable.GetAll().Where(p=>(p.Availability & Availability.InShop) == Availability.InShop && p.ActorType == ActorType.Weapon);
+			Game.Seed.TakeFromList(allWeapons.ToList(), numWeapons).ForEach(addItem);
 
 		}
 

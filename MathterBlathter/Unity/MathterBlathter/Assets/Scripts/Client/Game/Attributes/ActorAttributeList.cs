@@ -50,12 +50,12 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeB PassesThroughPlatforms = new GameAttributeB(27, 0, "Passes Through Platforms", 0, 1);
 		public static readonly GameAttributeI MinLevelSpawn = new GameAttributeI(28, 0, "MinimumElevationForSpawn", int.MinValue, int.MaxValue);
 		public static readonly GameAttributeI MaxLevelSpawn = new GameAttributeI(29, 0, "MaximumElevationForSpawn", int.MinValue, int.MaxValue);
-		public static readonly GameAttributeF DropRate = new GameAttributeF(30, .01f, "DropRate", 0, float.MaxValue);
+		public static readonly GameAttributeF DropRate = new GameAttributeF(30, .02f, "DropRate", 0, float.MaxValue);
 		public static readonly GameAttributeF FallFireVelocity = new GameAttributeF(31, 10f, "FallFireVelocity", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeF Inaccuracy = new GameAttributeF(32, 0f, "inaccuracy", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeI MaxWeapons = new GameAttributeI(33, 2, "maxWeapons", 0, int.MaxValue);
 		public static readonly GameAttributeF DropQuality = new GameAttributeF(34, 1, "dropQuality", 0, float.MaxValue);
-		public static readonly GameAttributeE DropType = new GameAttributeE(35, 0, "DropType", 0, int.MaxValue, typeof(Client.Game.Data.PickupData.Type));
+		public static readonly GameAttributeE DropType = new GameAttributeE(35, 0, "DropType", 0, int.MaxValue, typeof(Client.Game.Data.PickupType));
 		public static readonly GameAttributeF AIScanDegrees = new GameAttributeF(36, 90, "AiScanDegrees", 0, 360);
 		public static readonly GameAttributeI Anxiety = new GameAttributeI(37, int.MaxValue, "energy", 0, int.MaxValue);
 		public static readonly GameAttributeI MaxAnxiety = new GameAttributeI(38, int.MaxValue, "max energy", 0, int.MaxValue);
@@ -77,8 +77,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI Charges = new GameAttributeI(54, -1, "charges", -1, int.MaxValue);
 		public static readonly GameAttributeF ProjectileLifespan = new GameAttributeF(55, 5f, "projectileLifespan", 0, float.MaxValue);
 		public static readonly GameAttributeF CameraShakeForce = new GameAttributeF(56, .1f, "kick force", 0, float.MaxValue);
-
 		public static readonly GameAttributeF ProjectileBeamWidth = new GameAttributeF(57, 1f, "projectileBeamWidth", 0, float.MaxValue);
+		public static readonly GameAttributeF CurseProbability = new GameAttributeF(58, 0f, "curseProbability", 0, 1);
 
 	}
 }

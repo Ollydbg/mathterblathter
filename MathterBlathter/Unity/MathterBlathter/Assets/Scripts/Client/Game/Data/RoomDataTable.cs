@@ -62,7 +62,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.VIPER_REPEATER_WEAPON;
 
 				finalize(ret);
 

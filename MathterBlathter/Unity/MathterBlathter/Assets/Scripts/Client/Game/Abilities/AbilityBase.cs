@@ -76,7 +76,7 @@ namespace Client
 
 		public void WeaponKick() {
 			if(context.source.Id == Game.PossessedActor.Id)
-				Game.CameraManager.Shake(SourceWeapon.Attributes[ActorAttributes.CameraShakeForce]);
+				Game.CameraManager.Shake(SourceWeapon.Attributes[ActorAttributes.CameraShakeForce] * -context.targetDirection);
 		}
 
 		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point, Layers layer = Layers.Projectiles) {

@@ -26,6 +26,8 @@ namespace Client.Game.Abilities.Scripts
 
 			actor.transform.position = pos; 
 
+			Game.RoomManager.CurrentRoom.Waves.AddActor(actor);
+
 		}
 
 		

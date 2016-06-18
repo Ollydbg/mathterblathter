@@ -285,6 +285,10 @@
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Particles\ParticleFactory.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Particles\ParticleRenderer.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Pulsate.cs" />
+     <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\FadeLight.cs" />
+     <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\ParticleManager.cs" />
+     <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\RotateObject.cs" />
+     <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\TranslateObject.cs" />
      <Compile Include="Assets\ThirdParty\Retro Pixel\Scripts\RetroPixel.cs" />
      <Compile Include="Assets\ThirdParty\VideoGlitches\Demo\Scripts\DemoVideoGlitches.cs" />
      <Compile Include="Assets\ThirdParty\VideoGlitches\Scripts\ImageEffectBase.cs" />
