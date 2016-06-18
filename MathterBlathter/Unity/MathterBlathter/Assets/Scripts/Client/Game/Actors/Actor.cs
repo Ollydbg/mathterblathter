@@ -20,6 +20,11 @@ namespace Client.Game.Actors
 		public IAnimator Animator = new EmptyAnimator();
 		public CharacterData Data;
 		public RoomData.Spawn SpawnData;
+
+		private bool _pendingDelete = false;
+		public bool Deleted {
+			get { return _pendingDelete; }
+		}
 		
 		public delegate void DestroyedDelegate(Actor actor);
 		public event DestroyedDelegate OnDestroyed;
@@ -57,7 +62,7 @@ namespace Client.Game.Actors
 		public void Destroy() {
 			this.Game.ActorManager.RemoveActor(this);
 			this.Game.AbilityManager.RemoveActor(this);
-			
+			_pendingDelete = true;
 		}
 
 		public virtual void NotifyDestroyed() {

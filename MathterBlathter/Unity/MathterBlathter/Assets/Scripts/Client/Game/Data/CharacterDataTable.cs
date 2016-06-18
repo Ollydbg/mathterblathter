@@ -34,7 +34,7 @@ namespace Client.Game.Data
 			return All[id];
 		}
 
-		public static CharacterData PLAYER_TEST {
+		public static CharacterData PLAYER_CHARACTER {
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 1;

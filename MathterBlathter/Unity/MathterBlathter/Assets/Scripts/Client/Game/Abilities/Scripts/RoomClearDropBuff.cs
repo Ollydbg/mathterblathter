@@ -40,7 +40,7 @@ namespace Client.Game.Abilities.Scripts
 				var waves = Game.RoomManager.CurrentRoom.Waves;
 				if(!waves.HasWavesRemaining && waves.AliveActors.Count == 1) {
 					var clearedPickups = DroppablePickups();
-					dp.DropSets.Add(new DropSet(1f, clearedPickups));
+					dp.DropSets.Add(new DropSet(.25f, clearedPickups));
 				}
 			}
 			return false;

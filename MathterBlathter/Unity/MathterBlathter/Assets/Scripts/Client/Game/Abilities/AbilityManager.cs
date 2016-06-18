@@ -69,17 +69,18 @@ namespace Client.Game.Abilities
 			//cull
 			while (deferredRemoves.Count > 0) {
 				var rp = deferredRemoves.Dequeue ();
+				AbilityMap actorAbils;
 				if(rp.ability != null) {
 					rp.ability.End ();
-					AbilityMap actorAbils;
 					if(Abilities.TryGetValue(rp.actor, out actorAbils)) {
 						Abilities [rp.actor].Remove (rp.ability.InstanceId);
 					}
 					
 				} else {
-					var killMap = Abilities[rp.actor];
-					killMap.Values.ToList().ForEach(p=>p.End());
-					Abilities.Remove(rp.actor);
+					if(Abilities.TryGetValue(rp.actor, out actorAbils)) {
+						actorAbils.Values.ToList().ForEach(p=>p.End());
+						Abilities.Remove(rp.actor);
+					}
 				}
 			}
 		}
@@ -150,6 +151,7 @@ namespace Client.Game.Abilities
 		public bool NotifyPayloadSender (Payload payload, Actor actor)
 		{
 			foreach( AbilityBase ability in Abilities[actor].Values) {
+				var dp = payload as DropPayload;
 				if(ability.OnPayloadSend(payload))
 					return true;
 			}

@@ -35,7 +35,7 @@ namespace Client.Game.UI.Run
 				Hide();
 			}
 
-			if(!hidden) {
+			if(!hidden && !interaction.InteractionTarget.Deleted) {
 				var screenPoint = Camera.main.WorldToScreenPoint(interaction.InteractionTarget.transform.position);
 				this.transform.position = screenPoint;
 			}

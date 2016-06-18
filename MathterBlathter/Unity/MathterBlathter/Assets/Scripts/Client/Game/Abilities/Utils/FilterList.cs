@@ -26,7 +26,7 @@ namespace Client.Game.Abilities.Utils
 
 		public static FilterList QuickFilters {
 			get {
-				return new FilterList(Filters.NotSelfFilter, Filters.Hittable);
+				return new FilterList(Filters.NotSelfFilter, Filters.Hittable, Filters.NotPendingDelete);
 			}
 		}
 
@@ -40,6 +40,10 @@ namespace Client.Game.Abilities.Utils
 
 		public static bool Hittable(AbilityContext ctx, Actor actor) {
 			return actor.Attributes[ActorAttributes.TakesDamage] == true;
+		}
+
+		public static bool NotPendingDelete(AbilityContext ctx, Actor actor) {
+			return !actor.Deleted;
 		}
 	}
 
