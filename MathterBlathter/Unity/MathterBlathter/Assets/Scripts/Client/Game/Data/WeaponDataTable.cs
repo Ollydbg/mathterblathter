@@ -126,11 +126,16 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Cooldown.Id, .8f
+					ActorAttributes.Cooldown.Id, .4f
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, .1f
+				));
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatAmount.Id, 1
 				));
 
 				ret.Availability = Availability.Droppable;
@@ -671,6 +676,52 @@ namespace Client.Game.Data
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 350;
 
+				return ret;
+			}
+		}
+
+		public static CharacterData VIPER_REPEATER_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1020;
+				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Viper Repeater";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, AbilityDataTable.DOUBLE_SHOT.Id, 0
+				));
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.FIRE_ON_FALL.Id,
+					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
+				));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 6));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 15
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, .6f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .8f
+				));
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatAmount.Id, 2
+				));
+
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 160;
 				return ret;
 			}
 		}

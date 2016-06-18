@@ -685,7 +685,54 @@ namespace Client.Game.Data
 				return ret;	
 			}
 		}
-		
+
+
+		public static CharacterData GROUNDED_VIPER_ENEMY {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = 26;
+				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
+				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
+
+				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 200
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 30.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, .12f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 14
+				));;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.WeaponCooldownScalar.Id, 1.8f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Abilities.Id, 
+					AbilityDataTable.AI_BUFF.Id,
+					0
+				));
+
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					CharacterDataTable.VIPER_REPEATER_WEAPON.Id,
+					0
+				));
+
+				return ret;
+			}
+		}
 
 	}
 }

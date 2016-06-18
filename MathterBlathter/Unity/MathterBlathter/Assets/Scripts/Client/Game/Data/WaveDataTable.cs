@@ -144,6 +144,40 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static WaveData TWO_VIPERS {
+			get {
+				var ret = new WaveData();
+				ret.Id = 8;
+				ret.PreDelay = 1f;
+
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
+
+				ret.Difficulty = 10;
+				return ret;
+			}
+		}
+
+
+		public static WaveData VIPER_SNIPER_MIX {
+			get {
+				var ret = new WaveData();
+				ret.Id = 9;
+				ret.PreDelay = 1f;
+
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
+
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
+
+				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
+
+				ret.Difficulty = 14;
+				return ret;
+			}
+		}
+
 	}
 }
 
