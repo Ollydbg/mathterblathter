@@ -37,7 +37,7 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData CERAMIC_SHOTGUN {
+		public static CharacterData CERAMIC_SHOTGUN_WEAPON {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1002;
@@ -53,15 +53,26 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.FIRE_ON_FALL.Id, 1
 				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Charges.Id,
-					30
-				));
+
+
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
+
+
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.LIMITED_USE_ITEM_DEBUFF.Id, 3
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Charges.Id,
+					30
+				));
+
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 40
 				));
@@ -75,18 +86,18 @@ namespace Client.Game.Data
 					ActorAttributes.KnockbackForce.Id, .5f
 				));
 					
-				ret.attributeData.Add (new GameData.AttributeData (
+				ret.overrideAttributes.Add (new GameData.AttributeData (
 					AbilityAttributes.ProjectileCount.Id, 5
 				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
+				ret.overrideAttributes.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 58f
 				));
-				ret.attributeData.Add( new GameData.AttributeData(
+				ret.overrideAttributes.Add( new GameData.AttributeData(
 					AbilityAttributes.ProjectileAccel.Id, -90f
 				));
 
-				ret.attributeData.Add (new GameData.AttributeData (
+				ret.overrideAttributes.Add (new GameData.AttributeData (
 					AbilityAttributes.ProjectileSpread.Id, 45f
 				));
 

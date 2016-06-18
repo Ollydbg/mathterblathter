@@ -963,6 +963,17 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData LIMITED_USE_ITEM_DEBUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 53;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Debuffs.LimitedUseItemDebuff);
+
+
+				return ret;
+			}
+		}
+
 	}
 }
 

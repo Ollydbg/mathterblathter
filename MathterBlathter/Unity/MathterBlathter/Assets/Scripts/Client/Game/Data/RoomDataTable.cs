@@ -76,7 +76,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Type = RoomType.NoWaves;
 
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
@@ -118,7 +118,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.CERAMIC_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
 				ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);

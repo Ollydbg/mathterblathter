@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Data;
@@ -75,6 +75,13 @@ namespace Client.Game.Items
 		public void RemoveWeapon(WeaponActor wpn) {
 			ActiveLookup.Remove(wpn.Data);
 			Owner.Game.ActorManager.RemoveActor(wpn);
+
+			foreach( var item in ActiveLookup) {
+				SwitchWeapon(item.Value);
+				break;
+			}
+
+			broadcast();
 		}
 
 		public void AddWeapon(CharacterData data) {

@@ -48,6 +48,15 @@ namespace Client.Game.Actors
 			}
 		}
 
+		public Actor Owner {
+			get {
+				if (IsHeld) {
+					return this.GameObject.transform.root.GetComponent<ActorRef>().Actor;
+				}
+				return null;
+			}
+		}
+
 		public Transform transform {
 			get {
 				return GameObject.transform;
