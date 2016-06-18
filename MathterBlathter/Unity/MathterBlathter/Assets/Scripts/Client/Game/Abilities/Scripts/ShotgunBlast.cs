@@ -22,7 +22,7 @@ namespace Client.Game.Abilities.Scripts
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			ApplyEnergyCost(context.source);
-
+			WeaponKick();
 			int projectileCount = this.Attributes[AbilityAttributes.ProjectileCount];
 			var totalSpread = this.Attributes[AbilityAttributes.ProjectileSpread];
 			float spreadPer = totalSpread / projectileCount;

@@ -77,6 +77,10 @@ namespace Client.Game.Data
 				ret.Id = 2006;
 				ret.ResourcePath = "Weapons/Shield_prefab";
 				ret.ActorType = ActorType.Projectile;
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.ProjectileLifespan.Id,
+					float.MaxValue
+				));
 				return ret;
 			}
 		}

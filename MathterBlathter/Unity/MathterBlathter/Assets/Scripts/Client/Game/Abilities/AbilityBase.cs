@@ -74,9 +74,13 @@ namespace Client
 			new KnockbackPayload(context, actor, direction).Apply();
 		}
 
-		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point) {
+		public void WeaponKick() {
+			if(context.source.Id == Game.PossessedActor.Id)
+				Game.CameraManager.Shake(SourceWeapon.Attributes[ActorAttributes.CameraShakeForce]);
+		}
 
-
+		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point, Layers layer = Layers.Projectiles) {
+			
 			Vector3 adjustedDirection = AbilityUtils.AdjustWithInaccuracy(direction, context);
 
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
@@ -87,7 +91,7 @@ namespace Client
 
 			projectile.SetMovement (new Linear(projectile, adjustedDirection, speed));
 			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
-			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(Layers.Projectiles.ToString());
+			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(layer.ToString());
 			SpawnedActors.Add(projectile);
 
 			projectile.OnDestroyed += (Actor actor) => {

@@ -5,6 +5,7 @@ using Client.Game.Abilities.Utils;
 using Client.Game.Abilities;
 using Client.Game.Enums;
 using Client.Game.Abilities.Movement;
+using Client.Game.Attributes;
 
 namespace Client.Game.Actors
 {
@@ -21,7 +22,6 @@ namespace Client.Game.Actors
 
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
 		private static int HARD_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
-		private static int SOFT_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.SoftGeometry.ToString());
 
 		public Movement Movement;
 
@@ -34,6 +34,7 @@ namespace Client.Game.Actors
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
 			this.GameObject.layer = LayerMask.NameToLayer (PROJECTILES_LAYER);
+			this.lifespan = this.Attributes[ActorAttributes.ProjectileLifespan];
 			base.EnterGame (game);
 		}
 

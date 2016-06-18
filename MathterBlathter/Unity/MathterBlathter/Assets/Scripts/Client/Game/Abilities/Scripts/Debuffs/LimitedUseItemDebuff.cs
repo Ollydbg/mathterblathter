@@ -16,13 +16,16 @@ namespace Client.Game.Abilities.Scripts.Debuffs
 			this.SourceWeapon.OnAttackStart += OnWeaponFire;
 		}
 
-		void OnWeaponFire (AbilityContext context)
+		void OnWeaponFire (AbilityContext ctx)
 		{
 			var targetCharges = this.SourceWeapon.Attributes[ActorAttributes.Charges] -1; 
 			this.SourceWeapon.Attributes[ActorAttributes.Charges] = targetCharges;
 
+
 			if(targetCharges == 0) {
 				SourceWeapon.Owner.WeaponController.RemoveWeapon(SourceWeapon);
+				PlayTimeline(this.context.data.Timelines[0], SourceWeapon.Owner);
+				Client.Game.UI.EventLog.Post(string.Format("{0} broke.", SourceWeapon.Data.Name ));
 			}
 
 			

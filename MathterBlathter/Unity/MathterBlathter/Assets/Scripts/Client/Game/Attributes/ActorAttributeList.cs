@@ -75,7 +75,10 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF ItemActivationTime = new GameAttributeF(52, -10f, "Last used time", 0, float.MaxValue);
 		public static readonly GameAttributeF ItemCooldownScalar = new GameAttributeF(53, 1f, "Item cooldown scalar", 0, float.MaxValue);
 		public static readonly GameAttributeI Charges = new GameAttributeI(54, -1, "charges", -1, int.MaxValue);
+		public static readonly GameAttributeF ProjectileLifespan = new GameAttributeF(55, 5f, "projectileLifespan", 0, float.MaxValue);
+		public static readonly GameAttributeF CameraShakeForce = new GameAttributeF(56, .1f, "kick force", 0, float.MaxValue);
 
+		public static readonly GameAttributeF ProjectileBeamWidth = new GameAttributeF(57, 1f, "projectileBeamWidth", 0, float.MaxValue);
 
 	}
 }

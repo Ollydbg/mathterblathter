@@ -69,7 +69,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Charges.Id,
-					30
+					2
 				));
 
 
@@ -255,11 +255,11 @@ namespace Client.Game.Data
 				
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponAnxietyCost.Id, 10
+					ActorAttributes.WeaponAnxietyCost.Id, 20
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 40
+					ActorAttributes.BaseDamage.Id, 200
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -275,7 +275,7 @@ namespace Client.Game.Data
 				));
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
-				ret.Cost = 220;
+				ret.Cost = 200;
 				return ret;
 			}
 		}
@@ -303,7 +303,11 @@ namespace Client.Game.Data
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 
-				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.3f
+				));
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, AbilityDataTable.WEAPON_CURSE.Id,
 					3
@@ -335,7 +339,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData RUSTY_SHIELD {
+		public static CharacterData RUSTY_SHIELD_WEAPON {
 			get {
 				var ret = new CharacterData();
 
@@ -351,6 +355,15 @@ namespace Client.Game.Data
 					0
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.2f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.WeaponAnxietyCost.Id,
+					10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
@@ -362,6 +375,7 @@ namespace Client.Game.Data
 				));
 
 				ret.Cost = 120;
+				ret.Availability = Availability.Droppable | Availability.InShop;
 
 				return ret;
 			}
@@ -384,6 +398,10 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.FIRE_ON_FALL.Id,
 					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.2f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
@@ -543,6 +561,10 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, AbilityDataTable.SHORT_PROJECTILE.Id, 0
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.4f
+				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
@@ -601,7 +623,10 @@ namespace Client.Game.Data
 				
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Dredgling Grenade Launcher";
-				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.4f
+				));
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, AbilityDataTable.LAUNCH_GRENADE.Id, 0
 				));
@@ -666,7 +691,10 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, .5f
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.4f
+				));
 
 				ret.overrideAttributes.Add (new GameData.AttributeData (
 					AbilityAttributes.ProjectileCount.Id, 3
@@ -705,6 +733,10 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.FIRE_ON_FALL.Id,
 					1
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.05f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,

@@ -27,6 +27,7 @@ namespace Client.Game.Abilities.Scripts
 			Sample(currentProjectile);
 			var projectilePos = currentProjectile.transform.position;
 
+			WeaponKick();
 
 			ApplyEnergyCost(context.source);
 			PlayTimeline(context.data.Timelines[0], context.sourceWeapon);

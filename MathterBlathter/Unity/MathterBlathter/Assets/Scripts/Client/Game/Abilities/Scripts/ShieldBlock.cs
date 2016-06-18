@@ -28,6 +28,10 @@ namespace Client.Game.Abilities.Scripts
 		void SourceWeapon_OnAttackEnd ()
 		{
 			attacking = false;
+			if(projectile != null) {
+				projectile.Destroy();
+				projectile = null;
+			}
 		}
 
 		void SourceWeapon_OnAttackStart (AbilityContext ctx)
@@ -35,15 +39,29 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 			attacking = true;
 			if(projectile == null) {
-				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle);
+				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle, Layers.Player);
+				projectile.transform.rotation = Quaternion.identity;
 
-
+				projectile.GameObjectRef.OnTriggerActorEnter += (Actor actor) => {
+					if(actor.ActorType == ActorType.Projectile) {
+						actor.Destroy();
+						ApplyEnergyCost(context.source);
+						WeaponKick();
+						PlayTimeline(context.data.Timelines[0], actor.transform.position);
+					}
+				};
 			}
 		}
 
 		public override void Update (float dt)
 		{
 			if(attacking && projectile != null) {
+
+				var aimVector = context.source.WeaponController.GetAimDirection();
+				projectile.transform.position = context.source.transform.position + 3* aimVector;
+				var angle = Vector3.Angle(Vector3.right, aimVector);
+				projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+				//projectile.transform.RotateAround(context.source.HalfHeight, Vector3.forward, 10f);
 				
 			}
 		}

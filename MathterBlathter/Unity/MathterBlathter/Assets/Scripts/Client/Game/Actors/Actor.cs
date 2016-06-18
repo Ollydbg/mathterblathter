@@ -21,6 +21,8 @@ namespace Client.Game.Actors
 		public CharacterData Data;
 		public RoomData.Spawn SpawnData;
 
+		
+
 		private bool _pendingDelete = false;
 		public bool Deleted {
 			get { return _pendingDelete; }
@@ -28,6 +30,8 @@ namespace Client.Game.Actors
 		
 		public delegate void DestroyedDelegate(Actor actor);
 		public event DestroyedDelegate OnDestroyed;
+
+		public ActorRef GameObjectRef;
 
 		public float colliderHeight;
 		public Vector3 HalfHeight {

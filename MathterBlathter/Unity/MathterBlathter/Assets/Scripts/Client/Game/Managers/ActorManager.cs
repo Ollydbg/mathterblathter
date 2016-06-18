@@ -114,9 +114,9 @@ namespace Client.Game.Managers
 		}
 
 		void BindActor(Actor actor, GameObject obj) {
-			obj.AddComponent<ActorRef> ();
-			obj.GetComponent<ActorRef> ().Actor = actor;
-
+			var refComponent = obj.AddComponent<ActorRef> ();
+			refComponent.Actor = actor;
+			actor.GameObjectRef = refComponent;
 			actor.GameObject = obj;
 			Actors.Add (actor.Id, actor);
 

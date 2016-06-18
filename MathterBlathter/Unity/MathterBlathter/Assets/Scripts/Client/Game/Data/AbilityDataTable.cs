@@ -478,6 +478,16 @@ namespace Client.Game.Data
 				ret.Id = 25;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShieldBlock);
 				ret.spawnableDataId = CharacterDataTable.SHIELD_BLOCK_PROJECTILE.Id;
+
+				var hitTL = new TimelineData();
+				hitTL.AsciiMap += "eeeeeee     ";
+				hitTL.AsciiMap += "sssssss     ";
+				hitTL.Duration = .5f;
+
+				hitTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
+
+				ret.Timelines.Add(hitTL);
+
 				return ret;
 			}
 		}
@@ -968,8 +978,12 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 53;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Debuffs.LimitedUseItemDebuff);
+				var popTL = new TimelineData();
+				popTL.AsciiMap += "eeeeeeee";
+				popTL.Duration = 1f;
+				popTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/ceramicExhausted_prefab", AttachPoint.WeaponSlot);
 
-
+				ret.Timelines.Add(popTL);
 				return ret;
 			}
 		}

@@ -1,4 +1,3 @@
-using System;
 using Client.Game.Managers;
 using System.Collections.Generic;
 using Client.Game.Actors;
@@ -15,6 +14,7 @@ namespace Client.Game.Managers
 		Camera camera;
 
 		public Transform TargetTransform;
+		float shakeAccum = 0f;
 
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
@@ -52,6 +52,9 @@ namespace Client.Game.Managers
 			}
 		}
 
+		public void Shake(float amt) {	
+			shakeAccum += amt;
+		}
 
 
 		float goalSize {
@@ -76,6 +79,17 @@ namespace Client.Game.Managers
 			TargetTransform = null;
 		}
 
+
+		Vector3 AddShake (Vector3 pos)
+		{
+			if(shakeAccum > 0f) {
+				pos += new Vector3(Random.value, Random.value, 0f) * shakeAccum;
+				shakeAccum = 0f;
+				return pos;
+			}
+			return pos;
+		}
+
 		public void Update (float dt)
 		{
 
@@ -83,7 +97,9 @@ namespace Client.Game.Managers
 			//camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, goalSize, dt);
 			//position
 
-			transform.position = Vector3.Lerp(transform.position, goalPosition, .1f);
+			var pos = Vector3.Lerp(AddShake(transform.position), goalPosition, .1f);
+
+			transform.position = pos; 
 		}
 
 		#endregion

@@ -19,13 +19,13 @@ namespace Client.Game.Abilities.Scripts
 		private LineRenderer lineRenderer;
 		ProjectileActor projectile;
 		private bool attacking;
-		
+		private float beamWidth;
 		public override void Start ()
 		{
 			SourceWeapon.OnAttackStart += SourceWeapon_OnAttackStart;
 			SourceWeapon.OnAttackEnd += SourceWeapon_OnAttackEnd;
 
-
+			this.beamWidth = this.SourceWeapon.Attributes[ActorAttributes.ProjectileBeamWidth];
 		}
 
 
@@ -89,7 +89,9 @@ namespace Client.Game.Abilities.Scripts
 				}
 				
 				if(hitActor != null) {
-					new DamagePayload(context, hitActor, this.Attributes[AbilityAttributes.Damage] * dt).Apply();
+					var pl = new WeaponDamagePayload(context, hitActor, this.Attributes[AbilityAttributes.Damage]);
+					pl.DamageScalar = dt;
+					pl.Apply();
 				}
 
 
@@ -103,7 +105,7 @@ namespace Client.Game.Abilities.Scripts
 			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
 			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
 
-			if(Physics.Raycast(startLocation, ctx.targetDirection, out hit, 100f, layerMask)) {
+			if(Physics.SphereCast(startLocation, beamWidth, ctx.targetDirection, out hit, 100f, layerMask)) {
 				ActorUtils.TryHitToActor(hit, out hitActor);
 				return hit.point;
 			} 
