@@ -30,3 +30,4 @@
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/AmplifyBloom.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/AmplifyBloomEditor.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/ShaderForge.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-UnityScript.dll

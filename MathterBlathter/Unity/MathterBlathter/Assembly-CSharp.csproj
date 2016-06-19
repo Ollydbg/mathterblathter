@@ -173,6 +173,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\MapData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MapDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MusicData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\ParallaxData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\PickupDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\ProjectileDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomData.cs" />
@@ -285,6 +286,9 @@
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Particles\ParticleFactory.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Particles\ParticleRenderer.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Pulsate.cs" />
+     <Compile Include="Assets\ThirdParty\PixelFX_U5\scripts\Controller.cs" />
+     <Compile Include="Assets\ThirdParty\PixelFX_U5\scripts\Random_movement.cs" />
+     <Compile Include="Assets\ThirdParty\PixelFX_U5\scripts\demo_collision_movement.cs" />
      <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\FadeLight.cs" />
      <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\ParticleManager.cs" />
      <Compile Include="Assets\ThirdParty\PixelWeatherFX\Scripts\RotateObject.cs" />
@@ -343,6 +347,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Clamp01\SFN_Clamp01.shader" />
      <None Include="Assets\ThirdParty\GeometryFXParticles\Scripts\ParticleSimpleAlphaBlend.shader" />
+     <None Include="Assets\ThirdParty\PixelFX_U5\Help.txt" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_SPD_ANG.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Screen.shader" />
      <None Include="Assets\Scripts\Shaders\PixelationShader.shader" />

@@ -56,7 +56,15 @@ namespace Client.Game.Map
 
 			plane.transform.Rotate(Vector3.right, 270);
 
-			plane.GetComponent<Renderer>().material.color = color*.1f;
+			var texturePath = room.data.LayerData.Layers[ParallaxData.Layer.RoomWall];
+			var material = (Material)GameObject.Instantiate(Resources.Load(ParallaxData.materialPath, typeof(Material)) as Material);
+			material.mainTexture = Resources.Load(texturePath, typeof(Texture)) as Texture;
+
+			plane.GetComponent<Renderer>().material = material;
+			var tint = color * .3f;
+			tint.a = 1f;
+			material.SetColor("_Color", tint);
+
 			GameObject.Destroy(plane.GetComponent<Collider>());
 
 			plane.transform.localScale = new Vector3(room.Width*.1f, 1f, room.Height*.1f);
@@ -184,6 +192,7 @@ namespace Client.Game.Map
 				var light = lightObj.AddComponent<Light> ();
 				room.Lights.Add(light);
 				lightObj.SetActive(false);
+
 				/*light.type = LightType.Directional;
 				light.intensity = .3f;
 				light.bounceIntensity = 0f;
@@ -191,13 +200,13 @@ namespace Client.Game.Map
 				light.transform.localRotation = Quaternion.Euler(22.75f, 0, 0);
 				light.transform.localPosition = new Vector3(lightPos.x, lightPos.y, -53f);
 				*/
-				light.range = room.Width;
+
 				lightObj.transform.parent = gameObject.transform;
 				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, -2f);
 				light.type = LightType.Point;
 				light.gameObject.transform.Rotate(new Vector3(293f, 0, 0));
-
-				light.intensity = 1f;
+				light.range = 142;
+				light.intensity = .8f;
 
 
 				lightObj.name = "light";
