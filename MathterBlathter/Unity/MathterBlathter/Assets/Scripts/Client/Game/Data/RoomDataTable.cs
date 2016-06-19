@@ -60,7 +60,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                               @                                       d";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
-
+				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.MaxInstances = 1;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 

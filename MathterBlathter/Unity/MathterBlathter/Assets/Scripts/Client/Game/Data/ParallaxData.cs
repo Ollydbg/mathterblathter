@@ -18,7 +18,20 @@ namespace Client.Game.Data
 	}
 
 	public static class ParallaxDataTable {
-		
+
+
+
+
+		public static ParallaxData OUTDOORS {
+			get {
+				var ret = new ParallaxData();
+				ret.Layers[ParallaxData.Layer.RoomWall] = null;
+				return ret;
+			}
+
+		}
+
+
 		public static ParallaxData INDOORS {
 			get {
 				var ret = new ParallaxData();

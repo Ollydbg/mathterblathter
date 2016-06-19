@@ -51,12 +51,16 @@ namespace Client.Game.Map
 		{
 			//var container = new GameObject();
 
+
+			var texturePath = room.data.LayerData.Layers[ParallaxData.Layer.RoomWall];
+			if(texturePath == null)
+				return;
+			
 			var plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
 			//plane.transform.parent = container.transform;
 
 			plane.transform.Rotate(Vector3.right, 270);
 
-			var texturePath = room.data.LayerData.Layers[ParallaxData.Layer.RoomWall];
 			var material = (Material)GameObject.Instantiate(Resources.Load(ParallaxData.materialPath, typeof(Material)) as Material);
 			material.mainTexture = Resources.Load(texturePath, typeof(Texture)) as Texture;
 
