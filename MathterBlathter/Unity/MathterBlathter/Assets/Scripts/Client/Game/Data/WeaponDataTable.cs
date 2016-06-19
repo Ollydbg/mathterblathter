@@ -69,7 +69,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Charges.Id,
-					2
+					30
 				));
 
 

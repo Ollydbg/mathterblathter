@@ -76,7 +76,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Type = RoomType.NoWaves;
 
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
@@ -117,8 +117,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                .......................        d";
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 
-				ret.LayerData = ParallaxDataTable.STRIPES;
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RUST_MACHINE;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.SMALL_ADD_MAX_ANXIETY_PICKUP;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
 				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
 				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
@@ -175,7 +174,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 				finalize(ret);
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				return ret;
 			}
@@ -222,8 +220,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "d                ...........       ............................d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
-				ret.LayerData = ParallaxDataTable.STRIPES;
-
+			
 				finalize(ret);
 
 				return ret;
@@ -253,7 +250,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['2'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -305,7 +301,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -357,7 +352,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffTfffffffffffffffffffffffffffffffffffffffffffffffffffffdddffffffffTTTTfffffffffffffffffdddfffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -442,7 +436,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
 				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.right);
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -494,7 +487,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.left);
 				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 
 				finalize(ret);
@@ -542,7 +534,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -594,7 +585,6 @@ namespace Client.Game.Data
 
 
 				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -646,8 +636,7 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
 				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
-				ret.LayerData = ParallaxDataTable.STRIPES;
-				
+
 				finalize(ret);
 				return ret;
 			}
@@ -727,7 +716,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "wPwPPPPPPPPPPPPPPPPPPPPPPw                                     d";
 				ret.AsciiMap += "wPwPPPPPPPPPPPPPPPPPPPPPPw                                     d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffw";
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 
 				finalize(ret);
@@ -781,7 +769,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['R'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.right);
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -833,7 +820,6 @@ namespace Client.Game.Data
                 ret.AsciiMap += "ffffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_BUFF;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -887,7 +873,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['2'] = CharacterDataTable.SHOPKEEPER;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -936,7 +921,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d       PPPPPPPPPPPPPPPPP                    PPPPPPPPPPP       d";
 				ret.AsciiMap += "d       PPPPPPPPPPPPPPPPP ............1      PPPPPPPPPPP       d";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 
 				finalize(ret);
@@ -986,7 +970,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "d                                 PPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -1039,7 +1022,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.SHOPKEEPER;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 				return ret;
@@ -1089,7 +1071,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                                        PPP                                                    w";
 				ret.AsciiMap += "d      ........................................                          PPP                      ..............                w";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 				return ret;
@@ -1139,8 +1120,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "d     ........................                                 d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
-
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 
@@ -1193,7 +1172,6 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
 				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
-				ret.LayerData = ParallaxDataTable.STRIPES;
 
 				finalize(ret);
 				return ret;
@@ -1242,7 +1220,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                                                                                               d";
 				ret.AsciiMap += "d                                                                                                                               d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffff";
-				ret.LayerData = ParallaxDataTable.STRIPES;
+				ret.LayerData = ParallaxDataTable.ABSTRACT;
 
 				finalize(ret);
 

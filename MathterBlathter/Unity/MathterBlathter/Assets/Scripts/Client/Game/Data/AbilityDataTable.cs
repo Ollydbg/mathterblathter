@@ -991,6 +991,20 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static AbilityData SMALL_ADD_MAX_ANXIETY {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 54;
+
+				ret.DoesPropogate = true;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AddMaxAnxiety);
+				
+				return ret;
+			}
+		}
+
+
 	}
 }
 

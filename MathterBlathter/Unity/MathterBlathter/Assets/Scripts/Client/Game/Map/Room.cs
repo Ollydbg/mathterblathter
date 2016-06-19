@@ -36,7 +36,7 @@ namespace Client.Game.Map
 
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
-			GameObject Draw (Room room);
+			GameObject Draw (Room room, Game inGame);
 		}
 
 		public RoomWaveManager Waves = new RoomWaveManager();
@@ -155,8 +155,8 @@ namespace Client.Game.Map
 		}
 
 
-		public void Draw() {
-			GameObject = Drawer.Draw (this);
+		public void Draw(Game game) {
+			GameObject = Drawer.Draw (this, game);
 		}
 
 		private bool Locked {

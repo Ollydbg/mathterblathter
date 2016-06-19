@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponDamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponPickupPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AIBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AddMaxAnxiety.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AimRay.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyAttack.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AnxietyDamageReductionBuff.cs" />

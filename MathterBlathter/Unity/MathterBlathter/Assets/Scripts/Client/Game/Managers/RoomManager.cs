@@ -90,7 +90,7 @@ namespace Client.Game.Managers
 
 		public void Start (Game game)
 		{
-			Rooms.ForEach (p => p.Draw());
+			Rooms.ForEach (p => p.Draw(game));
 		}
 
 

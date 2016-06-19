@@ -31,7 +31,7 @@ namespace Client.Game.Data
 		public bool Solo;
 		public bool Mute;
 
-		public ParallaxData LayerData = ParallaxDataTable.INDOORS;
+		public ParallaxData LayerData;
 
 		public RoomType Type;
 

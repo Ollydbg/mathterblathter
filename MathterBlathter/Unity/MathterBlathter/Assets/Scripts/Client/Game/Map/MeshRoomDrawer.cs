@@ -9,6 +9,8 @@ using Client.Game.Data;
 
 namespace Client.Game.Map
 {
+	using Game = Client.Game.Core.Game;
+
 	public class MeshRoomDrawer : Client.Game.Map.Room.IRoomDrawer
 	{
 		AsciiMeshExtractor extractor;
@@ -23,7 +25,7 @@ namespace Client.Game.Map
 		private const int DOOR_HEIGHT = 3;
 
 
-		public GameObject Draw (Room room)
+		public GameObject Draw (Room room, Game game)
 		{
 			var gameObject = new GameObject();
 			gameObject.transform.position = GridToWorldSpace(room);
@@ -39,7 +41,7 @@ namespace Client.Game.Map
 			DrawSealedDoors(room, color, gameObject);
 			DrawPlatforms(room, color, gameObject);
 			DrawDoors (room, gameObject);
-			DrawBackground(room, color, gameObject);
+			DrawBackground(room, color, gameObject, game);
 
 			return gameObject;
 
@@ -47,12 +49,11 @@ namespace Client.Game.Map
 
         
 
-        void DrawBackground (Room room, Color color, GameObject parentObject)
+		void DrawBackground (Room room, Color color, GameObject parentObject, Game game)
 		{
 			//var container = new GameObject();
-
-
-			var texturePath = room.data.LayerData.Layers[ParallaxData.Layer.RoomWall];
+			ParallaxData layerData = room.data.LayerData ?? game.Seed.RandomInList(ParallaxDataTable.GetAll().Where(p => p.InRandomPool).ToList());
+			var texturePath = layerData.Layers[ParallaxData.Layer.RoomWall];
 			if(texturePath == null)
 				return;
 			

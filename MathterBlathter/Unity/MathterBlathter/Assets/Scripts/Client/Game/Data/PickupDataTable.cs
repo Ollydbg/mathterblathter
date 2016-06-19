@@ -439,6 +439,7 @@ namespace Client.Game.Data
 		public static CharacterData YEE_HAW {
 			get {
 				var ret = new CharacterData();
+				ret.Id = OFFSET + 17;
 				ret.Cost = 50;
 				ret.Name = "Yee Haw: A Beverage";
 				ret.ResourcePath = "Items/SmallHealth_prefab";
@@ -461,6 +462,38 @@ namespace Client.Game.Data
 				return ret;
 			}
 
+		}
+
+		public static CharacterData SMALL_ADD_MAX_ANXIETY_PICKUP {
+			get {
+				var ret = new CharacterData();
+				ret.Id = OFFSET + 18;
+				ret.Cost = 100;
+				ret.Name = "Nerves of Steel";
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+
+				ret.ActorType = ActorType.Pickup;
+				ret.PickupType = PickupType.Item;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.SMALL_ADD_MAX_ANXIETY.Id,
+					0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
+				));
+
+				ret.overrideAttributes.Add(new GameData.AttributeData(
+					ActorAttributes.MaxAnxiety.Id,
+					10
+				));
+
+				ret.Availability = Availability.InShop | Availability.Droppable | Availability.RoomClearReward;
+				ret.Description = "Extends your maximum Anxiety";
+				return ret;
+			}
 		}
 	}
 }

@@ -53,6 +53,7 @@ namespace Client.Game.Data
             }
         }
 
+
         public static CharacterData ANXIETY_DAMAGE_AOE_ITEM {
             get {
 				var ret = new CharacterData();
