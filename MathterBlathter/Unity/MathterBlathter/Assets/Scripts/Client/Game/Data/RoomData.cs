@@ -31,7 +31,7 @@ namespace Client.Game.Data
 		public bool Solo;
 		public bool Mute;
 
-		public ParallaxData LayerData = ParallaxDataTable.STRIPES;
+		public ParallaxData LayerData = ParallaxDataTable.INDOORS;
 
 		public RoomType Type;
 
@@ -126,7 +126,7 @@ namespace Client.Game.Data
 			clone.Type = this.Type;
 			clone.Spawns = this.Spawns.ToList();
 			clone.Id = this.Id;
-
+			clone.LayerData = this.LayerData;
 			return clone;
 			
 		}

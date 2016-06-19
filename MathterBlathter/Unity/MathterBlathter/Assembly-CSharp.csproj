@@ -201,6 +201,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Managers\InputRouter.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\RoomManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\UIManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\WorldFXManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\BitmapReader.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\GridOverlapConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\IGenConstraint.cs" />

@@ -29,6 +29,7 @@ namespace Client.Game.States
 			tmp.Add(Game.Instance.RoomManager);
 			tmp.Add(Game.Instance.ActorManager);
 			tmp.Add(Game.Instance.CameraManager);
+			tmp.Add(Game.Instance.WorldFXManager);
 
 			TickManagers = tmp.ToArray();
 

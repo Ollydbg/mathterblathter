@@ -78,7 +78,7 @@ namespace Client.Game.Map
 
 		public float Top {
 			get {
-				return (float)(Y + .5 * Height);
+				return (float)(Y + Height);
 			}
 		}
 

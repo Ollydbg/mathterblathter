@@ -34,6 +34,7 @@ namespace Client.Game.Core
 		public AbilityManager AbilityManager;
 		public ActorManager ActorManager;
 		public UIManager UIManager;
+		public WorldFXManager WorldFXManager;
 		public FSM States;
 
 
@@ -66,7 +67,7 @@ namespace Client.Game.Core
 			RoomManager = new RoomManager();
 			CameraManager = new CameraManager();
 			UIManager = new UIManager(this);
-
+			WorldFXManager = new WorldFXManager();
 		}
 
 		public void Restart ()
