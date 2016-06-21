@@ -33,7 +33,7 @@ namespace Client.Game.States
 
 			TickManagers = tmp.ToArray();
 
-			Game.Instance.PossessedActor = Game.Instance.ActorManager.Spawn<PlayerCharacter> (CharacterDataTable.PLAYER_CHARACTER);
+			Game.Instance.PossessedActor = Game.Instance.ActorManager.Spawn<PlayerCharacter> (CharacterDataTable.PLAYER_CHARACTER2D);
 
 			new List<IGameManager>(TickManagers).ForEach(p => p.Start (Game.Instance));
 

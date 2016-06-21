@@ -9,7 +9,8 @@ using Client.Game.Actors.Controllers;
 namespace Client.Game.Actors
 {
 	using Game = Client.Game.Core.Game;
-	using CharacterController = Client.Game.Actors.Controllers.CharacterController;
+	using CharacterController = Client.Game.Actors.Controllers.CharacterController2D;
+	using Animator = Client.Game.Animation.CharacterAnimator2D;
 
 	public class PlayerCharacter : Character
 	{
@@ -32,7 +33,8 @@ namespace Client.Game.Actors
 			
 			base.EnterGame (game);
 
-			this.Animator = new PlayerAnimator3D(this);
+			this.Controller = new CharacterController(this);
+			this.Animator = new Animator(this);
 			this.InteractionController = new InteractionController(this);
 			this.ActiveItemController = new ActiveItemController(this);
 		}

@@ -7,8 +7,8 @@ namespace Client.Game.Geometry
 {
 	public class PassthroughPlatform : MonoBehaviour
 	{
-		public BoxCollider Collider;
-		public BoxCollider Trigger;
+		public BoxCollider2D Collider;
+		public BoxCollider2D Trigger;
 
 		public Actor Passing;
 
@@ -62,9 +62,8 @@ namespace Client.Game.Geometry
 	}
 
 	public static class PassthroughPlatformFactory {
-
-		static Vector3 Depth = new Vector3(0, 0, 1f);
-		static Vector3 DetectionRange = new Vector3(0, 3f, 0f);
+		
+		static Vector2 DetectionRange = new Vector2(0, 3f);
 
 		public static void Init(GameObject go) {
 
@@ -72,15 +71,15 @@ namespace Client.Game.Geometry
 			GameObject.Destroy(go.GetComponent<Collider>());
 
 			var pt = go.AddComponent<PassthroughPlatform>();
-			var trigger = go.AddComponent<BoxCollider>();
+			var trigger = go.AddComponent<BoxCollider2D>();
 			trigger.isTrigger = true;
-			trigger.size = trigger.size + Depth + DetectionRange;
-			trigger.center -= .5f*DetectionRange;
+			trigger.size = trigger.size + DetectionRange;
+			trigger.offset -= .5f*DetectionRange;
 			pt.Trigger = trigger;
 
 
-			var collider = go.AddComponent<BoxCollider>();
-			collider.size = collider.size + Depth;
+			var collider = go.AddComponent<BoxCollider2D>();
+			collider.size = collider.size;
 			pt.Collider = collider;
 
 		}
