@@ -1,10 +1,10 @@
 MathterBlathter/Unity/MathterBlathter/Temp/*
-MathterBlathter/Unity/MathterBlathter/Assets/Materials/
-MathterBlathter/Unity/MathterBlathter/Assets/Fonts/
-MathterBlathter/Unity/MathterBlathter/Assets/Editor/
-MathterBlathter/Unity/MathterBlathter/Assets/Resources/
-MathterBlathter/Unity/MathterBlathter/Assets/ThirdParty/
-MathterBlathter/Unity/MathterBlathter/Assets/Standard Assets/
+#MathterBlathter/Unity/MathterBlathter/Assets/Materials/
+#MathterBlathter/Unity/MathterBlathter/Assets/Fonts/
+#MathterBlathter/Unity/MathterBlathter/Assets/Editor/
+#MathterBlathter/Unity/MathterBlathter/Assets/Resources/
+#MathterBlathter/Unity/MathterBlathter/Assets/ThirdParty/
+#MathterBlathter/Unity/MathterBlathter/Assets/Standard Assets/
 
 MathterBlathter/.DS_Store
 
