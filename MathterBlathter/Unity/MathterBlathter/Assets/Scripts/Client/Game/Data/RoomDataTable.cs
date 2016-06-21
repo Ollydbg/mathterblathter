@@ -62,7 +62,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RUST_MACHINE;
 
 				finalize(ret);
 
@@ -76,7 +76,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
@@ -117,7 +117,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                .......................        d";
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.SMALL_ADD_MAX_ANXIETY_PICKUP;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RAGE_MACHINE_ITEM;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
 				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
 				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
@@ -134,7 +134,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 101;
-
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddcccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                              d";
 				ret.AsciiMap += "d                                                              d";

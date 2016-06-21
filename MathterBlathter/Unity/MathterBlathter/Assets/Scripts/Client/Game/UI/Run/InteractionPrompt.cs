@@ -37,6 +37,7 @@ namespace Client.Game.UI.Run
 
 			if(!hidden && !interaction.InteractionTarget.Deleted) {
 				var screenPoint = Camera.main.WorldToScreenPoint(interaction.InteractionTarget.transform.position);
+				screenPoint.z = 100f;
 				this.transform.position = screenPoint;
 			}
 		}

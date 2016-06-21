@@ -15,8 +15,9 @@ namespace Client.Game.Abilities.Payloads
         {
 			if (AbilityManager.NotifyPayloadSender(this, Context.source))
 				return;
-
-			Context.source.WeaponController.AddWeapon(Context.sourceWeapon);
+			
+			Context.source.WeaponController.AddWeapon(Context.sourceWeapon.Data);
+			Context.sourceWeapon.Destroy();
         }
     }
 }

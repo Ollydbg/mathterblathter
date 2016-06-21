@@ -87,7 +87,9 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Inaccuracy.Id, 2f
 				));
-
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.RunDifficulty.Id, 4
+				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,

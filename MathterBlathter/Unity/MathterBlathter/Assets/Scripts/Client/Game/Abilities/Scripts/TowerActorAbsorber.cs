@@ -18,11 +18,6 @@ namespace Client.Game.Abilities.Scripts
 
         public override void Start()
         {
-			if(!(context.source is WeaponActor)) {
-				Abort();
-				return;
-			}
-				
 			Game.RoomManager.OnRoomEntered += OnRoomEntered;
         }
 

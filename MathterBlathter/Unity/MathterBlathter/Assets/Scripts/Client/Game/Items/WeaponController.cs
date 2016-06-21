@@ -88,6 +88,7 @@ namespace Client.Game.Items
 			if(CanAdd(data)) {
 				
 				var spawnedActor = Owner.Game.ActorManager.Spawn<WeaponActor>(data);
+				ActorUtils.PropogateBuffs(spawnedActor, Owner);
 				AddWeapon(spawnedActor);
 
 			}
@@ -148,8 +149,9 @@ namespace Client.Game.Items
 		}
 
 		private Vector3 getMousingDirection() {
-			var worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			var worldDir3 = worldPoint - currentWeapon.transform.position;
+			var weaponPos = Camera.main.WorldToScreenPoint(currentWeapon.transform.position);
+
+			var worldDir3 = Input.mousePosition - weaponPos;
 			return new Vector3(worldDir3.x, worldDir3.y).normalized;
 		}
 
@@ -171,7 +173,8 @@ namespace Client.Game.Items
 		}
 
 		public void Attack () {
-			Attack(GetAimDirection());
+			if(currentWeapon != null) 
+				Attack(GetAimDirection());
 		}
 
 		public void Attack(Vector3 direction) {

@@ -19,6 +19,7 @@ namespace Client.Game.UI
 		}
 
 		public static void Post(string msg) {
+			Debug.Log("EVENT LOG SAYS: " + msg);
 			queue.Enqueue(msg);
 		}
         public override void Hide()

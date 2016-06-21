@@ -97,6 +97,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\InvulnerableAfterHitBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\ItemBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Items\AnxietyDamageAOEItem.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Items\NoAnxietyFireSpeed.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\JumpDamage.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\KillDeStresserBuff.cs" />

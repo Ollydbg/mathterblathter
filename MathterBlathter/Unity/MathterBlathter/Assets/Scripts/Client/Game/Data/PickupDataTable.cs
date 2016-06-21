@@ -44,6 +44,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
 					1
@@ -77,6 +78,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pump";
 				return ret;
@@ -158,6 +160,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
 					.5f
@@ -206,6 +209,7 @@ namespace Client.Game.Data
 					-.1f
 				));
 
+
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 60;
 
@@ -248,6 +252,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id,
 					.8f
@@ -301,6 +306,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				
 				return ret;
@@ -325,6 +331,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));	
+
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -350,6 +357,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));	
+
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -377,6 +385,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 				ret.Availability = Availability.InShop;
 				return ret;
 			}
@@ -401,7 +410,8 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
-				
+
+
 				ret.Availability = Availability.InShop | Availability.Droppable;
 				
 				return ret;
@@ -428,7 +438,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
-				
+
 				ret.Availability = Availability.InShop | Availability.Droppable;
 
 				return ret;
@@ -484,6 +494,7 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
+
 
 				ret.overrideAttributes.Add(new GameData.AttributeData(
 					ActorAttributes.MaxAnxiety.Id,

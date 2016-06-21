@@ -75,5 +75,36 @@ namespace Client.Game.Data
             }
         }
 
+		public static CharacterData RAGE_MACHINE_ITEM {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 3005;
+				ret.ActorType = ActorType.ActiveItem;
+				ret.PickupType = PickupType.ActiveItem;
+				ret.Availability = Availability.InShop;
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.NO_ANXIETY_FIRE_SPEED_BUFF.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Cooldown.Id,
+					60f
+				));
+
+				ret.overrideAttributes.Add(new CharacterData.AttributeData(
+					AbilityAttributes.Duration.Id, 5f
+				));
+
+				ret.overrideAttributes.Add(new CharacterData.AttributeData(
+					ActorAttributes.WeaponCooldownScalar.Id, .5f
+				));
+
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.Name = "Rage Machine";
+
+				return ret;
+			}
+		}
+
     }
 }

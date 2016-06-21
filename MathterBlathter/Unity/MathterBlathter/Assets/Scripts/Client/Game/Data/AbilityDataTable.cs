@@ -1004,6 +1004,16 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData NO_ANXIETY_FIRE_SPEED_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 55;
+				ret.DoesPropogate = true;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Items.NoAnxietyFireSpeed);
+				return ret;
+			}
+		}
+
 
 	}
 }

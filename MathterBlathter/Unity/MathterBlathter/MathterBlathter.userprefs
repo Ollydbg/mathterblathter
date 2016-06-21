@@ -1,17 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Map/MeshRoomDrawer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/RoomDataTable.cs">
     <Files>
-      <File FileName="Assets/Scripts/Client/Game/Map/MeshRoomDrawer.cs" Line="62" Column="6" />
-      <File FileName="Assets/Scripts/Client/Game/Data/RoomDataTable.cs" Line="79" Column="13" />
-      <File FileName="Assets/Scripts/Client/Game/Data/RoomData.cs" Line="34" Column="28" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/FireOnFall.cs" Line="34" Column="4" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/Items/NoAnxietyFireSpeed.cs" Line="18" Column="4" />
+      <File FileName="Assets/Scripts/Client/Game/Data/RoomDataTable.cs" Line="63" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Abilities/Scripts/TowerActorAbsorber.cs" line="36" column="1" />
-      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Abilities/Scripts/TowerActorAbsorber.cs" line="43" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
