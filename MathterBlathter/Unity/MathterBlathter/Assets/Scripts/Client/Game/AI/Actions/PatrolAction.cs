@@ -4,6 +4,7 @@ using Client.Game.Attributes;
 using UnityEngine;
 using Client.Game.Enums;
 using Client.Game.AI.PatrolPlanning;
+using Client.Utils;
 
 namespace Client.Game.AI.Actions
 {
@@ -32,13 +33,13 @@ namespace Client.Game.AI.Actions
 			Vector3 target = NextGoal(actor);
 
 			FaceTarget(actor, target);
-			actor.transform.position += Route.CurrentDirection * actor.Attributes[ActorAttributes.Speed];
+			actor.transform.position += VectorUtils.Vector3(Route.CurrentDirection * actor.Attributes[ActorAttributes.Speed]);
 			
 			return AIResult.Running;
 		}
 
 		private Vector3 NextGoal(Actor actor) {
-			if(Route.CurrentDirection == Vector3.right) {
+			if(Route.CurrentDirection == Vector2.right) {
 				if(actor.transform.position.x >= Route.Right.x) {
 					Route.Flip();
 					return NextGoal(actor);

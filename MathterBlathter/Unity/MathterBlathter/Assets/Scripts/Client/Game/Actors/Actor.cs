@@ -109,6 +109,7 @@ namespace Client.Game.Actors
 		}
 
 		public virtual void FixedUpdate() {
+			
 		}
 
 		public override string ToString ()

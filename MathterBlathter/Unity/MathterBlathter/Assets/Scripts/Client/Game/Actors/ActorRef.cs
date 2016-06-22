@@ -11,23 +11,28 @@ namespace Client.Game.Actors
 		void Awake() {}
 		void Start() {}
 
-		public delegate void TriggerDelegate(Collider Collider);
+		public float MinJumpPower = 38.5f;
+		public float SustainedJumpPower = 38.18f;
+		public float MaxJumpPower = 96.4f;
+
+
+		public delegate void TriggerDelegate(Collider2D Collider);
 		public event TriggerDelegate TriggerEvent;
 
 		public delegate void TriggerActorDelegate(Actor actor);
 		public event TriggerActorDelegate OnTriggerActorEnter;
 		public event TriggerActorDelegate OnTriggerActorExit;
 
-		public delegate void CollisionDelegate(Collision collision);
+		public delegate void CollisionDelegate(Collision2D collision);
 		public event CollisionDelegate CollisionEvent;
 
-		void OnColliderEnter(Collision collision) {
+		void OnColliderEnter2D(Collision2D collision) {
 			if(CollisionEvent != null) {
 				CollisionEvent(collision);
 			}
 		}
 
-		void OnTriggerEnter(Collider collider) {
+		void OnTriggerEnter2D(Collider2D collider) {
 
 			if (TriggerEvent != null) {
 				TriggerEvent (collider);
@@ -37,11 +42,11 @@ namespace Client.Game.Actors
 
 		}
 
-		void OnTriggerExit(Collider collider) {
+		void OnTriggerExit2D(Collider2D collider) {
 			TryTriggerActorEvent(collider, OnTriggerActorExit);
 		}
 
-		private void TryTriggerActorEvent(Collider collider, TriggerActorDelegate evt) {
+		private void TryTriggerActorEvent(Collider2D collider, TriggerActorDelegate evt) {
 			
 			if(evt != null) {
 				var touchingRef = collider.gameObject.GetComponent<ActorRef>();

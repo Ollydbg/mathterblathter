@@ -167,6 +167,9 @@ namespace Client.Game.Map
 			box.offset = halfSize;
 			box.isTrigger = trigger;
 
+			var rb = go.AddComponent<Rigidbody2D>();
+			rb.isKinematic = true;
+			rb.gravityScale = 0f;
 		}
 
 		void DrawWalls (Room room, Color color, GameObject gameobject)

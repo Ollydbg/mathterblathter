@@ -6,8 +6,8 @@ namespace Client.Game.Abilities.Scripts
 {
 	public class FireOnFall : BuffBase
 	{
-		private Rigidbody rigidBody;
-		private Collider collider;
+		private Rigidbody2D rigidBody;
+		private Collider2D collider;
 		private bool isFalling;
 		private static float EPSILON = .001f;
 		private float peakFallingVelocity = 0f;
@@ -20,8 +20,8 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			rigidBody = Owner.GameObject.AddComponent<Rigidbody>();
-			collider = Owner.GameObject.GetComponent<Collider>();
+			rigidBody = Owner.GameObject.AddComponent<Rigidbody2D>();
+			collider = Owner.GameObject.GetComponent<Collider2D>();
 			collider.isTrigger = false;
 				
 		}

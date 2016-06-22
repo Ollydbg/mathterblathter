@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Actors;
 using Client.Game.Attributes;
+using Client.Utils;
 
 namespace Client.Game.Abilities.Utils
 {
@@ -12,7 +13,7 @@ namespace Client.Game.Abilities.Utils
 	public class AbilityUtils
 	{
 		public static List<Actor> CollideSphere(Vector3 point, AbilityContext context, float size, FilterList filters ) {
-			var colliders = UnityEngine.Physics.OverlapSphere (point, size);
+			var colliders = Physics2D.OverlapCircleAll(VectorUtils.Vector2(point), size);
 			List<Actor> buff = new List<Actor> ();
 			foreach (var coll in colliders) {
 				var actorRef = coll.gameObject.GetComponent<ActorRef> ();

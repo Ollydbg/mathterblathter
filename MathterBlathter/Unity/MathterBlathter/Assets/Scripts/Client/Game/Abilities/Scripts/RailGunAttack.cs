@@ -5,6 +5,7 @@ using Client.Game.Abilities.Payloads;
 using Client.Game.Enums;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -15,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 		}
 
 		private ProjectileActor currentProjectile;
-		private Vector3 SampledPosition;
+		private Vector2 SampledPosition;
 		bool aborted;
 
 		#region implemented abstract members of AbilityBase
@@ -34,10 +35,10 @@ namespace Client.Game.Abilities.Scripts
 
 		}
 
-		Vector3 Sample (ProjectileActor currentProjectile)
+		Vector2 Sample (ProjectileActor currentProjectile)
 		{
 			if(currentProjectile.GameObject != null) {
-				SampledPosition = currentProjectile.transform.position;
+				SampledPosition = VectorUtils.Vector2(currentProjectile.transform.position);
 			}
 			return SampledPosition;
 		}
@@ -45,10 +46,8 @@ namespace Client.Game.Abilities.Scripts
 		public override void Update (float dt)
 		{
 			if(currentProjectile.GameObject != null) {
-
-				Ray ray = new Ray(SampledPosition, context.targetDirection);
-
-				var hits = Physics.RaycastAll(ray, (Sample(currentProjectile) - ray.origin).magnitude );
+				
+				var hits = Physics2D.RaycastAll(SampledPosition, VectorUtils.Vector2(context.targetDirection), (Sample(currentProjectile) - SampledPosition).magnitude );
 				foreach( var hit in hits ) {
 					Actor hitActor;
 					var result = currentProjectile.TestTrigger(hit.collider, out hitActor);

@@ -11,6 +11,7 @@ namespace Client.Game.Actors.Controllers
 		void StopJumping();
 		void MoveRight(float amt);
 		void KnockDirection(Vector3 direction, float force);
+		void FixedUpdate();
 
 		bool Ducking {
 			get; set;

@@ -5,12 +5,18 @@ using System.Collections.Generic;
 using Client.Game.Attributes;
 using Client.Game.Data;
 using Client.Game.Abilities;
+using Client.Utils;
 
 namespace Client.Game.Utils
 {
 	public static class ActorUtils
 	{
-		public static bool TryHitToActor(RaycastHit hit, out Actor actor) {
+		public static bool TryHitToActor(RaycastHit2D hit, out Actor actor) {
+
+			if(hit.transform == null) {
+				actor = null;
+				return false;
+			}
 
 			var comp = hit.transform.root.gameObject.GetComponent<ActorRef>();
 			if(comp == null) {
@@ -23,9 +29,9 @@ namespace Client.Game.Utils
 		}
 
 		public static bool RayCastForActor(Vector3 origin, Vector3 direction, out Actor actor, int layerMask) {
-			RaycastHit hitInfo;
 			float distance = 100f;
-			if(Physics.Raycast(origin, direction, out hitInfo, distance, layerMask)) {
+			var hitInfo = Physics2D.Raycast(VectorUtils.Vector2(origin), VectorUtils.Vector2(direction), distance, layerMask);
+			if(hitInfo != null) {
 				return TryHitToActor(hitInfo, out actor);
 			} else {
 				actor = null;

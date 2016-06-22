@@ -15,6 +15,14 @@ namespace Client.Utils
 
 		}
 
+		public static Vector2 Vector2( Vector3 v3) {
+			return new UnityEngine.Vector2(v3.x, v3.y);
+		}
+
+		public static Vector3 Vector3( Vector2 v2) {
+			return new UnityEngine.Vector3(v2.x, v2.y, 0f);
+		}
+
 	}
 }
 

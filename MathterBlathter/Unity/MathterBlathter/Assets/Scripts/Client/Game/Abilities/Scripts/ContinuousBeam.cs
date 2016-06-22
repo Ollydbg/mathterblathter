@@ -6,6 +6,7 @@ using Client.Game.Enums;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
 using Client.Game.Utils;
+using Client.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -100,12 +101,11 @@ namespace Client.Game.Abilities.Scripts
 
 
 		Vector3 BeamEndPosition(AbilityContext ctx, out Actor hitActor) {
-			RaycastHit hit;
-
+			
 			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
 			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
-
-			if(Physics.SphereCast(startLocation, beamWidth, ctx.targetDirection, out hit, 100f, layerMask)) {
+			var hit = Physics2D.CircleCast(startLocation, beamWidth, VectorUtils.Vector2(ctx.targetDirection), 100f, layerMask);
+			if(hit != null) {
 				ActorUtils.TryHitToActor(hit, out hitActor);
 				return hit.point;
 			} 

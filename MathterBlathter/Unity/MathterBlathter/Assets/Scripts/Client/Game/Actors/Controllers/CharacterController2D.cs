@@ -6,22 +6,29 @@ using Client.Game.Abilities;
 using Client.Game.Data;
 using System.Linq;
 using Client.Game.Geometry;
+using Client.Utils;
+using Client.Game.Enums;
 
 
 namespace Client.Game.Actors.Controllers
 {
 	public class CharacterController2D : ICharacterController
 	{
+		
+
 		private Character Actor;
 		private float xScale = 20;
-		public float facingAngle = 0f;
+		Vector3 originalScale;
 		public float horizontalAxis = 0f;
-		private static float GRAVITY_ACC = -1.8f;
-		private float gravityYv = 0f;
-		private static float MAX_DOWN_SPEED = -1000f;
 		private float jumpPowerAccumulator = 0f;
 		private bool jumpNeedsReset = false;
-		private Vector3 movementAccumulator = Vector3.zero;
+		private Vector2 movementAccumulator = Vector2.zero;
+		private float groundedDistance;
+		private int groundedMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString()});
+		private int softGeoMask = LayerMask.GetMask(new string[]{Layers.SoftGeometry.ToString()});
+
+		Rigidbody2D rigidBody;
+		Animator animator;
 
 		public delegate void GroundingHandler(Vector3 groundingVelocity);
 		private bool wasGrounded;
@@ -30,6 +37,14 @@ namespace Client.Game.Actors.Controllers
 
 		public CharacterController2D(Character actor) {
 			this.Actor = actor;
+			this.rigidBody = actor.GameObject.GetComponent<Rigidbody2D>();
+			this.animator = actor.GameObject.GetComponent<Animator>();
+			var collider = actor.GameObject.GetComponent<CircleCollider2D>();
+			
+			groundedDistance = collider.bounds.extents.y;
+			rigidBody.gravityScale = GravityScalar;
+
+			originalScale = actor.GameObject.transform.localScale;
 		}
 
 		public bool Ducking { get; set;}
@@ -38,12 +53,11 @@ namespace Client.Game.Actors.Controllers
 		public void MoveRight (float hor)
 		{
 			if(hor > 0) 
-				xScale = 20;
+				xScale = 1 * originalScale.x;
 			else if(hor < 0)
-				xScale = -20;
-			facingAngle = xScale;
-			horizontalAxis = hor;
+				xScale = -1 * originalScale.x;
 
+			horizontalAxis = hor;
 
 			var scale = Actor.GameObject.transform.localScale;
 			scale.x = xScale;
@@ -51,21 +65,22 @@ namespace Client.Game.Actors.Controllers
 
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
 
-			Vector3 moveVector = horizontalAxis * RunSpeed * Vector3.right;
-			moveVector*= Time.deltaTime;
+			Vector2 moveVector = horizontalAxis * RunSpeed * Vector2.right;
 
-			movementAccumulator+= moveVector;
-
-			string animTarget = horizontalAxis != 0 ? CharacterAnimState.RUN : CharacterAnimState.IDLE ;
-			Actor.Animator.RequestState(animTarget, 0);
+			movementAccumulator += moveVector;
 
 		}
+
+		public void Update (float dt) {}
+
 
 		public bool IsGrounded 
 		{
 			get {
-				return true;
-				//return internalController.isGrounded;
+				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .05f, groundedMask);
+				var goodHit = hit != null && hit.collider != null && hit.collider.gameObject != null;
+
+				return goodHit;
 			}
 		}
 
@@ -82,25 +97,31 @@ namespace Client.Game.Actors.Controllers
 		}
 
 
-		public void Update(float dt) {
-
-			if(SubjectToGravity) {
-				gravityYv += (GRAVITY_ACC*dt * GravityScalar);
-				gravityYv = Mathf.Clamp(gravityYv, MAX_DOWN_SPEED, 1000);
-				movementAccumulator += Vector3.up * (gravityYv);
-			} 
-
+		public void FixedUpdate() {
 			if(wasGrounded) {
 				jumpPowerAccumulator = 0f;
 			}
 
 			ConsumeMovement();
+		}
 
+		void SetAnimationState ()
+		{
+			if(animator != null) {
+				animator.SetFloat("speed", Math.Abs(rigidBody.velocity.x));
+				animator.SetBool("grounded", IsGrounded);
+				animator.SetFloat("yVelocity", Math.Abs(rigidBody.velocity.y));
+			}
+			
 		}
 
 		void ConsumeMovement ()
 		{
-			Actor.transform.position += movementAccumulator;
+			rigidBody.velocity = new Vector2(movementAccumulator.x, rigidBody.velocity.y + movementAccumulator.y);
+
+			SetAnimationState();
+
+			//Actor.transform.position += movementAccumulator;
 			var grounded = IsGrounded;
 			if(grounded && !wasGrounded) {
 				if(OnGrounded != null) {
@@ -108,9 +129,7 @@ namespace Client.Game.Actors.Controllers
 				}
 
 			}
-			if(grounded) {
-				gravityYv = 0;
-			}
+
 			wasGrounded = grounded;
 
 			movementAccumulator = Vector3.zero;
@@ -128,32 +147,33 @@ namespace Client.Game.Actors.Controllers
 				tryDuckJump();
 				return;
 			}
+			var aref = this.Actor.GameObjectRef;
 
 			if(IsGrounded && !jumpNeedsReset) {
-				var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
-				movementAccumulator += Vector3.up * jumpHeight;
-				gravityYv = jumpHeight;
+				var jumpHeight = aref.MinJumpPower;//Actor.Attributes[ActorAttributes.MinJumpPower];
+				movementAccumulator += Vector2.up * jumpHeight;
 				jumpPowerAccumulator += jumpHeight;
 
-			} else if(jumpPowerAccumulator < Actor.Attributes[ActorAttributes.MaxJumpPower] && !jumpNeedsReset) {
-				var boost = Actor.Attributes[ActorAttributes.SustainedJumpPower];
-				movementAccumulator += Vector3.up * boost * Time.deltaTime;
-				gravityYv += boost * Time.deltaTime;
+			} else if(jumpPowerAccumulator < aref.MaxJumpPower && !jumpNeedsReset) {
+				var boost = aref.SustainedJumpPower;//Actor.Attributes[ActorAttributes.SustainedJumpPower];
+				movementAccumulator += Vector2.up * boost * Time.deltaTime;
 				jumpPowerAccumulator += boost * Time.deltaTime;
 			} else {
 				jumpNeedsReset = true;
 			}
+
+
 		}
 
 		public void KnockDirection (Vector3 direction, float force)
 		{
 			direction.z = 0;
-			movementAccumulator += (direction * force);
+			movementAccumulator += (VectorUtils.Vector2(direction) * force);
 		}
 
 		private void tryDuckJump() {
-			RaycastHit hit;
-			if (Physics.Raycast(new Ray(Actor.transform.position, Vector3.down * 2f), out hit, 2.5f)) {
+			RaycastHit2D hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.transform.position), Vector2.down, 2.5f, softGeoMask);
+			if (hit != null) {
 				var passthrough = hit.collider.gameObject.GetComponent<PassthroughPlatform>();
 				if(passthrough) {
 					passthrough.Passthrough(Actor);

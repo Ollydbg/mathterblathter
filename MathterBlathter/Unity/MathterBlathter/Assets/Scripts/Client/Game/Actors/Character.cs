@@ -22,12 +22,12 @@ namespace Client.Game.Actors
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
 			
-			Controller = new Client.Game.Actors.Controllers.CharacterController(this);
+			Controller = new Client.Game.Actors.Controllers.CharacterController2D(this);
 			base.EnterGame (game);
 		}
 
-		public override void Update(float dt) {
-			Controller.Update(dt);
+		public override void FixedUpdate() {
+			Controller.FixedUpdate();
 
 		}
 

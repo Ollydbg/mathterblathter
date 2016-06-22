@@ -14,6 +14,10 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void FixedUpdate ()
+		{
+		}
+
 		public void Jump ()
 		{
 		}

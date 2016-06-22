@@ -50,12 +50,12 @@ namespace Client.Game.Actors
 			this.collisionFilters = filters;
 		}
 
-		void OnCollision (Collision collision)
+		void OnCollision (Collision2D collision)
 		{
 			Game.ActorManager.RemoveActor(this);
 		}
 
-		public TriggerTestResult TestTrigger(Collider collider, out Actor actor) {
+		public TriggerTestResult TestTrigger(Collider2D collider, out Actor actor) {
 			if(collider.gameObject.layer == HARD_GEOMETRY_LAYER) {
 				actor = null;
 				return TriggerTestResult.Geometry;
@@ -75,7 +75,7 @@ namespace Client.Game.Actors
 			return TriggerTestResult.Bad;
 		}
 
-		void OnTrigger (Collider Collider)
+		void OnTrigger (Collider2D Collider)
 		{
 
 			Actor actor;
@@ -84,14 +84,14 @@ namespace Client.Game.Actors
 				OnHit(actor);
 			}
 
-			if(lifetime > .1f) {
+			//if(lifetime > .1f) {
 				if(result == TriggerTestResult.Geometry) {
 					if(OnGeometryHit != null)
 						OnGeometryHit();
 					Game.ActorManager.RemoveActor(this);
 
 				}
-			}
+			//}
 		}
 
 		public override void Update (float dt)

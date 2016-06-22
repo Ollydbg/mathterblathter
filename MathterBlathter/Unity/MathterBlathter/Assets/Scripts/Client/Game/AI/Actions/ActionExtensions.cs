@@ -22,19 +22,25 @@ namespace Client.Game.AI.Actions
 
 		public static bool HasLOS(Actor selfAIActor, Vector3 target) {
 			var direction = target - selfAIActor.HalfHeight;
-			RaycastHit hit;
 
-			var layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString()});
-			Physics.Raycast(new Ray(selfAIActor.HalfHeight, direction.normalized), out hit);
+			var layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
+			var hits = Physics2D.RaycastAll(selfAIActor.HalfHeight, direction.normalized, 10, layerMask);
 
-			var transform = hit.transform;
-			while(transform.parent != null) {
-				transform = transform.parent;
+			foreach( var hit in hits) {
+				
+				var transform = hit.transform;
+				while(transform.parent != null) {
+					transform = transform.parent;
+				}
+
+				var actorRef = transform.gameObject.GetComponent<ActorRef>();
+				
+				if( actorRef != null && actorRef.Actor.ActorType== Client.Game.Data.ActorType.Player) {
+					return true;
+				}
 			}
 
-			var actorRef = transform.gameObject.GetComponent<ActorRef>();
-
-			return actorRef != null && actorRef.Actor.ActorType== Client.Game.Data.ActorType.Player;
+			return false;
 
 		}
 	}

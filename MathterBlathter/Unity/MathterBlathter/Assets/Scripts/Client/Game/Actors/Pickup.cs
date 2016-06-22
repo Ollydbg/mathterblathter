@@ -41,7 +41,7 @@ namespace Client.Game.Actors
 			return true;
 		}
 
-		void onCollision (Collider Collider)
+		void onCollision (Collider2D Collider)
 		{
 			var hitRef = Collider.gameObject.GetComponent<ActorRef>();
 			if(hitRef && hitRef.Actor.ActorType == ActorType.Player) {
