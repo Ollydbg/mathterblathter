@@ -17,7 +17,7 @@ namespace Client.Game.Actors.Controllers
 		
 
 		private Character Actor;
-		private float xScale = 20;
+		private float xScale = 1;
 		Vector3 originalScale;
 		public float horizontalAxis = 0f;
 		private float jumpPowerAccumulator = 0f;
@@ -45,6 +45,7 @@ namespace Client.Game.Actors.Controllers
 			rigidBody.gravityScale = GravityScalar;
 
 			originalScale = actor.GameObject.transform.localScale;
+			xScale = originalScale.x;
 		}
 
 		public bool Ducking { get; set;}
@@ -71,14 +72,17 @@ namespace Client.Game.Actors.Controllers
 
 		}
 
-		public void Update (float dt) {}
+		public void Update (float dt) {
+			SetAnimationState();
+
+		}
 
 
 		public bool IsGrounded 
 		{
 			get {
-				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .05f, groundedMask);
-				var goodHit = hit != null && hit.collider != null && hit.collider.gameObject != null;
+				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .2f, groundedMask);
+				var goodHit = hit.collider != null;
 
 				return goodHit;
 			}
@@ -98,6 +102,7 @@ namespace Client.Game.Actors.Controllers
 
 
 		public void FixedUpdate() {
+			
 			if(wasGrounded) {
 				jumpPowerAccumulator = 0f;
 			}
@@ -117,15 +122,19 @@ namespace Client.Game.Actors.Controllers
 
 		void ConsumeMovement ()
 		{
+			//hits wall?
+			var hit = Physics2D.Raycast(rigidBody.position, (Vector2.right * movementAccumulator.x).normalized, movementAccumulator.x * Time.fixedDeltaTime, groundedMask);
+			if(hit.transform != null) {
+				movementAccumulator.x = -rigidBody.velocity.x;
+			}
+
 			rigidBody.velocity = new Vector2(movementAccumulator.x, rigidBody.velocity.y + movementAccumulator.y);
-
-			SetAnimationState();
-
+			
 			//Actor.transform.position += movementAccumulator;
 			var grounded = IsGrounded;
 			if(grounded && !wasGrounded) {
 				if(OnGrounded != null) {
-					//OnGrounded(internalController.velocity);
+					OnGrounded(rigidBody.velocity);
 				}
 
 			}
@@ -173,7 +182,7 @@ namespace Client.Game.Actors.Controllers
 
 		private void tryDuckJump() {
 			RaycastHit2D hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.transform.position), Vector2.down, 2.5f, softGeoMask);
-			if (hit != null) {
+			if (hit.transform != null) {
 				var passthrough = hit.collider.gameObject.GetComponent<PassthroughPlatform>();
 				if(passthrough) {
 					passthrough.Passthrough(Actor);

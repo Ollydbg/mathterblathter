@@ -105,7 +105,7 @@ namespace Client.Game.Abilities.Scripts
 			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
 			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
 			var hit = Physics2D.CircleCast(startLocation, beamWidth, VectorUtils.Vector2(ctx.targetDirection), 100f, layerMask);
-			if(hit != null) {
+			if(hit != null && hit.transform != null) {
 				ActorUtils.TryHitToActor(hit, out hitActor);
 				return hit.point;
 			} 

@@ -31,6 +31,11 @@ namespace Client.Game.Actors
 
 		}
 
+		public override void Update (float dt)
+		{
+			Controller.Update(dt);
+		}
+
 
 	}
 }

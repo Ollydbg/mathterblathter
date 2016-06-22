@@ -49,8 +49,6 @@ namespace Client.Game.AI.PatrolPlanning
 
 			//is that position a wall? 
 			var offsetTest = position + new Vector2(0, .5f);
-			Physics2D.OverlapCircle(offsetTest, .01f, mask);
-
 			var wallHits = Physics2D.OverlapCircleAll(offsetTest, .01f, mask);
 			if(wallHits.Length > 0)
 				return false;

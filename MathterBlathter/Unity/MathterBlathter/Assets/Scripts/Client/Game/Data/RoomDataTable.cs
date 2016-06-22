@@ -79,7 +79,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Type = RoomType.NoWaves;
 
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
@@ -125,7 +125,8 @@ namespace Client.Game.Data
 				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
 				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
 
-				ret.AsciiSpawnLookup['2'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
+				//ret.AsciiSpawnLookup['2'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
+
 				finalize(ret);
 
 				return ret;
