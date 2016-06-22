@@ -53,12 +53,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "            L              L                L               L       L  d";
 				ret.AsciiMap += "                                               1                       d";
-				ret.AsciiMap += "                               @                                       d";
+				ret.AsciiMap += "                                                                       d";
+				ret.AsciiMap += "                                                                      Pw";
+				ret.AsciiMap += "                                                                     ccw";
+				ret.AsciiMap += "                              @                             PPPPPPPPPPPw";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
@@ -77,7 +79,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
