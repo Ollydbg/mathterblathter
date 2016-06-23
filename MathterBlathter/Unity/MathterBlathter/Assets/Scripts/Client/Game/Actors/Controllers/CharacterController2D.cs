@@ -20,12 +20,11 @@ namespace Client.Game.Actors.Controllers
 		private float xScale = 1;
 		Vector3 originalScale;
 		public float horizontalAxis = 0f;
-		private float jumpPowerAccumulator = 0f;
-		private bool jumpNeedsReset = false;
 		private Vector2 movementAccumulator = Vector2.zero;
 		private float groundedDistance;
 		private int groundedMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString()});
 		private int softGeoMask = LayerMask.GetMask(new string[]{Layers.SoftGeometry.ToString()});
+		int jumpFrames = 0;
 
 		Rigidbody2D rigidBody;
 		Animator animator;
@@ -74,14 +73,13 @@ namespace Client.Game.Actors.Controllers
 
 		public void Update (float dt) {
 			SetAnimationState();
-
 		}
 
 
 		public bool IsGrounded 
 		{
 			get {
-				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .2f, groundedMask);
+				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .1f, groundedMask);
 				var goodHit = hit.collider != null;
 
 				return goodHit;
@@ -100,13 +98,29 @@ namespace Client.Game.Actors.Controllers
 			}
 		}
 
+		void AddJump ()
+		{
+			if(jumping) {
+				var aref = this.Actor.GameObjectRef;
+				var grounded = IsGrounded;
 
-		public void FixedUpdate() {
-			
-			if(wasGrounded) {
-				jumpPowerAccumulator = 0f;
+				if(grounded && jumpFrames == 0) {
+					var jumpHeight = aref.MinJumpPower;
+					movementAccumulator += Vector2.up * jumpHeight;
+
+				} else if(jumpFrames == aref.JumpBoostFrameThresh) {
+					movementAccumulator += Vector2.up * aref.SustainedJumpPower;
+				}
+
+				jumpFrames ++;
+
 			}
 
+		}
+
+		public void FixedUpdate() {
+
+			AddJump();
 			ConsumeMovement();
 		}
 
@@ -122,17 +136,12 @@ namespace Client.Game.Actors.Controllers
 
 		void ConsumeMovement ()
 		{
-			//hits wall?
-			var hit = Physics2D.Raycast(rigidBody.position, (Vector2.right * movementAccumulator.x).normalized, movementAccumulator.x * Time.fixedDeltaTime, groundedMask);
-			if(hit.transform != null) {
-				movementAccumulator.x = -rigidBody.velocity.x;
-			}
-
 			rigidBody.velocity = new Vector2(movementAccumulator.x, rigidBody.velocity.y + movementAccumulator.y);
 			
 			//Actor.transform.position += movementAccumulator;
 			var grounded = IsGrounded;
 			if(grounded && !wasGrounded) {
+				jumpFrames = 0;
 				if(OnGrounded != null) {
 					OnGrounded(rigidBody.velocity);
 				}
@@ -145,32 +154,19 @@ namespace Client.Game.Actors.Controllers
 
 		}
 
+		bool jumping = false;
 		public void StopJumping ()
 		{
-			jumpNeedsReset = false;
+			jumping = false;
 		}
 
 		public void Jump() {
-
 			if(Ducking) {
 				tryDuckJump();
 				return;
 			}
-			var aref = this.Actor.GameObjectRef;
 
-			if(IsGrounded && !jumpNeedsReset) {
-				var jumpHeight = aref.MinJumpPower;//Actor.Attributes[ActorAttributes.MinJumpPower];
-				movementAccumulator += Vector2.up * jumpHeight;
-				jumpPowerAccumulator += jumpHeight;
-
-			} else if(jumpPowerAccumulator < aref.MaxJumpPower && !jumpNeedsReset) {
-				var boost = aref.SustainedJumpPower;//Actor.Attributes[ActorAttributes.SustainedJumpPower];
-				movementAccumulator += Vector2.up * boost * Time.deltaTime;
-				jumpPowerAccumulator += boost * Time.deltaTime;
-			} else {
-				jumpNeedsReset = true;
-			}
-
+			jumping  = true;
 
 		}
 

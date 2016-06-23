@@ -34,7 +34,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
-				//ret.Solo = true;
+				ret.Solo = true;
 				ret.Type = RoomType.LurchStart | RoomType.NoWaves;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                       w";
@@ -79,7 +79,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";

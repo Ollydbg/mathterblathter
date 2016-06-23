@@ -44,7 +44,7 @@ namespace Client.Game.Actors
 			private set {
 				_isOpen = value;
 				this.GameObject.GetComponent<Renderer>().material.color = _isOpen ? OPEN_COLOR : CLOSED_COLOR;
-				this.GameObject.GetComponent<Collider>().isTrigger = _isOpen;
+				this.GameObject.GetComponent<Collider2D>().isTrigger = _isOpen;
 			}
 		}
 

@@ -19,20 +19,9 @@ namespace Client.Game.Geometry
 
 
 
-		bool tryGetActor(Collider2D coll, out Actor actor) {
-			var actorRef = coll.gameObject.GetComponent<ActorRef>();
-			if(actorRef) {
-				actor = actorRef.Actor;
-				return true;
-			}
-			actor = null;
-			return false;
-		}
-
-
 		public void Passthrough(Actor actor) {
-			Passing = actor;
-			Collider.enabled = false;
+			//Passing = actor;
+			//Collider.enabled = false;
 
 		}
 

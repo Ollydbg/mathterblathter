@@ -23,7 +23,7 @@ namespace Client.Game.States
 
 		int numRoomsToGenerate() {
 			var solod = RoomDataTable.GetAll().Count(p => p.Solo);
-			return solod > 0 ? solod : MapDataTable.Map1.NumberOfRooms;
+			return solod > 0 ? solod : MapDataTable.Map1.MaxRooms;
 		}
 
 		List<RoomData> availableRooms() {
