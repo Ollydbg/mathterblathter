@@ -14,6 +14,9 @@ namespace Client.Game.AI.PatrolPlanning
 
 		public PatrolRoute PlanRoute(Actor actor)
 		{
+
+			Debug.Log("Creating patrol plan for actor: " + actor);
+
 			var route = new PatrolRoute();
 			route.CurrentDirection = Vector3.right;
 

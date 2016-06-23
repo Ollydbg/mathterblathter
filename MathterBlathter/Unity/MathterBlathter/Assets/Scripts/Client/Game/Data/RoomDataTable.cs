@@ -34,7 +34,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
-				ret.Solo = true;
+				//ret.Solo = true;
 				ret.Type = RoomType.LurchStart | RoomType.NoWaves;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                       w";
@@ -103,10 +103,10 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                       ....... w";
                 ret.AsciiMap += "w                                                     ppppppppppw";
-                ret.AsciiMap += "w                        1                                      w";
+                ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "wPPPP                                                           w";
+				ret.AsciiMap += "wPPPP                                    1                      w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
                 ret.AsciiMap += "w                                                       ppppppppw";
@@ -121,11 +121,11 @@ namespace Client.Game.Data
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 
 				//ret.AsciiSpawnLookup['C'] = CharacterDataTable.RAGE_MACHINE_ITEM;
-				//ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
-				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
+				//ret.AsciiSpawnLookup['1'] = CharacterDataTable.ENERGY_SAPPER_ENEMY;
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
 				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
 
-				//ret.AsciiSpawnLookup['2'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
+				//ret.AsciiSpawnLookup['2'] = CharacterDataTable.GROUNDED_RANGED_ENEMY;
 
 				finalize(ret);
 
