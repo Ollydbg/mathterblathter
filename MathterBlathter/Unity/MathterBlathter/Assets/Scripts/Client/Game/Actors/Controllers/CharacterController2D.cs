@@ -37,8 +37,8 @@ namespace Client.Game.Actors.Controllers
 		public CharacterController2D(Character actor) {
 			this.Actor = actor;
 			this.rigidBody = actor.GameObject.GetComponent<Rigidbody2D>();
-			this.animator = actor.GameObject.GetComponent<Animator>();
-			var collider = actor.GameObject.GetComponent<CircleCollider2D>();
+			this.animator = actor.GameObject.GetComponentInChildren<Animator>();
+			var collider = actor.GameObject.GetComponent<Collider2D>();
 			
 			groundedDistance = collider.bounds.extents.y;
 			rigidBody.gravityScale = GravityScalar;
@@ -170,10 +170,9 @@ namespace Client.Game.Actors.Controllers
 
 		}
 
-		public void KnockDirection (Vector3 direction, float force)
+		public void KnockDirection (Vector2 direction, float force)
 		{
-			direction.z = 0;
-			movementAccumulator += (VectorUtils.Vector2(direction) * force);
+			movementAccumulator += (direction * force);
 		}
 
 		private void tryDuckJump() {

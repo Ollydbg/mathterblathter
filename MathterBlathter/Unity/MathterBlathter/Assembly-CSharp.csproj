@@ -134,7 +134,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Actors\ActorRef.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\AttachPointComponent.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Character.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\CharacterController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\EmptyCharacterController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\ICharacterController.cs" />

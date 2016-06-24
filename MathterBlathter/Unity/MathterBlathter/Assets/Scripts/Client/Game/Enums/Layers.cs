@@ -10,7 +10,8 @@ namespace Client.Game.Enums
 		SoftGeometry,
 		Player,
 		Door,
-		Enemies
+		Enemies,
+		PassThrough
 	}
 }
 

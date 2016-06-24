@@ -41,7 +41,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 				
-				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
+				ret.ResourcePath = "Actors/Enemies/GroundTroop/EnemyTestSprite_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100

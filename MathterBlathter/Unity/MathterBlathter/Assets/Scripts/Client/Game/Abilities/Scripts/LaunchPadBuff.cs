@@ -2,6 +2,7 @@
 using System;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Game.Attributes;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -23,7 +24,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var charactor = actor as Character;
 			if(charactor != null)
-				charactor.Controller.KnockDirection(Vector3.up, 3f);
+				charactor.Controller.KnockDirection(Vector3.up, this.context.source.Attributes[ActorAttributes.KnockbackForce]);
 
 		}
 

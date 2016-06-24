@@ -81,7 +81,7 @@ namespace Client.Game.Data
 
 				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
-
+				ret.Solo = true;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "d                                                               d";
@@ -96,8 +96,8 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w ...................................................           w";
-                ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
+                ret.AsciiMap += "w .....     .........................................           w";
+                ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
                 ret.AsciiMap += "w                                                               w";
@@ -118,11 +118,12 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                      PPPP                                     d";
 				ret.AsciiMap += "d                            C                                  d";
                 ret.AsciiMap += "d                                .......................2       d";
-                ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
+                ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
 
 				//ret.AsciiSpawnLookup['C'] = CharacterDataTable.RAGE_MACHINE_ITEM;
 				//ret.AsciiSpawnLookup['1'] = CharacterDataTable.ENERGY_SAPPER_ENEMY;
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
+				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
 				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
 
 				//ret.AsciiSpawnLookup['2'] = CharacterDataTable.GROUNDED_RANGED_ENEMY;

@@ -53,12 +53,15 @@ namespace Client.Game.Abilities.Timelines
 
 		static void PlaySFX (TimelineData.Point pt,TimelineData data, GameObject go)
 		{
-
+			var source = go.GetComponent<AudioSource>();
 			var ac = Resources.Load(pt.Resource) as AudioClip;
-			var source = go.AddComponent<AudioSource>();
-			source.spatialBlend = 0f;
-			source.rolloffMode = AudioRolloffMode.Logarithmic;
-			source.outputAudioMixerGroup = SFXGroup;
+			if(source == null) {
+				source = go.AddComponent<AudioSource>();
+
+				source.spatialBlend = 0f;
+				source.rolloffMode = AudioRolloffMode.Logarithmic;
+				source.outputAudioMixerGroup = SFXGroup;
+			}
 
 			source.PlayOneShot(ac);
 
