@@ -298,15 +298,17 @@ namespace Client.Game.Data
 					ActorAttributes.Abilities.Id, AbilityDataTable.RAIL_GUN.Id,
 					0
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
+				));
+
 				ret.attributeData.Add( new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
+					2
 				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
+
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
@@ -770,6 +772,54 @@ namespace Client.Game.Data
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 160;
+				return ret;
+			}
+		}
+
+		public static CharacterData JACKHAMMER_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1021;
+				ret.ActorType = ActorType.Weapon;
+				ret.ResourcePath = "Weapons/MeleeTest";
+				ret.attributeData.Add( new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, .1f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id, .4f
+				));
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.MELEE_SWIPE.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id,
+					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.MELEE_ONE_HANDED));
+
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, -2));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 45
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, .9f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.MeleeRange.Id, 3f
+				));
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Cost = 80;
+
+				ret.Name = "Der Auto Hammer";
+
 				return ret;
 			}
 		}

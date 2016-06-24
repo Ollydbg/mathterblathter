@@ -12,7 +12,7 @@ namespace Client.Game.Abilities.Utils
 
 	public class AbilityUtils
 	{
-		public static List<Actor> CollideSphere(Vector3 point, AbilityContext context, float size, FilterList filters ) {
+		public static List<Actor> OverlapCircle(Vector3 point, AbilityContext context, float size, FilterList filters ) {
 			var colliders = Physics2D.OverlapCircleAll(VectorUtils.Vector2(point), size);
 			List<Actor> buff = new List<Actor> ();
 			foreach (var coll in colliders) {
@@ -27,6 +27,22 @@ namespace Client.Game.Abilities.Utils
 		}
 
 
+		public static List<Actor> CircleCastAll(Vector3 point, AbilityContext context, float size, FilterList filters ) {
+			var hits = Physics2D.CircleCastAll(VectorUtils.Vector2(point), size, context.targetDirection);
+			
+			List<Actor> buff = new List<Actor> ();
+			foreach (var hit in hits) {
+				var coll = hit.collider;
+				var actorRef = coll.gameObject.GetComponent<ActorRef> ();
+				if (actorRef != null) {
+
+					if(filters.Check(context, actorRef.Actor))
+						buff.Add (actorRef.Actor);
+				}
+			}
+			return buff;
+		}
+
 		public static Vector3 AdjustWithInaccuracy(Vector3 direction, AbilityContext context) {
 			float weaponInacc = context.sourceWeapon.Attributes[ActorAttributes.Inaccuracy];
 			float sourceInacc = context.source.Attributes[ActorAttributes.Inaccuracy];
@@ -37,6 +53,7 @@ namespace Client.Game.Abilities.Utils
 
 			//return direction;
 		}
+
 
 
 	}

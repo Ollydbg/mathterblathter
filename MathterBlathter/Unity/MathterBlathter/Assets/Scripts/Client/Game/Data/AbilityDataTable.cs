@@ -48,23 +48,22 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData PLAYER_MELEE {
+		public static AbilityData MELEE_SWIPE {
 			get {
 				var ret = new AbilityData ();
 				ret.Id = 0;
 				ret.name = "Player Melee Attack";
-				ret.animation = CharacterAnimState.ATTACK1;
-				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Cooldown.Id, 1.0f
-				));
+				//ret.animation = CharacterAnimState.ATTACK1;
 
-				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 40
-				));
+				var swingTL = new TimelineData();
+				swingTL.AsciiMap += "eeeeeee     ";
+				swingTL.AsciiMap += "sssssss     ";
+				swingTL.Duration = .5f;
+				swingTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/JackhammerSwipe_Prefab", AttachPoint.Muzzle);
+				swingTL.Lookup['s'] = new TimelineData.Point("SFX/melee_woosh", AttachPoint.Muzzle);
 
-				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.MeleeRange.Id, 2f
-				));
+				ret.Timelines.Add(swingTL);
+
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MeleeAttack);
 				return ret;
 			}

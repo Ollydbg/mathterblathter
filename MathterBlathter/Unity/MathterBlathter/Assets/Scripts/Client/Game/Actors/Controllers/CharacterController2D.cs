@@ -39,7 +39,11 @@ namespace Client.Game.Actors.Controllers
 			this.rigidBody = actor.GameObject.GetComponent<Rigidbody2D>();
 			this.animator = actor.GameObject.GetComponentInChildren<Animator>();
 			var collider = actor.GameObject.GetComponent<Collider2D>();
-			
+
+			if(rigidBody == null) {
+				Debug.LogError("Couldn't find rigidbody on actor " + actor + ". Did you set the wrong actor type in the data?");
+			}
+
 			groundedDistance = collider.bounds.extents.y;
 			rigidBody.gravityScale = GravityScalar;
 

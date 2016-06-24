@@ -79,7 +79,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
@@ -120,12 +120,10 @@ namespace Client.Game.Data
                 ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
 
-				//ret.AsciiSpawnLookup['C'] = CharacterDataTable.RAGE_MACHINE_ITEM;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.JACKHAMMER_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
-				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
-				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
 
-				//ret.AsciiSpawnLookup['2'] = CharacterDataTable.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['2'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
 
 				finalize(ret);
 

@@ -7,15 +7,12 @@ using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Abilities.Scripts
 {
-	public class MeleeAttack : BuffBase
+	public class MeleeAttack : AbilityBase
 	{
 		public MeleeAttack ()
 		{
+			
 		}
-
-		float damageDelay = .1f;
-		float accumulator = 0f;
-		bool didDamage = false;
 
 		bool isLeft {
 			get {
@@ -25,42 +22,39 @@ namespace Client.Game.Abilities.Scripts
 		Vector3 offset {
 			get {
 				var multiplier = isLeft ? -1 : 1;
-				return multiplier * new Vector3 (Attributes[AbilityAttributes.MeleeRange], 0f, 0f);
+				return multiplier * new Vector3 (3f, 0f, 0f);
 			}
 		}
+
+
 
 		public override void Init (AbilityContext ctx)
 		{
 			base.Init (ctx);
 		}
+
 		#region implemented abstract members of AbilityBase
 		public override void Start ()
 		{
-			this.context.source.Animator.RequestState (CharacterAnimState.ATTACK1, 1, 1);	
-			accumulator = 0f;
 			
+			PlayTimeline(context.data.Timelines[0], SourceWeapon.transform.position + context.targetDirection * SourceWeapon.Attributes[ActorAttributes.MeleeRange], context.targetDirection);
+			DamageFacing();
 		}
 
 		public override void Update (float dt)
 		{
-			accumulator += dt;
-			if (accumulator > damageDelay && !didDamage) {
-				DamageFacing ();
-				didDamage = true;
-			}
-
+			
 		}
 
-		public override bool isComplete ()
-		{
-			return didDamage;
-		}
 
 		public void DamageFacing() {
 			var point = context.source.HalfHeight + offset;
 
-			var inRange = AbilityUtils.CollideSphere (point, context, Attributes[AbilityAttributes.MeleeRange], FilterList.QuickFilters);
+			
+			var inRange = AbilityUtils.CircleCastAll(point, context, SourceWeapon.Attributes[ActorAttributes.MeleeRange], FilterList.QuickFilters);
 			foreach (var actor in inRange) {
+				Debug.Log("GOT A HIT!");
+
 				new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 			}
 

@@ -49,6 +49,7 @@ namespace Client.Game.Abilities.Payloads
 
 			Target.Attributes [ActorAttributes.Health] = newHealth;
 
+
 			if (newHealth <= 0) {
 
 				if (targetIsPlayer) {
@@ -56,7 +57,6 @@ namespace Client.Game.Abilities.Payloads
 				} else {
 					new KillPayload (Context, Target).Apply ();
 				}
-					
 
 			}
 

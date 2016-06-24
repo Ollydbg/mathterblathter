@@ -126,15 +126,17 @@ namespace Client
 				.Apply();
 		}
 
-
-		public void PlayTimeline (TimelineData timelineData, Actor target)
+		
+		public void PlayTimeline (TimelineData timelineData, Actor target) { PlayTimeline(timelineData, target, Vector3.right); }
+		public void PlayTimeline (TimelineData timelineData, Actor target, Vector3 direction)
 		{
-			TimelineRunner.Play(timelineData, target);
+			TimelineRunner.Play(timelineData, target, direction);
 		}
 
-		public void PlayTimeline (TimelineData timelineData, Vector3 position)
+		public void PlayTimeline (TimelineData timelineData, Vector3 position) { PlayTimeline(timelineData, position, Vector3.right); }
+		public void PlayTimeline (TimelineData timelineData, Vector3 position, Vector3 direction)
 		{
-			TimelineRunner.Play(timelineData, position);
+			TimelineRunner.Play(timelineData, position, direction);
 		}
 
 
