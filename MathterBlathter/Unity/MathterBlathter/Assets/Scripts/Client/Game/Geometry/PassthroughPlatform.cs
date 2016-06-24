@@ -2,87 +2,65 @@
 using UnityEngine;
 using Client.Game.Actors;
 using Client.Game.Attributes;
+using Client.Game.Enums;
 
 namespace Client.Game.Geometry
 {
 	public class PassthroughPlatform : MonoBehaviour
 	{
-		public BoxCollider Collider;
-		public BoxCollider Trigger;
+		public BoxCollider2D Collider;
+		public PlatformEffector2D Effector;
 
-		public Actor Passing;
-
+		public GameObject Passing;
+		Collider2D PassingCollider;
 		public PassthroughPlatform ()
 		{
 			
 		}
 
-		void OnTriggerEnter(Collider coll) {
-			Actor actor;
-			if(tryGetActor(coll, out actor)) {
-				if(actor.Attributes[ActorAttributes.PassesThroughPlatforms]) {
-					Passthrough(actor);
-				}
+
+		void OnTriggerExit2D(Collider2D collider) {
+			if(collider.gameObject == Passing) {
+				Physics2D.IgnoreCollision(PassingCollider, this.Collider, false);
+				Passing = null;
+				PassingCollider = null;
 			}
 		}
-
-		void OnTriggerExit(Collider coll) {
-			Actor actor;
-			if(tryGetActor(coll, out actor)) {
-				if( actor == Passing) {
-					Collider.enabled = true;
-					Passing = null;
-				}
-			};
-
-		}
-
-		bool didPass() {
-			return Passing != null &&
-				Collider.bounds.IntersectRay( new Ray(Passing.transform.position, Vector3.up*Passing.colliderHeight));
-		}
-
-		bool tryGetActor(Collider coll, out Actor actor) {
-			var actorRef = coll.gameObject.GetComponent<ActorRef>();
-			if(actorRef) {
-				actor = actorRef.Actor;
-				return true;
-			}
-			actor = null;
-			return false;
-		}
-
 
 		public void Passthrough(Actor actor) {
-			Passing = actor;
-			Collider.enabled = false;
+			Passing = actor.GameObject;
+			PassingCollider = actor.GameObject.GetComponent<Collider2D>();
+			Physics2D.IgnoreCollision(PassingCollider, this.Collider, true);
+
 		}
 
 
 	}
 
 	public static class PassthroughPlatformFactory {
-
-		static Vector3 Depth = new Vector3(0, 0, 1f);
-		static Vector3 DetectionRange = new Vector3(0, 3f, 0f);
+		
+		static Vector2 DetectionRange = new Vector2(0, 1f);
 
 		public static void Init(GameObject go) {
 
 			//destroy the collider that comes with the primitive
-			GameObject.Destroy(go.GetComponent<Collider>());
+			GameObject.Destroy(go.GetComponent<Collider2D>());
 
+			var effector = go.AddComponent<PlatformEffector2D>();
 			var pt = go.AddComponent<PassthroughPlatform>();
-			var trigger = go.AddComponent<BoxCollider>();
+
+
+			var trigger = go.AddComponent<BoxCollider2D>();
 			trigger.isTrigger = true;
-			trigger.size = trigger.size + Depth + DetectionRange;
-			trigger.center -= .5f*DetectionRange;
-			pt.Trigger = trigger;
+			trigger.size = trigger.size + DetectionRange;
+			trigger.offset -= .5f*DetectionRange;
 
 
-			var collider = go.AddComponent<BoxCollider>();
-			collider.size = collider.size + Depth;
+			var collider = go.AddComponent<BoxCollider2D>();
+			collider.usedByEffector = true;
+			collider.size = collider.size;
 			pt.Collider = collider;
-
+			pt.Effector = effector;
 		}
 	}
 }

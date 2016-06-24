@@ -3,6 +3,7 @@ using Client.Game.Data;
 using Client.Game.Attributes;
 using UnityEngine;
 using Client.Game.Enums;
+using Client.Utils;
 
 namespace Client.Game.Actors.Controllers
 {
@@ -39,8 +40,7 @@ namespace Client.Game.Actors.Controllers
 		}
 
 		IInteraction GetClosest() {
-
-			var colliders = Physics.OverlapSphere(Owner.transform.position, Owner.Attributes[ActorAttributes.InteractionRadius]);
+			var colliders = Physics2D.OverlapCircleAll(VectorUtils.Vector2(Owner.transform.position), Owner.Attributes[ActorAttributes.InteractionRadius]); 
 			float shortestDistance = float.MaxValue;
 			IInteraction closestObject = null;
 

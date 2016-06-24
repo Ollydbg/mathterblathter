@@ -134,7 +134,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Actors\ActorRef.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\AttachPointComponent.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Character.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\CharacterController.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\EmptyCharacterController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\ICharacterController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Controllers\InteractionController.cs" />
@@ -147,8 +147,9 @@
      <Compile Include="Assets\Scripts\Client\Game\Actors\ProjectileActor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\WeaponActor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimStates.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimator2D.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimator3D.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\IAnimator.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Animation\PlayerAnimator3D.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\PriorityState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Attributes\AbilityAttributeList.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Attributes\ActorAttributeList.cs" />
@@ -177,6 +178,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\MusicData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\ParallaxData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\PickupDataTable.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\PlayerDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\ProjectileDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomDataTable.cs" />
@@ -289,6 +291,9 @@
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Particles\ParticleFactory.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Particles\ParticleRenderer.cs" />
      <Compile Include="Assets\ThirdParty\NeonParticles\Scripts\Pulsate.cs" />
+     <Compile Include="Assets\ThirdParty\PixelCharactersPack\PackVol2\Scripts\Change_Scenes.cs" />
+     <Compile Include="Assets\ThirdParty\PixelCharactersPack\PackVol2\Scripts\camera.cs" />
+     <Compile Include="Assets\ThirdParty\PixelCharactersPack\char_assets\charController.cs" />
      <Compile Include="Assets\ThirdParty\PixelFX_U5\scripts\Controller.cs" />
      <Compile Include="Assets\ThirdParty\PixelFX_U5\scripts\Random_movement.cs" />
      <Compile Include="Assets\ThirdParty\PixelFX_U5\scripts\demo_collision_movement.cs" />
@@ -539,6 +544,7 @@
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_NoInputs.shader" />
      <None Include="Assets\ThirdParty\AmplifyColor\Resources\ProcessOnly.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDY\SFN_DDY.shader" />
+     <None Include="Assets\ThirdParty\PixelCharactersPack\PackVol2\Space_Warrior\Space_Warrior_With_Red_Light\Readme.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_4.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Round\SFN_Round.shader" />

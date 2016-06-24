@@ -24,7 +24,6 @@ namespace Client.Game.AI
 		}
 		public void Update( float dt) {
 			if (CurrentAction != null) {
-				
 				var result = CurrentAction.Update(dt, Self);
 				
 				if(result == AI.AIResult.Running)

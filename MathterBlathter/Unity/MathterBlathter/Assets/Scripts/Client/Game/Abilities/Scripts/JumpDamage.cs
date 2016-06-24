@@ -6,7 +6,7 @@ using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Abilities.Scripts
 {
-	using PlayerController = Client.Game.Actors.Controllers.CharacterController;
+	using PlayerController = Client.Game.Actors.Controllers.CharacterController2D;
 
 	public class JumpDamage : BuffBase
 	{

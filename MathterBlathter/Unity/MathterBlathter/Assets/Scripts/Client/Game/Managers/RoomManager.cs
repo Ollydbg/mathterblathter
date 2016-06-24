@@ -67,7 +67,7 @@ namespace Client.Game.Managers
 		private IEnumerator LateInit() {
 			yield return new WaitForSeconds(.5f);
 			foreach ( var door in Rooms.SelectMany(p => p.Doors) ) {
-				var box = door.GameObject.AddComponent<BoxCollider>();
+				var box = door.GameObject.AddComponent<BoxCollider2D>();
 				box.isTrigger = true;
 				//door.Close();
 			}

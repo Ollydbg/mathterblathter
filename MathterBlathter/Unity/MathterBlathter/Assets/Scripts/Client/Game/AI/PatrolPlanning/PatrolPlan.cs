@@ -3,6 +3,7 @@ using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Enums;
 using Client.Game.Attributes;
+using Client.Utils;
 
 namespace Client.Game.AI.PatrolPlanning
 {
@@ -13,14 +14,17 @@ namespace Client.Game.AI.PatrolPlanning
 
 		public PatrolRoute PlanRoute(Actor actor)
 		{
+
+			Debug.Log("Creating patrol plan for actor: " + actor);
+
 			var route = new PatrolRoute();
 			route.CurrentDirection = Vector3.right;
 
-			route.Left = actor.GameObject.transform.position;
-			route.Right = actor.GameObject.transform.position;
+			route.Left = VectorUtils.Vector2(actor.GameObject.transform.position);
+			route.Right = VectorUtils.Vector2(actor.GameObject.transform.position);
 
 			while(true) {
-				var test = route.Left + Vector3.left;
+				var test = route.Left + Vector2.left;
 
 				if(PositionIsTraversable(test, actor)) {
 					route.Left = test;
@@ -30,7 +34,7 @@ namespace Client.Game.AI.PatrolPlanning
 			}
 
 			while(true) {
-				var test = route.Right + Vector3.right;
+				var test = route.Right + Vector2.right;
 
 				if(PositionIsTraversable(test, actor)) {
 					route.Right = test;
@@ -43,21 +47,21 @@ namespace Client.Game.AI.PatrolPlanning
 		}
 
 
-		private bool PositionIsTraversable(Vector3 position, Actor byActor) {
+		private bool PositionIsTraversable(Vector2 position, Actor byActor) {
 			int mask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Door.ToString()});
 
 			//is that position a wall? 
-			var offsetTest = position + new Vector3(0, .5f, 0);
-			var wallHits = Physics.OverlapSphere(offsetTest, .01f, mask);
+			var offsetTest = position + new Vector2(0, .5f);
+			var wallHits = Physics2D.OverlapCircleAll(offsetTest, .01f, mask);
 			if(wallHits.Length > 0)
 				return false;
 
 			//if the enemy is grounded, is immediately underneath a floor?
 			if(byActor.Attributes[ActorAttributes.GravityScalar] != 0f) {
-				var underneath = position + new Vector3(0, -.5f, 0);
+				var underneath = position + new Vector2(0, -.5f);
 				int walkableMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString()});
 
-				var floorHits = Physics.OverlapSphere(underneath, .1f, walkableMask);
+				var floorHits = Physics2D.OverlapCircleAll(underneath, .1f, walkableMask);
 
 				return floorHits.Length > 0;
 			}
@@ -69,14 +73,14 @@ namespace Client.Game.AI.PatrolPlanning
 
 	public class PatrolRoute {
 
-		public Vector3 Left;
-		public Vector3 Right;
+		public Vector2 Left;
+		public Vector2 Right;
 
 		public void Flip() {
 			CurrentDirection *= -1f;
 		}
 
-		public Vector3 CurrentDirection;
+		public Vector2 CurrentDirection;
 	}
 }
 

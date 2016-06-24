@@ -159,14 +159,17 @@ namespace Client.Game.Map
 		}
 
 
-		Collider AddColliderForChunk(GameObject go, Chunk chunk, bool trigger) {
-			var box = go.AddComponent<BoxCollider>();
+		void AddColliderForChunk(GameObject go, Chunk chunk, bool trigger) {
+			var box = go.AddComponent<BoxCollider2D>();
 			box.size = new Vector3(chunk.Width, chunk.Height, 1);
 			var halfSize = box.size*.5f;
 			if(chunk.Height > 1) halfSize.y = -.5f*chunk.Height+1;
-			box.center = halfSize;
+			box.offset = halfSize;
 			box.isTrigger = trigger;
-			return box;
+
+			var rb = go.AddComponent<Rigidbody2D>();
+			rb.isKinematic = true;
+			rb.gravityScale = 0f;
 		}
 
 		void DrawWalls (Room room, Color color, GameObject gameobject)

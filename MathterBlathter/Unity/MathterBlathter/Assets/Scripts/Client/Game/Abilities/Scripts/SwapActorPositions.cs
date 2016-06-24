@@ -5,6 +5,7 @@ using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Enums;
 using Client.Game.Abilities.Payloads;
+using Client.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -15,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 		}
 
 		private ProjectileActor currentProjectile;
-		private Vector3 SampledPosition;
+		private Vector2 SampledPosition;
 		bool aborted;
 
 		#region implemented abstract members of AbilityBase
@@ -34,10 +35,11 @@ namespace Client.Game.Abilities.Scripts
 
 		}
 
-		Vector3 Sample (ProjectileActor currentProjectile)
+
+		Vector2 Sample (ProjectileActor currentProjectile)
 		{
 			if(currentProjectile.GameObject != null) {
-				SampledPosition = currentProjectile.transform.position;
+				SampledPosition = VectorUtils.Vector2(currentProjectile.transform.position);
 			}
 			return SampledPosition;
 		}
@@ -56,10 +58,9 @@ namespace Client.Game.Abilities.Scripts
 		{
 			if(currentProjectile.GameObject != null) {
 
-				Ray ray = new Ray(SampledPosition, context.targetDirection);
+				var hitInfo = Physics2D.Raycast(SampledPosition, VectorUtils.Vector2(context.targetDirection), (Sample(currentProjectile) - SampledPosition).magnitude );
 
-				RaycastHit hitInfo;
-				if(Physics.Raycast(ray, out hitInfo, (Sample(currentProjectile) - ray.origin).magnitude )) {
+				if(hitInfo != null) {
 
 					Actor hitActor;
 					var result = currentProjectile.TestTrigger(hitInfo.collider, out hitActor);

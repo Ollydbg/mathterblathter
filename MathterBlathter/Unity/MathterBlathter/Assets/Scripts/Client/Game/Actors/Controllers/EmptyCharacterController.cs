@@ -14,6 +14,10 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void FixedUpdate ()
+		{
+		}
+
 		public void Jump ()
 		{
 		}
@@ -26,7 +30,7 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
-		public void KnockDirection (UnityEngine.Vector3 direction, float force)
+		public void KnockDirection (UnityEngine.Vector2 direction, float force)
 		{
 		}
 

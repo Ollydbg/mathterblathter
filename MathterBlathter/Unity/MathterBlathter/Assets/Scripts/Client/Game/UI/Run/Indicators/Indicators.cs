@@ -16,7 +16,6 @@ namespace Client.Game.UI.Run.Indicators
 
 		public GameObject ThreatTemplate;
 		public GameObject ObjectiveTemplate;
-		Transform playerTransform;
 		bool wasCombat = false;
 		bool isCombat {
 			get {
@@ -28,7 +27,6 @@ namespace Client.Game.UI.Run.Indicators
 			Game.RoomManager.OnRoomEntered += OnRoomEntered;
 			Game.RoomManager.OnCurrentRoomUnlocked += OnRoomUnlocked;
 			
-			playerTransform = Game.PossessedActor.transform;
 
 			ThreatTemplate.SetActive(false);
 			ObjectiveTemplate.SetActive(false);
@@ -43,11 +41,10 @@ namespace Client.Game.UI.Run.Indicators
 			
         }
 
-		Vector3 closestRoomTypePosition(RoomType type) {
+		void closestRoomTypePosition(RoomType type, List<Vector3> addToList) {
 			
 			var list = Game.RoomManager.RoomsOfType(type);
 			var position = Game.PossessedActor.transform.position;
-			Vector3 closest = Vector3.one * float.MaxValue;
 			float closestDistance = float.MaxValue;
 			Room closestRoom = null;
 
@@ -55,13 +52,13 @@ namespace Client.Game.UI.Run.Indicators
 				var test = room.roomCenter - position;
 				var testDistance = test.sqrMagnitude;
 				if(testDistance < closestDistance) {
-					closest = test;
 					closestRoom = room;
 					closestDistance = testDistance; 
 				}
 			}
 
-			return closestRoom.roomCenter;
+			if(closestRoom != null)
+				addToList.Add(closestRoom.roomCenter);
 			
 		}
 
@@ -90,7 +87,7 @@ namespace Client.Game.UI.Run.Indicators
 			} else if ( !isCombat && wasCombat) {
 				Cleanup();
 				var zoneObjectives = new List<Vector3>();
-				zoneObjectives.Add(closestRoomTypePosition(RoomType.Store));
+				closestRoomTypePosition(RoomType.Store, zoneObjectives);
 				foreach(var obj in zoneObjectives) {
 					var wrapper = new ObjectiveWrapper(obj);
 					if(!indicators.ContainsKey(wrapper)) {

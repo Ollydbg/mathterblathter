@@ -34,6 +34,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
+				//ret.Solo = true;
 				ret.Type = RoomType.LurchStart | RoomType.NoWaves;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                       w";
@@ -52,12 +53,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "            L              L                L               L       L  d";
 				ret.AsciiMap += "                                               1                       d";
-				ret.AsciiMap += "                               @                                       d";
+				ret.AsciiMap += "                                                                       d";
+				ret.AsciiMap += "                                                                      Pw";
+				ret.AsciiMap += "                                                                     ccw";
+				ret.AsciiMap += "                              @                             PPPPPPPPPPPw";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
@@ -76,9 +79,8 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Type = RoomType.NoWaves;
-
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
                 ret.AsciiMap += "d                                                               d";
@@ -93,34 +95,35 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w ...................................................           w";
-                ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
+                ret.AsciiMap += "w .....     .........................................           w";
+                ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                       ....... w";
                 ret.AsciiMap += "w                                                     ppppppppppw";
-                ret.AsciiMap += "w                        1                                      w";
+                ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "wPPPP                                                           w";
-                ret.AsciiMap += "w                                                       w       w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP             1             w       w";
-                ret.AsciiMap += "w                        1                              ppppppppw";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                              1                                w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+                ret.AsciiMap += "w                                                       ppppppppw";
+                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                   L                                           w";
-                ret.AsciiMap += "w                      PPPP                                     w";
+                ret.AsciiMap += "w                      PPPP   1                                 w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
 				ret.AsciiMap += "d                            C                                  d";
-                ret.AsciiMap += "d                                .......................        d";
-                ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
+                ret.AsciiMap += "d                                .......................2       d";
+                ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RAGE_MACHINE_ITEM;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.JACKHAMMER_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
-				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
-				//ret.AsciiSpawnLookup['N'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
+
+				ret.AsciiSpawnLookup['2'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
 
 				finalize(ret);
 

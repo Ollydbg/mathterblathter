@@ -8,6 +8,7 @@ using Client.Game.Data;
 using Client.Game.Attributes;
 using Client.Game.Enums;
 using Client.Game.States;
+using UnityEngine.Audio;
 
 namespace Client.Game.Core
 {
@@ -37,6 +38,7 @@ namespace Client.Game.Core
 		public WorldFXManager WorldFXManager;
 		public FSM States;
 
+		public AudioMixer AudioMixer;
 
 		public Seed Seed {
 			get; private set;
@@ -51,6 +53,7 @@ namespace Client.Game.Core
 		private void Init() {
 
 			this.Seed = new Seed(DateTime.UtcNow.Millisecond);
+			AudioMixer = Resources.Load("AudioMix/GameMix") as AudioMixer;
 
 			CreateManagers();
 			States.Start(this);

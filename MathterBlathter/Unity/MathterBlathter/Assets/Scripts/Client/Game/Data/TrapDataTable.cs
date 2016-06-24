@@ -91,6 +91,10 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.GravityScalar.Id, 0f
 				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 80f
+				));
+
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id, 
 					AbilityDataTable.LAUNCH_PAD_BUFF.Id,
