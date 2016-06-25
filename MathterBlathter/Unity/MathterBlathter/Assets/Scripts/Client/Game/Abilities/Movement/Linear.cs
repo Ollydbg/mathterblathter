@@ -14,6 +14,12 @@ namespace Client.Game.Abilities.Movement
 			this.Speed = speed;
 		}
 
+		public override void Redirect (Vector3 direction)
+		{
+			this.Direction = direction;
+		}
+
+
 		public override void Update (float dt)
 		{
 			Target.transform.position += (Direction * (Speed * dt));

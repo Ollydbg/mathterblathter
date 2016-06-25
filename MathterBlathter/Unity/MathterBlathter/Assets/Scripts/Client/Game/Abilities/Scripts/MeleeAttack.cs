@@ -11,13 +11,17 @@ namespace Client.Game.Abilities.Scripts
 	public class MeleeAttack : AbilityBase
 	{
 		private FilterList AttackFilters;
-
+		private FilterList RedirectedProjectile;
 		public MeleeAttack ()
 		{
 			AttackFilters = new FilterList(
 				Filters.NotSelfFilter,
 				HittableOrProjectile,
 				Filters.NotPendingDelete
+			);
+
+			RedirectedProjectile = new FilterList(
+				Filters.Hittable, Filters.NotPendingDelete
 			);
 		}
 
@@ -57,16 +61,29 @@ namespace Client.Game.Abilities.Scripts
 			
 		}
 
+		void ReflectOrDestroy (ProjectileActor projectileActor)
+		{
+			if(SourceWeapon.Attributes[ActorAttributes.ReflectsProjectiles]) {
+				var reflected = Vector3.Reflect(projectileActor.Movement.Heading(), context.targetDirection);
+				projectileActor.Movement.Redirect(reflected);
+				projectileActor.Point(reflected);
+				projectileActor.SetCollisionFilters(projectileActor.Context, RedirectedProjectile);
+			} else {
+				projectileActor.Destroy();
+			}
+		}
 
 		public void DamageFacing() {
+			var sw = SourceWeapon;
 			var point = context.source.HalfHeight + offset;
-			var range = SourceWeapon.Attributes[ActorAttributes.MeleeRange];
-			var size = SourceWeapon.Attributes[ActorAttributes.MeleeWidth];
+			var range = sw.Attributes[ActorAttributes.MeleeRange];
+			var size = sw.Attributes[ActorAttributes.MeleeWidth];
 			var inRange = AbilityUtils.CircleCastAll(point, context, size, AttackFilters, range);
 			foreach (var actor in inRange) {
 
 				if(actor.ActorType == Client.Game.Data.ActorType.Projectile) {
-					actor.Destroy();
+					
+					ReflectOrDestroy(actor as ProjectileActor);
 					continue;
 				}
 

@@ -16,18 +16,23 @@ namespace Client.Game.Abilities.Movement
 			Rigidbody.AddForce(Direction * speed, ForceMode.VelocityChange);
 		}
 
-		#region implemented abstract members of Movement
 
 		public override UnityEngine.Vector3 Heading ()
 		{
 			return this.Direction.normalized;
 		}
 
+
+		public override void Redirect (Vector3 direction)
+		{
+			this.Direction = direction;
+		}
+
+
 		public override void Update (float dt)
 		{
 		}
 
-		#endregion
 	}
 }
 

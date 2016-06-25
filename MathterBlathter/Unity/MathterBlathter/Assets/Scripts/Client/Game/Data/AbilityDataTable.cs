@@ -189,7 +189,7 @@ namespace Client.Game.Data
 
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeee";
-				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
+				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/hotRailsHit_prefab", AttachPoint.WeaponSlot);
 
 				ret.Timelines.Add(fireTimeline);
 				ret.Timelines.Add(hitTimeline);

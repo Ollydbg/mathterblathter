@@ -86,8 +86,7 @@ namespace Client
 			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
 			
 			projectile.transform.position = AttachPointComponent.AttachPointPositionOnActor(point, context.source);
-
-			projectile.transform.LookAt(projectile.transform.position + adjustedDirection);
+			projectile.Point(projectile.transform.position + adjustedDirection);
 
 			projectile.SetMovement (new Linear(projectile, adjustedDirection, speed));
 			projectile.SetCollisionFilters(context, FilterList.QuickFilters);

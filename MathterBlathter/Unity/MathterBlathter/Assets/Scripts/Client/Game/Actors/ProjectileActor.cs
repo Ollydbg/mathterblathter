@@ -18,7 +18,7 @@ namespace Client.Game.Actors
 		private float lifetime = 0f;
 		private FilterList collisionFilters;
 
-		AbilityContext context;
+		public AbilityContext Context;
 
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
 		private static int HARD_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
@@ -46,13 +46,17 @@ namespace Client.Game.Actors
 
 
 		public void SetCollisionFilters(AbilityContext context, FilterList filters) {
-			this.context = context;
+			this.Context = context;
 			this.collisionFilters = filters;
 		}
 
 		void OnCollision (Collision2D collision)
 		{
 			Game.ActorManager.RemoveActor(this);
+		}
+
+		public void Point(Vector3 direction) {
+			transform.LookAt(direction);
 		}
 
 		public TriggerTestResult TestTrigger(Collider2D collider, out Actor actor) {
@@ -64,7 +68,7 @@ namespace Client.Game.Actors
 			var actorRef = collider.GetComponent<ActorRef>();
 			if (actorRef != null) {
 				
-				if (collisionFilters.Check(context, actorRef.Actor)) {
+				if (collisionFilters.Check(Context, actorRef.Actor)) {
 					actor = actorRef.Actor;
 					return TriggerTestResult.Ok;
 				}
@@ -84,14 +88,13 @@ namespace Client.Game.Actors
 				OnHit(actor);
 			}
 
-			//if(lifetime > .1f) {
-				if(result == TriggerTestResult.Geometry) {
-					if(OnGeometryHit != null)
-						OnGeometryHit();
-					Game.ActorManager.RemoveActor(this);
+			if(result == TriggerTestResult.Geometry) {
+				if(OnGeometryHit != null)
+					OnGeometryHit();
+				Game.ActorManager.RemoveActor(this);
 
-				}
-			//}
+			}
+
 		}
 
 		public override void Update (float dt)

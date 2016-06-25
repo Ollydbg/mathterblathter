@@ -14,7 +14,7 @@ namespace Client.Game.Abilities.Movement
 		}
 
 		public abstract Vector3 Heading();
-
+		public abstract void Redirect(Vector3 direction);
 		public abstract void Update(float dt);
 	}
 }

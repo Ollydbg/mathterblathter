@@ -50,7 +50,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeB PassesThroughPlatforms = new GameAttributeB(27, 0, "Passes Through Platforms", 0, 1);
 		public static readonly GameAttributeI MinLevelSpawn = new GameAttributeI(28, 0, "MinimumElevationForSpawn", int.MinValue, int.MaxValue);
 		public static readonly GameAttributeI MaxLevelSpawn = new GameAttributeI(29, 0, "MaximumElevationForSpawn", int.MinValue, int.MaxValue);
-		public static readonly GameAttributeF DropRate = new GameAttributeF(30, .02f, "DropRate", 0, float.MaxValue);
+		public static readonly GameAttributeF DropRate = new GameAttributeF(30, .04f, "DropRate", 0, float.MaxValue);
 		public static readonly GameAttributeF FallFireVelocity = new GameAttributeF(31, 10f, "FallFireVelocity", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeF Inaccuracy = new GameAttributeF(32, 0f, "inaccuracy", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeI MaxWeapons = new GameAttributeI(33, 2, "maxWeapons", 0, int.MaxValue);
@@ -81,7 +81,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF CurseProbability = new GameAttributeF(58, 0f, "curseProbability", 0, 1);
 		public static readonly GameAttributeF MeleeRange = new GameAttributeF(59, 1f, "melee range", 0, float.MaxValue);
 		public static readonly GameAttributeF MeleeWidth = new GameAttributeF(60, 1f, "melee width", 0, float.MaxValue);
-		
+		public static readonly GameAttributeB ReflectsProjectiles= new GameAttributeB(61, 0, "reflect projectiles", 0, 1);
 	}
 }
 

@@ -26,14 +26,14 @@ namespace Client.Game.Actors
 		public event CollisionDelegate CollisionEvent;
 
 		void OnColliderEnter2D(Collision2D collision) {
-			if(CollisionEvent != null) {
+			if(CollisionEvent != null && collision.gameObject != null) {
 				CollisionEvent(collision);
 			}
 		}
 
 		void OnTriggerEnter2D(Collider2D collider) {
 
-			if (TriggerEvent != null) {
+			if (TriggerEvent != null && collider.gameObject != null) {
 				TriggerEvent (collider);
 			}
 
@@ -47,7 +47,7 @@ namespace Client.Game.Actors
 
 		private void TryTriggerActorEvent(Collider2D collider, TriggerActorDelegate evt) {
 			
-			if(evt != null) {
+			if(evt != null && collider.gameObject != null) {
 				var touchingRef = collider.gameObject.GetComponent<ActorRef>();
 				if(touchingRef != null) {
 					evt(touchingRef.Actor);

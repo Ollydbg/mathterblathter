@@ -804,9 +804,11 @@ namespace Client.Game.Data
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.ReflectsProjectiles.Id, 1));
+
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.MELEE_ONE_HANDED));
 
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, -2));
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, -8));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 45

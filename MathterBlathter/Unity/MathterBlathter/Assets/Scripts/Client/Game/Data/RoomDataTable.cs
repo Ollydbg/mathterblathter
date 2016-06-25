@@ -123,7 +123,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.JACKHAMMER_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
 
-				ret.AsciiSpawnLookup['2'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
+				ret.AsciiSpawnLookup['2'] = CharacterDataTable.GROUNDED_RANGED_ENEMY;
 
 				finalize(ret);
 
