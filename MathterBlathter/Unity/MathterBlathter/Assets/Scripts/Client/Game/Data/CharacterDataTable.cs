@@ -590,7 +590,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 
-				ret.ResourcePath = "Actors/Enemies/EnemyTest_prefab";
+				ret.ResourcePath = "Actors/Enemies/ViperEnemy_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 200
@@ -606,7 +606,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 14
+					ActorAttributes.BloodBounty.Id, 25
 				));;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (

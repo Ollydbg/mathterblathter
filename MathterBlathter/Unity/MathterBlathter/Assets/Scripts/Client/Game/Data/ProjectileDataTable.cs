@@ -49,6 +49,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Projectile;
 				ret.ResourcePath = "Projectiles/HotRail_prefab";
 				return ret;
+
 			}
 		}
 

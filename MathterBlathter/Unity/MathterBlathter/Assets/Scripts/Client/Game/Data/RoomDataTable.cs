@@ -65,7 +65,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RUST_MACHINE;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.JACKHAMMER_WEAPON;
 
 				finalize(ret);
 
@@ -79,7 +79,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
@@ -1040,24 +1040,24 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                                                                                               d";
 				ret.AsciiMap += "w                                                                                                                               d";
 				ret.AsciiMap += "w                                                                                                                               d";
-				ret.AsciiMap += "w                                                                    4                                                          w";
+				ret.AsciiMap += "w                                                                                                                               w";
 				ret.AsciiMap += "w                          PPPPPPPPPPP                                                                                          w";
 				ret.AsciiMap += "w                    wwwwwwwwwwww                                                                                               w";
-				ret.AsciiMap += "w                    wwwwwwwwwwww,  7                                                                     L                     w";
-				ret.AsciiMap += "w                              fffffffffffffffff                                           3    ,      2                        w";
-				ret.AsciiMap += "wPPPPPP                                                                                         PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                    wwwwwwwwwwww,                                                                        L                     w";
+				ret.AsciiMap += "w                              fffffffffffffffff                                         ,                                      w";
+				ret.AsciiMap += "wPPPPPP                                                                                  pppppppPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
 				ret.AsciiMap += "w                                                             PPPPPPPPPPPPPPPPPPP                                               w";
 				ret.AsciiMap += "w                                                             PPPPPPPPPPPPPPPPPPP                                               w";
 				ret.AsciiMap += "w                                                             PPPPPPPPPPPPPPPPPPP                                               w";
 				ret.AsciiMap += "w                                                             PPPPPPPPPPPPPPPPPPP                                               w";
-				ret.AsciiMap += "w            1                                                PPPPPPPPPPPPPPPPPPP                                               w";
+				ret.AsciiMap += "w                                                             PPPPPPPPPPPPPPPPPPP                                               w";
 				ret.AsciiMap += "wPPPPPPPPPPPPPP                                     wwwwwwwwwwPPPPPPPPPPPPPPPPPPP                                               w";
 				ret.AsciiMap += "w                                 L                                                                                             w";
 				ret.AsciiMap += "w                                                                                                                               w";
-				ret.AsciiMap += "w                                             4                 6                                                               w";
-				ret.AsciiMap += "w                                                                            4                                                  w";
-				ret.AsciiMap += "w                                     5                                                                                         w";
-				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                          L                                    w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                                                                                                                               w";
+				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                                                               w";
 				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                                                               w";
 				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                                                               w";
 				ret.AsciiMap += "w                          PPPPPPPPPPPPPPPPPPPPPP                                                                               w";

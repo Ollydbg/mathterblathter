@@ -27,8 +27,8 @@ namespace Client.Game.Abilities.Utils
 		}
 
 
-		public static List<Actor> CircleCastAll(Vector3 point, AbilityContext context, float size, FilterList filters ) {
-			var hits = Physics2D.CircleCastAll(VectorUtils.Vector2(point), size, context.targetDirection);
+		public static List<Actor> CircleCastAll(Vector3 point, AbilityContext context, float size, FilterList filters, float distance ) {
+			var hits = Physics2D.CircleCastAll(VectorUtils.Vector2(point), size, context.targetDirection, distance);
 			
 			List<Actor> buff = new List<Actor> ();
 			foreach (var hit in hits) {

@@ -106,7 +106,7 @@ namespace Client.Game.Data
 				
 				ret.Spawns.Add(CharacterDataTable.GROUND_STATIC_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLY_BOT_SPAWNER_ENEMY);
-
+				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
 
 
 				ret.Difficulty = 5;
@@ -154,6 +154,8 @@ namespace Client.Game.Data
 
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				
 
 				ret.Difficulty = 10;
 				return ret;
@@ -177,6 +179,24 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 
 				ret.Difficulty = 14;
+				return ret;
+			}
+		}
+
+		public static WaveData ROCKETS_SNIPERS {
+			get {
+				var ret = new WaveData();
+				ret.Id = 10;
+				ret.PreDelay = 1f;
+
+				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
+
+				ret.Difficulty = 17;
 				return ret;
 			}
 		}

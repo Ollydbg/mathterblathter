@@ -79,7 +79,9 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF CameraShakeForce = new GameAttributeF(56, .1f, "kick force", 0, float.MaxValue);
 		public static readonly GameAttributeF ProjectileBeamWidth = new GameAttributeF(57, 1f, "projectileBeamWidth", 0, float.MaxValue);
 		public static readonly GameAttributeF CurseProbability = new GameAttributeF(58, 0f, "curseProbability", 0, 1);
-		public static readonly GameAttributeF MeleeRange = new GameAttributeF(59, 1f, "melee range", 0, float.MaxValue);	
+		public static readonly GameAttributeF MeleeRange = new GameAttributeF(59, 1f, "melee range", 0, float.MaxValue);
+		public static readonly GameAttributeF MeleeWidth = new GameAttributeF(60, 1f, "melee width", 0, float.MaxValue);
+		
 	}
 }
 

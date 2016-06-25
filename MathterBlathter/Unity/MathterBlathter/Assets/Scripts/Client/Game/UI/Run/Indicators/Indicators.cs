@@ -151,7 +151,7 @@ namespace Client.Game.UI.Run.Indicators
 		bool TryConstrainToScreen (Vector3 point, out Vector3 constrained)
 		{
 
-			constrained = new Vector3(point.x, point.y, point.z);
+			constrained = new Vector3(point.x, point.y, 0f);
 			constrained.x = Mathf.Clamp(constrained.x, 0, Screen.width);
 			constrained.y = Mathf.Clamp(constrained.y, 0, Screen.height);
 		

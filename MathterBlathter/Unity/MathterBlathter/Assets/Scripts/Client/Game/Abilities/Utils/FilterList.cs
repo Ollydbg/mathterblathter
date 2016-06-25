@@ -37,7 +37,9 @@ namespace Client.Game.Abilities.Utils
 			return actor.Id != ctx.source.Id;
 		}
 
-
+		public static bool IsProjectile(AbilityContext ctx, Actor actor) {
+			return actor.ActorType == Client.Game.Data.ActorType.Projectile;
+		}
 		public static bool Hittable(AbilityContext ctx, Actor actor) {
 			return actor.Attributes[ActorAttributes.TakesDamage] == true;
 		}

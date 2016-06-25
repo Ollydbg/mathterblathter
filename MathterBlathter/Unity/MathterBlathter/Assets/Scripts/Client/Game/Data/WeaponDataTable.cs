@@ -179,11 +179,14 @@ namespace Client.Game.Data
 					1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id, .6f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 70
+					ActorAttributes.BaseDamage.Id, 90
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 13
@@ -783,7 +786,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.ResourcePath = "Weapons/MeleeTest";
 				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Cooldown.Id, .1f
+					ActorAttributes.Cooldown.Id, .4f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -815,9 +818,12 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MeleeRange.Id, 3f
 				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.MeleeWidth.Id, 1f
+				));
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 80;
-
+				ret.Description = "Destroys projectiles, hitting enemies decreases anxiety";
 				ret.Name = "Der Auto Hammer";
 
 				return ret;

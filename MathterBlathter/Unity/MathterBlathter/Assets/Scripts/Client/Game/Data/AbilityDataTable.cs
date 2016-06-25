@@ -62,7 +62,15 @@ namespace Client.Game.Data
 				swingTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/JackhammerSwipe_Prefab", AttachPoint.Muzzle);
 				swingTL.Lookup['s'] = new TimelineData.Point("SFX/melee_woosh", AttachPoint.Muzzle);
 
+				var hitTL = new TimelineData();
+				hitTL.Duration = .5f;
+				hitTL.AsciiMap += "eeeee  ";
+				hitTL.AsciiMap += "ss     ";
+				hitTL.Lookup['s'] = new TimelineData.Point("SFX/balloonImpact", AttachPoint.Muzzle);
+				hitTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/blood_prefab", AttachPoint.Muzzle);
+
 				ret.Timelines.Add(swingTL);
+				ret.Timelines.Add(hitTL);
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MeleeAttack);
 				return ret;
@@ -266,7 +274,7 @@ namespace Client.Game.Data
 				ret.spawnableDataId = CharacterDataTable.ROCKET_PROJECTILE.Id;
 
 				ret.attributeData.Add( new GameData.AttributeData(
-					AbilityAttributes.Damage.Id, 100
+					AbilityAttributes.Damage.Id, 0
 				));
 
 				ret.attributeData.Add( new GameData.AttributeData(
