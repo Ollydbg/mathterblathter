@@ -13,7 +13,7 @@ namespace Client.Game.Data
 
 		public static CharacterData PLAYER_CHARACTER2D {
 			get {
-				var ret = CharacterData;
+				var ret = new CharacterData();
 				ret.Id = 90000;
 				ret.ResourcePath = "Actors/Player/Player_prefab";
 				ret.ActorType = ActorType.Player;
