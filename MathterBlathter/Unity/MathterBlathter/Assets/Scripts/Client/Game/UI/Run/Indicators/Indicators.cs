@@ -16,6 +16,7 @@ namespace Client.Game.UI.Run.Indicators
 
 		public GameObject ThreatTemplate;
 		public GameObject ObjectiveTemplate;
+		Transform Player;
 		bool wasCombat = false;
 		bool isCombat {
 			get {
@@ -27,6 +28,7 @@ namespace Client.Game.UI.Run.Indicators
 			Game.RoomManager.OnRoomEntered += OnRoomEntered;
 			Game.RoomManager.OnCurrentRoomUnlocked += OnRoomUnlocked;
 			
+			Player = Game.PossessedActor.transform;
 
 			ThreatTemplate.SetActive(false);
 			ObjectiveTemplate.SetActive(false);
@@ -36,9 +38,14 @@ namespace Client.Game.UI.Run.Indicators
 					
 		}
 
+		void OnNewWave ()
+		{
+			diffRoomState(force:true);
+		}
+
         private void OnRoomUnlocked(Room room)
         {
-			
+			Game.RoomManager.CurrentRoom.Waves.OnNewWave -= OnNewWave;
         }
 
 		void closestRoomTypePosition(RoomType type, List<Vector3> addToList) {
@@ -73,9 +80,11 @@ namespace Client.Game.UI.Run.Indicators
 		}
 
 
-		void diffIndicators() {
+		void diffRoomState(bool force) {
 			var combat = isCombat;
-			if(combat && !wasCombat) {
+
+
+			if(combat && (!wasCombat || force)) {
 				Cleanup();
 				foreach(var obj in Game.RoomManager.CurrentRoom.Waves.AliveActors) {
 					var wrapper = new ObjectiveWrapper(obj);
@@ -84,7 +93,7 @@ namespace Client.Game.UI.Run.Indicators
 						SpawnForObject(wrapper);
 					}
 				}
-			} else if ( !isCombat && wasCombat) {
+			} else if ( !isCombat && (wasCombat || force)) {
 				Cleanup();
 				var zoneObjectives = new List<Vector3>();
 				closestRoomTypePosition(RoomType.Store, zoneObjectives);
@@ -103,7 +112,7 @@ namespace Client.Game.UI.Run.Indicators
 
 		void OnRoomEntered (Actor actor, Room oldRoom, Room newRoom)
 		{
-			//Cleanup();
+			Game.RoomManager.CurrentRoom.Waves.OnNewWave += OnNewWave;
 		}
 		
 		private void SpawnForObject(ObjectiveWrapper obj) {
@@ -130,7 +139,7 @@ namespace Client.Game.UI.Run.Indicators
 		Vector3 constrained = Vector3.zero;
 		void Update() {
 			
-			diffIndicators();
+			diffRoomState(force:false);
 			
 			foreach( var kvp in indicators) {
 				var item = kvp.Value;
@@ -141,7 +150,7 @@ namespace Client.Game.UI.Run.Indicators
 					item.SetActive(true);
 
 					item.transform.position = constrained;
-					item.transform.rotation = PointToPosition(constrained);
+					item.transform.rotation = PointToPosition(actor.Position);
 				} else {
 					item.SetActive(false);
 				}
@@ -161,19 +170,10 @@ namespace Client.Game.UI.Run.Indicators
 
 		Quaternion PointToPosition (Vector3 screenPoint)
 		{
-			float angle = 0f;
-			if(screenPoint.x == 0f) {
-				angle = -90;
-			}
-			if(screenPoint.x == Screen.width) {
-				angle = 90;
-			}
-
-			if(screenPoint.y == 0f) {
-				angle = 0;
-			}
-			if(screenPoint.y == Screen.height) {
-				angle = 180;
+			var direction = screenPoint - Player.position;
+			var angle = Vector3.Angle(Vector3.right, screenPoint - Player.position);
+			if(direction.y < 0) {
+				angle *= -1f;
 			}
 
 			return Quaternion.AngleAxis(angle, Vector3.forward);

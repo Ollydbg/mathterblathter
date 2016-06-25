@@ -19,7 +19,8 @@ namespace Client.Game.Map
 		public float currentWaveTimer;
 		public GeneratedWave CurrentWave;
 
-		
+		public delegate void WaveHandler();
+		public event WaveHandler OnNewWave;
 		public List<Actor> AliveActors = new List<Actor>();
 		public bool DidStart = false;
 
@@ -50,6 +51,8 @@ namespace Client.Game.Map
 
 				AddActor(actor);
 			}
+			if(OnNewWave != null)
+				OnNewWave();
 		}
 
 		public bool HasWavesRemaining {
@@ -75,7 +78,7 @@ namespace Client.Game.Map
 		public void Advance() {
 			if(HasWavesRemaining) {
 				CurrentWave = CurrentWave.Next;
-				
+
 				InitCurrentWave();
 			}
 			
