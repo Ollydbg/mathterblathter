@@ -657,9 +657,18 @@ namespace Client.Game.Data
 
 				var sapTimeline = new TimelineData();
 				
+				sapTimeline.Duration = .1f;
 				sapTimeline.AsciiMap += "eeeeee   ";
 				sapTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/rocketExplosion_prefab", AttachPoint.WeaponSlot);
+
+				var explodeTL = new TimelineData();
+				explodeTL.Duration = 2f;
+				explodeTL.AsciiMap += "eeeeee   ";
+				explodeTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/rocketExplosion_prefab", AttachPoint.WeaponSlot);
+
 				ret.Timelines.Add(sapTimeline);
+				ret.Timelines.Add(explodeTL);
+
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnergySap);
 
 				return ret;
@@ -757,6 +766,14 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 37;
+
+				var tl = new TimelineData();
+				tl.Duration = 1f;
+				tl.AsciiMap += "eeeeeee";
+				tl.Lookup['e'] = "Projectiles/VFX/LaunchDust_prefab";
+
+				ret.Timelines.Add(tl);
+
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LaunchPadBuff);
 				return ret;
 			}
@@ -1021,6 +1038,25 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static AbilityData DEFAULT_DODGE {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 56;
+				ret.DoesPropogate = true;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DodgeRoll);
+
+				return ret;
+			}
+		}
+		public static AbilityData HIT_ENEMY_FLASH_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 57;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnemyFlashOnHitBuff);
+				return ret;
+			}
+		}
 
 	}
 }

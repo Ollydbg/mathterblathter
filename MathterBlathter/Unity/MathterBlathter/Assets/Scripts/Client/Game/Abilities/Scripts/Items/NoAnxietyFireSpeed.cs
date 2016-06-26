@@ -24,7 +24,7 @@ namespace Client.Game.Abilities.Scripts.Items
 
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			return ttl <= 0f;
 		}

@@ -63,13 +63,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
-				
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
 
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
@@ -114,11 +109,7 @@ namespace Client.Game.Data
 					ActorAttributes.BloodBounty.Id, 10
 				));;
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
@@ -166,9 +157,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
 				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, AbilityDataTable.SHOPKEEPER_INVENTORY_CREATOR.Id, 0
-				));
+				ret.AddAbility(AbilityDataTable.SHOPKEEPER_INVENTORY_CREATOR);
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
@@ -218,11 +208,7 @@ namespace Client.Game.Data
 					ActorAttributes.BloodBounty.Id, 12
 				));;
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
@@ -252,17 +238,9 @@ namespace Client.Game.Data
 					CharacterDataTable.HOT_RAILS.Id,
 					0
 				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+				ret.AddAbility(AbilityDataTable.AIM_RAY_BUFF);
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AIM_RAY_BUFF.Id,
-					1
-				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Speed.Id,
 					.03f
@@ -323,12 +301,7 @@ namespace Client.Game.Data
 					CharacterDataTable.FLY_BOT_CANNON.Id,
 					0
 				));
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				return ret;
 			}
@@ -379,17 +352,11 @@ namespace Client.Game.Data
 					0
 				));
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
 
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.STATIONARY_BUFF.Id,
-					2
-				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+				ret.AddAbility(AbilityDataTable.STATIONARY_BUFF);
+
 
 				return ret;
 			}
@@ -431,11 +398,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id, 0f
 				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
@@ -489,6 +453,14 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Anxiety.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.MaxAnxiety.Id, 30
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponCooldownScalar.Id, 1f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -501,11 +473,13 @@ namespace Client.Game.Data
 					0
 				));
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AnxietyDamageScalar.Id, 
+					1f
 				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
 
 
 				return ret;
@@ -559,17 +533,8 @@ namespace Client.Game.Data
 					ActorAttributes.BloodBounty.Id, 8
 				));;
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.STATIONARY_BUFF.Id,
-					1
-				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+				ret.AddAbility(AbilityDataTable.STATIONARY_BUFF);
 
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -613,18 +578,53 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponCooldownScalar.Id, 1.8f
 				));
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
-
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
 					CharacterDataTable.VIPER_REPEATER_WEAPON.Id,
 					0
 				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData TARGETING_DUMMY {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = 27;
+				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
+				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
+
+				ret.ResourcePath = "Actors/Enemies/GroundTroop/EnemyTestSprite_prefab";
+				ret.ActorType = ActorType.Enemy;
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, int.MaxValue
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Speed.Id, .08f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData( 
+					ActorAttributes.BloodBounty.Id, 6
+				));;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
+				));
+
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					CharacterDataTable.WALL_TURRET_WEAPON.Id,
+					0
+				));
+
+				ret.AddAbility(AbilityDataTable.ANXIETY_REGEN_BUFF);
 
 				return ret;
 			}

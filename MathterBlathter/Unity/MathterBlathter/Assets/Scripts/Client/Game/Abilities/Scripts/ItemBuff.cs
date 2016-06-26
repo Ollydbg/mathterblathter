@@ -25,7 +25,7 @@ namespace Client.Game.Abilities.Scripts
 			TimeLeft -= dt;
 		}
 
-		public override bool isComplete() {
+		public override bool IsComplete() {
 			return TimeLeft <= 0f;
 		}
 

@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using Client.Utils;
 
 namespace Client.Game.AI.Actions
 {
@@ -40,6 +41,31 @@ namespace Client.Game.AI.Actions
 				}
 			}
 
+			return false;
+
+		}
+
+		public static bool PointToPointLOS(Vector3 from, Vector3 to) {
+			
+			var layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString()});
+			var distance = (from - to).magnitude;
+			var hits = Physics2D.RaycastAll(from, to, distance, layerMask);
+			return hits.Length == 0;
+		}
+
+		public static bool LineHasActor(Vector3 from, Vector3 to, Actor target) {
+			var layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
+			var distance = (from - to).magnitude;
+			var hits = Physics2D.LinecastAll(from, to, layerMask);
+			Debug.DrawLine(from, to, Color.cyan, .1f);
+			foreach ( var hit in hits ) {
+				var transform = hit.transform.root;
+				var actorRef = transform.gameObject.GetComponent<ActorRef>();
+
+				if( actorRef != null && actorRef.Actor.Id == target.Id) {
+					return true;
+				}
+			}
 			return false;
 
 		}

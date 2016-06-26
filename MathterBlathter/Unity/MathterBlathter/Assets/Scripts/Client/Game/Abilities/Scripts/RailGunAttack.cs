@@ -53,7 +53,7 @@ namespace Client.Game.Abilities.Scripts
 					var result = currentProjectile.TestTrigger(hit.collider, out hitActor);
 					if(result == TriggerTestResult.Ok) {
 						new WeaponDamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
-
+						SkipTime();
 						PlayTimeline(context.data.Timelines[1], hitActor);
 
 					} else if (result == TriggerTestResult.Geometry) {
@@ -64,7 +64,7 @@ namespace Client.Game.Abilities.Scripts
 
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			return currentProjectile == null || currentProjectile.GameObject == null || aborted;
 		}

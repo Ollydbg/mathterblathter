@@ -49,6 +49,14 @@ namespace Client.Game.Core
 
 		}
 
+		
+		float skipTime = 0f;
+		public void SkipTime (float duration, float amt)
+		{
+			skipTime += duration;
+			Time.timeScale = amt;
+		}
+		
 
 		private void Init() {
 
@@ -81,6 +89,11 @@ namespace Client.Game.Core
 
 
 		public void Update(float dt) {
+			if(skipTime > 0f) {
+				skipTime-= Time.unscaledDeltaTime;
+			} else {
+				Time.timeScale = 1f;
+			}
 			States.Update(dt);
 		}
 

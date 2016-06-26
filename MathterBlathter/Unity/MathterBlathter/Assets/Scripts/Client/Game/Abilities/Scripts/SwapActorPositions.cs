@@ -77,7 +77,7 @@ namespace Client.Game.Abilities.Scripts
 			}
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			return currentProjectile == null || currentProjectile.GameObject == null || aborted;
 		}

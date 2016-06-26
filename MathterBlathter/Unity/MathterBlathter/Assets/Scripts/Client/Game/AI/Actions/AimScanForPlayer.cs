@@ -13,7 +13,7 @@ namespace Client.Game.AI.Actions
 		public static int CastingMask {
 			get {
 				if(_castingMask == -1) {
-					_castingMask = LayerMask.GetMask(new string[]{Layers.Player.ToString()});
+					_castingMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
 						
 				}
 				return _castingMask;
@@ -43,7 +43,6 @@ namespace Client.Game.AI.Actions
 			aimVector = actor.transform.rotation * aimVector;
 
 			actor.WeaponController.AimDirection(aimVector);
-
 
 			var origin = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
 			if (ActorUtils.RayCastForActor(origin, aimVector, out hitActor, CastingMask)) {

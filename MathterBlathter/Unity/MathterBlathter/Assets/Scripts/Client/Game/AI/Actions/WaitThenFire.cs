@@ -2,6 +2,7 @@
 using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Attributes;
+using Client.Game.Enums;
 
 namespace Client.Game.AI.Actions
 {
@@ -21,7 +22,11 @@ namespace Client.Game.AI.Actions
 
 		public override AIResult Update (float dt,Actor actor)
 		{
-			if(ActionUtil.HasLOS(actor, PlayerMid)) {
+			Vector3 muzzle = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
+
+			var aim = actor.WeaponController.GetAimDirection();
+
+			if(ActionUtil.LineHasActor(muzzle, muzzle + (aim * 40f), Player)) {
 				time += dt;
 				if(time >= actor.Attributes[ActorAttributes.AIAttackDelay]) {
 					actor.WeaponController.Attack(direction.normalized);

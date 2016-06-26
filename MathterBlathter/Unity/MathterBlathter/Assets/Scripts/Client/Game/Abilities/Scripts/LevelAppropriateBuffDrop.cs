@@ -24,7 +24,7 @@ namespace Client.Game.Abilities.Scripts
 			Owner.Game.ActorManager.RemoveActor(Owner);
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			return true;
 		}

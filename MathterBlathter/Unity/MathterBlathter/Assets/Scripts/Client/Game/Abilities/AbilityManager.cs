@@ -60,7 +60,7 @@ namespace Client.Game.Abilities
 				foreach (var ability in kvp.Value.Values) {
 
 					ability.Update(dt);
-					if (ability.isComplete ()) {
+					if (ability.IsComplete ()) {
 						deferredRemoves.Enqueue (new RemovePair (kvp.Key, ability));
 					}
 				}

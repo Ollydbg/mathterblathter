@@ -16,7 +16,7 @@ namespace Client.Game.Abilities
 
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			return aborted;
 		}

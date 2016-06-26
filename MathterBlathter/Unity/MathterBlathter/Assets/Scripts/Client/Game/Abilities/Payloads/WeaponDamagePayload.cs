@@ -16,6 +16,16 @@ namespace Client.Game.Abilities.Payloads
 
 			Damage += weaponBaseDamage;
 		}
+
+		public WeaponDamagePayload (AbilityContext ctx, Actor target, float damage) : base(ctx, target, damage)
+		{
+			float weaponBaseDamage = 0f;
+			if(ctx.sourceWeapon != null) {
+				weaponBaseDamage = (float)ctx.sourceWeapon.Attributes[ActorAttributes.BaseDamage];
+			}
+
+			Damage += weaponBaseDamage;
+		}
 	}
 }
 

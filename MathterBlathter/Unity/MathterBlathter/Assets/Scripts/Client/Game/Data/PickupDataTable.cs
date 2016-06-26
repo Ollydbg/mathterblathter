@@ -35,15 +35,9 @@ namespace Client.Game.Data
 				
 				ret.ActorType = ActorType.Pickup;
 				ret.PickupType = PickupType.Item;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.STAT_UP.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.STAT_UP);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
@@ -69,15 +63,9 @@ namespace Client.Game.Data
 				ret.PickupType = PickupType.Buff;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.MOVE_BOOST_TEMP.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.MOVE_BOOST_TEMP);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pump";
@@ -94,15 +82,8 @@ namespace Client.Game.Data
 				ret.PickupType = PickupType.Item;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.HEAL.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.HEAL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 30;
@@ -119,20 +100,11 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.Description = "Improved jumping height, but you sometimes take damage on big falls";
 				ret.PickupType = PickupType.Buff;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.JUMP_BUFF_PERM.Id,
-					0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FALL_DAMAGE_PERM.Id,
-					1
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
+
+				ret.AddAbility(AbilityDataTable.JUMP_BUFF_PERM);
+				ret.AddAbility(AbilityDataTable.FALL_DAMAGE_PERM);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 70;
 				//better jumps, but takes a little damage on falling from heights
@@ -151,15 +123,9 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 
 				ret.PickupType = PickupType.Buff;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.RABBITS_FOOT_BUFF.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.RABBITS_FOOT_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -189,15 +155,9 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.Description = "Lower drop rate, but they're better, I swear";
 				ret.PickupType = PickupType.Buff;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.RABBITS_FOOT_BUFF.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.RABBITS_FOOT_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -225,11 +185,8 @@ namespace Client.Game.Data
 				ret.Id = OFFSET + 8;
 				ret.ActorType = ActorType.Pickup;
 				ret.PickupType = PickupType.Buff;
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.LEVEL_APPROPRIATE_BUFF.Id,
-					0
-				));
+
+				ret.AddAbility(AbilityDataTable.LEVEL_APPROPRIATE_BUFF);
 
 				ret.Availability = Availability.Droppable;
 				return ret;
@@ -243,15 +200,9 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/GoldenPill_prefab";
 				ret.Description = "Decrease your Anxiety";
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.ENERGY_HEAL.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.ENERGY_HEAL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id,
@@ -271,15 +222,9 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.Description = "Take Less Anxiety Damage";
 				ret.ResourcePath = "Items/ItemBuff_prefab";
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.LOWER_ANXIETY_DAMAGE_BUFF.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.LOWER_ANXIETY_DAMAGE_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.Name = "Safety Blanket";
 				ret.Availability = Availability.InShop;
@@ -297,15 +242,10 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/CursedBuff_prefab";
 				ret.PickupType = PickupType.Buff;
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.CURSED_COURAGE_BUFF.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.CURSED_COURAGE_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				
@@ -322,15 +262,8 @@ namespace Client.Game.Data
 				ret.Name = "TRIGGER FINGERS";
 				ret.Description = "Better firing speed";
 				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TRIGGER_FINGERS_BUFF.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));	
+				ret.AddAbility(AbilityDataTable.TRIGGER_FINGERS_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
@@ -348,15 +281,9 @@ namespace Client.Game.Data
 				ret.Name = "ANIMAL HEART";
 				ret.Description = "Do more damage when at low health";
 				ret.ActorType = ActorType.Pickup;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.LOW_HEALTH_DAMAGE_AMP_BUFF.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));	
+
+				ret.AddAbility(AbilityDataTable.LOW_HEALTH_DAMAGE_AMP_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
@@ -376,15 +303,10 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				ret.Cost = 500;	
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.WEAPON_DE_CURSER.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.WEAPON_DE_CURSER);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 
 				ret.Availability = Availability.InShop;
 				return ret;
@@ -399,18 +321,9 @@ namespace Client.Game.Data
 				ret.Description = "+5 charisma makes shop keepers give you a discount";
 				ret.ActorType = ActorType.Pickup;
 				ret.Cost = 1000;
-				
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.SHOP_CHEAPENER_BUFF.Id,
-					0
-				));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
 
+				ret.AddAbility(AbilityDataTable.SHOP_CHEAPENER_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.Availability = Availability.InShop | Availability.Droppable;
 				
@@ -428,16 +341,8 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.Cost = 250;
 
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.KILL_DE_STRESSER_BUFF.Id,
-					0
-				));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.KILL_DE_STRESSER_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.Availability = Availability.InShop | Availability.Droppable;
 
@@ -456,16 +361,10 @@ namespace Client.Game.Data
 				
 				ret.ActorType = ActorType.Pickup;
 				ret.PickupType = PickupType.Item;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.YEE_HAW_BUFF.Id,
-					0
-				));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+
+				ret.AddAbility(AbilityDataTable.YEE_HAW_BUFF);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 
 				ret.Availability = Availability.InShop | Availability.Droppable | Availability.RoomClearReward;
 				ret.Description = "Move faster until hit. Next hit costs anxiety instead of health";
@@ -484,16 +383,9 @@ namespace Client.Game.Data
 
 				ret.ActorType = ActorType.Pickup;
 				ret.PickupType = PickupType.Item;
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.SMALL_ADD_MAX_ANXIETY.Id,
-					0
-				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.SMALL_ADD_MAX_ANXIETY);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 
 				ret.overrideAttributes.Add(new GameData.AttributeData(

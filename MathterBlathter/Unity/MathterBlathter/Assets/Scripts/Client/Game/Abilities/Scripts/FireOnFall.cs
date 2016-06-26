@@ -20,9 +20,8 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			rigidBody = Owner.GameObject.AddComponent<Rigidbody2D>();
 			collider = Owner.GameObject.GetComponent<Collider2D>();
-			collider.isTrigger = false;
+			rigidBody = Owner.GameObject.AddComponent<Rigidbody2D>();
 				
 		}
 
@@ -46,7 +45,7 @@ namespace Client.Game.Abilities.Scripts
 
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			//we abort this buff when something picks up the item
 			return completed || Owner.GameObject.transform.parent != null;

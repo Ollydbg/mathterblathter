@@ -25,6 +25,14 @@ namespace Client.Game.AI
 			return 25;
 		}
 
+
+		internal Actor Player
+		{
+			get {
+				return Game.Instance.PossessedActor;
+			}
+		}
+
 		internal Vector3 PlayerMid
 		{
 			get {

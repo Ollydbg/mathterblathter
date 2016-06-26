@@ -47,8 +47,9 @@ namespace Client.Game.Abilities.Scripts
 			projectile.OnHit = (actor) => {
 				new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 				context.source.Game.ActorManager.RemoveActor(projectile);
+
 				PlayTimeline(context.data.Timelines[1], actor);
-				
+				SkipTime();
 				KnockBack(actor as Actors.Character, (actor.transform.position - projectile.transform.position).normalized);
 
 			};

@@ -92,7 +92,7 @@ namespace Client.Game.Actors
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {
 			this.Game = game;
-			var coll = GameObject.GetComponentInChildren<Collider> ();
+			var coll = GameObject.GetComponentInChildren<Collider2D> ();
 			if(coll != null) {
 				colliderHeight = coll.bounds.extents.y;
 			}

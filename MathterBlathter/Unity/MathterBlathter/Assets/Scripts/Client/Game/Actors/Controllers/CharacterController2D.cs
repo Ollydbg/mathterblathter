@@ -86,7 +86,7 @@ namespace Client.Game.Actors.Controllers
 				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .1f, groundedMask);
 				var goodHit = hit.collider != null;
 
-				return goodHit;
+				return goodHit && rigidBody.velocity.y == 0f;
 			}
 		}
 

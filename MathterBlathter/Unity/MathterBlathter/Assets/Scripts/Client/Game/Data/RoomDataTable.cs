@@ -34,7 +34,6 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 100;
-				//ret.Solo = true;
 				ret.Type = RoomType.LurchStart | RoomType.NoWaves;
 				ret.SortOrder = 0;
 				ret.AsciiMap += "                                                                       w";
@@ -65,7 +64,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.JACKHAMMER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
 
 				finalize(ret);
 
@@ -106,24 +105,22 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "wPPPP                                                           w";
-                ret.AsciiMap += "w                                                               w";
+                ret.AsciiMap += "w                     1                                         w";
                 ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
                 ret.AsciiMap += "w                                                       ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                   L                                           w";
-                ret.AsciiMap += "w                      PPPP   1                                 w";
+                ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
 				ret.AsciiMap += "d                            C                                  d";
-                ret.AsciiMap += "d                                .......................2       d";
+                ret.AsciiMap += "d                                .............1.........        d";
                 ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.JACKHAMMER_WEAPON;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
-
-				ret.AsciiSpawnLookup['2'] = CharacterDataTable.GROUNDED_RANGED_ENEMY;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 				finalize(ret);
 

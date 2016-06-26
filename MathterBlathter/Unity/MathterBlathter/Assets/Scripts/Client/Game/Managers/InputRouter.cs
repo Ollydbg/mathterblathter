@@ -25,6 +25,7 @@ namespace Client.Game.Managers
 		public static string PS4_RSTICK_H = "PS4_RSTICK_H";
 		public static string PS4_RSTICK_V = "PS4_RSTICK_V";
 		public static string ACTIVE_ITEM = "ActiveItem";
+		public static string DODGE_ROLL = "DodgeRoll";
 
 		public static KeyCode PAUSE = KeyCode.Escape;
 

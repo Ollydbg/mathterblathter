@@ -82,6 +82,12 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF MeleeRange = new GameAttributeF(59, 1f, "melee range", 0, float.MaxValue);
 		public static readonly GameAttributeF MeleeWidth = new GameAttributeF(60, 1f, "melee width", 0, float.MaxValue);
 		public static readonly GameAttributeB ReflectsProjectiles= new GameAttributeB(61, 0, "reflect projectiles", 0, 1);
+		public static readonly GameAttributeF ExplosionRadius = new GameAttributeF(62, 1f, "explosion radius", 0, float.MaxValue);
+		public static readonly GameAttributeF DodgeRollDistance = new GameAttributeF(63, 1f, "roll distance", 0, 10f);
+		public static readonly GameAttributeF DodgeRollSpeed = new GameAttributeF(64, 1f, "roll speed", 0, 10f);
+		public static readonly GameAttributeF TimeSkipDuration = new GameAttributeF(65, .025f, "on hit time skip", 0, 1f);
+		public static readonly GameAttributeF TimeSkipAmount = new GameAttributeF(66, .05f, "on hit time skip to", 0, 1f);
+
 	}
 }
 

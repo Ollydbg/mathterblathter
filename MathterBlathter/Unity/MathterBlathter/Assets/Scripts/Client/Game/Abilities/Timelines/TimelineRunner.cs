@@ -18,6 +18,11 @@ namespace Client.Game.Abilities.Timelines
 
 		public static AudioMixerGroup SFXGroup;
 
+		public float CompleteAt;
+		public bool IsComplete() {
+			return Time.time >= CompleteAt;
+		}
+
 		public TimelineRunner ()
 		{
 			if(HandlerMap == null) {
@@ -36,6 +41,8 @@ namespace Client.Game.Abilities.Timelines
 			foreach( var kvp in timelineData.Lookup) {
 				HandlerMap[kvp.Key](kvp.Value, timelineData, target.GameObject, direction);
 			}
+
+			CompleteAt = Mathf.Max(CompleteAt, Time.time + timelineData.Duration);
 		}
 
 		public void Play (TimelineData timelineData, Vector3 worldPos, Vector3 direction)

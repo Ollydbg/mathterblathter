@@ -26,11 +26,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.GravityScalar.Id, 0f
 				));
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.DAMAGE_ON_TOUCH_BUFF.Id,
-					0
-				));
+
+				ret.AddAbility(AbilityDataTable.DAMAGE_ON_TOUCH_BUFF);
 
 
 				return ret;
@@ -57,11 +54,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.GravityScalar.Id, 0f
 				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.AI_BUFF.Id,
-					0
-				));
+				
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
@@ -94,12 +88,8 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, 80f
 				));
+				ret.AddAbility(AbilityDataTable.LAUNCH_PAD_BUFF);
 
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.LAUNCH_PAD_BUFF.Id,
-					0
-				));
 
 				return ret;
 			}

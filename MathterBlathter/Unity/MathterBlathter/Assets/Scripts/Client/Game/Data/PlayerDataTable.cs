@@ -77,36 +77,12 @@ namespace Client.Game.Data
 					0
 				));
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.PLAYER_DEATH_BUFF.Id,
-					(int)AbilitySlots.Death
-				));
-
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.INVULNERABLE_AFTER_HIT_BUFF.Id,
-					0
-				));
-
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.ANXIETY_REGEN_BUFF.Id,
-					1
-				));
-
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.ROOM_UNLOCK_HARDENER.Id,
-					2
-				));
-
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.ROOM_UNLOCK_DROP_BUFF.Id,
-					3
-				));
+				ret.AddAbility(AbilityDataTable.PLAYER_DEATH_BUFF);
+				ret.AddAbility(AbilityDataTable.INVULNERABLE_AFTER_HIT_BUFF);
+				ret.AddAbility(AbilityDataTable.ANXIETY_REGEN_BUFF);
+				ret.AddAbility(AbilityDataTable.ROOM_UNLOCK_HARDENER);
+				ret.AddAbility(AbilityDataTable.ROOM_UNLOCK_DROP_BUFF);
+				ret.AddAbility(AbilityDataTable.HIT_ENEMY_FLASH_BUFF);
 
 
 				return ret;

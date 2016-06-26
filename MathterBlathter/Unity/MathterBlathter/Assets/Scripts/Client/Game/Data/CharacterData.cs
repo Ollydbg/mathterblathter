@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Client.Game.Data;
 using Client.Game.Enums;
 using UnityEngine;
+using System.Linq;
+using Client.Game.Attributes;
 
 namespace Client.Game.Data
 {
@@ -32,6 +34,11 @@ namespace Client.Game.Data
 		public PickupType PickupType;
 
 
+
+		public void AddAbility(AbilityData ability) {
+			var numAbils = this.attributeData.Where( p => p.Id == ActorAttributes.Abilities.Id).Count();
+			this.attributeData.Add(new CharacterData.AttributeData(ActorAttributes.Abilities.Id, ability.Id, numAbils));
+		}
 	}
 
 	[FlagsAttribute]

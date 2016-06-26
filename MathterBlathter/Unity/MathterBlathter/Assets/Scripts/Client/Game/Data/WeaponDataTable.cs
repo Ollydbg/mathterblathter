@@ -17,14 +17,9 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Wall Turret Weapon";
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.ENEMY_PROJECTILE_TEST.Id, 0
-				));
 
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.ENEMY_PROJECTILE_TEST);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Cooldown.Id, 1f
@@ -45,33 +40,16 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Ceramic Sawed Off Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.SHOTGUN_BLAST.Id, 0
-				));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id, 1
-				));
 
-
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
-
-
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.LIMITED_USE_ITEM_DEBUFF.Id, 3
-				));
+				ret.AddAbility(AbilityDataTable.SHOTGUN_BLAST);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.LIMITED_USE_ITEM_DEBUFF);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Charges.Id,
 					30
 				));
-
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 40
@@ -119,22 +97,20 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, AbilityDataTable.DOUBLE_SHOT.Id, 0
 				));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
-				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipDuration.Id, .04f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -168,23 +144,20 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Hot Rails";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.RAIL_GUN.Id,
-					0
-				));
-				
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
-				));
+
+				ret.AddAbility(AbilityDataTable.RAIL_GUN);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id, .6f
 				));
+
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
+					ActorAttributes.TimeSkipDuration.Id, .035f
 				));
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 90
 				));
@@ -211,20 +184,12 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rocket Launcher";
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.ROCKET_LAUNCHER.Id, 0
-				));
 
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
+				ret.AddAbility(AbilityDataTable.ROCKET_LAUNCHER);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
+
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
 				
@@ -251,14 +216,9 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Wave Gun";
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.CONTINUOUS_BEAM.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
+				ret.AddAbility(AbilityDataTable.CONTINUOUS_BEAM);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
 				
 
@@ -296,21 +256,10 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rust Machine";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.RAIL_GUN.Id,
-					0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
 
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					2
-				));
+				ret.AddAbility(AbilityDataTable.RAIL_GUN);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -358,12 +307,10 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rusty Shield";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.MELEE_ONE_HANDED));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, 
-					AbilityDataTable.SHIELD_BLOCK.Id,
-					0
-				));
+
+				ret.AddAbility(AbilityDataTable.SHIELD_BLOCK);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
 					.2f
@@ -373,10 +320,6 @@ namespace Client.Game.Data
 					10
 				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, 2f
 				));
@@ -400,22 +343,14 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Static Repeater";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.STATIC_REPEATER_ABILITY.Id, 0
-				));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
-				));
+
+				ret.AddAbility(AbilityDataTable.STATIC_REPEATER_ABILITY);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
 					.2f
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 20
@@ -455,9 +390,8 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "FLY_BOT_CANNON";
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.FLY_BOT_SPAWN.Id, 0
-				));
+				ret.AddAbility(AbilityDataTable.FLY_BOT_SPAWN);
+
 				ret.Cost = 300;
 				return ret;
 			}
@@ -470,9 +404,10 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Ranged Enemy Weapon";
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.RANGED_ENEMY_ATTACK.Id, 0
-				));
+
+				ret.AddAbility(AbilityDataTable.RANGED_ENEMY_ATTACK);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.AnxietyCost.Id, 0
@@ -481,12 +416,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, .5f
 				));
-					
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id, 1
-				));
-
+			
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Cooldown.Id, 1f
 				));
@@ -501,12 +431,15 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/None";
 				ret.ActorType = ActorType.Weapon;
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.ENERGY_SAP_ABILITY.Id, 0
-				));
+				ret.AddAbility(AbilityDataTable.ENERGY_SAP_ABILITY);
+
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.AnxietyCost.Id, 0
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.ExplosionRadius.Id, 3f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -527,14 +460,11 @@ namespace Client.Game.Data
 				
 				ret.Name = "Cursed Rails";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
-				
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.SWAP_POSITIONS.Id, 0
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
-				
+
+				ret.AddAbility(AbilityDataTable.SWAP_POSITIONS);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.AnxietyCost.Id, 20
 				));
@@ -568,19 +498,16 @@ namespace Client.Game.Data
 				
 				ret.Availability = Availability.InShop;
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.SHORT_PROJECTILE.Id, 0
-				));
+				ret.AddAbility(AbilityDataTable.SHORT_PROJECTILE);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
 					.4f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
-				));
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Abilities.Id, AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
@@ -611,9 +538,8 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Quad Shot Turret Weapon";
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.QUAD_SHOT.Id, 0
-				));
+				ret.AddAbility(AbilityDataTable.QUAD_SHOT);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Cooldown.Id, 1f
 				));
@@ -637,18 +563,10 @@ namespace Client.Game.Data
 					ActorAttributes.CameraShakeForce.Id,
 					.4f
 				));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.LAUNCH_GRENADE.Id, 0
-				));
-				
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id, 1
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
+				ret.AddAbility(AbilityDataTable.LAUNCH_GRENADE);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 50
 				));
@@ -678,17 +596,11 @@ namespace Client.Game.Data
 				ret.Name = "Long Barrel Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.SHOTGUN_BLAST.Id, 0
-				));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id, 1
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
-				));
+				ret.AddAbility(AbilityDataTable.SHOTGUN_BLAST);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 40
 				));
@@ -736,21 +648,15 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Viper Repeater";
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.DOUBLE_SHOT.Id, 0
-				));
-				ret.attributeData.Add( new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.FIRE_ON_FALL.Id,
-					1
-				));
+
+				ret.AddAbility(AbilityDataTable.DOUBLE_SHOT);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
+
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
 					.2f
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 2
 				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 
@@ -779,7 +685,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData JACKHAMMER_WEAPON {
+		public static CharacterData AUTO_HAMMER_WEAPON {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1021;
@@ -793,16 +699,11 @@ namespace Client.Game.Data
 					ActorAttributes.CameraShakeForce.Id, .4f
 				));
 
+				ret.AddAbility(AbilityDataTable.MELEE_SWIPE);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.MELEE_SWIPE.Id, 0
-				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id,
-					AbilityDataTable.TOWER_ACTOR_ABSORBER.Id, 1
-				));
 
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.ReflectsProjectiles.Id, 1));
 
@@ -823,6 +724,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MeleeWidth.Id, 1f
 				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipDuration.Id, .04f
+				));
+
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 80;
 				ret.Description = "Destroys projectiles, hitting enemies decreases anxiety";

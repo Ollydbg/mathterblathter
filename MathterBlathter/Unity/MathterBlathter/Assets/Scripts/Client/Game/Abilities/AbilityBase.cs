@@ -38,6 +38,10 @@ namespace Client
 		{
 		}
 
+		public void SkipTime() {
+			Game.SkipTime(SourceWeapon.Attributes[ActorAttributes.TimeSkipDuration], SourceWeapon.Attributes[ActorAttributes.TimeSkipAmount]);
+		}
+
 		public WeaponActor SourceWeapon {
 			get {
 				return context.source.ActorType == ActorType.Weapon ? (WeaponActor)context.source : context.sourceWeapon;
@@ -59,8 +63,8 @@ namespace Client
 		public abstract void Update (float dt);
 		public abstract void End ();
 
-		public virtual bool isComplete() {
-			return SpawnedActors.Count == 0;
+		public virtual bool IsComplete() {
+			return SpawnedActors.Count == 0 && TimelineRunner.IsComplete();
 		}
 
 		public GameObject ProjectileImpactEffect(ProjectileActor projectile, String resourcePath) {

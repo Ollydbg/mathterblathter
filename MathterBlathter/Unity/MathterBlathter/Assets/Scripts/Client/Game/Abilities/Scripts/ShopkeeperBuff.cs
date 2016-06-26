@@ -66,7 +66,7 @@ namespace Client.Game.Abilities.Scripts
 
         bool playerLeftShop;
 
-        public override bool isComplete ()
+        public override bool IsComplete ()
 		{
 			return playerLeftShop;	
 		}

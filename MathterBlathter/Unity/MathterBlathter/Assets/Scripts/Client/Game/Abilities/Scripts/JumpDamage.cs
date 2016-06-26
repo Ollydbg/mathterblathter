@@ -58,7 +58,7 @@ namespace Client.Game.Abilities.Scripts
 			
 		}
 
-		public override bool isComplete ()
+		public override bool IsComplete ()
 		{
 			return timeLeft <= 0f || controller == null;
 		}

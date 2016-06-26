@@ -94,6 +94,7 @@ namespace Client.Game.Items
 			}
 		}
 
+
 		public void AddWeapon(WeaponActor actor) {
 			if(ActiveLookup.Count == Owner.Attributes[ActorAttributes.MaxWeapons])
 				RemoveWeapon(currentWeapon);

@@ -81,6 +81,9 @@ namespace Client.Game.Abilities.Scripts
 			var inRange = AbilityUtils.CircleCastAll(point, context, size, AttackFilters, range);
 			foreach (var actor in inRange) {
 
+				WeaponKick();
+				SkipTime();
+
 				if(actor.ActorType == Client.Game.Data.ActorType.Projectile) {
 					
 					ReflectOrDestroy(actor as ProjectileActor);
