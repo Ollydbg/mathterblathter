@@ -53,18 +53,18 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "            L              L                L               L       L  d";
-				ret.AsciiMap += "                                               1                       d";
+				ret.AsciiMap += "                                                                       d";
 				ret.AsciiMap += "                                                                       d";
 				ret.AsciiMap += "                                                                      Pw";
 				ret.AsciiMap += "                                                                     ccw";
-				ret.AsciiMap += "                              @                             PPPPPPPPPPPw";
+				ret.AsciiMap += "                              @                 1           PPPPPPPPPPPw";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.MaxInstances = 1;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 
 				finalize(ret);
 

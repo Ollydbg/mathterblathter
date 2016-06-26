@@ -73,8 +73,14 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.RUSTY_REPEATER.Id,
+					CharacterDataTable.AUTO_HAMMER_WEAPON.Id,
 					0
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Weapons.Id,
+					CharacterDataTable.RUSTY_REPEATER.Id,
+					1
 				));
 
 				ret.AddAbility(AbilityDataTable.PLAYER_DEATH_BUFF);
