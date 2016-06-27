@@ -32,6 +32,7 @@ namespace Client.Game.Data
 		public bool Mute;
 
 		public ParallaxData LayerData;
+		public SetPieceData SetPiece;
 
 		public RoomType Type;
 
@@ -127,6 +128,7 @@ namespace Client.Game.Data
 			clone.Spawns = this.Spawns.ToList();
 			clone.Id = this.Id;
 			clone.LayerData = this.LayerData;
+			clone.SetPiece = this.SetPiece;
 			return clone;
 			
 		}

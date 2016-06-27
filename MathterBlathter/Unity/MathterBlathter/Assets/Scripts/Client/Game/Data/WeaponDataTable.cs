@@ -64,6 +64,16 @@ namespace Client.Game.Data
 					ActorAttributes.KnockbackForce.Id, .5f
 				));
 					
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id, .5f
+				));
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipAmount.Id, .05f
+				));
+
 				ret.overrideAttributes.Add (new GameData.AttributeData (
 					AbilityAttributes.ProjectileCount.Id, 5
 				));
@@ -122,7 +132,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.CameraShakeForce.Id, .05f
+					ActorAttributes.CameraShakeForce.Id, .1f
 				));
 
 
@@ -155,7 +165,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.TimeSkipDuration.Id, .035f
+					ActorAttributes.TimeSkipDuration.Id, .045f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -177,7 +187,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData ROCKET_LAUNCHER {
+		public static CharacterData ROCKET_LAUNCHER_WEAPON {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1005;
@@ -616,6 +626,11 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
 					.4f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipAmount.Id,
+					.06f
 				));
 
 				ret.overrideAttributes.Add (new GameData.AttributeData (

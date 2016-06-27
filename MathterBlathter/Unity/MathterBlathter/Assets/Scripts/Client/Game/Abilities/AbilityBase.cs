@@ -78,7 +78,7 @@ namespace Client
 			new KnockbackPayload(context, actor, direction).Apply();
 		}
 
-		public void WeaponKick() {
+		public void CameraShake() {
 			if(context.source.Id == Game.PossessedActor.Id)
 				Game.CameraManager.Shake(SourceWeapon.Attributes[ActorAttributes.CameraShakeForce] * -context.targetDirection);
 		}

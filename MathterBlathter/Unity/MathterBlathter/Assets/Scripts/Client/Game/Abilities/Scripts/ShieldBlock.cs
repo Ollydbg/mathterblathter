@@ -46,7 +46,7 @@ namespace Client.Game.Abilities.Scripts
 					if(actor.ActorType == ActorType.Projectile) {
 						actor.Destroy();
 						ApplyEnergyCost(context.source);
-						WeaponKick();
+						CameraShake();
 						PlayTimeline(context.data.Timelines[0], actor.transform.position);
 					}
 				};

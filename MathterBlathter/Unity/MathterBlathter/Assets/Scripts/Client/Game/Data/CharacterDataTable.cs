@@ -212,7 +212,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.ROCKET_LAUNCHER.Id,
+					CharacterDataTable.ROCKET_LAUNCHER_WEAPON.Id,
 					0
 				));
 

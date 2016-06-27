@@ -35,7 +35,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public void Fire() {
 
-			WeaponKick();
+			CameraShake();
 
 			repeatCount ++;
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);

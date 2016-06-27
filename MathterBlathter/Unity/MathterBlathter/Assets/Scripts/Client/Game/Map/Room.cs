@@ -27,6 +27,7 @@ namespace Client.Game.Map
 		public int Id;
 		private static int LastId = 0;
 		public GameObject GameObject;
+		public GameObject SetPiecePrefab;
 
 		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
 		public delegate void OnUnlock(Room room);
@@ -103,7 +104,8 @@ namespace Client.Game.Map
 
 		public void PlayerLeft (Actor actor)
 		{
-			
+			if(SetPiecePrefab != null)
+				GameObject.Destroy(SetPiecePrefab);
 		}
 
 		public void PlayerEntered (Actor actor, DoorActor throughDoor)
@@ -111,6 +113,7 @@ namespace Client.Game.Map
 			Lights.ForEach(l => l.gameObject.SetActive(true));
 
 			SpawnObjects(actor);
+
 		}
 		
 
@@ -144,6 +147,11 @@ namespace Client.Game.Map
 					ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
 
 				}
+			}
+
+			if(data.SetPiece != null) {
+				SetPiecePrefab = (GameObject)GameObject.Instantiate(Resources.Load(data.SetPiece.PrefabPath));
+				SetPiecePrefab.transform.position = roomCenter;
 			}
 
 		}

@@ -16,7 +16,7 @@ namespace Client.Game.Abilities.Scripts
 		}
 
 		private ProjectileActor currentProjectile;
-		private Vector2 SampledPosition;
+		private Vector2 lastPosition;
 		bool aborted;
 
 		#region implemented abstract members of AbilityBase
@@ -36,12 +36,13 @@ namespace Client.Game.Abilities.Scripts
 		}
 
 
+
 		Vector2 Sample (ProjectileActor currentProjectile)
 		{
 			if(currentProjectile.GameObject != null) {
-				SampledPosition = VectorUtils.Vector2(currentProjectile.transform.position);
+				lastPosition = VectorUtils.Vector2(currentProjectile.transform.position);
 			}
-			return SampledPosition;
+			return lastPosition;
 		}
 
 		void Swap (Actor source, Actor hitActor)
@@ -57,10 +58,12 @@ namespace Client.Game.Abilities.Scripts
 		public override void Update (float dt)
 		{
 			if(currentProjectile.GameObject != null) {
+				var lastFrame = lastPosition;
+				var currentFrame = Sample(currentProjectile);
 
-				var hitInfo = Physics2D.Raycast(SampledPosition, VectorUtils.Vector2(context.targetDirection), (Sample(currentProjectile) - SampledPosition).magnitude );
+				var hitInfo = Physics2D.Linecast(lastFrame, currentFrame);
 
-				if(hitInfo != null) {
+				if(hitInfo.collider != null) {
 
 					Actor hitActor;
 					var result = currentProjectile.TestTrigger(hitInfo.collider, out hitActor);

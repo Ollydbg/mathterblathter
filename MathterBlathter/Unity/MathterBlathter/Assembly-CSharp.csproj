@@ -185,6 +185,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomTemplates.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\SetPieceData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\TrapDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveDataTable.cs" />
@@ -219,6 +220,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomPool.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\SetPieces\BrokenSkyline.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\FSM.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />

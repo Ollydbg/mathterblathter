@@ -22,7 +22,7 @@ namespace Client.Game.Abilities.Scripts
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			ApplyEnergyCost(context.source);
-			WeaponKick();
+			CameraShake();
 			int projectileCount = this.Attributes[AbilityAttributes.ProjectileCount];
 			var totalSpread = this.Attributes[AbilityAttributes.ProjectileSpread];
 			float spreadPer = totalSpread / projectileCount;
@@ -41,6 +41,7 @@ namespace Client.Game.Abilities.Scripts
 				PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 
 				projectile.OnHit = (actor) => {
+					SkipTime();
 					new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();
 					context.source.Game.ActorManager.RemoveActor(projectile);
 					this.KnockBack((Character)actor, (actor.transform.position - projectile.transform.position).normalized);

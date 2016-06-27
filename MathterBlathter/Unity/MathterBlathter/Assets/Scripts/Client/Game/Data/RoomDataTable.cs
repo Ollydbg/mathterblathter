@@ -64,6 +64,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.MaxInstances = 1;
+				ret.SetPiece = SetPieceDataTable.INTRO;
+
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 
 				finalize(ret);
@@ -94,7 +96,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w .....     .........................................           w";
+                ret.AsciiMap += "w .1...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [         w";
                 ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                  L                           L                w";
@@ -107,7 +109,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "wPPPP                                                           w";
                 ret.AsciiMap += "w                     1                                         w";
                 ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
-                ret.AsciiMap += "w                                                       ppppppppw";
+                ret.AsciiMap += "w                       2                               ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                   L                                           w";
@@ -118,6 +120,19 @@ namespace Client.Game.Data
                 ret.AsciiMap += "d                                .............1.........        d";
                 ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
+
+				ret.AsciiSpawnLookup['2'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
+
+				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
+				ret.AsciiSpawnLookup['5'] = CharacterDataTable.RUST_MACHINE;
+				ret.AsciiSpawnLookup['6'] = CharacterDataTable.VIPER_REPEATER_WEAPON;
+				ret.AsciiSpawnLookup['7'] = CharacterDataTable.WAVE_GUN_WEAPON;
+				ret.AsciiSpawnLookup['8'] = CharacterDataTable.ROCKET_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['9'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['#'] = CharacterDataTable.HOT_RAILS;
+				ret.AsciiSpawnLookup['e'] = CharacterDataTable.CERAMIC_SHOTGUN_WEAPON;
+				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
+
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;

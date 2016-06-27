@@ -43,9 +43,12 @@ namespace Client.Game.Abilities.Scripts
 				var renderers = dp.Target.GameObject.GetComponentsInChildren<Renderer>(); 
 				
 				foreach( var r in renderers ) {
-					var mat = r.material;
-					replacements.Add(new MaterialColorTuple(mat, 4));
-					mat.SetFloat("_FlashAmount", 1f);
+					if( r is SpriteRenderer) {
+
+						var mat = r.material;
+						replacements.Add(new MaterialColorTuple(mat, 4));
+						mat.SetFloat("_FlashAmount", 1f);
+					} 
 				}
 			}
 
