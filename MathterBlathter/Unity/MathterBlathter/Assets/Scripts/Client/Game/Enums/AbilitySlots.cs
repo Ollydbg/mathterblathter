@@ -9,8 +9,8 @@ namespace Client.Game.Enums
 		Ranged,
 		MeleeTwoHanded,
 		RangedTwoHanded,
-		Death,
 		Pickup,
+		Death = 512,
 	}
 	
 	[FlagsAttribute]

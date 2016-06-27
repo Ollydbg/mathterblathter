@@ -93,26 +93,28 @@ namespace Client.Game.Abilities
 
 		private void readAddQueue(AbilityContext ctx) {
 
-			AbilityMap abilities;
-			if(!Abilities.TryGetValue(ctx.Executor, out abilities)) {
-				abilities = new AbilityMap();
-				Abilities[ctx.Executor] = abilities;
-			}
-				
-			//look for pre-existing instance
-			if(ctx.data.IsBuff) {
-				AbilityBase ability;
-				if(abilities.TryGetValue(ctx, out ability)) {
-					var buff = ability as BuffBase;
-					buff.Stack(ctx);
-				} else {
-					abilities.Add (ctx, CreateAndStart(ctx));
+			if(!ctx.source.Deleted) {
+				AbilityMap abilities;
+				if(!Abilities.TryGetValue(ctx.Executor, out abilities)) {
+					abilities = new AbilityMap();
+					Abilities[ctx.Executor] = abilities;
 				}
+					
+				//look for pre-existing instance
+				if(ctx.data.IsBuff) {
+					AbilityBase ability;
+					if(abilities.TryGetValue(ctx, out ability)) {
+						var buff = ability as BuffBase;
+						buff.Stack(ctx);
+					} else {
+						abilities.Add (ctx, CreateAndStart(ctx));
+					}
 
-			} else {
-				var ability = CreateAndStart(ctx);
-				abilities.Add (ability.InstanceId, ability);
-				
+				} else {
+					var ability = CreateAndStart(ctx);
+					abilities.Add (ability.InstanceId, ability);
+					
+				}
 			}
 		}
 
@@ -150,10 +152,12 @@ namespace Client.Game.Abilities
 		//returns true if it got consumed
 		public bool NotifyPayloadSender (Payload payload, Actor actor)
 		{
-			foreach( AbilityBase ability in Abilities[actor].Values) {
-				var dp = payload as DropPayload;
-				if(ability.OnPayloadSend(payload))
-					return true;
+			AbilityMap abilityMap = null;
+			if (Abilities.TryGetValue(actor, out abilityMap)) {
+				foreach( AbilityBase ability in abilityMap.Values) {
+					if(ability.OnPayloadSend(payload))
+						return true;
+				}
 			}
 			return false;
 		}
@@ -161,9 +165,13 @@ namespace Client.Game.Abilities
 		//returns true if it got consumed
 		public bool NotifyPayloadReceiver (Payload payload, Actor actor)
 		{
-			foreach( AbilityBase ability in Abilities[actor].Values) {
-				if(ability.OnPayloadReceive(payload))
-					return true;
+			
+			AbilityMap abilityMap = null;
+			if(Abilities.TryGetValue(actor, out abilityMap)) {
+				foreach( AbilityBase ability in abilityMap.Values) {
+					if(ability.OnPayloadReceive(payload))
+						return true;
+				}
 			}
 			return false;
 		}

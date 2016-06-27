@@ -28,7 +28,7 @@ namespace Client.Game.Abilities.Payloads
 			//find player death ability
 			
 			var id = Target.Attributes[ActorAttributes.Abilities, (int)AbilitySlots.Death];
-			var deathBuff = AbilityDataTable.FromId(id);
+			var deathBuff = AbilityDataTable.PLAYER_DEATH_BUFF;
 			
 			var deathContext = new AbilityContext(this.Context.source, deathBuff);
 			AbilityManager.ActivateAbility(deathContext);

@@ -57,7 +57,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                       d";
 				ret.AsciiMap += "                                                                      Pw";
 				ret.AsciiMap += "                                                                     ccw";
-				ret.AsciiMap += "                              @                 1           PPPPPPPPPPPw";
+				ret.AsciiMap += "                              @                 1   2       PPPPPPPPPPPw";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
@@ -67,7 +67,7 @@ namespace Client.Game.Data
 				ret.SetPiece = SetPieceDataTable.INTRO;
 
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
-
+				ret.AsciiSpawnLookup['2'] = CharacterDataTable.ANXIETY_DAMAGE_AOE_ITEM;
 				finalize(ret);
 
 				return ret;
@@ -108,7 +108,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "wPPPP                                                           w";
                 ret.AsciiMap += "w                     1                                         w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                            MMMMMM w";
                 ret.AsciiMap += "w                       2                               ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
@@ -136,6 +136,8 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
+				ret.AsciiSpawnLookup['M'] = new AsciiPlacement(CharacterDataTable.RAIL_SNIPER_ENEMY, Vector3.left);
+
 
 				finalize(ret);
 
