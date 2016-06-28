@@ -30,14 +30,19 @@ namespace Client.Game.Map
 
 		}
 
-		public IEnumerable<Vector3> SearchPath(Vector2 worldFrom, Vector2 roomTo) {
+		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 			var fromInt = WorldToAscii(worldFrom, Room);
 			var toInt = WorldToAscii(roomTo, Room);
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);
 			var points = JumpPointFinder.FindPath(jp);
 
-			foreach( var p in points )
-				yield return AsciiToWorld(p, Room);
+			var buff = new Vector3[points.Count];
+			for(int i = 0; i<points.Count; i++ ) {
+				buff[i] = AsciiToWorld(points[i], Room);
+			}
+
+			return buff;
+			
 
 		}
 

@@ -52,7 +52,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PathToPoint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PathToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />

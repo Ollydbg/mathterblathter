@@ -50,6 +50,7 @@ namespace Client.Game.AI
         {
 			var actionData = aiData.ActionData;
 			this.CurrentAction = RecurseData(null, actionData);
+			this.CurrentAction.Start(Self);
 			this.Head = CurrentAction;
         }
 		

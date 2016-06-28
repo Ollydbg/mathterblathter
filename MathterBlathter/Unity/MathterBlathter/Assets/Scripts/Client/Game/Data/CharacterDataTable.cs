@@ -645,6 +645,12 @@ namespace Client.Game.Data
 					ActorAttributes.Health.Id, 150
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 2f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
