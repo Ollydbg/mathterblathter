@@ -1249,7 +1249,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 122;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "d                                                               d";
