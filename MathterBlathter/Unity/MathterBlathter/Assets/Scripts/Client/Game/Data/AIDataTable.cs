@@ -22,6 +22,14 @@ namespace Client.Game.Data
             }
         }
         
+		public static AIData EXPERIMENTAL_PATHING {
+			get {
+				var ret = new AIData();
+				ret.ActionData = new ActionData(typeof(PathToPlayer));
+				return ret;
+			}
+		}
+
         public static AIData SEEK_TO_FIRE_AI {
             get {
                 var ret = new AIData();

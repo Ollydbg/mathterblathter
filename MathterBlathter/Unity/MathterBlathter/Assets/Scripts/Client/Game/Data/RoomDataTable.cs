@@ -98,17 +98,17 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w .1...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [         w";
                 ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
-                ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                  L                           L                w";
-                ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                       ....... w";
-                ret.AsciiMap += "w                                                     ppppppppppw";
-                ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "wPPPP                                                           w";
-                ret.AsciiMap += "w                     1                                         w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                            MMMMMM w";
+                ret.AsciiMap += "w                         w                                     w";
+                ret.AsciiMap += "w                  L      w                    L                w";
+                ret.AsciiMap += "w                         w                                     w";
+                ret.AsciiMap += "w                         w                             ....... w";
+                ret.AsciiMap += "w                         w                           ppppppppppw";
+                ret.AsciiMap += "w                         w                                     w";
+                ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "wPPPP                     w                                     w";
+                ret.AsciiMap += "w                         w                                     w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
                 ret.AsciiMap += "w                       2                               ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
@@ -136,7 +136,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
-				ret.AsciiSpawnLookup['M'] = new AsciiPlacement(CharacterDataTable.RAIL_SNIPER_ENEMY, Vector3.left);
 
 
 				finalize(ret);
@@ -1242,6 +1241,61 @@ namespace Client.Game.Data
 
 				return ret;
 			}
+		}
+
+		public static RoomData PATHING_ROOM {
+
+			get {
+				var ret = new RoomData();
+				ret.Id = 122;
+
+				ret.Solo = true;
+				ret.Type = RoomType.NoWaves;
+				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "d                                                               d";
+				ret.AsciiMap += "d                                                               d";
+				ret.AsciiMap += "d                                                               d";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
+				ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "w                  L      w                    L                w";
+				ret.AsciiMap += "w                     K   w                                     w";
+				ret.AsciiMap += "w                         w                             ....... w";
+				ret.AsciiMap += "w                         w                           ppppppppppw";
+				ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "wPPPP                     w                                     w";
+				ret.AsciiMap += "w                         w                                     w";
+				ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+				ret.AsciiMap += "w                                                       ppppppppw";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                                                               w";
+				ret.AsciiMap += "w                   L                                           w";
+				ret.AsciiMap += "w                      PPPP                                     w";
+				ret.AsciiMap += "w                      PPPP                    L                w";
+				ret.AsciiMap += "d                      PPPP                                     d";
+				ret.AsciiMap += "d                            C                                  d";
+				ret.AsciiMap += "d                                                               d";
+				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
+
+				ret.AsciiSpawnLookup['K'] = CharacterDataTable.PATHING_TEST;
+
+				finalize(ret);
+
+				return ret;
+			}
+
 		}
 
 

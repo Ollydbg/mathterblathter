@@ -19,9 +19,7 @@ namespace Client.Game.Data.Ascii
 			this.y = y;
 		}
 
-		public static Vector3 WorldToAscii(AsciiVector vect, AsciiMap fromMap) {
-			return new Vector3(vect.x, fromMap.Height - vect.y - 1);
-		}
+
 	}
 }
 

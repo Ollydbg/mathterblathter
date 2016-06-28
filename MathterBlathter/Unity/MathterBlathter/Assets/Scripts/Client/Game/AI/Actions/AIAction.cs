@@ -3,6 +3,7 @@ using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Attributes;
 using System.Collections.Generic;
+using Client.Game.Map;
 
 namespace Client.Game.AI
 {
@@ -30,6 +31,12 @@ namespace Client.Game.AI
 		{
 			get {
 				return Game.Instance.PossessedActor;
+			}
+		}
+
+		internal Room CurrentRoom {
+			get {
+				return Game.Instance.RoomManager.CurrentRoom;
 			}
 		}
 

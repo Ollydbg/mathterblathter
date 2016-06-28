@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PathToPoint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />
@@ -218,8 +219,19 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomComparer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomPool.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\RoomTraversalGrid.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\BaseGrid.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGrid.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGridWPool.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\PartialGridWPool.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\StaticGrid.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\GridPos.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\GridRect.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Heuristic.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\JumpPointFinder.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Pathfinding\NodePool.cs" />
      <Compile Include="Assets\Scripts\Client\Game\SetPieces\BrokenSkyline.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\FSM.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />

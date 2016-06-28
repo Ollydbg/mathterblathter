@@ -630,6 +630,31 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData PATHING_TEST {
+			get { 
+				var ret = new CharacterData();
+				ret.Id = 28;
+
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ActorType = ActorType.Enemy;
+
+				ret.AIData = AIDataTable.EXPERIMENTAL_PATHING;
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 150
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+
+				return ret;	
+			}
+		}
+
 	}
 }
 

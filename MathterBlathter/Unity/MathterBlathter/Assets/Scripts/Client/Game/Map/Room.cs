@@ -15,15 +15,14 @@ namespace Client.Game.Map
 
 	public class Room
 	{
-
-
 		public int X;
 		public int Y;
 		public int Width;
 		public int Height;
 		public RoomData data;
 		public ZoneData Zone;
-		
+		public RoomTraversalGrid Grid;
+
 		public int Id;
 		private static int LastId = 0;
 		public GameObject GameObject;
@@ -110,10 +109,9 @@ namespace Client.Game.Map
 
 		public void PlayerEntered (Actor actor, DoorActor throughDoor)
 		{
+			this.Grid = new RoomTraversalGrid(this);
 			Lights.ForEach(l => l.gameObject.SetActive(true));
-
 			SpawnObjects(actor);
-
 		}
 		
 
