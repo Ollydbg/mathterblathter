@@ -38,6 +38,7 @@ namespace Client.Game.AI
 				
 				if(result == AIResult.Failure) {
 					CurrentAction.End();
+					//Log("Action {0} was a Failure, moving to Head action: {1}", CurrentAction, Head);
 					//this should probably go back to logical parent
 					CurrentAction = Head;
 					CurrentAction.Start(Self);

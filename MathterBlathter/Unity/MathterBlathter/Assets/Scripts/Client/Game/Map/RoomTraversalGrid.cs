@@ -13,24 +13,32 @@ namespace Client.Game.Map
 		public RoomTraversalGrid (Room room)
 		{
 			this.Room = room;
+			this.Grid = BuildGrid();
+
+		}
+
+		public StaticGrid BuildGrid() {
 			//air grid
-			var width = room.data.Width;
-			var height = room.data.Height;
+			var width = Room.data.Width;
+			var height = Room.data.Height;
 			var matrix = new bool[width][];
 			for( int x = 0; x<width; x++ ) {
 				matrix[x] = new bool[height];
 				for( int y = 0; y<height; y++ ) {
-					if(room.data.AsciiMap[x, y] == AsciiConstants.AIR_SPAWN) {
+					var roomChar = Room.data.AsciiMap[x, y]; 
+					if(roomChar == AsciiConstants.AIR_SPAWN || roomChar == AsciiConstants.PASSTHROUGH_PLATFORM) {
 						matrix[x][y] = true;
 					}
 				}
 			}
 
-			Grid = new StaticGrid(width, height, matrix);
-
+			return new StaticGrid(width, height, matrix);
 		}
 
 		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
+
+			Grid = BuildGrid();
+
 			var fromInt = WorldToAscii(worldFrom, Room);
 			var toInt = WorldToAscii(roomTo, Room);
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);

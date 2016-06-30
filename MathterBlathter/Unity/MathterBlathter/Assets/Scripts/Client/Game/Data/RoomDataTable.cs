@@ -210,7 +210,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                    www                                       w";
 				ret.AsciiMap += "w                    www ,                                     w";
 				ret.AsciiMap += "w                    PPPPPPPP                                  w";
-				ret.AsciiMap += "w                    wwwwwwwwwww                               w";
+				ret.AsciiMap += "w                   1wwwwwwwwwww                               w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
 				ret.AsciiMap += "w                                                              w";
@@ -1249,7 +1249,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 122;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "d                                                               d";

@@ -21,21 +21,16 @@ namespace Client.Game.AI.Actions
 			selfActor.WeaponController.Attack(direction);
 		}
 
-		public static bool HasLOS(Actor selfAIActor, Vector3 target) {
-			var direction = target - selfAIActor.HalfHeight;
+		public static bool HasLOS(Actor selfAIActor, Vector3 playerPosition) {
+			var direction = playerPosition - selfAIActor.HalfHeight;
 
 			var layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
-			var hits = Physics2D.RaycastAll(selfAIActor.HalfHeight, direction.normalized, 10, layerMask);
+			var hit = Physics2D.Raycast(selfAIActor.HalfHeight, direction.normalized, 100f, layerMask);
 
-			foreach( var hit in hits) {
-				
+			if(hit.transform != null) {
 				var transform = hit.transform;
-				while(transform.parent != null) {
-					transform = transform.parent;
-				}
+				ActorRef actorRef = transform.gameObject.GetComponent<ActorRef>();
 
-				var actorRef = transform.gameObject.GetComponent<ActorRef>();
-				
 				if( actorRef != null && actorRef.Actor.ActorType== Client.Game.Data.ActorType.Player) {
 					return true;
 				}

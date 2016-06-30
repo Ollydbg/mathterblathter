@@ -11,7 +11,8 @@ namespace Client.Game.Enums
 		Player,
 		Door,
 		Enemies,
-		PassThrough
+		PassThrough,
+		AirEnemies
 	}
 }
 
