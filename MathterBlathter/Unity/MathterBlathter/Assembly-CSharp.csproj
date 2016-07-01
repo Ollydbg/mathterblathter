@@ -187,6 +187,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomTemplates.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\SetPieceData.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\TimelineDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\TrapDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveDataTable.cs" />

@@ -135,7 +135,7 @@ namespace Client.Game.Data
 
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
+				//ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 
 				finalize(ret);

@@ -15,18 +15,22 @@ namespace Client.Game.UI.Titles
 
 		public float TriangleZ;
 
+		public float ShaftY;
+		
+		public float GridZ;
 
 		public GameObject Triangle;
+		public GameObject ShaftsCaster;
+		public GameObject GridTop;
+		public GameObject GridBottom;
 
 		void Awake() {}
 		void Start() {
-			this.shaftsComp = GetComponent<SunShafts>();
 			this.abbrComp = GetComponent<VignetteAndChromaticAberration>();
 			this.bloomComp = GetComponent<AmplifyBloom.AmplifyBloomBase>();
 		}
 
 		
-		SunShafts shaftsComp;
 		AmplifyBloom.AmplifyBloomBase bloomComp;
 		VignetteAndChromaticAberration abbrComp;
 		
@@ -37,6 +41,20 @@ namespace Client.Game.UI.Titles
 			var pos = Triangle.transform.position;
 			pos.z = TriangleZ;
 			Triangle.transform.position = pos;
+		
+			pos = ShaftsCaster.transform.position;
+			pos.y = ShaftY;
+			ShaftsCaster.transform.position = pos;
+
+			pos = GridTop.transform.localPosition;
+			pos.z = GridZ;
+			GridTop.transform.localPosition = pos;
+
+			pos = GridBottom.transform.localPosition;
+			pos.z = GridZ;
+			GridBottom.transform.localPosition = pos;
+
+
 		}
 
 		void NextScene() {

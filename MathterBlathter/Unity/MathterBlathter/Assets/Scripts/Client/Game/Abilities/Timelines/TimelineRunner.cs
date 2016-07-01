@@ -56,7 +56,11 @@ namespace Client.Game.Abilities.Timelines
 			}
 		}
 
-
+		public void Play(TimelineData timelineData, GameObject gameObject, Vector3 direction) {
+			foreach( var kvp in timelineData.Lookup) {
+				HandlerMap[kvp.Key](kvp.Value, timelineData, gameObject, direction);
+			}
+		}
 
 
 		static void PlaySFX (TimelineData.Point pt,TimelineData data, GameObject go, Vector3 direction)
@@ -77,10 +81,6 @@ namespace Client.Game.Abilities.Timelines
 
 		static void PlayVFX (TimelineData.Point pt, TimelineData data, GameObject gameObject, Vector3 direction) {
 
-			float yscale = 1f;
-			if(direction.x < 0) {
-				yscale = -1f;
-			}
 			var angle = Vector3.Angle(Vector3.right, direction);
 			
 			if(direction.y < 0) {
