@@ -3,6 +3,7 @@ using UnityEngine;
 using Client.Game.Actors;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using System.Collections.Generic;
 
 namespace Client.Game.Geometry
 {
@@ -12,7 +13,7 @@ namespace Client.Game.Geometry
 		public PlatformEffector2D Effector;
 
 		public GameObject Passing;
-		Collider2D PassingCollider;
+		Collider2D[] PassingColliders;
 		public PassthroughPlatform ()
 		{
 			
@@ -21,16 +22,18 @@ namespace Client.Game.Geometry
 
 		void OnTriggerExit2D(Collider2D collider) {
 			if(collider.gameObject == Passing) {
-				Physics2D.IgnoreCollision(PassingCollider, this.Collider, false);
+				foreach( var coll in PassingColliders ) 
+					Physics2D.IgnoreCollision(coll, this.Collider, false);
 				Passing = null;
-				PassingCollider = null;
+				PassingColliders = null;
 			}
 		}
 
 		public void Passthrough(Actor actor) {
 			Passing = actor.GameObject;
-			PassingCollider = actor.GameObject.GetComponent<Collider2D>();
-			Physics2D.IgnoreCollision(PassingCollider, this.Collider, true);
+			PassingColliders = actor.GameObject.GetComponentsInChildren<Collider2D>();
+			foreach( var coll in PassingColliders ) 
+				Physics2D.IgnoreCollision(coll, this.Collider, true);
 
 		}
 

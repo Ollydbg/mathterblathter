@@ -84,7 +84,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -177,7 +177,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 50
 				));
@@ -297,7 +297,7 @@ namespace Client.Game.Data
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.CURSED_RAIL_GUN_WEAPON.Id,
+					CharacterDataTable.FLY_BOT_CANNON.Id,
 					0
 				));
 				ret.AddAbility(AbilityDataTable.AI_BUFF);
@@ -369,7 +369,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 10
@@ -413,7 +413,7 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData ENERGY_SAPPER_ENEMY {
+		public static CharacterData ANXIETY_BALL_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 21;
@@ -422,7 +422,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
 				
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,

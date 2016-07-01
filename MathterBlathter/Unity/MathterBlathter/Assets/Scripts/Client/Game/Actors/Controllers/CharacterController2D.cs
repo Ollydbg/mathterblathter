@@ -105,15 +105,14 @@ namespace Client.Game.Actors.Controllers
 		void AddJump ()
 		{
 			if(jumping) {
-				var aref = this.Actor.GameObjectRef;
 				var grounded = IsGrounded;
 
 				if(grounded && jumpFrames == 0) {
-					var jumpHeight = aref.MinJumpPower;
+					var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 					movementAccumulator += Vector2.up * jumpHeight;
 
-				} else if(jumpFrames == aref.JumpBoostFrameThresh) {
-					movementAccumulator += Vector2.up * aref.SustainedJumpPower;
+				} else if(jumpFrames == Actor.Attributes[ActorAttributes.JumpBoostFrameThresh]) {
+					movementAccumulator += Vector2.up * Actor.Attributes[ActorAttributes.SustainedJumpPower];
 				}
 
 				jumpFrames ++;

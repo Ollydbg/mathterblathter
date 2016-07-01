@@ -11,10 +11,6 @@ namespace Client.Game.Actors
 		void Awake() {}
 		void Start() {}
 
-		public float MinJumpPower = 36.5f;
-		public float SustainedJumpPower = 13.1f;
-		public int JumpBoostFrameThresh = 6;
-
 		public delegate void TriggerDelegate(Collider2D Collider);
 		public event TriggerDelegate TriggerEvent;
 

@@ -1266,7 +1266,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
+				ret.AsciiMap += "wPPPPPPppppppPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
 				ret.AsciiMap += "w                         w                                     w";
 				ret.AsciiMap += "w                  L      w                    L                w";
 				ret.AsciiMap += "w                     K   w                                     w";
@@ -1275,9 +1275,9 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                         w                                     w";
 				ret.AsciiMap += "w                         w                                     w";
 				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "wPPPP                     w                                     w";
+				ret.AsciiMap += "wpppppppppppppPPPPPPPPPPPPw                                     w";
 				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                       ppppppppw";
 				ret.AsciiMap += "w                                                               w";
 				ret.AsciiMap += "w                                                               w";
@@ -1289,7 +1289,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                                                               d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 
-				ret.AsciiSpawnLookup['K'] = CharacterDataTable.PATHING_TEST;
+				ret.AsciiSpawnLookup['K'] = CharacterDataTable.ANXIETY_BALL_ENEMY;
 
 				finalize(ret);
 

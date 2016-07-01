@@ -35,12 +35,14 @@ namespace Client.Game.Data
 			}
 		}
 
-        public static AIData SEEK_TO_FIRE_AI {
+        public static AIData SEEK_TO_FIRE_IF_LOS_AI {
             get {
+				
                 var ret = new AIData();
                 ret.Name = "Seek To Fire";
-                ret.ActionData = new ActionData(typeof(SeekToPlayer));
-                ret.ActionData.Next = new ActionData(
+				ret.ActionData = new ActionData(typeof(WaitForPlayerLOS));
+                ret.ActionData.Next = new ActionData(typeof(SeekToPlayer));
+                ret.ActionData.Next.Next = new ActionData(
                 	typeof(FireAtPlayer), 
                     typeof(CheckPlayerLOS)
 				);

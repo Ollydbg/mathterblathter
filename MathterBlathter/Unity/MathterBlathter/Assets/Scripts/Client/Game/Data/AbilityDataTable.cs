@@ -544,8 +544,9 @@ namespace Client.Game.Data
 				hitTimeline.Duration = .5f;
 
 				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
-				ret.Timelines.Add(hitTimeline);
 				ret.Timelines.Add(fireTimeline);
+				ret.Timelines.Add(hitTimeline);
+
 				return ret;
 			}
 		}
