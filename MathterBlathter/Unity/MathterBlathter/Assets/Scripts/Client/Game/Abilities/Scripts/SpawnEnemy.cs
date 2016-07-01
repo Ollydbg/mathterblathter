@@ -6,6 +6,7 @@ namespace Client.Game.Abilities.Scripts
 {
 	public class SpawnEnemy : AbilityBase
 	{
+		
 		public SpawnEnemy ()
 		{
 		}

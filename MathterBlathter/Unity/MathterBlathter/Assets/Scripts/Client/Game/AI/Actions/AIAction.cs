@@ -18,12 +18,8 @@ namespace Client.Game.AI
 		public AIAction Next;
 
 		internal bool inAbilityRange(Vector3 distanceVec, Actor selfActor) {
-			
-			return distanceVec.sqrMagnitude < (AbilityRange() * AbilityRange());
-		}
-
-		internal float AbilityRange() {
-			return 25;
+			var weaponRange = selfActor.WeaponController.currentWeapon.Attributes[ActorAttributes.AIActivationRange];
+			return distanceVec.sqrMagnitude < (weaponRange * weaponRange);
 		}
 
 

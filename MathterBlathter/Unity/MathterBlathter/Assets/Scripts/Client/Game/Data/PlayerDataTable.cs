@@ -45,15 +45,19 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.MinJumpPower.Id, 38.5f
+					ActorAttributes.MinJumpPower.Id, 36.5f
 				)); 
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.JumpBoostFrameThresh.Id, 6
+				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxWeapons.Id, 2
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.SustainedJumpPower.Id, 38.18f
+					ActorAttributes.SustainedJumpPower.Id, 13.1f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (

@@ -84,7 +84,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -94,14 +94,13 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
 				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .08f
-				));
 			
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 3.5f
+				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));
@@ -178,7 +177,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 50
 				));
@@ -193,8 +192,8 @@ namespace Client.Game.Data
 					ActorAttributes.AIAttackDelay.Id, 2.0f
 				));
 
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .05f
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 2f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -370,7 +369,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 10
@@ -381,8 +380,9 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 80.0f
 				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .1f
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 2f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -413,7 +413,7 @@ namespace Client.Game.Data
 		}
 
 
-		public static CharacterData ENERGY_SAPPER_ENEMY {
+		public static CharacterData ANXIETY_BALL_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 21;
@@ -422,7 +422,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
 				
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_AI;
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
 				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
@@ -434,9 +434,9 @@ namespace Client.Game.Data
 					20
 				));
 
+
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id,
-					.1f
+					ActorAttributes.Speed.Id, 4f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -639,12 +639,22 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 
-				ret.AIData = AIDataTable.EXPERIMENTAL_PATHING;
+				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id, CharacterDataTable.STATIC_REPEATER.Id, 0
+				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 150
 				));
 
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 2f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
 				));

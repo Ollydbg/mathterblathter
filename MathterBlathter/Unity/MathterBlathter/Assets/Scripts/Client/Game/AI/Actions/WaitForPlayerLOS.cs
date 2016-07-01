@@ -1,11 +1,12 @@
 ﻿using System;
 using Client.Game.Actors;
+using UnityEngine;
 
 namespace Client.Game.AI.Actions
 {
-	public class TestPlayerLOS : AIAction
+	public class WaitForPlayerLOS : AIAction
 	{
-		public TestPlayerLOS ()
+		public WaitForPlayerLOS ()
 		{
 		}
 
@@ -25,9 +26,9 @@ namespace Client.Game.AI.Actions
 		#endregion
 	}
 	
-	public class HasPlayerLOS : AIAction 
+	public class CheckPlayerLOS : AIAction 
 	{
-		public HasPlayerLOS ()
+		public CheckPlayerLOS ()
 		{
 		}
 

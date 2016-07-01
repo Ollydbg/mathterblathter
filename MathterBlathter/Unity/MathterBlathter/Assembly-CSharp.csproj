@@ -52,11 +52,11 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PathToPoint.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PathToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\TestPlayerLOS.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitForPlayerLOS.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitThenFire.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Brain.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\PatrolPlanning\PatrolPlan.cs" />
@@ -252,6 +252,7 @@
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Shop\ShopItem.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Shop\ShopUI.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\ZoneTitle.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Titles\StudioLogoScreen.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Titles\TitleScreen.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Titles\VortexWigglerEffect.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\ActorUtils.cs" />
@@ -588,6 +589,7 @@
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tan\SFN_Tan.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Frac\SFN_Frac.shader" />
      <None Include="Assets\ThirdParty\Vintage\Resources\Shaders\VintageHefe.shader" />
+     <None Include="Assets\Scripts\Shaders\GridShader.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Panner\SFN_Panner_DIST.shader" />
      <None Include="Assets\ThirdParty\AmplifyColor\Textures\Preview\ImageCC.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />

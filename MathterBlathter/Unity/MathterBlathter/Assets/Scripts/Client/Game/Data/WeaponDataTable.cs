@@ -22,6 +22,9 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 
 				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AIActivationRange.Id, 15f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -199,6 +202,10 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AIActivationRange.Id, 25f
+				));
 
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 				
@@ -443,7 +450,9 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.ENERGY_SAP_ABILITY);
 
-
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.AIActivationRange.Id, 7f
+				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.AnxietyCost.Id, 0
 				));

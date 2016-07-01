@@ -33,8 +33,8 @@ namespace Client.Game.Data
 				ret.Id = 1;
 				ret.PreDelay = 1f;
 
-				ret.Spawns.Add(CharacterDataTable.ENERGY_SAPPER_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.ENERGY_SAPPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				
@@ -49,10 +49,10 @@ namespace Client.Game.Data
 				ret.Id = 2;
 				ret.PreDelay = 1f;
 
-				ret.Spawns.Add(CharacterDataTable.ENERGY_SAPPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.ENERGY_SAPPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 
 				ret.Difficulty = 2;

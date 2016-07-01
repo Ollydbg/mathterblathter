@@ -87,7 +87,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF DodgeRollSpeed = new GameAttributeF(64, 1f, "roll speed", 0, 10f);
 		public static readonly GameAttributeF TimeSkipDuration = new GameAttributeF(65, .025f, "on hit time skip", 0, 1f);
 		public static readonly GameAttributeF TimeSkipAmount = new GameAttributeF(66, .05f, "on hit time skip to", 0, 1f);
-
+		public static readonly GameAttributeF AIActivationRange = new GameAttributeF(67, 40f, "ai weapon activation range", 0, float.MaxValue);
+		public static readonly GameAttributeI JumpBoostFrameThresh = new GameAttributeI(68, 6, "jump boost threshold in frames", 0, int.MaxValue);
 	}
 }
 

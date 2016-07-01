@@ -13,7 +13,7 @@ namespace Client.Game.UI.Titles
 
 		void Update() {
 			if(Input.anyKey) {
-				SceneManager.LoadScene("MainScene");
+				SceneManager.LoadScene(RunScene);
 			}
 		}
 	}

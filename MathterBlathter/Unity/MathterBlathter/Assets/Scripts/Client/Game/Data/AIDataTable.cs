@@ -10,11 +10,11 @@ namespace Client.Game.Data
                 ret.Name = "Patrol Then Pursue";
                 var patrolAction = new ActionData (
                     typeof(PatrolAction),
-                    typeof(TestPlayerLOS)
+                    typeof(WaitForPlayerLOS)
                 );
                 patrolAction.Next = new ActionData(
                     typeof(FireAtPlayer),
-                    typeof(HasPlayerLOS)
+                    typeof(CheckPlayerLOS)
                     );
                 ret.ActionData = patrolAction;
                 
@@ -22,22 +22,29 @@ namespace Client.Game.Data
             }
         }
         
-		public static AIData EXPERIMENTAL_PATHING {
+		public static AIData AIR_PATH_TO_FIRE_AI {
 			get {
 				var ret = new AIData();
 				ret.ActionData = new ActionData(typeof(PathToPlayer));
+				ret.ActionData.Next = new ActionData(
+					typeof(FireAtPlayer),
+					typeof(CheckPlayerLOS)
+				);
+
 				return ret;
 			}
 		}
 
-        public static AIData SEEK_TO_FIRE_AI {
+        public static AIData SEEK_TO_FIRE_IF_LOS_AI {
             get {
+				
                 var ret = new AIData();
                 ret.Name = "Seek To Fire";
-                ret.ActionData = new ActionData(typeof(SeekToPlayer));
-                ret.ActionData.Next = new ActionData(
+				ret.ActionData = new ActionData(typeof(WaitForPlayerLOS));
+                ret.ActionData.Next = new ActionData(typeof(SeekToPlayer));
+                ret.ActionData.Next.Next = new ActionData(
                 	typeof(FireAtPlayer), 
-                    typeof(HasPlayerLOS)
+                    typeof(CheckPlayerLOS)
 				);
                 return ret;
             }
