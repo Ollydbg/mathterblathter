@@ -906,10 +906,16 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
 				));
-
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 48f
+					AbilityAttributes.SplashRadius.Id, 2f
 				));
+
+
+				var launch = new TimelineData();
+				launch.Duration = 1f;
+				launch.AsciiMap += "ssss";
+				launch.Lookup['s'] = "SFX/grenadeLaunch";
+				ret.Timelines.Add(launch);
 
 				var explosionEffect = new TimelineData();
 				explosionEffect.AsciiMap += "eeeeeee";

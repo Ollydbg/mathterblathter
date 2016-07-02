@@ -72,9 +72,7 @@ namespace Client.Game.AI
 			if(head == null) head = brainAction;
 			
 			if(action.Next != null) {
-				var child = RecurseData(head, action.Next);
-				child.Next = head;
-				brainAction.Next = child;
+				brainAction.Next = RecurseData(head, action.Next);
 			} else {
 				brainAction.Next = head;
 			}

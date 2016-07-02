@@ -592,13 +592,27 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Cooldown.Id, .8f
 				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.ProjectileSpeed.Id, 35f
+				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 10
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, 1f
 				));
-				
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipAmount.Id, .07f
+				));
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.5f
+				));
+
 				ret.Cost = 750;
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				

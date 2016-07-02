@@ -6,14 +6,14 @@ namespace Client.Game.Abilities.Movement
 {
 	public class RigidBodyAddForce : Movement
 	{
-		public Vector3 Direction;
-		public Rigidbody Rigidbody;
+		public Vector2 Direction;
+		public Rigidbody2D Rigidbody;
 		public RigidBodyAddForce (Actor actor, Vector3 direction, float speed) : base(actor)
 		{
 			this.Speed = speed;
 			this.Direction = direction;
-			this.Rigidbody = actor.GameObject.GetComponent<Rigidbody>();
-			Rigidbody.AddForce(Direction * speed, ForceMode.VelocityChange);
+			this.Rigidbody = actor.GameObject.GetComponent<Rigidbody2D>();
+			Rigidbody.AddForce(Direction * speed, ForceMode2D.Impulse);
 		}
 
 

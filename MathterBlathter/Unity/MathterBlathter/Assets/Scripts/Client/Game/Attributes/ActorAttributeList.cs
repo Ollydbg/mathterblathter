@@ -89,6 +89,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF TimeSkipAmount = new GameAttributeF(66, .05f, "on hit time skip to", 0, 1f);
 		public static readonly GameAttributeF AIActivationRange = new GameAttributeF(67, 40f, "ai weapon activation range", 0, float.MaxValue);
 		public static readonly GameAttributeI JumpBoostFrameThresh = new GameAttributeI(68, 6, "jump boost threshold in frames", 0, int.MaxValue);
+		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(69, 5f, "projectileSpeed", float.MinValue, float.MaxValue);
 	}
 }
 

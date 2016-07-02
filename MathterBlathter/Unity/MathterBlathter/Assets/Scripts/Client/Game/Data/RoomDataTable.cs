@@ -66,7 +66,7 @@ namespace Client.Game.Data
 				ret.MaxInstances = 1;
 				ret.SetPiece = SetPieceDataTable.INTRO;
 
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
 				ret.AsciiSpawnLookup['2'] = CharacterDataTable.ANXIETY_DAMAGE_AOE_ITEM;
 				finalize(ret);
 
@@ -121,8 +121,6 @@ namespace Client.Game.Data
                 ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
 
-				ret.AsciiSpawnLookup['2'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
-
 				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
 				ret.AsciiSpawnLookup['5'] = CharacterDataTable.RUST_MACHINE;
 				ret.AsciiSpawnLookup['6'] = CharacterDataTable.VIPER_REPEATER_WEAPON;
@@ -134,8 +132,8 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.AUTO_HAMMER_WEAPON;
-				//ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 
 				finalize(ret);

@@ -28,11 +28,15 @@ namespace Client.Game.Abilities.Scripts
 			
 			for(int i = 0; i<projectileCount; i++) {
 				var projectile = FireProjectile(projectileData, context.targetDirection, 0f, (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
-				projectile.Movement = new RigidBodyAddForce(projectile, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed]);
+				projectile.Movement = new RigidBodyAddForce(projectile, context.targetDirection, this.SourceWeapon.Attributes[ActorAttributes.ProjectileSpeed]);
 
+				PlayTimeline(this.context.data.Timelines[0], projectile);
+				
 				projectile.OnDestroyed += (Actor actor) => {
-					PlayTimeline(this.context.data.Timelines[0], projectile.transform.position);
+					PlayTimeline(this.context.data.Timelines[1], projectile.transform.position);
 
+					CameraShake();
+					SkipTime();
 					var inRange = AbilityUtils.OverlapCircle(projectile.transform.position, context, this.Attributes[AbilityAttributes.SplashRadius], new FilterList(Filters.Hittable));
 					foreach( Actor tgt in inRange) {
 						new WeaponDamagePayload (context, tgt, Attributes[AbilityAttributes.Damage]).Apply();

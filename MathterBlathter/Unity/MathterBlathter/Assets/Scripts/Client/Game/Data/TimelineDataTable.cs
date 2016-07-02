@@ -8,7 +8,7 @@ namespace Client.Game.Data
 		public static TimelineData SMALL_SPAWN_TL {
 			get {
 				var ret = new TimelineData();
-				ret.Duration = 1.4f;
+				ret.Duration = 1f;
 				ret.AsciiMap += "eeeee   ";
 				ret.AsciiMap += "sssss   ";
 				ret.Lookup['e'] = "WorldFX/SmallSpawnPortal";
