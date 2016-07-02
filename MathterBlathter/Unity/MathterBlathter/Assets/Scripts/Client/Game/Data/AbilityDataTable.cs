@@ -363,6 +363,14 @@ namespace Client.Game.Data
 				ret.name = "wave gun";
 				ret.spawnableDataId = CharacterDataTable.BEAM_PROJECTILE.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ContinuousBeam);
+
+				var hitTL = new TimelineData();
+				hitTL.Duration = 5f;
+				hitTL.AsciiMap += "eeeeeee";
+				hitTL.Lookup['e'] = "Projectiles/VFX/WaveGunImpact";
+
+				ret.Timelines.Add(hitTL);
+
 				return ret;
 			}
 		}

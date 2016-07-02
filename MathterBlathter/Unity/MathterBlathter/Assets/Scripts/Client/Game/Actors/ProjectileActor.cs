@@ -16,6 +16,7 @@ namespace Client.Game.Actors
 
 		private float lifespan = 5.0f;
 		private float lifetime = 0f;
+		private bool destroyOnGeometry;
 		private FilterList collisionFilters;
 
 		public AbilityContext Context;
@@ -35,6 +36,8 @@ namespace Client.Game.Actors
 		{
 			this.GameObject.layer = LayerMask.NameToLayer (PROJECTILES_LAYER);
 			this.lifespan = this.Attributes[ActorAttributes.ProjectileLifespan];
+			this.destroyOnGeometry = this.Attributes[ActorAttributes.ProjectileDestroyOnGeometry];
+
 			base.EnterGame (game);
 		}
 
@@ -91,7 +94,9 @@ namespace Client.Game.Actors
 			if(result == TriggerTestResult.Geometry) {
 				if(OnGeometryHit != null)
 					OnGeometryHit();
-				Game.ActorManager.RemoveActor(this);
+				
+				if(destroyOnGeometry)
+					Game.ActorManager.RemoveActor(this);
 
 			}
 

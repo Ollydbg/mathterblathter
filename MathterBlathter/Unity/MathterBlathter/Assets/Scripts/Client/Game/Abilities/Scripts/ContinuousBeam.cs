@@ -44,6 +44,8 @@ namespace Client.Game.Abilities.Scripts
 
 			if(projectile == null) {
 				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
+				PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
+
 				this.lineRenderer = projectile.GameObject.GetComponent<LineRenderer>();
 				projectile.OnDestroyed += Projectile_OnDestroyed;
 
@@ -86,6 +88,9 @@ namespace Client.Game.Abilities.Scripts
 					costAccum -= tickRate;
 					new AnxietyCostPayload(context, context.source, context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost] * tickRate)
 						.Apply();
+
+
+					PlayTimeline(context.data.Timelines[0], endPosition + Vector3.down*2f);
 						
 				}
 				
@@ -103,7 +108,7 @@ namespace Client.Game.Abilities.Scripts
 		Vector3 BeamEndPosition(AbilityContext ctx, out Actor hitActor) {
 			
 			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
-			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
+			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Enemies.ToString(), Layers.AirEnemies.ToString()});
 			var hit = Physics2D.CircleCast(startLocation, beamWidth, VectorUtils.Vector2(ctx.targetDirection), 100f, layerMask);
 			if(hit != null && hit.transform != null) {
 				ActorUtils.TryHitToActor(hit, out hitActor);

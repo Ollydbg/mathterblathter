@@ -90,6 +90,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF AIActivationRange = new GameAttributeF(67, 40f, "ai weapon activation range", 0, float.MaxValue);
 		public static readonly GameAttributeI JumpBoostFrameThresh = new GameAttributeI(68, 6, "jump boost threshold in frames", 0, int.MaxValue);
 		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(69, 5f, "projectileSpeed", float.MinValue, float.MaxValue);
+		public static readonly GameAttributeB ProjectileDestroyOnGeometry = new GameAttributeB(70, 1, "projectile destroys on geometry", 0, 1);	
 	}
 }
 

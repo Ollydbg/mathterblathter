@@ -102,7 +102,10 @@ namespace Client.Game.Data
 				ret.Id = 2008;
 				ret.ActorType = ActorType.Projectile;
 				ret.ResourcePath = "Projectiles/Grenade_prefab";
-				
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.ProjectileDestroyOnGeometry.Id,
+					0
+				));
 				return ret;
 			}
 		}

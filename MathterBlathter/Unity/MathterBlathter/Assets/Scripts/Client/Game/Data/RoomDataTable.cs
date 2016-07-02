@@ -80,7 +80,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
@@ -132,7 +132,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.WAVE_GUN_WEAPON;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 
