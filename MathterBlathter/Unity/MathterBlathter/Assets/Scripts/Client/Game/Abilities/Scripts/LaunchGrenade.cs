@@ -37,6 +37,7 @@ namespace Client.Game.Abilities.Scripts
 
 					CameraShake();
 					SkipTime();
+
 					var inRange = AbilityUtils.OverlapCircle(projectile.transform.position, context, this.Attributes[AbilityAttributes.SplashRadius], new FilterList(Filters.Hittable));
 					foreach( Actor tgt in inRange) {
 						new WeaponDamagePayload (context, tgt, Attributes[AbilityAttributes.Damage]).Apply();

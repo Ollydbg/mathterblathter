@@ -11,11 +11,25 @@ namespace Client.Game.UI.Titles
 		void Awake() {}
 		void Start() {}
 
-		void Update() {
-			if(Input.anyKey) {
-				SceneManager.LoadScene(RunScene);
-			}
+		public void NewRun() {
+			SceneManager.LoadScene(RunScene);
 		}
+
+		public void Daily() {
+
+		}
+
+		public void Tutorial() {
+
+		}
+		public void Stats() {
+
+		}
+
+		public void Options() {
+
+		}
+
 	}
 }
 

@@ -578,10 +578,7 @@ namespace Client.Game.Data
 				
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Dredgling Grenade Launcher";
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.CameraShakeForce.Id,
-					.4f
-				));
+
 				ret.AddAbility(AbilityDataTable.LAUNCH_GRENADE);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
@@ -594,7 +591,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.ProjectileSpeed.Id, 35f
+					ActorAttributes.ProjectileSpeed.Id, 45f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 10

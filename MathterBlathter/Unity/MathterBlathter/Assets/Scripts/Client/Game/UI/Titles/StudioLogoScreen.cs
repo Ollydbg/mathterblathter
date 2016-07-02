@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityStandardAssets.ImageEffects;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Client.Game.UI.Titles
 {
@@ -24,10 +25,13 @@ namespace Client.Game.UI.Titles
 		public GameObject GridTop;
 		public GameObject GridBottom;
 
+		public string NextSceneName = "MainMenu";
+
 		void Awake() {}
 		void Start() {
 			this.abbrComp = GetComponent<VignetteAndChromaticAberration>();
 			this.bloomComp = GetComponent<AmplifyBloom.AmplifyBloomBase>();
+
 		}
 
 		
@@ -54,13 +58,23 @@ namespace Client.Game.UI.Titles
 			pos.z = GridZ;
 			GridBottom.transform.localPosition = pos;
 
-
 		}
 
 		void NextScene() {
-			SceneManager.LoadScene("MainMenu");
+
+			StartCoroutine(LoadNext());
 		}
-		
+
+		IEnumerator LoadNext() {
+
+			var next = SceneManager.LoadSceneAsync(NextSceneName);
+
+			while(!next.isDone) {
+				yield return null;
+			}
+			//SceneManager.SetActiveScene(SceneManager.GetSceneByName(NextSceneName));
+
+		}
 	}
 }
 
