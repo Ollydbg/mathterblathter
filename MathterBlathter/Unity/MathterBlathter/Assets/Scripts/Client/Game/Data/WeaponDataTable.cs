@@ -584,14 +584,14 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 50
+					ActorAttributes.BaseDamage.Id, 70
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Cooldown.Id, .8f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.ProjectileSpeed.Id, 45f
+					ActorAttributes.ProjectileSpeed.Id, 50f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.WeaponAnxietyCost.Id, 10
