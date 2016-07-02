@@ -57,7 +57,7 @@ namespace Client.Game.Abilities
 			}
 
 			foreach (var kvp in Abilities) {
-				foreach (var ability in kvp.Value.Values) {
+				foreach (var ability in kvp.Value.Values.ToList()) {
 
 					ability.Update(dt);
 					if (ability.IsComplete ()) {
@@ -66,6 +66,7 @@ namespace Client.Game.Abilities
 				}
 			}
 
+			
 			//cull
 			while (deferredRemoves.Count > 0) {
 				var rp = deferredRemoves.Dequeue ();
@@ -76,12 +77,7 @@ namespace Client.Game.Abilities
 						Abilities [rp.actor].Remove (rp.ability.InstanceId);
 					}
 					
-				} else {
-					if(Abilities.TryGetValue(rp.actor, out actorAbils)) {
-						actorAbils.Values.ToList().ForEach(p=>p.End());
-						Abilities.Remove(rp.actor);
-					}
-				}
+				} 
 			}
 		}
 
@@ -141,7 +137,14 @@ namespace Client.Game.Abilities
 				
 
 		public void RemoveActor(Actor actor) {
-			deferredRemoves.Enqueue(new RemovePair(actor, null));
+
+			AbilityMap actorAbils;
+			if(Abilities.TryGetValue(actor, out actorAbils)) {
+				actorAbils.Values.ToList().ForEach(p=>p.End());
+				Abilities.Remove(actor);
+			
+			}
+			
 		}
 
 		bool ActorUsesAbilities (Actor actor)

@@ -58,7 +58,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                      Pw";
 				ret.AsciiMap += "                                                                     ccw";
 				ret.AsciiMap += "                              @                 1   2       PPPPPPPPPPPw";
-				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "fdddffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
@@ -80,7 +80,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
@@ -108,11 +108,11 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                         w                                     w";
 				ret.AsciiMap += "wPPPP                     w                                     w";
                 ret.AsciiMap += "w                         w                                     w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                           1       w";
                 ret.AsciiMap += "w                       2                               ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                   L                                           w";
+                ret.AsciiMap += "w                   L  1                                        w";
                 ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
@@ -132,8 +132,8 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.WAVE_GUN_WEAPON;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
 
 
 				finalize(ret);
