@@ -38,14 +38,14 @@ namespace Client.Game.UI.Run.Indicators
 					
 		}
 
-		void OnNewWave ()
+		void OnActorEntered ()
 		{
 			diffRoomState(force:true);
 		}
 
         private void OnRoomUnlocked(Room room)
         {
-			Game.RoomManager.CurrentRoom.Waves.OnNewWave -= OnNewWave;
+			Game.RoomManager.CurrentRoom.Waves.OnActorEntered -= OnActorEntered;
         }
 
 		void closestRoomTypePosition(RoomType type, List<Vector3> addToList) {
@@ -112,7 +112,7 @@ namespace Client.Game.UI.Run.Indicators
 
 		void OnRoomEntered (Actor actor, Room oldRoom, Room newRoom)
 		{
-			Game.RoomManager.CurrentRoom.Waves.OnNewWave += OnNewWave;
+			Game.RoomManager.CurrentRoom.Waves.OnActorEntered += OnActorEntered;
 		}
 		
 		private void SpawnForObject(ObjectiveWrapper obj) {

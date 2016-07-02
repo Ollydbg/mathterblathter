@@ -13,7 +13,7 @@ namespace Client.Game.Map
 
 	public class RoomWaveManager
 	{
-		public delegate void ActorSpawned(Actor actor);
+		public delegate void ActorSpawned(DelayedActorSpawn pending, Actor actor);
 
 		public RoomWaveManager ()
 		{
@@ -23,9 +23,9 @@ namespace Client.Game.Map
 		public GeneratedWave CurrentWave;
 
 		public delegate void WaveHandler();
-		public event WaveHandler OnNewWave;
+		public event WaveHandler OnActorEntered;
 		public List<Actor> AliveActors = new List<Actor>();
-		public List<DelayedActorSpawn> Delayed = new List<DelayedActorSpawn>();
+		public List<DelayedActorSpawn> PendingActors = new List<DelayedActorSpawn>();
 		public bool DidStart = false;
 		public TimelineRunner TimelineRunner;
 
@@ -40,20 +40,28 @@ namespace Client.Game.Map
 		public void AddActor(Actor actor) {
 			actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
 			AliveActors.Add(actor);
+			OnActorEntered();
+		}
+
+		private void ConvertPending(DelayedActorSpawn pending, Actor actor) {
+			PendingActors.Remove(pending);
+			AddActor(actor);
+			//TimelineRunner.Play(TimelineDataTable.SMALL_ACTOR_ENTERED_TL, actor, Vector3.zero);
 		}
 
 		private void InitCurrentWave() {
+			float i = 0f;
 			foreach( var spawnPair in CurrentWave.Generated ) {
-				DelayedActorSpawn.Apply(spawnPair, 
-					2f, 
+				var pending = DelayedActorSpawn.Apply(spawnPair, 
+					2f + .4f*i++, 
 					TimelineRunner, 
-					(actor) => AddActor(actor));
+					ConvertPending);
+				
+				PendingActors.Add(pending);
 
 				currentWaveTimer = CurrentWave.WaveData.Delay;
 
 			}
-			if(OnNewWave != null)
-				OnNewWave();
 		}
 
 		public bool HasWavesRemaining {
@@ -64,7 +72,7 @@ namespace Client.Game.Map
 
 		public bool WaveComplete {
 			get {
-				return AliveActors.Count == 0 && Delayed.Count == 0;
+				return AliveActors.Count == 0 && PendingActors.Count == 0;
 			}
 		}
 
@@ -115,7 +123,7 @@ namespace Client.Game.Map
 				actor.SpawnData = new RoomData.Spawn(ActorData.Data);
 				ActorUtils.FaceRelativeDirection(actor, ActorData.Facing);
 
-				Callback(actor);
+				Callback(this, actor);
 
 				GameObject.Destroy(this.gameObject);
 			}
@@ -124,13 +132,17 @@ namespace Client.Game.Map
 		public static DelayedActorSpawn Apply(GeneratedWave.GeneratedSpawn spawn, float TTL, TimelineRunner Runner, RoomWaveManager.ActorSpawned callback) {
 			var go = new GameObject();
 			go.transform.position = spawn.Position;
+
 			var das = go.AddComponent<DelayedActorSpawn>();
 			das.ActorData = spawn;
+
 			das.TTL = TTL;
 			das.Callback = callback;
+
 			var tl = TimelineDataTable.SMALL_SPAWN_TL;
 			tl.Duration = TTL;
-			Runner.Play(TimelineDataTable.SMALL_SPAWN_TL, go, Vector3.zero);
+
+			Runner.Play(tl, go, Vector3.zero);
 
 			return das;
 			
