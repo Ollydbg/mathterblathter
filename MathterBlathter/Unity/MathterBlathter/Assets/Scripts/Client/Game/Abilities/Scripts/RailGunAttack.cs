@@ -56,6 +56,7 @@ namespace Client.Game.Abilities.Scripts
 					if(result == TriggerTestResult.Ok) {
 						new WeaponDamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
 						SkipTime();
+						KnockBack(hitActor as Character);
 						PlayTimeline(context.data.Timelines[1], hitActor);
 
 					} else if (result == TriggerTestResult.Geometry) {

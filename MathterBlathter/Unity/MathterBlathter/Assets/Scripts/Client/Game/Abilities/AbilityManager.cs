@@ -56,7 +56,7 @@ namespace Client.Game.Abilities
 				readAddQueue(deferredAds.Dequeue());		
 			}
 
-			foreach (var kvp in Abilities) {
+			foreach (var kvp in Abilities.ToList()) {
 				foreach (var ability in kvp.Value.Values.ToList()) {
 
 					ability.Update(dt);
@@ -89,7 +89,7 @@ namespace Client.Game.Abilities
 
 		private void readAddQueue(AbilityContext ctx) {
 
-			if(!ctx.source.Deleted) {
+			if(!ctx.Executor.Deleted) {
 				AbilityMap abilities;
 				if(!Abilities.TryGetValue(ctx.Executor, out abilities)) {
 					abilities = new AbilityMap();

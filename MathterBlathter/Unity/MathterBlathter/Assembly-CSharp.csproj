@@ -201,7 +201,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Enums\RoomSpawnType.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Geometry\PassthroughPlatform.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ActiveItemController.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Items\DropFactory.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ItemBuffScript.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\WeaponController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\ActorManager.cs" />

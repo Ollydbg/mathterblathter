@@ -76,7 +76,7 @@ namespace Client.Game.Actors.Controllers
 		}
 
 		public void Update (float dt) {
-			SetAnimationState();
+			
 		}
 
 
@@ -127,12 +127,11 @@ namespace Client.Game.Actors.Controllers
 			ConsumeMovement();
 		}
 
-		void SetAnimationState ()
+		void SetAnimationState (Vector2 velocity, bool grounded)
 		{
 			if(animator != null) {
-				animator.SetFloat("speed", Math.Abs(rigidBody.velocity.x));
-				animator.SetBool("grounded", IsGrounded);
-				animator.SetFloat("yVelocity", Math.Abs(rigidBody.velocity.y));
+				animator.SetFloat("speed", Math.Abs(velocity.x));
+				animator.SetBool("grounded", grounded);
 			}
 			
 		}
@@ -148,10 +147,11 @@ namespace Client.Game.Actors.Controllers
 				if(OnGrounded != null) {
 					OnGrounded(rigidBody.velocity);
 				}
-
 			}
 
 			wasGrounded = grounded;
+
+			SetAnimationState(movementAccumulator, grounded);
 
 			movementAccumulator = Vector3.zero;
 

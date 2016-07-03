@@ -20,7 +20,6 @@ namespace Client.Game.Data
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Speed.Id, 30f
 				));
-
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.PassesThroughPlatforms.Id, 1
 				));

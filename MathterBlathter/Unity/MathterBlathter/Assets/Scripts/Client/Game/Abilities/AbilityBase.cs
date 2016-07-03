@@ -73,7 +73,9 @@ namespace Client
 			EffectTTL.AddToObject(go, 2f);
 			return go;
 		}
-		
+		public void KnockBack(Character actor) {
+			KnockBack(actor, context.targetDirection.normalized);
+		}
 		public void KnockBack(Character actor, Vector3 direction) {
 			new KnockbackPayload(context, actor, direction).Apply();
 		}

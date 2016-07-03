@@ -66,8 +66,9 @@ namespace Client.Game.Data
 				ret.MaxInstances = 1;
 				ret.SetPiece = SetPieceDataTable.INTRO;
 
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['2'] = CharacterDataTable.ANXIETY_DAMAGE_AOE_ITEM;
+
 				finalize(ret);
 
 				return ret;
@@ -96,7 +97,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w .1...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [         w";
+                ret.AsciiMap += "w . ...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [         w";
                 ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
                 ret.AsciiMap += "w                         w                                     w";
                 ret.AsciiMap += "w                  L      w                    L                w";
@@ -108,16 +109,16 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                         w                                     w";
 				ret.AsciiMap += "wPPPP                     w                                     w";
                 ret.AsciiMap += "w                         w                                     w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                           1       w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                                   w";
                 ret.AsciiMap += "w                       2                               ppppppppw";
                 ret.AsciiMap += "w                                                               w";
                 ret.AsciiMap += "w                                                               w";
-                ret.AsciiMap += "w                   L  1                                        w";
+                ret.AsciiMap += "w                   L                                           w";
                 ret.AsciiMap += "w                      PPPP                                     w";
                 ret.AsciiMap += "w                      PPPP                    L                w";
                 ret.AsciiMap += "d                      PPPP                                     d";
 				ret.AsciiMap += "d                            C                                  d";
-                ret.AsciiMap += "d                                .............1.........        d";
+                ret.AsciiMap += "d       q                        .............1.........        d";
                 ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTffffffffffffffffffffw";
 				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
 
@@ -130,10 +131,10 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['#'] = CharacterDataTable.HOT_RAILS;
 				ret.AsciiSpawnLookup['e'] = CharacterDataTable.CERAMIC_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
-
+				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.GRENADE_LAUNCHER_WEAPON;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 
 				finalize(ret);

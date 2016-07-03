@@ -28,7 +28,7 @@ namespace Client.Game.Data
 					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, 35f
 				));
 				return ret;
 			}
@@ -64,7 +64,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponAnxietyCost.Id, 8
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, 35f
 				));
 					
 
@@ -131,7 +131,7 @@ namespace Client.Game.Data
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, 0f
+					ActorAttributes.KnockbackForce.Id, 30f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -256,7 +256,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, 0f
+					ActorAttributes.KnockbackForce.Id, 15f
 				));
 				
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -277,17 +277,13 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.RAIL_GUN);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
-
+				ret.AddAbility(AbilityDataTable.WEAPON_CURSE);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
 					.3f
 				));
 
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Abilities.Id, AbilityDataTable.WEAPON_CURSE.Id,
-					3
-				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.BaseDamage.Id, 30
 				));
@@ -305,7 +301,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .01f
+					ActorAttributes.KnockbackForce.Id, 5f
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
@@ -338,7 +334,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, 2f
+					ActorAttributes.KnockbackForce.Id, 25f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0
@@ -378,7 +374,7 @@ namespace Client.Game.Data
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, 35f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -431,7 +427,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, 30f
 				));
 			
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -532,7 +528,7 @@ namespace Client.Game.Data
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, 1.2f
+					ActorAttributes.KnockbackForce.Id, 55f
 				));
 				
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
@@ -563,7 +559,7 @@ namespace Client.Game.Data
 					ActorAttributes.Cooldown.Id, 1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, 40f
 				));
 				ret.Availability = Availability.None;
 				return ret;
@@ -597,7 +593,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponAnxietyCost.Id, 10
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, 1f
+					ActorAttributes.KnockbackForce.Id, 55f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -641,7 +637,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponAnxietyCost.Id, 10
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .5f
+					ActorAttributes.KnockbackForce.Id, 55f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
@@ -706,7 +702,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .9f
+					ActorAttributes.KnockbackForce.Id, 49f
 				));
 
 
@@ -751,7 +747,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, .9f
+					ActorAttributes.KnockbackForce.Id, 45f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MeleeRange.Id, 3f

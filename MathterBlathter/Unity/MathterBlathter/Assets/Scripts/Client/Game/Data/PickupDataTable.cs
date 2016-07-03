@@ -38,14 +38,13 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.STAT_UP);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
-
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					1
+					5
 				));
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.Health.Id,
-					1
+					5
 				));
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 10;
@@ -387,10 +386,9 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.SMALL_ADD_MAX_ANXIETY);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
-
 				ret.overrideAttributes.Add(new GameData.AttributeData(
 					ActorAttributes.MaxAnxiety.Id,
-					10
+					20
 				));
 
 				ret.Availability = Availability.InShop | Availability.Droppable | Availability.RoomClearReward;

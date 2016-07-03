@@ -89,13 +89,13 @@ namespace Client.Game.Abilities.Scripts
 					new AnxietyCostPayload(context, context.source, context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost] * tickRate)
 						.Apply();
 
-
 					PlayTimeline(context.data.Timelines[0], endPosition + Vector3.down*2f);
 						
 				}
 				
 				if(hitActor != null) {
 					var pl = new WeaponDamagePayload(context, hitActor, this.Attributes[AbilityAttributes.Damage]);
+					KnockBack(hitActor as Actors.Character, context.targetDirection.normalized);
 					pl.DamageScalar = dt;
 					pl.Apply();
 				}
