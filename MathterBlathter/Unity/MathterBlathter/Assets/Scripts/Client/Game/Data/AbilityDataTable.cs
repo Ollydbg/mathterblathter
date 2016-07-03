@@ -364,6 +364,12 @@ namespace Client.Game.Data
 				ret.spawnableDataId = CharacterDataTable.BEAM_PROJECTILE.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ContinuousBeam);
 
+				var hummingTL = new TimelineData();
+				hummingTL.Duration = 10f;
+				hummingTL.AsciiMap += "sssss";
+				hummingTL.Lookup['s'] = "SFX/waveGun";
+				ret.Timelines.Add(hummingTL);
+
 				var hitTL = new TimelineData();
 				hitTL.Duration = 5f;
 				hitTL.AsciiMap += "eeeeeee";

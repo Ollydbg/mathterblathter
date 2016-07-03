@@ -44,8 +44,8 @@ namespace Client.Game.Abilities.Scripts
 
 			if(projectile == null) {
 				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
-				PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 
+				//PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 				this.lineRenderer = projectile.GameObject.GetComponent<LineRenderer>();
 				projectile.OnDestroyed += Projectile_OnDestroyed;
 
@@ -89,7 +89,7 @@ namespace Client.Game.Abilities.Scripts
 					new AnxietyCostPayload(context, context.source, context.sourceWeapon.Attributes[ActorAttributes.WeaponAnxietyCost] * tickRate)
 						.Apply();
 
-					PlayTimeline(context.data.Timelines[0], endPosition + Vector3.down*2f);
+					PlayTimeline(context.data.Timelines[1], endPosition + Vector3.down*2f);
 						
 				}
 				

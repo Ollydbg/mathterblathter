@@ -16,9 +16,10 @@ namespace Client.Game.Managers
 		public Transform TargetTransform;
 		Vector3 shakeAccum = Vector3.zero;
 		public float shakeScalar = 2f;
-
+		PlayerCharacter Player;
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
+			Player = player;
 			TargetTransform = player.transform;
 			transform.position = goalPosition;
 		}
@@ -36,15 +37,21 @@ namespace Client.Game.Managers
 					var vExtent = camera.orthographicSize;
 					var hExtent = camera.orthographicSize * Screen.width / Screen.height;
 
-
 					var minX = hExtent + room.X;
 					var maxX = minX + room.Width - 2*hExtent;
 					var minY = vExtent + room.Y;
 					var maxY = minY + room.Height - 2*vExtent;
 
+					var lookBias = Player.WeaponController.GetAimDirection() * 4f;
+
+					var aa = TargetTransform.position;
+					var bb = aa + lookBias;
+
+
+
 					return new Vector3 (
-						Mathf.Clamp(Game.Instance.PossessedActor.GameObject.transform.position.x, minX, maxX), 
-						Mathf.Clamp(Game.Instance.PossessedActor.GameObject.transform.position.y, minY, maxY), 
+						Mathf.Clamp(bb.x, minX, maxX), 
+						Mathf.Clamp(bb.y, minY, maxY), 
 						transform.position.z);
 				} else {
 					return transform.position;
@@ -73,6 +80,7 @@ namespace Client.Game.Managers
 			camera = Camera.main;	
 			transform = camera.transform;
 			Rooms = Game.Instance.RoomManager;
+			
 		}
 
 		public void Shutdown ()
