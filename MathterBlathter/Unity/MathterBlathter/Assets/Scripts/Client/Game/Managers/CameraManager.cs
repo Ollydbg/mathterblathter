@@ -24,7 +24,7 @@ namespace Client.Game.Managers
 			transform.position = goalPosition;
 		}
 
-		RoomManager Rooms;
+		MapManager Rooms;
 
 
 		Vector3 goalPosition {

@@ -34,6 +34,31 @@ namespace Client.Game.Map
 
 		}
 
+		public RoomData NextWithRequirement(ZoneData.Requirement req) {
+			RoomData ret = null;
+			int i = 0;
+			while(ret == null) {
+				int roomId = OrderedIds[(ReadPosition + i) % OrderedIds.Count];
+				if(req.Accepts(PristineSet[roomId])) {
+
+					InstancesRemaining[roomId] --;
+
+					if(InstancesRemaining[roomId] == 0) {
+						//I know I know
+						OrderedIds.Remove(roomId);
+					}
+
+					ret = PristineSet[roomId];
+				}
+				i++;
+			}
+
+			ReadPosition ++;
+
+			return ret;
+
+		}
+
 		public RoomData Next() {
 			
 			int roomId = OrderedIds[ReadPosition % OrderedIds.Count];
@@ -51,6 +76,7 @@ namespace Client.Game.Map
 			return ret;
 
 		}
+
 
 
 		public bool Exhausted 

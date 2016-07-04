@@ -11,7 +11,7 @@ namespace Client.Game.UI.Run
 	{
 
 		Text text;
-		RoomManager roomManager;
+		MapManager roomManager;
 		private float MaxHeight = float.MinValue;
 		private float MinHeight = float.MaxValue;
 

@@ -37,7 +37,7 @@ namespace Client.Game.States
 
 		public override void Enter ()
 		{
-			generator.InitPool(availableRooms(), numRoomsToGenerate());
+			generator.InitWithPool(availableRooms(), 100);
 		}
 
 		public override void Exit ()
@@ -49,16 +49,18 @@ namespace Client.Game.States
 
 		public override void Update (float dt)
 		{
-				int i = generationsPerFrame;
-				while(i-- > 0) {
-					if(!generator.IsComplete) {
-						Rooms.AddRange(generator.Emit());
-					} else {
-						generator.SealDoors();
-						Change<RunState>();
-						break;
-					}
+			int i = generationsPerFrame;
+			while(i-- > 0) {
+				if(!generator.IsComplete) {
+					var room = generator.Emit();
+					if( room != null )
+						Rooms.Add(room);
+					
+				} else {
+					Change<RunState>();
+					break;
 				}
+			}
 
 				
 		}

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Client.Game.Data
 {
@@ -28,52 +29,63 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Maps/Map1";
 				ret.Id = 1;
 				ret.ReadScale = 1f;
-				ret.MaxRooms = 40;
-				
-				var lurchZone = new ZoneData();
-				lurchZone.Id = 0;
-				lurchZone.Name = "New Parish";
-				lurchZone.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
-				lurchZone.Requirements.Add(new ZReq(RoomDataTable.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
-				lurchZone.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				lurchZone.Requirements.Add(new ZReq(RoomType.WeaponRoom | RoomType.ItemRoom, 1, ZoneData.Occurance.Guaranteed));
-				
-				lurchZone.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
-
-				lurchZone.MinElevation = 0;
-				lurchZone.MaxElevation = 120;
-				ret.Zones.Add(lurchZone);
-				
 				
 				var zone1 = new ZoneData();
-				zone1.Id = 1;
-				zone1.Name = "The Vestry";
-				zone1.Requirements.Add(new ZReq(RoomDataTable.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
+				zone1.Id = 0;
+				zone1.Name = "New Parish";
+				zone1.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
 				zone1.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone1.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
-				zone1.MinElevation = 120;
-				zone1.MaxElevation = 250;
+				zone1.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
+				zone1.DrawColor = new Color(.45f, .33f, .40f);
+				zone1.MaxRooms = 25;
 				ret.Zones.Add(zone1);
-				
+
+
+				var z1b = new ZoneData();
+				z1b.Id = 1;
+				z1b.MaxRooms = 1;
+				z1b.Name = "Prophet 5";
+				z1b.Requirements.Add(new ZReq(RoomDataTable.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
+				z1b.DrawColor = new Color(.65f, .23f, .30f);
+
+				ret.Zones.Add(z1b);
+
+
+
 				var zone2 = new ZoneData();
 				zone2.Id = 2;
-				zone2.Name = "Power Center";
+				zone2.Name = "The Vestry";
+				zone2.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
 				zone2.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone2.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
-				zone2.MinElevation = 250;
-				zone2.MaxElevation = 400;
+				zone2.MaxRooms = 20;
+				zone2.DrawColor = new Color(.55f, .43f, .20f);
+
 				ret.Zones.Add(zone2);
 
+
 				var zone3 = new ZoneData();
-				zone3.Id = 3;
-				zone3.Name = "The Lab";
+				zone3.Id = 4;
+				zone3.Name = "Power Center";
+				zone3.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
 				zone3.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone3.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
-				zone3.MinElevation = 400;
-				zone3.MaxElevation = 600;
+				zone3.MaxRooms = 20;
+				zone3.DrawColor = new Color(.65f, .33f, .20f);
+
 				ret.Zones.Add(zone3);
-				
-				
+
+
+
+				var zone4 = new ZoneData();
+				zone4.Id = 6;
+				zone4.Name = "The Lab";
+				zone4.Requirements.Add(new ZReq(RoomType.Normal, 15, ZoneData.Occurance.Guaranteed));
+				zone4.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
+				zone4.DrawColor = new Color(.25f, .53f, .30f);
+
+				zone4.MaxRooms = 20;
+				ret.Zones.Add(zone4);
+
+
 				return ret;
 			}
 		}

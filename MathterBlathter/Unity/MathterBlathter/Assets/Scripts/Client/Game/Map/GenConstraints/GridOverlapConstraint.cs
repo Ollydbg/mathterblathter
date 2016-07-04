@@ -22,8 +22,10 @@ namespace Client.Game.Map.GenConstraints
 
 		public bool Check (RoomData data, int x, int y, int width, int height)
 		{
+			/*
 			if(reader.IsBlocked(x, y))
 				return false;
+			*/
 
 			var testRect = new Rect (x, y, width, height);
 

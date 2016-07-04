@@ -34,7 +34,7 @@ namespace Client.Game.Data
 		public ParallaxData LayerData;
 		public SetPieceData SetPiece;
 
-		public RoomType Type;
+		public RoomType Type = RoomType.Normal;
 
 
 		public override string ToString ()
@@ -137,16 +137,16 @@ namespace Client.Game.Data
 
 	[FlagsAttribute]
 	public enum RoomType : short {
-		Normal = 0,
-		Challenge = 1,
-		Store = 2,
-		LurchStart = 4,
-		Secret = 8,
-		Terminal = 16,
-		BossGate = 32,
-		NoWaves = 64,
-		WeaponRoom = 128,
-		ItemRoom = 256
+		Normal = 1,
+		Challenge = 2,
+		Store = 4,
+		LurchStart = 8,
+		Secret = 16,
+		Terminal = 32,
+		Boss = 64,
+		NoWaves = 128,
+		WeaponRoom = 256,
+		ItemRoom = 512
 	}
 }
 
