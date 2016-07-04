@@ -35,6 +35,7 @@ namespace Client.Game.SetPieces
 			Vector2 actor2d = Game.Instance.PossessedActor.transform.position;
 			Vector2 jet2d = Jet.transform.position;
 			var distance = (jet2d - actor2d).magnitude;
+			distance = Mathf.Clamp(distance, 0, maxDistance);
 
 			var shake = UnityEngine.Random.insideUnitSphere * cameraShakeFactor * (maxDistance - distance) / maxDistance;
 

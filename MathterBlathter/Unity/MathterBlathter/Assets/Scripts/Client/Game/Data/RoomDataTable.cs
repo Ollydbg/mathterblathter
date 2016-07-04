@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Client.Game.Data
 {
-	public class RoomDataTable
+	public static partial class RoomDataTable
 	{
 		private static Dictionary<int, RoomData> _all;
 		static void StaticInit() {
@@ -81,7 +81,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Solo = true;
+				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
                 ret.AsciiMap += "d                                                               d";
@@ -1241,53 +1241,54 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static RoomData PATHING_ROOM {
+		public static RoomData ROOM_19 {
 
 			get {
 				var ret = new RoomData();
 				ret.Id = 122;
-
-				ret.Mute = true;
 				ret.Type = RoomType.NoWaves;
-				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
+				ret.AsciiMap += "ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "d                                                               d";
 				ret.AsciiMap += "d                                                               d";
 				ret.AsciiMap += "d                                                               d";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "wPPPPPPppppppPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP         w";
-				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "w                  L      w                    L                w";
-				ret.AsciiMap += "w                     K   w                                     w";
-				ret.AsciiMap += "w                         w                             ....... w";
-				ret.AsciiMap += "w                         w                           ppppppppppw";
-				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "wpppppppppppppPPPPPPPPPPPPw                                     w";
-				ret.AsciiMap += "w                         w                                     w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                       ppppppppw";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                                                               w";
-				ret.AsciiMap += "w                   L                                           w";
-				ret.AsciiMap += "w                      PPPP                                     w";
-				ret.AsciiMap += "w                      PPPP                    L                w";
-				ret.AsciiMap += "d                      PPPP                                     d";
-				ret.AsciiMap += "d                            C                                  d";
-				ret.AsciiMap += "d                                                               d";
-				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffTffffffffffffffffffffw";
+				ret.AsciiMap += "wwwwwwwwwwwwwww                                          pppppppw";
+				ret.AsciiMap += "wcccccccccccccccccc1                                            w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP                                        w";
+				ret.AsciiMap += "wPPPPPPPPPPPPPPPPPPPPPPP            C        C        C         w";
+				ret.AsciiMap += "ffffffffffffffffffffffffUUUUUfffffffffffffffffffffffffffffffUUUUw";
 
-				ret.AsciiSpawnLookup['K'] = CharacterDataTable.ANXIETY_BALL_ENEMY;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.PATCHES;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
+
 
 				finalize(ret);
 
@@ -1295,6 +1296,7 @@ namespace Client.Game.Data
 			}
 
 		}
+
 
 
 		static void finalize(RoomData room) {

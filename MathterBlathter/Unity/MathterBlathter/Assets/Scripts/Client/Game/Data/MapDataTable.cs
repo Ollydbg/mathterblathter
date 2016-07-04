@@ -32,7 +32,7 @@ namespace Client.Game.Data
 				
 				var lurchZone = new ZoneData();
 				lurchZone.Id = 0;
-				lurchZone.Name = "The Lurch";
+				lurchZone.Name = "New Parish";
 				lurchZone.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
 				lurchZone.Requirements.Add(new ZReq(RoomDataTable.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
 				lurchZone.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
@@ -57,7 +57,7 @@ namespace Client.Game.Data
 				
 				var zone2 = new ZoneData();
 				zone2.Id = 2;
-				zone2.Name = "New Parish";
+				zone2.Name = "Power Center";
 				zone2.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
 				zone2.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
 				zone2.MinElevation = 250;
@@ -66,7 +66,7 @@ namespace Client.Game.Data
 
 				var zone3 = new ZoneData();
 				zone3.Id = 3;
-				zone3.Name = "The Temple";
+				zone3.Name = "The Lab";
 				zone3.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
 				zone3.Requirements.Add(new ZReq(RoomType.Terminal, 2, ZoneData.Occurance.Optional));
 				zone3.MinElevation = 400;

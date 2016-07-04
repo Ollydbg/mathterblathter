@@ -11,10 +11,17 @@ namespace Client.Game.Data
 	{
 		private static Dictionary<int, CharacterData> _all;
 		static void StaticInit() {
-			_all = typeof(CharacterDataTable).GetProperties()
-				.Select( p => p.GetGetMethod().Invoke(null, null) as CharacterData)
-				.ToDictionary(p => p.Id, p=>p);
-			
+			var tmpList = typeof(CharacterDataTable).GetProperties()
+				.Select( p => p.GetGetMethod().Invoke(null, null) as CharacterData);
+
+			_all = new Dictionary<int, CharacterData>();
+			foreach( var d in tmpList) {
+				if(!_all.ContainsKey(d.Id)) {
+					_all[d.Id] = d;
+				} else {
+					Debug.LogError(string.Format("{0} and {1} have the same id: {2}!!", d.Name, _all[d.Id].Name, d.Id));
+				}
+			}
 		}
 
 		private static Dictionary<int, CharacterData> All {
@@ -135,39 +142,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		
-		public static CharacterData SHOPKEEPER {
-			get {
-				var ret = new CharacterData ();
-				ret.Id = 7;
 
-				ret.ResourcePath = "Actors/NPCS/ShopKeeper_prefab";
-				ret.ActorType = ActorType.Friendly;
-				ret.Name = "Grapthar";
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, 1000
-				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AIDetectionRadius.Id, 20.0f
-				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .08f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 1
-				));
-				ret.AddAbility(AbilityDataTable.SHOPKEEPER_INVENTORY_CREATOR);
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.GravityScalar.Id, 0.0f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 300
-				));
-
-				return ret;
-			}
-		}
 
 		
 		public static CharacterData FLOATING_ROCKET_TURRET_ENEMY {
