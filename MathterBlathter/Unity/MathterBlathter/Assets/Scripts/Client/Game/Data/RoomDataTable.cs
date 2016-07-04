@@ -1195,7 +1195,9 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 121;
-				ret.Mute = true;
+
+				ret.Type = RoomType.Boss | RoomType.NoWaves;
+
 				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddcccccccccccccccccccccccccccccdddcccccccccccccccccccccccccccccdddccccccccccccccccccccccccccccccc";
 				ret.AsciiMap += "d                                                                                                                               d";
 				ret.AsciiMap += "d                                                                                                                               d";

@@ -118,7 +118,7 @@ namespace Client.Game.Map
 			foreach (var door in room.Doors) {
 				if(!door.Set) {
 					door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
-
+					door.GameObject.hideFlags = HideFlags.HideInHierarchy;
 					//the offsets are an artifact of the fact that the doors are just box primitives
 					//instead of meshes like the walls
 				

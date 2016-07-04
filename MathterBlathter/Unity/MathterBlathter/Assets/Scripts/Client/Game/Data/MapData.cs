@@ -7,11 +7,17 @@ namespace Client.Game.Data
 	{
 		public string ResourcePath;
 
-		public int MaxRooms;
-		
 		public float ReadScale;
 
 		public List<ZoneData> Zones = new List<ZoneData>();
+
+		public int MaxRooms {
+			get {
+				int max = 0;
+				Zones.ForEach(p => max += p.MaxRooms);
+				return max;
+			}
+		}
 
 		public MapData ()
 		{
@@ -26,15 +32,15 @@ namespace Client.Game.Data
 		
 		public int MinElevation;
 		public int MaxElevation;
-		
+		public int MaxRooms;
 		public int MinX = int.MinValue;
 		public int MaxX = int.MaxValue;
 
-		public class Requirement {
+		public struct Requirement {
 			public RoomType RoomType;
 			public int Amount;
 			public Occurance Occurance;
-			public int RoomId = -1;
+			public int RoomId;
 
 			public bool RoomSpecified {
 				get {
@@ -46,12 +52,24 @@ namespace Client.Game.Data
 				this.RoomType = roomType;
 				this.Amount = amount;
 				this.Occurance = occurance;
+				RoomId = -1;
 			}
+
 			public Requirement(RoomData room, int amount, Occurance occurance) {
 				this.RoomId = room.Id;
 				this.Amount = amount;
 				this.Occurance = occurance;
+				this.RoomType = room.Type;
 			}
+
+			public bool Accepts(RoomData roomdata) {
+				if(RoomSpecified) 
+					return roomdata.Id == RoomId;
+
+				return (roomdata.Type & RoomType) == RoomType;
+			}
+
+
 		}
 		
 		public enum Occurance {

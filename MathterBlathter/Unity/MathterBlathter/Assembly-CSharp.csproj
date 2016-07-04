@@ -215,7 +215,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\BitmapReader.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\GridOverlapConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\IGenConstraint.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\ZoneRequirementConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\MapGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\MeshRoomDrawer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
@@ -224,6 +223,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomTraversalGrid.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\ZoneGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\BaseGrid.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGrid.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGridWPool.cs" />

@@ -38,7 +38,7 @@ namespace Client.Game.Managers
 		{
 			Rooms = rooms;
 			AddIndices(RoomType.Store, rooms, typeIndices);
-			AddIndices(RoomType.BossGate, rooms, typeIndices);
+			AddIndices(RoomType.Boss, rooms, typeIndices);
 		}
 
 		private void AddIndices(RoomType type, List<Room> rooms, RoomTypeMap mapping) {

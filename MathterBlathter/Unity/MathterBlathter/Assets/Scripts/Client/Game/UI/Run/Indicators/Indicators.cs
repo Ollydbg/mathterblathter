@@ -83,7 +83,6 @@ namespace Client.Game.UI.Run.Indicators
 		void diffRoomState(bool force) {
 			var combat = isCombat;
 
-
 			if(combat && (!wasCombat || force)) {
 				Cleanup();
 				foreach(var obj in Game.RoomManager.CurrentRoom.Waves.AliveActors) {

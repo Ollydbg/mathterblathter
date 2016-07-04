@@ -37,7 +37,7 @@ namespace Client.Game.States
 
 		public override void Enter ()
 		{
-			generator.InitPool(availableRooms(), numRoomsToGenerate());
+			generator.InitWithPool(availableRooms(), 100);
 		}
 
 		public override void Exit ()
@@ -54,7 +54,7 @@ namespace Client.Game.States
 					if(!generator.IsComplete) {
 						Rooms.AddRange(generator.Emit());
 					} else {
-						generator.SealDoors();
+						generator.LinkAndSealZones();
 						Change<RunState>();
 						break;
 					}
