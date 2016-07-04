@@ -30,7 +30,7 @@ namespace Client.Game.Core
 		public PlayerCharacter PossessedActor;
 
 		public InputManager InputManager;
-		public RoomManager RoomManager;
+		public MapManager RoomManager;
 		public CameraManager CameraManager;
 		public AbilityManager AbilityManager;
 		public ActorManager ActorManager;
@@ -75,7 +75,7 @@ namespace Client.Game.Core
 			InputManager = new InputManager();
 			AbilityManager = new AbilityManager ();
 			ActorManager = new ActorManager(this);
-			RoomManager = new RoomManager();
+			RoomManager = new MapManager();
 			CameraManager = new CameraManager();
 			UIManager = new UIManager(this);
 			WorldFXManager = new WorldFXManager();

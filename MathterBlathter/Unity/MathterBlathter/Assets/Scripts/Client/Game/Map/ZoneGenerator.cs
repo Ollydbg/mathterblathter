@@ -19,10 +19,13 @@ namespace Client.Game.Map
 	{
 		MapData mapData;
 		ZoneData ZoneData;
-		ConstraintList Constraints;
+		public ConstraintList Constraints;
 
 		MatingLookup MatingLookup = new MatingLookup();
 		List<ZoneCheck> ZoneRequirements = new List<ZoneCheck>();
+		List<Room> GeneratedRooms = new List<Room>();
+
+		public int FloorY = 0;
 
 		public ZoneGenerator (ZoneData zoneData)
 		{
@@ -56,6 +59,13 @@ namespace Client.Game.Map
 			}
 		}
 
+		public void BuildFrom (DoorActor topMostUnlinkedDoor, ConstraintList constraints)
+		{
+			FloorY = topMostUnlinkedDoor.Parent.Y;
+
+			this.Constraints = constraints;
+			AddUnlinkedDoors(new DoorActor[]{topMostUnlinkedDoor});
+		}
 
 		//returns head
 		public void InitPool(List<RoomData> data, int maxRooms) {
@@ -64,6 +74,7 @@ namespace Client.Game.Map
 
 
 		public Room Emit() {
+
 			ZoneCheck currentCheck = ZoneRequirements[0];
 			RoomData roomData = Pool.NextWithRequirement(currentCheck.Req);
 			
@@ -100,6 +111,8 @@ namespace Client.Game.Map
 
 				if(Head == null) Head = room;
 
+				GeneratedRooms.Add(room);
+
 				return room;
 			}
 			return null;
@@ -122,7 +135,7 @@ namespace Client.Game.Map
 			}
 		}
 
-		void AddUnlinkedDoors (List<DoorActor> orphanedDoors)
+		void AddUnlinkedDoors (IEnumerable<DoorActor> orphanedDoors)
 		{
 			foreach( var door in orphanedDoors) {
 				Vector3 searchVector = new Vector3(door.MatingX, door.MatingY, 0f);
@@ -203,9 +216,11 @@ namespace Client.Game.Map
 						targetX = (int)mate.MatingX - door.X;
 						targetY = (int)mate.MatingY - door.Y;
 
-						if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
-							doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
-							return true;
+						if(targetY > FloorY) {
+							if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
+								doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
+								return true;
+							}
 						}
 
 					}
@@ -239,18 +254,42 @@ namespace Client.Game.Map
 			return data.Doors.Where (p => p.Side == side);
 		}
 
-		public void SealDoors() {
+		public void SealDoors(DoorActor except = null) {
 
-			foreach(var unlinked in UnlinkedDoors) {
+			foreach(var unlinked in UnlinkedDoors.ToList()) {
 
-				unlinked.Parent.Doors.Remove(unlinked);
-				Game.Instance.ActorManager.RemoveActor(unlinked);
+				if(unlinked != except) {
+					unlinked.Parent.Doors.Remove(unlinked);
+					Game.Instance.ActorManager.RemoveActor(unlinked);
 
-				var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
-				ff.Fill(AsciiConstants.SEALED_DOOR, unlinked.LinkData.ChunkData);	
+					var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
+					ff.Fill(AsciiConstants.SEALED_DOOR, unlinked.LinkData.ChunkData);	
+					UnlinkedDoors.Remove(unlinked);
+				}
 			}
 		}
 
+		public DoorActor TopMostUnlinkedDoor {
+			get {
+				var top = UnlinkedDoors[0];
+				foreach( var door in UnlinkedDoors) 
+					if(door.WorldY > top.WorldY)
+						top = door;
+			
+				return top;
+			}
+		}
+
+		public DoorActor BottomMostUnlinkedDoor {
+			get {
+				var bottom = UnlinkedDoors[0];
+				foreach( var door in UnlinkedDoors) 
+					if(door.WorldY < bottom.WorldY)
+						bottom = door;
+
+				return bottom;
+			}
+		}
 
 	}
 }

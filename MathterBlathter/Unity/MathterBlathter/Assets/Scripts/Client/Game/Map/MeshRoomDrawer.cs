@@ -33,7 +33,7 @@ namespace Client.Game.Map
 
 			extractor = new AsciiMeshExtractor (room.data.AsciiMap);
 			//get contour
-			var color = new Color(.45f, .33f, .40f);
+			var color = room.Zone.DrawColor;
 			DrawLights (room, gameObject);
 			DrawCeiling (room, color, gameObject);
 			DrawFloors (room, color, gameObject);

@@ -209,7 +209,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Managers\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\IGameManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\InputRouter.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Managers\RoomManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Managers\MapManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Managers\WorldFXManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\BitmapReader.cs" />

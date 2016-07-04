@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Client.Game.Data
 {
@@ -30,11 +31,10 @@ namespace Client.Game.Data
 		public String Name;
 		public List<Requirement> Requirements = new List<Requirement>();
 		
-		public int MinElevation;
-		public int MaxElevation;
 		public int MaxRooms;
 		public int MinX = int.MinValue;
 		public int MaxX = int.MaxValue;
+		public Color DrawColor;
 
 		public struct Requirement {
 			public RoomType RoomType;

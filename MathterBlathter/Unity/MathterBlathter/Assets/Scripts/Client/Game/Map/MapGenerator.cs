@@ -44,37 +44,32 @@ namespace Client.Game.Map
 			ZoneGenerators.ForEach(p => p.InitPool(availableRooms, numRoomsToGenerate));
 		}
 
-		public IEnumerable<Room> Emit() {
-			
+
+		public Room Emit() {
 			foreach( var zone in ZoneGenerators ) {
-				var room = zone.Emit();
+				if(!zone.IsComplete) {
 
-				if(zone.IsComplete) {
-					CurrentZoneIndex ++;
-					IsComplete = CurrentZoneIndex >= ZoneGenerators.Count;
+					var room = zone.Emit();
+
+					if(zone.IsComplete) {
+						CurrentZoneIndex ++;
+						IsComplete = CurrentZoneIndex == ZoneGenerators.Count;
+
+						if(!this.IsComplete) {
+							zone.SealDoors(except:zone.TopMostUnlinkedDoor);
+							ZoneGenerators[CurrentZoneIndex].BuildFrom(zone.TopMostUnlinkedDoor, zone.Constraints);
+						} else {
+							zone.SealDoors();
+						}
+					}
+
+					return room;
 				}
-
-				yield return room;
 			}
 
+			return null;
+
 		}
-
-
-
-		public void LinkAndSealZones() {
-
-			/*
-			foreach(var unlinked in UnlinkedDoors) {
-				
-				unlinked.Parent.Doors.Remove(unlinked);
-				Game.Instance.ActorManager.RemoveActor(unlinked);
-				
-				var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
-				ff.Fill(AsciiConstants.SEALED_DOOR, unlinked.LinkData.ChunkData);	
-			}
-			*/
-		}
-
 
 	}
 }

@@ -11,7 +11,7 @@ namespace Client.Game.Managers
 {
 	using Game = Game.Core.Game;
 	using RoomTypeMap = Dictionary<RoomType, List<Room>>;
-	public class RoomManager : IGameManager
+	public class MapManager : IGameManager
 	{
 		
 		public List<Room> Rooms;
@@ -23,7 +23,7 @@ namespace Client.Game.Managers
 
 		private RoomTypeMap typeIndices = new RoomTypeMap();
 
-		public RoomManager ()
+		public MapManager ()
 		{
 			
 		}

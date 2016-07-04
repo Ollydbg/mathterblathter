@@ -35,7 +35,7 @@ namespace Client.Game.UI.Run
         private void ShowTitle(ZoneData zone)
         {
 			UIText.text = zone.Name.ToUpper();
-			PopulationText.text = string.Format("District Warden: {0}, Elevation: {1}", "Prophet-5", zone.MinElevation);
+			PopulationText.text = string.Format("District Warden: {0}", "Prophet-5");
 			
 			this.StartCoroutine(ShowThenHide());
 						

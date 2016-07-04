@@ -78,15 +78,19 @@ namespace Client.Game.Abilities.Scripts
 			
 		}
 
+		bool didEnd = false;
 		public override void End ()
 		{
-			var signData = CharacterDataTable.FromId(context.data.spawnableDataId);
-			this.Game.ActorManager.Spawn(signData);
-			
-			//also remove parent!
-			context.source.Destroy();
+			if(!didEnd) {
+				didEnd = true;
+				var signData = CharacterDataTable.FromId(context.data.spawnableDataId);
+				this.Game.ActorManager.Spawn(signData);
+				
+				//also remove parent!
+				context.source.Destroy();
 
-            UI.EventLog.Post("See you later");
+	            UI.EventLog.Post("See you later");
+			}
 		}
 		
 
