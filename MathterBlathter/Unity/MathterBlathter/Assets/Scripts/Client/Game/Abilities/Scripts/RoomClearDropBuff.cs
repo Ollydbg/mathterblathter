@@ -28,8 +28,8 @@ namespace Client.Game.Abilities.Scripts
         }
 
 		private List<CharacterData> DroppablePickups() {
-			var items = CharacterDataTable.GetAll()
-				.Where(p=>p.ActorType == ActorType.Pickup);
+			var items = CharacterDataTable.GetAll();
+				//.Where(p=>p.ActorType == ActorType.Pickup);
 
 			return items.Where(p => (p.Availability & Availability.RoomClearReward)==Availability.RoomClearReward).ToList();
 		}
