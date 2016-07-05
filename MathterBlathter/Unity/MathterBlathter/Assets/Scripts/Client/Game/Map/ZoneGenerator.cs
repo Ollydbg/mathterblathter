@@ -22,40 +22,25 @@ namespace Client.Game.Map
 		public ConstraintList Constraints;
 
 		MatingLookup MatingLookup = new MatingLookup();
-		List<ZoneCheck> ZoneRequirements = new List<ZoneCheck>();
 		List<Room> GeneratedRooms = new List<Room>();
 
 		public int FloorY = 0;
 
+		Room Head;
+		RoomPool Pool;
+		
 		public ZoneGenerator (ZoneData zoneData)
 		{
 			this.ZoneData = zoneData;
 			Constraints = new ConstraintList();
-
-			zoneData.Requirements.ForEach(p => ZoneRequirements.Add(new ZoneCheck(p)));
-
 		}
 
-		public class ZoneCheck {
-			public bool Satisfied {
-				get {
-					return Req.Amount == NumSatistfied;
-				}
-			}
-
-			public ZoneData.Requirement Req;
-			public int NumSatistfied;
-			public ZoneCheck( ZoneData.Requirement req) {this.Req = req;}
-		}
-
-		Room Head;
-		RoomPool Pool;
 
 		private List<DoorActor> UnlinkedDoors = new List<DoorActor> ();
 
 		public bool IsComplete {
 			get {
-				return ZoneRequirements.Count == 0;
+				return Pool.RequirementsSatisfied;
 			}
 		}
 
@@ -69,14 +54,13 @@ namespace Client.Game.Map
 
 		//returns head
 		public void InitPool(List<RoomData> data, int maxRooms) {
-			Pool = new RoomPool(data, ZoneData.MaxRooms);	
+			Pool = new RoomPool(data, ZoneData.MaxRooms, ZoneData.Requirements);	
 		}
 
 
 		public Room Emit() {
 
-			ZoneCheck currentCheck = ZoneRequirements[0];
-			RoomData roomData = Pool.NextWithRequirement(currentCheck.Req);
+			RoomData roomData = Pool.Next();
 			
 			int targetX;
 			int targetY;
@@ -85,11 +69,7 @@ namespace Client.Game.Map
 
 
 			if (SearchForBlock (roomData, out targetX, out targetY, out doorLinks)) {
-				currentCheck.NumSatistfied ++;
-				if(currentCheck.Satisfied) {
-					ZoneRequirements.Remove(currentCheck);
-				}
-				
+				Pool.Consume(roomData);
 
 				var room = new Room (roomData);
 				room.X = targetX;
