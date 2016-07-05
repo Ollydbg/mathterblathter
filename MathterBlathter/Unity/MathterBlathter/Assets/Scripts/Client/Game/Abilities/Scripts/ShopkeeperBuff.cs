@@ -16,11 +16,13 @@ namespace Client.Game.Abilities.Scripts
 			
 		}
 		
-		int ParentRoom;
+		int ParentRoomId;
+		Room ParentRoom;
 		int numWeapons = 5;
 		int numBuffs = 3;
 		int numItems = 3;
 		int numActiveItems = 1;
+
 
 		public override void Start ()
 		{
@@ -36,7 +38,8 @@ namespace Client.Game.Abilities.Scripts
 
 			this.Game.RoomManager.OnRoomEntered += OnRoomEntered;
 
-			this.ParentRoom = this.Game.RoomManager.CurrentRoom.Id;
+			this.ParentRoom = this.Game.RoomManager.CurrentRoom;
+			this.ParentRoomId = ParentRoom.Id;
 
 		}
 
@@ -54,7 +57,7 @@ namespace Client.Game.Abilities.Scripts
 
         private void OnRoomEntered(Actor actor, Room oldRoom, Room newRoom)
         {
-			if(newRoom.Id != ParentRoom)
+			if(newRoom.Id != ParentRoomId)
         		playerLeftShop = true;
 		}
 
@@ -86,6 +89,9 @@ namespace Client.Game.Abilities.Scripts
 				var signData = CharacterDataTable.FromId(context.data.spawnableDataId);
 				this.Game.ActorManager.Spawn(signData);
 				
+				var newFlags = ParentRoom.Type & ~RoomType.Store;
+				Game.RoomManager.ModifyRoomType(ParentRoom, newFlags);
+
 				//also remove parent!
 				context.source.Destroy();
 

@@ -93,7 +93,7 @@ namespace Client.Game.Data
 				));
 
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 250;
 
 				return ret;
@@ -183,7 +183,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0f
 				));
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 200;
 
 				return ret;
@@ -218,7 +218,7 @@ namespace Client.Game.Data
 					ActorAttributes.Cooldown.Id, 2f
 				));
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 150;
 
 				return ret;
@@ -259,7 +259,7 @@ namespace Client.Game.Data
 					ActorAttributes.KnockbackForce.Id, 15f
 				));
 				
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 200;
 				return ret;
 			}
@@ -304,7 +304,7 @@ namespace Client.Game.Data
 					ActorAttributes.KnockbackForce.Id, 5f
 				));
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 150;
 
 				return ret;
@@ -341,7 +341,7 @@ namespace Client.Game.Data
 				));
 
 				ret.Cost = 120;
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 
 				return ret;
 			}
@@ -386,7 +386,7 @@ namespace Client.Game.Data
 				));
 
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 200;
 
 				return ret;
@@ -511,7 +511,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Black Ulver";
 				
-				ret.Availability = Availability.InShop;
+				ret.Availability = Availability.InShop | Availability.RoomClearReward;
 
 				ret.AddAbility(AbilityDataTable.SHORT_PROJECTILE);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
@@ -607,7 +607,7 @@ namespace Client.Game.Data
 				));
 
 				ret.Cost = 750;
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				
 				return ret;
 			}
@@ -665,7 +665,7 @@ namespace Client.Game.Data
 				));
 
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 350;
 
 				return ret;
@@ -710,7 +710,7 @@ namespace Client.Game.Data
 					AbilityAttributes.RepeatAmount.Id, 2
 				));
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 160;
 				return ret;
 			}
@@ -733,7 +733,6 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.MELEE_SWIPE);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
-
 
 
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.ReflectsProjectiles.Id, 1));
@@ -760,7 +759,7 @@ namespace Client.Game.Data
 					ActorAttributes.TimeSkipDuration.Id, .04f
 				));
 
-				ret.Availability = Availability.Droppable | Availability.InShop;
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 80;
 				ret.Description = "Destroys projectiles, hitting enemies decreases anxiety";
 				ret.Name = "Der Auto Hammer";

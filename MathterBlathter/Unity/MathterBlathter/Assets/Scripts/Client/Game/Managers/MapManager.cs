@@ -20,6 +20,7 @@ namespace Client.Game.Managers
 		public delegate void RoomEntered(Actor actor, Room oldRoom, Room newRoom);
 		public event RoomEntered OnRoomEntered;
 		public event Room.OnUnlock OnCurrentRoomUnlocked;
+		public MapPathfinder Pathfinder;
 
 		private RoomTypeMap typeIndices = new RoomTypeMap();
 
@@ -39,6 +40,19 @@ namespace Client.Game.Managers
 			Rooms = rooms;
 			AddIndices(RoomType.Store, rooms, typeIndices);
 			AddIndices(RoomType.Boss, rooms, typeIndices);
+			Pathfinder = new MapPathfinder(rooms);
+		}
+
+		public void ModifyRoomType(Room room, RoomType newTypeMask) {
+			if((room.Type & RoomType.Store) == RoomType.Store) {
+				typeIndices[RoomType.Store].Remove(room);
+			}
+
+			if((room.Type & RoomType.Boss) == RoomType.Boss) {
+				typeIndices[RoomType.Boss].Remove(room);
+			}
+
+			room.Type = newTypeMask;
 		}
 
 		private void AddIndices(RoomType type, List<Room> rooms, RoomTypeMap mapping) {
@@ -47,7 +61,7 @@ namespace Client.Game.Managers
 				buffer = new List<Room>();
 			}
 			foreach( var room in rooms ) {
-				if((room.data.Type & type) == type) {
+				if((room.Type & type) == type) {
 					buffer.Add(room);
 				}
 			}
@@ -61,6 +75,12 @@ namespace Client.Game.Managers
 			EnterRoom(player, Rooms[0]);
 			//this is some bullshit, but the door triggers invoke when created on the same frame as the player
 			player.GameObject.GetComponent<ActorRef>().StartCoroutine(LateInit());
+		
+		
+			//test!
+			var bossRoom = RoomsOfType(RoomType.Boss)[0];
+			Pathfinder.FindPath(Rooms[0], bossRoom);
+		
 		}
 
 		private bool didLateInit = false;

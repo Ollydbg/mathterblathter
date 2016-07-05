@@ -33,7 +33,6 @@ namespace Client.Game.Map.GenConstraints
 		public bool Check(RoomData data, int x, int y, int width, int height) {
 			foreach( var constraint in this) {
 				if(!constraint.Check(data, x, y, width, height)) {
-					Debug.Log(constraint + " says no");
 					return false;
 				}
 			}

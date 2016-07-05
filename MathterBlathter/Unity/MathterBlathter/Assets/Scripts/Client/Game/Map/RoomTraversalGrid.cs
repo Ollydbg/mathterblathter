@@ -2,6 +2,7 @@
 using Client.Game.Pathfinding;
 using UnityEngine;
 using System.Collections.Generic;
+using Client.Game.Data.Ascii;
 
 namespace Client.Game.Map
 {
@@ -25,25 +26,36 @@ namespace Client.Game.Map
 
 		}
 
-		public StaticGrid BuildGrid() {
-			//air grid
-			var width = Room.data.Width;
-			var height = Room.data.Height;
+		public static bool[][] GetRoomMatrix(Room room, bool preserveAsciiSpace) {
+			var width = room.data.Width;
+			var height = room.data.Height;
 			var matrix = new bool[width][];
 			for( int x = 0; x<width; x++ ) {
 				matrix[x] = new bool[height];
 				for( int y = 0; y<height; y++ ) {
-					var roomChar = Room.data.AsciiMap[x, y]; 
-					if(roomChar != AsciiConstants.PLATFORM) {
-						matrix[x][y] = true;
+					var roomChar = room.data.AsciiMap[x, y]; 
+					if(roomChar != AsciiConstants.PLATFORM && roomChar != AsciiConstants.CEILING && roomChar != AsciiConstants.WALL) {
+
+						if(preserveAsciiSpace) {
+							matrix[x][y] = true;
+						} else {
+							matrix[x][height - y - 1] = true;
+						}
 					}
 				}
 			}
 
+			return matrix;
+		}
+
+		public StaticGrid BuildGrid() {
+			//air grid
+			var matrix = GetRoomMatrix(Room, true);
+
 			Shrink(matrix);
 			//DebugMatrix(matrix);
 
-			return new StaticGrid(width, height, matrix);
+			return new StaticGrid(Room.Width, Room.Height, matrix);
 		}
 
 		void DebugMatrix (bool[][] matrix)
@@ -51,7 +63,7 @@ namespace Client.Game.Map
 			for( int x = 0; x < matrix.Length; x++ ) {
 				for( int y = 0; y < matrix[x].Length; y++ ) {
 					if(matrix[x][y]) {
-						var pos = AsciiToWorld(new GridPos(x, y), Room);
+						var pos = AsciiUtils.AsciiToWorld(new GridPos(x, y), Room);
 
 						Debug.DrawRay(pos, Vector3.forward * 2, Color.cyan, 2f);
 					}
@@ -134,14 +146,14 @@ namespace Client.Game.Map
 
 			Grid = BuildGrid();
 
-			var fromInt = WorldToAscii(worldFrom, Room);
-			var toInt = WorldToAscii(roomTo, Room);
+			var fromInt = AsciiUtils.WorldToAscii(worldFrom, Room);
+			var toInt = AsciiUtils.WorldToAscii(roomTo, Room);
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);
 			var points = JumpPointFinder.FindPath(jp);
 
 			var buff = new Vector3[points.Count];
 			for(int i = 0; i<points.Count; i++ ) {
-				buff[i] = AsciiToWorld(points[i], Room);
+				buff[i] = AsciiUtils.AsciiToWorld(points[i], Room);
 			}
 
 			return buff;
@@ -149,20 +161,7 @@ namespace Client.Game.Map
 
 		}
 
-		private static Vector3 AsciiToWorld(GridPos pos, Room room) {
-			return new Vector3(
-				pos.x + room.X,
-				room.Height - 1 - pos.y + room.Y
-			);
-		}
-		
 
-		private static GridPos WorldToAscii(Vector3 worldPos, Room room) {
-			return new GridPos(
-				(int)(worldPos.x - room.X),
-				-((int)worldPos.y - room.Y - room.Height + 1)
-			);
-		}
 
 
 		

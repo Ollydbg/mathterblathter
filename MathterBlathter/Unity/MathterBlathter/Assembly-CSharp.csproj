@@ -169,6 +169,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiLookup.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMeshExtractor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiVector.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\Chunk.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\FloodFill.cs" />
@@ -216,6 +217,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\GridOverlapConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\GenConstraints\IGenConstraint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\MapGenerator.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\MapPathfinder.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\MeshRoomDrawer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomComparer.cs" />

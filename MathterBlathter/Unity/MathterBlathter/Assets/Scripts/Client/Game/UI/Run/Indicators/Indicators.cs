@@ -64,8 +64,12 @@ namespace Client.Game.UI.Run.Indicators
 				}
 			}
 
-			if(closestRoom != null)
-				addToList.Add(closestRoom.roomCenter);
+			if(closestRoom != null) {
+				var doorPos = Game.RoomManager.Pathfinder.FirstDoorToRoom(Game.RoomManager.CurrentRoom, list[0]);
+				addToList.Add(doorPos.transform.position);
+				
+			}
+
 			
 		}
 
@@ -96,6 +100,7 @@ namespace Client.Game.UI.Run.Indicators
 				Cleanup();
 				var zoneObjectives = new List<Vector3>();
 				closestRoomTypePosition(RoomType.Store, zoneObjectives);
+				closestRoomTypePosition(RoomType.Boss, zoneObjectives);
 				foreach(var obj in zoneObjectives) {
 					var wrapper = new ObjectiveWrapper(obj);
 					if(!indicators.ContainsKey(wrapper)) {
@@ -142,16 +147,17 @@ namespace Client.Game.UI.Run.Indicators
 			
 			foreach( var kvp in indicators) {
 				var item = kvp.Value;
-				var actor = kvp.Key;
+				var objective = kvp.Key;
 
-				var screenPoint = Camera.main.WorldToScreenPoint(actor.Position);
-				if(TryConstrainToScreen(screenPoint, out constrained)) {
+				var screenPoint = Camera.main.WorldToScreenPoint(objective.Position);
+				if(TryConstrainToScreen(screenPoint, out constrained) || objective.HideWhenOnScreen) {
 					item.SetActive(true);
 
 					item.transform.position = constrained;
-					item.transform.rotation = PointToPosition(actor.Position);
+					item.transform.rotation = PointToPosition(objective.Position);
 				} else {
 					item.SetActive(false);
+					
 				}
 			}
 		}
@@ -190,11 +196,13 @@ namespace Client.Game.UI.Run.Indicators
 		public struct ObjectiveWrapper {
             public bool Threat { get{ return actor != null;} }
 
+			public bool HideWhenOnScreen;
+
             private Actor actor;
 			private Vector3 position;
 
-			public ObjectiveWrapper(Actor inActor) { this.actor = inActor; position = Vector3.zero; }
-			public ObjectiveWrapper(Vector3 position) { this.position = position; actor = null; }
+			public ObjectiveWrapper(Actor inActor) { this.actor = inActor; position = Vector3.zero; HideWhenOnScreen = false; }
+			public ObjectiveWrapper(Vector3 position) { this.position = position; actor = null; HideWhenOnScreen = true; }
 
 			public override int GetHashCode() {
 				if(actor != null)

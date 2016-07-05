@@ -42,11 +42,6 @@ namespace Client.Game.Data
 			return string.Format ("[RoomData Id:{0}, Width:{1}, Height:{2}]", Id, Width, Height);
 		}
 
-		public bool SpawnsWaves {
-			get {
-				return (Type & RoomType.NoWaves) == 0;
-			}
-		}
 
 		public class Link
 		{

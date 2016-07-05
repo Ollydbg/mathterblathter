@@ -39,6 +39,7 @@ namespace Client.Game.Map
 			GameObject Draw (Room room, Game inGame);
 		}
 
+		public RoomType Type = RoomType.Normal;
 		public RoomWaveManager Waves = new RoomWaveManager();
 
 		public override int GetHashCode ()
@@ -66,25 +67,31 @@ namespace Client.Game.Map
 
 		public float Left { 
 			get {
-				return (float)(X - .5*Width);
+				return (float)(X);
 			}
 		}
 
 		public float Right {
 			get {
-				return (float)(X + .5 * Width);
+				return (float)(X + Width);
 			}
 		}
 
 		public float Top {
 			get {
-				return (float)(Y + .5f * Height);
+				return (float)(Y + Height);
 			}
 		}
 
 		public float Bottom {
 			get {
-				return (float)(Y - .5 * Height);
+				return (float)(Y);
+			}
+		}
+
+		public Rect RoomRect {
+			get {
+				return new Rect(X, Y, Width, Height);
 			}
 		}
 
@@ -124,7 +131,7 @@ namespace Client.Game.Map
 
 		public void SpawnObjects(Actor forActor) {
 
-			if(this.data.SpawnsWaves) {
+			if(this.SpawnsWaves) {
 				if(!Waves.IsComplete) {
 					var difficulty = forActor.Attributes[ActorAttributes.RunDifficulty];
 					var waveData = new RoomWaveGenerator().Generate(this, difficulty);
@@ -158,6 +165,7 @@ namespace Client.Game.Map
 		{
 			this.Width = data.Width;
 			this.Height = data.Height;
+			this.Type = data.Type;
 		}
 
 
@@ -187,6 +195,13 @@ namespace Client.Game.Map
 
 			}
 
+		}
+
+
+		public bool SpawnsWaves {
+			get {
+				return (Type & RoomType.NoWaves) == 0;
+			}
 		}
 
 	}
