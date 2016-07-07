@@ -133,6 +133,16 @@ namespace Client.Game.Actors
 			}
 		}
 
+		private static int invalidDoors;
+		public bool Validate() {
+			if(Portals.ContainsKey(this.Side)) 
+				return true;
+
+			invalidDoors++;
+			Debug.Log("INVALID DOORS: " + invalidDoors, this.GameObject);
+			return false;
+		}
+
 		DoorRoomSide getExitSide (Actor actor)
 		{
 			if(WallDoor) {

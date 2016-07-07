@@ -65,12 +65,11 @@ namespace Client.Game.UI.Run.Indicators
 			}
 
 			if(closestRoom != null) {
-				var doorPos = Game.RoomManager.Pathfinder.FirstDoorToRoom(Game.RoomManager.CurrentRoom, list[0]);
-				addToList.Add(doorPos.transform.position);
-				
+				var door = Game.RoomManager.Pathfinder.FirstDoorToRoom(Game.RoomManager.CurrentRoom, list[0]);
+				if(door != null) 
+					addToList.Add(door.transform.position);
 			}
 
-			
 		}
 
 

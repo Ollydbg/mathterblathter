@@ -142,7 +142,6 @@ namespace Client.Game.Map
 			return doorActor;
 		}
 
-		//this this is how we can bias which direction the map grows in
 		int roomSearch = 0;
 		DoorRoomSide[] SearchDirections = new DoorRoomSide[]{DoorRoomSide.Left, DoorRoomSide.Right, DoorRoomSide.Top, DoorRoomSide.Bottom};
 
@@ -234,8 +233,8 @@ namespace Client.Game.Map
 			return data.Doors.Where (p => p.Side == side);
 		}
 
-		public void SealDoors(DoorActor except = null) {
 
+		public void SealDoors(DoorActor except = null) {
 			foreach(var unlinked in UnlinkedDoors.ToList()) {
 
 				if(unlinked != except) {

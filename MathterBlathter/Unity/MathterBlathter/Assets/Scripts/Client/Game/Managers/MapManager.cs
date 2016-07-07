@@ -41,6 +41,8 @@ namespace Client.Game.Managers
 			AddIndices(RoomType.Store, rooms, typeIndices);
 			AddIndices(RoomType.Boss, rooms, typeIndices);
 			Pathfinder = new MapPathfinder(rooms);
+
+			
 		}
 
 		public void ModifyRoomType(Room room, RoomType newTypeMask) {
@@ -76,11 +78,15 @@ namespace Client.Game.Managers
 			//this is some bullshit, but the door triggers invoke when created on the same frame as the player
 			player.GameObject.GetComponent<ActorRef>().StartCoroutine(LateInit());
 		
-		
-			//test!
-			var bossRoom = RoomsOfType(RoomType.Boss)[0];
-			Pathfinder.FindPath(Rooms[0], bossRoom);
-		
+			//var bossRoom = RoomsOfType(RoomType.Boss)[0];
+			//Pathfinder.FirstDoorToRoom(Rooms[0], bossRoom);
+
+			foreach( var rm in Rooms) {
+				foreach( var d in rm.Doors) {
+					d.Validate();
+				}
+			}
+
 		}
 
 		private bool didLateInit = false;

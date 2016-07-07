@@ -1,21 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/AI/Actions/PathToPlayer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/RoomData.cs">
     <Files>
-      <File FileName="Assets/Scripts/Client/Game/AI/Actions/PathToPlayer.cs" Line="60" Column="3" />
-      <File FileName="Assets/Scripts/Client/Game/Data/RoomDataTable.cs" Line="1251" Column="5" />
-      <File FileName="Assets/Scripts/Client/Game/AI/Brain.cs" Line="53" Column="33" />
-      <File FileName="Assets/Scripts/Client/Game/Map/RoomTraversalGrid.cs" Line="42" Column="5" />
-      <File FileName="Assets/Scripts/Client/Game/AI/Actions/SeekToPlayer.cs" Line="25" Column="4" NotebookId="1" />
-      <File FileName="Assets/Scripts/Client/Game/Data/CharacterDataTable.cs" Line="651" Column="39" NotebookId="1" />
+      <File FileName="Assets/Scripts/Client/Game/Data/RoomData.cs" Line="132" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Abilities/Scripts/PlayerDeathBuff.cs" line="20" column="1" />
-      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Abilities/Payloads/DamagePayload.cs" line="16" column="1" />
-      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Abilities/Payloads/DamagePayload.cs" line="23" column="1" />
-      <Breakpoint file="/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Client/Game/Abilities/Payloads/DamagePayload.cs" line="38" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
