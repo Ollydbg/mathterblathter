@@ -91,6 +91,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI JumpBoostFrameThresh = new GameAttributeI(68, 6, "jump boost threshold in frames", 0, int.MaxValue);
 		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(69, 5f, "projectileSpeed", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeB ProjectileDestroyOnGeometry = new GameAttributeB(70, 1, "projectile destroys on geometry", 0, 1);	
+		public static readonly GameAttributeF TowerAbsorptionTTL = new GameAttributeF(71, 6f, "absorptionTTL", 0, float.MaxValue);
 	}
 }
 

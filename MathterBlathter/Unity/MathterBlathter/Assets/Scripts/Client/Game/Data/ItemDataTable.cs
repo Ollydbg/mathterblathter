@@ -82,10 +82,12 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.ActiveItem;
 				ret.PickupType = PickupType.ActiveItem;
 				ret.Availability = Availability.InShop;
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Abilities.Id,
 					AbilityDataTable.NO_ANXIETY_FIRE_SPEED_BUFF.Id, 0
 				));
+
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Cooldown.Id,
 					60f

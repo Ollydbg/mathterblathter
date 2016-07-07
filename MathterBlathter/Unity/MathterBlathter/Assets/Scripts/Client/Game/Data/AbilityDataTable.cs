@@ -1079,6 +1079,16 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData TOWER_ABSORPTION_TTL {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 58;
+				ret.DoesPropogate = false;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TowerAbsorptionTTLBuff);
+				return ret;
+			}
+		}
+
 	}
 }
 

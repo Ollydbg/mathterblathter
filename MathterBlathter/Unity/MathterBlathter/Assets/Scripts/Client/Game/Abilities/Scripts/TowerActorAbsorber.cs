@@ -6,6 +6,7 @@ using System.Linq;
 using Client.Game.Managers;
 using Client.Game.Actors;
 using Client.Game.Map;
+using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -25,10 +26,8 @@ namespace Client.Game.Abilities.Scripts
         {
             context.source.Destroy();
 
-            //new TowerAbsorptionPayload().Apply();
-            Game.PossessedActor.Attributes[ActorAttributes.RunDifficulty] += 1;
-            
-            UI.EventLog.Post("The tower grows stronger");    
+            new TowerAbsorptionPayload(1, context).Apply();
+              
             Abort(); 
         }
 			

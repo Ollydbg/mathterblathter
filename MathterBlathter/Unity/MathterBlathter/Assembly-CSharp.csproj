@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\KnockbackPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\Payload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\PlayerKilledPayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\TowerAbsorptionPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponDamagePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponPickupPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AIBuff.cs" />
@@ -126,6 +127,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StatUp.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StationaryBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SwapActorPositions.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\TowerAbsorptionTTLBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\TowerActorAbsorber.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\WeaponCurse.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\YeeHawBuff.cs" />

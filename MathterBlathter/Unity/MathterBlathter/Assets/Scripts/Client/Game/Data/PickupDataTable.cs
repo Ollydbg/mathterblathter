@@ -37,6 +37,7 @@ namespace Client.Game.Data
 				ret.PickupType = PickupType.Item;
 				ret.AddAbility(AbilityDataTable.STAT_UP);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
@@ -65,6 +66,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.MOVE_BOOST_TEMP);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.Droppable;
 				ret.Name = "Blood Pump";
@@ -83,6 +85,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.AddAbility(AbilityDataTable.HEAL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 30;
@@ -103,6 +106,7 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.JUMP_BUFF_PERM);
 				ret.AddAbility(AbilityDataTable.FALL_DAMAGE_PERM);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				ret.Cost = 70;
@@ -125,6 +129,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.RABBITS_FOOT_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -156,7 +161,7 @@ namespace Client.Game.Data
 				ret.PickupType = PickupType.Buff;
 				ret.AddAbility(AbilityDataTable.RABBITS_FOOT_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
-
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DropQuality.Id,
@@ -202,6 +207,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.ENERGY_HEAL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.attributeData.Add( new CharacterData.AttributeData(
 					ActorAttributes.DropRate.Id,
@@ -224,6 +230,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.LOWER_ANXIETY_DAMAGE_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Name = "Safety Blanket";
 				ret.Availability = Availability.InShop;
@@ -244,7 +251,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.CURSED_COURAGE_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
-
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
 				
@@ -263,6 +270,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Pickup;
 				ret.AddAbility(AbilityDataTable.TRIGGER_FINGERS_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
@@ -283,6 +291,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.LOW_HEALTH_DAMAGE_AMP_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.ResourcePath = "Items/ItemBuff_prefab";
 				
@@ -305,7 +314,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.WEAPON_DE_CURSER);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
-
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.InShop;
 				return ret;
@@ -323,6 +332,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.SHOP_CHEAPENER_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.InShop | Availability.Droppable;
 				
@@ -342,6 +352,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.KILL_DE_STRESSER_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.Availability = Availability.InShop | Availability.Droppable;
 
@@ -363,6 +374,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.YEE_HAW_BUFF);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 
 				ret.Availability = Availability.InShop | Availability.Droppable | Availability.RoomClearReward;
@@ -385,6 +397,7 @@ namespace Client.Game.Data
 
 				ret.AddAbility(AbilityDataTable.SMALL_ADD_MAX_ANXIETY);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
 				ret.overrideAttributes.Add(new GameData.AttributeData(
 					ActorAttributes.MaxAnxiety.Id,

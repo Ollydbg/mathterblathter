@@ -123,23 +123,16 @@ namespace Client.Game.Actors
 				//get exit direction
 				var side = getExitSide(actor);
 				//lookup linkage
-				Room targetRoom;
-				if(Portals.TryGetValue(side, out targetRoom)) {
-					//move them there
-					Game.RoomManager.EnterRoom(actor, targetRoom, this);
-				} else {
-					Debug.LogWarning("Couldn't get desired room from door entrance, this shouldn't have happened!");
-				}
+				Game.RoomManager.EnterRoom(actor, Portals[side], this);
+
 			}
 		}
 
-		private static int invalidDoors;
 		public bool Validate() {
 			if(Portals.ContainsKey(this.Side)) 
 				return true;
 
-			invalidDoors++;
-			Debug.Log("INVALID DOORS: " + invalidDoors, this.GameObject);
+			Debug.Log("INVALID DOOR: ", this.GameObject);
 			return false;
 		}
 

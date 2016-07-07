@@ -90,11 +90,7 @@ namespace Client.Game.Map
 	public static class RoomHelper {
 		public static IEnumerable<Room> Children(this Room room) {
 			foreach( var d in room.Doors) {
-				if(d.Portals.ContainsKey(d.Side)) {
-					yield return d.Portals[d.Side];
-				} else {
-					Debug.Log("OH NO!!!");
-				}
+				yield return d.Portals[d.Side];
 			}
 
 		}
