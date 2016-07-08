@@ -768,6 +768,47 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData GRENADE_GEYSER_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1022;
+				ret.ActorType = ActorType.Weapon;
+				ret.ResourcePath = "Weapons/RANGED_1";
+
+				ret.Name = "Grenade Geyser";
+
+				ret.AddAbility(AbilityDataTable.GRENADE_REPEATER);
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 70
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, .8f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.ProjectileSpeed.Id, 50f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 55f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipAmount.Id, .07f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					.01f
+				));
+
+				ret.Availability = Availability.None;
+
+				return ret;
+			}
+		}
+
 	}
 }
 

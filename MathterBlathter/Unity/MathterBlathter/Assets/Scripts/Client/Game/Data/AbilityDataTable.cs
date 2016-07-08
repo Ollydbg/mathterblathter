@@ -1119,6 +1119,38 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData GRENADE_REPEATER {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 60;
+				ret.spawnableDataId = CharacterDataTable.GRENADE_PROJECTILE.Id;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LaunchGrenade);
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					AbilityAttributes.SplashRadius.Id, 2f
+				));
+
+
+				var launch = new TimelineData();
+				launch.Duration = 1f;
+				launch.AsciiMap += "ssss";
+				launch.Lookup['s'] = "SFX/grenadeLaunch";
+				ret.Timelines.Add(launch);
+
+				var explosionEffect = new TimelineData();
+				explosionEffect.AsciiMap += "eeeeeee";
+				explosionEffect.Lookup['e'] = "Projectiles/VFX/rocketExplosion_prefab";
+				explosionEffect.Duration = 1f;
+
+				ret.Timelines.Add(explosionEffect);
+
+
+				return ret;
+			}
+		}
+
 	}
 }
 

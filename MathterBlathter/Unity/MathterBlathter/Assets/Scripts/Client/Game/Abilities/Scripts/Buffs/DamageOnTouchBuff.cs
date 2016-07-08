@@ -26,24 +26,25 @@ namespace Client.Game.Abilities.Scripts.Buffs
 		public override void Update (float dt)
 		{
 			
-			var rate = Owner.Attributes[AbilityAttributes.ZoneUpdateRate];
+			var rate = Owner.Attributes[ActorAttributes.ZoneUpdateRate];
 
 			accumulator += dt;
 			if(accumulator >= rate) {
 				accumulator-= rate;
-				var dps = Owner.Attributes[AbilityAttributes.ZoneDPS];
+				var dps = Owner.Attributes[ActorAttributes.BaseDamage];
 				Targets.ForEach(p => DamageTarget(p, dps*rate));
 			}
 
 		}
 		public override void End ()
 		{
+			
 		}
 		#endregion
 
 		void DamageTarget (Actor obj, float damage)
 		{
-			new WeaponDamagePayload(this.context, obj, (int)damage).Apply();
+			new WeaponDamagePayload(this.context, obj, damage).Apply();
 		}
 
 		void RemoveTarget(Actor actor) {
@@ -52,7 +53,7 @@ namespace Client.Game.Abilities.Scripts.Buffs
 
 		void AddTarget (Actor actor)
 		{
-			//Targets.Add(actor);
+			Targets.Add(actor);
 			DamageTarget(actor, Owner.Attributes[ActorAttributes.BaseDamage]);
 
 		}

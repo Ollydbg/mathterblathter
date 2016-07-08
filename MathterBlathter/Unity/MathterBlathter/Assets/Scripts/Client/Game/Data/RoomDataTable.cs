@@ -119,8 +119,10 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
                 ret.AsciiMap += "w                                .............1.........       w";
-                ret.AsciiMap += "fffffffUfffffffffffffffffffffffffffffffffffTfffffffffffffffffffw";
-				ret.AsciiSpawnLookup['U'] = CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE;
+                ret.AsciiMap += "fffffffUffSffffffffffffffffffffffffffffffffTfffffffffffffffffffw";
+
+				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
+				ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);
 
 				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
 				ret.AsciiSpawnLookup['5'] = CharacterDataTable.RUST_MACHINE;

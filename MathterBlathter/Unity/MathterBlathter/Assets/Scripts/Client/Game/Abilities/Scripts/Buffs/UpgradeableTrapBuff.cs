@@ -45,6 +45,7 @@ namespace Client.Game.Abilities.Scripts.Buffs
 				Child.Destroy();
 			}
 
+
 			Child = Game.ActorManager.Spawn(Levels[level]);
 			Child.transform.position = SpawnPosition;
 			Child.transform.rotation = SpawnRotation;
@@ -71,16 +72,22 @@ namespace Client.Game.Abilities.Scripts.Buffs
 			
 		}
 
+		public int PlayerRoomDifficulty {
+			get {
+				return Game.PossessedActor.Attributes[ActorAttributes.RoomDifficulty];
+			}
+		}
+
 		public bool NeedsUpgrade {
 			get {
-				return Game.PossessedActor.Attributes[ActorAttributes.RoomDifficulty] >= NextThreshold;
+				return PlayerRoomDifficulty >= NextThreshold;
 			}
 		}
 
 		public override void Update (float dt)
 		{
 			if(CanAdvance && NeedsUpgrade) {
-				SetLevel(level + 1);
+				SetLevel(PlayerRoomDifficulty);
 			}
 
 			if(Input.GetKeyDown(KeyCode.U)) {

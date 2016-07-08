@@ -47,7 +47,7 @@ namespace Client.Game.Data
 
 				ret.AddIndexed(LAUNCH_PAD_FIXTURE, ActorAttributes.DataIds);
 				ret.AddIndexed(SPIKES_FIXTURE, ActorAttributes.DataIds);
-				ret.AddIndexed(LAUNCH_PAD_FIXTURE, ActorAttributes.DataIds);
+				ret.AddIndexed(WALL_TURRET_FIXTURE, ActorAttributes.DataIds);
 				ret.AddIndexed(GRENADE_GEYSER_FIXTURE, ActorAttributes.DataIds);
 
 				ret.AddAbility(AbilityDataTable.UPGRADEABLE_TRAP_BUFF);

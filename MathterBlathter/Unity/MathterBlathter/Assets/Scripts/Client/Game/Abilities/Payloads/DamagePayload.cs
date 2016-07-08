@@ -43,7 +43,7 @@ namespace Client.Game.Abilities.Payloads
 				
 			Damage *= DamageScalar;
 			
-			int totalDamage = (int)Damage;
+			int totalDamage = Mathf.CeilToInt(Damage);
 
 			int newHealth = Target.Attributes [ActorAttributes.Health] - totalDamage;
 
