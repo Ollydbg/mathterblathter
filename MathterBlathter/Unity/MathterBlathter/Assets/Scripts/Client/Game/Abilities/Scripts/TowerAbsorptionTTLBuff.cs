@@ -31,8 +31,11 @@ namespace Client.Game.Abilities.Scripts
 			if(!didEnd) {
 				didEnd = true;
 
-				new TowerAbsorptionPayload(1, context).Apply();
-				context.targetActor.Destroy();
+				if(TTL <= 0f) {
+					PlayTimeline(context.data.Timelines[0], context.targetActor.transform.position);
+					new TowerAbsorptionPayload(1, context).Apply();
+					context.targetActor.Destroy();
+				}
 			}
 		}
 

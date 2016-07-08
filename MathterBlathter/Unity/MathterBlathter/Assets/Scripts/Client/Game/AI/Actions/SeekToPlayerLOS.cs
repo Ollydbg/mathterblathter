@@ -23,9 +23,10 @@ namespace Client.Game.AI.Actions
 				if(ActionUtil.HasLOS(actor, target)) {
 					return AIResult.Success;
 				} else {
-					FaceTarget(actor, target);
+
 					var moveVec = new Vector3(distanceVec.x, 0, 0);
-					actor.transform.position += moveVec.normalized * actor.Attributes[ActorAttributes.Speed];
+					((Character)actor).Controller.MoveDirection(moveVec.normalized);
+
 				}
 			} else {
 				

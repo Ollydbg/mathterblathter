@@ -4,23 +4,23 @@ namespace Client.Game.Data
 {
     public static partial class AIDataTable {
         
-        public static AIData PATROL_THEN_PURSUE_AI {
-            get {
-                var ret = new AIData();
-                ret.Name = "Patrol Then Pursue";
-                var patrolAction = new ActionData (
-                    typeof(PatrolAction),
-                    typeof(WaitForPlayerLOS)
-                );
-                patrolAction.Next = new ActionData(
-                    typeof(FireAtPlayer),
-                    typeof(CheckPlayerLOS)
-                    );
-                ret.ActionData = patrolAction;
-                
-                return ret;
-            }
-        }
+		public static AIData PATROL_THEN_PURSUE_AI {
+			get {
+				var ret = new AIData();
+				ret.Name = "Patrol Then Pursue";
+				var patrolAction = new ActionData (
+					typeof(PatrolAction),
+					typeof(WaitForPlayerLOS)
+				);
+				patrolAction.Next = new ActionData(
+					typeof(FireAtPlayer),
+					typeof(CheckPlayerLOS)
+				);
+				ret.ActionData = patrolAction;
+
+				return ret;
+			}
+		}
         
 		public static AIData AIR_PATH_TO_FIRE_AI {
 			get {

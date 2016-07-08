@@ -25,24 +25,33 @@ namespace Client.Game.Map
 
 		Room Head;
 
-		public MapGenerator ()
+		List<RoomData> availableRooms() {
+			return RoomDataTable.GetAll().Where( p=>!p.Mute).ToList();
+		}
+
+		IEnumerable<ZoneData> availableZones() {
+			var solod = mapData.Zones.Where(p => p.Solo);
+			if(solod.Count() > 0) {
+				return solod;
+			}
+			return mapData.Zones.Where(p => !p.Mute);
+		}
+
+		public MapGenerator (MapData map)
 		{
-			mapData = MapDataTable.Map1;
+			mapData = map;
 			Constraints = new ConstraintList();
 			Constraints.InitWithMap(mapData);
 
-			foreach( var z in mapData.Zones) {
+			foreach( var z in availableZones()) {
 				var gen = new ZoneGenerator(z);
 				ZoneGenerators.Add(gen);
+				gen.InitPool(availableRooms(), z.MaxRooms);
 			}
+
 		}
 
 		public bool IsComplete = false;
-
-		public void InitWithPool (List<RoomData> availableRooms, int numRoomsToGenerate)
-		{
-			ZoneGenerators.ForEach(p => p.InitPool(availableRooms, numRoomsToGenerate));
-		}
 
 
 		public Room Emit() {

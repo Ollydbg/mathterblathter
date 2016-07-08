@@ -18,7 +18,7 @@ namespace Client.Game.AI.Actions
 			var target = PlayerMid;
 			var distanceVec = target - actor.transform.position;
 
-			FaceTarget(actor, target);
+			FaceTarget2D(actor, target);
 
 			if (!inAbilityRange (distanceVec, actor)) {
 				return AIResult.Failure;

@@ -12,6 +12,15 @@ namespace Client.Game.AI.PatrolPlanning
 		public PatrolPlan() {
 		}
 
+		//padding
+		public const float OBSTACLE_CLEARANCE = .1f;
+
+		private bool Flying(Actor actor) {
+			
+			return actor.Attributes[ActorAttributes.GravityScalar] == 0f;
+		}
+
+
 		public PatrolRoute PlanRoute(Actor actor)
 		{
 
@@ -22,32 +31,59 @@ namespace Client.Game.AI.PatrolPlanning
 
 			route.Left = VectorUtils.Vector2(actor.GameObject.transform.position);
 			route.Right = VectorUtils.Vector2(actor.GameObject.transform.position);
+			var colliderExtents = VectorUtils.Vector2(actor.TerrainCollider.bounds.extents);
 
-			while(true) {
-				var test = route.Left + Vector2.left;
+			colliderExtents += Vector2.one * OBSTACLE_CLEARANCE;
 
-				if(PositionIsTraversable(test, actor)) {
-					route.Left = test;
-				} else {
-					break;
+			if(Flying(actor)) {
+
+				route.Right = PatrolExtentInDirection(actor.transform.position, Vector2.right, colliderExtents);
+				route.Left = PatrolExtentInDirection(actor.transform.position, Vector2.left, colliderExtents);
+
+			} else {
+				while(true) {
+					var test = route.Right + Vector2.right;
+
+					if(PointIsWalkable(test, actor)) {
+						route.Right = test;
+					} else {
+						break;
+					}
 				}
-			}
 
-			while(true) {
-				var test = route.Right + Vector2.right;
+				while(true) {
+					var test = route.Left + Vector2.left;
 
-				if(PositionIsTraversable(test, actor)) {
-					route.Right = test;
-				} else {
-					break;
+					if(PointIsWalkable(test, actor)) {
+						route.Left = test;
+					} else {
+						break;
+					}
 				}
-			}
 
+			}
+			
+		
 			return route;
 		}
 
 
-		private bool PositionIsTraversable(Vector2 position, Actor byActor) {
+		public Vector2 PatrolExtentInDirection(Vector2 position, Vector2 direction, Vector2 extents) {
+			int mask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Door.ToString()});
+			var maxDistance = 200f;
+			var hit = Physics2D.CircleCast(position, extents.y, direction, maxDistance, mask);
+
+			if(hit.transform != null) {
+				var offset = direction.x > 0 ? extents.x * Vector2.right : extents.x * Vector2.left;
+
+				return hit.point - offset;
+			} else {
+				return position + direction * maxDistance;
+			}
+
+		}
+
+		private bool PointIsWalkable(Vector2 position, Actor byActor) {
 			int mask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Door.ToString()});
 
 			//is that position a wall? 

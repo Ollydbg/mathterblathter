@@ -39,6 +39,8 @@ namespace Client.Game.Actors
 				return transform.position + new Vector3 (0f, colliderHeight*.5f, 0f);
 			}
 		}
+		public Collider2D TerrainCollider { get; private set; }
+
 
 		public ActorType ActorType {
 			get {
@@ -92,9 +94,9 @@ namespace Client.Game.Actors
 
 		public virtual void EnterGame(Client.Game.Core.Game game) {
 			this.Game = game;
-			var coll = GameObject.GetComponentInChildren<Collider2D> ();
-			if(coll != null) {
-				colliderHeight = coll.bounds.extents.y;
+			TerrainCollider = GameObject.GetComponentInChildren<Collider2D> ();
+			if(TerrainCollider != null) {
+				colliderHeight = TerrainCollider.bounds.extents.y;
 			}
 
 			this.WeaponController = new WeaponController(this);

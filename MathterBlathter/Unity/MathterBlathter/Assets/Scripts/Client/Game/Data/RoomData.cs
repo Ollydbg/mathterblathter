@@ -26,10 +26,9 @@ namespace Client.Game.Data
 		public int MaxElevation;
 		public int MaxInstances = int.MaxValue;
 
-		public int SortOrder = 100; //<-- used for explicit layout/ starting sequence
-
-		public bool Solo;
 		public bool Mute;
+
+		public int SortOrder = 100; //<-- used for explicit layout/ starting sequence
 
 		public ParallaxData LayerData;
 		public SetPieceData SetPiece;
@@ -117,8 +116,6 @@ namespace Client.Game.Data
 			clone.MinElevation = this.MinElevation;
 			clone.MaxElevation = this.MaxElevation;
 			clone.SortOrder = this.SortOrder;
-			clone.Solo = this.Solo;
-			clone.Mute = this.Mute;
 			clone.Type = this.Type;
 			clone.Spawns = this.Spawns.ToList();
 			clone.Id = this.Id;

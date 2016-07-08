@@ -75,6 +75,23 @@ namespace Client.Game.Actors.Controllers
 
 		}
 
+		public void MoveDirection(Vector2 direction) {
+			if(direction.x > 0) 
+				xScale = 1 * originalScale.x;
+			else if(direction.x < 0)
+				xScale = -1 * originalScale.x;
+			
+			var scale = Actor.GameObject.transform.localScale;
+			scale.x = xScale;
+			Actor.GameObject.transform.localScale = scale;
+
+			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
+
+			Vector2 moveVector = direction * RunSpeed;
+
+			movementAccumulator += moveVector;
+		}
+
 		public void Update (float dt) {
 			
 		}

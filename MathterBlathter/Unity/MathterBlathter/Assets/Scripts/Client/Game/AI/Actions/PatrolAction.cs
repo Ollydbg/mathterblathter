@@ -23,18 +23,24 @@ namespace Client.Game.AI.Actions
 		#region IAction implementation
 
 
+		private float Horizontal {
+			get {
+				return Route.CurrentDirection.x > 0 ? 1f : -1f;
+			}
+		}
+
 		public override AIResult Update (float dt, Actor actor)
 		{
 			if(Route == null) {
 				Route = new PatrolPlan().PlanRoute(actor);
 			}
 
-
 			Vector3 target = NextGoal(actor);
 
-			FaceTarget(actor, target);
-			actor.transform.position += VectorUtils.Vector3(Route.CurrentDirection * actor.Attributes[ActorAttributes.Speed]);
-			
+			FaceTarget2D(actor, target);
+
+			(actor as Character).Controller.MoveRight(Horizontal);
+
 			return AIResult.Running;
 		}
 

@@ -32,6 +32,7 @@ namespace Client.Game.Map
 		public ZoneGenerator (ZoneData zoneData)
 		{
 			this.ZoneData = zoneData;
+
 			Constraints = new ConstraintList();
 		}
 
@@ -40,7 +41,7 @@ namespace Client.Game.Map
 
 		public bool IsComplete {
 			get {
-				return Pool.RequirementsSatisfied;
+				return Pool.RequirementsSatisfied || Pool.Exhausted;
 			}
 		}
 
@@ -54,7 +55,7 @@ namespace Client.Game.Map
 
 		//returns head
 		public void InitPool(List<RoomData> data, int maxRooms) {
-			Pool = new RoomPool(data, ZoneData.MaxRooms, ZoneData.Requirements);	
+			Pool = new RoomPool(data, maxRooms, ZoneData.Requirements);	
 		}
 
 

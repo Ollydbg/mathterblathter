@@ -12,14 +12,6 @@ namespace Client.Game.Data
 
 		public List<ZoneData> Zones = new List<ZoneData>();
 
-		public int MaxRooms {
-			get {
-				int max = 0;
-				Zones.ForEach(p => max += p.MaxRooms);
-				return max;
-			}
-		}
-
 		public MapData ()
 		{
 		}
@@ -30,7 +22,10 @@ namespace Client.Game.Data
 	{
 		public String Name;
 		public List<Requirement> Requirements = new List<Requirement>();
-		
+
+		public bool Solo;
+		public bool Mute;
+
 		public int MaxRooms;
 		public int MinX = int.MinValue;
 		public int MaxX = int.MaxValue;

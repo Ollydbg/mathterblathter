@@ -629,8 +629,8 @@ namespace Client.Game.Data
 				hitTimeline.Duration = .5f;
 
 				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
-				ret.Timelines.Add(hitTimeline);
 				ret.Timelines.Add(fireTimeline);
+				ret.Timelines.Add(hitTimeline);
 
 				return ret;
 			}
@@ -1085,6 +1085,14 @@ namespace Client.Game.Data
 				ret.Id = 58;
 				ret.DoesPropogate = false;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TowerAbsorptionTTLBuff);
+
+				var tl = new TimelineData();
+				tl.Duration = 1f;
+				tl.AsciiMap += "eeeee";
+				tl.AsciiMap += "sssss";
+				tl.Lookup['e'] = "WorldFX/TowerAbsorption";
+				tl.Lookup['s'] = "SFX/towerAbsoprion";
+				ret.Timelines.Add(tl);
 				return ret;
 			}
 		}

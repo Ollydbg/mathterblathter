@@ -58,11 +58,26 @@ namespace Client.Game.AI
 		}
 		
 
-		internal void FaceTarget(Actor selfActor, Vector3 target) {
+		internal void FaceTarget3D(Actor selfActor, Vector3 target) {
 
 			float angle = target.x < selfActor.transform.position.x ? -180 : 0;
 
 			selfActor.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
+
+
+		}
+		internal void FaceTarget2D(Actor selfActor, Vector3 target) {
+
+			var xScale = target.x > selfActor.transform.position.x ? 1f : -1f;
+
+			var scale = selfActor.transform.localScale;
+
+			if((xScale < 0 && scale.x > 0) || (xScale > 0 && scale.x < 0)) {
+				scale.x *= -1f;
+				selfActor.transform.localScale = scale;
+			}
+
+
 		}
 	}
 

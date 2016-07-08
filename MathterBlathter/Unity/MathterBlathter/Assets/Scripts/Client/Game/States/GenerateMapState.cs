@@ -17,27 +17,13 @@ namespace Client.Game.States
 
 		public GenerateMapState ()
 		{
-			generator = new MapGenerator();
+			generator = new MapGenerator(MapDataTable.Map1);
 		}
 
-
-		int numRoomsToGenerate() {
-			var solod = RoomDataTable.GetAll().Count(p => p.Solo);
-			return solod > 0 ? solod : MapDataTable.Map1.MaxRooms;
-		}
-
-		List<RoomData> availableRooms() {
-			var solod = RoomDataTable.GetAll().Where( p=> p.Solo).ToList();
-			if(solod.Count > 0) {
-				return solod;
-			} else {
-				return RoomDataTable.GetAll().Where( p=>!p.Mute).ToList();
-			}
-		}
 
 		public override void Enter ()
 		{
-			generator.InitWithPool(availableRooms(), 100);
+			
 		}
 
 		public override void Exit ()
@@ -45,7 +31,7 @@ namespace Client.Game.States
 			Game.Instance.RoomManager.SetRooms(Rooms);
 		}
 
-		private int generationsPerFrame = 10;
+		private int generationsPerFrame = 15;
 
 		public override void Update (float dt)
 		{

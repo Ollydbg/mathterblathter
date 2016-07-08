@@ -8,6 +8,10 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void MoveDirection (UnityEngine.Vector2 normalizedDir)
+		{
+		}
+
 		#region ICharacterController implementation
 
 		public void Update (float dt)

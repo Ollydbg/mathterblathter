@@ -60,7 +60,7 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .08f
+					ActorAttributes.Speed.Id, 8f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
@@ -303,7 +303,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Speed.Id,
-					0f
+					2f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
@@ -542,7 +542,7 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 30.0f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .12f
+					ActorAttributes.Speed.Id, 12f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
@@ -581,7 +581,7 @@ namespace Client.Game.Data
 					ActorAttributes.TakesDamage.Id, 1
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .08f
+					ActorAttributes.Speed.Id, 8f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
@@ -635,8 +635,43 @@ namespace Client.Game.Data
 				));
 				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
-
 				return ret;	
+			}
+		}
+
+		public static CharacterData BOSS_1 {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 29;
+
+				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.ResourcePath = "Actors/Enemies/Boss1/Boss1_prefab";
+
+				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 600
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 23f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.AIDetectionRadius.Id, 100.0f
+				));
+
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id, CharacterDataTable.RANGED_ENEMY_WEAPON.Id, 0
+				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+				return ret;
 			}
 		}
 

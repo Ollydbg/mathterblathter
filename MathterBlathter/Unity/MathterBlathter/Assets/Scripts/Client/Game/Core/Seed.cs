@@ -6,10 +6,12 @@ namespace Client.Game.Core
 	public class Seed
 	{
 		public int Value;
-		private Random random;
+
 
 		public Seed (int seedValue)
 		{
+
+			Debug.Log("Seeding with value: " + seedValue);
 			Random.seed = seedValue;
 		}
 
