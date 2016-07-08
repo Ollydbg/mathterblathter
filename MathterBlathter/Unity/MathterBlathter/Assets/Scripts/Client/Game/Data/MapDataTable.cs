@@ -33,7 +33,7 @@ namespace Client.Game.Data
 				var debugZone = new ZoneData();
 				debugZone.Mute = true;
 				debugZone.Name = "Debug Zone";
-				debugZone.Requirements.Add(new ZReq(RoomDataTable.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
+				debugZone.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
 				debugZone.DrawColor = new Color(.45f, .33f, .40f);
 				debugZone.MaxRooms = 1;
 				ret.Zones.Add(debugZone);

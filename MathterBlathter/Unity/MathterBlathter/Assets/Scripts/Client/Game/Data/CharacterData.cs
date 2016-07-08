@@ -36,8 +36,12 @@ namespace Client.Game.Data
 
 
 		public void AddAbility(AbilityData ability) {
-			var numAbils = this.attributeData.Where( p => p.Id == ActorAttributes.Abilities.Id).Count();
-			this.attributeData.Add(new CharacterData.AttributeData(ActorAttributes.Abilities.Id, ability.Id, numAbils));
+			AddIndexed(ability, ActorAttributes.Abilities);
+		}
+
+		public void AddIndexed(GameData data, GameAttributeI attr) {
+			var numEntries = this.attributeData.Where( p => p.Id == attr.Id).Count();
+			this.attributeData.Add(new CharacterData.AttributeData(attr.Id, data.Id, numEntries));
 		}
 	}
 

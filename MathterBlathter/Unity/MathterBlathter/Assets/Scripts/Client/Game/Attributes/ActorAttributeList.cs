@@ -68,7 +68,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF KnockbackForce = new GameAttributeF(45, 0f, "knockback force", 0, float.MaxValue);
 		public static readonly GameAttributeI ShopsSkipped = new GameAttributeI(46, 0, "shops skipped", 0, int.MaxValue);
 		public static readonly GameAttributeE WeaponFlags = new GameAttributeE(47, 0, "weapon flags", 0, int.MaxValue, typeof(WeaponFlags));
-		public static readonly GameAttributeI RunDifficulty = new GameAttributeI(48, 1, "run difficulty", 0, int.MaxValue);
+		public static readonly GameAttributeI WaveDifficulty = new GameAttributeI(48, 1, "run difficulty", 0, int.MaxValue);
 		public static readonly GameAttributeI RoomUnlockDifficultyIncr = new GameAttributeI(49, 0, "difficulty increment", 0, int.MaxValue);
 		public static readonly GameAttributeF ShopPriceScalar = new GameAttributeF(50, 1f, "shop price scalar", 0f, float.MaxValue);
 		public static readonly GameAttributeI ActiveItemId = new GameAttributeI(51, 0, "ActiveItem Id",  int.MinValue, int.MaxValue);
@@ -92,6 +92,10 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(69, 5f, "projectileSpeed", float.MinValue, float.MaxValue);
 		public static readonly GameAttributeB ProjectileDestroyOnGeometry = new GameAttributeB(70, 1, "projectile destroys on geometry", 0, 1);	
 		public static readonly GameAttributeF TowerAbsorptionTTL = new GameAttributeF(71, 6f, "absorptionTTL", 0, float.MaxValue);
+		public static readonly GameAttributeI DataIds = new GameAttributeI(72, 0, "dataIds", 0, int.MaxValue);
+		public static readonly GameAttributeI RoomDifficulty = new GameAttributeI(73, 0, "room difficulty", 0, int.MaxValue);
+
+
 	}
 }
 

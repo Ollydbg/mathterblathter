@@ -133,7 +133,7 @@ namespace Client.Game.Map
 
 			if(this.SpawnsWaves) {
 				if(!Waves.IsComplete) {
-					var difficulty = forActor.Attributes[ActorAttributes.RunDifficulty];
+					var difficulty = forActor.Attributes[ActorAttributes.WaveDifficulty];
 					var waveData = new RoomWaveGenerator().Generate(this, difficulty);
 					Waves.Start(waveData);
 

@@ -74,7 +74,7 @@ namespace Client.Game.Items
 
 		public void RemoveWeapon(WeaponActor wpn) {
 			ActiveLookup.Remove(wpn.Data);
-			Owner.Game.ActorManager.RemoveActor(wpn);
+			wpn.transform.parent = null;
 
 			foreach( var item in ActiveLookup) {
 				SwitchWeapon(item.Value);
@@ -84,6 +84,7 @@ namespace Client.Game.Items
 			broadcast();
 		}
 
+		//called from pickup payload
 		public void AddWeapon(CharacterData data) {
 			if(CanAdd(data)) {
 				
@@ -94,7 +95,7 @@ namespace Client.Game.Items
 			}
 		}
 
-
+		//called internally, and by weapon actor self-add
 		public void AddWeapon(WeaponActor actor) {
 			if(ActiveLookup.Count == Owner.Attributes[ActorAttributes.MaxWeapons])
 				RemoveWeapon(currentWeapon);

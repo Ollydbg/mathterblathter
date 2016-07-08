@@ -154,7 +154,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 5;
 				ret.name = "Damage On Touch Buff";
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.DamageOnTouchBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.DamageOnTouchBuff);
 				
 				return ret;
 			}
@@ -386,7 +386,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 18;
 				ret.name = "Invulnerable after hit";
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.InvulnerableAfterHitBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.InvulnerableAfterHitBuff);
 				
 				return ret;
 			}
@@ -412,7 +412,7 @@ namespace Client.Game.Data
 				ret.Id = 20;
 				ret.DoesPropogate = true;
 				ret.name = "Move Boost Temp";
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.MoveBoostTempBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.MoveBoostTempBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, 10f
 				));
@@ -431,7 +431,7 @@ namespace Client.Game.Data
 				ret.Id = 21;
 				ret.DoesPropogate = true;
 				ret.name = "JumpBuff";
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.JumpBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.JumpBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.Duration.Id, float.MaxValue
 				));
@@ -581,7 +581,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 29;
 				ret.DoesPropogate = true;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyRegenBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.AnxietyRegenBuff);
 				ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.AnxietyRegenScalar.Id, 6f));
 				var unlockTimeline = new TimelineData();
 				unlockTimeline.AsciiMap += "sssss    ";
@@ -699,7 +699,7 @@ namespace Client.Game.Data
 					ActorAttributes.AnxietyDamageScalar.Id, .5f
 				));
 
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AnxietyDamageReductionBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.AnxietyDamageReductionBuff);
 
 				return ret;
 			}
@@ -789,7 +789,7 @@ namespace Client.Game.Data
 
 				ret.Timelines.Add(tl);
 
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LaunchPadBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.LaunchPadBuff);
 				return ret;
 			}
 		}
@@ -798,7 +798,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 38;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.StationaryBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.StationaryBuff);
 				return ret;
 			}
 		}
@@ -811,7 +811,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.MaxHealth.Id, -50));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.DamageScalar.Id, 1.5f));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponCooldownScalar.Id, .6f));
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.CursedCourageBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.CursedCourageBuff);
 				return ret;
 				
 			}
@@ -823,7 +823,7 @@ namespace Client.Game.Data
 				ret.Id = 40;
 				ret.DoesPropogate = true;
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponCooldownScalar.Id, .7f));
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.AttackSpeedBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.AttackSpeedBuff);
 				return ret;
 			}
 			
@@ -878,7 +878,7 @@ namespace Client.Game.Data
 					ActorAttributes.DamageScalar.Id, 1f
 				));
 				
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.LowHealthDamageAmpBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.LowHealthDamageAmpBuff);
 				return ret;
 				
 			}
@@ -951,7 +951,7 @@ namespace Client.Game.Data
 					new GameData.AttributeData(ActorAttributes.RoomUnlockDifficultyIncr.Id, 2)
 				);
 
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.PlayerRunHardenerBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.PlayerRunHardenerBuff);
 				return ret;
 			}
 		}
@@ -964,7 +964,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(
 					new GameData.AttributeData(ActorAttributes.ShopPriceScalar.Id, .8f)	
 				);
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShopCheapenerBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.ShopCheapenerBuff);
 				return ret;
 			}
 		}
@@ -975,7 +975,7 @@ namespace Client.Game.Data
 				ret.Id = 49;
 				ret.DoesPropogate = true;
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.Anxiety.Id, 20));
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.KillDeStresserBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.KillDeStresserBuff);
 				return ret;
 
 			}
@@ -990,7 +990,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponCooldownScalar.Id, .7f));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.AnxietyDamageScalar.Id, 3f));
 
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.YeeHawBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.YeeHawBuff);
 				
 				return ret;
 
@@ -1001,7 +1001,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 51;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RoomClearDropBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.RoomClearDropBuff);
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.DropRate.Id, 1f
 				));
@@ -1074,7 +1074,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 57;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.EnemyFlashOnHitBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.EnemyFlashOnHitBuff);
 				return ret;
 			}
 		}
@@ -1084,15 +1084,37 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 58;
 				ret.DoesPropogate = false;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TowerAbsorptionTTLBuff);
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.TowerAbsorptionTTLBuff);
 
 				var tl = new TimelineData();
 				tl.Duration = 1f;
 				tl.AsciiMap += "eeeee";
 				tl.AsciiMap += "sssss";
 				tl.Lookup['e'] = "WorldFX/TowerAbsorption";
-				tl.Lookup['s'] = "SFX/towerAbsoprion";
+				tl.Lookup['s'] = "SFX/towerAbsorption";
 				ret.Timelines.Add(tl);
+				return ret;
+			}
+		}
+
+		public static AbilityData UPGRADEABLE_TRAP_BUFF {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 59;
+
+				var tl = new TimelineData();
+				tl.Duration = 2f;
+				tl.AsciiMap += "sss";
+				tl.AsciiMap += "eee";
+
+				tl.Lookup['s'] = "SFX/trapUpgrade";
+				tl.Lookup['e'] = "WorldFX/trapUpgrade";
+
+				ret.Timelines.Add(tl);
+
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.UpgradeableTrapBuff);
+
+
 				return ret;
 			}
 		}

@@ -24,19 +24,20 @@ namespace Client.Game.Abilities.Scripts
 
         private void OnRoomEntered(Actor actor, Room oldRoom, Room newRoom)
         {
-            context.source.Destroy();
+			if(!context.source.IsHeld) {
+					
+				context.source.Destroy();
 
-            new TowerAbsorptionPayload(1, context).Apply();
-              
-            Abort(); 
+	            new TowerAbsorptionPayload(1, context).Apply();
+	              
+	            Abort();
+				
+			}
         }
 			
 
         public override void Update(float dt)
         {
-            if(context.source.IsHeld) {
-                Abort();
-            }
         }
     }
 }

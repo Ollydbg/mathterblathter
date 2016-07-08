@@ -7,70 +7,10 @@ namespace Client.Game.Data
 	{
 		private static int TRAP_OFFSET = 2<<8;
 
-		public static CharacterData SPIKES_FIXTURE {
-			get {
-				var ret = new CharacterData ();
-				ret.Id = TRAP_OFFSET + 1;
-				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
-				ret.ActorType = ActorType.Fixture;
-				ret.Name = "Spikes";
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
-				));
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 5
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.GravityScalar.Id, 0f
-				));
-
-				ret.AddAbility(AbilityDataTable.DAMAGE_ON_TOUCH_BUFF);
-
-
-				return ret;
-			}
-		}
-
-		public static CharacterData WALL_TURRET {
+		public static CharacterData LAUNCH_PAD_FIXTURE {
 			get {
 				var ret = new CharacterData();
-				ret.Id = TRAP_OFFSET + 2;
-				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
-				ret.ActorType = ActorType.Fixture;
-				ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
-				ret.Name = "Wall Turret";
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
-				));
-				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.GravityScalar.Id, 0f
-				));
-				
-				ret.AddAbility(AbilityDataTable.AI_BUFF);
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id,
-					CharacterDataTable.WALL_TURRET_WEAPON.Id,
-					0
-				));
-
-				return ret;
-			}
-		}
-
-		public static CharacterData LAUNCH_PAD {
-			get {
-				var ret = new CharacterData();
-				ret.Id = TRAP_OFFSET+3;
+				ret.Id = TRAP_OFFSET+0;
 				ret.ActorType = ActorType.Fixture;
 				ret.AIData = new AIData ();
 				ret.Name = "LaunchPad";
@@ -94,6 +34,150 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static CharacterData UPGRADEABLE_TRAP_FIXTURE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = TRAP_OFFSET + 1;
+				ret.ActorType = ActorType.Fixture;
+				ret.AIData = new AIData();
+				ret.Name = "Upgradeable proxy";
+
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+
+				ret.AddIndexed(LAUNCH_PAD_FIXTURE, ActorAttributes.DataIds);
+				ret.AddIndexed(SPIKES_FIXTURE, ActorAttributes.DataIds);
+				ret.AddIndexed(LAUNCH_PAD_FIXTURE, ActorAttributes.DataIds);
+				ret.AddIndexed(GRENADE_GEYSER_FIXTURE, ActorAttributes.DataIds);
+
+				ret.AddAbility(AbilityDataTable.UPGRADEABLE_TRAP_BUFF);
+
+				return ret;
+			}
+		}
+
+		public static CharacterData SPIKES_FIXTURE {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = TRAP_OFFSET + 2;
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+				ret.ActorType = ActorType.Fixture;
+				ret.Name = "Spikes";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 5
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.GravityScalar.Id, 0f
+				));
+
+				ret.AddAbility(AbilityDataTable.DAMAGE_ON_TOUCH_BUFF);
+
+
+				return ret;
+			}
+		}
+
+
+		public static CharacterData RETRACTING_SPIKES_FIXTURE {
+			get {
+				var ret = new CharacterData ();
+				ret.Id = TRAP_OFFSET + 3;
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+				ret.ActorType = ActorType.Fixture;
+				ret.Name = "Spikes";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 5
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.GravityScalar.Id, 0f
+				));
+
+				ret.AddAbility(AbilityDataTable.DAMAGE_ON_TOUCH_BUFF);
+
+				return ret;
+			}
+		}
+
+
+
+		public static CharacterData WALL_TURRET_FIXTURE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = TRAP_OFFSET + 4;
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+				ret.ActorType = ActorType.Fixture;
+				ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
+				ret.Name = "Wall Turret";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.GravityScalar.Id, 0f
+				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					CharacterDataTable.WALL_TURRET_WEAPON.Id,
+					0
+				));
+
+				return ret;
+			}
+		}
+
+		public static CharacterData GRENADE_GEYSER_FIXTURE {
+			get {
+				var ret = new CharacterData();
+				ret.Id = TRAP_OFFSET + 5;
+				ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+				ret.ActorType = ActorType.Fixture;
+				ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
+				ret.Name = "Wall Turret";
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
+				));
+				ret.attributeData.Add( new CharacterData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 0
+				));
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.GravityScalar.Id, 0f
+				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id,
+					CharacterDataTable.WALL_TURRET_WEAPON.Id,
+					0
+				));
+
+				return ret;
+			}
+		}
+
 	}
 }
 

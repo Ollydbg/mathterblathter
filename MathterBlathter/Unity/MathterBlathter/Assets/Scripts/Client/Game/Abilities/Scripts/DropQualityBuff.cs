@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Client.Game.Attributes;
+using Client.Game.Abilities.Scripts.Buffs;
 
 namespace Client.Game.Abilities.Scripts
 {

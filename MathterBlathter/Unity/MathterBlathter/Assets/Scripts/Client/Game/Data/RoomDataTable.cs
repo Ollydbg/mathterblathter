@@ -81,12 +81,12 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Mute = true;
 				ret.Type = RoomType.NoWaves | RoomType.Normal;
-				ret.AsciiMap += "cccccccccccccccccccccccccccccccdddcccccccccccccccccccccccccccccc";
-                ret.AsciiMap += "d                                                              d";
-                ret.AsciiMap += "d                                                              d";
-                ret.AsciiMap += "d                                                              d";
+
+				ret.AsciiMap += "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
+                ret.AsciiMap += "w                                                              w";
+                ret.AsciiMap += "w                                                              w";
+                ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
@@ -98,7 +98,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w . ...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [        w";
-                ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP        w";
+                ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP        w";
                 ret.AsciiMap += "w                         w                                    w";
                 ret.AsciiMap += "w                  L      w                    L               w";
                 ret.AsciiMap += "w                         w                                    w";
@@ -116,11 +116,11 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                   L                                          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
                 ret.AsciiMap += "w                      PPPP                    L               w";
-                ret.AsciiMap += "d                      PPPP                                    d";
-				ret.AsciiMap += "d                            C                                 d";
-                ret.AsciiMap += "d       q                        .............1.........       d";
-                ret.AsciiMap += "fffffffUUUUUfffffffffffffffffffffffffffffffTfffffffffffffffffffw";
-				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
+                ret.AsciiMap += "w                      PPPP                                    w";
+				ret.AsciiMap += "w                            C                                 w";
+                ret.AsciiMap += "w                                .............1.........       w";
+                ret.AsciiMap += "fffffffUfffffffffffffffffffffffffffffffffffTfffffffffffffffffffw";
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE;
 
 				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
 				ret.AsciiSpawnLookup['5'] = CharacterDataTable.RUST_MACHINE;
@@ -313,7 +313,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffssssssfffffff";
 
 				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.down);
 
 				finalize(ret);
 
@@ -364,7 +364,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                    .....................................                                                                     d";
 				ret.AsciiMap += "fffffffffTfffffffffffffffffffffffffffffffffffffffffffffffffffffdddffffffffTTTTfffffffffffffffffdddffffffffffffffffffffffffffffff";
 
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.up);
 
 				finalize(ret);
 
@@ -447,8 +447,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d    ....            ww                  ww                    d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffw";
 
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
-				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.right);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.down);
+				ret.AsciiSpawnLookup['3'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.right);
 
 				finalize(ret);
 
@@ -498,8 +498,8 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d                 wwwwww               ....................... d";
 				ret.AsciiMap += "ffffffffffUffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.left);
-				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.up);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.left);
+				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.up);
 
 
 				finalize(ret);
@@ -647,7 +647,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d  ........       wwwwwww      d";
 				ret.AsciiMap += "fffffffffffssssfffffffffffffffff";
 
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.down);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.down);
 				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
 
 				finalize(ret);
@@ -781,7 +781,7 @@ namespace Client.Game.Data
 
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
-				ret.AsciiSpawnLookup['R'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET, Vector3.right);
+				ret.AsciiSpawnLookup['R'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.right);
 
 				finalize(ret);
 
@@ -1184,7 +1184,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "d    wPwPPPPPPPPPPPPPPPPPPPP          PPPPPPPPPPPPPPPwPw       d";
 				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 
-				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD_FIXTURE;
 
 				finalize(ret);
 				return ret;
@@ -1290,7 +1290,7 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.PATCHES;
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
-				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD;
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD_FIXTURE;
 
 
 				finalize(ret);

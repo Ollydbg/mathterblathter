@@ -32,7 +32,7 @@ namespace Client.Game.Actors.Controllers
 		public delegate void GroundingHandler(Vector3 groundingVelocity);
 		private bool wasGrounded;
 		public event GroundingHandler OnGrounded;
-
+		
 
 		public CharacterController2D(Character actor) {
 			this.Actor = actor;
@@ -107,7 +107,7 @@ namespace Client.Game.Actors.Controllers
 			}
 		}
 
-		bool SubjectToGravity {
+		bool UsesGravity {
 			get {
 				return Actor.Attributes[ActorAttributes.GravityScalar] != 0f;
 			}
@@ -155,9 +155,13 @@ namespace Client.Game.Actors.Controllers
 
 		void ConsumeMovement ()
 		{
-			rigidBody.velocity = new Vector2(movementAccumulator.x, rigidBody.velocity.y + movementAccumulator.y);
+			if(UsesGravity) {
+				rigidBody.velocity = new Vector2(movementAccumulator.x, rigidBody.velocity.y + movementAccumulator.y);
+			} else {
+				rigidBody.velocity = movementAccumulator;
+			}
 			
-			//Actor.transform.position += movementAccumulator;
+
 			var grounded = IsGrounded;
 			if(grounded && !wasGrounded) {
 				jumpFrames = 0;
@@ -170,8 +174,7 @@ namespace Client.Game.Actors.Controllers
 
 			SetAnimationState(movementAccumulator, grounded);
 
-			movementAccumulator = Vector3.zero;
-
+			movementAccumulator = Vector2.zero;
 		}
 
 		bool jumping = false;
