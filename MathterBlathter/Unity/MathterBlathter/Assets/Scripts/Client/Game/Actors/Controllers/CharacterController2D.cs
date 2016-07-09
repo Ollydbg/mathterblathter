@@ -93,7 +93,7 @@ namespace Client.Game.Actors.Controllers
 		}
 
 		public void Update (float dt) {
-			
+			SetAnimationState(movementAccumulator, wasGrounded);
 		}
 
 
@@ -171,8 +171,6 @@ namespace Client.Game.Actors.Controllers
 			}
 
 			wasGrounded = grounded;
-
-			SetAnimationState(movementAccumulator, grounded);
 
 			movementAccumulator = Vector2.zero;
 		}
