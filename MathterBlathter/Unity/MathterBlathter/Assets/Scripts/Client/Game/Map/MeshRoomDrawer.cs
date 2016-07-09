@@ -23,10 +23,15 @@ namespace Client.Game.Map
 		}
 
 		private const int DOOR_HEIGHT = 3;
-
-
+		private static UnityEngine.Object PointLightTemplate;
+		private static UnityEngine.Object DirectionalLightTemplate;
 		public GameObject Draw (Room room, Game game)
 		{
+			if(PointLightTemplate == null) {
+				PointLightTemplate = Resources.Load("Lights/PointLight");
+				DirectionalLightTemplate = Resources.Load("Lights/DirectionalLight");
+			}
+
 			var gameObject = new GameObject();
 			gameObject.transform.position = GridToWorldSpace(room);
 			gameObject.name = "ROOM " + room.data.Id;
@@ -196,28 +201,27 @@ namespace Client.Game.Map
 			room.Lights = new List<Light>();
 
 			foreach( var lightPos in extractor.getAllMatching(AsciiConstants.LIGHT, true)) {
-				var lightObj = new GameObject ();
-				var light = lightObj.AddComponent<Light> ();
-				room.Lights.Add(light);
+				var lightObj = GameObject.Instantiate(PointLightTemplate) as GameObject;
+
+				room.Lights.Add(lightObj.GetComponent<Light>());
 				lightObj.SetActive(false);
 
-				/*light.type = LightType.Directional;
-				light.intensity = .3f;
-				light.bounceIntensity = 0f;
-				light.transform.parent = gameObject.transform;
-				light.transform.localRotation = Quaternion.Euler(22.75f, 0, 0);
-				light.transform.localPosition = new Vector3(lightPos.x, lightPos.y, -53f);
-				*/
+				lightObj.transform.parent = gameObject.transform;
+				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
+
+				lightObj.name = "point light";
+			}
+
+			foreach( var lightPos in extractor.getAllMatching(AsciiConstants.DIRECTIONAL_LIGHT, true)) {
+				var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
+
+				room.Lights.Add(lightObj.GetComponent<Light>());
+				lightObj.SetActive(false);
 
 				lightObj.transform.parent = gameObject.transform;
-				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, -2f);
-				light.type = LightType.Point;
-				light.gameObject.transform.Rotate(new Vector3(293f, 0, 0));
-				light.range = 142;
-				light.intensity = .8f;
+				lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
 
-
-				lightObj.name = "light";
+				lightObj.name = "directional light";
 			}
 		}
 

@@ -8,6 +8,7 @@ public static class AsciiConstants {
 		public const char RAMP = '/';
 		public const char DOOR = 'd';
 		public const char LIGHT = 'L';
+		public const char DIRECTIONAL_LIGHT = 'l';
 		public const char CEILING = 'c';
 		public const char GROUNDED_SPAWN = '.';
 		public const char SEALED_DOOR = 'X';
