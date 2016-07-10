@@ -16,7 +16,6 @@ namespace Client.Game.Abilities.Scripts
 		}
 
 		private ProjectileActor currentProjectile;
-		String impactPath = "Projectiles/VFX/rocketExplosion_prefab";
 
 		#region implemented abstract members of AbilityBase
 		public override void Start ()
@@ -28,14 +27,14 @@ namespace Client.Game.Abilities.Scripts
 
 			currentProjectile.OnGeometryHit = OnHit;
 			currentProjectile.OnHit = (actor) => OnHit();
-
+			PlayTimeline(context.data.Timelines[0], currentProjectile);
 
 			ApplyEnergyCost(context.source);
 		}
 
 		private void OnHit() {
 
-			ProjectileImpactEffect(currentProjectile, impactPath);
+			PlayTimeline(context.data.Timelines[1], currentProjectile.transform.position);
 			currentProjectile.Game.ActorManager.RemoveActor(currentProjectile);
 			var inRange = AbilityUtils.OverlapCircle(currentProjectile.transform.position, context, this.Attributes[AbilityAttributes.SplashRadius], new FilterList(Filters.Hittable));
 			foreach( Actor tgt in inRange) {

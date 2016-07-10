@@ -202,7 +202,6 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
-
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.AIActivationRange.Id, 25f
 				));
@@ -215,7 +214,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Cooldown.Id, 2f
+					ActorAttributes.Cooldown.Id, .4f
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;

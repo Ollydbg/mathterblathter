@@ -54,11 +54,16 @@ namespace Client.Game.UI.Run
 
 				item.SetActive(true);
 
+				item.transform.SetParent(Template.transform.parent);
+				item.transform.localScale = Template.transform.localScale;
+				item.transform.localPosition = Template.transform.localPosition + SPACING * i;
+
 				if(kvp.Value != currentWeapon) {
 					item.transform.localScale *= .8f;
+					hudItem.Label.text += "\n[Q]";
 				}
-				item.transform.SetParent(Template.transform.parent);
-				item.transform.position = Template.transform.position + SPACING * i;
+
+
 				Items.Add(hudItem, kvp.Value);
 
 				i++;

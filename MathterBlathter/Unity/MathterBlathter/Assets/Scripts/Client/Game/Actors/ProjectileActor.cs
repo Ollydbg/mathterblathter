@@ -62,8 +62,10 @@ namespace Client.Game.Actors
 			transform.LookAt(direction);
 		}
 
+
 		public TriggerTestResult TestTrigger(Collider2D collider, out Actor actor) {
-			if(collider.gameObject.layer == HARD_GEOMETRY_LAYER) {
+			if(collider.transform.root.gameObject != Context.source.GameObject 
+				&& collider.gameObject.layer == HARD_GEOMETRY_LAYER) {
 				actor = null;
 				return TriggerTestResult.Geometry;
 			}

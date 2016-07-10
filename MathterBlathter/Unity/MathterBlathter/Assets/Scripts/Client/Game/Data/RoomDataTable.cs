@@ -115,14 +115,16 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                   L                                          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
-                ret.AsciiMap += "w                      PPPP                    L    l          w";
+                ret.AsciiMap += "T                      PPPP                    L    l          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
                 ret.AsciiMap += "w                                .............1.........       w";
-                ret.AsciiMap += "fffffffUffSffffffffffffffffffffffffffffffffTfffffffffffffffffffw";
+                ret.AsciiMap += "fffffffUffSffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
 				ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.right);
+
 
 				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
 				ret.AsciiSpawnLookup['5'] = CharacterDataTable.RUST_MACHINE;
@@ -135,8 +137,8 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.WAVE_GUN_WEAPON;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.ROCKET_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.SHOPKEEPER;
 
 				finalize(ret);
 
@@ -1206,6 +1208,10 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
+				ret.AsciiMap += "wppppppppppppppppPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPw";
+				ret.AsciiMap += "w                                                                                                                              w";
+				ret.AsciiMap += "w                                                                                                                              w";
+				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
@@ -1228,17 +1234,14 @@ namespace Client.Game.Data
 				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "w                                                                                                                              w";
-				ret.AsciiMap += "w                                                                                                                              w";
-				ret.AsciiMap += "w                                                                                                                              w";
-				ret.AsciiMap += "w                                                                                                                              w";
-				ret.AsciiMap += "w                                                                                                                              w";
 				ret.AsciiMap += "d                                                                                                                              d";
 				ret.AsciiMap += "d                                                                                                                              d";
 				ret.AsciiMap += "d                                                                                                                              d";
-				ret.AsciiMap += "fffffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
+				ret.AsciiMap += "ffffffUUUUUffffffffffffffffffffdddfffffffffffffffffffffffffffffdddfffffffffffffffffffffffffffffdddffffffffffffffffffffffffffffff";
 				ret.LayerData = ParallaxDataTable.ABSTRACT;
 
 				ret.AsciiSpawnLookup['B'] = CharacterDataTable.BOSS_1;
+				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD_FIXTURE;
 
 				finalize(ret);
 
@@ -1300,6 +1303,59 @@ namespace Client.Game.Data
 				return ret;
 			}
 
+		}
+
+
+
+		public static RoomData CAMERA_TEST_ROOM {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 123;
+				ret.Type = RoomType.NoWaves;
+				ret.AsciiMap += "cccccccccccccTcccccccccccccccccc";
+				ret.AsciiMap += "w                              w";
+				ret.AsciiMap += "w                              w";
+				ret.AsciiMap += "w    ,                   ,     w";
+				ret.AsciiMap += "wPPPPP                   PPPPPPw";
+				ret.AsciiMap += "w        L                     w";
+				ret.AsciiMap += "w                  ----------  w";
+				ret.AsciiMap += "w  --------------  ----------  w";
+				ret.AsciiMap += "w  --------------  ----------  w";
+				ret.AsciiMap += "w  --------------              w";
+				ret.AsciiMap += "w  --------------  ,.......... w";
+				ret.AsciiMap += "w  --------------  PPPPPPPPPPPPw";
+				ret.AsciiMap += "w  --------------              w";
+				ret.AsciiMap += "w  --------------  L           w";
+				ret.AsciiMap += "w  --------------      ------  w";
+				ret.AsciiMap += "w  --------------      ------  w";
+				ret.AsciiMap += "w  --------------------------  w";
+				ret.AsciiMap += "w             ---------------  w";
+				ret.AsciiMap += "w .....  ,    ---------------  w";
+				ret.AsciiMap += "wPPPPPPPPP    ---------------  w";
+				ret.AsciiMap += "w             ---------------  w";
+				ret.AsciiMap += "w             ---------------  w";
+				ret.AsciiMap += "w     -----------------------  w";
+				ret.AsciiMap += "w     ---------        ------  w";
+				ret.AsciiMap += "w     ---------                w";
+				ret.AsciiMap += "w     ---------         ,      w";
+				ret.AsciiMap += "w     ----------        PPPPPPPw";
+				ret.AsciiMap += "w     ----------               w";
+				ret.AsciiMap += "w     ----------               w";
+				ret.AsciiMap += "w     ----------               w";
+				ret.AsciiMap += "w   ------ L       ...         w";
+				ret.AsciiMap += "w   ------        wwwwwww  --  w";
+				ret.AsciiMap += "w   ------        wwwwwww  --  w";
+				ret.AsciiMap += "w   ------        wwwwwww  --  w";
+				ret.AsciiMap += "w   ------        wwwwwww      w";
+				ret.AsciiMap += "w  ........       wwwwwww      w";
+				ret.AsciiMap += "fffffffffffssssfffffffffffffffff";
+
+				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.down);
+				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
+
+				finalize(ret);
+				return ret;
+			}
 		}
 
 

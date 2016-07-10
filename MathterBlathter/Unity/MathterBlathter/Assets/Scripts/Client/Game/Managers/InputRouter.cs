@@ -69,39 +69,36 @@ namespace Client.Game.Managers
 				TargetActor.InteractionController.InteractClosest();
 			}
 
+
 			var hor = Input.GetAxis (HORIZONTAL);
 			var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
 			var stickHor = Input.GetAxis(PS4_HORIZONTAL);
-			TargetActor.Controller.MoveRight (hor+controllerHor+stickHor);
+			//this is sooooo bad, but putting it in so I can give a build to a friend.
+			if(!Client.Game.UI.Run.Shop.ShopUI.Open) {
+				TargetActor.Controller.MoveRight (hor+controllerHor+stickHor);
+			
+				if (Input.GetButtonDown (SWITCH_WEAPON) || Input.GetButtonDown(PS4_TRI)) {
+					TargetActor.WeaponController.ToggleWeapon ();
+				}
 
+				if(Input.GetButtonDown(ACTIVE_ITEM)) {
+					TargetActor.ActiveItemController.UseCurrent();
+				}
 
-			if (Input.GetButtonDown (SWITCH_WEAPON) || Input.GetButtonDown(PS4_TRI)) {
-				TargetActor.WeaponController.ToggleWeapon ();
-			}
-
-			if(Input.GetButtonDown(ACTIVE_ITEM)) {
-				TargetActor.ActiveItemController.UseCurrent();
-			}
-
-			if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
-				TargetActor.WeaponController.Attack ();
-			} 
-			if(Input.GetButtonUp(ATTACK) || Input.GetButtonUp(PS4_SQ)) {
-				TargetActor.WeaponController.AttackStop();
+				if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
+					TargetActor.WeaponController.Attack ();
+				} 
+				if(Input.GetButtonUp(ATTACK) || Input.GetButtonUp(PS4_SQ)) {
+					TargetActor.WeaponController.AttackStop();
+				}
 			}
 
 			if(Input.GetButtonDown(AIM_RAY)) {
 				AddControllerAiming();
 			}
 
-			if(Input.GetKeyDown(PAUSE)) {
-				Game.Instance.UIManager.PauseScreen.Toggle();
-			}
 
 			TargetActor.Controller.Ducking = Input.GetButton(DUCK);
-
-
-			var contVert = Input.GetAxis(VERTICAL);
 
 			TargetActor.WeaponController.AimDirection(new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V)));
 

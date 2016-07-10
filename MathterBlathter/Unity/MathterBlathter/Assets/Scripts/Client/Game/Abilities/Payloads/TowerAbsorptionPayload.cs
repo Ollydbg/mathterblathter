@@ -24,7 +24,7 @@ namespace Client.Game.Abilities.Payloads
 				return;
 		
 
-			player.Attributes[ActorAttributes.RoomDifficulty] += DifficultyAmount;
+			player.Attributes[ActorAttributes.WaveDifficulty] += DifficultyAmount;
 			UI.EventLog.Post("The tower grows stronger");  
 
 			

@@ -60,13 +60,13 @@ namespace Client.Game.Data
 				swingTL.AsciiMap += "sssssss     ";
 				swingTL.Duration = .5f;
 				swingTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/JackhammerSwipe_Prefab", AttachPoint.Muzzle);
-				swingTL.Lookup['s'] = new TimelineData.Point("SFX/melee_woosh", AttachPoint.Muzzle);
+				swingTL.Lookup['s'] = new TimelineData.Point("SFX/Renders/AutoHammer_fire_1", AttachPoint.Muzzle);
 
 				var hitTL = new TimelineData();
 				hitTL.Duration = .5f;
 				hitTL.AsciiMap += "eeeee  ";
 				hitTL.AsciiMap += "ss     ";
-				hitTL.Lookup['s'] = new TimelineData.Point("SFX/balloonImpact", AttachPoint.Muzzle);
+				hitTL.Lookup['s'] = new TimelineData.Point("SFX/Renders/AutoHammer_hit_1", AttachPoint.Muzzle);
 				hitTL.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/blood_prefab", AttachPoint.Muzzle);
 
 				ret.Timelines.Add(swingTL);
@@ -250,7 +250,7 @@ namespace Client.Game.Data
 				fireTimeline.Duration = .5f;
 
 				fireTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/SmallMuzzleFlash_prefab", AttachPoint.Muzzle);
-				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/smith_wesson", AttachPoint.Muzzle);
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/Renders/RustyRepeater_fire_1", AttachPoint.Muzzle);
 
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeeeeee     ";
@@ -295,6 +295,27 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
 				));
+
+				var fireTL = new TimelineData();
+				fireTL.AsciiMap += "sssss";
+				fireTL.Duration = 1.5f;
+				fireTL.Lookup['s'] = "SFX/Renders/RocketLauncher_fire_1";
+
+
+
+
+				var hitTL = new TimelineData();
+				hitTL.AsciiMap += "sssss";
+				hitTL.AsciiMap += "eeeee";
+
+				hitTL.Duration = 1.5f;
+				hitTL.Lookup['s'] = "SFX/Renders/RocketLauncher_explode_1";
+				hitTL.Lookup['e'] = "Projectiles/VFX/rocketExplosion_prefab";
+					
+
+				ret.Timelines.Add(fireTL);
+				ret.Timelines.Add(hitTL);
+			
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RocketProjectileAttack);
 
@@ -365,7 +386,7 @@ namespace Client.Game.Data
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ContinuousBeam);
 
 				var hummingTL = new TimelineData();
-				hummingTL.Duration = 10f;
+				hummingTL.Duration = 1f;
 				hummingTL.AsciiMap += "sssss";
 				hummingTL.Lookup['s'] = "SFX/waveGun";
 				ret.Timelines.Add(hummingTL);
@@ -716,7 +737,7 @@ namespace Client.Game.Data
 				fireTimeline.AsciiMap += "sssssss     ";
 				fireTimeline.Duration = .5f;
 
-				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/hotRails", AttachPoint.Muzzle);
+				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/Renders/HotRails_fire_1", AttachPoint.Muzzle);
 
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeee";

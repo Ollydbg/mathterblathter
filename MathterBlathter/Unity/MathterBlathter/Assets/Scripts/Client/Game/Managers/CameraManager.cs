@@ -47,7 +47,8 @@ namespace Client.Game.Managers
 					var aa = TargetTransform.position;
 					var bb = aa + lookBias;
 
-
+					if(maxX < minX) maxX = minX;
+					if(maxY < minY) maxY = minY;
 
 					return new Vector3 (
 						Mathf.Clamp(bb.x, minX, maxX), 

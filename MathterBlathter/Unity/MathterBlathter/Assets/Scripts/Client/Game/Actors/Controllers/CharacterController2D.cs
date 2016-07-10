@@ -71,7 +71,7 @@ namespace Client.Game.Actors.Controllers
 
 			Vector2 moveVector = horizontalAxis * RunSpeed * Vector2.right;
 
-			movementAccumulator += moveVector;
+			movementAccumulator += (moveVector * Time.deltaTime);
 
 		}
 
@@ -89,7 +89,7 @@ namespace Client.Game.Actors.Controllers
 
 			Vector2 moveVector = direction * RunSpeed;
 
-			movementAccumulator += moveVector;
+			movementAccumulator += (moveVector * Time.deltaTime);
 		}
 
 		public void Update (float dt) {

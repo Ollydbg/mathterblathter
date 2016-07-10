@@ -30,20 +30,21 @@ namespace Client.Game.UI
 
         void Start() {
             playerCharacter = Game.PossessedActor;
-			playerCharacter.ActiveItemController.OnItemAdded += DisplayItem;
-            DisplayItem(null);
+			playerCharacter.ActiveItemController.OnItemAdded += cdata => DisplayItem();
+            DisplayItem();
 			var rt = LoadBar.GetComponent<RectTransform>();
 
 			normalYScale = rt.localScale.y;
         }
 
-		void DisplayItem(CharacterData data) {
+		void DisplayItem() {
 
-			if(data == null) {
+
+			if(Current == null) {
 				this.gameObject.SetActive(false);
 				hasItem = false;
 			} else {
-				Label.text = Current.ItemData.Name;
+				Label.text = Current.ItemData.Name + "\n[SHIFT]";
             	this.gameObject.SetActive(true);
 				hasItem = true;
 			}
