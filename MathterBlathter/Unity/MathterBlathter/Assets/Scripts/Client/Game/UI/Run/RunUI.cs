@@ -15,10 +15,17 @@ namespace Client
 
 		public abstract void Show();
 		public abstract void Hide();
-		public bool ConsumeInput() {
+		public virtual bool ConsumeInput() {
 			return false;
 		}
 
+		public void StartConsuming() {
+			Game.UIManager.AddInputConsumer(this);
+		}
+
+		public void StopConsuming() {
+			Game.UIManager.RemoveInputConsumer(this);
+		}
 	}
 
 

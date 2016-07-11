@@ -18,7 +18,7 @@ namespace Client.Game.Core
 		Game Game;
 
 		void Awake() {
-			Game = Game.Instance;
+			Game = new Game();
 		}
 
 		void Start() {

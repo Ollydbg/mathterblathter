@@ -18,6 +18,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void Start ()
 		{
 			if(!Dying) {
+				
 				Dying = true;
 				timeAccumulator = 0f;
 
@@ -34,9 +35,10 @@ namespace Client.Game.Abilities.Scripts
 			timeAccumulator += dt;
 		}
 
+		
 		public override void End ()
 		{
-			Game.Instance.Restart();	
+			Game.Instance.UIManager.DeathScreen.Show();	
 		}
 
 	}

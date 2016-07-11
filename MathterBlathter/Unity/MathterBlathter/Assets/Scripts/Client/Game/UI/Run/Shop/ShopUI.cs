@@ -31,10 +31,6 @@ namespace Client.Game.UI.Run.Shop
 			}
 		}
 
-		public static bool Open {
-			get; private set;
-		}
-
 		void Awake() {
 			Game.UIManager.ShopUI = this;
 			Template.gameObject.SetActive(false);
@@ -45,7 +41,6 @@ namespace Client.Game.UI.Run.Shop
 		void ShowInventory (NPC owner)
 		{
 			Clean();
-			Open = true;
 
 			int index = 0;
 		
@@ -120,12 +115,13 @@ namespace Client.Game.UI.Run.Shop
 
 		public override void Show ()
 		{
+			StartConsuming(); 
 			this.gameObject.SetActive(true);
 		}
 
 		public override void Hide ()
 		{
-			Open = false;
+			StopConsuming();
 			Clean();
 			this.gameObject.SetActive(false);
 		}

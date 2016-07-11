@@ -4,6 +4,7 @@
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/obj/Debug/Assembly-CSharp-Editor.dll.mdb
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEngine.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-UnityScript.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.Advertisements.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/nunit.framework.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.EditorTestsRunner.dll
@@ -12,10 +13,15 @@
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEngine.Networking.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.Networking.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.TreeEditor.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/AmplifyBloom.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/AmplifyBloomEditor.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/ShaderForge.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.Graphs.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/UnityEditor.OSXStandalone.Extensions.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-CSharp.dll.mdb
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Mono.Cecil.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Unity.SerializationLogic.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Unity.DataContract.dll
@@ -25,9 +31,3 @@
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Mono.Cecil.Mdb.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-CSharp.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-CSharp.dll.mdb
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/AmplifyBloom.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/AmplifyBloomEditor.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/ShaderForge.dll
-/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Assembly-UnityScript.dll

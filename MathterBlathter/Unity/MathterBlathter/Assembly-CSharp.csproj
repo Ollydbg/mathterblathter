@@ -243,8 +243,10 @@
      <Compile Include="Assets\Scripts\Client\Game\States\FSM.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\InitState.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\States\MainMenuState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\States\RunState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\ActiveItemHud.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\UI\Run\DeathScreen\DeathScreenUI.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\DepthMeter.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\EventLog.cs" />
      <Compile Include="Assets\Scripts\Client\Game\UI\Run\Indicators\IndicatorItem.cs" />

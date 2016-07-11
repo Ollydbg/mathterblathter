@@ -14,16 +14,7 @@ namespace Client.Game.Core
 {
 	public class Game
 	{
-		private static Game _instance;
-		public static Game Instance {
-			get {
-				if( _instance == null) {
-					_instance = new Game();
-					_instance.Init();
-				}
-				return _instance;
-			}
-		}
+		public static Game Instance { get; private set; }
 
 		public bool Paused;
 
@@ -46,7 +37,8 @@ namespace Client.Game.Core
 
 		public Game ()
 		{
-
+			Instance = this;
+			Init();
 		}
 
 		
@@ -83,7 +75,7 @@ namespace Client.Game.Core
 
 		public void Restart ()
 		{
-			States.CurrentState = new InitState();
+			States.CurrentState = new MainMenuState();
 		}
 
 

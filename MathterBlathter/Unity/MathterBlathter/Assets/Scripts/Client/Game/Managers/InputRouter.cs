@@ -28,7 +28,7 @@ namespace Client.Game.Managers
 		public static string DODGE_ROLL = "DodgeRoll";
 
 		public static KeyCode PAUSE = KeyCode.Escape;
-
+		private UIManager UILayer;
 
 		public PlayerCharacter TargetActor;
 
@@ -44,7 +44,7 @@ namespace Client.Game.Managers
 		public void Start (Game game)
 		{
 			bindControls ();
-
+			UILayer = game.UIManager;
 		}
 		public void Shutdown ()
 		{
@@ -58,23 +58,23 @@ namespace Client.Game.Managers
 		public void Update (float dt)
 		{
 			
-			if(Input.GetButton (JUMP)) {
-				TargetActor.Controller.Jump ();
-			}
-			if(Input.GetButtonUp(JUMP)) {
-				TargetActor.Controller.StopJumping();
-			}
+			if(!UILayer.TryConsume()) {
+				if(Input.GetButton (JUMP)) {
+					TargetActor.Controller.Jump ();
+				}
+				if(Input.GetButtonUp(JUMP)) {
+					TargetActor.Controller.StopJumping();
+				}
 
-			if(Input.GetButtonDown(Interact)) {
-				TargetActor.InteractionController.InteractClosest();
-			}
+				if(Input.GetButtonDown(Interact)) {
+					TargetActor.InteractionController.InteractClosest();
+				}
 
 
-			var hor = Input.GetAxis (HORIZONTAL);
-			var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
-			var stickHor = Input.GetAxis(PS4_HORIZONTAL);
-			//this is sooooo bad, but putting it in so I can give a build to a friend.
-			if(!Client.Game.UI.Run.Shop.ShopUI.Open) {
+				var hor = Input.GetAxis (HORIZONTAL);
+				var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
+				var stickHor = Input.GetAxis(PS4_HORIZONTAL);
+
 				TargetActor.Controller.MoveRight (hor+controllerHor+stickHor);
 			
 				if (Input.GetButtonDown (SWITCH_WEAPON) || Input.GetButtonDown(PS4_TRI)) {
@@ -91,14 +91,16 @@ namespace Client.Game.Managers
 				if(Input.GetButtonUp(ATTACK) || Input.GetButtonUp(PS4_SQ)) {
 					TargetActor.WeaponController.AttackStop();
 				}
+			
+
+				if(Input.GetButtonDown(AIM_RAY)) {
+					AddControllerAiming();
+				}
+
+
+				TargetActor.Controller.Ducking = Input.GetButton(DUCK);
+
 			}
-
-			if(Input.GetButtonDown(AIM_RAY)) {
-				AddControllerAiming();
-			}
-
-
-			TargetActor.Controller.Ducking = Input.GetButton(DUCK);
 
 			TargetActor.WeaponController.AimDirection(new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V)));
 

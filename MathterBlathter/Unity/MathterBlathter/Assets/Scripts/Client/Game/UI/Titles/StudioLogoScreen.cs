@@ -72,7 +72,6 @@ namespace Client.Game.UI.Titles
 			while(!next.isDone) {
 				yield return null;
 			}
-			//SceneManager.SetActiveScene(SceneManager.GetSceneByName(NextSceneName));
 
 		}
 	}
