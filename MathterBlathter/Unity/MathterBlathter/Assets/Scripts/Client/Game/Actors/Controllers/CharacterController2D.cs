@@ -24,6 +24,7 @@ namespace Client.Game.Actors.Controllers
 		private float groundedDistance;
 		private int groundedMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString()});
 		private int softGeoMask = LayerMask.GetMask(new string[]{Layers.SoftGeometry.ToString()});
+		private Collider2D collider;
 		int jumpFrames = 0;
 
 		Rigidbody2D rigidBody;
@@ -38,7 +39,7 @@ namespace Client.Game.Actors.Controllers
 			this.Actor = actor;
 			this.rigidBody = actor.GameObject.GetComponent<Rigidbody2D>();
 			this.animator = actor.GameObject.GetComponentInChildren<Animator>();
-			var collider = actor.GameObject.GetComponent<Collider2D>();
+			this.collider = actor.GameObject.GetComponent<Collider2D>();
 
 			if(rigidBody == null) {
 				Debug.LogError("Couldn't find rigidbody on actor " + actor + ". Did you set the wrong actor type in the data?");
@@ -100,7 +101,7 @@ namespace Client.Game.Actors.Controllers
 		public bool IsGrounded 
 		{
 			get {
-				var hit = Physics2D.Raycast(VectorUtils.Vector2(Actor.GameObject.transform.position), Vector2.down, groundedDistance + .1f, groundedMask);
+				var hit = Physics2D.BoxCast(VectorUtils.Vector2(Actor.GameObject.transform.position), collider.bounds.size, 0f, Vector2.down, groundedDistance + .1f, groundedMask);
 				var goodHit = hit.collider != null;
 
 				return goodHit && rigidBody.velocity.y == 0f;
