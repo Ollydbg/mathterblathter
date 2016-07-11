@@ -27,7 +27,7 @@ namespace Client.Game.Abilities.Scripts
 			int projectileCount = this.Attributes[AbilityAttributes.ProjectileCount];
 			
 			for(int i = 0; i<projectileCount; i++) {
-				var projectile = FireProjectile(projectileData, context.targetDirection, 0f, (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+				var projectile = this.FireProjectile(projectileData, context.targetDirection, 0f, (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 				projectile.Movement = new RigidBodyAddForce(projectile, context.targetDirection, this.SourceWeapon.Attributes[ActorAttributes.ProjectileSpeed]);
 
 					

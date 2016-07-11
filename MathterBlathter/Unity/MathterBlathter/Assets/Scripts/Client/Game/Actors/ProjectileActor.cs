@@ -24,7 +24,7 @@ namespace Client.Game.Actors
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
 		private static int HARD_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
 
-		public Movement Movement;
+		public BaseMovement Movement;
 
 		public ProjectileActor ()
 		{
@@ -41,9 +41,9 @@ namespace Client.Game.Actors
 			base.EnterGame (game);
 		}
 
-		public void SetMovement(Movement movement) {
+		public void SetMovement(BaseMovement movement) {
 			this.Movement = movement;
-			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += OnTrigger;
+			this.GameObject.GetComponent<ActorRef> ().TriggerEvent += (coll) => TryOnTrigger(coll);
 			this.GameObject.GetComponent<ActorRef> ().CollisionEvent += OnCollision;
 		}
 
@@ -84,7 +84,7 @@ namespace Client.Game.Actors
 			return TriggerTestResult.Bad;
 		}
 
-		void OnTrigger (Collider2D Collider)
+		public TriggerTestResult TryOnTrigger (Collider2D Collider)
 		{
 
 			Actor actor;
@@ -92,6 +92,7 @@ namespace Client.Game.Actors
 			if(OnHit != null && result == TriggerTestResult.Ok) {
 				OnHit(actor);
 			}
+			
 
 			if(result == TriggerTestResult.Geometry) {
 				if(OnGeometryHit != null)
@@ -101,6 +102,8 @@ namespace Client.Game.Actors
 					Game.ActorManager.RemoveActor(this);
 
 			}
+
+			return result;
 
 		}
 

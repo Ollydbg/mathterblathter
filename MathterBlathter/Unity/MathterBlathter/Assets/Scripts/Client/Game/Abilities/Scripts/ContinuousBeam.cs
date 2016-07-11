@@ -7,6 +7,7 @@ using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
 using Client.Game.Utils;
 using Client.Utils;
+using Client.Game.Abilities.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -43,7 +44,7 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 
 			if(projectile == null) {
-				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
+				projectile = this.FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), Vector3.zero, 0f, Client.Game.Enums.AttachPoint.WeaponSlot);
 
 				//PlayTimeline(context.data.Timelines[0], context.sourceWeapon);
 				this.lineRenderer = projectile.GameObject.GetComponent<LineRenderer>();

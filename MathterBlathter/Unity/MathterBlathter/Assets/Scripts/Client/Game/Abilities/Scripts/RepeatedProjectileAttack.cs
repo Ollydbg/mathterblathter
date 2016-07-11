@@ -3,6 +3,7 @@ using Client.Game.Data;
 using Client.Game.Abilities.Payloads;
 using Client.Game.Attributes;
 using Client.Game.Enums;
+using Client.Game.Abilities.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -40,9 +41,9 @@ namespace Client.Game.Abilities.Scripts
 			repeatCount ++;
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
-			var projectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+			var projectile = this.FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
-			PlayTimeline(context.data.Timelines[0], context.source);
+			PlayTimeline(context.data.Timelines[0], context.source, context.targetDirection);
 
 			projectile.OnHit = (actor) => {
 				new WeaponDamagePayload (context, actor, Attributes[AbilityAttributes.Damage]).Apply();

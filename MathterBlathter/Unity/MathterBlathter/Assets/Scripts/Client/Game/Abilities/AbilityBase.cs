@@ -32,7 +32,7 @@ namespace Client
 			}
 		}
 
-		private List<Actor> SpawnedActors = new List<Actor>();
+		public List<Actor> SpawnedActors = new List<Actor>();
 
 		public AbilityBase ()
 		{
@@ -85,44 +85,8 @@ namespace Client
 				Game.CameraManager.Shake(SourceWeapon.Attributes[ActorAttributes.CameraShakeForce] * -context.targetDirection);
 		}
 
-		public ProjectileActor FireProjectile(CharacterData projectileData, Vector3 direction, float speed, AttachPoint point, Layers layer = Layers.Projectiles) {
-			Vector3 adjustedDirection = AbilityUtils.AdjustWithInaccuracy(direction, context);
 
-			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
 
-			projectile.transform.position = AttachPointComponent.AttachPointPositionOnActor(point, context.source);
-			projectile.Point(projectile.transform.position + adjustedDirection);
-
-			projectile.SetMovement (new Linear(projectile, adjustedDirection, speed));
-			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
-			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(layer.ToString());
-			SpawnedActors.Add(projectile);
-
-			projectile.OnDestroyed += (Actor actor) => {
-				SpawnedActors.Remove(actor);
-			};
-
-			return projectile;
-		}
-
-		public ProjectileActor FireProjectile(CharacterData projectileData, Movement movement, AttachPoint point) {
-
-			var projectile = context.source.Game.ActorManager.Spawn<ProjectileActor>(projectileData);
-			projectile.transform.position = AttachPointComponent.AttachPointPositionOnActor(point, context.source);
-
-			projectile.transform.LookAt(projectile.transform.position + movement.Heading());
-
-			projectile.SetMovement (movement);
-			projectile.SetCollisionFilters(context, FilterList.QuickFilters);
-			projectile.GameObject.layer = UnityEngine.LayerMask.NameToLayer(Layers.Projectiles.ToString());
-			SpawnedActors.Add(projectile);
-
-			projectile.OnDestroyed += (Actor actor) => {
-				SpawnedActors.Remove(actor);
-			};
-
-			return projectile;
-		}
 
 
 		public void ApplyEnergyCost(Actor actor) {

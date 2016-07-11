@@ -1,17 +1,18 @@
 ﻿using System;
 using Client.Game.Actors;
 using UnityEngine;
+using Client.Utils;
 
 namespace Client.Game.Abilities.Movement
 {
-	public class Linear : Movement
+	public class Linear : BaseMovement
 	{
-		public Vector3 Direction;
+		
+		public Linear() {}
 
-		public Linear (Actor actor, Vector3 direction, float speed) : base(actor)
+		public Linear (ProjectileActor actor, Vector2 direction, float speed) : base(actor, direction, speed)
 		{
-			this.Direction = direction;
-			this.Speed = speed;
+		
 		}
 
 		public override void Redirect (Vector3 direction)
@@ -22,7 +23,7 @@ namespace Client.Game.Abilities.Movement
 
 		public override void Update (float dt)
 		{
-			Target.transform.position += (Direction * (Speed * dt));
+			Target.transform.position += VectorUtils.Vector3((Direction * (Speed * dt)));
 
 		}
 

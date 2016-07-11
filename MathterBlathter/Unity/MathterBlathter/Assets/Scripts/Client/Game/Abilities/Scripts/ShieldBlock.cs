@@ -3,6 +3,7 @@ using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Enums;
 using Client.Game.Data;
+using Client.Game.Abilities.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -39,7 +40,7 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 			attacking = true;
 			if(projectile == null) {
-				projectile = FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle, Layers.Player);
+				projectile = this.FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle, Layers.Player);
 				projectile.transform.rotation = Quaternion.identity;
 
 				projectile.GameObjectRef.OnTriggerActorEnter += (Actor actor) => {

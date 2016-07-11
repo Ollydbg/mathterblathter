@@ -115,7 +115,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                   L                                          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
-                ret.AsciiMap += "T                      PPPP                    L    l          w";
+                ret.AsciiMap += "w                      PPPP                    L    l          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
                 ret.AsciiMap += "w                                .............1.........       w";
@@ -137,7 +137,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.ROCKET_LAUNCHER_WEAPON;
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RUST_MACHINE;
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.SHOPKEEPER;
 
 				finalize(ret);

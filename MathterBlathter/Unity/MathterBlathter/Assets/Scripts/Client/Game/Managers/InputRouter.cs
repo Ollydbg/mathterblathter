@@ -58,18 +58,18 @@ namespace Client.Game.Managers
 		public void Update (float dt)
 		{
 			
+			if(Input.GetButton (JUMP)) {
+				TargetActor.Controller.Jump ();
+			}
+			if(Input.GetButtonUp(JUMP)) {
+				TargetActor.Controller.StopJumping();
+			}
+
+			if(Input.GetButtonDown(Interact)) {
+				TargetActor.InteractionController.InteractClosest();
+			}
+
 			if(!UILayer.TryConsume()) {
-				if(Input.GetButton (JUMP)) {
-					TargetActor.Controller.Jump ();
-				}
-				if(Input.GetButtonUp(JUMP)) {
-					TargetActor.Controller.StopJumping();
-				}
-
-				if(Input.GetButtonDown(Interact)) {
-					TargetActor.InteractionController.InteractClosest();
-				}
-
 
 				var hor = Input.GetAxis (HORIZONTAL);
 				var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));

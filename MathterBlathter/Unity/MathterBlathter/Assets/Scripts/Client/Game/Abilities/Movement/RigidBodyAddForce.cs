@@ -4,14 +4,11 @@ using Client.Game.Actors;
 
 namespace Client.Game.Abilities.Movement
 {
-	public class RigidBodyAddForce : Movement
+	public class RigidBodyAddForce : BaseMovement
 	{
-		public Vector2 Direction;
 		public Rigidbody2D Rigidbody;
-		public RigidBodyAddForce (Actor actor, Vector3 direction, float speed) : base(actor)
+		public RigidBodyAddForce (ProjectileActor actor, Vector2 direction, float speed) : base(actor, direction, speed)
 		{
-			this.Speed = speed;
-			this.Direction = direction;
 			this.Rigidbody = actor.GameObject.GetComponent<Rigidbody2D>();
 			Rigidbody.AddForce(Direction * speed, ForceMode2D.Impulse);
 		}

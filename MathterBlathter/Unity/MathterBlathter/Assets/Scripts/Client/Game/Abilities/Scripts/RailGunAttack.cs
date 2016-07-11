@@ -6,6 +6,8 @@ using Client.Game.Enums;
 using Client.Game.Actors;
 using UnityEngine;
 using Client.Utils;
+using Client.Game.Abilities.Movement;
+using Client.Game.Abilities.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -24,8 +26,9 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
-			currentProjectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], AttachPoint.Muzzle);
-			Sample(currentProjectile);
+			currentProjectile = this.FireProjectile<LinearCastForward> (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], AttachPoint.Muzzle);
+			currentProjectile.OnHit += OnHit;
+			currentProjectile.OnGeometryHit += OnGeoHit;
 			var projectilePos = currentProjectile.transform.position;
 
 			CameraShake();
@@ -35,35 +38,23 @@ namespace Client.Game.Abilities.Scripts
 
 		}
 
-		Vector2 Sample (ProjectileActor currentProjectile)
+		public virtual void OnHit (Actor hitActor)
 		{
-			if(currentProjectile.GameObject != null) {
-				lastPosition = VectorUtils.Vector2(currentProjectile.transform.position);
-			}
-			return lastPosition;
+			new WeaponDamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
+			SkipTime();
+			KnockBack(hitActor as Character);
+			PlayTimeline(context.data.Timelines[1], hitActor);
 		}
 
+		void OnGeoHit ()
+		{
+			currentProjectile.Destroy();
+			aborted = true;
+		}
+	
 		public override void Update (float dt)
 		{
-			if(currentProjectile.GameObject != null) {
-				var lastFrame = lastPosition;
-				var currentFrame = Sample(currentProjectile);
-
-				var hits = Physics2D.LinecastAll(lastFrame, currentFrame);
-				foreach( var hit in hits ) {
-					Actor hitActor;
-					var result = currentProjectile.TestTrigger(hit.collider, out hitActor);
-					if(result == TriggerTestResult.Ok) {
-						new WeaponDamagePayload (context, hitActor, Attributes[AbilityAttributes.Damage]).Apply();
-						SkipTime();
-						KnockBack(hitActor as Character);
-						PlayTimeline(context.data.Timelines[1], hitActor);
-
-					} else if (result == TriggerTestResult.Geometry) {
-						aborted = true;
-					}
-				}
-			}
+			
 
 		}
 

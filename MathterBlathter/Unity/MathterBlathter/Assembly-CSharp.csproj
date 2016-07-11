@@ -64,8 +64,9 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityContext.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\AbilityManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\BuffBase.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\BaseMovement.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\Linear.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\Movement.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\LinearCastForward.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Movement\RigidBodyAddForce.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\AnxietyCostPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\AnxietyDamagePayload.cs" />
@@ -136,6 +137,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\AbilityUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\EffectTTL.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\FilterList.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Utils\ProjectileUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\Actor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\ActorRef.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Actors\AttachPointComponent.cs" />

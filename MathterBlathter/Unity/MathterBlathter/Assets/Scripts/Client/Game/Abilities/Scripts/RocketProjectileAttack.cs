@@ -23,7 +23,7 @@ namespace Client.Game.Abilities.Scripts
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			
-			currentProjectile = FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+			currentProjectile = this.FireProjectile (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 			currentProjectile.OnGeometryHit = OnHit;
 			currentProjectile.OnHit = (actor) => OnHit();

@@ -6,6 +6,7 @@ using Client.Game.Enums;
 using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Actors;
+using Client.Game.Abilities.Utils;
 
 namespace Client.Game.Abilities.Scripts
 {
@@ -34,7 +35,7 @@ namespace Client.Game.Abilities.Scripts
 
 				var spreadDirection = Quaternion.AngleAxis(spreadDegrees, Vector3.back) * this.context.targetDirection;
 				
-				var projectile = FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+				var projectile = this.FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
 
 				projectiles.Add(projectile);
 
