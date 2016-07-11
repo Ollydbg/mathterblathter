@@ -24,18 +24,20 @@ namespace Client.Game.Abilities.Movement
 
 
 			foreach( var hit in hits ) {
-				var res = Target.TryOnTrigger(hit.collider);
-
-				if(res == TriggerTestResult.Geometry ) {
+				if(!Target.Deleted) {
+					
 					Target.transform.position = hit.point;
+					var res = Target.TryOnTrigger(hit.collider);
+				
+				} else {
 					return;
 				}
 			}
 
 			base.Update(dt);
 
-
 		}
+
 	}
 }
 

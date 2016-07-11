@@ -5,6 +5,7 @@ using Client.Game.Attributes;
 using Client.Game.Data;
 using Client.Game.Animation;
 using Client.Game.Items;
+using Client.Game.Abilities.Timelines;
 
 namespace Client.Game.Actors
 {
@@ -21,7 +22,7 @@ namespace Client.Game.Actors
 		public CharacterData Data;
 		public RoomData.Spawn SpawnData;
 
-		
+		public TimelineRunner TimelineRunner;
 
 		private bool _pendingDelete = false;
 		public bool Deleted {
@@ -48,6 +49,7 @@ namespace Client.Game.Actors
 			}
 		}
 
+		
 		public bool IsHeld {
 			get {
 				return this.GameObject.transform.parent != null;
@@ -75,6 +77,7 @@ namespace Client.Game.Actors
 		}
 
 		public void Destroy() {
+			TimelineRunner.SoftKill();
 			this.Game.ActorManager.RemoveActor(this);
 			this.Game.AbilityManager.RemoveActor(this);
 			_pendingDelete = true;
@@ -104,6 +107,8 @@ namespace Client.Game.Actors
 			//I should break this out into an actor factory instead of having hard linkages
 			Game.AbilityManager.AddActor(this);
 
+			TimelineRunner = new TimelineRunner();
+
 		}
 
 		public virtual void Update(float dt) {
@@ -118,6 +123,8 @@ namespace Client.Game.Actors
 		{
 			return string.Format ("[Actor: name={0}, id={1}, dataId={2}]", GameObject.name, this.Id, this.Data.Id);
 		}
+
+
 
 	}
 

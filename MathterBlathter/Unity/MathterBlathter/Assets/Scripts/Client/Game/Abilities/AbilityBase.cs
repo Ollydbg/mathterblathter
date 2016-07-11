@@ -98,7 +98,8 @@ namespace Client
 		public void PlayTimeline (TimelineData timelineData, Actor target) { PlayTimeline(timelineData, target, Vector3.right); }
 		public void PlayTimeline (TimelineData timelineData, Actor target, Vector3 direction)
 		{
-			TimelineRunner.Play(timelineData, target, direction);
+			target.TimelineRunner.Play(timelineData, target, direction);
+			//TimelineRunner.Play(timelineData, target, direction);
 		}
 
 		public void PlayTimeline (TimelineData timelineData, Vector3 position) { PlayTimeline(timelineData, position, Vector3.right); }

@@ -10,12 +10,15 @@ namespace Client.Game.Abilities.Utils
 		}
 
 		internal float TimeToLive = 0;
+		public Action OnExpired;
 		
 		void Update() {
 			TimeToLive -= Time.deltaTime;
 
 			if(TimeToLive <= 0) {
 				GameObject.Destroy(this.gameObject);
+				if(OnExpired != null) 
+					OnExpired();
 			}
 		}
 

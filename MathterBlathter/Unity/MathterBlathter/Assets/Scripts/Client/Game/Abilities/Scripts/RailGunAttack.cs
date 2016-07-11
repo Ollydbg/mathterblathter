@@ -27,6 +27,9 @@ namespace Client.Game.Abilities.Scripts
 			var projectileData = CharacterDataTable.FromId(context.data.spawnableDataId);
 
 			currentProjectile = this.FireProjectile<LinearCastForward> (projectileData, context.targetDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], AttachPoint.Muzzle);
+
+			PlayTimeline(context.data.Timelines[2], currentProjectile);
+
 			currentProjectile.OnHit += OnHit;
 			currentProjectile.OnGeometryHit += OnGeoHit;
 			var projectilePos = currentProjectile.transform.position;

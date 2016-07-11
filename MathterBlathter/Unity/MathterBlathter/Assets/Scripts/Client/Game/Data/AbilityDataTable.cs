@@ -179,24 +179,28 @@ namespace Client.Game.Data
 				
 				ret.spawnableDataId = CharacterDataTable.RAIL_PROJECTILE.Id;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.RailGunAttack);
-				
-				var fireTimeline = new TimelineData();
 
+				var fireTimeline = new TimelineData(1f, true);
 				fireTimeline.AsciiMap += "sssssss     ";
-				fireTimeline.Duration = .5f;
-
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/hotRails", AttachPoint.Muzzle);
+				ret.Timelines.Add(fireTimeline);
+				
 
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeee";
 				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/hotRailsHit_prefab", AttachPoint.WeaponSlot);
-
-				ret.Timelines.Add(fireTimeline);
 				ret.Timelines.Add(hitTimeline);
+
+				var projectileTL = new TimelineData(3f, true);
+				projectileTL.AsciiMap += "eeeee";
+				projectileTL.Lookup['e'] = "Projectiles/VFX/railTail_prefab";
+				ret.Timelines.Add(projectileTL);
+
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f
 				));
+
 				return ret;
 			}
 		}
@@ -296,11 +300,9 @@ namespace Client.Game.Data
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
 				));
 
-				var fireTL = new TimelineData();
+				var fireTL = new TimelineData(1.5f, true);
 				fireTL.AsciiMap += "sssss";
-				fireTL.Duration = 1.5f;
 				fireTL.Lookup['s'] = "SFX/Renders/RocketLauncher_fire_1";
-
 
 
 

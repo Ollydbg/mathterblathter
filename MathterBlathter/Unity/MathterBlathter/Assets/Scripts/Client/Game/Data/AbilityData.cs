@@ -47,10 +47,14 @@ namespace Client.Game.Data
 
 		public Dictionary<char, Point> Lookup = new Dictionary<char, Point>();
 		public float Duration;
-
+		public bool ReparentOnDeath;
 		public TimelineData ()
 		{
 
+		}
+		public TimelineData(float duration, bool reparentOnHostDeath) {
+			Duration = duration;
+			ReparentOnDeath = reparentOnHostDeath;
 		}
 
 	}

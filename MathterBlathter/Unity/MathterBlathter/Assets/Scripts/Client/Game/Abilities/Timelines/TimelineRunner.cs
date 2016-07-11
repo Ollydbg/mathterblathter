@@ -14,7 +14,7 @@ namespace Client.Game.Abilities.Timelines
 		public const char SFX_TRACK = 's';
 		public const char VFX_TRACK = 'e';
 		public delegate void Handler(TimelineData.Point pt, TimelineData data, GameObject gameObject, Vector3 direction);
-		public static Dictionary<char, Handler> HandlerMap;
+		public Dictionary<char, Handler> HandlerMap;
 
 		public static AudioMixerGroup SFXGroup;
 
@@ -22,6 +22,8 @@ namespace Client.Game.Abilities.Timelines
 		public bool IsComplete() {
 			return Time.time >= CompleteAt;
 		}
+
+		List<GameObject> persistentTimelines = new List<GameObject>();
 
 		public TimelineRunner ()
 		{
@@ -63,7 +65,7 @@ namespace Client.Game.Abilities.Timelines
 		}
 
 
-		static void PlaySFX (TimelineData.Point pt,TimelineData data, GameObject go, Vector3 direction)
+		void PlaySFX (TimelineData.Point pt,TimelineData data, GameObject go, Vector3 direction)
 		{
 			var source = go.GetComponent<AudioSource>();
 			var ac = Resources.Load(pt.Resource) as AudioClip;
@@ -79,7 +81,7 @@ namespace Client.Game.Abilities.Timelines
 
 		}
 
-		static void PlayVFX (TimelineData.Point pt, TimelineData data, GameObject gameObject, Vector3 direction) {
+		void PlayVFX (TimelineData.Point pt, TimelineData data, GameObject gameObject, Vector3 direction) {
 
 			var angle = Vector3.Angle(Vector3.right, direction);
 			
@@ -93,12 +95,38 @@ namespace Client.Game.Abilities.Timelines
 					AttachPointComponent.AttachPointPositionOnGameObject(pt.AttachPoint, gameObject),
 					Quaternion.AngleAxis(angle, Vector3.forward)
 				);
+
+				go.transform.parent = gameObject.transform;
 				
 				var ttl = go.AddComponent<EffectTTL>();
 				ttl.TimeToLive = data.Duration;
+
+				if(data.ReparentOnDeath) {
+					Register(gameObject, go);
+					ttl.OnExpired += () => UnRegister(gameObject, go);
+				}
+
 			}
 
+
 		}
+
+		private void Register(GameObject host, GameObject timelineContainer) {
+			persistentTimelines.Add(timelineContainer);
+		}
+
+		private void UnRegister(GameObject host, GameObject container) {
+			persistentTimelines.Remove(container);
+		}
+
+		public void SoftKill() {
+			foreach( var tl in persistentTimelines) {
+				var pos = tl.transform.position;
+				tl.transform.parent = null;
+				tl.transform.position = pos;
+			}
+		}
+
 
 	}
 }
