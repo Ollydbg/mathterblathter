@@ -24,7 +24,7 @@ namespace Client.Game.Abilities.Movement
 
 
 			foreach( var hit in hits ) {
-				if(!Target.Deleted) {
+				if(!Target.Destroyed) {
 					
 					Target.transform.position = hit.point;
 					var res = Target.TryOnTrigger(hit.collider);

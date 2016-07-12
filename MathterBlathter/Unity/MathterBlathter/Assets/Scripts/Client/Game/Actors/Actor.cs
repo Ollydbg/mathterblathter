@@ -25,7 +25,7 @@ namespace Client.Game.Actors
 		public TimelineRunner TimelineRunner;
 
 		private bool _pendingDelete = false;
-		public bool Deleted {
+		public bool Destroyed {
 			get { return _pendingDelete; }
 		}
 		
@@ -80,7 +80,14 @@ namespace Client.Game.Actors
 			TimelineRunner.SoftKill();
 			this.Game.ActorManager.RemoveActor(this);
 			this.Game.AbilityManager.RemoveActor(this);
+			var wpnController = this.WeaponController;
+
 			_pendingDelete = true;
+
+			this.WeaponController = null;
+			if(wpnController != null) {
+				wpnController.Destroy();
+			}
 		}
 
 		public virtual void NotifyDestroyed() {
@@ -121,7 +128,7 @@ namespace Client.Game.Actors
 
 		public override string ToString ()
 		{
-			return string.Format ("[Actor: name={0}, id={1}, dataId={2}]", GameObject.name, this.Id, this.Data.Id);
+			return string.Format ("[Actor: name={0}, id={1}, dataId={2}]", this.Data.Name, this.Id, this.Data.Id);
 		}
 
 

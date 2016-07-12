@@ -47,7 +47,7 @@ namespace Client.Game.Abilities.Utils
 		}
 
 		public static bool NotPendingDelete(AbilityContext ctx, Actor actor) {
-			return !actor.Deleted;
+			return !actor.Destroyed;
 		}
 	}
 

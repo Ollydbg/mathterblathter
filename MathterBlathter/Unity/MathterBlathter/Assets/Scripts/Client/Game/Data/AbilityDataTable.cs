@@ -740,13 +740,18 @@ namespace Client.Game.Data
 				fireTimeline.Duration = .5f;
 
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/Renders/HotRails_fire_1", AttachPoint.Muzzle);
+				ret.Timelines.Add(fireTimeline);
 
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeee";
 				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
-
-				ret.Timelines.Add(fireTimeline);
 				ret.Timelines.Add(hitTimeline);
+
+
+				var projectileTL = new TimelineData(3f, true);
+				projectileTL.AsciiMap += "eeeee";
+				projectileTL.Lookup['e'] = "Projectiles/VFX/railTail_prefab";
+				ret.Timelines.Add(projectileTL);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f

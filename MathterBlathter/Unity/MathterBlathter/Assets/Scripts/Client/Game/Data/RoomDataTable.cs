@@ -1378,7 +1378,6 @@ namespace Client.Game.Data
 					var spawn = new RoomData.Spawn(spawnType.Value.Data);
 					spawn.X = match.x;
 					spawn.Y = match.y;
-					spawn.SpawnType = RoomSpawnType.FirstRoomEntrance;
 					spawn.Facing = spawnType.Value.Facing;
 					room.Spawns.Add(spawn);
 				}

@@ -85,7 +85,6 @@ namespace Client.Game.Data
 			//LOCAL SPACE!!
 			public float X;
 			public float Y;
-			public RoomSpawnType SpawnType;
 			public Guid Guid;
 
 			public Spawn(CharacterData inData) {

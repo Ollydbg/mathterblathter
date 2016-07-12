@@ -28,12 +28,11 @@ namespace Client.Game.Map
 		public GameObject GameObject;
 		public GameObject SetPiecePrefab;
 
-		public Dictionary<Guid, bool> SpawnHistory = new Dictionary<Guid, bool>();
 		public delegate void OnUnlock(Room room);
 		public event OnUnlock UnlockEvent;
 
 		public List<Light> Lights;
-
+		private List<Actor> Spawns = new List<Actor>();
 		public List<DoorActor> Doors = new List<DoorActor>();
 		public interface IRoomDrawer {
 			GameObject Draw (Room room, Game inGame);
@@ -95,23 +94,16 @@ namespace Client.Game.Map
 			}
 		}
 
-		public bool TryRecordSpawn (RoomData.Spawn spawn)
-		{
-			if(spawn.SpawnType == RoomSpawnType.EveryRoomEntrance)
-				return true;
-
-			if(SpawnHistory.ContainsKey(spawn.Guid)) {
-				return false;
-			} 
-
-			SpawnHistory[spawn.Guid] = true;
-			return true;
-		}
 
 		public void PlayerLeft (Actor actor)
 		{
 			if(SetPiecePrefab != null)
 				GameObject.Destroy(SetPiecePrefab);
+
+			Lights.ForEach(l => l.gameObject.SetActive(true));
+			Spawns.ForEach( p => p.Destroy());
+			Spawns.Clear();
+
 		}
 
 		public void PlayerEntered (Actor actor, DoorActor throughDoor)
@@ -144,15 +136,13 @@ namespace Client.Game.Map
 
 
 			foreach (var spawn in data.Spawns) {
-				if(TryRecordSpawn(spawn)) {
-
-					var actor = Game.Instance.ActorManager.Spawn(CharacterDataTable.FromId(spawn.ActorId));
-					actor.SpawnData = spawn;
-					actor.transform.position = spawn.RoomPosition + Position;
-					ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
-
-				}
+				var actor = Game.Instance.ActorManager.Spawn(CharacterDataTable.FromId(spawn.ActorId));
+				actor.SpawnData = spawn;
+				actor.transform.position = spawn.RoomPosition + Position;
+				ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
+				Spawns.Add(actor);
 			}
+			
 
 			if(data.SetPiece != null) {
 				SetPiecePrefab = (GameObject)GameObject.Instantiate(Resources.Load(data.SetPiece.PrefabPath));

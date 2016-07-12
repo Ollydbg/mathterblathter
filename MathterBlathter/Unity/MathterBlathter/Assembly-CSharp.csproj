@@ -206,7 +206,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Enums\DoorRoomSide.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\GameState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\Layers.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Enums\RoomSpawnType.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Geometry\PassthroughPlatform.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ActiveItemController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ItemBuffScript.cs" />

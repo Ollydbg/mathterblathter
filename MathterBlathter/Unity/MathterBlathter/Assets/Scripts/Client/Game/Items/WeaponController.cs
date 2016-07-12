@@ -37,7 +37,15 @@ namespace Client.Game.Items
 			}
 		}
 
-		
+
+		public void Destroy() {
+			foreach( var wpn in ActiveLookup.Values) {
+				if(!wpn.Destroyed) {
+					wpn.Destroy();
+				}
+				
+			}
+		}
 
 		public void ToggleWeapon() {
 			

@@ -89,7 +89,7 @@ namespace Client.Game.Abilities
 
 		private void readAddQueue(AbilityContext ctx) {
 
-			if(!ctx.Executor.Deleted) {
+			if(!ctx.Executor.Destroyed) {
 				AbilityMap abilities;
 				if(!Abilities.TryGetValue(ctx.Executor, out abilities)) {
 					abilities = new AbilityMap();

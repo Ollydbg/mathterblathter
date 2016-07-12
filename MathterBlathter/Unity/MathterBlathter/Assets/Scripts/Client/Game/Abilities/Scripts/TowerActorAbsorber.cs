@@ -24,6 +24,8 @@ namespace Client.Game.Abilities.Scripts
 
         private void OnRoomEntered(Actor actor, Room oldRoom, Room newRoom)
         {
+			Debug.Log("Checking actor removal: " + context.source);
+
 			if(!context.source.IsHeld) {
 					
 				context.source.Destroy();
