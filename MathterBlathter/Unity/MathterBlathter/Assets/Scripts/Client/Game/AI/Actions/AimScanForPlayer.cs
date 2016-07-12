@@ -9,6 +9,7 @@ namespace Client.Game.AI.Actions
 {
 	public class AimScanForPlayer : AIAction
 	{
+		
 		private static int _castingMask = -1;
 		public static int CastingMask {
 			get {
@@ -27,7 +28,7 @@ namespace Client.Game.AI.Actions
 		double accum = 0;
 		#region implemented abstract members of AIAction
 		
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			accum += dt;
 
@@ -62,7 +63,7 @@ namespace Client.Game.AI.Actions
 	//this is a poor substitute for our tree not having sequencing functions!
 	public class FireAimingDirectionAtPlayer : FireAimingDirection {
 		
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			if(lockedOn(actor)) {
 				return base.Update(dt, actor);

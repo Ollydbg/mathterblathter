@@ -22,7 +22,7 @@ namespace Client.Game.Map
 		public RoomTraversalGrid (Room room)
 		{
 			this.Room = room;
-			this.Grid = BuildGrid();
+			this.Grid = GetGrid();
 
 		}
 
@@ -48,14 +48,18 @@ namespace Client.Game.Map
 			return matrix;
 		}
 
-		public StaticGrid BuildGrid() {
+		public StaticGrid GetGrid() {
 			//air grid
-			var matrix = GetRoomMatrix(Room, true);
+			if(Grid == null) {
+				var matrix = GetRoomMatrix(Room, true);
+				Contract(matrix);
+				//DebugMatrix(matrix);
+				Grid = new StaticGrid(Room.Width, Room.Height, matrix);
+			} else {
+				Grid.Reset();
+			}
 
-			Shrink(matrix);
-			//DebugMatrix(matrix);
-
-			return new StaticGrid(Room.Width, Room.Height, matrix);
+			return Grid;
 		}
 
 		void DebugMatrix (bool[][] matrix)
@@ -64,15 +68,15 @@ namespace Client.Game.Map
 				for( int y = 0; y < matrix[x].Length; y++ ) {
 					if(matrix[x][y]) {
 						var pos = AsciiUtils.AsciiToWorld(new GridPos(x, y), Room);
-
+						
 						Debug.DrawRay(pos, Vector3.forward * 2, Color.cyan, 2f);
 					}
 				}
 			}
 		}
 
-
-		public void Shrink(bool[][] matrix) {
+		//contract the matrix so that enemies don't get so close to room geo
+		public void Contract(bool[][] matrix) {
 			
 			//finds the edge nodes, and then set them to 0 in the matrix
 			for( int x = 0; x< matrix.Length; x++) {
@@ -85,37 +89,41 @@ namespace Client.Game.Map
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
 						}
-						if(!IsSetChecked(matrix, x -2, y)) {
+						/*if(!IsSetChecked(matrix, x -2, y)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
-						}
+						}*/
 						//down
 						if(!IsSetChecked(matrix, x, y-1)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
 						}
+						/*
 						if(!IsSetChecked(matrix, x, y-2)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
-						}
+						}*/
 						//right
 						if(!IsSetChecked(matrix, x +1, y)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
 						}
+						/*
 						if(!IsSetChecked(matrix, x +2, y)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
-						}
+						}*/
 						//up
 						if(!IsSetChecked(matrix, x, y+1)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
 						}
+						/*
 						if(!IsSetChecked(matrix, x, y+2)) {
 							ShrinkingBuffer.Add(new PointI(x, y));
 							continue;
 						}
+						*/
 					}
 				}
 			}
@@ -144,8 +152,7 @@ namespace Client.Game.Map
 
 		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 
-			Grid = BuildGrid();
-
+			Grid = GetGrid();
 			var fromInt = AsciiUtils.WorldToAscii(worldFrom, Room);
 			var toInt = AsciiUtils.WorldToAscii(roomTo, Room);
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);

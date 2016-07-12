@@ -1,9 +1,14 @@
 using Client.Game.AI.Actions;
+using System;
+using System.Collections.Generic;
 
 namespace Client.Game.Data
 {
     public static partial class AIDataTable {
         
+
+
+
 		public static AIData PATROL_THEN_PURSUE_AI {
 			get {
 				var ret = new AIData();
@@ -48,8 +53,25 @@ namespace Client.Game.Data
 				);
                 return ret;
             }
-            
         }
+
+		public static AIData IDLE_THEN_SEEK_AI {
+			get {
+				var ret = new AIData();
+
+				ret.ActionData = new ActionData(new Type[]{
+						typeof(Idle),
+						typeof(WaitForPlayerLOS)
+						}
+				).Then (
+						new ActionData(new Type[]{
+							typeof(FireAtPlayer), 
+							typeof(CheckPlayerLOS)})
+				);
+				
+				return ret;
+			}
+		}
         
         public static AIData SENTRY_AI {
             get {
@@ -98,6 +120,5 @@ namespace Client.Game.Data
 			}
 		}
         
-
     }
 }

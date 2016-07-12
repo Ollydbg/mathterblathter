@@ -13,7 +13,7 @@ namespace Client.Game.AI.Actions
 		}
 
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			var target = PlayerMid;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Client.Utils;
+using Client.Game.Actors;
 
 namespace Client.Game.AI.Actions
 {
@@ -11,7 +12,7 @@ namespace Client.Game.AI.Actions
 
 
 
-		public override AIResult Update (float dt, Client.Game.Actors.Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			var facing = GetFacingVector(actor);
 			

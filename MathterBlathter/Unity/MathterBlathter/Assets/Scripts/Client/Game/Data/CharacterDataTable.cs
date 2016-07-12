@@ -60,7 +60,7 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 8f
+					ActorAttributes.Speed.Id, 90f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
@@ -91,7 +91,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
+				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -152,7 +152,7 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.AIR_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
+				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 50
 				));
@@ -303,7 +303,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Speed.Id,
-					2f
+					60f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
@@ -397,7 +397,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
 				
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
+				ret.AIData = AIDataTable.IDLE_THEN_SEEK_AI;
 				
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
@@ -411,7 +411,7 @@ namespace Client.Game.Data
 
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id, 4f
+					ActorAttributes.Speed.Id, 100f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -436,7 +436,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldownScalar.Id, 1f
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.AIDetectionRadius.Id, 40.0f
@@ -444,7 +444,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.ENERGY_SAPPER_WEAPON.Id,
+					CharacterDataTable.RANGED_ENEMY_WEAPON.Id,
 					0
 				));
 
@@ -494,7 +494,7 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 20.0f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, .1f
+					ActorAttributes.Speed.Id, 80f
 				));
 			
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -542,7 +542,7 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 30.0f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 12f
+					ActorAttributes.Speed.Id, 100f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
@@ -551,6 +551,10 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.WeaponCooldownScalar.Id, 1.8f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 
 				ret.AddAbility(AbilityDataTable.AI_BUFF);

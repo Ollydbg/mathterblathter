@@ -27,23 +27,26 @@ namespace Client.Game.AI.Actions
 			Agent = new PathingAgent(CurrentRoom.Grid.SearchPath(Self.transform.position, PlayerMid));
 			repathAccum = 0f;
 
-			Agent.OnPathAdvance += () => {
-				if(repathAccum >= REPATH_DELAY) 
-					Repath();
-				};
-
 		}
 		
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			
 			repathAccum += dt;
 
-			Agent.TryMove(actor.GameObject, actor.Attributes[ActorAttributes.Speed] * dt);
+			var didMove = Agent.TryMove(actor, actor.Attributes[ActorAttributes.Speed] * dt);
 
-			if(ActionUtil.HasLOS(actor, PlayerMid)) {
+			var hasLOS = ActionUtil.HasLOS(actor, PlayerMid);
+
+			if(hasLOS) {
 				return AIResult.Success;
+			}
+
+			var forceRepath = !didMove && !hasLOS;
+
+			if((repathAccum >= REPATH_DELAY) || forceRepath) {
+				Repath();
 			}
 
 
@@ -64,42 +67,50 @@ namespace Client.Game.AI.Actions
 			}
 		}
 
+		void DebugDrawNodes(Vector3[] nodes) {
+			for(int i = 0; i< nodes.Length; i++ ) {
+				var node = nodes[i];
 
+				var color = i == nodes.Length -1? Color.red : Color.magenta;
+				if( i == 0 )
+					color = Color.green;
+
+				Debug.DrawRay(node, Vector3.back * 3f, color, 2f);
+			}
+		}
 
 		public PathingAgent(Vector3[] nodes) {
 			this.PathNodes = nodes;
 			index = 0;
 
-			/*
-			for(int i = 0; i< nodes.Length; i++ ) {
-				var node = nodes[i];
-				
-				var color = i == nodes.Length -1? Color.red : Color.magenta;
-				if( i == 0 )
-					color = Color.green;
-				
-				Debug.DrawRay(node, Vector3.back * 3f, color, 2f);
-			}*/
+			if(nodes.Length > 2)
+				index = 1;
+
+
+			DebugDrawNodes(nodes);
 		}
 
-		bool ConsumeDistance(Vector3 from, float moveMag, out Vector3 newPosition) {
+
+		const float EPSILON = .01f;
+		bool ConsumeDistance(Vector3 from, float moveMag, out Vector3 newDirection) {
 			var moveMagSq = moveMag * moveMag;
 			var distanceVec = CurrentNode - from;
 
-			if(distanceVec.sqrMagnitude < moveMagSq) {
+			//if we're going to overshoot the next node on this move, then round the corner
+			if(distanceVec.sqrMagnitude < EPSILON) {
 				moveMag -= distanceVec.magnitude;
 				var newFrom = CurrentNode;
 
 				if(index == PathNodes.Length - 1) {
-					newPosition = Vector3.zero;
+					newDirection = Vector3.zero;
 					return false;
 				}
 
 				Advance();
 
-				return ConsumeDistance(newFrom, moveMag, out newPosition);
+				return ConsumeDistance(newFrom, moveMag, out newDirection);
 			} else {
-				newPosition = from + distanceVec.normalized * moveMag;
+				newDirection = distanceVec.normalized;
 			}
 
 			return true;
@@ -112,15 +123,15 @@ namespace Client.Game.AI.Actions
 		}
 
 		
-		public bool TryMove(GameObject obj, float moveAmount) {
+		public bool TryMove(Character obj, float moveAmount) {
 
 			if(PathNodes.Length == 0) {
 				return false;
 			}
 
-			Vector3 position = Vector3.zero;
-			if(ConsumeDistance(obj.transform.position, moveAmount, out position)) {
-				obj.transform.position = position;
+			Vector3 direction = Vector3.zero;
+			if(ConsumeDistance(obj.transform.position, moveAmount, out direction)) {
+				obj.Controller.MoveDirection(direction);
 				return true;
 			} 
 

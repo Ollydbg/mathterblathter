@@ -9,9 +9,9 @@ namespace Client.Game.AI
 	{
 		public AIAction Head;
 		public AIAction CurrentAction;
-		public Actor Self;
+		public Character Self;
 
-		public Brain (Actor actor)
+		public Brain (Character actor)
 		{
 			this.Self = actor;
 		}
@@ -19,9 +19,9 @@ namespace Client.Game.AI
 		private bool Logs = true;
 		void Log(string msg, params object[] args) {
 			if(Logs) 
-				UnityEngine.Debug.Log(string.Format(msg, args));
-				
+				UnityEngine.Debug.Log(string.Format(msg, args));		
 		}
+
 		public void Update( float dt) {
 			if (CurrentAction != null) {
 				var result = CurrentAction.Update(dt, Self);
@@ -50,35 +50,56 @@ namespace Client.Game.AI
         public void LoadFromData(AIData aiData)
         {
 			var actionData = aiData.ActionData;
-			this.CurrentAction = RecurseData(null, actionData);
+			this.CurrentAction = RecurseData(actionData, null);
 			this.CurrentAction.Start(Self);
 			this.Head = CurrentAction;
         }
 		
-		AIAction RecurseData(AIAction head, ActionData action) {
-			
-			AIAction brainAction;
-			
-			if(action.Action != null) {
-				brainAction = (AIAction)Activator.CreateInstance(action.Action);
-			} else {
-				Sequence sequenceAction = new Sequence();
-				for( var i = 0; i< action.Sequence.Count; i++) {
-					sequenceAction.Actions.Add((AIAction)Activator.CreateInstance(action.Sequence[i].Action));	
+
+		private AIAction RecurseData(ActionData data, AIAction logicalHead) {
+
+			AIAction brainAction = null;
+
+			if(data.IsSequence) {
+				var seq = new Sequence();
+				AIAction seqHead = null;
+				foreach( var actData in data.Sequence) {
+					
+					var seqAction = RecurseData(actData, seqHead == null ? logicalHead : seqHead);
+
+					if(seqHead == null) 
+						seqHead = seqAction;
+					
+					seq.Actions.Add(seqAction);
 				}
-				brainAction = sequenceAction;
-			}
-			
-			if(head == null) head = brainAction;
-			
-			if(action.Next != null) {
-				brainAction.Next = RecurseData(head, action.Next);
+				seq.LocalHead = logicalHead ?? seq;
+
+				if(data.Next != null) {
+					seq.Next = RecurseData(data.Next, logicalHead);
+				}
+
+				return seq;	
 			} else {
-				brainAction.Next = head;
+				brainAction = Make(data);
 			}
+
+			if(logicalHead == null)
+				logicalHead = brainAction;
 			
+			brainAction.LocalHead = logicalHead;
+
+			if(data.Next != null) {
+				brainAction.Next = RecurseData(data.Next, logicalHead);
+			}
+
 			return brainAction;
+
 		}
+
+		private AIAction Make(ActionData data) {
+			return (AIAction)Activator.CreateInstance(data.Action);
+		}
+
     }
 }
 

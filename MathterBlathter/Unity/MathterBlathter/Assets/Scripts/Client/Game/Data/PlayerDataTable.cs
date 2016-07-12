@@ -86,6 +86,13 @@ namespace Client.Game.Data
 					1
 				));
 
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.UsesAnxiety.Id,
+					1
+				));
+
+
 				ret.AddAbility(AbilityDataTable.INVULNERABLE_AFTER_HIT_BUFF);
 				ret.AddAbility(AbilityDataTable.ANXIETY_REGEN_BUFF);
 				ret.AddAbility(AbilityDataTable.ROOM_UNLOCK_HARDENER);

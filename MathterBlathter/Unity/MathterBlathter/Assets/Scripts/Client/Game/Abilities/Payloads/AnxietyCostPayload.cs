@@ -24,22 +24,25 @@ namespace Client.Game.Abilities.Payloads
 
 		public override void Apply ()
 		{
-			if (AbilityManager.NotifyPayloadReceiver (this, Target))
-				return;
+			if(Target.Attributes[ActorAttributes.UsesAnxiety]) {
+				
+				if (AbilityManager.NotifyPayloadReceiver (this, Target))
+					return;
 
-			int addition = (int)Cost;
+				int addition = (int)Cost;
 
-			var max = Target.Attributes[ActorAttributes.MaxAnxiety];
-			var newTotal = Target.Attributes[ActorAttributes.Anxiety] + addition;
+				var max = Target.Attributes[ActorAttributes.MaxAnxiety];
+				var newTotal = Target.Attributes[ActorAttributes.Anxiety] + addition;
 
-			if(newTotal > max) {
-				var overage = newTotal - max;
-				new AnxietyDamagePayload(Context, Target, overage).Apply();
-				newTotal = max;
+				if(newTotal > max) {
+					var overage = newTotal - max;
+					new AnxietyDamagePayload(Context, Target, overage).Apply();
+					newTotal = max;
+				}
+
+				Target.Attributes[ActorAttributes.Anxiety] = newTotal;
+
 			}
-
-			Target.Attributes[ActorAttributes.Anxiety] = newTotal;
-
 		}
 
 		#endregion

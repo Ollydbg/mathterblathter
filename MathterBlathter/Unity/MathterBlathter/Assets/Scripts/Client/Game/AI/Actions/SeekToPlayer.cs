@@ -15,7 +15,7 @@ namespace Client.Game.AI.Actions
 		#region IAction implementation
 
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			//Get player transform
 			
@@ -26,7 +26,7 @@ namespace Client.Game.AI.Actions
 			if (ActionUtil.InDetectionRange (distanceVec, actor)) {
 
 				FaceTarget2D(actor, target);
-				actor.transform.position += distanceVec.normalized * dt * actor.Attributes[ActorAttributes.Speed];
+				actor.Controller.MoveDirection(distanceVec.normalized);
 			}
 			return inAbilityRange (distanceVec, actor) ? AIResult.Success : AIResult.Running;
 

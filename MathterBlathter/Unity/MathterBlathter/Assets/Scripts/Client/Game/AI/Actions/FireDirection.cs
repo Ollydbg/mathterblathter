@@ -21,7 +21,7 @@ namespace Client.Game.AI.Actions
 
 		float speed = 1f;
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			accumulator += dt;
 

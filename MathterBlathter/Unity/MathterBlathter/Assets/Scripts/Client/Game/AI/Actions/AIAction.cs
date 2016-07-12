@@ -14,10 +14,20 @@ namespace Client.Game.AI
 		public virtual void Start(Actor selfActor) {}
 		public virtual void End(){}
 
-		public abstract AIResult Update(float dt, Actor actor);
-		public AIAction Next;
+		public abstract AIResult Update(float dt, Character actor);
 
-		internal bool inAbilityRange(Vector3 distanceVec, Actor selfActor) {
+		private AIAction _next;
+		public AIAction Next {
+			get {
+				return _next ?? LocalHead;
+			} set {
+				_next = value;
+			}
+		}
+		public AIAction LocalHead;
+		
+
+		internal bool inAbilityRange(Vector3 distanceVec, Character selfActor) {
 			var weaponRange = selfActor.WeaponController.currentWeapon.Attributes[ActorAttributes.AIActivationRange];
 			return distanceVec.sqrMagnitude < (weaponRange * weaponRange);
 		}
@@ -44,8 +54,11 @@ namespace Client.Game.AI
 			}
 		}
 
-		internal Vector3 GetFacingVector(Actor selfActor) {
-			
+		internal Vector3 GetFacingVector(Character selfActor) {
+			if(selfActor == null || selfActor.transform == null ) {
+				Debug.Log("STOP");
+				return Vector3.right;
+			}
 			var angles = selfActor.transform.eulerAngles;
 			if(angles.y == -180)
 				return Vector3.left;
@@ -58,7 +71,7 @@ namespace Client.Game.AI
 		}
 		
 
-		internal void FaceTarget3D(Actor selfActor, Vector3 target) {
+		internal void FaceTarget3D(Character selfActor, Vector3 target) {
 
 			float angle = target.x < selfActor.transform.position.x ? -180 : 0;
 
@@ -66,7 +79,7 @@ namespace Client.Game.AI
 
 
 		}
-		internal void FaceTarget2D(Actor selfActor, Vector3 target) {
+		internal void FaceTarget2D(Character selfActor, Vector3 target) {
 
 			var xScale = target.x > selfActor.transform.position.x ? 1f : -1f;
 
@@ -87,7 +100,8 @@ namespace Client.Game.AI
 		Success,
 		Failure,
 		Running,
-		Invalid
+		SubTreeFailure,
+		Invalid,
 	}
 	
 	
@@ -96,7 +110,7 @@ namespace Client.Game.AI
 	public class Sequence : AIAction {
 		public List<AIAction> Actions = new List<AIAction>();
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			AIResult result = AIResult.Invalid;
 			
@@ -117,6 +131,18 @@ namespace Client.Game.AI
 			return AIResult.Running;
 			
 		}
+
+		public override void Start (Actor selfActor)
+		{
+			Actions.ForEach(p => p.Start(selfActor));
+		}
+
+		public override void End ()
+		{
+			Actions.ForEach(p => p.End());
+		}
+
+
 		
 		public override string ToString() {
 			string buff = "[Sequence: ";
@@ -137,7 +163,7 @@ namespace Client.Game.AI
 
 	public class EmptyAction : AIAction {
 		
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			return AIResult.Running;
 		}

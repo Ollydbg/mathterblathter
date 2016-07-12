@@ -1,6 +1,9 @@
 ﻿using Client.Game.AI;
 using Client.Game.Data;
 using UnityEngine;
+using Client.Game.Actors;
+
+
 namespace Client.Game.Abilities.Scripts
 {
     public class AIBuff : BuffBase
@@ -16,7 +19,7 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			Brain = new Brain(context.source);
+			Brain = new Brain(context.source as Character);
 			
 			var aiData = context.source.Data.AIData;
 			

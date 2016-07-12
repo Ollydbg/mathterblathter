@@ -12,13 +12,14 @@ namespace Client.Game.AI.Actions
 
 		#region implemented abstract members of AIAction
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			var target = PlayerMid;
 			var distanceVec = target-actor.transform.position;
 
 			if(ActionUtil.InDetectionRange(distanceVec, actor)) {
-				return ActionUtil.HasLOS(actor, target) ? AIResult.Success : AIResult.Running;
+				var los = ActionUtil.HasLOS(actor, target);
+				return los ? AIResult.Success : AIResult.Running;
 			} else {
 				return AIResult.Failure;
 			}
@@ -34,7 +35,7 @@ namespace Client.Game.AI.Actions
 
 		#region implemented abstract members of AIAction
 
-		public override AIResult Update (float dt, Actor actor)
+		public override AIResult Update (float dt, Character actor)
 		{
 			var target = PlayerMid;
 			var distanceVec = target-actor.transform.position;

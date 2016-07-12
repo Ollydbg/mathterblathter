@@ -20,7 +20,7 @@ namespace Client.Game.AI.Actions
 			time = 0f;
 		}
 
-		public override AIResult Update (float dt,Actor actor)
+		public override AIResult Update (float dt,Character actor)
 		{
 			Vector3 muzzle = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
 
