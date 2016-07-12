@@ -18,6 +18,7 @@ namespace Client.Game.Abilities
 		public AbilityData data;
 		public Vector3 targetDirection;
 		public Vector3 targetPosition;
+
 		public Actor Executor {
 			get {
 				return targetActor??source;

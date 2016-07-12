@@ -97,7 +97,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w . ...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [        w";
+                ret.AsciiMap += "w .1...     4  5  6  7  8  9  #  e  r  t  y  u  i  o  [        w";
                 ret.AsciiMap += "wPPPPPP     PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP        w";
                 ret.AsciiMap += "w                         w                                    w";
                 ret.AsciiMap += "w                  L      w                    L               w";
@@ -106,10 +106,10 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                         w                           pppppppppw";
                 ret.AsciiMap += "w                         w                                    w";
                 ret.AsciiMap += "w                         w                                    w";
-				ret.AsciiMap += "w                         w                                    w";
-				ret.AsciiMap += "wPPPP                     w                                    w";
-                ret.AsciiMap += "w                         w                                    w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                                  w";
+				ret.AsciiMap += "w                         w                   1                w";
+				ret.AsciiMap += "wPPPP                     w                   PPPPPP           w";
+                ret.AsciiMap += "w                         w1                                   w";
+                ret.AsciiMap += "w                PPPPPPPPPPPP                           1      w";
                 ret.AsciiMap += "w                       2                               pppppppw";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
@@ -118,7 +118,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                    L    l          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
-                ret.AsciiMap += "w                                .............1.........       w";
+                ret.AsciiMap += "w           1                    .............1.........       w";
                 ret.AsciiMap += "fffffffUffSffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
@@ -138,7 +138,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RUST_MACHINE;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.SHOPKEEPER;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 				finalize(ret);
 

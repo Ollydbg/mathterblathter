@@ -7,6 +7,8 @@ using Client.Game.Enums;
 using System.Collections.Generic;
 using Client.Game.Abilities;
 using Client.Game.Utils;
+using Client.Game.Abilities.Utils;
+using Client.Game.Abilities.Payloads;
 
 namespace Client.Game.Items
 {
@@ -191,9 +193,8 @@ namespace Client.Game.Items
 			if(CanAttack(currentWeapon)) {
 				var abilityId = currentWeapon.Attributes[ActorAttributes.Abilities, 0];
 				var context = new AbilityContext(Owner, currentWeapon, direction, AbilityDataTable.FromId(abilityId));
-				Owner.Game.AbilityManager.ActivateAbility (context);
-				currentWeapon.Attributes[ActorAttributes.LastFiredTime] = Time.realtimeSinceStartup;
-				currentWeapon.AttackStart(context);
+
+				new WeaponFirePayload(context, currentWeapon).Apply();
 
 			}
 		}

@@ -1179,6 +1179,18 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AbilityData CONTROLLER_AIM_ASSIST {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 61;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.ControllerAimAssistBuff);
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.ControllerAimAssist.Id, 30f
+				));
+				return ret;
+			}
+		}
+
 	}
 }
 

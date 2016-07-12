@@ -18,7 +18,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Player/Player_prefab";
 				ret.ActorType = ActorType.Player;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 1600f
+					ActorAttributes.Speed.Id, 1400f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.PassesThroughPlatforms.Id, 1

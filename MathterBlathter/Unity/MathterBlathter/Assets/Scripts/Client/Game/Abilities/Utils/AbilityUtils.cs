@@ -54,8 +54,6 @@ namespace Client.Game.Abilities.Utils
 			//return direction;
 		}
 
-
-
 	}
 
 }

@@ -24,12 +24,12 @@ namespace Client.Game.States
 			var tmp = new List<IGameManager>();
 
 			tmp.Add(Game.Instance.InputManager);
-			tmp.Add(Game.Instance.AbilityManager);
-			tmp.Add(Game.Instance.UIManager);
-			tmp.Add(Game.Instance.RoomManager);
 			tmp.Add(Game.Instance.ActorManager);
+			tmp.Add(Game.Instance.AbilityManager);
+			tmp.Add(Game.Instance.RoomManager);
 			tmp.Add(Game.Instance.CameraManager);
 			tmp.Add(Game.Instance.WorldFXManager);
+			tmp.Add(Game.Instance.UIManager);
 
 			TickManagers = tmp.ToArray();
 

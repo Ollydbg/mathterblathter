@@ -85,10 +85,10 @@ namespace Client.Game.Managers
 					TargetActor.ActiveItemController.UseCurrent();
 				}
 
-				if (Input.GetButton (ATTACK) || Input.GetButton(PS4_SQ)) {
+				if (Input.GetButton (ATTACK)) {
 					TargetActor.WeaponController.Attack ();
 				} 
-				if(Input.GetButtonUp(ATTACK) || Input.GetButtonUp(PS4_SQ)) {
+				if(Input.GetButtonUp(ATTACK)) {
 					TargetActor.WeaponController.AttackStop();
 				}
 			
@@ -110,7 +110,7 @@ namespace Client.Game.Managers
 
 
 		private void AddControllerAiming() {
-			var context = new Client.Game.Abilities.AbilityContext(TargetActor, Client.Game.Data.AbilityDataTable.AIM_RAY_BUFF);
+			var context = new Client.Game.Abilities.AbilityContext(TargetActor, Client.Game.Data.AbilityDataTable.CONTROLLER_AIM_ASSIST);
 			TargetActor.Game.AbilityManager.ActivateAbility(context);
 		}
 

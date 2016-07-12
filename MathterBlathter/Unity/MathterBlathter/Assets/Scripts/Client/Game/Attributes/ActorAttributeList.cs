@@ -95,6 +95,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI DataIds = new GameAttributeI(72, 0, "dataIds", 0, int.MaxValue);
 		public static readonly GameAttributeI RoomDifficulty = new GameAttributeI(73, 0, "room difficulty", 0, int.MaxValue);
 		public static readonly GameAttributeF ZoneUpdateRate = new GameAttributeF(74, .1f, "Zone tick rate", .01f, float.MaxValue);
+		public static readonly GameAttributeF ControllerAimAssist = new GameAttributeF(75, 0f, "ControllerAimAssist", 0, 90f, "controller aim slop tolerance in degrees");
 
 	}
 }

@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\PlayerKilledPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\TowerAbsorptionPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponDamagePayload.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponFirePayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Payloads\WeaponPickupPayload.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AIBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\AddMaxAnxiety.cs" />
@@ -89,6 +90,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\AnxietyDamageReductionBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\AnxietyRegenBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\AttackSpeedBuff.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\ControllerAimAssistBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\CursedCourageBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\DamageOnTouchBuff.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\Buffs\EnemyFlashOnHitBuff.cs" />

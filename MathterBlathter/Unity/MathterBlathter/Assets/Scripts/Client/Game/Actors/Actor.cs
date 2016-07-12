@@ -40,6 +40,11 @@ namespace Client.Game.Actors
 				return transform.position + new Vector3 (0f, colliderHeight*.5f, 0f);
 			}
 		}
+		public Vector2 HalfHeight2D {
+			get {
+				return new Vector2(transform.position.x, transform.position.y + colliderHeight * .5f);
+			}
+		}
 		public Collider2D TerrainCollider { get; private set; }
 
 
