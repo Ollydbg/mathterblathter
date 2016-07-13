@@ -55,10 +55,6 @@ namespace Client.Game.AI
 		}
 
 		internal Vector3 GetFacingVector(Character selfActor) {
-			if(selfActor == null || selfActor.transform == null ) {
-				Debug.Log("STOP");
-				return Vector3.right;
-			}
 			var angles = selfActor.transform.eulerAngles;
 			if(angles.y == -180)
 				return Vector3.left;

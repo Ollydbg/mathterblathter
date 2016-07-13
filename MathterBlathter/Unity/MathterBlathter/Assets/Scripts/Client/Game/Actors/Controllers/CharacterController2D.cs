@@ -35,7 +35,11 @@ namespace Client.Game.Actors.Controllers
 		public event GroundingHandler OnGrounded;
 		
 
-		public CharacterController2D(Character actor) {
+		public CharacterController2D() {
+			
+		}
+
+		public void SetOwner(Character actor) {
 			this.Actor = actor;
 			this.rigidBody = actor.GameObject.GetComponent<Rigidbody2D>();
 			this.animator = actor.GameObject.GetComponentInChildren<Animator>();
@@ -51,6 +55,7 @@ namespace Client.Game.Actors.Controllers
 			originalScale = actor.GameObject.transform.localScale;
 			xScale = originalScale.x;
 		}
+
 
 		public bool Ducking { get; set;}
 

@@ -68,7 +68,6 @@ namespace Client.Game.Data
 
 				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
 				ret.AsciiSpawnLookup['2'] = CharacterDataTable.ANXIETY_DAMAGE_AOE_ITEM;
-
 				finalize(ret);
 
 				return ret;

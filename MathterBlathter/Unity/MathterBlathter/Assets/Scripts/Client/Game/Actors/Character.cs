@@ -12,17 +12,19 @@ namespace Client.Game.Actors
 	{
 
 		public ICharacterController Controller = new EmptyCharacterController();
+		public virtual Type ControllerClass {get ; set; }
 
 		public Character ()
 		{
-			
+			ControllerClass = typeof(Client.Game.Actors.Controllers.CharacterController2D);
 		}
 
 	
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
 			
-			Controller = new Client.Game.Actors.Controllers.CharacterController2D(this);
+			Controller = (ICharacterController)Activator.CreateInstance(ControllerClass);
+			Controller.SetOwner(this);
 			base.EnterGame (game);
 		}
 

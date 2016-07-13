@@ -8,6 +8,10 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void SetOwner (Character owner)
+		{
+		}
+
 		public void MoveDirection (UnityEngine.Vector2 normalizedDir)
 		{
 		}
