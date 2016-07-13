@@ -103,7 +103,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                         w                                    w";
                 ret.AsciiMap += "w                         w                             ...... w";
                 ret.AsciiMap += "w                         w                           pppppppppw";
-                ret.AsciiMap += "w            1            w                                    w";
+                ret.AsciiMap += "w                         w                                    w";
                 ret.AsciiMap += "w                         w                                    w";
 				ret.AsciiMap += "w                         w                                    w";
 				ret.AsciiMap += "wPPPP                     w                   PPPPPP           w";
@@ -117,14 +117,14 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                    L    l          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
-                ret.AsciiMap += "w                                .......................       w";
-                ret.AsciiMap += "fffffffUffSffffffffffffffffffffffffffffffffffffffffffffffffffffw";
+                ret.AsciiMap += "w                                .................1.....       w";
+                ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
 				ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);
 				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.right);
 
-
+				/*
 				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
 				ret.AsciiSpawnLookup['5'] = CharacterDataTable.RUST_MACHINE;
 				ret.AsciiSpawnLookup['6'] = CharacterDataTable.VIPER_REPEATER_WEAPON;
@@ -135,9 +135,10 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['e'] = CharacterDataTable.CERAMIC_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
+				*/
+				ret.AsciiSpawnLookup['C'] = CharacterDataTable.NAIL_MACHINE;
 
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.RUST_MACHINE;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.QUAD_SHOT_TURRET_ENEMY;
+
 
 				finalize(ret);
 

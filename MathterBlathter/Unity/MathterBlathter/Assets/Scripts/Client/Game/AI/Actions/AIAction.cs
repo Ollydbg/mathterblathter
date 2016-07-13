@@ -25,7 +25,6 @@ namespace Client.Game.AI
 			}
 		}
 		public AIAction LocalHead;
-		
 
 		internal bool inAbilityRange(Vector3 distanceVec, Character selfActor) {
 			var weaponRange = selfActor.WeaponController.currentWeapon.Attributes[ActorAttributes.AIActivationRange];

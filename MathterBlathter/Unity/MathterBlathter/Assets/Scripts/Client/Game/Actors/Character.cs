@@ -35,7 +35,9 @@ namespace Client.Game.Actors
 
 		public override void Update (float dt)
 		{
+			WeaponController.Update(dt);
 			Controller.Update(dt);
+			
 		}
 
 

@@ -42,7 +42,7 @@ namespace Client.Game.Managers
 					var minY = vExtent + room.Y;
 					var maxY = minY + room.Height - 2*vExtent;
 
-					var lookBias = Player.WeaponController.GetAimDirection() * 4f;
+					var lookBias = Player.WeaponController.AimDirection * 4f;
 
 					var aa = TargetTransform.position;
 					var bb = aa + lookBias;

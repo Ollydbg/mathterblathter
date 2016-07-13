@@ -30,7 +30,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			Vector3 origin = PointOnActor(AttachPoint.Muzzle, context.source);
 			lr.SetPosition(0, origin);
-			lr.SetPosition(1, origin + context.source.WeaponController.GetAimDirection()*100f);
+			lr.SetPosition(1, origin + context.source.WeaponController.AimDirection * 100f);
 		}
 
 

@@ -24,7 +24,7 @@ namespace Client.Game.AI.Actions
 		{
 			Vector3 muzzle = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
 
-			var aim = actor.WeaponController.GetAimDirection();
+			var aim = actor.WeaponController.AimDirection;
 
 			if(ActionUtil.LineHasActor(muzzle, muzzle + (aim * 40f), Player)) {
 				time += dt;

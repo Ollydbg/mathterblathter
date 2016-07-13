@@ -268,7 +268,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData RUST_MACHINE {
+		public static CharacterData NAIL_MACHINE {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1007;

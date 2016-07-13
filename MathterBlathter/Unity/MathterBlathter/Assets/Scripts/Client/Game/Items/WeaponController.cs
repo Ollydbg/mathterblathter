@@ -23,7 +23,14 @@ namespace Client.Game.Items
 
 		public delegate void ChangedDelegate(WeaponActor currentWeapon, WeaponLookup all);
 		public event ChangedDelegate OnLoadoutChanged;
-		public TargetingProps TargetingProps = new TargetingProps();
+
+		private Vector3 _aim;
+		public Vector3 AimDirection { get {
+				return _aim;
+			} set {
+				_aim = value;
+			}
+		}
 		public Vector3 WeaponForward = Vector3.back;
 
 		public WeaponController (Actor owner)
@@ -109,10 +116,16 @@ namespace Client.Game.Items
 		public void AddWeapon(WeaponActor actor) {
 			if(ActiveLookup.Count == Owner.Attributes[ActorAttributes.MaxWeapons])
 				RemoveWeapon(currentWeapon);
-			
+
 			actor.transform.parent = GetAttachTransform(AttachPoint.WeaponSlot);
 			actor.transform.localPosition = WeaponForward;
-			
+
+			//if actor is facing left, we need to flip the scale of our transform! SO WEAK!
+			if(Owner.GameObject.transform.localScale.x < 0f) {
+				var scale = actor.transform.localScale;
+				scale.x *= -1f;
+				actor.transform.localScale = scale;
+			}
 
 			ActiveLookup.Add(actor.Data, actor);
 			Owner.Attributes[ActorAttributes.WeaponCount]++;
@@ -149,10 +162,10 @@ namespace Client.Game.Items
 
 		public void Update (float dt)
 		{
-			var aimDirection = GetAimDirection();
-			var angle = Vector3.Angle(GetAimDirection(), Vector3.right);
+			var aim = AimDirection;
+			var angle = Vector3.Angle(aim, Vector3.right);
 
-			if(aimDirection.y < 0) 
+			if(aim.y < 0) 
 				angle *= -1f;
 
 			if(Mathf.Abs(angle) > 90) {
@@ -168,32 +181,13 @@ namespace Client.Game.Items
 
 
 
-		public Vector3 GetAimDirection() {
 
-			if(TargetingProps.Direction == Vector3.zero) {
-				return getMousingDirection();
-			} else {
-				return TargetingProps.Direction;
-			}
-		}
-
-		private Vector3 getMousingDirection() {
-			var weaponPos = Camera.main.WorldToScreenPoint(currentWeapon.transform.position);
-
-			var worldDir3 = Input.mousePosition - weaponPos;
-			return new Vector3(worldDir3.x, worldDir3.y).normalized;
-		}
 
 		public bool CanAttack(WeaponActor actor) {
 			var cooldown = currentWeapon.Attributes[ActorAttributes.Cooldown] * Owner.Attributes[ActorAttributes.WeaponCooldownScalar];
 			float elapsed =  Time.realtimeSinceStartup - currentWeapon.Attributes[ActorAttributes.LastFiredTime];
 
 			return elapsed >= cooldown;
-		}
-
-
-		public void AimDirection(Vector3 aimVector) {
-			this.TargetingProps.Direction = aimVector;
 		}
 
 		public void AttackStop ()
@@ -203,7 +197,7 @@ namespace Client.Game.Items
 
 		public void Attack () {
 			if(currentWeapon != null) 
-				Attack(GetAimDirection());
+				Attack(AimDirection);
 		}
 
 		public void Attack(Vector3 direction) {
@@ -219,9 +213,5 @@ namespace Client.Game.Items
 
 	}
 
-	public class TargetingProps {
-		public Vector3 Direction;
-		public Vector3 EndPoint;
-	}
 }
 

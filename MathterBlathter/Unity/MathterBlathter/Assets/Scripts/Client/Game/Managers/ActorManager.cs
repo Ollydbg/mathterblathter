@@ -53,8 +53,10 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
-			foreach( var actor in Actors.Values.ToList()) 
-				actor.Update(dt);
+			foreach( var actor in Actors.Values.ToList()) {
+				if(!actor.Destroyed)
+					actor.Update(dt);
+			}
 			
 			while (deferredRemoves.Count > 0) {
 				var actor = deferredRemoves.Dequeue ();

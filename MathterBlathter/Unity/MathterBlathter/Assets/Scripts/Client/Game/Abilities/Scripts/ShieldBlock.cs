@@ -58,7 +58,7 @@ namespace Client.Game.Abilities.Scripts
 		{
 			if(attacking && projectile != null) {
 
-				var aimVector = context.source.WeaponController.GetAimDirection();
+				var aimVector = context.source.WeaponController.AimDirection;
 				projectile.transform.position = context.source.transform.position + 3* aimVector;
 				var angle = Vector3.Angle(Vector3.right, aimVector);
 				projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

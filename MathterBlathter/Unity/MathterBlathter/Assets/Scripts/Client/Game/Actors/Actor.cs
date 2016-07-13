@@ -140,6 +140,7 @@ namespace Client.Game.Actors
 
 		}
 
+		
 		public virtual void Update(float dt) {
 			
 		}

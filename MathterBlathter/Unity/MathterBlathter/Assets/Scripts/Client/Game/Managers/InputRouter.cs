@@ -32,6 +32,8 @@ namespace Client.Game.Managers
 
 		public PlayerCharacter TargetActor;
 
+		private bool UsingController;
+
 		public InputManager ()
 		{
 		}
@@ -101,19 +103,29 @@ namespace Client.Game.Managers
 				TargetActor.Controller.Ducking = Input.GetButton(DUCK);
 
 			}
-
-			TargetActor.WeaponController.AimDirection(new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V)));
+			
+			if(UsingController) {
+				TargetActor.WeaponController.AimDirection = new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V));
+			} else {
+				TargetActor.WeaponController.AimDirection = getMousingDirection();
+			}
 
 		}
-
 
 
 
 		private void AddControllerAiming() {
+			UsingController = true;
 			var context = new Client.Game.Abilities.AbilityContext(TargetActor, Client.Game.Data.AbilityDataTable.CONTROLLER_AIM_ASSIST);
 			TargetActor.Game.AbilityManager.ActivateAbility(context);
 		}
 
+		private Vector3 getMousingDirection() {
+			var weaponPos = Camera.main.WorldToScreenPoint(TargetActor.WeaponController.currentWeapon.transform.position);
+
+			var worldDir3 = Input.mousePosition - weaponPos;
+			return new Vector3(worldDir3.x, worldDir3.y).normalized;
+		}
 	}
 
 

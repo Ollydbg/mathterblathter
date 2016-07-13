@@ -43,7 +43,7 @@ namespace Client.Game.AI.Actions
 
 			aimVector = actor.transform.rotation * aimVector;
 
-			actor.WeaponController.AimDirection(aimVector);
+			actor.WeaponController.AimDirection = aimVector;
 
 			var origin = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
 			if (ActorUtils.RayCastForActor(origin, aimVector, out hitActor, CastingMask)) {
@@ -75,7 +75,7 @@ namespace Client.Game.AI.Actions
 		private bool lockedOn(Actor actor) {
 			var origin = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
 			Actor hitActor;
-			if (ActorUtils.RayCastForActor(origin, actor.WeaponController.GetAimDirection(), out hitActor, AimScanForPlayer.CastingMask)) {
+			if (ActorUtils.RayCastForActor(origin, actor.WeaponController.AimDirection, out hitActor, AimScanForPlayer.CastingMask)) {
 				if(hitActor.Id == actor.Game.PossessedActor.Id) {
 					return true;
 				}
