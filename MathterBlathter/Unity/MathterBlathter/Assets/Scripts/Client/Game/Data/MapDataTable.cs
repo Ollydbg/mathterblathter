@@ -31,9 +31,9 @@ namespace Client.Game.Data
 				ret.ReadScale = 1f;
 
 				var debugZone = new ZoneData();
-				debugZone.Mute = true;
+				debugZone.Solo = true;
 				debugZone.Name = "Debug Zone";
-				debugZone.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
+				debugZone.Requirements.Add(new ZReq(RoomDataTable.LURCH_START, 1, ZoneData.Occurance.Guaranteed));
 				debugZone.DrawColor = new Color(.45f, .33f, .40f);
 				debugZone.MaxRooms = 1;
 				ret.Zones.Add(debugZone);

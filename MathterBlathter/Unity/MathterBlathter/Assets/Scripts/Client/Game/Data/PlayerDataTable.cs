@@ -44,7 +44,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.MinJumpPower.Id, 36.5f
+					ActorAttributes.MinJumpPower.Id, 27f
 				)); 
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -56,7 +56,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.SustainedJumpPower.Id, 13.1f
+					ActorAttributes.SustainedJumpPower.Id, 9f
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
@@ -85,6 +85,12 @@ namespace Client.Game.Data
 					CharacterDataTable.RUSTY_REPEATER.Id,
 					1
 				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.JumpBoostFrameFloor.Id,
+					3
+				));
+					
 
 
 				ret.attributeData.Add (new CharacterData.AttributeData (

@@ -626,7 +626,7 @@ namespace Client.Game.Data
 					AbilityAttributes.Cooldown.Id, .5f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.ProjectileSpeed.Id, 15f
+					AbilityAttributes.ProjectileSpeed.Id, 10f
 				));
 				ret.attributeData.Add (new GameData.AttributeData (
 					AbilityAttributes.Damage.Id, 8

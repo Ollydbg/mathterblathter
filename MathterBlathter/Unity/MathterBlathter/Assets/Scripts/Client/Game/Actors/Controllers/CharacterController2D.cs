@@ -62,6 +62,7 @@ namespace Client.Game.Actors.Controllers
 
 		public void MoveRight (float hor)
 		{
+
 			if(hor > 0) 
 				xScale = 1 * originalScale.x;
 			else if(hor < 0)
@@ -127,6 +128,14 @@ namespace Client.Game.Actors.Controllers
 
 		void AddJump ()
 		{
+
+/*
+			//JUMP TUNING
+			var MinJumpPower = Actor.GameObjectRef.MinJumpPower;
+			var JumpBoostFrameThresh = Actor.GameObjectRef.JumpBoostFrameThresh;
+			var SustainedJumpPower = Actor.GameObjectRef.SustainedJumpPower;
+			var BoostFramesFloor = Actor.GameObjectRef.BoostFramesFloor;
+*/
 			if(jumping) {
 				var grounded = IsGrounded;
 
@@ -134,12 +143,13 @@ namespace Client.Game.Actors.Controllers
 					var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 					movementAccumulator += Vector2.up * jumpHeight;
 
-				} else if(jumpFrames == Actor.Attributes[ActorAttributes.JumpBoostFrameThresh]) {
+				} else if(jumpFrames > Actor.Attributes[ActorAttributes.JumpBoostFrameFloor]
+				 && jumpFrames < Actor.Attributes[ActorAttributes.JumpBoostFrameThresh]) {
 					movementAccumulator += Vector2.up * Actor.Attributes[ActorAttributes.SustainedJumpPower];
 				}
 
 				jumpFrames ++;
-
+				
 			}
 
 		}

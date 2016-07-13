@@ -50,7 +50,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "              L                                                        w";
 				ret.AsciiMap += "                                                                       w";
-				ret.AsciiMap += "                                                                       w";
+				ret.AsciiMap += "       PPPPPPPPPPPPP                                                   w";
 				ret.AsciiMap += "                                                                       w";
 				ret.AsciiMap += "                           L                L               L       L  d";
 				ret.AsciiMap += "                                                                       d";

@@ -8,6 +8,13 @@ namespace Client.Game.Actors
 	{
 		public Actor Actor;
 
+/*
+		public float MinJumpPower = 27f;
+		public int JumpBoostFrameThresh = 6;
+		public float SustainedJumpPower = 9f;
+		public int BoostFramesFloor = 3;
+		*/
+		
 		void Awake() {}
 		void Start() {}
 

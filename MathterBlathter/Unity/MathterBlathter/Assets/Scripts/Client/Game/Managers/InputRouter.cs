@@ -74,7 +74,7 @@ namespace Client.Game.Managers
 				var hor = Input.GetAxis (HORIZONTAL);
 				var controllerHor = (Input.GetAxis(HORIZONTAL_D_PAD));
 				var stickHor = Input.GetAxis(PS4_HORIZONTAL);
-
+				
 				TargetActor.Controller.MoveRight (hor+controllerHor+stickHor);
 			
 				if (Input.GetButtonDown (SWITCH_WEAPON) || Input.GetButtonDown(PS4_TRI)) {
