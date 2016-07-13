@@ -24,11 +24,11 @@ namespace Client.Game.Items
 		public delegate void ChangedDelegate(WeaponActor currentWeapon, WeaponLookup all);
 		public event ChangedDelegate OnLoadoutChanged;
 		public TargetingProps TargetingProps = new TargetingProps();
+		public Vector3 WeaponForward = Vector3.back;
 
 		public WeaponController (Actor owner)
 		{
 			this.Owner = owner;
-
 			for( int i = 0; i< ActorAttributes.Weapons.MaxValue; i++ ) {
 				int id = Owner.Attributes[ActorAttributes.Weapons, i];
 				if(id == ActorAttributes.Weapons.DefaultValue) {
@@ -109,9 +109,10 @@ namespace Client.Game.Items
 		public void AddWeapon(WeaponActor actor) {
 			if(ActiveLookup.Count == Owner.Attributes[ActorAttributes.MaxWeapons])
 				RemoveWeapon(currentWeapon);
-
+			
 			actor.transform.parent = GetAttachTransform(AttachPoint.WeaponSlot);
-			actor.transform.localPosition = Vector3.zero;
+			actor.transform.localPosition = WeaponForward;
+			
 
 			ActiveLookup.Add(actor.Data, actor);
 			Owner.Attributes[ActorAttributes.WeaponCount]++;
@@ -148,8 +149,24 @@ namespace Client.Game.Items
 
 		public void Update (float dt)
 		{
-			
+			var aimDirection = GetAimDirection();
+			var angle = Vector3.Angle(GetAimDirection(), Vector3.right);
+
+			if(aimDirection.y < 0) 
+				angle *= -1f;
+
+			if(Mathf.Abs(angle) > 90) {
+				Owner.FaceLeft();
+				//because weapon is parented to the left facing transform, we have to compensate in the rotation
+				angle = 180 - angle;
+			} else {
+				Owner.FaceRight();
+			}
+
+			currentWeapon.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		}
+
+
 
 		public Vector3 GetAimDirection() {
 

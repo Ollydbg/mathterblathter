@@ -45,8 +45,25 @@ namespace Client.Game.Actors
 				return new Vector2(transform.position.x, transform.position.y + colliderHeight * .5f);
 			}
 		}
+
 		public Collider2D TerrainCollider { get; private set; }
 
+		public void FaceRight() {
+			var scale = GameObject.transform.localScale;
+			if(scale.x < 0f) 
+			{
+				scale.x *= -1f;
+				GameObject.transform.localScale = scale;
+			}
+		}
+		public void FaceLeft() {
+			var scale = GameObject.transform.localScale;
+			if(scale.x > 0f) 
+			{
+				scale.x *= -1f;
+				GameObject.transform.localScale = scale;
+			}
+		}
 
 		public ActorType ActorType {
 			get {

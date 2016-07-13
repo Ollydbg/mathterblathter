@@ -39,8 +39,9 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1002;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
 				ret.ActorType = ActorType.Weapon;
+
 				ret.Name = "Ceramic Sawed Off Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 
@@ -104,7 +105,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1003;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rusty Repeater";
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -153,7 +154,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1004;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Hot Rails";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
@@ -194,7 +196,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1005;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rocket Launcher";
 
@@ -228,7 +231,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1006;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Wave Gun";
 
@@ -268,7 +272,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1007;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rust Machine";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
@@ -351,7 +356,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1010;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Static Repeater";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
@@ -413,9 +419,10 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1013;
-				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.ActorType = ActorType.Weapon;
+				ret.ResourcePath = "Weapons/RANGED_1";
 				ret.Name = "Ranged Enemy Weapon";
+
 
 				ret.AddAbility(AbilityDataTable.RANGED_ENEMY_ATTACK);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
@@ -469,7 +476,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1015;
-				ret.ResourcePath = "Weapons/RANGED_1";
+
+				ret.ResourcePath = "Weapons/Rifle_prefab";
 				ret.ActorType = ActorType.Weapon;
 				
 				ret.Name = "Cursed Rails";
@@ -506,7 +514,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1016;
-				ret.ResourcePath = "Weapons/RANGED_1";
+
+				ret.ResourcePath = "Weapons/Rifle_prefab";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Black Ulver";
 				
@@ -569,7 +578,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1018;
-				ret.ResourcePath = "Weapons/RANGED_1";
+
+				ret.ResourcePath = "Weapons/Rifle_prefab";
 				
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Dredgling Grenade Launcher";
@@ -616,7 +626,8 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1019;
-				ret.ResourcePath = "Weapons/RANGED_1";
+
+				ret.ResourcePath = "Weapons/Rifle_prefab";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Long Barrel Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
@@ -675,7 +686,9 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1020;
-				ret.ResourcePath = "Weapons/RANGED_1";
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+				
+
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Viper Repeater";
 

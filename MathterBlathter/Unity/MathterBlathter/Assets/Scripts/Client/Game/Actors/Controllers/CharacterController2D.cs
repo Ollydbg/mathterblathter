@@ -17,8 +17,6 @@ namespace Client.Game.Actors.Controllers
 		
 
 		private Character Actor;
-		private float xScale = 1;
-		Vector3 originalScale;
 		public float horizontalAxis = 0f;
 		private Vector2 movementAccumulator = Vector2.zero;
 		private float groundedDistance;
@@ -52,8 +50,6 @@ namespace Client.Game.Actors.Controllers
 			groundedDistance = collider.bounds.extents.y;
 			rigidBody.gravityScale = GravityScalar;
 
-			originalScale = actor.GameObject.transform.localScale;
-			xScale = originalScale.x;
 		}
 
 
@@ -62,17 +58,7 @@ namespace Client.Game.Actors.Controllers
 
 		public void MoveRight (float hor)
 		{
-
-			if(hor > 0) 
-				xScale = 1 * originalScale.x;
-			else if(hor < 0)
-				xScale = -1 * originalScale.x;
-
 			horizontalAxis = hor;
-
-			var scale = Actor.GameObject.transform.localScale;
-			scale.x = xScale;
-			Actor.GameObject.transform.localScale = scale;
 
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
 
@@ -83,15 +69,6 @@ namespace Client.Game.Actors.Controllers
 		}
 
 		public void MoveDirection(Vector2 direction) {
-			if(direction.x > 0) 
-				xScale = 1 * originalScale.x;
-			else if(direction.x < 0)
-				xScale = -1 * originalScale.x;
-			
-			var scale = Actor.GameObject.transform.localScale;
-			scale.x = xScale;
-			Actor.GameObject.transform.localScale = scale;
-
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
 
 			Vector2 moveVector = direction * RunSpeed;

@@ -44,11 +44,11 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.MinJumpPower.Id, 27f
+					ActorAttributes.MinJumpPower.Id, 26f
 				)); 
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.JumpBoostFrameThresh.Id, 6
+					ActorAttributes.JumpBoostFrameThresh.Id, 7
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
