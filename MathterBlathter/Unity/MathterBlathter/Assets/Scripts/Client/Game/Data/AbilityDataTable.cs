@@ -592,16 +592,6 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData FLY_BOT_SPAWN {
-			get {
-				var ret = new AbilityData();
-				ret.Id = 27;
-				ret.spawnableDataId = CharacterDataTable.FLY_BOT.Id;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.SpawnEnemy);
-				return ret;
-			}
-		}
-
 		
 		public static AbilityData ANXIETY_REGEN_BUFF {
 			get {

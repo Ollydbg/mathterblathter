@@ -397,23 +397,7 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-		
-		
 
-		public static CharacterData FLY_BOT_CANNON {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 1012;
-				ret.ResourcePath = "Weapons/Ranged_1";
-				ret.ActorType = ActorType.Weapon;
-				ret.Name = "FLY_BOT_CANNON";
-
-				ret.AddAbility(AbilityDataTable.FLY_BOT_SPAWN);
-
-				ret.Cost = 300;
-				return ret;
-			}
-		}
 
 		public static CharacterData RANGED_ENEMY_WEAPON {
 			get {

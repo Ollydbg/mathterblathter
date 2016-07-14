@@ -236,157 +236,6 @@ namespace Client.Game.Data
 			}
 		}
 
-		
-		public static CharacterData FLY_BOT_SPAWNER_ENEMY {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 18;
-				ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
-				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
-				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
-				ret.ActorType = ActorType.Enemy;
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.MaxHealth.Id,
-					200
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Health.Id,
-					200
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id,
-					0f
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BloodBounty.Id,
-					20
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 1
-				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AIDetectionRadius.Id, 40.0f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id,
-					CharacterDataTable.FLY_BOT_CANNON.Id,
-					0
-				));
-				ret.AddAbility(AbilityDataTable.AI_BUFF);
-
-				return ret;
-			}
-		}
-
-
-		public static CharacterData GROUND_STATIC_TURRET_ENEMY {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 19;
-
-				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
-				ret.ResourcePath = "Actors/Enemies/FlyBotSpawner_prefab";
-				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.MaxHealth.Id,
-					200
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Health.Id,
-					200
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id,
-					60f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 1
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BloodBounty.Id,
-					12
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.WeaponCooldownScalar.Id, 3f
-				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AIDetectionRadius.Id, 20.0f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id,
-					CharacterDataTable.STATIC_REPEATER.Id,
-					0
-				));
-
-
-				ret.AddAbility(AbilityDataTable.AI_BUFF);
-
-				ret.AddAbility(AbilityDataTable.STATIONARY_BUFF);
-
-
-				return ret;
-			}
-		}
-
-		public static CharacterData FLY_BOT {
-			get {
-				var ret = new CharacterData();
-				ret.Id = 20;
-
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
-				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
-				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, 10
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 1
-				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AIDetectionRadius.Id, 80.0f
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id, 2f
-				));
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.WeaponCooldownScalar.Id, 3f
-				));
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.GravityScalar.Id, 0.0f
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 0
-				));
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.DropRate.Id, 0f
-				));
-
-				ret.AddAbility(AbilityDataTable.AI_BUFF);
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id,
-					CharacterDataTable.WALL_TURRET_WEAPON.Id,
-					0
-				));
-
-
-				return ret;
-			}
-		}
-
 
 		public static CharacterData ANXIETY_BALL_ENEMY {
 			get {
@@ -547,21 +396,17 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
 					ActorAttributes.BloodBounty.Id, 25
-				));;
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.WeaponCooldownScalar.Id, 1.8f
 				));
 
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.WeaponCooldownScalar.Id, 3f
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.WeaponCooldownScalar.Id, .3f
 				));
 
 				ret.AddAbility(AbilityDataTable.AI_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.VIPER_REPEATER_WEAPON.Id,
+					CharacterDataTable.RANGED_ENEMY_WEAPON.Id,
 					0
 				));
 
