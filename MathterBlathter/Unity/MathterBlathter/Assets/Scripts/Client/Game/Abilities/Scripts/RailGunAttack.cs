@@ -51,6 +51,7 @@ namespace Client.Game.Abilities.Scripts
 
 		void OnGeoHit ()
 		{
+			PlayTimeline(context.data.Timelines[3], currentProjectile.transform.position);
 			currentProjectile.Destroy();
 			aborted = true;
 		}

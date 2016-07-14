@@ -162,6 +162,9 @@ namespace Client.Game.Items
 
 		public void Update (float dt)
 		{
+			if(currentWeapon == null)
+				return;
+
 			var aim = AimDirection;
 			var angle = Vector3.Angle(aim, Vector3.right);
 

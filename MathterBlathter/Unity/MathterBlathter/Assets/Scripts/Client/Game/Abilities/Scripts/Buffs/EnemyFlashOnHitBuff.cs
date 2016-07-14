@@ -2,12 +2,13 @@
 using Client.Game.Abilities.Payloads;
 using UnityEngine;
 using System.Collections.Generic;
+using Client.Game.Actors;
 
 namespace Client.Game.Abilities.Scripts.Buffs
 {
 	public class EnemyFlashOnHitBuff : BuffBase
 	{
-		private List<MaterialColorTuple> replacements = new List<MaterialColorTuple>();
+		private List<HitActor> hitActors = new List<HitActor>();
 
 		public EnemyFlashOnHitBuff ()
 		{
@@ -20,12 +21,17 @@ namespace Client.Game.Abilities.Scripts.Buffs
 
 		public override void Update (float dt)
 		{
-			for(var i = 0; i<replacements.Count; i++ )  {
-				var repl = replacements[i];
-				repl.framesLeft = repl.framesLeft -1;;
-				if(repl.framesLeft <= 0) {
-					repl.material.SetFloat("_FlashAmount", 0f);
-					replacements.Remove(repl);
+
+			var count = hitActors.Count;
+			if(count > 0) {
+				for(var i = (count-1); i>= 0; i-- )  {
+					var repl = hitActors[i];
+					repl.framesLeft = repl.framesLeft -1;
+					if(repl.framesLeft <= 0) {
+						repl.material.SetFloat("_FlashAmount", 0f);
+						hitActors.Remove(repl);
+						repl.actor.Animator.SetIsHit(false);
+					}
 				}
 			}
 		}
@@ -44,9 +50,10 @@ namespace Client.Game.Abilities.Scripts.Buffs
 				
 				foreach( var r in renderers ) {
 					if( r is SpriteRenderer) {
-
+						
+						dp.Target.Animator.SetIsHit(true);
 						var mat = r.material;
-						replacements.Add(new MaterialColorTuple(mat, 4));
+						hitActors.Add(new HitActor(mat, 2, dp.Target));
 						mat.SetFloat("_FlashAmount", 1f);
 					} 
 				}
@@ -55,14 +62,15 @@ namespace Client.Game.Abilities.Scripts.Buffs
 			return false;
 		}
 
-		private class MaterialColorTuple {
+		private class HitActor {
 			public Material material;
 			public int framesLeft;
-			
+			public Actor actor;
 
-			public MaterialColorTuple(Material mat, int frames) {
+			public HitActor(Material mat, int frames, Actor actor) {
 				material = mat;
 				framesLeft = frames;
+				this.actor = actor;
 			}
 
 		}

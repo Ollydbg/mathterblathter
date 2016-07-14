@@ -57,7 +57,7 @@ namespace Client.Game.Data
 				ret.AsciiMap += "                                                  l                    d";
 				ret.AsciiMap += "   l                                                                  Pw";
 				ret.AsciiMap += "                                                                     ccw";
-				ret.AsciiMap += "                              @                 1   2       PPPPPPPPPPPw";
+				ret.AsciiMap += "                              @                 1           PPPPPPPPPPPw";
 				ret.AsciiMap += "fdddffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
 				ret.AsciiMap += "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff";
@@ -66,7 +66,7 @@ namespace Client.Game.Data
 				ret.MaxInstances = 1;
 				ret.SetPiece = SetPieceDataTable.INTRO;
 
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.CURSED_RAIL_GUN_WEAPON;
 				ret.AsciiSpawnLookup['2'] = CharacterDataTable.ANXIETY_DAMAGE_AOE_ITEM;
 				finalize(ret);
 
@@ -137,6 +137,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 				*/
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.NAIL_MACHINE;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
 
 
 

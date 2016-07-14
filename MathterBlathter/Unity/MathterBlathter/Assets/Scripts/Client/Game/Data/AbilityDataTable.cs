@@ -196,6 +196,10 @@ namespace Client.Game.Data
 				projectileTL.Lookup['e'] = "Projectiles/VFX/railTail_prefab";
 				ret.Timelines.Add(projectileTL);
 
+				var wallHit = new TimelineData(2f, false);
+				wallHit.AsciiMap += "eeee";
+				wallHit.Lookup['e'] = "Projectiles/VFX/railWallHit_prefab";
+				ret.Timelines.Add(wallHit);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f
@@ -752,6 +756,12 @@ namespace Client.Game.Data
 				projectileTL.AsciiMap += "eeeee";
 				projectileTL.Lookup['e'] = "Projectiles/VFX/railTail_prefab";
 				ret.Timelines.Add(projectileTL);
+
+
+				var wallHit = new TimelineData(2f, false);
+				wallHit.AsciiMap += "eeee";
+				wallHit.Lookup['e'] = "Projectiles/VFX/railWallHit_prefab";
+				ret.Timelines.Add(wallHit);
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f

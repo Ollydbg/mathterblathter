@@ -26,7 +26,6 @@ namespace Client.Game.Actors.Controllers
 		int jumpFrames = 0;
 
 		Rigidbody2D rigidBody;
-		Animator animator;
 
 		public delegate void GroundingHandler(Vector3 groundingVelocity);
 		private bool wasGrounded;
@@ -40,7 +39,6 @@ namespace Client.Game.Actors.Controllers
 		public void SetOwner(Character actor) {
 			this.Actor = actor;
 			this.rigidBody = actor.GameObject.GetComponent<Rigidbody2D>();
-			this.animator = actor.GameObject.GetComponentInChildren<Animator>();
 			this.collider = actor.GameObject.GetComponent<Collider2D>();
 
 			if(rigidBody == null) {
@@ -136,14 +134,11 @@ namespace Client.Game.Actors.Controllers
 			AddJump();
 			ConsumeMovement();
 		}
-
+			
 		void SetAnimationState (Vector2 velocity, bool grounded)
 		{
-			if(animator != null) {
-				animator.SetFloat("speed", Math.Abs(velocity.x));
-				animator.SetBool("grounded", grounded);
-			}
-			
+			this.Actor.Animator.SetGroundSpeed(Mathf.Abs(velocity.x));
+			this.Actor.Animator.SetGrounded(grounded);
 		}
 
 		void ConsumeMovement ()

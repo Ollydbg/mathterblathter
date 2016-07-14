@@ -9,17 +9,37 @@ namespace Client.Game.Animation
 
 	public class CharacterAnimator2D : IAnimator
 	{
+		
+		Animator animator;
+		private bool enabled;
+
 		public CharacterAnimator2D (Actor owner)
 		{
+			animator = owner.GameObject.GetComponentInChildren<Animator>();
+			enabled = animator != null;
 		}
 
-		#region IAnimator implementation
 
-		public void RequestState (string stateString, int activationPriority = 1, int runningPriority = 0, float startTime = 0f, int animName = 0, float animSpeed = 1f)
+		public void SetGroundSpeed (float spd)
 		{
+			if(!enabled) return;	
+			animator.SetFloat("speed", spd);
 		}
 
-		#endregion
+		public void SetIsHit (bool isHit)
+		{
+
+			if(!enabled) return;
+			animator.SetBool("isHit", isHit);
+		}
+
+		public void SetGrounded (bool grounded)
+		{
+
+			if(!enabled) return;
+			animator.SetBool("grounded", grounded);
+		}
+
 	}
 }
 

@@ -22,10 +22,12 @@ namespace Client.Game.Actors
 	
 		public override void EnterGame (Client.Game.Core.Game game)
 		{
-			
+
+			Animator = new CharacterAnimator2D(this);
 			Controller = (ICharacterController)Activator.CreateInstance(ControllerClass);
 			Controller.SetOwner(this);
 			base.EnterGame (game);
+
 		}
 
 		public override void FixedUpdate() {

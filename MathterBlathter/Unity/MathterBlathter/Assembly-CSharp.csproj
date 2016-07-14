@@ -159,7 +159,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Actors\WeaponActor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimStates.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimator2D.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Animation\CharacterAnimator3D.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\IAnimator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Animation\PriorityState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Attributes\AbilityAttributeList.cs" />
