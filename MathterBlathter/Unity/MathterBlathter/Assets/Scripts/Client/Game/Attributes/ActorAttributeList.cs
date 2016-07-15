@@ -98,7 +98,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF ControllerAimAssist = new GameAttributeF(75, 0f, "ControllerAimAssist", 0, 90f, "controller aim slop tolerance in degrees");
 		public static readonly GameAttributeB UsesAnxiety = new GameAttributeB(76, 0, "usesAnxiety", 0, 1);
 		public static readonly GameAttributeI JumpBoostFrameFloor = new GameAttributeI(77, 0, "jumpBoostFramesFloor", 0, int.MaxValue);
-
+		public static readonly GameAttributeF AIIdleRange = new GameAttributeF(78, .5f, "ai idle range", 0f, float.MaxValue);
 
 	}
 }

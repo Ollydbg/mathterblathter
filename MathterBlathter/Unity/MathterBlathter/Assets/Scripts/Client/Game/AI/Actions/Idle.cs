@@ -2,6 +2,7 @@
 using Client.Game.Actors;
 using UnityEngine;
 using Client.Utils;
+using Client.Game.Attributes;
 
 namespace Client.Game.AI.Actions
 {
@@ -16,7 +17,7 @@ namespace Client.Game.AI.Actions
 
 		float accum = 0f;
 		float frequency = .5f;
-		float range = 1f;
+		float range = 0f;
 
 		Vector2 StartPosition;
 		Vector2 GoalPosition;
@@ -24,6 +25,7 @@ namespace Client.Game.AI.Actions
 		public override void Start (Actor selfActor)
 		{
 			StartPosition = selfActor.transform.position;
+			range = selfActor.Attributes[ActorAttributes.AIIdleRange];
 
 			CreateGoal();
 
@@ -32,6 +34,7 @@ namespace Client.Game.AI.Actions
 		void CreateGoal ()
 		{
 			accum = 0f;
+
 			GoalPosition = StartPosition + new Vector2(Random.Range(-range, range), Random.Range(-range, range));
 		}
 
