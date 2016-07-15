@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SleepAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitForPlayerLOS.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitThenFire.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Brain.cs" />

@@ -205,19 +205,20 @@ namespace Client.Game.Data
 				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
 				ret.ResourcePath = "Actors/Enemies/Sniper_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.SNIPER_AI;
+				ret.AIData = AIDataTable.WANDERING_SNIPER_AI;
 				ret.Name = "Sniper";
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
 					CharacterDataTable.HOT_RAILS.Id,
 					0
 				));
+
 				ret.AddAbility(AbilityDataTable.AI_BUFF);
 				ret.AddAbility(AbilityDataTable.AIM_RAY_BUFF);
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Speed.Id,
-					.03f
+					20f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(

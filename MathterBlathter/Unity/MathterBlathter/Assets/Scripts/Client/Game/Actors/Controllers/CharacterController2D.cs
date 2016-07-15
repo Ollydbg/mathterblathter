@@ -66,12 +66,20 @@ namespace Client.Game.Actors.Controllers
 
 		}
 
-		public void MoveDirection(Vector2 direction) {
+		public void MoveDirection(Vector2 direction, bool andFace = false) {
 			float RunSpeed = Actor.Attributes[ActorAttributes.Speed];
 
 			Vector2 moveVector = direction * RunSpeed;
 
 			movementAccumulator += (moveVector * Time.deltaTime);
+
+			if(andFace) {
+				if(direction.x < 0f) 
+					Actor.FaceLeft();
+				else
+					Actor.FaceRight();
+			}
+
 		}
 
 		public void Update (float dt) {

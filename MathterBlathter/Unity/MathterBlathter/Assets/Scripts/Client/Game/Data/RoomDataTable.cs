@@ -137,7 +137,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 				*/
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.NAIL_MACHINE;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.TARGETING_DUMMY;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
 
 
 

@@ -37,14 +37,18 @@ namespace Client.Game.AI.Actions
 
 			double angle = Math.Sin(accum) * aimConstraint;
 
+
 			Vector3 aimVector = new Vector3((float)Math.Cos(angle), (float)Math.Sin(angle), 0f).normalized;
 
-			Actor hitActor;
+			if(actor.FacingLeft)
+				aimVector.x *= -1f;
+			
 
 			aimVector = actor.transform.rotation * aimVector;
 
 			actor.WeaponController.AimDirection = aimVector;
 
+			Actor hitActor;
 			var origin = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
 			if (ActorUtils.RayCastForActor(origin, aimVector, out hitActor, CastingMask)) {
 				if(hitActor.Id == actor.Game.PossessedActor.Id) {

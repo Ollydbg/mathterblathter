@@ -12,7 +12,7 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
-		public void MoveDirection (UnityEngine.Vector2 normalizedDir)
+		public void MoveDirection (UnityEngine.Vector2 normalizedDir, bool andFace = false)
 		{
 		}
 

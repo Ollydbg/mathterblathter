@@ -27,7 +27,7 @@ namespace Client.Game.Abilities.Movement
 				if(!Target.Destroyed) {
 					
 					Target.transform.position = hit.point;
-					var res = Target.TryOnTrigger(hit.collider);
+					Target.TryOnTrigger(hit.collider);
 				
 				} else {
 					return;

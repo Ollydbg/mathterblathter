@@ -221,7 +221,6 @@ namespace Client.Game.Data
 			}
 		}
 
-
 		public static AbilityData DOUBLE_SHOT {
 			get {
 				var ret = new AbilityData ();

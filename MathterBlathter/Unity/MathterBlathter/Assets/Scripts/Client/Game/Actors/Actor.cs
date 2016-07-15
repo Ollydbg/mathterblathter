@@ -48,6 +48,13 @@ namespace Client.Game.Actors
 
 		public Collider2D TerrainCollider { get; private set; }
 
+		public bool FacingRight {
+			get {
+				return GameObject.transform.localScale.x > 0f;
+			}
+		}
+		public bool FacingLeft { get { return !FacingRight; } }
+			
 		public void FaceRight() {
 			var scale = GameObject.transform.localScale;
 			if(scale.x < 0f) 
