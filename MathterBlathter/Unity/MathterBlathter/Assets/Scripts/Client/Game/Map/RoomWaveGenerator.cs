@@ -58,7 +58,7 @@ namespace Client.Game.Map
 			while(matchedDifficulty > 0) {
 				if(waveBuckets.ContainsKey(matchedDifficulty)) {
 					buffer = waveBuckets[matchedDifficulty]
-						.Where(p=>p.RestrictToZones.Count == 0 || p.RestrictToZones.Contains(zone))
+						.Where(p=>p.RestrictToZones.Count == 0 || p.RestrictToZones.Any(s => s.Id == zone.Id))
 						.ToList();
 					break;
 				} else {

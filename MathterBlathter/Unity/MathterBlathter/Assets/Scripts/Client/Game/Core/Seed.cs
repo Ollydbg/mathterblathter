@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Client.Game.Core.Random;
 
 namespace Client.Game.Core
 {
@@ -7,17 +8,18 @@ namespace Client.Game.Core
 	{
 		public int Value;
 
+		MersenneTwister Twister;
 
 		public Seed (int seedValue)
 		{
-
 			Debug.Log("Seeding with value: " + seedValue);
-			Random.seed = seedValue;
+			Twister = new MersenneTwister(seedValue);
 		}
+
 
 		public float NextFloat() {
 
-			return Random.value;
+			return Twister.GetFloat();
 
 		}
 
@@ -27,11 +29,11 @@ namespace Client.Game.Core
 		}
 
 		public float InRange(float min, float max) {
-			return Random.Range(min, max);
+			return Twister.GetFloat(min, max);
 		}
 
 		public int Next(int max) {
-			return Random.Range(0, max);
+			return Twister.GetInt(0, max - 1);
 		}
 
 		public List<T> TakeFromList<T>(List<T> items, int num) {

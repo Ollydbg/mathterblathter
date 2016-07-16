@@ -37,7 +37,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 1;
 				return ret;
@@ -55,7 +55,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 2;
 				return ret;
@@ -73,7 +73,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 6;
 				return ret;
@@ -94,7 +94,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
 				ret.Difficulty = 8;
@@ -111,7 +111,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
 				ret.Difficulty = 5;
@@ -129,7 +129,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 9;
 				return ret;
@@ -146,7 +146,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 12;
 				return ret;
@@ -162,7 +162,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
 				ret.Difficulty = 10;
@@ -185,7 +185,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 14;
 				return ret;
@@ -204,7 +204,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
-				ret.RestrictToZones.Add(MapDataTable.Map1.Zones[0]);
+				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 				ret.Difficulty = 17;
 				return ret;

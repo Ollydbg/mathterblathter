@@ -168,6 +168,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Attributes\GameAttribute.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Core\Game.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Core\GameManagerProxy.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Core\Random\MersenneTwister.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Core\Seed.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\AIData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\AIDataTable.cs" />
@@ -202,6 +203,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WeaponDataTable.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\ZoneDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\AbilitySlots.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\ActorState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\AttachPoint.cs" />

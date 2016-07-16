@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Client.Game.Data
 {
-	using ZReq = ZoneData.Requirement;
 	
 	public static class MapDataTable
 	{
@@ -30,71 +29,12 @@ namespace Client.Game.Data
 				ret.Id = 1;
 				ret.ReadScale = 1f;
 
-				var debugZone = new ZoneData();
-				debugZone.Mute = true;
-				debugZone.Name = "Debug Zone";
-				debugZone.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
-				debugZone.DrawColor = new Color(.45f, .33f, .40f);
-				debugZone.MaxRooms = 1;
-				ret.Zones.Add(debugZone);
-				
-
-
-				var zone1 = new ZoneData();
-				zone1.Id = 0;
-				zone1.Name = "New Parish";
-				zone1.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
-				zone1.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone1.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
-				zone1.DrawColor = new Color(.45f, .33f, .40f);
-				zone1.MaxRooms = 25;
-				zone1.Difficulty = 10;
-				ret.Zones.Add(zone1);
-
-
-				var z1b = new ZoneData();
-				z1b.Id = 1;
-				z1b.MaxRooms = 1;
-				z1b.Name = "Prophet 5";
-				z1b.Requirements.Add(new ZReq(RoomDataTable.BOSS_FIGHT_1, 1, ZoneData.Occurance.Guaranteed));
-				z1b.DrawColor = new Color(.65f, .23f, .30f);
-				
-				ret.Zones.Add(z1b);
-
-
-
-				var zone2 = new ZoneData();
-				zone2.Id = 2;
-				zone2.Name = "The Vestry";
-				zone2.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
-				zone2.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone2.MaxRooms = 20;
-				zone2.DrawColor = new Color(.55f, .43f, .20f);
-				zone2.Difficulty = 20;
-				ret.Zones.Add(zone2);
-
-
-				var zone3 = new ZoneData();
-				zone3.Id = 4;
-				zone3.Name = "Power Center";
-				zone3.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
-				zone3.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone3.MaxRooms = 20;
-				zone3.DrawColor = new Color(.65f, .33f, .20f);
-				zone3.Difficulty = 30;
-				ret.Zones.Add(zone3);
-
-
-
-				var zone4 = new ZoneData();
-				zone4.Id = 6;
-				zone4.Name = "The Lab";
-				zone4.Requirements.Add(new ZReq(RoomType.Normal, 15, ZoneData.Occurance.Guaranteed));
-				zone4.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				zone4.DrawColor = new Color(.25f, .53f, .30f);
-				zone4.Difficulty = 40;
-				zone4.MaxRooms = 20;
-				ret.Zones.Add(zone4);
+				ret.Zones.Add(ZoneDataTable.DEBUG_ZONE);
+				ret.Zones.Add(ZoneDataTable.ZONE_1);
+				ret.Zones.Add(ZoneDataTable.ZONE_1_BOSS);
+				ret.Zones.Add(ZoneDataTable.ZONE_2);
+				ret.Zones.Add(ZoneDataTable.ZONE_3);
+				ret.Zones.Add(ZoneDataTable.ZONE_4);
 
 
 				return ret;
