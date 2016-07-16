@@ -117,7 +117,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                    L    l          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
-                ret.AsciiMap += "w                                .................1.....       w";
+                ret.AsciiMap += "w     1                          .......................       w";
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);

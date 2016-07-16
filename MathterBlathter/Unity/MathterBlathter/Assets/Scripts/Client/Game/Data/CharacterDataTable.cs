@@ -218,7 +218,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Speed.Id,
-					20f
+					40f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -233,6 +233,16 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id,
 					30f
 				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AIIdleRange.Id, 15f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AISleepTime.Id, 5f
+				));
+
+
 				return ret;
 			}
 		}

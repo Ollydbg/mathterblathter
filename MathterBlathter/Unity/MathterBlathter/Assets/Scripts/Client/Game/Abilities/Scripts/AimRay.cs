@@ -14,6 +14,18 @@ namespace Client.Game.Abilities.Scripts
 		{
 		}
 
+
+		private static int _castingMask = -1;
+		public static int CastingMask {
+			get {
+				if(_castingMask == -1) {
+					_castingMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
+
+				}
+				return _castingMask;
+			}
+		}
+
 		#region implemented abstract members of AbilityBase
 		LineRenderer lr;
 		public override void Start ()
@@ -28,9 +40,17 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Update (float dt)
 		{
+
 			Vector3 origin = PointOnActor(AttachPoint.Muzzle, context.source);
+			var hit = Physics2D.Raycast(origin, context.source.WeaponController.AimDirection, 100f, CastingMask);
 			lr.SetPosition(0, origin);
-			lr.SetPosition(1, origin + context.source.WeaponController.AimDirection * 100f);
+
+			if(hit.transform != null) {
+				lr.SetPosition(1, hit.point);
+				
+			} else {
+				lr.SetPosition(1, origin + context.source.WeaponController.AimDirection * 100f);
+			}
 		}
 
 

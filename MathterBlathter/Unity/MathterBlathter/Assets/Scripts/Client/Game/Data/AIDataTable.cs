@@ -114,6 +114,26 @@ namespace Client.Game.Data
 
 			}   
 		}
+
+		public static AIData HUNTING_SNIPER_AI {
+			get {
+				var ret = new AIData();
+				ret.Name = "Pathinf Sniper AI";
+
+				ret.ActionData = new ActionData(
+					typeof(PathToPlayer)
+				).Then(
+					typeof(AimAtPlayerAction)
+				).Then(
+					typeof(WaitThenFire)	
+				);
+
+
+				return ret;
+
+			}   
+		}
+
         
         public static AIData FIRING_FIXTURE_AI {
             get {

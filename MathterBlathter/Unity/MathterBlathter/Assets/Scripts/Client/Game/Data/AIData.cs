@@ -20,6 +20,8 @@ namespace Client.Game.Data
 		
 		public Type Action;
 		public ActionData Next;
+		public ActionData FailAction;
+
 		public ActionData(){}
 		public ActionData(Type action) {
 			Action = action;
@@ -58,6 +60,11 @@ namespace Client.Game.Data
 				act = act.Next;
 			
 			act.Next = data;
+			return this;
+		}
+
+		public ActionData Else(ActionData data) {
+			this.FailAction = data;
 			return this;
 		}
 
