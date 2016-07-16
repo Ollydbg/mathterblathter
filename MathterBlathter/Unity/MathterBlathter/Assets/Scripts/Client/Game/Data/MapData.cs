@@ -25,7 +25,8 @@ namespace Client.Game.Data
 
 		public bool Solo;
 		public bool Mute;
-
+		
+		public int Difficulty;
 		public int MaxRooms;
 		public int MinX = int.MinValue;
 		public int MaxX = int.MaxValue;

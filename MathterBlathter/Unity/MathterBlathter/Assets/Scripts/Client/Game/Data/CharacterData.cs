@@ -33,8 +33,6 @@ namespace Client.Game.Data
 		public string Description;
 		public PickupType PickupType;
 
-
-
 		public void AddAbility(AbilityData ability) {
 			AddIndexed(ability, ActorAttributes.Abilities);
 		}

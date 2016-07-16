@@ -21,7 +21,8 @@ namespace Client.Game.Abilities.Scripts.Buffs
 		void OnRoomUnlocked (Room room)
 		{
 			//make the game harder
-			context.targetActor.Attributes[ActorAttributes.WaveDifficulty] += this.Attributes[ActorAttributes.RoomUnlockDifficultyIncr];
+			context.targetActor.Attributes[ActorAttributes.RoomDifficulty] += this.Attributes[ActorAttributes.RoomUnlockDifficultyIncr];
+			
 		}
 
 		public override void Update (float dt)

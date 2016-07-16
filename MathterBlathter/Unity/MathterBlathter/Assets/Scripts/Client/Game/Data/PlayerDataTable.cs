@@ -18,7 +18,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Player/Player_prefab";
 				ret.ActorType = ActorType.Player;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Speed.Id, 1400f
+					ActorAttributes.Speed.Id, 1200f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.PassesThroughPlatforms.Id, 1
@@ -71,7 +71,7 @@ namespace Client.Game.Data
 					ActorAttributes.Inaccuracy.Id, 2f
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.WaveDifficulty.Id, 4
+					ActorAttributes.WaveDifficulty.Id, 0
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (

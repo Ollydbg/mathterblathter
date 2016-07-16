@@ -3,6 +3,8 @@ using Client.Game.Data;
 using System.Collections.Generic;
 using UnityEngine;
 using Client.Game.Data.Ascii;
+using Client.Game.Actors;
+using Client.Game.Attributes;
 
 namespace Client.Game.Map
 {
@@ -69,7 +71,7 @@ namespace Client.Game.Map
 			return buffer;
 		}
 
-		public GeneratedWave Generate(Room room, int difficulty) {
+		public GeneratedWave Generate(Room room, Actor forActor) {
 			
 			var extractor = new AsciiMeshExtractor(room.data.AsciiMap);
 			AirCoords = extractor.getAllMatching(AsciiConstants.AIR_SPAWN);
@@ -78,8 +80,9 @@ namespace Client.Game.Map
 
 			GeneratedWave waveHead = null;
 			GeneratedWave tail = null;
-			
-			foreach( var wave in GetRoomWaves(room, difficulty)) {
+			var extraDifficulty = forActor.Attributes[ActorAttributes.WaveDifficulty];
+
+			foreach( var wave in GetRoomWaves(room, extraDifficulty)) {
 				
 				var newWave = new GeneratedWave();
 				newWave.WaveData = wave;
@@ -113,10 +116,11 @@ namespace Client.Game.Map
 			return waveHead;
 		}
 
-		private List<WaveData> GetRoomWaves(Room room, int difficulty) {
+		private List<WaveData> GetRoomWaves(Room room, int actorDifficulty) {
 			var buff = new List<WaveData>();
 			
-			
+			var difficulty = room.Zone.Difficulty + actorDifficulty;
+
 			while(difficulty > 0) {
 				Debug.Log("Generating for difficulty: " + difficulty);
 				var waves = WavesForDifficulty(difficulty, room.Zone, out difficulty);
