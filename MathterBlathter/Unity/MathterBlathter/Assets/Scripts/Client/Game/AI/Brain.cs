@@ -39,8 +39,7 @@ namespace Client.Game.AI
 				if(result == AIResult.Failure) {
 					CurrentAction.End();
 					//Log("Action {0} was a Failure, moving to Head action: {1}", CurrentAction, Head);
-					//this should probably go back to logical parent
-					CurrentAction = Head;
+					CurrentAction = CurrentAction.FailureCase;
 					CurrentAction.Start(Self);
 				}
 				
@@ -65,7 +64,7 @@ namespace Client.Game.AI
 				AIAction seqHead = null;
 				foreach( var actData in data.Sequence) {
 					
-					var seqAction = RecurseData(actData, seqHead == null ? logicalHead : seqHead);
+					var seqAction = RecurseData(actData, seqHead ?? logicalHead);
 
 					if(seqHead == null) 
 						seqHead = seqAction;
@@ -75,7 +74,11 @@ namespace Client.Game.AI
 				seq.LocalHead = logicalHead ?? seq;
 
 				if(data.Next != null) {
-					seq.Next = RecurseData(data.Next, logicalHead);
+					seq.Next = RecurseData(data.Next, seq.LocalHead);
+				}
+
+				if(data.FailAction != null) {
+					seq.FailureCase = RecurseData(data.FailAction, seq.LocalHead);
 				}
 
 				return seq;	
@@ -90,6 +93,10 @@ namespace Client.Game.AI
 
 			if(data.Next != null) {
 				brainAction.Next = RecurseData(data.Next, logicalHead);
+			}
+
+			if(data.FailAction != null) {
+				brainAction.FailureCase = RecurseData(data.FailAction, logicalHead);
 			}
 
 			return brainAction;

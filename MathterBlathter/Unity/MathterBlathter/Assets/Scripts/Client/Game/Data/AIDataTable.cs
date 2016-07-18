@@ -64,11 +64,15 @@ namespace Client.Game.Data
 						typeof(WaitForPlayerLOS)
 						}
 				).Then (
-						new ActionData(new Type[]{
-							typeof(FireAtPlayer), 
-							typeof(CheckPlayerLOS)})
+					new ActionData(new Type[]{
+						typeof(WaitAction),
+						typeof(FireAtPlayer), 
+						typeof(CheckPlayerLOS)})
+					.Else(
+						typeof(PathToPlayer)
+					)
 				);
-				
+
 				return ret;
 			}
 		}

@@ -81,6 +81,7 @@ namespace Client.Game.Core
 
 
 		public void Update(float dt) {
+			
 			if(skipTime > 0f) {
 				skipTime-= Time.unscaledDeltaTime;
 			} else {

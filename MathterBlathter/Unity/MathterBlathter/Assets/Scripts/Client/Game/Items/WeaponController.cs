@@ -117,7 +117,7 @@ namespace Client.Game.Items
 			if(ActiveLookup.Count == Owner.Attributes[ActorAttributes.MaxWeapons])
 				RemoveWeapon(currentWeapon);
 
-			actor.transform.parent = GetAttachTransform(AttachPoint.WeaponSlot);
+			ActorUtils.ParentToActor(Owner, actor, AttachPoint.WeaponSlot);
 			actor.transform.localPosition = WeaponForward;
 
 			//if actor is facing left, we need to flip the scale of our transform! SO WEAK!
@@ -149,15 +149,6 @@ namespace Client.Game.Items
 			if(OnLoadoutChanged != null) {
 				OnLoadoutChanged(currentWeapon, ActiveLookup);
 			}
-		}
-
-		private Transform GetAttachTransform(AttachPoint pt) {
-			foreach( var ap in Owner.GameObject.GetComponentsInChildren<AttachPointComponent>()) {
-				if(ap.Type == pt) {
-					return ap.transform; 
-				}
-			}
-			return Owner.transform;
 		}
 
 		public void Update (float dt)

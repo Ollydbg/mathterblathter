@@ -105,10 +105,10 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                         w                           pppppppppw";
                 ret.AsciiMap += "w                         w                                    w";
                 ret.AsciiMap += "w                         w                                    w";
-				ret.AsciiMap += "w                         w                                    w";
+				ret.AsciiMap += "w        1                w                                    w";
 				ret.AsciiMap += "wPPPP                     w                   PPPPPP           w";
                 ret.AsciiMap += "w                         w                                    w";
-                ret.AsciiMap += "w                PPPPPPPPPPPP                                  w";
+                ret.AsciiMap += "wppppppppppppppppPPPPPPPPPPPP                                  w";
                 ret.AsciiMap += "w                                                       pppppppw";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
@@ -117,7 +117,7 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                      PPPP                    L    l          w";
                 ret.AsciiMap += "w                      PPPP                                    w";
 				ret.AsciiMap += "w                            C                                 w";
-                ret.AsciiMap += "w     1                          .......................       w";
+                ret.AsciiMap += "w                                .......................       w";
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
@@ -137,7 +137,7 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 				*/
 				ret.AsciiSpawnLookup['C'] = CharacterDataTable.NAIL_MACHINE;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.RAIL_SNIPER_ENEMY;
+				ret.AsciiSpawnLookup['1'] = CharacterDataTable.ANXIETY_BALL_ENEMY;
 
 
 

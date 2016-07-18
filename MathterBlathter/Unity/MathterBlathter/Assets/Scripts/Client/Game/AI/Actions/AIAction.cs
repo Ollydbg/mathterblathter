@@ -17,6 +17,7 @@ namespace Client.Game.AI
 		public abstract AIResult Update(float dt, Character actor);
 
 		private AIAction _next;
+		private AIAction _else;
 		public AIAction Next {
 			get {
 				return _next ?? LocalHead;
@@ -24,6 +25,16 @@ namespace Client.Game.AI
 				_next = value;
 			}
 		}
+
+		public AIAction FailureCase {
+			get {
+				return _else ?? LocalHead;
+			}
+			set {
+				_else = value;
+			}
+		}
+
 		public AIAction LocalHead;
 
 		internal bool inAbilityRange(Vector3 distanceVec, Character selfActor) {

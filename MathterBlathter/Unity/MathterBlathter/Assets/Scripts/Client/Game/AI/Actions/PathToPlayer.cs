@@ -47,6 +47,9 @@ namespace Client.Game.AI.Actions
 
 			if((repathAccum >= REPATH_DELAY) || forceRepath) {
 				Repath();
+
+				if(Agent.PathNodes.Length == 0) 
+					return AIResult.Failure;
 			}
 
 
@@ -58,7 +61,7 @@ namespace Client.Game.AI.Actions
 
 	public class PathingAgent {
 		
-		Vector3[] PathNodes;
+		public Vector3[] PathNodes;
 		int index = 0;
 		public Action OnPathAdvance;
 		public Vector3 CurrentNode {

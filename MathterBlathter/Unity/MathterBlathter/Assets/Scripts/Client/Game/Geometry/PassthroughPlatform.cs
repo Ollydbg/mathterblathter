@@ -50,8 +50,9 @@ namespace Client.Game.Geometry
 			GameObject.Destroy(go.GetComponent<Collider2D>());
 
 			var effector = go.AddComponent<PlatformEffector2D>();
+			effector.useColliderMask = false;
 			var pt = go.AddComponent<PassthroughPlatform>();
-
+			
 
 			var trigger = go.AddComponent<BoxCollider2D>();
 			trigger.isTrigger = true;
@@ -64,6 +65,7 @@ namespace Client.Game.Geometry
 			collider.size = collider.size;
 			pt.Collider = collider;
 			pt.Effector = effector;
+			
 		}
 	}
 }
