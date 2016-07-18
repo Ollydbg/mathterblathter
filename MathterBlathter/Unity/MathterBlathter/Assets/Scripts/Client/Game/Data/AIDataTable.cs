@@ -94,25 +94,26 @@ namespace Client.Game.Data
                 var ret = new AIData();
                 ret.Name = "Sniper AI";
                 ret.ActionData = new ActionData(typeof(AimScanForPlayer));
-                ret.ActionData.Next = new ActionData(typeof(WaitThenFire));
+                ret.ActionData.Next = new ActionData(typeof(WaitThenFireIfLOS));
                 return ret;
-                
             }   
         }
 
 		public static AIData WANDERING_SNIPER_AI {
 			get {
 				var ret = new AIData();
-				ret.Name = "Pathinf Sniper AI";
+				ret.Name = "Pathing Sniper AI";
 
 				ret.ActionData = new ActionData(new Type[]{
 					typeof(PatrolAction),
-					typeof(AimScanForPlayer),
-					typeof(WaitForPlayerLOS),
+					typeof(AimScanForPlayer)
 					}
-				).Then(
-					typeof(WaitThenFire)
+				).Then(typeof(WaitForAimLock))
+						.Then(typeof(WaitAction))
+							.Then(typeof(FireAimingWhileAimedAtPlayer)
+
 				);
+
 
 				return ret;
 
@@ -129,7 +130,7 @@ namespace Client.Game.Data
 				).Then(
 					typeof(AimAtPlayerAction)
 				).Then(
-					typeof(WaitThenFire)	
+					typeof(WaitThenFireIfLOS)	
 				);
 
 

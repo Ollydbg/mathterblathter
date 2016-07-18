@@ -218,12 +218,21 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Speed.Id,
-					40f
+					200f//40f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.DamageScalar.Id, .25f
 				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AILockOnTime.Id, .75f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AISleepTime.Id, .5f
+				));
+
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
@@ -236,10 +245,6 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.AIIdleRange.Id, 15f
-				));
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.AISleepTime.Id, 5f
 				));
 
 

@@ -100,7 +100,7 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI JumpBoostFrameFloor = new GameAttributeI(77, 0, "jumpBoostFramesFloor", 0, int.MaxValue);
 		public static readonly GameAttributeF AIIdleRange = new GameAttributeF(78, .5f, "ai idle range", 0f, float.MaxValue);
 		public static readonly GameAttributeF AISleepTime = new GameAttributeF(79, 1f, "ai sleep time", 0, float.MaxValue);
-
+		public static readonly GameAttributeF AILockOnTime = new GameAttributeF(80, .5f, "ai lock on time", 0, float.MaxValue);
 
 	}
 }

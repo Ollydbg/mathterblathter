@@ -10,16 +10,7 @@ namespace Client.Game.AI.Actions
 	public class AimScanForPlayer : AIAction
 	{
 		
-		private static int _castingMask = -1;
-		public static int CastingMask {
-			get {
-				if(_castingMask == -1) {
-					_castingMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
-						
-				}
-				return _castingMask;
-			}
-		}
+
 		public AimScanForPlayer ()
 		{
 		}
@@ -48,14 +39,9 @@ namespace Client.Game.AI.Actions
 
 			actor.WeaponController.AimDirection = aimVector;
 
-			Actor hitActor;
-			var origin = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
-			if (ActorUtils.RayCastForActor(origin, aimVector, out hitActor, CastingMask)) {
-				if(hitActor.Id == actor.Game.PossessedActor.Id) {
-					return AIResult.Success;
-				}
-			}
-
+			if(IsAimedAtPlayer(actor))
+				return AIResult.Success;
+			
 			return AIResult.Running;	
 
 		}
@@ -64,8 +50,7 @@ namespace Client.Game.AI.Actions
 	}
 
 
-	//this is a poor substitute for our tree not having sequencing functions!
-	public class FireAimingDirectionAtPlayer : FireAimingDirection {
+	public class FireAimingDirectionAtPlayer : FireAimingContinuous {
 		
 		public override AIResult Update (float dt, Character actor)
 		{
@@ -86,8 +71,6 @@ namespace Client.Game.AI.Actions
 			}
 			return false;
 		}
-
-
 
 	}
 }

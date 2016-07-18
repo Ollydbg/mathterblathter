@@ -4,6 +4,8 @@ using UnityEngine;
 using Client.Game.Attributes;
 using System.Collections.Generic;
 using Client.Game.Map;
+using Client.Game.Enums;
+using Client.Game.Utils;
 
 namespace Client.Game.AI
 {
@@ -13,6 +15,17 @@ namespace Client.Game.AI
 	{
 		public virtual void Start(Actor selfActor) {}
 		public virtual void End(){}
+
+		private static int _castingMask = -1;
+		public static int CastingMask {
+			get {
+				if(_castingMask == -1) {
+					_castingMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Player.ToString()});
+
+				}
+				return _castingMask;
+			}
+		}
 
 		public abstract AIResult Update(float dt, Character actor);
 
@@ -76,6 +89,19 @@ namespace Client.Game.AI
 				return Vector3.down;
 		}
 		
+
+		internal bool IsAimedAtPlayer(Actor actor) {
+
+			Actor hitActor;
+			var origin = AttachPointComponent.AttachPointPositionOnActor(AttachPoint.Muzzle, actor);
+			if (ActorUtils.RayCastForActor(origin, actor.WeaponController.AimDirection, out hitActor, CastingMask)) {
+				if(hitActor.Id == actor.Game.PossessedActor.Id) {
+					return true;
+				}
+			}
+			return false;
+
+		}
 
 		internal void FaceTarget3D(Character selfActor, Vector3 target) {
 
