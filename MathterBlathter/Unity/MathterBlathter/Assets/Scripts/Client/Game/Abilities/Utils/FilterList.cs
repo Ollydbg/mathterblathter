@@ -26,7 +26,12 @@ namespace Client.Game.Abilities.Utils
 
 		public static FilterList QuickFilters {
 			get {
-				return new FilterList(Filters.NotSelfFilter, Filters.Hittable, Filters.NotPendingDelete);
+				return new FilterList(
+					Filters.NotOwnTeam,
+					//Filters.NotSelfFilter,
+					Filters.Hittable,
+					Filters.NotPendingDelete
+				);
 			}
 		}
 
@@ -35,6 +40,11 @@ namespace Client.Game.Abilities.Utils
 	}
 
 	public static class Filters {
+
+		public static bool NotOwnTeam(AbilityContext ctx, Actor actor) {
+			return ctx.source.Attributes[ActorAttributes.TeamID] != actor.Attributes[ActorAttributes.TeamID];
+		}
+
 		public static bool NotSelfFilter(AbilityContext ctx, Actor actor) {
 			return actor.Id != ctx.source.Id;
 		}
@@ -49,6 +59,8 @@ namespace Client.Game.Abilities.Utils
 		public static bool NotPendingDelete(AbilityContext ctx, Actor actor) {
 			return !actor.Destroyed;
 		}
+
+
 	}
 
 }

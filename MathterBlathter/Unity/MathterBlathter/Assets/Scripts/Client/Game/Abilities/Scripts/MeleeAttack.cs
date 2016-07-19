@@ -65,7 +65,8 @@ namespace Client.Game.Abilities.Scripts
 		{
 			if(SourceWeapon.Attributes[ActorAttributes.ReflectsProjectiles]) {
 				var reflected = Vector3.Reflect(projectileActor.Movement.Heading(), context.targetDirection);
-				projectileActor.Movement.Redirect(reflected);
+				projectileActor.Redirect(reflected, context.source.Attributes[ActorAttributes.TeamID]);
+
 				projectileActor.Point(reflected);
 				projectileActor.SetCollisionFilters(projectileActor.Context, RedirectedProjectile);
 			} else {

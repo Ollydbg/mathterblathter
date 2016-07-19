@@ -90,12 +90,14 @@ namespace Client.Game.Data
 					ActorAttributes.JumpBoostFrameFloor.Id,
 					3
 				));
-					
-
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.UsesAnxiety.Id,
 					1
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.TeamID.Id, 1
 				));
 
 

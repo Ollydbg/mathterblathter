@@ -23,8 +23,8 @@ namespace Client.Game.Actors
 
 		private static string PROJECTILES_LAYER = Layers.Projectiles.ToString();
 		private static int HARD_GEOMETRY_LAYER = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
-
 		public BaseMovement Movement;
+		public int TeamId;
 
 		public ProjectileActor ()
 		{
@@ -50,6 +50,7 @@ namespace Client.Game.Actors
 
 		public void SetCollisionFilters(AbilityContext context, FilterList filters) {
 			this.Context = context;
+			this.TeamId = Context.source.Attributes[ActorAttributes.TeamID];
 			this.collisionFilters = filters;
 		}
 
@@ -73,7 +74,7 @@ namespace Client.Game.Actors
 			var actorRef = collider.GetComponent<ActorRef>();
 			if (actorRef != null) {
 				
-				if (collisionFilters.Check(Context, actorRef.Actor)) {
+				if (teamOk(actorRef.Actor) && collisionFilters.Check(Context, actorRef.Actor)) {
 					actor = actorRef.Actor;
 					return TriggerTestResult.Ok;
 				}
@@ -82,6 +83,16 @@ namespace Client.Game.Actors
 			actor = null;
 
 			return TriggerTestResult.Bad;
+		}
+
+		public void Redirect(Vector3 newDirection, int teamId) {
+			Movement.Redirect(newDirection);
+			this.TeamId = teamId;
+		}
+
+		bool teamOk (Actor actor)
+		{
+			return actor.Attributes[ActorAttributes.TeamID] != TeamId;
 		}
 
 		public TriggerTestResult TryOnTrigger (Collider2D Collider)
