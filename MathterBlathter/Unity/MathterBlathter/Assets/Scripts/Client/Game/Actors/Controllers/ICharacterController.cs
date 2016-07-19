@@ -14,6 +14,7 @@ namespace Client.Game.Actors.Controllers
 		void KnockDirection(Vector2 direction, float force);
 		void FixedUpdate();
 		void SetOwner(Character owner);
+		void MoveTo(Vector2 position);
 
 		bool Ducking {
 			get; set;

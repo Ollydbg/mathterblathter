@@ -17,6 +17,20 @@ namespace Client.Game.Managers
 		Vector3 shakeAccum = Vector3.zero;
 		public float shakeScalar = 2f;
 		PlayerCharacter Player;
+
+		Transform OverrideTarget;
+		public bool Overridden {
+			get {
+				return OverrideTarget != null;
+			}
+		}
+		public void SetOverrideTarget(Transform target) {
+			OverrideTarget = target;
+		}
+		public void ClearOverrideTarget() {
+			OverrideTarget = null;
+		}
+
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
 			Player = player;
@@ -29,7 +43,7 @@ namespace Client.Game.Managers
 
 		Vector3 goalPosition {
 			get {
-
+				
 				if (TargetTransform != null) {
 
 					var room = Rooms.CurrentRoom;
@@ -42,17 +56,23 @@ namespace Client.Game.Managers
 					var minY = vExtent + room.Y;
 					var maxY = minY + room.Height - 2*vExtent;
 
-					var lookBias = Player.WeaponController.AimDirection * 4f;
+					Vector3 position;
+					if(!Overridden) {
 
-					var aa = TargetTransform.position;
-					var bb = aa + lookBias;
+						var lookBias = Player.WeaponController.AimDirection * 4f;
+					
+						var aa = TargetTransform.position;
+						position = aa + lookBias;
+					} else {
+						position = OverrideTarget.position;
+					}
 
 					if(maxX < minX) maxX = minX;
 					if(maxY < minY) maxY = minY;
 
 					return new Vector3 (
-						Mathf.Clamp(bb.x, minX, maxX), 
-						Mathf.Clamp(bb.y, minY, maxY), 
+						Mathf.Clamp(position.x, minX, maxX), 
+						Mathf.Clamp(position.y, minY, maxY), 
 						transform.position.z);
 				} else {
 					return transform.position;

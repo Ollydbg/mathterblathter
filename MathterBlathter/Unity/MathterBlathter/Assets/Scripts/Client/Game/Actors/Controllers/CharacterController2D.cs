@@ -202,6 +202,10 @@ namespace Client.Game.Actors.Controllers
 			}
 		}
 
+		public void MoveTo (Vector2 position)
+		{
+			rigidBody.position = position;
+		}
 
 	}
 

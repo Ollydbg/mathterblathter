@@ -30,6 +30,7 @@ namespace Client.Game.States
 			tmp.Add(Game.Instance.CameraManager);
 			tmp.Add(Game.Instance.WorldFXManager);
 			tmp.Add(Game.Instance.UIManager);
+			tmp.Add(Game.Instance.MusicManager);
 
 			TickManagers = tmp.ToArray();
 

@@ -28,6 +28,7 @@ namespace Client.Game.Core
 		public UIManager UIManager;
 		public WorldFXManager WorldFXManager;
 		public FSM States;
+		public MusicManager MusicManager;
 
 		public AudioMixer AudioMixer;
 
@@ -71,6 +72,8 @@ namespace Client.Game.Core
 			CameraManager = new CameraManager();
 			UIManager = new UIManager(this);
 			WorldFXManager = new WorldFXManager();
+			MusicManager = new MusicManager();
+
 		}
 
 		public void Restart ()

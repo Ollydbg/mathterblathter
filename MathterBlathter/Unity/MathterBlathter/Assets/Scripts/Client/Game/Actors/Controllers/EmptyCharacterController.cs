@@ -42,6 +42,10 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void MoveTo (UnityEngine.Vector2 position)
+		{
+		}
+
 		public bool Ducking {
 			get; set;
 		}
