@@ -29,6 +29,7 @@ namespace Client.Game.Core
 		public WorldFXManager WorldFXManager;
 		public FSM States;
 		public MusicManager MusicManager;
+		public GameManagerProxy MonoProxy;
 
 		public AudioMixer AudioMixer;
 
@@ -36,8 +37,9 @@ namespace Client.Game.Core
 			get; private set;
 		}
 
-		public Game ()
+		public Game (GameManagerProxy proxy)
 		{
+			MonoProxy = proxy;
 			Instance = this;
 			Init();
 		}

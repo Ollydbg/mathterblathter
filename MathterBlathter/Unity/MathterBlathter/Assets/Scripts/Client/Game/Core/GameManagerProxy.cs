@@ -18,7 +18,8 @@ namespace Client.Game.Core
 		Game Game;
 
 		void Awake() {
-			Game = new Game();
+			Game = new Game(this);
+
 		}
 
 		void Start() {

@@ -76,7 +76,7 @@ namespace Client.Game.Managers
 		{
 			EnterRoom(player, Rooms[0]);
 			//this is some bullshit, but the door triggers invoke when created on the same frame as the player
-			player.GameObject.GetComponent<ActorRef>().StartCoroutine(LateInit());
+			player.Game.MonoProxy.StartCoroutine(LateInit());
 		
 			//var bossRoom = RoomsOfType(RoomType.Boss)[0];
 			//Pathfinder.FirstDoorToRoom(Rooms[0], bossRoom);
