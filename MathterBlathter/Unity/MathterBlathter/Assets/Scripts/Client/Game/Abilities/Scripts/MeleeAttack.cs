@@ -11,7 +11,6 @@ namespace Client.Game.Abilities.Scripts
 	public class MeleeAttack : AbilityBase
 	{
 		private FilterList AttackFilters;
-		private FilterList RedirectedProjectile;
 		public MeleeAttack ()
 		{
 			AttackFilters = new FilterList(
@@ -20,9 +19,6 @@ namespace Client.Game.Abilities.Scripts
 				Filters.NotPendingDelete
 			);
 
-			RedirectedProjectile = new FilterList(
-				Filters.Hittable, Filters.NotPendingDelete
-			);
 		}
 
 		public static bool HittableOrProjectile(AbilityContext ctx, Actor actor) {
@@ -65,10 +61,11 @@ namespace Client.Game.Abilities.Scripts
 		{
 			if(SourceWeapon.Attributes[ActorAttributes.ReflectsProjectiles]) {
 				var reflected = Vector3.Reflect(projectileActor.Movement.Heading(), context.targetDirection);
-				projectileActor.Redirect(reflected, context.source.Attributes[ActorAttributes.TeamID]);
+
+				projectileActor.Redirect(reflected, FilterList.RedirectedProjectile, context.source.Attributes[ActorAttributes.TeamID]);
 
 				projectileActor.Point(reflected);
-				projectileActor.SetCollisionFilters(projectileActor.Context, RedirectedProjectile);
+			
 			} else {
 				projectileActor.Destroy();
 			}

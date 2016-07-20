@@ -35,6 +35,14 @@ namespace Client.Game.Abilities.Utils
 			}
 		}
 
+		public static FilterList RedirectedProjectile {
+			get {
+				return new FilterList(
+					Filters.Hittable, Filters.NotPendingDelete
+				);
+			}
+		}
+
 
 
 	}

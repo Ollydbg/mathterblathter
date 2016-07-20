@@ -85,13 +85,15 @@ namespace Client.Game.Actors
 			return TriggerTestResult.Bad;
 		}
 
-		public void Redirect(Vector3 newDirection, int teamId) {
+		public void Redirect(Vector3 newDirection, FilterList filters, int teamId) {
 			Movement.Redirect(newDirection);
+			this.collisionFilters = filters;
 			this.TeamId = teamId;
 		}
 
 		bool teamOk (Actor actor)
 		{
+			
 			return actor.Attributes[ActorAttributes.TeamID] != TeamId;
 		}
 
