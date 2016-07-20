@@ -32,8 +32,9 @@ namespace Client.Game.SetPieces
 
 		void Awake(){}
 		void Start() {
-			//jetStartingPos = Jet.transform.position;
-			//jetUp = Jet.transform.up;
+			jetStartingPos = Jet.transform.position;
+			jetUp = Jet.transform.up;
+			Jet.SetActive(false);
 			Game.Instance.PossessedActor.GameObject.SetActive(false);
 		}
 		void CameraTrack() {
@@ -67,6 +68,7 @@ namespace Client.Game.SetPieces
 			Vector2 jet2d = Jet.transform.position;
 			var distance = (jet2d - actor2d).magnitude;
 			distance = Mathf.Clamp(distance, 0, maxDistance);*/
+
 			var clampedTime = (2 - accumulator);
 			clampedTime = Mathf.Clamp(clampedTime, 0, 1f);
 			var shake = UnityEngine.Random.insideUnitSphere * (clampedTime);//* cameraShakeFactor * (maxDistance - distance) / maxDistance;
