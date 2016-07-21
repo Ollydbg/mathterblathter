@@ -41,7 +41,17 @@ namespace Client.Game.SetPieces
 			Game.Instance.CameraManager.SetOverrideTarget(Train.transform);
 		}
 
+		void PlayVO() {
+			var clip = Resources.Load("VoiceOver/Echo-7/killTheOldMasters") as AudioClip;
+			var audioSource = Camera.main.GetComponent<AudioSource>();
+			audioSource.PlayOneShot(clip);
+			
+		}
+
 		void PlayMusic() {
+
+			PlayVO();
+
 			Game.Instance.CameraManager.ClearOverrideTarget();
 			Game.Instance.MusicManager.Play(MusicDataTable.RUN_MUSIC);
 
