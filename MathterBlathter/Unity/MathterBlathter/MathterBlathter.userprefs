@@ -1,13 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/AIDataTable.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/SetPieces/BrokenSkyline.cs">
     <Files>
-      <File FileName="Assets/Scripts/Client/Game/Map/RoomWaveGenerator.cs" Line="63" Column="1" />
       <File FileName="Assets/Scripts/Client/Game/Data/MapData.cs" Line="39" Column="22" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/AIBuff.cs" Line="18" Column="47" />
-      <File FileName="Assets/Scripts/Client/Game/Data/ZoneDataTable.cs" Line="16" Column="51" />
-      <File FileName="Assets/Scripts/Client/Game/Data/CharacterDataTable.cs" Line="214" Column="8" />
-      <File FileName="Assets/Scripts/Client/Game/Data/AIDataTable.cs" Line="138" Column="49" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/AIBuff.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Client/Game/Data/ZoneDataTable.cs" Line="29" Column="88" />
+      <File FileName="Assets/Scripts/Client/Game/Data/CharacterDataTable.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Client/Game/Managers/MapManager.cs" Line="103" Column="3" />
+      <File FileName="Assets/Scripts/Client/Game/Core/Game.cs" Line="45" Column="4" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/AbilityContext.cs" Line="52" Column="4" />
+      <File FileName="Assets/Scripts/Client/Game/Data/RoomDataTable.cs" Line="108" Column="77" />
+      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/MeleeAttack.cs" Line="65" Column="52" />
+      <File FileName="Assets/Scripts/Client/Game/SetPieces/BrokenSkyline.cs" Line="37" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -24,7 +24,7 @@ namespace Client.Game.Data
 		public static MusicData RUN_MUSIC {
 			get {
 				var ret = new MusicData();
-				ret.Resource = "Music/titles";
+				ret.Resource = "Music/intro";
 				return ret;
 			}
 		}
