@@ -1,0 +1,437 @@
+fileFormatVersion: 2
+guid: ff4a6336156ec4da3887fc4e917cfd84
+timeCreated: 1469219395
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Background_buildings
+    21300002: Credit
+    21300004: Ground
+    21300006: GroundCapL
+    21300008: GroundCapR
+    21300010: Platform_01
+    21300012: Platform_02
+    21300014: Platform_03
+    21300016: Platform_04_border
+    21300018: Props_cables
+    21300020: Props_column
+    21300022: Props_cube01
+    21300024: Props_cube02
+    21300026: Props_cube03
+    21300028: Props_grid
+    21300030: Props_grid_back
+    21300032: theHOUSE
+    21300034: Wall_Decorations_big
+    21300036: Wall_Decorations_tiny
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Background_buildings
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 261
+        width: 800
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 352, y: 77}
+        - {x: 307, y: 71}
+        - {x: 287, y: 66}
+        - {x: 272, y: 59}
+        - {x: 267, y: 45}
+        - {x: 252, y: 1}
+        - {x: 244, y: -45}
+        - {x: 244, y: -6}
+        - {x: 243, y: -3}
+        - {x: 218, y: -3}
+        - {x: 219, y: 14}
+        - {x: 212, y: 17}
+        - {x: 165, y: 22}
+        - {x: 150, y: 22}
+        - {x: 121, y: 15}
+        - {x: 113, y: -10}
+        - {x: 108, y: 20}
+        - {x: 105, y: 23}
+        - {x: 59, y: 19}
+        - {x: 28, y: 7}
+        - {x: 27, y: 68}
+        - {x: -1, y: 64}
+        - {x: -5, y: 57}
+        - {x: -12, y: 60}
+        - {x: -32, y: 59}
+        - {x: -31, y: 76}
+        - {x: -38, y: 80}
+        - {x: -74, y: 83}
+        - {x: -107, y: 83}
+        - {x: -129, y: 77}
+        - {x: -137, y: 54}
+        - {x: -141, y: 82}
+        - {x: -142, y: 83}
+        - {x: -164, y: 83}
+        - {x: -191, y: 81}
+        - {x: -226, y: 68}
+        - {x: -230, y: 53}
+        - {x: -242, y: 10}
+        - {x: -241, y: 29}
+        - {x: -248, y: 32}
+        - {x: -268, y: 31}
+        - {x: -267, y: 48}
+        - {x: -274, y: 52}
+        - {x: -336, y: 57}
+        - {x: -365, y: 48}
+        - {x: -372, y: 30}
+        - {x: -380, y: 58}
+        - {x: -400, y: 51}
+        - {x: -400, y: -125}
+        - {x: 367, y: -125}
+        - {x: 367, y: 31}
+        - {x: 361, y: 43}
+        - {x: 355, y: 74}
+    - name: Credit
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 205
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22, y: 17}
+        - {x: -25, y: 16}
+        - {x: -25, y: -25}
+        - {x: 5, y: -25}
+        - {x: 5, y: 16}
+        - {x: 3, y: 17}
+    - name: Ground
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 51
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 25}
+        - {x: -25, y: 1}
+        - {x: 25, y: 1}
+        - {x: 25, y: 25}
+    - name: GroundCapL
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 51
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 25}
+        - {x: 1, y: 18}
+        - {x: 1, y: 2}
+        - {x: 4, y: 1}
+        - {x: 25, y: 1}
+        - {x: 25, y: 25}
+    - name: GroundCapR
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 153
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 25}
+        - {x: -25, y: 25}
+        - {x: -25, y: 1}
+        - {x: -4, y: 1}
+        - {x: -2, y: 2}
+        - {x: -1, y: 12}
+        - {x: -1, y: 18}
+    - name: Platform_01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 7
+        width: 150
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -75, y: 25}
+        - {x: -75, y: 4}
+        - {x: 47, y: 4}
+        - {x: 49, y: 6}
+        - {x: 49, y: 25}
+    - name: Platform_02
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 309
+        width: 100
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 25}
+        - {x: -50, y: 4}
+        - {x: 12, y: 4}
+        - {x: 14, y: 6}
+        - {x: 14, y: 25}
+    - name: Platform_03
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 309
+        width: 100
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 25}
+        - {x: -50, y: 4}
+        - {x: 29, y: 4}
+        - {x: 31, y: 6}
+        - {x: 31, y: 25}
+    - name: Platform_04_border
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 205
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 25}
+        - {x: -25, y: 25}
+        - {x: -25, y: 4}
+        - {x: 3, y: 4}
+        - {x: 8, y: 9}
+        - {x: 8, y: 24}
+    - name: Props_cables
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 257
+        width: 100
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 25}
+        - {x: -50, y: -11}
+        - {x: -40, y: -11}
+        - {x: 18, y: 21}
+        - {x: 18, y: 25}
+    - name: Props_column
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 101
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: -25}
+        - {x: 14, y: 25}
+        - {x: -25, y: 25}
+        - {x: -25, y: -25}
+    - name: Props_cube01
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 153
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -2}
+        - {x: -25, y: -2}
+        - {x: -25, y: -25}
+        - {x: 8, y: -25}
+    - name: Props_cube02
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 205
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -2}
+        - {x: -25, y: -2}
+        - {x: -25, y: -25}
+        - {x: 8, y: -25}
+    - name: Props_cube03
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 153
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -2}
+        - {x: -25, y: -2}
+        - {x: -25, y: -25}
+        - {x: 8, y: -25}
+    - name: Props_grid
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 257
+        width: 100
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 18}
+        - {x: -50, y: -25}
+        - {x: 49, y: -25}
+        - {x: 49, y: 18}
+    - name: Props_grid_back
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 103
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 18}
+        - {x: -28.5, y: -25}
+        - {x: 28.5, y: -25}
+        - {x: 28.5, y: 18}
+    - name: theHOUSE
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 361
+        width: 200
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -100, y: 39}
+        - {x: -100, y: -58}
+        - {x: -95, y: -75}
+        - {x: 50, y: -75}
+        - {x: 57, y: -28}
+        - {x: 57, y: 22}
+        - {x: 28, y: 39}
+      - - {x: 60, y: -75}
+        - {x: 59, y: -72}
+        - {x: 48, y: -72}
+        - {x: 47, y: -75}
+    - name: Wall_Decorations_big
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 59
+        width: 150
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 58, y: 42}
+        - {x: 44, y: 100}
+        - {x: -75, y: 100}
+        - {x: -75, y: -100}
+        - {x: 57, y: -100}
+        - {x: 59, y: -96}
+        - {x: 62, y: -83}
+        - {x: 62, y: 23}
+    - name: Wall_Decorations_tiny
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 155
+        width: 50
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 37}
+        - {x: -25, y: 37}
+        - {x: -25, y: -50}
+        - {x: 0, y: -50}
+        - {x: 1, y: -44}
+        - {x: 1, y: 7}
+        - {x: 0, y: 13}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

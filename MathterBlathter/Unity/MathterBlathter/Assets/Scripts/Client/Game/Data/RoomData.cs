@@ -20,7 +20,7 @@ namespace Client.Game.Data
 		public List<Spawn> Spawns = new List<Spawn> ();
 		public AsciiLookup AsciiSpawnLookup = new AsciiLookup();
 
-		public String TMXResource = "TMXData/test.tmx";
+		public String TMXResource = "TMXData/Concept50X.tmx";
 
 		public AsciiMap AsciiMap = new AsciiMap();
 

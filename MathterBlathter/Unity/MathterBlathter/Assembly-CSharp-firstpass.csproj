@@ -169,6 +169,7 @@
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cubemap\SFN_Cubemap.shader" />
      <None Include="Assets\ThirdParty\Vintage\Resources\Shaders\VintageLomofi.shader" />
      <None Include="Assets\ThirdParty\ShaderForge\Readme.txt" />
+     <None Include="Assets\codeandweb.com\Editor\SettingsTexturePackerImporter.txt" />
      <None Include="Assets\ThirdParty\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FragmentPosition\SFN_FragmentPosition.shader" />
      <None Include="Assets\ThirdParty\InControl\Readme\README.txt" />
      <None Include="Assets\ThirdParty\Retro Pixel\Resources\Shaders\RetroPixel6.shader" />

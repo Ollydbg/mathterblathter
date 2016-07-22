@@ -21,7 +21,7 @@ namespace Client.Game.Managers
 		public event RoomEntered OnRoomEntered;
 		public event Room.OnUnlock OnCurrentRoomUnlocked;
 		public MapPathfinder Pathfinder;
-
+		
 		private RoomTypeMap typeIndices = new RoomTypeMap();
 
 		public MapManager ()
