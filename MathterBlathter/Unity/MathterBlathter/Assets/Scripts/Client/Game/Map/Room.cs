@@ -47,6 +47,7 @@ namespace Client.Game.Map
 		}
 
 		private static IRoomDrawer Drawer = new MeshRoomDrawer();
+		private static IRoomDrawer TMXRoomDrawer = new TMXRoomDrawer();
 
 		public Vector3 Position {
 			get {return new Vector3(X,Y); }
@@ -161,6 +162,7 @@ namespace Client.Game.Map
 
 		public void Draw(Game game) {
 			GameObject = Drawer.Draw (this, game);
+			TMXRoomDrawer.Draw(this, game);
 		}
 
 		private bool Locked {

@@ -234,7 +234,6 @@ namespace Client.Game.Map
 		}
 
 		Vector3 GridToWorldSpace(Room room) {
-			var mapWidth = room.data.AsciiMap.Width;
 			return new Vector3 (room.X, room.Y);
 		}
 

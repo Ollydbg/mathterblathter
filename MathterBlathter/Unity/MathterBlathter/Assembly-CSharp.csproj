@@ -237,6 +237,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomTraversalGrid.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveManager.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\TMXRoomDrawer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\ZoneGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\BaseGrid.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGrid.cs" />
@@ -911,6 +912,9 @@
  </Reference>
  <Reference Include="AmplifyBloom">
  <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/ThirdParty/AmplifyBloom/Plugins/AmplifyBloom.dll</HintPath>
+ </Reference>
+ <Reference Include="TiledSharp">
+ <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Assemblies/TiledSharp.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

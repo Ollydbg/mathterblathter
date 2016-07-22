@@ -425,6 +425,9 @@
  <Reference Include="AmplifyBloom">
  <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/ThirdParty/AmplifyBloom/Plugins/AmplifyBloom.dll</HintPath>
  </Reference>
+ <Reference Include="TiledSharp">
+ <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Assemblies/TiledSharp.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

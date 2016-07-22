@@ -120,9 +120,9 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                ....... ...............       w";
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
-				ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
-				ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.right);
+				//ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
+				//ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);
+				//ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.right);
 				
 				/*
 				ret.AsciiSpawnLookup['4'] = CharacterDataTable.RUSTY_SHIELD_WEAPON;
@@ -136,8 +136,8 @@ namespace Client.Game.Data
 				ret.AsciiSpawnLookup['r'] = CharacterDataTable.LONG_BARREL_SHOTGUN_WEAPON;
 				ret.AsciiSpawnLookup['q'] = CharacterDataTable.MAX_HEALTH_BOOST;
 				*/
-				ret.AsciiSpawnLookup['C'] = CharacterDataTable.NAIL_MACHINE;
-				ret.AsciiSpawnLookup['1'] = CharacterDataTable.ANXIETY_BALL_ENEMY;
+				//ret.AsciiSpawnLookup['C'] = CharacterDataTable.NAIL_MACHINE;
+				//ret.AsciiSpawnLookup['1'] = CharacterDataTable.ANXIETY_BALL_ENEMY;
 
 
 

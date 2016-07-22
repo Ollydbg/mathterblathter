@@ -20,6 +20,8 @@ namespace Client.Game.Data
 		public List<Spawn> Spawns = new List<Spawn> ();
 		public AsciiLookup AsciiSpawnLookup = new AsciiLookup();
 
+		public String TMXResource = "TMXData/test.tmx";
+
 		public AsciiMap AsciiMap = new AsciiMap();
 
 		public int MinElevation;
@@ -120,6 +122,7 @@ namespace Client.Game.Data
 			clone.Id = this.Id;
 			clone.LayerData = this.LayerData;
 			clone.SetPiece = this.SetPiece;
+			clone.TMXResource = this.TMXResource;
 			return clone;
 			
 		}

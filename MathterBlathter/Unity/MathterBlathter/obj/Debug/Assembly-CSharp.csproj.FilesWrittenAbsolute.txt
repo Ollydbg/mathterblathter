@@ -18,3 +18,4 @@
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Temp/bin/Debug/TiledSharp.dll
