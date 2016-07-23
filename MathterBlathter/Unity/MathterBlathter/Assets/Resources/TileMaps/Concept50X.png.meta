@@ -24,6 +24,7 @@ TextureImporter:
     21300034: Wall_Decorations_big
     21300036: Wall_Decorations_tiny
     21300038: Door
+    21300040: Wall
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -409,6 +410,21 @@ TextureImporter:
         - {x: 59, y: -72}
         - {x: 48, y: -72}
         - {x: 47, y: -75}
+    - name: Wall
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 101
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 25}
+        - {x: -25, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: 25}
     - name: Wall_Decorations_big
       rect:
         serializedVersion: 2

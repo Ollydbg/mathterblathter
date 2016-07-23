@@ -5,6 +5,7 @@ using Client.Game.Enums;
 using System.Linq;
 using System.Collections.Generic;
 using Client.Game.Map.TMX;
+using Client.Game.Data;
 
 namespace Client.Game.Map
 {
@@ -40,8 +41,8 @@ namespace Client.Game.Map
 
 			var go = new GameObject();
 			go.transform.position = GridToWorldSpace(room);
-			go.name = "TMXRoom " + room.data.Id;
-
+			go.name = "TMXRoom_" + room.data.Id + "_" + room.Id;
+			
 
 			var hardGeo = tmx.Layers.FirstOrDefault(l => l.Name == Constants.HardGeometryLayer);
 			DrawHardGeo(hardGeo, go, tmx, sprites, room);
@@ -55,6 +56,7 @@ namespace Client.Game.Map
 			var doors = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DoorsLayer);
 			DrawDoors(doors, go, tmx, sprites, room);
 
+			DrawBackground(room, room.Zone.DrawColor, go, inGame);
 
 			return go;
 		
@@ -148,12 +150,39 @@ namespace Client.Game.Map
 					if(tile.Gid != 0) {
 						var obj = TileAtLocation(go, tile, tmx, sprites, room);
 						obj.name = "Scene object";
+						obj.transform.localPosition = obj.transform.localPosition + Vector3.forward*2f;
 					}
 
 				}
 			}
 		}
 
+		void DrawBackground (Room room, Color drawColor, GameObject go, Game game)
+		{
+			//var container = new GameObject();
+			ParallaxData layerData = room.data.LayerData ?? game.Seed.RandomInList(ParallaxDataTable.GetAll().Where(p => p.InRandomPool).ToList());
+			var texturePath = layerData.Layers[ParallaxData.Layer.RoomWall];
+			if(texturePath == null)
+				return;
+
+			var plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+
+			plane.transform.Rotate(Vector3.right, 270);
+
+			var material = (Material)GameObject.Instantiate(Resources.Load(ParallaxData.materialPath, typeof(Material)) as Material);
+			material.mainTexture = Resources.Load(texturePath, typeof(Texture)) as Texture;
+
+			plane.GetComponent<Renderer>().material = material;
+			var tint = drawColor * .3f;
+			tint.a = 1f;
+			material.SetColor("_Color", tint);
+
+			GameObject.Destroy(plane.GetComponent<Collider>());
+
+			plane.transform.localScale = new Vector3(room.data.ScreenWidth*.1f, 1f, room.data.ScreenHeight*.1f);
+			plane.transform.position = new Vector3(room.X + room.data.ScreenWidth*.5f, room.Y + room.data.ScreenHeight*.5f, 5);
+			plane.transform.parent = go.transform;
+		}
 		
 
 		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room)
@@ -209,11 +238,23 @@ namespace Client.Game.Map
 				var spaceResolution = map.TileWidth / 100f;
 				var halfWidth = centeredRect.width * .5f;
 				var halfHeight = centeredRect.height * .5f;
+				/*
 
+				if(centeredRect.height > map.TileHeight) 
+					halfHeight *= -1f;
 				return new Vector3(
 					(X + halfWidth * .01f) * spaceResolution * PIXEL_UP_SCALE,
 					(Y - halfHeight * .01f) * spaceResolution * PIXEL_UP_SCALE, 
 					0f
+				);
+				*/
+
+				//assumes TL registration, which is not always going to be the case
+				var widthOffset = halfWidth * PIXEL_UP_SCALE * spaceResolution * .01f;
+				return new Vector3(
+					X * spaceResolution * PIXEL_UP_SCALE,// + widthOffset,
+					Y * spaceResolution * PIXEL_UP_SCALE
+
 				);
 			}
 

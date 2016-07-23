@@ -100,7 +100,7 @@ namespace Client.Game.Map
 			if(SetPiecePrefab != null)
 				GameObject.Destroy(SetPiecePrefab);
 
-			Lights.ForEach(l => l.gameObject.SetActive(true));
+			Lights.ForEach(l => l.gameObject.SetActive(false));
 			Spawns.ForEach( p => p.Destroy());
 			Spawns.Clear();
 
