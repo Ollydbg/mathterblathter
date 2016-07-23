@@ -23,6 +23,7 @@ TextureImporter:
     21300032: theHOUSE
     21300034: Wall_Decorations_big
     21300036: Wall_Decorations_tiny
+    21300038: Door
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -150,10 +151,25 @@ TextureImporter:
         - {x: 5, y: -25}
         - {x: 5, y: 16}
         - {x: 3, y: 17}
-    - name: Ground
+    - name: Door
       rect:
         serializedVersion: 2
         x: 153
+        y: 51
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 25}
+        - {x: -25, y: -25}
+        - {x: 25, y: -25}
+        - {x: 25, y: 25}
+    - name: Ground
+      rect:
+        serializedVersion: 2
+        x: 205
         y: 51
         width: 50
         height: 50
@@ -168,8 +184,8 @@ TextureImporter:
     - name: GroundCapL
       rect:
         serializedVersion: 2
-        x: 205
-        y: 51
+        x: 212
+        y: 153
         width: 50
         height: 50
       alignment: 0
@@ -185,8 +201,8 @@ TextureImporter:
     - name: GroundCapR
       rect:
         serializedVersion: 2
-        x: 212
-        y: 153
+        x: 257
+        y: 205
         width: 50
         height: 50
       alignment: 0
@@ -252,7 +268,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 257
-        y: 205
+        y: 101
         width: 50
         height: 50
       alignment: 0
@@ -284,8 +300,8 @@ TextureImporter:
     - name: Props_column
       rect:
         serializedVersion: 2
-        x: 257
-        y: 101
+        x: 264
+        y: 153
         width: 50
         height: 50
       alignment: 0
@@ -297,21 +313,6 @@ TextureImporter:
         - {x: -25, y: 25}
         - {x: -25, y: -25}
     - name: Props_cube01
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 153
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 8, y: -2}
-        - {x: -25, y: -2}
-        - {x: -25, y: -25}
-        - {x: 8, y: -25}
-    - name: Props_cube02
       rect:
         serializedVersion: 2
         x: 309
@@ -326,11 +327,26 @@ TextureImporter:
         - {x: -25, y: -2}
         - {x: -25, y: -25}
         - {x: 8, y: -25}
+    - name: Props_cube02
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 49
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -2}
+        - {x: -25, y: -2}
+        - {x: -25, y: -25}
+        - {x: 8, y: -25}
     - name: Props_cube03
       rect:
         serializedVersion: 2
-        x: 264
-        y: 153
+        x: 309
+        y: 205
         width: 50
         height: 50
       alignment: 0

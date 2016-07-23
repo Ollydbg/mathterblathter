@@ -5,6 +5,7 @@ using Client.Game.Enums;
 using Client.Game.Data.Ascii;
 using Client.Game.Map;
 using UnityEngine;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Data
 {
@@ -115,9 +116,9 @@ namespace Client.Game.Data
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
                 ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
+                ret.AsciiMap += "d                                                              d";
+				ret.AsciiMap += "d                                                              d";
+                ret.AsciiMap += "d                                                              d";
                 ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
 
 				//ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
@@ -1362,10 +1363,12 @@ namespace Client.Game.Data
 
 
 		static void finalize(RoomData room) {
-			room.Width = room.AsciiMap.Width;
-			room.Height = room.AsciiMap.Height;
+			var tmx = TMXCache.Get(room);
+			room.Width = tmx.Width;
+			room.Height = tmx.Height;
 
-			addDoorsFromAscii (room);
+
+			addDoorsFromTMX (room, tmx);
 			addSpawnsFromAscii (room);
 			Debug.Log("finalizing room: " + room);
 
@@ -1385,6 +1388,43 @@ namespace Client.Game.Data
 			}
 		}
 
+		static void addDoorsFromTMX (RoomData room, TiledSharp.TmxMap tmx)
+		{
+			var extractor = new TMXChunkExtractor(tmx);
+			var matches = extractor.GetChunksOnLayer(Constants.DoorsLayer);
+
+			foreach( var chunk in matches ) {
+				var doorPos = chunk.Center;
+				var link = new RoomData.Link ();
+
+				link.X = (int)doorPos.x;
+				link.Y = (int)doorPos.y;
+
+				link.ChunkData = chunk;
+
+				if (link.X == 0) {
+					link.Side = DoorRoomSide.Left;
+					link.Width = 2;
+					link.Height = 3;
+				} else if (link.Y == 0) {
+					link.Side = DoorRoomSide.Bottom;
+					link.Width = 3;
+					link.Height = 2;
+				} else if (link.X == room.Width-1) {
+					link.Side = DoorRoomSide.Right;
+					link.Width = 2;
+					link.Height = 3;
+				} else {
+					link.Side = DoorRoomSide.Top;
+					link.Width = 3;
+					link.Height = 2;
+				}
+
+				room.Doors.Add (link);
+			}
+			
+
+		}
 
 		static void addDoorsFromAscii (RoomData room)
 		{

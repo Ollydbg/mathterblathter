@@ -13,9 +13,10 @@ namespace Client.Game.Data
 				var ret = new ZoneData();
 				ret.Solo = true;
 				ret.Name = "Debug Zone";
-				ret.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
+				ret.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 3, ZoneData.Occurance.Guaranteed));
+
 				ret.DrawColor = new Color(.45f, .33f, .40f);
-				ret.MaxRooms = 1;
+				ret.MaxRooms = 3;
 				return ret;
 			}
 		}

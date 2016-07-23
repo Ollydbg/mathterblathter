@@ -14,11 +14,6 @@ namespace Client.Game.Map
 	{
 		private static float PIXEL_UP_SCALE = 5f;
 
-		private string HardGeometryLayer = "HardGeometry";
-		private string LightsLayer = "Lights";
-		private string BackgroundLayer = "Background";
-		private string SPOT_LIGHT = "Spot";
-		private string POINT_LIGHT = "Point";
 
 		private static UnityEngine.Object PointLightTemplate;
 		private static UnityEngine.Object DirectionalLightTemplate;
@@ -48,27 +43,31 @@ namespace Client.Game.Map
 			go.name = "TMXRoom " + room.data.Id;
 
 
-			var hardGeo = tmx.Layers.FirstOrDefault(l => l.Name == HardGeometryLayer);
-			CreateHardGeo(hardGeo, go, tmx, sprites, room);
+			var hardGeo = tmx.Layers.FirstOrDefault(l => l.Name == Constants.HardGeometryLayer);
+			DrawHardGeo(hardGeo, go, tmx, sprites, room);
 
-			var background = tmx.Layers.FirstOrDefault(p => p.Name == BackgroundLayer);
-			CreateBackground(background, go, tmx, sprites, room);
+			var background = tmx.Layers.FirstOrDefault(p => p.Name == Constants.BackgroundLayer);
+			DrawScenery(background, go, tmx, sprites, room);
 
-			var lights = tmx.ObjectGroups.FirstOrDefault(p => p.Name == LightsLayer);
-			CreateLights(lights, go, tmx, sprites, room);
+			var lights = tmx.ObjectGroups.FirstOrDefault(p => p.Name == Constants.LightsLayer);
+			DrawLights(lights, go, tmx, sprites, room);
+
+			var doors = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DoorsLayer);
+			DrawDoors(doors, go, tmx, sprites, room);
+
 
 			return go;
 		
 		}
 
-		void CreateLights (TmxObjectGroup lights, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		void DrawLights (TmxObjectGroup lights, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
 		{
 			if(lights != null) {
 				room.Lights = new List<Light>();
 
 				foreach( var obj in lights.Objects) {
 					var lightPos = new IPoint((int)(obj.X/tmx.TileWidth), tmx.Height - (int)(obj.Y/tmx.TileHeight)).GridToWorld(room, tmx);
-					if(obj.Type == SPOT_LIGHT) {
+					if(obj.Type == Constants.SPOT_LIGHT) {
 						
 						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
 
@@ -80,7 +79,7 @@ namespace Client.Game.Map
 
 						lightObj.name = "directional light";
 
-					} else if (obj.Type == POINT_LIGHT) {
+					} else if (obj.Type == Constants.POINT_LIGHT) {
 						var lightObj = GameObject.Instantiate(PointLightTemplate) as GameObject;
 
 						room.Lights.Add(lightObj.GetComponent<Light>());
@@ -96,7 +95,12 @@ namespace Client.Game.Map
 			}
 		}
 
-		void CreateHardGeo (TmxLayer hardGeo, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		void DrawDoors (TmxLayer doors, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		{
+			
+		}
+
+		void DrawHardGeo (TmxLayer hardGeo, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
 		{
 
 			if(hardGeo != null) {
@@ -113,7 +117,7 @@ namespace Client.Game.Map
 
 		}
 
-		void CreateBackground (TmxLayer background, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		void DrawScenery (TmxLayer background, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
 		{
 
 			if(background != null) {
@@ -125,6 +129,8 @@ namespace Client.Game.Map
 				}
 			}
 		}
+
+		
 
 		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room)
 		{
@@ -167,7 +173,6 @@ namespace Client.Game.Map
 			var pathBits = tmxImage.Source.Split('/');
 			string name = pathBits[pathBits.Length-1];
 			name = name.Replace(".png", "");
-			Debug.Log(name);
 			return lookup.Where(p=>p.name == name).First();
 		}
 

@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:a925b06fe7efbd37e0cc7496564e528a:a78607a60402680858199d05d3735b59:56e9880a44d97c559d67281ada6da786$
+# $TexturePacker:SmartUpdate:c5471c60485bb80e22268785f23d3be7:fb1883c61716fde78aa95ccf63d45ada:56e9880a44d97c559d67281ada6da786$
 #
 :format=40000
 :texture=Concept50X.png
@@ -13,18 +13,19 @@
 
 Background_buildings;1;261;800;250;0.5;0.5
 Credit;205;205;50;50;0.5;0.5
-Ground;153;51;50;50;0.5;0.5
-GroundCapL;205;51;50;50;0.5;0.5
-GroundCapR;212;153;50;50;0.5;0.5
+Door;153;51;50;50;0.5;0.5
+Ground;205;51;50;50;0.5;0.5
+GroundCapL;212;153;50;50;0.5;0.5
+GroundCapR;257;205;50;50;0.5;0.5
 Platform_01;1;7;150;50;0.5;0.5
 Platform_02;803;309;100;50;0.5;0.5
 Platform_03;905;309;100;50;0.5;0.5
-Platform_04_border;257;205;50;50;0.5;0.5
+Platform_04_border;257;101;50;50;0.5;0.5
 Props_cables;803;257;100;50;0.5;0.5
-Props_column;257;101;50;50;0.5;0.5
-Props_cube01;264;153;50;50;0.5;0.5
-Props_cube02;309;205;50;50;0.5;0.5
-Props_cube03;264;153;50;50;0.5;0.5
+Props_column;264;153;50;50;0.5;0.5
+Props_cube01;309;205;50;50;0.5;0.5
+Props_cube02;257;49;50;50;0.5;0.5
+Props_cube03;309;205;50;50;0.5;0.5
 Props_grid;905;257;100;50;0.5;0.5
 Props_grid_back;153;103;57;50;0.5;0.5
 theHOUSE;803;361;200;150;0.5;0.5

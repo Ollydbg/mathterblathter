@@ -196,12 +196,13 @@ namespace Client.Game.Map
 						targetX = (int)mate.MatingX - door.X;
 						targetY = (int)mate.MatingY - door.Y;
 
-						if(targetY > FloorY) {
+
+						//if(targetY > FloorY) {
 							if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
 								doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
 								return true;
 							}
-						}
+						//}
 
 					}
 				}
