@@ -14,6 +14,7 @@ namespace Client.Game.Data
 	public class RoomData : GameData
 	{
 
+		//tilemap units
 		public int Width;
 		public int Height;
 		public List<Link> Doors = new List<Link>();
@@ -37,6 +38,8 @@ namespace Client.Game.Data
 
 		public RoomType Type = RoomType.Normal;
 
+		public float ScreenWidth;
+		public float ScreenHeight;
 
 		public override string ToString ()
 		{
@@ -67,6 +70,7 @@ namespace Client.Game.Data
 				this.Width = other.Width;
 				this.Height = other.Height;
 				this.Side = other.Side;
+
 			}
 
 			public Link Clone() {
@@ -123,6 +127,9 @@ namespace Client.Game.Data
 			clone.LayerData = this.LayerData;
 			clone.SetPiece = this.SetPiece;
 			clone.TMXResource = this.TMXResource;
+			clone.ScreenWidth = this.ScreenWidth;
+			clone.ScreenHeight = this.ScreenHeight;
+
 			return clone;
 			
 		}

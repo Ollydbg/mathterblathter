@@ -190,6 +190,7 @@
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">Background_buildings.png</key>
             <key type="filename">Credit.png</key>
+            <key type="filename">Door.png</key>
             <key type="filename">Ground.png</key>
             <key type="filename">GroundCapL.png</key>
             <key type="filename">GroundCapR.png</key>

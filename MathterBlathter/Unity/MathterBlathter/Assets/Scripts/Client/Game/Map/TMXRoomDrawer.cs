@@ -46,7 +46,7 @@ namespace Client.Game.Map
 			var hardGeo = tmx.Layers.FirstOrDefault(l => l.Name == Constants.HardGeometryLayer);
 			DrawHardGeo(hardGeo, go, tmx, sprites, room);
 
-			var background = tmx.Layers.FirstOrDefault(p => p.Name == Constants.BackgroundLayer);
+			var background = tmx.Layers.FirstOrDefault(p => p.Name == Constants.SceneryLayer);
 			DrawScenery(background, go, tmx, sprites, room);
 
 			var lights = tmx.ObjectGroups.FirstOrDefault(p => p.Name == Constants.LightsLayer);
@@ -66,7 +66,7 @@ namespace Client.Game.Map
 				room.Lights = new List<Light>();
 
 				foreach( var obj in lights.Objects) {
-					var lightPos = new IPoint((int)(obj.X/tmx.TileWidth), tmx.Height - (int)(obj.Y/tmx.TileHeight)).GridToWorld(room, tmx);
+					var lightPos = new IPoint((int)(obj.X/tmx.TileWidth), tmx.Height - (int)(obj.Y/tmx.TileHeight)).GridToWorld(tmx);
 					if(obj.Type == Constants.SPOT_LIGHT) {
 						
 						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
@@ -97,7 +97,29 @@ namespace Client.Game.Map
 
 		void DrawDoors (TmxLayer doors, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
 		{
-			
+			foreach (var door in room.Doors) {
+				if(!door.Set) {
+					door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
+					door.GameObject.hideFlags = HideFlags.HideInHierarchy;
+					//the offsets are an artifact of the fact that the doors are just box primitives
+					//instead of meshes like the walls
+
+					if(door.WallDoor) {
+						float offset = door.Side == DoorRoomSide.Left? -1 : 0;
+						door.transform.position = new Vector3 (
+							door.X + .5f*door.Width + offset,
+							door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
+
+					} else {
+						float offset = door.Side == DoorRoomSide.Bottom? -1 : 0;
+						door.transform.position = new Vector3 (
+							door.X + .5f*door.Width -1,
+							door.Y - .5f*door.Height+2 + offset) + GridToWorldSpace(room);
+					}
+					door.Set = true;
+				}
+
+			}
 		}
 
 		void DrawHardGeo (TmxLayer hardGeo, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
@@ -108,6 +130,7 @@ namespace Client.Game.Map
 					if(tile.Gid != 0) {
 
 						var tileGo = TileAtLocation(go, tile, tmx, sprites, room);
+						tileGo.name = "Room Tile";
 						AddCollision(tileGo);
 
 					}
@@ -123,7 +146,8 @@ namespace Client.Game.Map
 			if(background != null) {
 				foreach( var tile in background.Tiles) {
 					if(tile.Gid != 0) {
-						TileAtLocation(go, tile, tmx, sprites, room);
+						var obj = TileAtLocation(go, tile, tmx, sprites, room);
+						obj.name = "Scene object";
 					}
 
 				}
@@ -141,7 +165,7 @@ namespace Client.Game.Map
 
 			var tileGo = new GameObject();
 			tileGo.transform.parent = parent.transform;
-			tileGo.transform.localPosition = coords.GridToWorld(room, map, sprite.rect);
+			tileGo.transform.localPosition = coords.GridToWorld(map, sprite.rect);
 
 			var spriteComp = tileGo.AddComponent<SpriteRenderer>();
 
@@ -176,11 +200,12 @@ namespace Client.Game.Map
 			return lookup.Where(p=>p.name == name).First();
 		}
 
-		class IPoint {
+		public class IPoint {
 			public int X, Y;
 			public IPoint(int x, int y) { X = x; Y = y;}
+			public IPoint(Vector3 v3) { X = (int)v3.x; Y = (int)v3.y; }
 
-			public Vector3 GridToWorld(Room room, TmxMap map, Rect centeredRect) {
+			public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
 				var spaceResolution = map.TileWidth / 100f;
 				var halfWidth = centeredRect.width * .5f;
 				var halfHeight = centeredRect.height * .5f;
@@ -192,7 +217,7 @@ namespace Client.Game.Map
 				);
 			}
 
-			public Vector3 GridToWorld(Room room, TmxMap map) {
+			public Vector3 GridToWorld(TmxMap map) {
 				
 				var spaceResolution = map.TileWidth / 100f;
 

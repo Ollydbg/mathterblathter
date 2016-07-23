@@ -24,6 +24,13 @@ namespace Client.Game.Data.Ascii
 				return new Vector3(minX + .5f*Width, minY + .5f*Height, 0f);
 			}
 		}
+	
+		public Vector3 MiddleNode{
+			get {
+				return this[1];
+			}
+		}
+
 
 		public float Width {
 			get {

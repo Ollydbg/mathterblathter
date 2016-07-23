@@ -1364,8 +1364,11 @@ namespace Client.Game.Data
 
 		static void finalize(RoomData room) {
 			var tmx = TMXCache.Get(room);
-			room.Width = tmx.Width;
-			room.Height = tmx.Height;
+			room.Width = tmx.Width - 1;
+			room.Height = tmx.Height - 1;
+			var expandedSize = new TMXRoomDrawer.IPoint(room.Width, room.Height).GridToWorld(tmx);
+			room.ScreenWidth = expandedSize.x;
+			room.ScreenHeight = expandedSize.y;
 
 
 			addDoorsFromTMX (room, tmx);
@@ -1394,9 +1397,11 @@ namespace Client.Game.Data
 			var matches = extractor.GetChunksOnLayer(Constants.DoorsLayer);
 
 			foreach( var chunk in matches ) {
-				var doorPos = chunk.Center;
-				var link = new RoomData.Link ();
+				var middleNode = chunk.MiddleNode;
+				var doorPos = new TMXRoomDrawer.IPoint(middleNode).GridToWorld(tmx);
 
+				var link = new RoomData.Link ();
+				
 				link.X = (int)doorPos.x;
 				link.Y = (int)doorPos.y;
 
@@ -1410,7 +1415,7 @@ namespace Client.Game.Data
 					link.Side = DoorRoomSide.Bottom;
 					link.Width = 3;
 					link.Height = 2;
-				} else if (link.X == room.Width-1) {
+				} else if (middleNode.x == room.Width) {
 					link.Side = DoorRoomSide.Right;
 					link.Width = 2;
 					link.Height = 3;
