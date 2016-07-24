@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Client.Game.Map.TMX;
 using Client.Game.Data;
+using Client.Game.Utils;
 
 namespace Client.Game.Map
 {
@@ -130,10 +131,10 @@ namespace Client.Game.Map
 			if(hardGeo != null) {
 				foreach( var tile in hardGeo.Tiles) {
 					if(tile.Gid != 0) {
-
-						var tileGo = TileAtLocation(go, tile, tmx, sprites, room);
+						Sprite sprite;
+						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, out sprite);
 						tileGo.name = "Room Tile";
-						AddCollision(tileGo);
+						AddCollision(tileGo, sprite);
 
 					}
 
@@ -148,7 +149,8 @@ namespace Client.Game.Map
 			if(background != null) {
 				foreach( var tile in background.Tiles) {
 					if(tile.Gid != 0) {
-						var obj = TileAtLocation(go, tile, tmx, sprites, room);
+						Sprite sprite;
+						var obj = TileAtLocation(go, tile, tmx, sprites, room, out sprite);
 						obj.name = "Scene object";
 						obj.transform.localPosition = obj.transform.localPosition + Vector3.forward*2f;
 					}
@@ -185,12 +187,11 @@ namespace Client.Game.Map
 		}
 		
 
-		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room)
+		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, out Sprite sprite)
 		{
 			var coords = new IPoint(tile.X, map.Height - tile.Y);
 
-			var sprite = GetSprite(spriteLookup, tile, map);
-
+			sprite = GetSprite(spriteLookup, tile, map);
 
 			var tileGo = new GameObject();
 			tileGo.transform.parent = parent.transform;
@@ -206,14 +207,14 @@ namespace Client.Game.Map
 
 		}
 
-		void AddCollision (GameObject tileGo)
+		void AddCollision (GameObject tileGo, Sprite sprite)
 		{
-
-			tileGo.AddComponent<BoxCollider2D>();
+			
+			SpriteColliderFactory.AddBoxCollider2D(tileGo, sprite);
 			var rb = tileGo.AddComponent<Rigidbody2D>();
 			rb.isKinematic = true;
-
 			tileGo.layer = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
+
 		}
 
 		Vector3 GridToWorldSpace(Room room) {

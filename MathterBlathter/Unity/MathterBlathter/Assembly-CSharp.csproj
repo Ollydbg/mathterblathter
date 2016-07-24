@@ -281,6 +281,7 @@
      <Compile Include="Assets\Scripts\Client\Game\UI\Titles\VortexWigglerEffect.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\ActorUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\MapUtils.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Utils\SpriteColliderFactory.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Utils\VectorUtils.cs" />
      <Compile Include="Assets\ThirdParty\AmplifyBloom\Plugins\AmplifyBloomBase.cs" />
      <Compile Include="Assets\ThirdParty\AmplifyBloom\Plugins\AmplifyBloomEffect.cs" />
