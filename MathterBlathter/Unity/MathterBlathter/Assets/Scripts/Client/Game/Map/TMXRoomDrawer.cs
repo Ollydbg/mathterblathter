@@ -235,25 +235,18 @@ namespace Client.Game.Map
 			public IPoint(Vector3 v3) { X = (int)v3.x; Y = (int)v3.y; }
 
 			public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
-				var spaceResolution = map.TileWidth / 100f;
-				var halfWidth = centeredRect.width * .5f;
-				var halfHeight = centeredRect.height * .5f;
-				/*
+				var ppu = .01f;
+				var spaceResolution = map.TileWidth * ppu;
 
-				if(centeredRect.height > map.TileHeight) 
-					halfHeight *= -1f;
-				return new Vector3(
-					(X + halfWidth * .01f) * spaceResolution * PIXEL_UP_SCALE,
-					(Y - halfHeight * .01f) * spaceResolution * PIXEL_UP_SCALE, 
-					0f
-				);
-				*/
 
 				//assumes TL registration, which is not always going to be the case
-				var widthOffset = halfWidth * PIXEL_UP_SCALE * spaceResolution * .01f;
+				var worldCoordX = X * spaceResolution * PIXEL_UP_SCALE;
+				var worldCoordY = Y * spaceResolution * PIXEL_UP_SCALE;
+				var widthOffset = centeredRect.width * PIXEL_UP_SCALE * ppu * .5f;
+				var heightOffset = centeredRect.height * PIXEL_UP_SCALE * ppu * .5f;
 				return new Vector3(
-					X * spaceResolution * PIXEL_UP_SCALE,// + widthOffset,
-					Y * spaceResolution * PIXEL_UP_SCALE
+					worldCoordX + widthOffset,
+					worldCoordY + heightOffset
 
 				);
 			}
