@@ -240,6 +240,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveManager.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\Constants.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\FloodFill.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\TMX\GridPoint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXCache.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXChunkExtractor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileChunk.cs" />

@@ -14,13 +14,9 @@ namespace Client.Game.Map
 
 	public class TMXRoomDrawer : Client.Game.Map.Room.IRoomDrawer
 	{
-		private static float PIXEL_UP_SCALE = 5f;
-
 
 		private static UnityEngine.Object PointLightTemplate;
 		private static UnityEngine.Object DirectionalLightTemplate;
-		
-
 
 		public TMXRoomDrawer ()
 		{
@@ -69,7 +65,7 @@ namespace Client.Game.Map
 				room.Lights = new List<Light>();
 
 				foreach( var obj in lights.Objects) {
-					var lightPos = new IPoint((int)(obj.X/tmx.TileWidth), tmx.Height - (int)(obj.Y/tmx.TileHeight)).GridToWorld(tmx);
+					var lightPos = new GridPoint((int)(obj.X/tmx.TileWidth), tmx.Height - (int)(obj.Y/tmx.TileHeight)).GridToWorld(tmx);
 					if(obj.Type == Constants.SPOT_LIGHT) {
 						
 						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
@@ -189,7 +185,7 @@ namespace Client.Game.Map
 
 		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, out Sprite sprite)
 		{
-			var coords = new IPoint(tile.X, map.Height - 1 - tile.Y);
+			var coords = new GridPoint(tile.X, map.Height - 1 - tile.Y);
 
 			sprite = GetSprite(spriteLookup, tile, map);
 
@@ -200,7 +196,7 @@ namespace Client.Game.Map
 			var spriteComp = tileGo.AddComponent<SpriteRenderer>();
 
 			tileGo.isStatic = true;
-			tileGo.transform.localScale = Vector3.one * PIXEL_UP_SCALE;
+			tileGo.transform.localScale = Vector3.one * GridPoint.PIXEL_UP_SCALE;
 			spriteComp.sprite = sprite;
 
 			return tileGo;
@@ -230,54 +226,7 @@ namespace Client.Game.Map
 			return lookup.Where(p=>p.name == name).First();
 		}
 
-		public class IPoint {
-			public int X, Y;
-			public IPoint(int x, int y) { X = x; Y = y;}
-			public IPoint(Vector3 v3) { X = (int)v3.x; Y = (int)v3.y; }
 
-			public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
-				var ppu = .01f;
-				var spaceResolution = map.TileWidth * ppu;
-
-
-				//assumes TL registration, which is not always going to be the case
-				var worldCoordX = X * spaceResolution * PIXEL_UP_SCALE;
-				var worldCoordY = Y * spaceResolution * PIXEL_UP_SCALE;
-				var widthOffset = centeredRect.width * PIXEL_UP_SCALE * ppu * .5f;
-				var heightOffset = centeredRect.height * PIXEL_UP_SCALE * ppu * .5f;
-				return new Vector3(
-					worldCoordX + widthOffset,
-					worldCoordY - heightOffset
-
-				);
-			}
-
-			public Vector3 GridToWorld(TmxMap map) {
-				
-				var spaceResolution = map.TileWidth / 100f;
-
-				return new Vector3(
-					X * spaceResolution * PIXEL_UP_SCALE,
-					Y * spaceResolution * PIXEL_UP_SCALE, 
-					0f
-				);
-
-			}
-
-			public Vector3 GridToWorldTL(TmxMap map) {
-
-				var spaceResolution = map.TileWidth / 100f;
-				var widthOffset = map.TileWidth * PIXEL_UP_SCALE * .01f * .5f;
-				var heightOffset = map.TileHeight * PIXEL_UP_SCALE * .01f * .5f;
-
-				return new Vector3(
-					X * spaceResolution * PIXEL_UP_SCALE + widthOffset,
-					Y * spaceResolution * PIXEL_UP_SCALE,// heightOffset, 
-					0f
-				);
-
-			}
-		}
 	}
 
 }

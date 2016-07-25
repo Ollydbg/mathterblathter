@@ -3,6 +3,7 @@ using Client.Game.Pathfinding;
 using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Data.Ascii;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Map
 {
@@ -26,7 +27,7 @@ namespace Client.Game.Map
 
 		}
 
-		public static bool[][] GetRoomMatrix(Room room, bool preserveAsciiSpace) {
+		public static bool[][] GetRoomMatrix(Room room) {
 			var width = room.data.TmxMap.Width;
 			var height = room.data.TmxMap.Height;
 			var matrix = new bool[width][];
@@ -35,12 +36,9 @@ namespace Client.Game.Map
 				for( int y = 0; y<height; y++ ) {
 					var tile = room.data.HardGeoTileMap[x, y]; 
 					if(tile.Gid == 0) {
-
-						if(preserveAsciiSpace) {
-							matrix[x][y] = true;
-						} else {
-							matrix[x][height - y - 1] = true;
-						}
+						
+						matrix[x][y] = true; 
+					
 					}
 				}
 			}
@@ -51,7 +49,7 @@ namespace Client.Game.Map
 		public StaticGrid GetGrid() {
 			//air grid
 			if(Grid == null) {
-				var matrix = GetRoomMatrix(Room, true);
+				var matrix = GetRoomMatrix(Room);
 				Contract(matrix);
 				//DebugMatrix(matrix);
 				Grid = new StaticGrid(Room.data.TmxMap.Width, Room.data.TmxMap.Height, matrix);
@@ -153,8 +151,9 @@ namespace Client.Game.Map
 		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 
 			Grid = GetGrid();
-			var fromInt = AsciiUtils.WorldToAscii(worldFrom, Room);
-			var toInt = AsciiUtils.WorldToAscii(roomTo, Room);
+			GridPos fromInt = GridPoint.WorldToGrid(worldFrom, Room);
+			GridPos toInt = GridPoint.WorldToGrid(roomTo, Room);
+
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);
 			var points = JumpPointFinder.FindPath(jp);
 
@@ -167,6 +166,8 @@ namespace Client.Game.Map
 			
 
 		}
+
+
 
 
 

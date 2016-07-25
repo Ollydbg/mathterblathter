@@ -1328,7 +1328,7 @@ namespace Client.Game.Data
 			var tmx = TMXCache.Get(room);
 			room.Width = tmx.Width - 1;
 			room.Height = tmx.Height - 1;
-			var expandedSize = new TMXRoomDrawer.IPoint(room.Width, room.Height).GridToWorld(tmx);
+			var expandedSize = new GridPoint(room.Width, room.Height).GridToWorld(tmx);
 			room.ScreenWidth = expandedSize.x;
 			room.ScreenHeight = expandedSize.y;
 
@@ -1364,7 +1364,7 @@ namespace Client.Game.Data
 
 			foreach( var chunk in matches ) {
 				var middleNode = chunk.MiddleNode;
-				var doorPos = new TMXRoomDrawer.IPoint(middleNode).GridToWorld(tmx);
+				var doorPos = new GridPoint(middleNode).GridToWorld(tmx);
 
 				var link = new RoomData.Link ();
 				
