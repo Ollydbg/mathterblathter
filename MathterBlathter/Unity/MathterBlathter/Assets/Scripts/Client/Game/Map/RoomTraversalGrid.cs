@@ -51,7 +51,7 @@ namespace Client.Game.Map
 			if(Grid == null) {
 				var matrix = GetRoomMatrix(Room);
 				Contract(matrix);
-				//DebugMatrix(matrix);
+				DebugMatrix(matrix);
 				Grid = new StaticGrid(Room.data.TmxMap.Width, Room.data.TmxMap.Height, matrix);
 			} else {
 				Grid.Reset();
@@ -65,8 +65,7 @@ namespace Client.Game.Map
 			for( int x = 0; x < matrix.Length; x++ ) {
 				for( int y = 0; y < matrix[x].Length; y++ ) {
 					if(matrix[x][y]) {
-						var pos = AsciiUtils.AsciiToWorld(new GridPos(x, y), Room);
-						
+						var pos = new GridPoint(x, y).GridToWorld(Room.data.TmxMap);
 						Debug.DrawRay(pos, Vector3.forward * 2, Color.cyan, 2f);
 					}
 				}
