@@ -121,7 +121,7 @@ namespace Client.Game.Map
 
 		private List<WaveData> GetRoomWaves(Room room, int actorDifficulty) {
 			var buff = new List<WaveData>();
-			
+
 			var difficulty = room.Zone.Difficulty + actorDifficulty;
 
 			while(difficulty > 0) {
@@ -140,19 +140,30 @@ namespace Client.Game.Map
 		public Vector3 RandomAirPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var airSpace = seed.RandomInList(AirCoords);
-			return airSpace + new Vector3((float)room.X, (float)room.Y);
+
+			return new TMXRoomDrawer.IPoint(airSpace)
+					.GridToWorldTL(room.data.TmxMap)
+					+ new Vector3((float)room.X, (float)room.Y);
+
 		}
 
 		public Vector3 RandomFloorPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var groundSpace = seed.RandomInList(GroundCoords);
-			return groundSpace + new Vector3((float)room.X, (float)room.Y);
+
+			return new TMXRoomDrawer.IPoint(groundSpace)
+				.GridToWorldTL(room.data.TmxMap)
+				+ new Vector3((float)room.X, (float)room.Y);
 		}
 
 		public Vector3 RandomSniperPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var sniperPos = seed.RandomInList(SniperCoords);
-			return sniperPos + new Vector3((float)room.X, (float)room.Y);
+
+			return new TMXRoomDrawer.IPoint(sniperPos)
+				.GridToWorldTL(room.data.TmxMap)
+				+ new Vector3((float)room.X, (float)room.Y);
+
 		}
 	}
 }

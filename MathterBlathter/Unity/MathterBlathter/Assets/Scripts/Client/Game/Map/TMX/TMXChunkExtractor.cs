@@ -33,11 +33,11 @@ namespace Client.Game.Map.TMX
 			floodFill = new FloodFill(Map);
 		}
 
-		public IEnumerable<Vector3> AllOnLayer(string layer, bool convertSpace = true) {
+		public IEnumerable<Vector3> AllOnLayer(string layer, bool invertYSpace = true) {
 			
 			List<TmxLayerTile> tiles = null;
 			if( tryGetLayerTiles(layer, out tiles)) {
-				if(convertSpace) {
+				if(invertYSpace) {
 					return tiles.Select( p=> InvertSpace(p));
 				} else {
 					return tiles.Select( p=> new Vector3(p.X, p.Y));

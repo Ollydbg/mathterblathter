@@ -189,7 +189,7 @@ namespace Client.Game.Map
 
 		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, out Sprite sprite)
 		{
-			var coords = new IPoint(tile.X, map.Height - tile.Y);
+			var coords = new IPoint(tile.X, map.Height - 1 - tile.Y);
 
 			sprite = GetSprite(spriteLookup, tile, map);
 
@@ -247,7 +247,7 @@ namespace Client.Game.Map
 				var heightOffset = centeredRect.height * PIXEL_UP_SCALE * ppu * .5f;
 				return new Vector3(
 					worldCoordX + widthOffset,
-					worldCoordY + heightOffset
+					worldCoordY - heightOffset
 
 				);
 			}
@@ -259,6 +259,20 @@ namespace Client.Game.Map
 				return new Vector3(
 					X * spaceResolution * PIXEL_UP_SCALE,
 					Y * spaceResolution * PIXEL_UP_SCALE, 
+					0f
+				);
+
+			}
+
+			public Vector3 GridToWorldTL(TmxMap map) {
+
+				var spaceResolution = map.TileWidth / 100f;
+				var widthOffset = map.TileWidth * PIXEL_UP_SCALE * .01f * .5f;
+				var heightOffset = map.TileHeight * PIXEL_UP_SCALE * .01f * .5f;
+
+				return new Vector3(
+					X * spaceResolution * PIXEL_UP_SCALE + widthOffset,
+					Y * spaceResolution * PIXEL_UP_SCALE,// heightOffset, 
 					0f
 				);
 

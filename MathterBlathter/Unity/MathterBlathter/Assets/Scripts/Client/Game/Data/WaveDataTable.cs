@@ -26,7 +26,25 @@ namespace Client.Game.Data
 			return _all[id];
 		}
 
-		
+		public static WaveData TWO_GROUNDED {
+			get {
+				var ret = new WaveData();
+				ret.Id = 0;
+				ret.PreDelay = 1f;
+
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
+				//ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
+				//ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
+
+				ret.RestrictToZones.Add(ZoneDataTable.DEBUG_ZONE);
+
+				ret.Difficulty = 3;
+
+				return ret;
+			}
+		}
+
 		public static WaveData EASY_BLOOD_BOTS {
 			get {
 				var ret = new WaveData();
