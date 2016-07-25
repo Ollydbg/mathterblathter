@@ -11,6 +11,9 @@ namespace Client.Game.Map.TMX
 		public const string SPOT_LIGHT = "Spot";
 		public const string POINT_LIGHT = "Point";
 		public const string DoorsLayer = "Doors";
+		public const string AirSpawnLayer = "AirSpawn";
+		public const string GroundSpawnLayer = "GroundSpawn";
+
 	}
 }
 

@@ -4,6 +4,7 @@ using Client.Game.Data.Ascii;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Client.Game.Data;
 
 namespace Client.Game.Map.TMX
 {
@@ -17,7 +18,33 @@ namespace Client.Game.Map.TMX
 		{
 			this.Map = map;
 			floodFill = new FloodFill(Map);
+		}
 
+		public TMXChunkExtractor (Room room)
+		{
+			this.Map = room.data.TmxMap;
+			floodFill = new FloodFill(Map);
+		}
+
+
+		public TMXChunkExtractor (RoomData data) 
+		{
+			this.Map = data.TmxMap;
+			floodFill = new FloodFill(Map);
+		}
+
+		public IEnumerable<Vector3> AllOnLayer(string layer, bool convertSpace = true) {
+			
+			List<TmxLayerTile> tiles = null;
+			if( tryGetLayerTiles(layer, out tiles)) {
+				if(convertSpace) {
+					return tiles.Select( p=> InvertSpace(p));
+				} else {
+					return tiles.Select( p=> new Vector3(p.X, p.Y));
+				}
+			}
+
+			return new List<Vector3>();
 		}
 
 		public List<Chunk> GetChunksOnLayer(string layer) {

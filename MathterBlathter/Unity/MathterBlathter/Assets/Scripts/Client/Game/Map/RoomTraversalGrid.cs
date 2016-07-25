@@ -27,14 +27,14 @@ namespace Client.Game.Map
 		}
 
 		public static bool[][] GetRoomMatrix(Room room, bool preserveAsciiSpace) {
-			var width = room.data.Width;
-			var height = room.data.Height;
+			var width = room.data.TmxMap.Width;
+			var height = room.data.TmxMap.Height;
 			var matrix = new bool[width][];
 			for( int x = 0; x<width; x++ ) {
 				matrix[x] = new bool[height];
 				for( int y = 0; y<height; y++ ) {
-					var roomChar = room.data.AsciiMap[x, y]; 
-					if(roomChar != AsciiConstants.PLATFORM && roomChar != AsciiConstants.CEILING && roomChar != AsciiConstants.WALL) {
+					var tile = room.data.HardGeoTileMap[x, y]; 
+					if(tile.Gid == 0) {
 
 						if(preserveAsciiSpace) {
 							matrix[x][y] = true;
@@ -54,7 +54,7 @@ namespace Client.Game.Map
 				var matrix = GetRoomMatrix(Room, true);
 				Contract(matrix);
 				//DebugMatrix(matrix);
-				Grid = new StaticGrid(Room.Width, Room.Height, matrix);
+				Grid = new StaticGrid(Room.data.TmxMap.Width, Room.data.TmxMap.Height, matrix);
 			} else {
 				Grid.Reset();
 			}

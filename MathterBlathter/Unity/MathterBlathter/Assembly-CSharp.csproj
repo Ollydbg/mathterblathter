@@ -213,6 +213,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Enums\DoorRoomSide.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\GameState.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Enums\Layers.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Enums\SpawnType.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Geometry\PassthroughPlatform.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ActiveItemController.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Items\ItemBuffScript.cs" />
@@ -242,6 +243,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXCache.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXChunkExtractor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileChunk.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileMap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMXRoomDrawer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\ZoneGenerator.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\BaseGrid.cs" />

@@ -14,7 +14,7 @@ namespace Client.Game.Data
 				ret.Solo = true;
 				ret.Name = "Debug Zone";
 				ret.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
-
+				ret.Difficulty = 3;
 				ret.DrawColor = new Color(.45f, .33f, .40f);
 				ret.MaxRooms = 3;
 				return ret;

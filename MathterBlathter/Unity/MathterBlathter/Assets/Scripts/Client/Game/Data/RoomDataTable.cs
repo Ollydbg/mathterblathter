@@ -81,45 +81,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Type = RoomType.NoWaves | RoomType.Normal;
-
-				ret.AsciiMap += "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
-				ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "w                                                              w";
-                ret.AsciiMap += "d                                                              d";
-				ret.AsciiMap += "d                                                              d";
-                ret.AsciiMap += "d                                                              d";
-                ret.AsciiMap += "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffw";
+				ret.Type = RoomType.Normal ;//| RoomType.NoWaves;
 
 				//ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
 				//ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);
@@ -1370,15 +1332,19 @@ namespace Client.Game.Data
 			room.ScreenWidth = expandedSize.x;
 			room.ScreenHeight = expandedSize.y;
 
+			room.HardGeoTileMap.AddData(tmx.Layers.First(l => l.Name == Constants.HardGeometryLayer), tmx.Width);
 
 			addDoorsFromTMX (room, tmx);
-			addSpawnsFromAscii (room);
+			addSpawnsFromTMX (room);
 			Debug.Log("finalizing room: " + room);
 
 		}
 
-		static void addSpawnsFromAscii (RoomData room)
+
+		static void addSpawnsFromTMX (RoomData room)
 		{
+			return;
+			/*
 			var extractor = new AsciiMeshExtractor(room.AsciiMap);
 			foreach( var spawnType in room.AsciiSpawnLookup) {
 				foreach( Vector3 match in extractor.getAllMatching(spawnType.Key, true)) {
@@ -1388,7 +1354,7 @@ namespace Client.Game.Data
 					spawn.Facing = spawnType.Value.Facing;
 					room.Spawns.Add(spawn);
 				}
-			}
+			}*/
 		}
 
 		static void addDoorsFromTMX (RoomData room, TiledSharp.TmxMap tmx)

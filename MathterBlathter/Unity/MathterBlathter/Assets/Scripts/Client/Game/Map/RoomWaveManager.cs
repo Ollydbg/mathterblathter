@@ -40,7 +40,8 @@ namespace Client.Game.Map
 		public void AddActor(Actor actor) {
 			actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
 			AliveActors.Add(actor);
-			OnActorEntered();
+			if(OnActorEntered != null)
+				OnActorEntered();
 		}
 
 		private void ConvertPending(DelayedActorSpawn pending, Actor actor) {

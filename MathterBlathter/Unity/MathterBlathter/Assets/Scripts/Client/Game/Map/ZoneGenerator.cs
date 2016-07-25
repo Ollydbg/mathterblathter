@@ -243,8 +243,6 @@ namespace Client.Game.Map
 					unlinked.Parent.Doors.Remove(unlinked);
 					Game.Instance.ActorManager.RemoveActor(unlinked);
 
-					var ff = new FloodFill(unlinked.Parent.data.AsciiMap);
-					ff.Fill(AsciiConstants.SEALED_DOOR, unlinked.LinkData.ChunkData);	
 					UnlinkedDoors.Remove(unlinked);
 				}
 			}

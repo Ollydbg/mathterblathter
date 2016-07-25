@@ -7,6 +7,8 @@ using Client.Game.Enums;
 using UnityEngine;
 using Client.Game.Data.Ascii;
 using System.Linq;
+using TiledSharp;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Data
 {
@@ -22,8 +24,13 @@ namespace Client.Game.Data
 		public AsciiLookup AsciiSpawnLookup = new AsciiLookup();
 
 		public String TMXResource = "TMXData/Concept50X.tmx";
-
+		public TmxMap TmxMap {
+			get {
+				return TMXCache.Get(this);
+			}
+		}
 		public AsciiMap AsciiMap = new AsciiMap();
+		public TileMap HardGeoTileMap = new TileMap();
 
 		public int MinElevation;
 		public int MaxElevation;
@@ -129,6 +136,7 @@ namespace Client.Game.Data
 			clone.TMXResource = this.TMXResource;
 			clone.ScreenWidth = this.ScreenWidth;
 			clone.ScreenHeight = this.ScreenHeight;
+			clone.HardGeoTileMap = this.HardGeoTileMap;
 
 			return clone;
 			
