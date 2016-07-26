@@ -81,7 +81,7 @@ namespace Client.Game.Data
 				var ret = new RoomData();
 				ret.Id = 2;
 
-				ret.Type = RoomType.Normal;// | RoomType.NoWaves;
+				ret.Type = RoomType.Normal | RoomType.NoWaves;
 
 				//ret.AsciiSpawnLookup['U'] = new AsciiPlacement(CharacterDataTable.UPGRADEABLE_TRAP_FIXTURE, Vector3.up);
 				//ret.AsciiSpawnLookup['S'] = new AsciiPlacement(CharacterDataTable.SPIKES_FIXTURE, Vector3.up);

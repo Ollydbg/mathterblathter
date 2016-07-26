@@ -10,7 +10,7 @@ namespace Client.Game.Map.TMX
 		public GridPoint(int x, int y) { X = x; Y = y;}
 		public GridPoint(Vector3 v3) { X = (int)v3.x; Y = (int)v3.y; }
 
-		public static float PIXEL_UP_SCALE = 5f;
+		public static float PIXEL_UP_SCALE = 7f;
 
 		public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
 			var ppu = .01f;
@@ -24,7 +24,7 @@ namespace Client.Game.Map.TMX
 			var heightOffset = centeredRect.height * PIXEL_UP_SCALE * ppu * .5f;
 			return new Vector3(
 				worldCoordX + widthOffset,
-				worldCoordY - heightOffset
+				worldCoordY + heightOffset
 
 			);
 		}
