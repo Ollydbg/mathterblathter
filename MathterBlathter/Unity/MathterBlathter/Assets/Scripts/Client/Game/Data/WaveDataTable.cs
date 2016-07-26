@@ -32,10 +32,10 @@ namespace Client.Game.Data
 				ret.Id = 0;
 				ret.PreDelay = 1f;
 
-				//ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
-				//ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
-				//ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
+				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 
 				ret.RestrictToZones.Add(ZoneDataTable.DEBUG_ZONE);
 

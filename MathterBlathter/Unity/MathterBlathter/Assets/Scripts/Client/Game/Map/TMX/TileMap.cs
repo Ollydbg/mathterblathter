@@ -27,6 +27,7 @@ namespace Client.Game.Map.TMX
 
 				this[x, y] = layer.Tiles[i];
 			}
+
 		}
 		
 		public TileMap(TmxLayer layer, int width) {

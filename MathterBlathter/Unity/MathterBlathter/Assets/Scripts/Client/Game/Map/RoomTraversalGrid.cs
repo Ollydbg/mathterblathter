@@ -37,8 +37,8 @@ namespace Client.Game.Map
 					var tile = room.data.HardGeoTileMap[x, y]; 
 					if(tile.Gid == 0) {
 						
-						matrix[x][y] = true; 
-					
+						//matrix[x][y] = true; 
+						matrix[x][height - y - 1] = true;
 					}
 				}
 			}
@@ -147,18 +147,34 @@ namespace Client.Game.Map
 
 		}
 
+		private void DebugPoint(Vector3 worldPoint) {
+			Debug.DrawRay(worldPoint, Vector3.back*100f, Color.green, 2f);
+			GridPos fromInt = GridPoint.WorldToGrid(worldPoint, Room);
+			var secondRay = new GridPoint(fromInt.x, fromInt.y).GridToWorld(Room.data.TmxMap);
+			Debug.DrawRay(secondRay, Vector3.back*100f, Color.cyan, 2f);
+		}
+
 		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 
 			Grid = GetGrid();
 			GridPos fromInt = GridPoint.WorldToGrid(worldFrom, Room);
 			GridPos toInt = GridPoint.WorldToGrid(roomTo, Room);
 
+			//DebugPoint(worldFrom);
+			//DebugPoint(roomTo);
+
+
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);
 			var points = JumpPointFinder.FindPath(jp);
 
 			var buff = new Vector3[points.Count];
+
 			for(int i = 0; i<points.Count; i++ ) {
-				buff[i] = AsciiUtils.AsciiToWorld(points[i], Room);
+				buff[i] = new GridPoint(points[i].x, points[i].y).GridToWorld(Room.data.TmxMap);
+			}
+
+			if(points.Count > 3) {
+				Debug.Log("STOP");
 			}
 
 			return buff;

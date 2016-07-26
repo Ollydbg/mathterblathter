@@ -106,7 +106,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id, 3.5f
+					ActorAttributes.Speed.Id, 500f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
