@@ -52,9 +52,9 @@ namespace Client.Game.Managers
 					var hExtent = camera.orthographicSize * Screen.width / Screen.height;
 
 					var minX = hExtent + room.X;
-					var maxX = minX + room.data.ScreenWidth - 2*hExtent;
+					var maxX = minX + room.data.WorldWidth - 2*hExtent;
 					var minY = vExtent + room.Y;
-					var maxY = minY + room.data.ScreenHeight - 2*vExtent;
+					var maxY = minY + room.data.WorldHeight - 2*vExtent;
 
 					Vector3 position;
 					if(!Overridden) {

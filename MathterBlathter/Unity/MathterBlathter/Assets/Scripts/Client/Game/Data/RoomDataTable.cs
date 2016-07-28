@@ -82,7 +82,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 102;
-				ret.TMXResource = "TMXData/Zone1/102.tmx";
+				ret.TMXResource = "TMXData/Zone1/101.tmx";
 
 			
 				finalize(ret);
@@ -162,8 +162,8 @@ namespace Client.Game.Data
 			room.Width = tmx.Width - 1;
 			room.Height = tmx.Height - 1;
 			var expandedSize = new GridPoint(room.Width, room.Height).GridToWorld(tmx);
-			room.ScreenWidth = expandedSize.x;
-			room.ScreenHeight = expandedSize.y;
+			room.WorldWidth = expandedSize.x;
+			room.WorldHeight = expandedSize.y;
 
 			room.HardGeoTileMap.AddData(tmx.Layers.First(l => l.Name == Constants.HardGeometryLayer), tmx.Width);
 
@@ -196,7 +196,7 @@ namespace Client.Game.Data
 			var matches = extractor.GetChunksOnLayer(Constants.DoorsLayer);
 
 			foreach( var chunk in matches ) {
-				var middleNode = chunk.MiddleNode;
+				var middleNode = chunk.FirstNode;
 				var doorPos = new GridPoint(middleNode).GridToWorld(tmx);
 
 				var link = new RoomData.Link ();

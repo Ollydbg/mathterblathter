@@ -13,7 +13,7 @@ namespace Client.Game.Data
 				var ret = new ZoneData();
 				ret.Mute = true;
 				ret.Name = "Debug Zone";
-				ret.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
+				ret.Requirements.Add(new ZReq(RoomDataTable.ROOM_1, 1, ZoneData.Occurance.Guaranteed));
 				ret.Difficulty = 3;
 				ret.DrawColor = new Color(.45f, .33f, .40f);
 				ret.MaxRooms = 3;
@@ -26,7 +26,7 @@ namespace Client.Game.Data
 				var ret = new ZoneData();
 				ret.Name = "New Parish";
 				ret.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
-				ret.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
+				ret.Requirements.Add(new ZReq(RoomType.Normal, 30, ZoneData.Occurance.Guaranteed));
 				ret.DrawColor = new Color(.45f, .33f, .40f);
 				ret.MaxRooms = 25;
 				ret.Difficulty = 4;

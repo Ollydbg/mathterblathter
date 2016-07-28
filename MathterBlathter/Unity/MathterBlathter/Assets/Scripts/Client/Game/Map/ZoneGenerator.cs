@@ -7,6 +7,7 @@ using Client.Game.Enums;
 using UnityEngine;
 using Client.Game.Map.GenConstraints;
 using Client.Game.Utils;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Map
 {
@@ -78,7 +79,7 @@ namespace Client.Game.Map
 
 				room.Zone = ZoneData;
 
-				Constraints.Commit(roomData, targetX, targetY, room.Width, room.Height);
+				Constraints.Commit(roomData, targetX, targetY, (int)room.data.WorldWidth, (int)room.data.WorldHeight);
 
 				ConsumeLinkedDoors(doorLinks, room);
 
@@ -193,12 +194,13 @@ namespace Client.Game.Map
 						//Because we don't want to actually overlap the doors, we want them to be adjacent.
 						//Testing Adjacency means we can just add offset for the door side and then test for equality
 
+
 						targetX = (int)mate.MatingX - door.X;
 						targetY = (int)mate.MatingY - door.Y;
 
 
 						//if(targetY > FloorY) {
-							if(Constraints.Check(data, targetX, targetY, data.Width, data.Height)) {
+						if(Constraints.Check(data, targetX, targetY, (int)data.WorldWidth, (int)data.WorldHeight)) {
 								doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
 								return true;
 							}

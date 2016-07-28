@@ -25,6 +25,12 @@ namespace Client.Game.Data.Ascii
 			}
 		}
 	
+		public Vector3 FirstNode {
+			get {
+				return this[0];
+			}
+		}
+
 		public Vector3 MiddleNode{
 			get {
 				return this[1];

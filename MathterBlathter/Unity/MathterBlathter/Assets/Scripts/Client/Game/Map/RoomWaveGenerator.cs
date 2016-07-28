@@ -98,6 +98,7 @@ namespace Client.Game.Map
 						} else {
 							//always try to face into the center of the room
 							var facingDirection = position.x < room.roomCenter.x? Vector3.right : Vector3.left;
+							Debug.DrawRay(position, Vector3.forward*100f, Color.blue, 100000f);
 							newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position, facingDirection));
 						}
 					}
@@ -142,8 +143,8 @@ namespace Client.Game.Map
 			var airSpace = seed.RandomInList(AirCoords);
 
 			return new GridPoint(airSpace)
-					.GridToWorldTL(room.data.TmxMap)
-					+ new Vector3((float)room.X, (float)room.Y);
+				.GridToWorld(room.data.TmxMap)
+				+ new Vector3((float)room.X, (float)room.Y);
 
 		}
 
@@ -152,7 +153,7 @@ namespace Client.Game.Map
 			var groundSpace = seed.RandomInList(GroundCoords);
 
 			return new GridPoint(groundSpace)
-				.GridToWorldTL(room.data.TmxMap)
+				.GridToWorld(room.data.TmxMap)
 				+ new Vector3((float)room.X, (float)room.Y);
 		}
 
@@ -161,7 +162,7 @@ namespace Client.Game.Map
 			var sniperPos = seed.RandomInList(SniperCoords);
 
 			return new GridPoint(sniperPos)
-				.GridToWorldTL(room.data.TmxMap)
+				.GridToWorld(room.data.TmxMap)
 				+ new Vector3((float)room.X, (float)room.Y);
 
 		}

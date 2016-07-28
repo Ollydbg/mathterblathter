@@ -45,8 +45,8 @@ namespace Client.Game.Data
 
 		public RoomType Type = RoomType.Normal;
 
-		public float ScreenWidth;
-		public float ScreenHeight;
+		public float WorldWidth;
+		public float WorldHeight;
 
 		public override string ToString ()
 		{
@@ -134,8 +134,8 @@ namespace Client.Game.Data
 			clone.LayerData = this.LayerData;
 			clone.SetPiece = this.SetPiece;
 			clone.TMXResource = this.TMXResource;
-			clone.ScreenWidth = this.ScreenWidth;
-			clone.ScreenHeight = this.ScreenHeight;
+			clone.WorldWidth = this.WorldWidth;
+			clone.WorldHeight = this.WorldHeight;
 			clone.HardGeoTileMap = this.HardGeoTileMap;
 
 			return clone;

@@ -26,7 +26,7 @@ namespace Client.Game.Data
 			return _all[id];
 		}
 
-		public static WaveData TWO_GROUNDED {
+		public static WaveData DEBUG_WAVE {
 			get {
 				var ret = new WaveData();
 				ret.Id = 0;

@@ -38,18 +38,21 @@ namespace Client.Game.AI.Actions
 			return AIResult.Running;
 		}
 
-		private Vector3 NextGoal(Actor actor) {
+		private Vector3 NextGoal(Actor actor, int frames = 0) {
+			if(frames >= 10) {
+				Debug.Break();
+			}
 			if(Route.CurrentDirection == Vector2.right) {
 				if(actor.transform.position.x >= Route.Right.x) {
 					Route.Flip();
-					return NextGoal(actor);
+					return NextGoal(actor, frames+1);
 				}
 					
 				return Route.Right;
 			} else {
 				if(actor.transform.position.x <= Route.Left.x) {
 					Route.Flip();
-					return NextGoal(actor);
+					return NextGoal(actor, frames+1);
 				}
 				return Route.Left;
 			}

@@ -7,6 +7,9 @@ namespace Client.Game.Map.TMX
 		public const string HardGeometryLayer = "HardGeometry";
 		public const string LightsLayer = "Lights";
 		public const string BackgroundLayer = "Background";
+
+		public const string DecorFrontLayer = "DecorFront";
+		public const string DecorBackLayer = "DecorBack";
 		public const string SceneryLayer = "Scenery";
 		public const string SPOT_LIGHT = "Spot";
 		public const string POINT_LIGHT = "Point";

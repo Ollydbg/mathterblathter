@@ -44,8 +44,15 @@ namespace Client.Game.Map
 			var hardGeo = tmx.Layers.FirstOrDefault(l => l.Name == Constants.HardGeometryLayer);
 			DrawHardGeo(hardGeo, go, tmx, sprites, room);
 
-			var background = tmx.Layers.FirstOrDefault(p => p.Name == Constants.SceneryLayer);
-			DrawScenery(background, go, tmx, sprites, room);
+			var scenery = tmx.Layers.FirstOrDefault(p => p.Name == Constants.SceneryLayer);
+			DrawScenery(scenery, go, tmx, sprites, room, Vector3.forward * 100f);
+
+			var decorBack = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DecorBackLayer);
+			DrawScenery(decorBack, go, tmx, sprites, room, Vector3.forward * 20f);
+
+			var decorFront = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DecorFrontLayer);
+			DrawScenery(decorFront, go, tmx, sprites, room, Vector3.back * 10f);
+
 
 			var lights = tmx.ObjectGroups.FirstOrDefault(p => p.Name == Constants.LightsLayer);
 			DrawLights(lights, go, tmx, sprites, room);
@@ -98,22 +105,23 @@ namespace Client.Game.Map
 		{
 			foreach (var door in room.Doors) {
 				if(!door.Set) {
-					door.transform.localScale = new Vector3 (door.Width, door.Height, 1);
-					door.GameObject.hideFlags = HideFlags.HideInHierarchy;
-					//the offsets are an artifact of the fact that the doors are just box primitives
-					//instead of meshes like the walls
+					
+					//door width/height are in tile units
+					var gridScale = new GridPoint(door.Width, door.Height).GridToWorld(tmx) + Vector3.forward;
+					door.transform.localScale = gridScale;
+					//door.GameObject.hideFlags = HideFlags.HideInHierarchy;
 
 					if(door.WallDoor) {
 						float offset = door.Side == DoorRoomSide.Left? -1 : 0;
 						door.transform.position = new Vector3 (
 							door.X + .5f*door.Width + offset,
-							door.Y - .5f*door.Height +2) + GridToWorldSpace(room);
+							door.Y - 1.25f) + GridToWorldSpace(room);
 
 					} else {
 						float offset = door.Side == DoorRoomSide.Bottom? -1 : 0;
 						door.transform.position = new Vector3 (
 							door.X + .5f*door.Width -1,
-							door.Y - .5f*door.Height+2 + offset) + GridToWorldSpace(room);
+							door.Y) + GridToWorldSpace(room);
 					}
 					door.Set = true;
 				}
@@ -139,7 +147,7 @@ namespace Client.Game.Map
 
 		}
 
-		void DrawScenery (TmxLayer background, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		void DrawScenery (TmxLayer background, GameObject go, TmxMap tmx, Sprite[] sprites, Room room, Vector3 depth)
 		{
 
 			if(background != null) {
@@ -148,7 +156,7 @@ namespace Client.Game.Map
 						Sprite sprite;
 						var obj = TileAtLocation(go, tile, tmx, sprites, room, out sprite);
 						obj.name = "Scene object";
-						obj.transform.localPosition = obj.transform.localPosition + Vector3.forward*2f;
+						obj.transform.localPosition = obj.transform.localPosition + depth;
 					}
 
 				}
@@ -177,8 +185,8 @@ namespace Client.Game.Map
 
 			GameObject.Destroy(plane.GetComponent<Collider>());
 
-			plane.transform.localScale = new Vector3(room.data.ScreenWidth*.1f, 1f, room.data.ScreenHeight*.1f);
-			plane.transform.position = new Vector3(room.X + room.data.ScreenWidth*.5f, room.Y + room.data.ScreenHeight*.5f, 5);
+			plane.transform.localScale = new Vector3(room.data.WorldWidth*.1f, 1f, room.data.WorldHeight*.1f);
+			plane.transform.position = new Vector3(room.X + room.data.WorldWidth*.5f, room.Y + room.data.WorldHeight*.5f, 5);
 			plane.transform.parent = go.transform;
 		}
 		
