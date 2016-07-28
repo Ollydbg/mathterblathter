@@ -21,6 +21,14 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static MusicData STRANGER_THEME {
+			get {
+				var ret = new MusicData();
+				ret.Resource = "Music/StrangerTheme";
+				return ret;
+			}
+		}
+
 		public static MusicData RUN_MUSIC {
 			get {
 				var ret = new MusicData();
