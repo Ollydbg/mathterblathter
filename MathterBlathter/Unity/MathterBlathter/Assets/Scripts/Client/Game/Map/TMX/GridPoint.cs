@@ -11,7 +11,7 @@ namespace Client.Game.Map.TMX
 		public GridPoint(float x, float y) { X = (int)x; Y = (int)y;}
 		public GridPoint(Vector3 v3) { X = (int)v3.x; Y = (int)v3.y; }
 
-		public static float PIXEL_UP_SCALE = 7f;
+		public static float PIXEL_UP_SCALE = 6f;
 
 		public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
 			var ppu = .01f;

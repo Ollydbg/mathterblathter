@@ -115,7 +115,7 @@ namespace Client.Game.Map
 						float offset = door.Side == DoorRoomSide.Left? -1 : 0;
 						door.transform.position = new Vector3 (
 							door.X + .5f*door.Width + offset,
-							door.Y - 1.25f) + GridToWorldSpace(room);
+							door.Y - 1.5f) + GridToWorldSpace(room);
 
 					} else {
 						float offset = door.Side == DoorRoomSide.Bottom? -1 : 0;
