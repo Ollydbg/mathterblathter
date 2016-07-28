@@ -173,9 +173,6 @@ namespace Client.Game.Map
 				buff[i] = new GridPoint(points[i].x, points[i].y).GridToWorld(Room.data.TmxMap);
 			}
 
-			if(points.Count > 3) {
-				Debug.Log("STOP");
-			}
 
 			return buff;
 			
