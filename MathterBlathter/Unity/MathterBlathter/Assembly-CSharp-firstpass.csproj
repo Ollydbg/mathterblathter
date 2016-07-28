@@ -423,11 +423,11 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
- <Reference Include="AmplifyBloom">
- <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/ThirdParty/AmplifyBloom/Plugins/AmplifyBloom.dll</HintPath>
- </Reference>
  <Reference Include="TiledSharp">
  <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/Scripts/Assemblies/TiledSharp.dll</HintPath>
+ </Reference>
+ <Reference Include="AmplifyBloom">
+ <HintPath>/Users/donaldbellenger/workspace/MathterBlathter/MathterBlathter/Unity/MathterBlathter/Assets/ThirdParty/AmplifyBloom/Plugins/AmplifyBloom.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
