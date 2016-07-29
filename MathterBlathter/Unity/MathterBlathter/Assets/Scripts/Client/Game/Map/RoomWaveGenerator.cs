@@ -5,6 +5,8 @@ using UnityEngine;
 using Client.Game.Data.Ascii;
 using Client.Game.Actors;
 using Client.Game.Attributes;
+using Client.Game.Enums;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Map
 {
@@ -18,9 +20,9 @@ namespace Client.Game.Map
 			if(sorted == null) 
 				StaticInit();
 
-			SpawnFactoryLookup[AsciiConstants.AIR_SPAWN] = RandomAirPosition;
-			SpawnFactoryLookup[AsciiConstants.GROUNDED_SPAWN] = RandomFloorPosition;
-			SpawnFactoryLookup[AsciiConstants.GROUND_SNIPER_PERCH] = RandomSniperPosition;
+			SpawnFactoryLookup[SpawnType.Air] = RandomAirPosition;
+			SpawnFactoryLookup[SpawnType.Grounded] = RandomFloorPosition;
+			SpawnFactoryLookup[SpawnType.GroundedSniper] = RandomSniperPosition;
 			
 		}
 
@@ -31,7 +33,7 @@ namespace Client.Game.Map
 		List<Vector3> SniperCoords;
 
 		private delegate Vector3 RandomRoomPosition(Room room);
-		private Dictionary<char, RandomRoomPosition> SpawnFactoryLookup = new Dictionary<char, RandomRoomPosition>();
+		private Dictionary<SpawnType, RandomRoomPosition> SpawnFactoryLookup = new Dictionary<SpawnType, RandomRoomPosition>();
 
 		public static List<WaveData> StaticInit() {
 			if(sorted == null) {
@@ -73,10 +75,10 @@ namespace Client.Game.Map
 
 		public GeneratedWave Generate(Room room, Actor forActor) {
 			
-			var extractor = new AsciiMeshExtractor(room.data.AsciiMap);
-			AirCoords = extractor.getAllMatching(AsciiConstants.AIR_SPAWN);
-			GroundCoords = extractor.getAllMatching(AsciiConstants.GROUNDED_SPAWN);
-			SniperCoords = extractor.getAllMatching(AsciiConstants.GROUND_SNIPER_PERCH);
+			var extractor = new TMXChunkExtractor(room);
+			AirCoords = extractor.AllOnLayer(Constants.AirSpawnLayer).ToList();
+			GroundCoords = extractor.AllOnLayer(Constants.GroundSpawnLayer).ToList();
+			SniperCoords = GroundCoords;
 
 			GeneratedWave waveHead = null;
 			GeneratedWave tail = null;
@@ -96,6 +98,7 @@ namespace Client.Game.Map
 						} else {
 							//always try to face into the center of the room
 							var facingDirection = position.x < room.roomCenter.x? Vector3.right : Vector3.left;
+							Debug.DrawRay(position, Vector3.forward*100f, Color.blue, 100000f);
 							newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position, facingDirection));
 						}
 					}
@@ -114,11 +117,12 @@ namespace Client.Game.Map
 			}
 
 			return waveHead;
+
 		}
 
 		private List<WaveData> GetRoomWaves(Room room, int actorDifficulty) {
 			var buff = new List<WaveData>();
-			
+
 			var difficulty = room.Zone.Difficulty + actorDifficulty;
 
 			while(difficulty > 0) {
@@ -137,19 +141,30 @@ namespace Client.Game.Map
 		public Vector3 RandomAirPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var airSpace = seed.RandomInList(AirCoords);
-			return airSpace + new Vector3((float)room.X, (float)room.Y);
+
+			return new GridPoint(airSpace)
+				.GridToWorld(room.data.TmxMap)
+				+ new Vector3((float)room.X, (float)room.Y);
+
 		}
 
 		public Vector3 RandomFloorPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var groundSpace = seed.RandomInList(GroundCoords);
-			return groundSpace + new Vector3((float)room.X, (float)room.Y);
+
+			return new GridPoint(groundSpace)
+				.GridToWorld(room.data.TmxMap)
+				+ new Vector3((float)room.X, (float)room.Y);
 		}
 
 		public Vector3 RandomSniperPosition(Room room) {
 			var seed = Game.Instance.Seed;
 			var sniperPos = seed.RandomInList(SniperCoords);
-			return sniperPos + new Vector3((float)room.X, (float)room.Y);
+
+			return new GridPoint(sniperPos)
+				.GridToWorld(room.data.TmxMap)
+				+ new Vector3((float)room.X, (float)room.Y);
+
 		}
 	}
 }

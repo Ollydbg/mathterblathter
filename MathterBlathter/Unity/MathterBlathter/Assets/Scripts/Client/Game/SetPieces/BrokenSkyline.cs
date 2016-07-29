@@ -53,7 +53,7 @@ namespace Client.Game.SetPieces
 			PlayVO();
 
 			Game.Instance.CameraManager.ClearOverrideTarget();
-			Game.Instance.MusicManager.Play(MusicDataTable.RUN_MUSIC);
+			Game.Instance.MusicManager.StartRun();
 
 			Game.Instance.PossessedActor.GameObject.SetActive(true);
 			Game.Instance.PossessedActor.Controller.MoveTo(PlayerEntrancePosition);

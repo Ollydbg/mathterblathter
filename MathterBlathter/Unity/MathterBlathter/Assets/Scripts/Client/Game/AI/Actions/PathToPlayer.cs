@@ -45,7 +45,7 @@ namespace Client.Game.AI.Actions
 
 			var forceRepath = !didMove && !hasLOS;
 
-			if((repathAccum >= REPATH_DELAY) || forceRepath) {
+			if((repathAccum >= REPATH_DELAY)) {
 				Repath();
 
 				if(Agent.PathNodes.Length == 0) 

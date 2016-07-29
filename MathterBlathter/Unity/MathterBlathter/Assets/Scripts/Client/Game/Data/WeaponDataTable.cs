@@ -758,7 +758,7 @@ namespace Client.Game.Data
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 80;
 				ret.Description = "Destroys projectiles, hitting enemies decreases anxiety";
-				ret.Name = "Der Auto Hammer";
+				ret.Name = "Auto Hammer";
 
 				return ret;
 			}

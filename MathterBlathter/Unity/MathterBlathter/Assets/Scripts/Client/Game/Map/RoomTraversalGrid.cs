@@ -3,6 +3,7 @@ using Client.Game.Pathfinding;
 using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Data.Ascii;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Map
 {
@@ -26,21 +27,18 @@ namespace Client.Game.Map
 
 		}
 
-		public static bool[][] GetRoomMatrix(Room room, bool preserveAsciiSpace) {
-			var width = room.data.Width;
-			var height = room.data.Height;
+		public static bool[][] GetRoomMatrix(Room room) {
+			var width = room.data.TmxMap.Width;
+			var height = room.data.TmxMap.Height;
 			var matrix = new bool[width][];
 			for( int x = 0; x<width; x++ ) {
 				matrix[x] = new bool[height];
 				for( int y = 0; y<height; y++ ) {
-					var roomChar = room.data.AsciiMap[x, y]; 
-					if(roomChar != AsciiConstants.PLATFORM && roomChar != AsciiConstants.CEILING && roomChar != AsciiConstants.WALL) {
-
-						if(preserveAsciiSpace) {
-							matrix[x][y] = true;
-						} else {
-							matrix[x][height - y - 1] = true;
-						}
+					var tile = room.data.HardGeoTileMap[x, y]; 
+					if(tile.Gid == 0) {
+						
+						//matrix[x][y] = true; 
+						matrix[x][height - y - 1] = true;
 					}
 				}
 			}
@@ -51,10 +49,10 @@ namespace Client.Game.Map
 		public StaticGrid GetGrid() {
 			//air grid
 			if(Grid == null) {
-				var matrix = GetRoomMatrix(Room, true);
+				var matrix = GetRoomMatrix(Room);
 				Contract(matrix);
-				//DebugMatrix(matrix);
-				Grid = new StaticGrid(Room.Width, Room.Height, matrix);
+				DebugMatrix(matrix);
+				Grid = new StaticGrid(Room.data.TmxMap.Width, Room.data.TmxMap.Height, matrix);
 			} else {
 				Grid.Reset();
 			}
@@ -67,8 +65,7 @@ namespace Client.Game.Map
 			for( int x = 0; x < matrix.Length; x++ ) {
 				for( int y = 0; y < matrix[x].Length; y++ ) {
 					if(matrix[x][y]) {
-						var pos = AsciiUtils.AsciiToWorld(new GridPos(x, y), Room);
-						
+						var pos = new GridPoint(x, y).GridToWorld(Room.data.TmxMap);
 						Debug.DrawRay(pos, Vector3.forward * 2, Color.cyan, 2f);
 					}
 				}
@@ -150,23 +147,39 @@ namespace Client.Game.Map
 
 		}
 
+		private void DebugPoint(Vector3 worldPoint) {
+			Debug.DrawRay(worldPoint, Vector3.back*100f, Color.green, 2f);
+			GridPos fromInt = GridPoint.WorldToGrid(worldPoint, Room);
+			var secondRay = new GridPoint(fromInt.x, fromInt.y).GridToWorld(Room.data.TmxMap);
+			Debug.DrawRay(secondRay, Vector3.back*100f, Color.cyan, 2f);
+		}
+
 		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 
 			Grid = GetGrid();
-			var fromInt = AsciiUtils.WorldToAscii(worldFrom, Room);
-			var toInt = AsciiUtils.WorldToAscii(roomTo, Room);
+			GridPos fromInt = GridPoint.WorldToGrid(worldFrom, Room);
+			GridPos toInt = GridPoint.WorldToGrid(roomTo, Room);
+
+			//DebugPoint(worldFrom);
+			//DebugPoint(roomTo);
+
+
 			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);
 			var points = JumpPointFinder.FindPath(jp);
 
 			var buff = new Vector3[points.Count];
+
 			for(int i = 0; i<points.Count; i++ ) {
-				buff[i] = AsciiUtils.AsciiToWorld(points[i], Room);
+				buff[i] = new GridPoint(points[i].x, points[i].y).GridToWorld(Room.data.TmxMap);
 			}
+
 
 			return buff;
 			
 
 		}
+
+
 
 
 

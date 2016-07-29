@@ -39,6 +39,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Client.Game.Map;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Pathfinding
 {
@@ -84,6 +86,11 @@ namespace Client.Game.Pathfinding
             // Return true if the fields match:
             return (x == p.x) && (y == p.y);
         }
+
+
+		public static implicit operator GridPos(GridPoint pt) {
+			return new GridPos(pt.X, pt.Y);
+		}
 
         public bool Equals(GridPos p)
         {

@@ -46,7 +46,7 @@ namespace Client.Game.Map
 			return Id;
 		}
 
-		private static IRoomDrawer Drawer = new MeshRoomDrawer();
+		private static IRoomDrawer Drawer = new TMXRoomDrawer();
 
 		public Vector3 Position {
 			get {return new Vector3(X,Y); }
@@ -100,7 +100,7 @@ namespace Client.Game.Map
 			if(SetPiecePrefab != null)
 				GameObject.Destroy(SetPiecePrefab);
 
-			Lights.ForEach(l => l.gameObject.SetActive(true));
+			Lights.ForEach(l => l.gameObject.SetActive(false));
 			Spawns.ForEach( p => p.Destroy());
 			Spawns.Clear();
 

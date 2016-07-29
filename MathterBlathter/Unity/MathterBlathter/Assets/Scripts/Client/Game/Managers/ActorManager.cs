@@ -101,6 +101,7 @@ namespace Client.Game.Managers
 			if (resourceName != null) {
 				var loaded = Resources.Load (resourceName);
 				obj = (GameObject)GameObject.Instantiate (loaded);
+				obj.name = resourceName + "_" + actor.Id;
 			} else {
 				obj = new GameObject ();
 			}

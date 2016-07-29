@@ -1,0 +1,8 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/Resources/TileMaps/Concept50X.tpsheet
+textureFileNames:
+- Assets/Resources/TileMaps/Concept50X.png
+normalmapFileNames:
+- 

@@ -45,7 +45,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 2;
-				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
+				ret.SpawnType = SpawnType.Grounded;
 				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 				
 				ret.ResourcePath = "Actors/Enemies/GroundTroop/EnemyTestSprite_prefab";
@@ -88,7 +88,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData ();
 				ret.Id = 3;
 
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
@@ -106,7 +106,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id, 3.5f
+					ActorAttributes.Speed.Id, 500f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
@@ -149,7 +149,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 13;
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
@@ -202,7 +202,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 16;
 
-				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
+				ret.SpawnType = SpawnType.Grounded;
 				ret.ResourcePath = "Actors/Enemies/Sniper_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = AIDataTable.WANDERING_SNIPER_AI;
@@ -258,7 +258,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 21;
 
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/PurpleFloater_prefab";
 				ret.ActorType = ActorType.Enemy;
 				
@@ -343,7 +343,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 25;
 
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 
@@ -392,7 +392,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 26;
-				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
+				ret.SpawnType = SpawnType.Grounded;
 				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 
 				ret.ResourcePath = "Actors/Enemies/ViperEnemy_prefab";
@@ -434,7 +434,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 27;
-				ret.SpawnType = AsciiConstants.GROUNDED_SPAWN;
+				ret.SpawnType = SpawnType.Grounded;
 				ret.AIData = AIDataTable.PATROL_THEN_PURSUE_AI;
 
 				ret.ResourcePath = "Actors/Enemies/GroundTroop/EnemyTestSprite_prefab";
@@ -475,7 +475,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 28;
 
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
 
@@ -509,7 +509,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 				ret.Id = 29;
 
-				ret.SpawnType = AsciiConstants.AIR_SPAWN;
+				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/Boss1/Boss1_prefab";
 
 				ret.AIData = AIDataTable.SEEK_TO_FIRE_IF_LOS_AI;

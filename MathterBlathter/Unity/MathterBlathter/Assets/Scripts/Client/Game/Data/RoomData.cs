@@ -7,6 +7,8 @@ using Client.Game.Enums;
 using UnityEngine;
 using Client.Game.Data.Ascii;
 using System.Linq;
+using TiledSharp;
+using Client.Game.Map.TMX;
 
 namespace Client.Game.Data
 {
@@ -14,13 +16,21 @@ namespace Client.Game.Data
 	public class RoomData : GameData
 	{
 
+		//tilemap units
 		public int Width;
 		public int Height;
 		public List<Link> Doors = new List<Link>();
 		public List<Spawn> Spawns = new List<Spawn> ();
 		public AsciiLookup AsciiSpawnLookup = new AsciiLookup();
 
+		public String TMXResource = "TMXData/Concept50X.tmx";
+		public TmxMap TmxMap {
+			get {
+				return TMXCache.Get(this);
+			}
+		}
 		public AsciiMap AsciiMap = new AsciiMap();
+		public TileMap HardGeoTileMap = new TileMap();
 
 		public int MinElevation;
 		public int MaxElevation;
@@ -35,6 +45,10 @@ namespace Client.Game.Data
 
 		public RoomType Type = RoomType.Normal;
 
+		public float WorldWidth;
+		public float WorldHeight;
+
+		public MusicData OverrideMusic;
 
 		public override string ToString ()
 		{
@@ -65,6 +79,7 @@ namespace Client.Game.Data
 				this.Width = other.Width;
 				this.Height = other.Height;
 				this.Side = other.Side;
+
 			}
 
 			public Link Clone() {
@@ -120,6 +135,12 @@ namespace Client.Game.Data
 			clone.Id = this.Id;
 			clone.LayerData = this.LayerData;
 			clone.SetPiece = this.SetPiece;
+			clone.TMXResource = this.TMXResource;
+			clone.WorldWidth = this.WorldWidth;
+			clone.WorldHeight = this.WorldHeight;
+			clone.HardGeoTileMap = this.HardGeoTileMap;
+			clone.OverrideMusic = this.OverrideMusic;
+
 			return clone;
 			
 		}

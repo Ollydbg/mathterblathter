@@ -1,18 +1,45 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/SetPieces/BrokenSkyline.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Map/TMX/GridPoint.cs">
     <Files>
-      <File FileName="Assets/Scripts/Client/Game/Data/MapData.cs" Line="39" Column="22" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/AIBuff.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Client/Game/Data/ZoneDataTable.cs" Line="29" Column="88" />
-      <File FileName="Assets/Scripts/Client/Game/Data/CharacterDataTable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Client/Game/Managers/MapManager.cs" Line="103" Column="3" />
-      <File FileName="Assets/Scripts/Client/Game/Core/Game.cs" Line="45" Column="4" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/AbilityContext.cs" Line="52" Column="4" />
-      <File FileName="Assets/Scripts/Client/Game/Data/RoomDataTable.cs" Line="108" Column="77" />
-      <File FileName="Assets/Scripts/Client/Game/Abilities/Scripts/MeleeAttack.cs" Line="65" Column="52" />
-      <File FileName="Assets/Scripts/Client/Game/SetPieces/BrokenSkyline.cs" Line="37" Column="25" />
+      <File FileName="Assets/Scripts/Client/Game/AI/Actions/PathToPlayer.cs" Line="45" Column="4" />
+      <File FileName="Assets/Scripts/Client/Game/Map/RoomTraversalGrid.cs" Line="182" Column="4" />
+      <File FileName="Assets/Scripts/Client/Game/Data/WaveDataTable.cs" Line="66" Column="9" />
+      <File FileName="Assets/Scripts/Client/Game/Data/RoomDataTable.cs" Line="86" Column="96" />
+      <File FileName="Assets/Scripts/Client/Game/Map/TMXRoomDrawer.cs" Line="206" Column="52" />
+      <File FileName="Assets/Scripts/Client/Game/Map/TMX/GridPoint.cs" Line="35" Column="4" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MathterBlathter" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Client" expanded="True">
+                  <Node name="Game" expanded="True">
+                    <Node name="Abilities" expanded="True">
+                      <Node name="Scripts" expanded="True" />
+                    </Node>
+                    <Node name="AI" expanded="True">
+                      <Node name="Actions" expanded="True" />
+                    </Node>
+                    <Node name="Data" expanded="True" />
+                    <Node name="Map" expanded="True">
+                      <Node name="TMX" expanded="True">
+                        <Node name="GridPoint.cs" selected="True" />
+                      </Node>
+                    </Node>
+                    <Node name="Pathfinding" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-Editor" expanded="True" />
+            <Node name="Assembly-CSharp-firstpass" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

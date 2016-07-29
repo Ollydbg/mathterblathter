@@ -25,7 +25,7 @@ namespace Client.Game.Data
 		//serialized attributes
 		public Availability Availability;
 
-		public char SpawnType;
+		public SpawnType SpawnType;
 		public int Cost;
 
 		//pickup stuff
