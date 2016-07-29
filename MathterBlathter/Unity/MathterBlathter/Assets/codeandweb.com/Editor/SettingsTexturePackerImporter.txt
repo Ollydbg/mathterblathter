@@ -1,8 +1,14 @@
 version: 2
 importPivots: 1
 tpsheetFileNames:
+- Assets/Resources/TileMaps/Concept25X.tpsheet
 - Assets/Resources/TileMaps/Concept50X.tpsheet
+- Assets/Textures/RainFX.tpsheet
 textureFileNames:
+- Assets/Resources/TileMaps/Concept25X.png
 - Assets/Resources/TileMaps/Concept50X.png
+- Assets/Textures/RainFX.png
 normalmapFileNames:
+- 
+- 
 - 

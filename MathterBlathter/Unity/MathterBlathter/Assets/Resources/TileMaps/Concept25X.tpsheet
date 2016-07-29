@@ -1,0 +1,40 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:a1775c1bf6c5a2016ac5782528302975:d255a7bd620fdb0209baf061336c2a2e:12dac3d7eb44aa4bf65c674dc6a051fd$
+#
+:format=40000
+:texture=Concept25X.png
+:size=1024x512
+:pivotpoints=enabled
+
+Background_buildings;1;286;775;225;0.5;0.5
+Credit;28;128;50;50;0.5;0.5
+Door;80;128;50;50;0.5;0.5
+Ground;180;126;25;25;0.5;0.5
+GroundBottom;155;47;25;25;0.5;0.5
+GroundCapL;155;20;25;25;0.5;0.5
+GroundCapLBottom;182;47;25;25;0.5;0.5
+GroundCapLTop;182;20;25;25;0.5;0.5
+GroundCapRBottom;207;126;25;25;0.5;0.5
+GroundCapRTop;207;99;25;25;0.5;0.5
+GroundTop;209;72;25;25;0.5;0.5
+Platform_01;28;101;150;25;0.5;0.5
+Platform_02;930;180;75;25;0.5;0.5
+Platform_03;132;153;100;25;0.5;0.5
+PlatformCapL;103;74;50;25;0.5;0.5
+PlatformCapR;103;47;50;25;0.5;0.5
+Props_cables;930;207;75;75;0.5;0.5
+Props_column;955;284;50;175;0.5;0.5
+Props_cube01;103;20;50;25;0.5;0.5
+Props_cube02;155;74;50;25;0.5;0.5
+Props_cube03;103;20;50;25;0.5;0.5
+Props_grid;1;26;100;50;0.5;0.5
+Props_grid_back;955;461;57;50;0.5;0.5
+theHOUSE;778;386;175;125;0.5;0.5
+Wall;209;45;25;25;0.5;0.5
+Wall_Decorations_big;778;184;150;200;0.5;0.5
+Wall_Decorations_tiny;1;78;25;100;0.5;0.5

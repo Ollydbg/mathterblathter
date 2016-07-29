@@ -33,7 +33,7 @@ namespace Client.Game.Map
 
 			var tmx = TMXCache.Get(room.data);
 
-			var sheetName = "TileMaps/Concept50X";
+			var sheetName = "TileMaps/Concept25X";
 			Sprite[] sprites = Resources.LoadAll<Sprite>(sheetName);
 
 			var go = new GameObject();
@@ -42,16 +42,20 @@ namespace Client.Game.Map
 			
 
 			var hardGeo = tmx.Layers.FirstOrDefault(l => l.Name == Constants.HardGeometryLayer);
-			DrawHardGeo(hardGeo, go, tmx, sprites, room);
+			DrawGeo(hardGeo, go, tmx, sprites, room, true);
+
+			var groundTop = tmx.Layers.FirstOrDefault(l => l.Name == Constants.GroundTopLayer);
+			DrawGeo(groundTop, go, tmx, sprites, room, false);
+
 
 			var scenery = tmx.Layers.FirstOrDefault(p => p.Name == Constants.SceneryLayer);
-			DrawScenery(scenery, go, tmx, sprites, room, Vector3.forward * 100f);
+			DrawScenery(scenery, go, tmx, sprites, room, 100f);
 
 			var decorBack = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DecorBackLayer);
-			DrawScenery(decorBack, go, tmx, sprites, room, Vector3.forward * 20f);
+			DrawScenery(decorBack, go, tmx, sprites, room, 1f);
 
 			var decorFront = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DecorFrontLayer);
-			DrawScenery(decorFront, go, tmx, sprites, room, Vector3.back * 10f);
+			DrawScenery(decorFront, go, tmx, sprites, room, -1f);
 
 
 			var lights = tmx.ObjectGroups.FirstOrDefault(p => p.Name == Constants.LightsLayer);
@@ -129,16 +133,17 @@ namespace Client.Game.Map
 			}
 		}
 
-		void DrawHardGeo (TmxLayer hardGeo, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		void DrawGeo (TmxLayer hardGeo, GameObject go, TmxMap tmx, Sprite[] sprites, Room room, bool addCollsion)
 		{
 
 			if(hardGeo != null) {
 				foreach( var tile in hardGeo.Tiles) {
 					if(tile.Gid != 0) {
 						Sprite sprite;
-						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, out sprite);
-						tileGo.name = "Room Tile";
-						AddCollision(tileGo, sprite);
+						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, .5f, out sprite);
+						tileGo.name = "tileGid-" + tile.Gid;
+						if(addCollsion)
+							AddCollision(tileGo, sprite);
 
 					}
 
@@ -147,16 +152,15 @@ namespace Client.Game.Map
 
 		}
 
-		void DrawScenery (TmxLayer background, GameObject go, TmxMap tmx, Sprite[] sprites, Room room, Vector3 depth)
+		void DrawScenery (TmxLayer background, GameObject go, TmxMap tmx, Sprite[] sprites, Room room, float depth)
 		{
 
 			if(background != null) {
 				foreach( var tile in background.Tiles) {
 					if(tile.Gid != 0) {
 						Sprite sprite;
-						var obj = TileAtLocation(go, tile, tmx, sprites, room, out sprite);
+						var obj = TileAtLocation(go, tile, tmx, sprites, room, depth, out sprite);
 						obj.name = "Scene object";
-						obj.transform.localPosition = obj.transform.localPosition + depth;
 					}
 
 				}
@@ -191,7 +195,7 @@ namespace Client.Game.Map
 		}
 		
 
-		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, out Sprite sprite)
+		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, float depth, out Sprite sprite)
 		{
 			var coords = new GridPoint(tile.X, map.Height - 1 - tile.Y);
 
@@ -199,7 +203,7 @@ namespace Client.Game.Map
 
 			var tileGo = new GameObject();
 			tileGo.transform.parent = parent.transform;
-			tileGo.transform.localPosition = coords.GridToWorld(map, sprite.rect);
+			tileGo.transform.localPosition = coords.GridToWorld(map, sprite.rect) + Vector3.forward*depth;
 
 			var spriteComp = tileGo.AddComponent<SpriteRenderer>();
 

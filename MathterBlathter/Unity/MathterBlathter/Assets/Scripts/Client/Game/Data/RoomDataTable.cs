@@ -54,10 +54,11 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.TMXResource = "TMXData/DebugRoom.tmx";
+				ret.TMXResource = "TMXData/Zone1/Template.tmx";
 
 				ret.Type = RoomType.Normal | RoomType.NoWaves;
-
+				ret.LayerData = ParallaxDataTable.OUTDOORS;
+				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
 				finalize(ret);
 
 				return ret;
@@ -71,6 +72,7 @@ namespace Client.Game.Data
 				var ret = new RoomData ();
 				ret.Id = 101;
 				ret.TMXResource = "TMXData/Zone1/101.tmx";
+
 				finalize(ret);
 
 				return ret;
