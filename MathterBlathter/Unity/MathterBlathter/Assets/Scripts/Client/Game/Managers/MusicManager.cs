@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System.Linq;
 using Client.Game.Map;
+using System.Collections;
 
 namespace Client.Game.Managers
 {
@@ -18,6 +19,8 @@ namespace Client.Game.Managers
 
 		AudioSource MusicSource;
 		AudioSource OverrideSource;
+
+		CrossFade Fade;
 
 		public MusicManager ()
 		{
@@ -53,11 +56,13 @@ namespace Client.Game.Managers
 			var ac = Resources.Load(data.Resource) as AudioClip;
 			OverrideSource.clip = ac;
 			OverrideSource.Play();
-			MusicSource.volume = 0f;
+			
+			Fade = new CrossFade{From = MusicSource, To = OverrideSource, Duration = 1.5f};
 		}
 
+
 		public void ReleaseOverride() {
-		
+			Fade = new CrossFade{To = MusicSource, From = OverrideSource, Duration = 1.5f};
 		}
 
 		public void StartRun ()
@@ -69,6 +74,11 @@ namespace Client.Game.Managers
 
 		public void Update (float dt)
 		{
+			if(Fade != null) {
+				Fade.Apply(dt);
+				if(Fade.IsComplete)
+					Fade = null;
+			}
 		}
 
 		public void Shutdown ()
@@ -87,7 +97,31 @@ namespace Client.Game.Managers
 		{
 		}
 
+
+
 		#endregion
+
+		public class CrossFade {
+			public AudioSource From;
+
+			public bool IsComplete {
+				get { return currentTime >= Duration; }
+			}
+
+
+			public AudioSource To;
+			public float Duration;
+			public float currentTime;
+
+			public void Apply (float dt)
+			{
+				currentTime += dt;
+				float alpha = Mathf.Clamp01(currentTime/Duration);
+				To.volume = alpha;
+				From.volume = 1-alpha;
+			}
+
+		}
 	}
 }
 

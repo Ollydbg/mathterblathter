@@ -27,6 +27,8 @@ namespace Client.Game.Data
 				ret.Name = "New Parish";
 				ret.Requirements.Add(new ZReq(RoomType.LurchStart, 1, ZoneData.Occurance.Guaranteed));
 				ret.Requirements.Add(new ZReq(RoomType.Normal, 30, ZoneData.Occurance.Guaranteed));
+				ret.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
+
 				ret.DrawColor = new Color(.45f, .33f, .40f);
 				ret.MaxRooms = 25;
 				ret.Difficulty = 4;
