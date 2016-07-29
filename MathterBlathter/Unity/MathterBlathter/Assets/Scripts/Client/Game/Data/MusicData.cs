@@ -71,6 +71,15 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static MusicData AMBIENCE_1 {
+			get {
+				var ret = new MusicData();
+				ret.Id = 5;
+				ret.Resource = "Music/Ambience";
+				return ret;
+			}
+		}
+
 	}
 }
 

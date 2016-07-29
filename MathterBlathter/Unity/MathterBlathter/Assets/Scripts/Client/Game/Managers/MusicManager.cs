@@ -16,18 +16,16 @@ namespace Client.Game.Managers
 
 		public static AudioMixerGroup MusicGroup;
 		public static AudioMixerGroup OverrideGroup;
+		public static AudioMixerGroup AmbienceGroup;
 
 		AudioSource MusicSource;
 		AudioSource OverrideSource;
+		AudioSource AmbienceSource;
 
 		CrossFade Fade;
 
 		public MusicManager ()
 		{
-			var obj = GameObject.Find("MusicSource");
-			MusicSource = obj.GetComponent<AudioSource>();
-
-			OverrideSource = (GameObject.Instantiate(obj) as GameObject).GetComponent<AudioSource>();
 
 		}
 
@@ -37,6 +35,15 @@ namespace Client.Game.Managers
 		{
 			MusicGroup = game.AudioMixer.FindMatchingGroups("Music")[0];
 			OverrideGroup = game.AudioMixer.FindMatchingGroups("OverrideMusic")[0];
+			AmbienceGroup = game.AudioMixer.FindMatchingGroups("Ambience")[0];
+
+
+			var obj = GameObject.Find("MusicSource");
+			MusicSource = obj.GetComponent<AudioSource>();
+
+			OverrideSource = (GameObject.Instantiate(obj) as GameObject).GetComponent<AudioSource>();
+			obj =  GameObject.Find("AmbienceSource");
+			AmbienceSource = obj.GetComponent<AudioSource>();
 
 			game.RoomManager.OnRoomEntered += OnRoomEntered;
 
@@ -70,6 +77,7 @@ namespace Client.Game.Managers
 
 			//Play(Game.Instance.Seed.RandomInList(MusicDataTable.GetAll().Where(p => p.RunMusic).ToList()));
 			Play(MusicDataTable.RUN_MUSIC);
+
 		}
 
 		public void Update (float dt)
@@ -87,6 +95,13 @@ namespace Client.Game.Managers
 
 		public void Shutdown ()
 		{
+		}
+
+		void PlayAmbience (MusicData data)
+		{
+			var ac = Resources.Load(data.Resource) as AudioClip;
+			AmbienceSource.clip = ac;
+			AmbienceSource.Play();
 		}
 
 		public void Play(MusicData musicData, float crossFadeTime = 1.5f) {

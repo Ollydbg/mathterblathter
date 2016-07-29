@@ -194,7 +194,10 @@
             <key type="filename">Ground.png</key>
             <key type="filename">GroundBottom.png</key>
             <key type="filename">GroundCapL.png</key>
-            <key type="filename">GroundCapR.png</key>
+            <key type="filename">GroundCapLBottom.png</key>
+            <key type="filename">GroundCapLTop.png</key>
+            <key type="filename">GroundCapRBottom.png</key>
+            <key type="filename">GroundCapRTop.png</key>
             <key type="filename">GroundTop.png</key>
             <key type="filename">PlatformCapL.png</key>
             <key type="filename">PlatformCapR.png</key>
