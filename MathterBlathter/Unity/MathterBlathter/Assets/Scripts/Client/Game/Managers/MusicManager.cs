@@ -57,7 +57,7 @@ namespace Client.Game.Managers
 			OverrideSource.clip = ac;
 			OverrideSource.Play();
 			
-			Fade = new CrossFade{From = MusicSource, To = OverrideSource, Duration = 1.5f};
+			Fade = new CrossFade{From = MusicSource, To = OverrideSource, Duration = 2.75f};
 		}
 
 

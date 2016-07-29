@@ -143,6 +143,7 @@ namespace Client.Game.Data
 				ret.TMXResource = "TMXData/Zone1/Shop1.tmx";
 				ret.Type = RoomType.Store | RoomType.NoWaves;
 				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
+				ret.LayerData = ParallaxDataTable.OUTDOORS;
 
 				finalize(ret);
 
