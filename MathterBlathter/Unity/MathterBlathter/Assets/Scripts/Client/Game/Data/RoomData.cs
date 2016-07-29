@@ -48,6 +48,8 @@ namespace Client.Game.Data
 		public float WorldWidth;
 		public float WorldHeight;
 
+		public MusicData OverrideMusic;
+
 		public override string ToString ()
 		{
 			return string.Format ("[RoomData Id:{0}, Width:{1}, Height:{2}]", Id, Width, Height);
@@ -137,6 +139,7 @@ namespace Client.Game.Data
 			clone.WorldWidth = this.WorldWidth;
 			clone.WorldHeight = this.WorldHeight;
 			clone.HardGeoTileMap = this.HardGeoTileMap;
+			clone.OverrideMusic = this.OverrideMusic;
 
 			return clone;
 			

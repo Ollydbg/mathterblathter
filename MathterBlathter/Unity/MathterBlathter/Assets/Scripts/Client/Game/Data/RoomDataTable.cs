@@ -71,7 +71,6 @@ namespace Client.Game.Data
 				var ret = new RoomData ();
 				ret.Id = 101;
 				ret.TMXResource = "TMXData/Zone1/101.tmx";
-
 				finalize(ret);
 
 				return ret;
@@ -136,6 +135,20 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static RoomData SHOP_1 {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 106;
+				ret.TMXResource = "TMXData/Zone1/Shop1.tmx";
+				ret.Type = RoomType.Store | RoomType.NoWaves;
+				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
+
+				finalize(ret);
+
+				return ret;
+			}
+		}
 
 
 		public static RoomData BOSS_FIGHT_1 {
