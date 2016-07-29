@@ -186,7 +186,7 @@ namespace Client.Game.Map
 			GameObject.Destroy(plane.GetComponent<Collider>());
 
 			plane.transform.localScale = new Vector3(room.data.WorldWidth*.1f, 1f, room.data.WorldHeight*.1f);
-			plane.transform.position = new Vector3(room.X + room.data.WorldWidth*.5f, room.Y + room.data.WorldHeight*.5f, 5);
+			plane.transform.position = new Vector3(room.X + room.data.WorldWidth*.5f, room.Y + room.data.WorldHeight*.5f, 30f);
 			plane.transform.parent = go.transform;
 		}
 		

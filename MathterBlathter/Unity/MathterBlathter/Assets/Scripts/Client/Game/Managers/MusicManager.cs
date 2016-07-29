@@ -76,8 +76,12 @@ namespace Client.Game.Managers
 		{
 			if(Fade != null) {
 				Fade.Apply(dt);
-				if(Fade.IsComplete)
+				if(Fade.IsComplete) {
+					if(Fade.From == OverrideSource)
+						OverrideSource.Stop();
+					
 					Fade = null;
+				}
 			}
 		}
 
