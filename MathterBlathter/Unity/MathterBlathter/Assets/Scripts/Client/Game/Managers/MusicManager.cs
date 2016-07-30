@@ -37,7 +37,6 @@ namespace Client.Game.Managers
 			OverrideGroup = game.AudioMixer.FindMatchingGroups("OverrideMusic")[0];
 			AmbienceGroup = game.AudioMixer.FindMatchingGroups("Ambience")[0];
 
-
 			var obj = GameObject.Find("MusicSource");
 			MusicSource = obj.GetComponent<AudioSource>();
 

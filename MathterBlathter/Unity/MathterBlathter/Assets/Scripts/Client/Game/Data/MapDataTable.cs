@@ -29,7 +29,7 @@ namespace Client.Game.Data
 				ret.Id = 1;
 				ret.ReadScale = 1f;
 
-				//ret.Zones.Add(ZoneDataTable.DEBUG_ZONE);
+				ret.Zones.Add(ZoneDataTable.DEBUG_ZONE);
 				ret.Zones.Add(ZoneDataTable.ZONE_1);
 				//ret.Zones.Add(ZoneDataTable.ZONE_1_BOSS);
 				//ret.Zones.Add(ZoneDataTable.ZONE_2);
