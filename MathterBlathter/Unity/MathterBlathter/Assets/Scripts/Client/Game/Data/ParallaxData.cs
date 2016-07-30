@@ -53,7 +53,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new ParallaxData();
 				ret.Layers[ParallaxData.Layer.RoomWall] = "Backgrounds/background0";
-				ret.InRandomPool = true;
+				ret.InRandomPool = false;
 				return ret;
 
 			}

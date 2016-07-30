@@ -27,7 +27,7 @@ namespace Client.Game.Attributes
 		//THIS IS DUMB, AND THEY SHOULD ALL BE MOVED INTO ACTORATTRIBUTELIST
 		public static readonly GameAttributeF Duration = new GameAttributeF(OFFSET + 1, 2f, "duration", 0, float.MaxValue);
 		public static readonly GameAttributeF Cooldown = new GameAttributeF(OFFSET + 2, 1f, "cooldown", 0, float.MaxValue);
-		public static readonly GameAttributeI Damage = new GameAttributeI(OFFSET + 3, 10, "damage", int.MinValue, int.MaxValue);
+		public static readonly GameAttributeI Damage = new GameAttributeI(OFFSET + 3, 1, "damage", int.MinValue, int.MaxValue);
 		public static readonly GameAttributeF ProjectileSpeed = new GameAttributeF(OFFSET + 5, 2, "projectile speed", 0, int.MaxValue);
 		public static readonly GameAttributeE FiresFromJoint = new GameAttributeE(OFFSET + 6, 0, "weapon attach point", 0, int.MaxValue, typeof(AttachPoint));
 		public static readonly GameAttributeI ProjectileCount = new GameAttributeI(OFFSET + 7, 1, "projectile count for repeated weapons", 0, 100);

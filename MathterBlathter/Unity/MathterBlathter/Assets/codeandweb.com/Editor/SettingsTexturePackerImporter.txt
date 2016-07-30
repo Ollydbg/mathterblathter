@@ -4,11 +4,14 @@ tpsheetFileNames:
 - Assets/Resources/TileMaps/Concept25X.tpsheet
 - Assets/Resources/TileMaps/Concept50X.tpsheet
 - Assets/Textures/RainFX.tpsheet
+- Assets/Textures/UI/Hud.tpsheet
 textureFileNames:
 - Assets/Resources/TileMaps/Concept25X.png
 - Assets/Resources/TileMaps/Concept50X.png
 - Assets/Textures/RainFX.png
+- Assets/Textures/UI/Hud.png
 normalmapFileNames:
+- 
 - 
 - 
 - 

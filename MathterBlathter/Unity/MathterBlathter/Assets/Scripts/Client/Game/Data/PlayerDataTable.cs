@@ -74,6 +74,14 @@ namespace Client.Game.Data
 					ActorAttributes.WaveDifficulty.Id, 0
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Health.Id, 15
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.MaxHealth.Id, 15
+				));
+
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
 					CharacterDataTable.AUTO_HAMMER_WEAPON.Id,

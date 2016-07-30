@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using Client.Game.Attributes;
+using System.Collections.Generic;
 
 namespace Client.Game.UI.Run
 {
@@ -9,10 +10,6 @@ namespace Client.Game.UI.Run
 
 	public class PlayerStatsHud : RunUI
 	{
-		public GameObject healthMax;
-		public GameObject healthCurrent;
-		private RectTransform healthMaxRect;
-		private RectTransform healthCurrentRect;
 
 		public GameObject AnxietyMax;
 		public GameObject AnxietyCurrent;
@@ -24,8 +21,11 @@ namespace Client.Game.UI.Run
 
 		private float startingMax;
 
-		private Bar healthBar;
 		private Bar energyBar;
+
+		public GameObject HealthTickTemplate;
+		public GameObject MissingHealthTemplate;
+		private HealthStatus healthStatus;
 
 		void Awake() {
 
@@ -35,14 +35,13 @@ namespace Client.Game.UI.Run
 		void Start() {
 			playerAttributes = Game.Instance.PossessedActor.Attributes;
 
-			healthBar = new Bar(healthCurrent, healthMax, ActorAttributes.Health, ActorAttributes.MaxHealth, playerAttributes);
 			energyBar = new Bar(AnxietyCurrent, AnxietyMax, ActorAttributes.Anxiety, ActorAttributes.MaxAnxiety, playerAttributes);
-
+			healthStatus = new HealthStatus(HealthTickTemplate, MissingHealthTemplate, playerAttributes);
 		}
 
 		void Update() {
-			healthBar.Update();
 			energyBar.Update();
+			healthStatus.Update();
 			bloodTxt.text = "BLOOD: " + playerAttributes[ActorAttributes.BloodBalance];
 
 		}
@@ -54,6 +53,85 @@ namespace Client.Game.UI.Run
 		public override void Hide ()
 		{
 		}
+
+		public class HealthStatus {
+			public GameObject template;
+
+			GameObject hurtTemplate;
+
+			public AttributeMap attributes;
+
+			public List<GameObject> ActiveTicks = new List<GameObject>();
+			public List<GameObject> InactiveTicks = new List<GameObject>();
+			private const float SPACING = 23f; 
+			int cachedTotal;
+			int cachedCurrent;
+
+			private int Current {
+				get {
+					return attributes[ActorAttributes.Health];
+				}
+			}
+
+			private int Max {
+				get {
+					return attributes[ActorAttributes.MaxHealth];
+				}
+			}
+
+			public HealthStatus(GameObject template, GameObject hurtTemplate, AttributeMap attributes) {
+				this.template = template;
+				this.hurtTemplate = hurtTemplate;
+				this.attributes = attributes;
+
+				this.template.SetActive(false);
+				this.hurtTemplate.SetActive(false);
+			}
+
+			public void Update() {
+
+				if(Current != cachedCurrent || Max != cachedTotal) {
+					Rebuild();
+				}
+
+			}
+
+			private void Rebuild() {
+				ActiveTicks.ForEach(GameObject.Destroy);
+				InactiveTicks.ForEach(GameObject.Destroy);
+
+				ActiveTicks.Clear();
+				InactiveTicks.Clear();
+
+				cachedTotal = Max;
+				cachedCurrent = Current;
+
+				for( var i = 0; i< cachedTotal; i++) {
+
+					var targetPos = template.transform.localPosition + (Vector3.right * SPACING * i);
+					GameObject go = null;
+					if(i > cachedCurrent) {
+						go = GameObject.Instantiate(hurtTemplate);
+						InactiveTicks.Add(go);
+					
+					} else {
+						go = GameObject.Instantiate(template);
+						ActiveTicks.Add(go);
+
+					}
+
+					go.SetActive(true);
+					go.transform.parent = template.transform.parent;
+					go.transform.localPosition = targetPos;
+
+				}
+
+
+
+
+			}
+		}
+
 
 		public class Bar {
 			public GameObject currentBar;

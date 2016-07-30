@@ -37,7 +37,7 @@ namespace Client.Game.Data
 					AbilityAttributes.ProjectileSpeed.Id, 18f
 				));
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 10
+					AbilityAttributes.Damage.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
