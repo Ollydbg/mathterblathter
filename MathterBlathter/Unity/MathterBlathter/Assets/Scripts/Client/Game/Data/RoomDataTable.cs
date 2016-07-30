@@ -174,6 +174,7 @@ namespace Client.Game.Data
 
 
 		static void finalize(RoomData room) {
+
 			var tmx = TMXCache.Get(room);
 			room.Width = tmx.Width - 1;
 			room.Height = tmx.Height - 1;

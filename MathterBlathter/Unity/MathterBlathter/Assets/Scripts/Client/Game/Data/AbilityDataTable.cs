@@ -622,7 +622,7 @@ namespace Client.Game.Data
 					AbilityAttributes.ProjectileSpeed.Id, 10f
 				));
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 8
+					AbilityAttributes.Damage.Id, 1
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
@@ -863,7 +863,7 @@ namespace Client.Game.Data
 				ret.name = "quad shot";
 
 				ret.attributeData.Add (new GameData.AttributeData (
-					AbilityAttributes.Damage.Id, 5
+					AbilityAttributes.Damage.Id, 1
 				));
 
 				ret.attributeData.Add (new GameData.AttributeData (

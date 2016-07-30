@@ -110,7 +110,7 @@ namespace Client.Game.UI.Run
 
 					var targetPos = template.transform.localPosition + (Vector3.right * SPACING * i);
 					GameObject go = null;
-					if(i > cachedCurrent) {
+					if(i >= cachedCurrent) {
 						go = GameObject.Instantiate(hurtTemplate);
 						InactiveTicks.Add(go);
 					

@@ -17,6 +17,7 @@ namespace Client.Game.Map.TMX
 		public const string AirSpawnLayer = "AirSpawn";
 		public const string GroundSpawnLayer = "GroundSpawn";
 		public const string GroundTopLayer = "GroundTop";
+		public const string SoftGeometryLayer = "SoftGeometry";
 
 	}
 }

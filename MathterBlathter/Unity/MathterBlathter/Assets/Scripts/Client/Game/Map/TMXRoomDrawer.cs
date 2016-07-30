@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Client.Game.Map.TMX;
 using Client.Game.Data;
 using Client.Game.Utils;
+using Client.Game.Geometry;
 
 namespace Client.Game.Map
 {
@@ -58,6 +59,8 @@ namespace Client.Game.Map
 			var groundTop = tmx.Layers.FirstOrDefault(l => l.Name == Constants.GroundTopLayer);
 			DrawGeo(groundTop, go, tmx, sprites, room, false);
 
+			var softGeo = tmx.Layers.FirstOrDefault(l => l.Name == Constants.SoftGeometryLayer);
+			DrawSoftGeo(softGeo, go, tmx, sprites, room);
 
 			var scenery = tmx.Layers.FirstOrDefault(p => p.Name == Constants.SceneryLayer);
 			DrawScenery(scenery, go, tmx, sprites, room, 100f);
@@ -156,6 +159,26 @@ namespace Client.Game.Map
 						if(addCollsion)
 							AddCollision(tileGo, sprite);
 
+					}
+
+				}
+			}
+
+		}
+
+		void DrawSoftGeo (TmxLayer hardGeo, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
+		{
+
+			if(hardGeo != null) {
+				foreach( var tile in hardGeo.Tiles) {
+					if(tile.Gid != 0) {
+						Sprite sprite;
+						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, .5f, out sprite);
+						tileGo.name = "tileGid-" + tile.Gid;
+						AddCollision(tileGo, sprite);
+
+						tileGo.layer = LayerMask.NameToLayer(Layers.SoftGeometry.ToString());
+						PassthroughPlatformFactory.Init(tileGo);
 					}
 
 				}

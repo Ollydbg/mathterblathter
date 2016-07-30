@@ -4,7 +4,7 @@
 # To import these sprites into your Unity project, download "TexturePackerImporter":
 # http://www.codeandweb.com/texturepacker/unity
 #
-# $TexturePacker:SmartUpdate:54f9d3ee799c171c182b2378559e4115:fda6e4003ba23f35b5bb690922f43298:12dac3d7eb44aa4bf65c674dc6a051fd$
+# $TexturePacker:SmartUpdate:ec8066e73d604fb5f97c0ab2ef08f80d:e253eef172a96867413bcbadf56e125c:12dac3d7eb44aa4bf65c674dc6a051fd$
 #
 :format=40000
 :texture=Concept25X.png
@@ -35,7 +35,8 @@ Props_cube03;103;20;50;25;0.5;0.5
 Props_grid;1;26;100;50;0.5;0.5
 Props_grid_back;955;461;57;50;0.5;0.5
 SoftPlatform;180;126;50;25;0.5;0.5
+Spawn;234;99;25;25;0.5;0.5
 theHOUSE;778;386;175;125;0.5;0.5
-Wall;234;99;25;25;0.5;0.5
+Wall;259;126;25;25;0.5;0.5
 Wall_Decorations_big;778;184;150;200;0.5;0.5
 Wall_Decorations_tiny;1;78;25;100;0.5;0.5

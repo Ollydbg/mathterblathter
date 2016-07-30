@@ -33,6 +33,7 @@ TextureImporter:
     21300052: GroundCapRBottom
     21300054: GroundCapRTop
     21300056: SoftPlatform
+    21300058: Spawn
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -432,6 +433,17 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+    - name: Spawn
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 99
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: theHOUSE
       rect:
         serializedVersion: 2
@@ -457,8 +469,8 @@ TextureImporter:
     - name: Wall
       rect:
         serializedVersion: 2
-        x: 234
-        y: 99
+        x: 259
+        y: 126
         width: 25
         height: 25
       alignment: 0

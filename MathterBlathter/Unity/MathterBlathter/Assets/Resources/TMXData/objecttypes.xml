@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="SpotLight" color="#d99e1c"/>
+ <objecttype name="Railgun" color="#ffc505">
+  <property name="DataId" type="string" default="1004"/>
+ </objecttype>
+</objecttypes>
