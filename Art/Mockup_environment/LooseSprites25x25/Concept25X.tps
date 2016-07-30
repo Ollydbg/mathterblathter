@@ -211,6 +211,7 @@
             <key type="filename">Props_cube03.png</key>
             <key type="filename">Props_grid.png</key>
             <key type="filename">Props_grid_back.png</key>
+            <key type="filename">SoftPlatform.png</key>
             <key type="filename">Wall.png</key>
             <key type="filename">Wall_Decorations_big.png</key>
             <key type="filename">Wall_Decorations_tiny.png</key>

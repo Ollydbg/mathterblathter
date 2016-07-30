@@ -22,6 +22,17 @@ namespace Client.Game.Map
 		{
 		}
 
+		private static PhysicsMaterial2D _ice;
+		public static PhysicsMaterial2D Ice {
+			get {
+				if(_ice == null) {
+					_ice = Resources.Load("PhysicsMaterials/ice") as PhysicsMaterial2D;
+				}
+
+				return _ice;
+			}
+		}
+
 		public GameObject Draw (Room room, Game inGame)
 		{
 
@@ -119,12 +130,12 @@ namespace Client.Game.Map
 						float offset = door.Side == DoorRoomSide.Left? -1 : 0;
 						door.transform.position = new Vector3 (
 							door.X + .5f*door.Width + offset,
-							door.Y - 1.5f) + GridToWorldSpace(room);
+							door.Y - .25f) + GridToWorldSpace(room);
 
 					} else {
 						float offset = door.Side == DoorRoomSide.Bottom? -1 : 0;
 						door.transform.position = new Vector3 (
-							door.X + .5f*door.Width -1,
+							door.X + .5f*door.Width + .75f,
 							door.Y) + GridToWorldSpace(room);
 					}
 					door.Set = true;
@@ -218,10 +229,11 @@ namespace Client.Game.Map
 		void AddCollision (GameObject tileGo, Sprite sprite)
 		{
 			
-			SpriteColliderFactory.AddBoxCollider2D(tileGo, sprite);
+			var col = SpriteColliderFactory.AddBoxCollider2D(tileGo, sprite);
 			var rb = tileGo.AddComponent<Rigidbody2D>();
 			rb.isKinematic = true;
 			tileGo.layer = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
+			col.sharedMaterial = Ice;
 
 		}
 

@@ -32,6 +32,7 @@ TextureImporter:
     21300050: GroundCapLTop
     21300052: GroundCapRBottom
     21300054: GroundCapRTop
+    21300056: SoftPlatform
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -145,8 +146,8 @@ TextureImporter:
     - name: Credit
       rect:
         serializedVersion: 2
-        x: 930
-        y: 153
+        x: 28
+        y: 128
         width: 50
         height: 50
       alignment: 0
@@ -162,8 +163,8 @@ TextureImporter:
     - name: Door
       rect:
         serializedVersion: 2
-        x: 103
-        y: 51
+        x: 80
+        y: 128
         width: 50
         height: 50
       alignment: 0
@@ -178,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 155
-        y: 157
+        y: 47
         width: 25
         height: 25
       alignment: 0
@@ -188,8 +189,8 @@ TextureImporter:
     - name: GroundBottom
       rect:
         serializedVersion: 2
-        x: 182
-        y: 157
+        x: 155
+        y: 20
         width: 25
         height: 25
       alignment: 0
@@ -199,8 +200,8 @@ TextureImporter:
     - name: GroundCapL
       rect:
         serializedVersion: 2
-        x: 105
-        y: 24
+        x: 182
+        y: 47
         width: 25
         height: 25
       alignment: 0
@@ -210,8 +211,8 @@ TextureImporter:
     - name: GroundCapLBottom
       rect:
         serializedVersion: 2
-        x: 132
-        y: 24
+        x: 182
+        y: 20
         width: 25
         height: 25
       alignment: 0
@@ -221,8 +222,8 @@ TextureImporter:
     - name: GroundCapLTop
       rect:
         serializedVersion: 2
-        x: 155
-        y: 76
+        x: 207
+        y: 99
         width: 25
         height: 25
       alignment: 0
@@ -232,8 +233,8 @@ TextureImporter:
     - name: GroundCapRBottom
       rect:
         serializedVersion: 2
-        x: 159
-        y: 49
+        x: 232
+        y: 126
         width: 25
         height: 25
       alignment: 0
@@ -243,8 +244,8 @@ TextureImporter:
     - name: GroundCapRTop
       rect:
         serializedVersion: 2
-        x: 182
-        y: 76
+        x: 234
+        y: 153
         width: 25
         height: 25
       alignment: 0
@@ -254,8 +255,8 @@ TextureImporter:
     - name: GroundTop
       rect:
         serializedVersion: 2
-        x: 159
-        y: 22
+        x: 209
+        y: 72
         width: 25
         height: 25
       alignment: 0
@@ -265,8 +266,8 @@ TextureImporter:
     - name: Platform_01
       rect:
         serializedVersion: 2
-        x: 1
-        y: 126
+        x: 28
+        y: 101
         width: 150
         height: 25
       alignment: 0
@@ -277,7 +278,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 930
-        y: 205
+        y: 180
         width: 75
         height: 25
       alignment: 0
@@ -287,8 +288,8 @@ TextureImporter:
     - name: Platform_03
       rect:
         serializedVersion: 2
-        x: 1
-        y: 157
+        x: 132
+        y: 153
         width: 100
         height: 25
       alignment: 0
@@ -299,7 +300,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 103
-        y: 157
+        y: 74
         width: 50
         height: 25
       alignment: 0
@@ -309,8 +310,8 @@ TextureImporter:
     - name: PlatformCapR
       rect:
         serializedVersion: 2
-        x: 1
-        y: 24
+        x: 103
+        y: 47
         width: 50
         height: 25
       alignment: 0
@@ -321,18 +322,25 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 930
-        y: 232
+        y: 207
         width: 75
-        height: 50
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -37.5, y: 25}
-        - {x: -37.5, y: -11}
-        - {x: -27.5, y: -11}
-        - {x: 30.5, y: 21}
-        - {x: 30.5, y: 25}
+      - - {x: -18.5, y: 20.5}
+        - {x: -20.5, y: 18.5}
+        - {x: -19.5, y: 15.5}
+        - {x: -26.5, y: 20.5}
+        - {x: -37.5, y: 20.5}
+        - {x: -37.5, y: -17.5}
+        - {x: -26.5, y: -17.5}
+        - {x: 30.5, y: 13.5}
+        - {x: 30.5, y: 20.5}
+        - {x: 25.5, y: 20.5}
+        - {x: 20.5, y: 19.5}
+        - {x: 3.5, y: 20.5}
     - name: Props_column
       rect:
         serializedVersion: 2
@@ -353,8 +361,8 @@ TextureImporter:
     - name: Props_cube01
       rect:
         serializedVersion: 2
-        x: 53
-        y: 24
+        x: 103
+        y: 20
         width: 50
         height: 25
       alignment: 0
@@ -364,8 +372,8 @@ TextureImporter:
     - name: Props_cube02
       rect:
         serializedVersion: 2
-        x: 153
-        y: 126
+        x: 155
+        y: 74
         width: 50
         height: 25
       alignment: 0
@@ -375,8 +383,8 @@ TextureImporter:
     - name: Props_cube03
       rect:
         serializedVersion: 2
-        x: 53
-        y: 24
+        x: 103
+        y: 20
         width: 50
         height: 25
       alignment: 0
@@ -387,7 +395,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 51
+        y: 26
         width: 100
         height: 50
       alignment: 0
@@ -413,6 +421,17 @@ TextureImporter:
         - {x: -28.5, y: -25}
         - {x: 28.5, y: -25}
         - {x: 28.5, y: 18}
+    - name: SoftPlatform
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 126
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: theHOUSE
       rect:
         serializedVersion: 2
@@ -438,8 +457,8 @@ TextureImporter:
     - name: Wall
       rect:
         serializedVersion: 2
-        x: 205
-        y: 126
+        x: 234
+        y: 99
         width: 25
         height: 25
       alignment: 0
@@ -468,8 +487,8 @@ TextureImporter:
     - name: Wall_Decorations_tiny
       rect:
         serializedVersion: 2
-        x: 982
-        y: 103
+        x: 1
+        y: 78
         width: 25
         height: 100
       alignment: 0

@@ -76,7 +76,7 @@ namespace Client.Game.Managers
 		{
 
 			//Play(Game.Instance.Seed.RandomInList(MusicDataTable.GetAll().Where(p => p.RunMusic).ToList()));
-			Play(MusicDataTable.RUN_MUSIC);
+			Play(MusicDataTable.STRANGER_THEME);
 
 		}
 
