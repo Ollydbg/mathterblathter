@@ -41,11 +41,11 @@ namespace Client.Game.Data
 
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.MaxHealth.Id,
-					5
+					1
 				));
 				ret.overrideAttributes.Add(new CharacterData.AttributeData(
 					ActorAttributes.Health.Id,
-					5
+					1
 				));
 				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
 				ret.Cost = 10;
@@ -74,7 +74,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData HEALTH_PICKUP {
+		public static CharacterData SMALL_HEALTH_PICKUP {
 			get {
 				var ret = new CharacterData();
 				ret.Id = OFFSET + 4;
@@ -83,7 +83,7 @@ namespace Client.Game.Data
 				ret.PickupType = PickupType.Item;
 				ret.ResourcePath = "Items/SmallHealth_prefab";
 				ret.ActorType = ActorType.Pickup;
-				ret.AddAbility(AbilityDataTable.HEAL);
+				ret.AddAbility(AbilityDataTable.SMALL_HEAL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
 
@@ -406,6 +406,26 @@ namespace Client.Game.Data
 
 				ret.Availability = Availability.InShop | Availability.Droppable | Availability.RoomClearReward;
 				ret.Description = "Extends your maximum Anxiety";
+				return ret;
+			}
+		}
+
+		public static CharacterData BIG_HEALTH_PICKUP {
+			get {
+				var ret = new CharacterData();
+				ret.Id = OFFSET + 19;
+				ret.Description = "A generous health pickup";
+
+				ret.PickupType = PickupType.Item;
+				ret.ResourcePath = "Items/SmallHealth_prefab";
+				ret.ActorType = ActorType.Pickup;
+				ret.AddAbility(AbilityDataTable.BIG_HEAL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+				ret.AddAbility(AbilityDataTable.TOWER_ABSORPTION_TTL);
+
+				ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
+				ret.Cost = 45;
+				ret.Name = "Blood Pack";
 				return ret;
 			}
 		}

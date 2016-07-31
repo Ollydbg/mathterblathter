@@ -30,7 +30,13 @@ namespace Client.Game.Map.TMX
 
 			}
 
-			var charId = ObjectDefs.Items.Find(p => p.name == id).Properties.Find(s => s.name == DATA_ID).Default;
+			var objectDef = ObjectDefs.Items.Find(p => p.name == id);
+			if(objectDef == null) {
+				Debug.LogError("Couldn't find object named: " + id);
+				return CharacterDataTable.RANDOM_WEAPON_PICKUP.Id;
+			}
+
+			var charId = objectDef.Properties.Find(s => s.name == DATA_ID).Default;
 
 			return charId;
 

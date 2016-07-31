@@ -328,19 +328,20 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData HEAL {
+		public static AbilityData SMALL_HEAL {
 			get {
 				var ret = new AbilityData();
 				ret.Id = 12;
 				ret.DoesPropogate = true;
 				ret.name = "Heal";
 				ret.attributeData.Add( new GameData.AttributeData(
-					AbilityAttributes.Damage.Id, -20
+					AbilityAttributes.Damage.Id, -4
 				));
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.HealPlayer);
 				return ret;
 			}
 		}
+
 
 		public static AbilityData FIRE_ON_FALL {
 			get {
@@ -1190,6 +1191,19 @@ namespace Client.Game.Data
 			}
 		}
 
+
+		public static AbilityData BIG_HEAL {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 62;
+				ret.DoesPropogate = true;
+				ret.attributeData.Add( new GameData.AttributeData(
+					AbilityAttributes.Damage.Id, -10
+				));
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.HealPlayer);
+				return ret;
+			}
+		}
 	}
 }
 

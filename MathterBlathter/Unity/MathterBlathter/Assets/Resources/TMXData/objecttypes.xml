@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objecttypes>
- <objecttype name="SpotLight" color="#d99e1c"/>
- <objecttype name="Railgun" color="#ffc505">
-  <property name="DataId" type="string" default="1004"/>
+ <objecttype name="RandomWeapon" color="#a0a0a4">
+  <property name="DataId" type="int" default="257"/>
+ </objecttype>
+ <objecttype name="RandomBuff" color="#a0a0a4">
+  <property name="DataId" type="int" default="264"/>
+ </objecttype>
+ <objecttype name="RailGun" color="#a0a0a4">
+  <property name="DataId" type="int" default="1004"/>
  </objecttype>
 </objecttypes>

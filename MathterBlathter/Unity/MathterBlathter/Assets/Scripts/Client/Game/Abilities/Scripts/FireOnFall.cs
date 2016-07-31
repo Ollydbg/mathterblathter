@@ -22,6 +22,9 @@ namespace Client.Game.Abilities.Scripts
 		{
 			collider = Owner.GameObject.GetComponent<Collider2D>();
 			rigidBody = Owner.GameObject.AddComponent<Rigidbody2D>();
+
+			Owner.WeaponController.AimDirection = Game.Seed.RandomUnitVector();
+
 				
 		}
 
@@ -30,6 +33,8 @@ namespace Client.Game.Abilities.Scripts
 		{
 			var normalYV = Mathf.Abs(rigidBody.velocity.y);
 			peakFallingVelocity = Mathf.Max(normalYV, peakFallingVelocity);
+
+			Owner.WeaponController.Update(dt);
 
 			if( normalYV > EPSILON) {
 				isFalling = true;
