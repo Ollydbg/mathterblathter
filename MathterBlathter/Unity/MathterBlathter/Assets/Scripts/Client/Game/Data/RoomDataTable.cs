@@ -193,18 +193,22 @@ namespace Client.Game.Data
 
 		static void addSpawnsFromTMX (RoomData room)
 		{
-			return;
-			/*
-			var extractor = new AsciiMeshExtractor(room.AsciiMap);
-			foreach( var spawnType in room.AsciiSpawnLookup) {
-				foreach( Vector3 match in extractor.getAllMatching(spawnType.Key, true)) {
-					var spawn = new RoomData.Spawn(spawnType.Value.Data);
-					spawn.X = match.x;
-					spawn.Y = match.y;
-					spawn.Facing = spawnType.Value.Facing;
-					room.Spawns.Add(spawn);
+			var spawns = room.TmxMap.ObjectGroups.Where(p => p.Name == Constants.SpawnsLayer).FirstOrDefault();
+			if(spawns != null) {
+				foreach( var obj in spawns.Objects) {
+					if( obj.Type != null ) {
+
+						var charData = TMXObjectTypes.GetCharacterData(obj.Type);
+
+						var spawn = new RoomData.Spawn(charData);
+						var gridPos = GridPoint.FromTMXObject(obj, room.TmxMap);
+						spawn.GridPosition = gridPos;
+
+						room.Spawns.Add(spawn);
+					}
+
 				}
-			}*/
+			}
 		}
 
 		static void addDoorsFromTMX (RoomData room, TiledSharp.TmxMap tmx)

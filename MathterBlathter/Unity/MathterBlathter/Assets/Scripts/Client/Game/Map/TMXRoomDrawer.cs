@@ -90,7 +90,9 @@ namespace Client.Game.Map
 				room.Lights = new List<Light>();
 
 				foreach( var obj in lights.Objects) {
-					var lightPos = new GridPoint((int)(obj.X/tmx.TileWidth), tmx.Height - (int)(obj.Y/tmx.TileHeight)).GridToWorld(tmx);
+
+					var lightPos = GridPoint.FromTMXObject(obj, tmx).GridToWorld(tmx);
+
 					if(obj.Type == Constants.SPOT_LIGHT) {
 						
 						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;

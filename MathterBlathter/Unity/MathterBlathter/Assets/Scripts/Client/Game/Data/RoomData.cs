@@ -86,31 +86,21 @@ namespace Client.Game.Data
 				return new Link (this);
 			}
 
-
-
 		}
-
-
 
 
 		public class Spawn
 		{
 			public Vector3 Facing;
 			public int ActorId;
-			//LOCAL SPACE!!
-			public float X;
-			public float Y;
+			public GridPoint GridPosition;
 			public Guid Guid;
 
 			public Spawn(CharacterData inData) {
 				this.ActorId = inData.Id;
 				this.Guid = Guid.NewGuid();
 			}
-			public Vector3 RoomPosition {
-				get {
-					return new Vector3(X, Y);
-				}
-			}
+
 
 		}
 

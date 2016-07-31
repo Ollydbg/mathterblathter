@@ -138,7 +138,8 @@ namespace Client.Game.Map
 			foreach (var spawn in data.Spawns) {
 				var actor = Game.Instance.ActorManager.Spawn(CharacterDataTable.FromId(spawn.ActorId));
 				actor.SpawnData = spawn;
-				actor.transform.position = spawn.RoomPosition + Position;
+
+				actor.transform.position = spawn.GridPosition.GridToWorld(this.data.TmxMap) + Position;
 				ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
 				Spawns.Add(actor);
 			}

@@ -243,6 +243,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\GridPoint.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXCache.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXChunkExtractor.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXObjectTypes.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileChunk.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileMap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMXRoomDrawer.cs" />

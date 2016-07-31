@@ -11,6 +11,7 @@ namespace Client.Game.Map.TMX
 		public GridPoint(float x, float y) { X = (int)x; Y = (int)y;}
 		public GridPoint(Vector3 v3) { X = (int)v3.x; Y = (int)v3.y; }
 
+
 		public static float PIXEL_UP_SCALE = 6f;
 
 		public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
@@ -30,6 +31,13 @@ namespace Client.Game.Map.TMX
 			);
 		}
 
+
+		public static GridPoint FromTMXObject(TmxObjectGroup.TmxObject obj, TmxMap map) {
+			var x = (int)(obj.X / map.TileWidth);
+			var y = map.Height - (int)(obj.Y/map.TileHeight);
+			return new GridPoint(x, y);
+
+		}
 
 		public Vector3 GridToWorld(TmxMap map) {
 
