@@ -54,7 +54,7 @@ namespace Client.Game.Managers
 			if(newRoom.data.OverrideMusic != null) {
 				RequestOverride(newRoom.data.OverrideMusic);
 			} else {
-				ReleaseOverride();
+				TryReleaseOverride();
 			}
 		}
 
@@ -67,8 +67,9 @@ namespace Client.Game.Managers
 		}
 
 
-		public void ReleaseOverride() {
-			Fade = new CrossFade{To = MusicSource, From = OverrideSource, Duration = 1.5f};
+		public void TryReleaseOverride() {
+			if(OverrideSource.isPlaying)
+				Fade = new CrossFade{To = MusicSource, From = OverrideSource, Duration = 1.5f};
 		}
 
 		public void StartRun ()
