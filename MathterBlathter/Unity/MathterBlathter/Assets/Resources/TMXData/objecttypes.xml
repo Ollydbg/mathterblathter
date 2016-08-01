@@ -9,4 +9,16 @@
  <objecttype name="RailGun" color="#a0a0a4">
   <property name="DataId" type="int" default="1004"/>
  </objecttype>
+ <objecttype name="LaunchPad" color="#a0a0a4">
+  <property name="DataId" type="int" default="512"/>
+ </objecttype>
+ <objecttype name="Shopkeeper" color="#a0a0a4">
+  <property name="DataId" type="int" default="2049"/>
+ </objecttype>
+ <objecttype name="Boss1" color="#a0a0a4">
+  <property name="DataId" type="int" default="29"/>
+ </objecttype>
+ <objecttype name="Spotlight" color="#a0a0a4"/>
+ <objecttype name="Pointlight" color="#a0a0a4"/>
+ <objecttype name="Directionallight" color="#a0a0a4"/>
 </objecttypes>

@@ -11,8 +11,11 @@ namespace Client.Game.Map.TMX
 		public const string DecorFrontLayer = "DecorFront";
 		public const string DecorBackLayer = "DecorBack";
 		public const string SceneryLayer = "Scenery";
-		public const string SPOT_LIGHT = "Spot";
-		public const string POINT_LIGHT = "Point";
+
+		public const string SPOT_LIGHT = "Spotlight";
+		public const string POINT_LIGHT = "Pointlight";
+		public const string DIRECTIONAL_LIGHT = "Directionallight";
+
 		public const string DoorsLayer = "Doors";
 		public const string AirSpawnLayer = "AirSpawn";
 		public const string GroundSpawnLayer = "GroundSpawn";

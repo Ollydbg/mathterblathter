@@ -13,13 +13,13 @@ namespace Client.Game.Map.TMX
 		private static ObjectTypes ObjectDefs;
 		private const string DATA_ID = "DataId";
 
-		public static CharacterData GetCharacterData(string id) {
+		public static CharacterData GetCharacterData(string id, RoomData context) {
 
-			return CharacterDataTable.FromId(GetCharacterDataId(id));
+			return CharacterDataTable.FromId(GetCharacterDataId(id, context));
 			
 		}
 
-		public static int GetCharacterDataId(string id) {
+		public static int GetCharacterDataId(string id, RoomData context) {
 
 			if(ObjectDefs == null) {
 
@@ -32,11 +32,17 @@ namespace Client.Game.Map.TMX
 
 			var objectDef = ObjectDefs.Items.Find(p => p.name == id);
 			if(objectDef == null) {
-				Debug.LogError("Couldn't find object named: " + id);
+				Debug.LogError("Couldn't find object named: " + id + " for room id : " + context.Id);
 				return CharacterDataTable.RANDOM_WEAPON_PICKUP.Id;
 			}
 
-			var charId = objectDef.Properties.Find(s => s.name == DATA_ID).Default;
+			var data = objectDef.Properties.Find(s => s.name == DATA_ID);
+			if(data == null) {
+				Debug.LogError("Couldn't find property with DataId on object named: " + id + " for room id " + context.Id);
+				return CharacterDataTable.RANDOM_WEAPON_PICKUP.Id;
+			}
+
+			var charId = data.Default;
 
 			return charId;
 

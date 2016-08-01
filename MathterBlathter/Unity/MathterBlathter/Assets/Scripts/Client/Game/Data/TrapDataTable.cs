@@ -5,7 +5,7 @@ namespace Client.Game.Data
 {
 	public static partial class CharacterDataTable
 	{
-		private static int TRAP_OFFSET = 2<<8;
+		private static int TRAP_OFFSET = 2<<8; //512
 
 		public static CharacterData LAUNCH_PAD_FIXTURE {
 			get {

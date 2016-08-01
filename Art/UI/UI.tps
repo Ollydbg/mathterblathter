@@ -190,6 +190,7 @@
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">HealthBar.png</key>
             <key type="filename">MissingHealth.png</key>
+            <key type="filename">anxietyGradient.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -199,6 +200,7 @@
         <array>
             <filename>HealthBar.png</filename>
             <filename>MissingHealth.png</filename>
+            <filename>anxietyGradient.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

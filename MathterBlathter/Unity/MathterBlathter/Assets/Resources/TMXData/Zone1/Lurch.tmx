@@ -223,13 +223,13 @@
 </data>
  </layer>
  <objectgroup name="Lights">
-  <object id="4" type="Spot" x="714" y="495" width="56" height="58">
+  <object id="4" type="Spotlight" x="714" y="495" width="56" height="58">
    <ellipse/>
   </object>
-  <object id="7" type="Spot" x="373" y="326" width="62" height="62">
+  <object id="7" type="Directionallight" x="373" y="326" width="62" height="62">
    <ellipse/>
   </object>
-  <object id="9" type="Point" x="747" y="350" width="20" height="18">
+  <object id="9" type="Pointlight" x="841.667" y="574" width="20" height="18">
    <ellipse/>
   </object>
  </objectgroup>

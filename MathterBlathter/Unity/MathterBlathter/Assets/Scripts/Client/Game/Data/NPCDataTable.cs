@@ -7,7 +7,7 @@ namespace Client.Game.Data
 	public static partial class CharacterDataTable
 	{
 
-		private static int NPC_OFFSET = 1<<11;
+		private static int NPC_OFFSET = 1<<11; //2048
 
 		public static CharacterData SHOPKEEPER {
 			get {

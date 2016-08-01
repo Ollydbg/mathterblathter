@@ -148,7 +148,8 @@ namespace Client.Game.Data
 		Boss = 64,
 		NoWaves = 128,
 		WeaponRoom = 256,
-		ItemRoom = 512
+		ItemRoom = 512,
+		Debug = 1024,
 	}
 }
 

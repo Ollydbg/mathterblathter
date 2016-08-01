@@ -28,9 +28,11 @@ namespace Client.Game.Abilities.Scripts.Buffs
 					var repl = hitActors[i];
 					repl.framesLeft = repl.framesLeft -1;
 					if(repl.framesLeft <= 0) {
-						repl.material.SetFloat("_FlashAmount", 0f);
-						hitActors.Remove(repl);
-						repl.actor.Animator.SetIsHit(false);
+						if(!repl.actor.Destroyed) {
+							repl.material.SetFloat("_FlashAmount", 0f);
+							hitActors.Remove(repl);
+							repl.actor.Animator.SetIsHit(false);
+						}
 					}
 				}
 			}

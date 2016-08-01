@@ -6,6 +6,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: HealthBar
     21300002: MissingHealth
+    21300004: anxietyGradient
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,6 +53,17 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
+    - name: anxietyGradient
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 25
+        width: 108
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     - name: HealthBar
       rect:
         serializedVersion: 2

@@ -18,6 +18,7 @@ namespace Client.Game.Map
 
 		private static UnityEngine.Object PointLightTemplate;
 		private static UnityEngine.Object DirectionalLightTemplate;
+		private static UnityEngine.Object SpotLightTemplate;
 
 		public TMXRoomDrawer ()
 		{
@@ -34,12 +35,17 @@ namespace Client.Game.Map
 			}
 		}
 
+		private Room room;
+
 		public GameObject Draw (Room room, Game inGame)
 		{
+			this.room = room;
 
 			if(PointLightTemplate == null) {
 				PointLightTemplate = Resources.Load("Lights/PointLight");
 				DirectionalLightTemplate = Resources.Load("Lights/DirectionalLight");
+				SpotLightTemplate = Resources.Load("Lights/SpotTemplate");
+				
 			}
 
 
@@ -95,7 +101,7 @@ namespace Client.Game.Map
 
 					if(obj.Type == Constants.SPOT_LIGHT) {
 						
-						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
+						var lightObj = GameObject.Instantiate(SpotLightTemplate) as GameObject;
 
 						room.Lights.Add(lightObj.GetComponent<Light>());
 						lightObj.SetActive(false);
@@ -103,7 +109,7 @@ namespace Client.Game.Map
 						lightObj.transform.parent = go.transform;
 						lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
 
-						lightObj.name = "directional light";
+						lightObj.name = "spot light";
 
 					} else if (obj.Type == Constants.POINT_LIGHT) {
 						var lightObj = GameObject.Instantiate(PointLightTemplate) as GameObject;
@@ -115,6 +121,16 @@ namespace Client.Game.Map
 						lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
 
 						lightObj.name = "point light";
+					} else if (obj.Type == Constants.DIRECTIONAL_LIGHT) {
+						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
+
+						room.Lights.Add(lightObj.GetComponent<Light>());
+						lightObj.SetActive(false);
+
+						lightObj.transform.parent = go.transform;
+						lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
+
+						lightObj.name = "Directional light";
 					}
 				}	
 
@@ -267,7 +283,13 @@ namespace Client.Game.Map
 		}
 
 		Sprite GetSprite(Sprite[] lookup, TmxLayerTile tile, TmxMap map) {
-			var tmxImage = map.Tilesets[0].Tiles.Where(p => p.Id == (tile.Gid-1)).FirstOrDefault().Image;
+			var sprite = map.Tilesets[0].Tiles.Where(p => p.Id == (tile.Gid-1)).FirstOrDefault();
+			if(sprite == null) {
+				Debug.LogError("Couldn't find sprite with gid=" + tile.Gid + " referenced by room data id =" + room.data.Id);
+				sprite = map.Tilesets[0].Tiles[0];
+			}
+
+			var tmxImage = sprite.Image;
 
 			var pathBits = tmxImage.Source.Split('/');
 			string name = pathBits[pathBits.Length-1];

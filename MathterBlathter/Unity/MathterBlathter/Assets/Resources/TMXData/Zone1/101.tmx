@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="35" height="25" tilewidth="25" tileheight="25" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="35" height="25" tilewidth="25" tileheight="25" nextobjectid="14">
  <tileset firstgid="1" name="Concept25X" tilewidth="775" tileheight="225" tilecount="27" columns="0">
   <tile id="0">
    <image width="775" height="225" source="../../../../../../../Art/Mockup_environment/LooseSprites25x25/Background_buildings.png"/>
@@ -258,13 +258,16 @@
 </data>
  </layer>
  <objectgroup name="Lights">
-  <object id="4" type="Spot" x="464" y="495" width="56" height="58">
+  <object id="4" type="Spotlight" x="615.333" y="290.333" width="56" height="58">
    <ellipse/>
   </object>
-  <object id="7" type="Spot" x="123" y="326" width="62" height="62">
+  <object id="7" type="Spotlight" x="254.333" y="90" width="62" height="62">
    <ellipse/>
   </object>
-  <object id="9" type="Point" x="291" y="62" width="20" height="18">
+  <object id="9" type="Pointlight" x="235.667" y="236.667" width="20" height="18">
+   <ellipse/>
+  </object>
+  <object id="13" type="Directionallight" x="692" y="515" width="56" height="58">
    <ellipse/>
   </object>
  </objectgroup>

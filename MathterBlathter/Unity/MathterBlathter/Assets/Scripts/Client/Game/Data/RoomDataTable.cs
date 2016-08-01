@@ -56,7 +56,7 @@ namespace Client.Game.Data
 				ret.Id = 2;
 				ret.TMXResource = "TMXData/Zone1/Template.tmx";
 				ret.SortOrder = int.MaxValue;
-				ret.Type = RoomType.Normal | RoomType.NoWaves;
+				ret.Type =  RoomType.Debug | RoomType.NoWaves;
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
 				finalize(ret);
@@ -83,54 +83,9 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 102;
-				ret.TMXResource = "TMXData/Zone1/101.tmx";
+				ret.TMXResource = "TMXData/Zone1/102.tmx";
 
 			
-				finalize(ret);
-
-				return ret;
-			}
-		}
-
-		public static RoomData ROOM_3 {
-			get {
-				var ret = new RoomData ();
-				ret.Id = 103;
-				ret.TMXResource = "TMXData/Zone1/101.tmx";
-
-
-				ret.AsciiSpawnLookup['2'] = CharacterDataTable.RANDOM_WEAPON_PICKUP;
-
-				finalize(ret);
-
-				return ret;
-			}
-		}
-
-		public static RoomData ROOM_4 {
-			get {
-				var ret = new RoomData ();
-				ret.Id = 104;
-				ret.TMXResource = "TMXData/Zone1/101.tmx";
-
-
-				ret.AsciiSpawnLookup['s'] = CharacterDataTable.SPIKES_FIXTURE;
-				ret.AsciiSpawnLookup['T'] = new AsciiPlacement(CharacterDataTable.WALL_TURRET_FIXTURE, Vector3.down);
-
-				finalize(ret);
-
-				return ret;
-			}
-		}
-
-		public static RoomData ROOM_5 {
-			get {
-				var ret = new RoomData ();
-				ret.Id = 105;
-
-				ret.TMXResource = "TMXData/Zone1/101.tmx";
-
-
 				finalize(ret);
 
 				return ret;
@@ -198,7 +153,7 @@ namespace Client.Game.Data
 				foreach( var obj in spawns.Objects) {
 					if( obj.Type != null ) {
 
-						var charData = TMXObjectTypes.GetCharacterData(obj.Type);
+						var charData = TMXObjectTypes.GetCharacterData(obj.Type, room);
 
 						var spawn = new RoomData.Spawn(charData);
 						var gridPos = GridPoint.FromTMXObject(obj, room.TmxMap);
