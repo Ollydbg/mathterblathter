@@ -199,12 +199,12 @@ namespace Client.Game.Map
 						targetY = (int)mate.MatingY - door.Y;
 
 
-						//if(targetY > FloorY) {
-						if(Constraints.Check(data, targetX, targetY, (int)data.WorldWidth, (int)data.WorldHeight)) {
+						if(targetY >= FloorY) {
+							if(Constraints.Check(data, targetX, targetY, (int)data.WorldWidth, (int)data.WorldHeight)) {
 								doorLinks = GetMatingDoorsAtPosition(targetX, targetY, data);
 								return true;
 							}
-						//}
+						}
 
 					}
 				}
