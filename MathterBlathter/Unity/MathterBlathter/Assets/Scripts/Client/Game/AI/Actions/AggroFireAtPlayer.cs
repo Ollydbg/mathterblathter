@@ -3,12 +3,13 @@ using Client.Game.Actors;
 using UnityEngine;
 using Client.Game.Abilities;
 using Client.Game.Data;
+using Client.Game.Attributes;
 
 namespace Client.Game.AI.Actions
 {
-	public class FireAtPlayer : AIAction
+	public class AggroFireAtPlayer : AIAction
 	{
-		public FireAtPlayer ()
+		public AggroFireAtPlayer ()
 		{
 		}
 
@@ -23,10 +24,18 @@ namespace Client.Game.AI.Actions
 			if (!inAbilityRange (distanceVec, actor)) {
 				return AIResult.Failure;
 			} else {
-				ActionUtil.TryActivateAbility (PlayerMid, actor);
+				if(ShouldTryFire(actor)) {
+
+					ActionUtil.TryActivateAbility (PlayerMid, actor);
+				}
 				return AIResult.Running;
 			}
 
+		}
+
+
+		public bool ShouldTryFire(Actor actor) {
+			return UnityEngine.Random.value <= actor.Attributes[ActorAttributes.AIAggro];
 		}
 
 

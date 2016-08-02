@@ -101,7 +101,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF AIIdleRange = new GameAttributeF(78, .5f, "ai idle range", 0f, float.MaxValue);
 		public static readonly GameAttributeF AISleepTime = new GameAttributeF(79, 1f, "ai sleep time", 0, float.MaxValue);
 		public static readonly GameAttributeF AILockOnTime = new GameAttributeF(80, .5f, "ai lock on time", 0, float.MaxValue);
-		public static readonly GameAttributeI TeamID = new GameAttributeI(0, 0, "teamId", 0, 10);
+		public static readonly GameAttributeI TeamID = new GameAttributeI(81, 0, "teamId", 0, 10);
+		public static readonly GameAttributeF AIAggro = new GameAttributeF(82, .01f, "ai aggro level", 0, float.MaxValue);
 	}
 }
 

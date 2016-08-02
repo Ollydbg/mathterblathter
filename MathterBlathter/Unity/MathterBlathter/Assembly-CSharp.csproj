@@ -47,10 +47,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AIAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\ActionExtensions.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AggroFireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimAtPlayerAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimScanForPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAimingContinuous.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\Idle.cs" />

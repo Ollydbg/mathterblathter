@@ -127,7 +127,7 @@ namespace Client.Game.Managers
 			//camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, goalSize, dt);
 			//position
 
-			var pos = Vector3.Lerp(AddShake(transform.position), goalPosition, .1f);
+			var pos = Vector3.Lerp(AddShake(transform.position), goalPosition, .3f);
 
 			transform.position = pos; 
 		}

@@ -18,7 +18,7 @@ namespace Client.Game.Data
 					typeof(WaitForPlayerLOS)
 				);
 				patrolAction.Next = new ActionData(
-					typeof(FireAtPlayer),
+					typeof(AggroFireAtPlayer),
 					typeof(CheckPlayerLOS)
 				);
 				ret.ActionData = patrolAction;
@@ -32,7 +32,7 @@ namespace Client.Game.Data
 				var ret = new AIData();
 				ret.ActionData = new ActionData(typeof(PathToPlayer));
 				ret.ActionData.Next = new ActionData(
-					typeof(FireAtPlayer),
+					typeof(AggroFireAtPlayer),
 					typeof(CheckPlayerLOS)
 				);
 
@@ -48,7 +48,7 @@ namespace Client.Game.Data
 				ret.ActionData = new ActionData(typeof(WaitForPlayerLOS));
                 ret.ActionData.Next = new ActionData(typeof(SeekToPlayer));
                 ret.ActionData.Next.Next = new ActionData(
-                	typeof(FireAtPlayer), 
+                	typeof(AggroFireAtPlayer), 
                     typeof(CheckPlayerLOS)
 				);
                 return ret;
@@ -66,7 +66,7 @@ namespace Client.Game.Data
 				).Then (
 					new ActionData(new Type[]{
 						typeof(WaitAction),
-						typeof(FireAtPlayer), 
+						typeof(AggroFireAtPlayer), 
 						typeof(CheckPlayerLOS)})
 					.Else(
 						typeof(PathToPlayer)
