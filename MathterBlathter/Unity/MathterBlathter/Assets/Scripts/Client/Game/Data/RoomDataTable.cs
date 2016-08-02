@@ -92,6 +92,18 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static RoomData ROOM_3 {
+			get {
+				var ret = new RoomData ();
+				ret.Id = 103;
+				ret.TMXResource = "TMXData/Zone1/103.tmx";
+
+				finalize(ret);
+
+				return ret;
+			}
+		}
+
 
 		public static RoomData SHOP_1 {
 			get {
