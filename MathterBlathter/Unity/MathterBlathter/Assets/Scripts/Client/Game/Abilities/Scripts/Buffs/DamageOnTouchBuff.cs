@@ -53,8 +53,10 @@ namespace Client.Game.Abilities.Scripts.Buffs
 
 		void AddTarget (Actor actor)
 		{
-			Targets.Add(actor);
-			DamageTarget(actor, Owner.Attributes[ActorAttributes.BaseDamage]);
+			if(actor.ActorType != Client.Game.Data.ActorType.Projectile) {
+				Targets.Add(actor);
+				DamageTarget(actor, Owner.Attributes[ActorAttributes.BaseDamage]);
+			}
 
 		}
 

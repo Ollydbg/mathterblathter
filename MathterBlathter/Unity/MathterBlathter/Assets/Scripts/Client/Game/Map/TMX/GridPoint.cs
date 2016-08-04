@@ -73,6 +73,7 @@ namespace Client.Game.Map.TMX
 				Mathf.FloorToInt((v3.y- room.Y) / spaceResolution / PIXEL_UP_SCALE)
 			);
 		}
+
 	}
 }
 

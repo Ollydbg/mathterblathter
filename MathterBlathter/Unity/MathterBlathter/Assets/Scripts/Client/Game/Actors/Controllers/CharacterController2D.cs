@@ -45,7 +45,13 @@ namespace Client.Game.Actors.Controllers
 				Debug.LogError("Couldn't find rigidbody on actor " + actor + ". Did you set the wrong actor type in the data?");
 			}
 
-			groundedDistance = collider.bounds.extents.y;
+			
+			if(collider is EdgeCollider2D) {
+				groundedDistance = -collider.offset.y;
+			} else {
+				groundedDistance = collider.bounds.extents.y;
+			}
+			
 			rigidBody.gravityScale = GravityScalar;
 
 		}
@@ -90,7 +96,7 @@ namespace Client.Game.Actors.Controllers
 		public bool IsGrounded 
 		{
 			get {
-				var hit = Physics2D.BoxCast(VectorUtils.Vector2(Actor.GameObject.transform.position), collider.bounds.size, 0f, Vector2.down, groundedDistance + .1f, groundedMask);
+				var hit = Physics2D.BoxCast(VectorUtils.Vector2(Actor.GameObject.transform.position), new Vector2(1.5f, 2.4f), 0f, Vector2.down, groundedDistance + .1f, groundedMask);
 				var goodHit = hit.collider != null;
 
 				return goodHit && rigidBody.velocity.y == 0f;

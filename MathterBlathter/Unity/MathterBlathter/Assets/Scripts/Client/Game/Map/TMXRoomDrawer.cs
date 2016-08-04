@@ -278,11 +278,11 @@ namespace Client.Game.Map
 		void AddCollision (GameObject tileGo, Sprite sprite)
 		{
 			
-			var col = SpriteColliderFactory.AddBoxCollider2D(tileGo, sprite);
+			SpriteColliderFactory.AddBoxCollider2D(tileGo, sprite, Ice);
 			var rb = tileGo.AddComponent<Rigidbody2D>();
 			rb.isKinematic = true;
 			tileGo.layer = LayerMask.NameToLayer(Layers.HardGeometry.ToString());
-			col.sharedMaterial = Ice;
+
 
 		}
 

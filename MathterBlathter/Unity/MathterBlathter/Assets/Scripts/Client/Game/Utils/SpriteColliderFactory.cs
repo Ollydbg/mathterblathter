@@ -9,7 +9,7 @@ namespace Client.Game.Utils
 		//my sprites have a ton of transparent space in them, this util sizes the collider to not cover the negative space.
 		private static Dictionary<Sprite, Rect> Cache = new Dictionary<Sprite, Rect>();
 
-		public static BoxCollider2D AddBoxCollider2D(GameObject go, Sprite basedOn) {
+		public static BoxCollider2D AddBoxCollider2D(GameObject go, Sprite basedOn, PhysicsMaterial2D mat) {
 
 			Rect rect;
 			if(!Cache.TryGetValue(basedOn, out rect)) {
@@ -21,6 +21,7 @@ namespace Client.Game.Utils
 			coll.offset = rect.position * .5f;
 			coll.size = rect.size;
 
+			coll.sharedMaterial = mat;
 			return coll;
 		}
 
