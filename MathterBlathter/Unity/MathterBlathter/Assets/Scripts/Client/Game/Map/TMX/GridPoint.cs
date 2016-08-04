@@ -14,7 +14,7 @@ namespace Client.Game.Map.TMX
 
 		public static float PIXEL_UP_SCALE = 6f;
 
-		public Vector3 GridToWorld(TmxMap map, Rect centeredRect) {
+		public Vector3 GridToWorldBL(TmxMap map, Rect centeredRect) {
 			var ppu = .01f;
 			var spaceResolution = map.TileWidth * ppu;
 
@@ -39,7 +39,7 @@ namespace Client.Game.Map.TMX
 
 		}
 
-		public Vector3 GridToWorld(TmxMap map) {
+		public Vector3 GridToWorldBL(TmxMap map) {
 
 			var spaceResolution = map.TileWidth / 100f;
 
@@ -49,6 +49,20 @@ namespace Client.Game.Map.TMX
 				0f
 			);
 
+		}
+
+		public Vector3 GridToWorldC (TiledSharp.TmxMap map)
+		{
+			var spaceResolution = map.TileWidth / 100f;
+
+			float widthOffset = spaceResolution * .5f * PIXEL_UP_SCALE;
+			float heightOffset = spaceResolution * .5f * PIXEL_UP_SCALE;
+
+			return new Vector3(
+				X * spaceResolution * PIXEL_UP_SCALE + widthOffset,
+				Y * spaceResolution * PIXEL_UP_SCALE + heightOffset, 
+				0f
+			);
 		}
 
 		public static GridPoint WorldToGrid(Vector3 v3, Room room) {

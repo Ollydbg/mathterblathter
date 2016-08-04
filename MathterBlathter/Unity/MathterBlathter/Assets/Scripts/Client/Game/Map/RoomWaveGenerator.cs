@@ -143,7 +143,7 @@ namespace Client.Game.Map
 			var airSpace = seed.RandomInList(AirCoords);
 
 			return new GridPoint(airSpace)
-				.GridToWorld(room.data.TmxMap)
+				.GridToWorldBL(room.data.TmxMap)
 				+ new Vector3((float)room.X, (float)room.Y);
 
 		}
@@ -153,7 +153,7 @@ namespace Client.Game.Map
 			var groundSpace = seed.RandomInList(GroundCoords);
 
 			return new GridPoint(groundSpace)
-				.GridToWorld(room.data.TmxMap)
+				.GridToWorldBL(room.data.TmxMap)
 				+ new Vector3((float)room.X, (float)room.Y);
 		}
 
@@ -162,7 +162,7 @@ namespace Client.Game.Map
 			var sniperPos = seed.RandomInList(SniperCoords);
 
 			return new GridPoint(sniperPos)
-				.GridToWorld(room.data.TmxMap)
+				.GridToWorldBL(room.data.TmxMap)
 				+ new Vector3((float)room.X, (float)room.Y);
 
 		}

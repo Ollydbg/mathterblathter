@@ -144,7 +144,7 @@ namespace Client.Game.Data
             get {
                 var ret = new AIData();
                 ret.Name = "Fixture AI";
-                ret.ActionData = new ActionData(typeof(FireFacingDirection));
+                ret.ActionData = new ActionData(typeof(FireSpawnDirection));
                 return ret;
             }    
         

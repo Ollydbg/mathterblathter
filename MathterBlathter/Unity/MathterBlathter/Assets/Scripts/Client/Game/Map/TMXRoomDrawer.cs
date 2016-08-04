@@ -100,7 +100,7 @@ namespace Client.Game.Map
 
 				foreach( var obj in lights.Objects) {
 
-					var lightPos = GridPoint.FromTMXObject(obj, tmx).GridToWorld(tmx);
+					var lightPos = GridPoint.FromTMXObject(obj, tmx).GridToWorldBL(tmx);
 
 					if(obj.Type == Constants.SPOT_LIGHT) {
 						
@@ -148,7 +148,7 @@ namespace Client.Game.Map
 				if(!door.Set) {
 					
 					//door width/height are in tile units
-					var gridScale = new GridPoint(door.Width, door.Height).GridToWorld(tmx) + Vector3.forward;
+					var gridScale = new GridPoint(door.Width, door.Height).GridToWorldBL(tmx) + Vector3.forward;
 					door.transform.localScale = gridScale;
 					//door.GameObject.hideFlags = HideFlags.HideInHierarchy;
 
@@ -261,7 +261,7 @@ namespace Client.Game.Map
 			var tileGo = new GameObject();
 
 			tileGo.transform.parent = parent.transform;
-			tileGo.transform.localPosition = coords.GridToWorld(map, sprite.rect) + Vector3.forward*depth;
+			tileGo.transform.localPosition = coords.GridToWorldBL(map, sprite.rect) + Vector3.forward*depth;
 
 			var spriteComp = tileGo.AddComponent<SpriteRenderer>();
 			if(lit)

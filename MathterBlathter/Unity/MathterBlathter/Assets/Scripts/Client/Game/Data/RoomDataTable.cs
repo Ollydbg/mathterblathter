@@ -54,9 +54,9 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData();
 				ret.Id = 2;
-				ret.TMXResource = "TMXData/Zone1/Template.tmx";
+				ret.TMXResource = "TMXData/Zone1/DebugRoom.tmx";
 				ret.SortOrder = int.MaxValue;
-				ret.Type =  RoomType.Debug | RoomType.NoWaves;
+				ret.Type =  RoomType.Debug | RoomType.Normal;// | RoomType.NoWaves;
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
 				finalize(ret);
@@ -145,7 +145,7 @@ namespace Client.Game.Data
 			var tmx = TMXCache.Get(room);
 			room.Width = tmx.Width - 1;
 			room.Height = tmx.Height - 1;
-			var expandedSize = new GridPoint(room.Width, room.Height).GridToWorld(tmx);
+			var expandedSize = new GridPoint(room.Width, room.Height).GridToWorldBL(tmx);
 			room.WorldWidth = expandedSize.x;
 			room.WorldHeight = expandedSize.y;
 
@@ -168,6 +168,9 @@ namespace Client.Game.Data
 						var charData = TMXObjectTypes.GetCharacterData(obj.Type, room);
 
 						var spawn = new RoomData.Spawn(charData);
+
+						var facing = obj.TryGetProperty(Constants.Facing);
+						spawn.Facing = TMXUtils.FacingDirection(facing);
 						var gridPos = GridPoint.FromTMXObject(obj, room.TmxMap);
 						spawn.GridPosition = gridPos;
 
@@ -185,7 +188,7 @@ namespace Client.Game.Data
 
 			foreach( var chunk in matches ) {
 				var middleNode = chunk.FirstNode;
-				var doorPos = new GridPoint(middleNode).GridToWorld(tmx);
+				var doorPos = new GridPoint(middleNode).GridToWorldBL(tmx);
 
 				var link = new RoomData.Link ();
 				

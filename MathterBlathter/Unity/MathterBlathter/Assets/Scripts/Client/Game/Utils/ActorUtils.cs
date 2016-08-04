@@ -41,22 +41,25 @@ namespace Client.Game.Utils
 		}
 
 		public static void FaceRelativeDirection(Actor actor, Vector3 direction) {
-			
+
 			Quaternion targetRotation = Quaternion.identity;
 			if(direction == Vector3.left) {
-				targetRotation = Quaternion.AngleAxis(-180, Vector3.up);
-				var pos = actor.transform.position;
-				//this is SO dirty
-				actor.transform.position = new Vector3(pos.x+1f, pos.y, pos.z);
-			} else if (direction == Vector3.up || direction == Vector3.down) {
-				targetRotation = Quaternion.Euler(direction);
+				targetRotation = Quaternion.AngleAxis(90, Vector3.forward);
+			} else if(direction == Vector3.right) {
+				targetRotation = Quaternion.AngleAxis(-90, Vector3.forward);
+			} else if (direction == Vector3.down) {
+				targetRotation = Quaternion.AngleAxis(180, Vector3.forward);
 			} 
+			
 
 			actor.transform.rotation = targetRotation;
 
 
 		}
 
+		public static Vector3 GetTransformFacing(Actor actor) {
+			return Vector3.right;
+		}
 
 		//works as long as we only change it by 1 unit each time.
 		public static void SetDataIdAttributes(Actor actor, GameAttributeI attr, List<int> ids) {

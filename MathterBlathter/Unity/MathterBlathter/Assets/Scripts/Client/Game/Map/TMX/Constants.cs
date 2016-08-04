@@ -23,6 +23,8 @@ namespace Client.Game.Map.TMX
 		public const string GroundTopLayer = "GroundTop";
 		public const string SoftGeometryLayer = "SoftGeometry";
 		public const string SpawnsLayer = "Spawns";
+
+		public const string Facing = "Facing";
 	}
 }
 

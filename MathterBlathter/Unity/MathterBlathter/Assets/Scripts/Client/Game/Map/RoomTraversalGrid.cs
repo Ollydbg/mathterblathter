@@ -65,7 +65,7 @@ namespace Client.Game.Map
 			for( int x = 0; x < matrix.Length; x++ ) {
 				for( int y = 0; y < matrix[x].Length; y++ ) {
 					if(matrix[x][y]) {
-						var pos = new GridPoint(x, y).GridToWorld(Room.data.TmxMap);
+						var pos = new GridPoint(x, y).GridToWorldBL(Room.data.TmxMap);
 						Debug.DrawRay(pos, Vector3.forward * 2, Color.cyan, 2f);
 					}
 				}
@@ -150,7 +150,7 @@ namespace Client.Game.Map
 		private void DebugPoint(Vector3 worldPoint) {
 			Debug.DrawRay(worldPoint, Vector3.back*100f, Color.green, 2f);
 			GridPos fromInt = GridPoint.WorldToGrid(worldPoint, Room);
-			var secondRay = new GridPoint(fromInt.x, fromInt.y).GridToWorld(Room.data.TmxMap);
+			var secondRay = new GridPoint(fromInt.x, fromInt.y).GridToWorldBL(Room.data.TmxMap);
 			Debug.DrawRay(secondRay, Vector3.back*100f, Color.cyan, 2f);
 		}
 
@@ -170,7 +170,7 @@ namespace Client.Game.Map
 			var buff = new Vector3[points.Count];
 
 			for(int i = 0; i<points.Count; i++ ) {
-				buff[i] = new GridPoint(points[i].x, points[i].y).GridToWorld(Room.data.TmxMap);
+				buff[i] = new GridPoint(points[i].x, points[i].y).GridToWorldBL(Room.data.TmxMap);
 			}
 
 

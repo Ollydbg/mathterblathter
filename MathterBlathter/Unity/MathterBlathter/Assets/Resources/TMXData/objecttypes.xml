@@ -22,4 +22,8 @@
  <objecttype name="Pointlight" color="#a0a0a4"/>
  <objecttype name="Directionallight" color="#a0a0a4"/>
  <objecttype name="DownSpotlight" color="#a0a0a4"/>
+ <objecttype name="UpgradeableTrap" color="#a0a0a4">
+  <property name="DataId" type="int" default="513"/>
+  <property name="Facing" type="string"/>
+ </objecttype>
 </objecttypes>

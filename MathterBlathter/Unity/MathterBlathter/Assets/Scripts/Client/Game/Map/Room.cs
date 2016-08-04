@@ -139,7 +139,10 @@ namespace Client.Game.Map
 				var actor = Game.Instance.ActorManager.Spawn(CharacterDataTable.FromId(spawn.ActorId));
 				actor.SpawnData = spawn;
 
-				actor.transform.position = spawn.GridPosition.GridToWorld(this.data.TmxMap) + Position;
+				var resolvedPosition = spawn.GridPosition.GridToWorldC(this.data.TmxMap);
+				Debug.DrawRay(resolvedPosition, Vector3.back * 100f, Color.green, 20000f);
+
+				actor.transform.position = resolvedPosition + Position;
 				ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
 				Spawns.Add(actor);
 			}

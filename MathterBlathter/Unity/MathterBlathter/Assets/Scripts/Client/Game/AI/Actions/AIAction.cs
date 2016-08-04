@@ -77,19 +77,6 @@ namespace Client.Game.AI
 			}
 		}
 
-		internal Vector3 GetFacingVector(Character selfActor) {
-			var angles = selfActor.transform.eulerAngles;
-			if(angles.y == -180)
-				return Vector3.left;
-			else if(angles.y == 0)
-				return Vector3.right;
-			else if(angles.y == 1) 
-				return Vector3.up;
-			else 
-				return Vector3.down;
-		}
-		
-
 		internal bool IsAimedAtPlayer(Actor actor) {
 
 			Actor hitActor;

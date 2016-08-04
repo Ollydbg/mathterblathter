@@ -52,7 +52,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimScanForPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAimingContinuous.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireFacingDirection.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireSpawnDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\Idle.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PathToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
@@ -187,6 +187,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\FloodFill.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\CharacterData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\CharacterDataTable.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Data\FixtureDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\GameData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\ItemDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\MapData.cs" />
@@ -202,7 +203,6 @@
      <Compile Include="Assets\Scripts\Client\Game\Data\RoomTemplates.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\SetPieceData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\TimelineDataTable.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\Data\TrapDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveData.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WaveDataTable.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Data\WeaponDataTable.cs" />
@@ -244,6 +244,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXCache.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXChunkExtractor.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXObjectTypes.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TMXUtils.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileChunk.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileMap.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Map\TMXRoomDrawer.cs" />
