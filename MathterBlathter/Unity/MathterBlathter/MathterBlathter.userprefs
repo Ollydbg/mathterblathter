@@ -1,13 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Managers/CameraManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Client/Game/Data/ZoneDataTable.cs">
     <Files>
       <File FileName="Assets/Scripts/Client/Game/Data/ZoneDataTable.cs" Line="57" Column="16" />
-      <File FileName="Assets/Scripts/Client/Game/UI/Run/PlayerStatsHud.cs" Line="89" Column="5" />
-      <File FileName="Assets/Scripts/Client/Game/Map/GenConstraints/IGenConstraint.cs" Line="31" Column="3" />
-      <File FileName="Assets/Scripts/Client/Game/Map/ZoneGenerator.cs" Line="214" Column="17" />
-      <File FileName="Assets/Scripts/Client/Game/Managers/MusicManager.cs" Line="69" Column="3" />
-      <File FileName="Assets/Scripts/Client/Game/Managers/CameraManager.cs" Line="130" Column="73" />
+      <File FileName="Assets/Scripts/Client/Game/UI/Run/PlayerStatsHud.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Client/Game/Map/GenConstraints/IGenConstraint.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

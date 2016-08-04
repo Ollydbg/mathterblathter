@@ -21,4 +21,5 @@
  <objecttype name="Spotlight" color="#a0a0a4"/>
  <objecttype name="Pointlight" color="#a0a0a4"/>
  <objecttype name="Directionallight" color="#a0a0a4"/>
+ <objecttype name="DownSpotlight" color="#a0a0a4"/>
 </objecttypes>

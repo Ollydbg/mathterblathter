@@ -17,8 +17,10 @@ namespace Client.Game.Map
 	{
 
 		private static UnityEngine.Object PointLightTemplate;
-		private static UnityEngine.Object DirectionalLightTemplate;
 		private static UnityEngine.Object SpotLightTemplate;
+		private static UnityEngine.Object DownSpotlightTemplate;
+
+		private static Material EnvironmentMat;
 
 		public TMXRoomDrawer ()
 		{
@@ -43,9 +45,10 @@ namespace Client.Game.Map
 
 			if(PointLightTemplate == null) {
 				PointLightTemplate = Resources.Load("Lights/PointLight");
-				DirectionalLightTemplate = Resources.Load("Lights/DirectionalLight");
 				SpotLightTemplate = Resources.Load("Lights/SpotTemplate");
-				
+				DownSpotlightTemplate = Resources.Load("Lights/DownSpotLight");
+				EnvironmentMat = Resources.Load("EnvironmentMat") as Material;
+
 			}
 
 
@@ -121,8 +124,10 @@ namespace Client.Game.Map
 						lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
 
 						lightObj.name = "point light";
-					} else if (obj.Type == Constants.DIRECTIONAL_LIGHT) {
-						var lightObj = GameObject.Instantiate(DirectionalLightTemplate) as GameObject;
+					} 
+
+					else if (obj.Type == Constants.DOWN_SPOT_LIGHT) {
+						var lightObj = GameObject.Instantiate(DownSpotlightTemplate) as GameObject;
 
 						room.Lights.Add(lightObj.GetComponent<Light>());
 						lightObj.SetActive(false);
@@ -130,8 +135,8 @@ namespace Client.Game.Map
 						lightObj.transform.parent = go.transform;
 						lightObj.transform.localPosition = new Vector3 (lightPos.x, lightPos.y, lightObj.transform.position.z);
 
-						lightObj.name = "Directional light";
-					}
+						lightObj.name = "down spot light";
+					} 
 				}	
 
 			}
@@ -172,7 +177,7 @@ namespace Client.Game.Map
 				foreach( var tile in hardGeo.Tiles) {
 					if(tile.Gid != 0) {
 						Sprite sprite;
-						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, .5f, out sprite);
+						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, .5f, true, out sprite);
 						tileGo.name = "tileGid-" + tile.Gid;
 						if(addCollsion)
 							AddCollision(tileGo, sprite);
@@ -191,7 +196,7 @@ namespace Client.Game.Map
 				foreach( var tile in hardGeo.Tiles) {
 					if(tile.Gid != 0) {
 						Sprite sprite;
-						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, .5f, out sprite);
+						var tileGo = TileAtLocation(go, tile, tmx, sprites, room, .5f, true, out sprite);
 						tileGo.name = "tileGid-" + tile.Gid;
 						AddCollision(tileGo, sprite);
 
@@ -211,7 +216,7 @@ namespace Client.Game.Map
 				foreach( var tile in background.Tiles) {
 					if(tile.Gid != 0) {
 						Sprite sprite;
-						var obj = TileAtLocation(go, tile, tmx, sprites, room, depth, out sprite);
+						var obj = TileAtLocation(go, tile, tmx, sprites, room, depth, false, out sprite);
 						obj.name = "Scene object";
 					}
 
@@ -247,17 +252,20 @@ namespace Client.Game.Map
 		}
 		
 
-		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, float depth, out Sprite sprite)
+		GameObject TileAtLocation (GameObject parent, TmxLayerTile tile, TmxMap map, Sprite[] spriteLookup, Room room, float depth, bool lit, out Sprite sprite)
 		{
 			var coords = new GridPoint(tile.X, map.Height - 1 - tile.Y);
 
 			sprite = GetSprite(spriteLookup, tile, map);
 
 			var tileGo = new GameObject();
+
 			tileGo.transform.parent = parent.transform;
 			tileGo.transform.localPosition = coords.GridToWorld(map, sprite.rect) + Vector3.forward*depth;
 
 			var spriteComp = tileGo.AddComponent<SpriteRenderer>();
+			if(lit)
+				spriteComp.material = EnvironmentMat;
 
 			tileGo.isStatic = true;
 			tileGo.transform.localScale = Vector3.one * GridPoint.PIXEL_UP_SCALE;
