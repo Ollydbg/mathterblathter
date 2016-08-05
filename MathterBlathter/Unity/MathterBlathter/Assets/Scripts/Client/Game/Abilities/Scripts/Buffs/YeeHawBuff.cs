@@ -32,6 +32,9 @@ namespace Client.Game.Abilities.Scripts.Buffs
 		{
 			context.targetActor.Attributes[ActorAttributes.Speed] -= this.Attributes[ActorAttributes.Speed];
 			context.targetActor.Attributes[ActorAttributes.WeaponCooldownScalar] /= this.Attributes[ActorAttributes.WeaponCooldownScalar];
+
+			UI.EventLog.Post("Attack Speed Down");
+
 		}
 
 		public override bool OnPayloadReceive(Payload payload) {

@@ -25,16 +25,9 @@ namespace Client.Game.Abilities.Scripts.Buffs
 
 		#region implemented abstract members of AbilityBase
 
-		public bool CanAdvance {
-			get {
-				return level < (Levels.Count - 1);
-			}
-		}
 
-		public int NextThreshold {
-			get {
-				return level + 1;
-			}
+		public bool ShouldUpgradeTo(int newLevel) {
+			return newLevel < Levels.Count -1 && newLevel > level;
 		}
 
 		private bool DidInit = false;
@@ -78,16 +71,11 @@ namespace Client.Game.Abilities.Scripts.Buffs
 			}
 		}
 
-		public bool NeedsUpgrade {
-			get {
-				return PlayerRoomDifficulty >= NextThreshold;
-			}
-		}
-
 		public override void Update (float dt)
 		{
-			if(CanAdvance && NeedsUpgrade) {
-				SetLevel(PlayerRoomDifficulty);
+			var newDiff = PlayerRoomDifficulty;
+			if(ShouldUpgradeTo(newDiff)) {
+				SetLevel(newDiff);
 			}
 
 			if(Input.GetKeyDown(KeyCode.U)) {
