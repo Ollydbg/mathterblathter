@@ -40,7 +40,7 @@ namespace Client.Game.Data
 
 		public int SortOrder = 100; //<-- used for explicit layout/ starting sequence
 
-		public ParallaxData LayerData;
+		public ParallaxData LayerData = ParallaxDataTable.ABSTRACT;
 		public SetPieceData SetPiece;
 
 		public RoomType Type = RoomType.Normal;

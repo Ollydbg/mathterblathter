@@ -20,7 +20,7 @@ namespace Client.Game.Actors.Controllers
 		public float horizontalAxis = 0f;
 		private Vector2 movementAccumulator = Vector2.zero;
 		private float groundedDistance;
-		private int groundedMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString()});
+		private int groundedMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString(), Layers.Door.ToString()});
 		private int softGeoMask = LayerMask.GetMask(new string[]{Layers.SoftGeometry.ToString()});
 		private Collider2D collider;
 		int jumpFrames = 0;

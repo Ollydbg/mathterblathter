@@ -25,6 +25,8 @@ namespace Client.Game.AI.Actions
 
 		public override AIResult Update (float dt, Character actor)
 		{
+			return AIResult.Running;
+
 			if(Route == null) {
 				Route = new PatrolPlan().PlanRoute(actor);
 			}
