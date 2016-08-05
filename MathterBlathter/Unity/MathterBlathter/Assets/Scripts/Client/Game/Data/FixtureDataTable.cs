@@ -14,7 +14,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Fixture;
 				ret.AIData = new AIData ();
 				ret.Name = "LaunchPad";
-				ret.ResourcePath = "Actors/RoomFeatures/LaunchPad_prefab";
+				ret.ResourcePath = "Actors/RoomFeatures/LaunchPad/LaunchPad_prefab";
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, ActorAttributes.Health.MaxValue
 				));

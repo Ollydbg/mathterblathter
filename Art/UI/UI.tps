@@ -189,6 +189,7 @@
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">HealthBar.png</key>
+            <key type="filename">HudSlot.png</key>
             <key type="filename">MissingHealth.png</key>
             <key type="filename">anxietyGradient.png</key>
             <struct type="IndividualSpriteSettings">
@@ -201,6 +202,7 @@
             <filename>HealthBar.png</filename>
             <filename>MissingHealth.png</filename>
             <filename>anxietyGradient.png</filename>
+            <filename>HudSlot.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

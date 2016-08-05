@@ -36,7 +36,7 @@ namespace Client.Game.Abilities.Payloads
 
 				if(newTotal > max) {
 					var overage = newTotal - max;
-					new AnxietyDamagePayload(Context, Target, overage).Apply();
+					new AnxietyDamagePayload(Context, Target, 1).Apply();
 					newTotal = max;
 				}
 

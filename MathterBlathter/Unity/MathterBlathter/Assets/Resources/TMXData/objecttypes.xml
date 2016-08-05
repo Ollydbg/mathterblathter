@@ -26,4 +26,7 @@
   <property name="DataId" type="int" default="513"/>
   <property name="Facing" type="string"/>
  </objecttype>
+ <objecttype name="WaveGunWeapon" color="#a0a0a4">
+  <property name="DataId" type="string" default="1006"/>
+ </objecttype>
 </objecttypes>

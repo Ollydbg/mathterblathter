@@ -234,8 +234,8 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Wave Gun";
 
-				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.CONTINUOUS_BEAM);
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
