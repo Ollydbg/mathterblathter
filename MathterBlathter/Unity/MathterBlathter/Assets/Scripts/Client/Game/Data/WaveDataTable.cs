@@ -48,8 +48,7 @@ namespace Client.Game.Data
 				ret.Id = 1;
 				ret.PreDelay = 1f;
 
-				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);

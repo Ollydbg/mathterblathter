@@ -89,7 +89,7 @@ namespace Client.Game.Data
 				ret.Id = 3;
 
 				ret.SpawnType = SpawnType.Air;
-				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ResourcePath = "Actors/Enemies/Drone1/Drone1_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (

@@ -1,0 +1,38 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:04426363fdb8d9cfa40f2c0a60ea3dee:58d6596280c542a82277423226cab2b9:266a8a8d82e1f808a51a43bbd435fe78$
+#
+:format=40000
+:texture=Drone1.png
+:size=256x512
+:pivotpoints=enabled
+
+mockupEXPORT0000;1;465;66;46;0.5;0.5
+mockupEXPORT0001;69;465;66;46;0.5;0.5
+mockupEXPORT0002;137;465;66;46;0.5;0.5
+mockupEXPORT0003;1;417;66;46;0.5;0.5
+mockupEXPORT0004;69;417;66;46;0.5;0.5
+mockupEXPORT0005;137;417;66;46;0.5;0.5
+mockupEXPORT0006;1;369;66;46;0.5;0.5
+mockupEXPORT0007;1;369;66;46;0.5;0.5
+mockupEXPORT0008;69;369;66;46;0.5;0.5
+mockupEXPORT0009;137;369;66;46;0.5;0.5
+mockupEXPORT0010;1;321;66;46;0.5;0.5
+mockupEXPORT0011;69;321;66;46;0.5;0.5
+mockupEXPORT0012;137;321;66;46;0.5;0.5
+mockupEXPORT0013;1;273;66;46;0.5;0.5
+mockupEXPORT0014;69;273;66;46;0.5;0.5
+mockupEXPORT0015;137;273;66;46;0.5;0.5
+mockupEXPORT0016;1;225;66;46;0.5;0.5
+mockupEXPORT0017;69;225;66;46;0.5;0.5
+mockupEXPORT0018;137;225;66;46;0.5;0.5
+mockupEXPORT0019;1;177;66;46;0.5;0.5
+mockupEXPORT0020;69;177;66;46;0.5;0.5
+mockupEXPORT0021;137;177;66;46;0.5;0.5
+mockupEXPORT0022;1;129;66;46;0.5;0.5
+mockupEXPORT0023;1;81;66;46;0.5;0.5
+mockupEXPORT0024;1;33;66;46;0.5;0.5

@@ -1,0 +1,581 @@
+fileFormatVersion: 2
+guid: a09ebe1dcac114aa1931c6c95d9b8ac4
+timeCreated: 1470417754
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: mockupEXPORT0000
+    21300002: mockupEXPORT0001
+    21300004: mockupEXPORT0002
+    21300006: mockupEXPORT0003
+    21300008: mockupEXPORT0004
+    21300010: mockupEXPORT0005
+    21300012: mockupEXPORT0006
+    21300014: mockupEXPORT0007
+    21300016: mockupEXPORT0008
+    21300018: mockupEXPORT0009
+    21300020: mockupEXPORT0010
+    21300022: mockupEXPORT0011
+    21300024: mockupEXPORT0012
+    21300026: mockupEXPORT0013
+    21300028: mockupEXPORT0014
+    21300030: mockupEXPORT0015
+    21300032: mockupEXPORT0016
+    21300034: mockupEXPORT0017
+    21300036: mockupEXPORT0018
+    21300038: mockupEXPORT0019
+    21300040: mockupEXPORT0020
+    21300042: mockupEXPORT0021
+    21300044: mockupEXPORT0022
+    21300046: mockupEXPORT0023
+    21300048: mockupEXPORT0024
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: mockupEXPORT0000
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 465
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 22}
+        - {x: -9, y: 18}
+        - {x: -23, y: 7}
+        - {x: -23, y: -10}
+        - {x: -22, y: -13}
+        - {x: -2, y: -13}
+        - {x: 10, y: -11}
+        - {x: 22, y: 1}
+        - {x: 22, y: 15}
+        - {x: 12, y: 22}
+    - name: mockupEXPORT0001
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 465
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 21}
+        - {x: -23, y: 9}
+        - {x: -23, y: -13}
+        - {x: -2, y: -13}
+        - {x: 10, y: -10}
+        - {x: 22, y: 5}
+        - {x: 22, y: 20}
+        - {x: 11, y: 21}
+    - name: mockupEXPORT0002
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 465
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: 19}
+        - {x: -9, y: 16}
+        - {x: -23, y: 5}
+        - {x: -23, y: -11}
+        - {x: -22, y: -15}
+        - {x: -2, y: -15}
+        - {x: 10, y: -13}
+        - {x: 22, y: 4}
+        - {x: 22, y: 12}
+        - {x: 6, y: 19}
+    - name: mockupEXPORT0003
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 417
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 17}
+        - {x: -9, y: 14}
+        - {x: -23, y: 2}
+        - {x: -23, y: -13}
+        - {x: -22, y: -17}
+        - {x: 2, y: -17}
+        - {x: 10, y: -16}
+        - {x: 22, y: -4}
+        - {x: 22, y: 10}
+        - {x: 13, y: 17}
+    - name: mockupEXPORT0004
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 417
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 10}
+        - {x: 14, y: 16}
+        - {x: -4, y: 16}
+        - {x: -23, y: 4}
+        - {x: -23, y: -17}
+        - {x: -20, y: -18}
+        - {x: 2, y: -18}
+        - {x: 9, y: -15}
+        - {x: 22, y: 0}
+        - {x: 22, y: 8}
+    - name: mockupEXPORT0005
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 417
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 15}
+        - {x: -23, y: 0}
+        - {x: -23, y: -17}
+        - {x: -22, y: -20}
+        - {x: 13, y: -20}
+        - {x: 22, y: -2}
+        - {x: 22, y: 12}
+        - {x: 16, y: 15}
+    - name: mockupEXPORT0006
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 369
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 14}
+        - {x: -1, y: 14}
+        - {x: -23, y: -1}
+        - {x: -23, y: -21}
+        - {x: -3, y: -21}
+        - {x: 9, y: -18}
+        - {x: 21, y: -7}
+        - {x: 22, y: -5}
+        - {x: 22, y: 9}
+    - name: mockupEXPORT0007
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 369
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 14}
+        - {x: -1, y: 14}
+        - {x: -23, y: -1}
+        - {x: -23, y: -21}
+        - {x: -3, y: -21}
+        - {x: 9, y: -18}
+        - {x: 21, y: -7}
+        - {x: 22, y: -5}
+        - {x: 22, y: 9}
+    - name: mockupEXPORT0008
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 369
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 8}
+        - {x: 10, y: 15}
+        - {x: 1, y: 15}
+        - {x: -13, y: 6}
+        - {x: -23, y: -1}
+        - {x: -23, y: -17}
+        - {x: -22, y: -20}
+        - {x: -4, y: -20}
+        - {x: 9, y: -16}
+        - {x: 19, y: -5}
+        - {x: 22, y: 2}
+    - name: mockupEXPORT0009
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 369
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 16}
+        - {x: -4, y: 16}
+        - {x: -23, y: 2}
+        - {x: -23, y: -18}
+        - {x: -20, y: -19}
+        - {x: 8, y: -19}
+        - {x: 11, y: -18}
+        - {x: 22, y: 1}
+        - {x: 22, y: 13}
+    - name: mockupEXPORT0010
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 321
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 18}
+        - {x: -4, y: 18}
+        - {x: -23, y: 3}
+        - {x: -23, y: -14}
+        - {x: -22, y: -17}
+        - {x: -4, y: -17}
+        - {x: 9, y: -13}
+        - {x: 22, y: -3}
+        - {x: 22, y: 12}
+    - name: mockupEXPORT0011
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 321
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 19}
+        - {x: -4, y: 19}
+        - {x: -23, y: 4}
+        - {x: -23, y: -13}
+        - {x: -22, y: -16}
+        - {x: -4, y: -16}
+        - {x: 9, y: -12}
+        - {x: 22, y: -2}
+        - {x: 22, y: 13}
+    - name: mockupEXPORT0012
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 321
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 20}
+        - {x: -3, y: 20}
+        - {x: -9, y: 16}
+        - {x: -23, y: 5}
+        - {x: -23, y: -12}
+        - {x: -22, y: -15}
+        - {x: -4, y: -15}
+        - {x: 9, y: -11}
+        - {x: 22, y: 0}
+        - {x: 22, y: 13}
+    - name: mockupEXPORT0013
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 273
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 20}
+        - {x: -9, y: 16}
+        - {x: -23, y: 5}
+        - {x: -23, y: -12}
+        - {x: -22, y: -15}
+        - {x: 4, y: -15}
+        - {x: 22, y: -3}
+        - {x: 22, y: 16}
+        - {x: 15, y: 20}
+    - name: mockupEXPORT0014
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 273
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 19}
+        - {x: -9, y: 15}
+        - {x: -23, y: 4}
+        - {x: -23, y: -13}
+        - {x: -22, y: -16}
+        - {x: 4, y: -16}
+        - {x: 22, y: -4}
+        - {x: 22, y: 15}
+        - {x: 15, y: 19}
+    - name: mockupEXPORT0015
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 273
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 16}
+        - {x: -5, y: 16}
+        - {x: -23, y: 3}
+        - {x: -23, y: -15}
+        - {x: -22, y: -18}
+        - {x: 11, y: -18}
+        - {x: 22, y: 0}
+        - {x: 22, y: 7}
+        - {x: 21, y: 10}
+    - name: mockupEXPORT0016
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 225
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 14}
+        - {x: -23, y: 2}
+        - {x: -23, y: -20}
+        - {x: 11, y: -20}
+        - {x: 22, y: 2}
+        - {x: 22, y: 8}
+        - {x: 15, y: 14}
+    - name: mockupEXPORT0017
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 225
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 13}
+        - {x: -23, y: -2}
+        - {x: -23, y: -19}
+        - {x: -22, y: -22}
+        - {x: 6, y: -22}
+        - {x: 22, y: -10}
+        - {x: 22, y: 7}
+        - {x: 13, y: 13}
+    - name: mockupEXPORT0018
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 225
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 12}
+        - {x: -2, y: 12}
+        - {x: -23, y: -6}
+        - {x: -23, y: -22}
+        - {x: -19, y: -23}
+        - {x: 13, y: -23}
+        - {x: 22, y: -5}
+        - {x: 22, y: 10}
+    - name: mockupEXPORT0019
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 177
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: 12}
+        - {x: -16, y: 7}
+        - {x: -23, y: -7}
+        - {x: -23, y: -23}
+        - {x: 14, y: -23}
+        - {x: 22, y: -8}
+        - {x: 22, y: 10}
+        - {x: 17, y: 12}
+    - name: mockupEXPORT0020
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 177
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 13}
+        - {x: -1, y: 13}
+        - {x: -23, y: -2}
+        - {x: -23, y: -22}
+        - {x: -3, y: -22}
+        - {x: 9, y: -19}
+        - {x: 21, y: -8}
+        - {x: 22, y: -6}
+        - {x: 22, y: 8}
+    - name: mockupEXPORT0021
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 177
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 7}
+        - {x: 10, y: 14}
+        - {x: 1, y: 14}
+        - {x: -23, y: -2}
+        - {x: -23, y: -18}
+        - {x: -22, y: -21}
+        - {x: -4, y: -21}
+        - {x: 9, y: -17}
+        - {x: 19, y: -6}
+        - {x: 22, y: 2}
+    - name: mockupEXPORT0022
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 129
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 16}
+        - {x: -4, y: 16}
+        - {x: -23, y: 2}
+        - {x: -23, y: -18}
+        - {x: -20, y: -19}
+        - {x: 8, y: -19}
+        - {x: 11, y: -18}
+        - {x: 22, y: 1}
+        - {x: 22, y: 13}
+    - name: mockupEXPORT0023
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 81
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 20}
+        - {x: -16, y: 20}
+        - {x: -23, y: 4}
+        - {x: -23, y: -16}
+        - {x: 14, y: -16}
+        - {x: 22, y: 1}
+        - {x: 22, y: 17}
+    - name: mockupEXPORT0024
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 33
+        width: 66
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 21}
+        - {x: -4, y: 21}
+        - {x: -23, y: 6}
+        - {x: -23, y: -11}
+        - {x: -22, y: -14}
+        - {x: -4, y: -14}
+        - {x: 9, y: -10}
+        - {x: 22, y: 0}
+        - {x: 22, y: 15}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
