@@ -122,9 +122,9 @@ namespace Client.Game.Data
 				ret.Id = 5;
 				ret.PreDelay = 1f;
 				
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
@@ -139,7 +139,7 @@ namespace Client.Game.Data
 				ret.Id = 6;
 				ret.PreDelay = 1f;
 				
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
@@ -175,7 +175,7 @@ namespace Client.Game.Data
 
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
@@ -212,9 +212,9 @@ namespace Client.Game.Data
 				ret.Id = 10;
 				ret.PreDelay = 1f;
 
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_ROCKET_TURRET_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.RAIL_SNIPER_ENEMY);

@@ -55,10 +55,8 @@ namespace Client.Game.Abilities.Scripts
 
 			};
 			projectile.OnGeometryHit = () => {
-				ProjectileImpactEffect(projectile, context.data.Timelines[1].Lookup['e'].Resource);
+				PlayTimeline(context.data.Timelines[1], projectile.transform.position);
 			};
-
-
 
 		}
 

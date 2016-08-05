@@ -51,7 +51,7 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/GroundTroop/EnemyTestSprite_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, 100
+					ActorAttributes.Health.Id, 60
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
@@ -145,14 +145,14 @@ namespace Client.Game.Data
 
 
 		
-		public static CharacterData FLOATING_ROCKET_TURRET_ENEMY {
+		public static CharacterData FLOATING_SCATTER_GUN_ENEMY {
 			get {
 				var ret = new CharacterData ();
 				ret.Id = 13;
 				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+				ret.AIData = AIDataTable.IDLE_THEN_SEEK_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 50
 				));
@@ -186,7 +186,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.ROCKET_LAUNCHER_WEAPON.Id,
+					CharacterDataTable.SCATTER_GUN_WEAPON.Id,
 					0
 				));
 
@@ -350,7 +350,7 @@ namespace Client.Game.Data
 				ret.AIData = AIDataTable.ROVING_FIRING_FIXTURE_AI;
 				
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, 150
+					ActorAttributes.Health.Id, 120
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1

@@ -90,7 +90,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.RUSTY_REPEATER.Id,
+					CharacterDataTable.RUSTY_SINGLE_SHOT.Id,
 					1
 				));
 

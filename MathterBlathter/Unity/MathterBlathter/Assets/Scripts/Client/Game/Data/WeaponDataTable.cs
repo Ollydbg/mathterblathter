@@ -101,7 +101,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData RUSTY_REPEATER {
+		public static CharacterData RUSTY_SINGLE_SHOT {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 1003;
@@ -139,13 +139,11 @@ namespace Client.Game.Data
 					ActorAttributes.CameraShakeForce.Id, .1f
 				));
 
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					AbilityAttributes.RepeatAmount.Id, 1
+				ret.overrideAttributes.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatAmount.Id, 0
 				));
 
-				ret.Availability = Availability.Droppable;
-				ret.Cost = 80;
+				ret.Availability = Availability.None;
 				return ret;
 			}
 		}
@@ -236,6 +234,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Wave Gun";
 
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.CONTINUOUS_BEAM);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
@@ -738,14 +737,14 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, -8));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 45
+					ActorAttributes.BaseDamage.Id, 60
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.KnockbackForce.Id, 45f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.MeleeRange.Id, 3f
+					ActorAttributes.MeleeRange.Id, 3.5f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.MeleeWidth.Id, 1f
@@ -779,7 +778,7 @@ namespace Client.Game.Data
 					ActorAttributes.BaseDamage.Id, 70
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Cooldown.Id, .8f
+					ActorAttributes.Cooldown.Id, 1f
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -804,6 +803,106 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static CharacterData SCATTER_GUN_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1023;
+
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+				ret.ActorType = ActorType.Weapon;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
+
+				ret.AddAbility(AbilityDataTable.SHOTGUN_BLAST);
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, 4f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 55f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					0f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipAmount.Id,
+					.06f
+				));
+
+				ret.overrideAttributes.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 3
+				));
+
+				ret.overrideAttributes.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 10f
+				));
+				ret.overrideAttributes.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, 0f
+				));	
+				ret.overrideAttributes.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileSpread.Id, 10f
+				));
+
+				ret.Availability = Availability.None;
+
+				return ret;
+			}
+		}
+
+		public static CharacterData RUSTY_REPEATER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1024;
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+				ret.ActorType = ActorType.Weapon;
+				ret.Name = "Rusty Repeater";
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Abilities.Id, AbilityDataTable.DOUBLE_SHOT.Id, 0
+				));
+
+				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 10
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipDuration.Id, .04f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, .4f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 30f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id, .1f
+				));
+
+				ret.overrideAttributes.Add(new GameData.AttributeData(
+					AbilityAttributes.RepeatAmount.Id, 2
+				));
+
+				ret.Availability = Availability.Droppable | Availability.InShop;
+				return ret;
+			}
+		}
+
 
 	}
 }
