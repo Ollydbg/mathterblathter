@@ -122,7 +122,10 @@ namespace Client.Game.Map
 				actor.transform.position = ActorData.Position;
 
 				actor.SpawnData = new RoomData.Spawn(ActorData.Data);
-				ActorUtils.FaceRelativeDirection(actor, ActorData.Facing);
+
+				if(ActorData.Facing.HasValue)
+					actor.WeaponController.AimDirection = ActorData.Facing.GetValueOrDefault(Vector3.right);
+
 
 				Callback(this, actor);
 

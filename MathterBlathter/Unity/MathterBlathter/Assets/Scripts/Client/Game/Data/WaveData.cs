@@ -31,12 +31,18 @@ namespace Client.Game.Data
 			
 			public CharacterData Data;
 			public Vector3 Position;
-			public Vector3 Facing;
+			public Vector3? Facing;
 
 			public GeneratedSpawn(CharacterData data, Vector3 position, Vector3 facingDirection) {
 				this.Data = data;
 				this.Position = position;
 				this.Facing = facingDirection;
+			}
+			public GeneratedSpawn(CharacterData data, Vector3 position) {
+				this.Data = data;
+				this.Position = position;
+
+				this.Facing = null;
 			}
 		}
 	}
