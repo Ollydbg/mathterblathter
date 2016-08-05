@@ -34,6 +34,9 @@ namespace Client.Game.Map
 		public List<Light> Lights;
 		private List<Actor> Spawns = new List<Actor>();
 		public List<DoorActor> Doors = new List<DoorActor>();
+		public List<DoorActor> SealedDoors = new List<DoorActor>();
+		
+
 		public interface IRoomDrawer {
 			GameObject Draw (Room room, Game inGame);
 		}
@@ -94,6 +97,11 @@ namespace Client.Game.Map
 			}
 		}
 
+		public void Seal(DoorActor door) {
+			door.IsSealed = true;
+			this.Doors.Remove(door);
+			this.SealedDoors.Add(door);
+		}
 
 		public void PlayerLeft (Actor actor)
 		{

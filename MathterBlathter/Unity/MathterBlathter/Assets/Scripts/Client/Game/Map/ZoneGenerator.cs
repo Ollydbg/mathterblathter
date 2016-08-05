@@ -242,9 +242,8 @@ namespace Client.Game.Map
 			foreach(var unlinked in UnlinkedDoors.ToList()) {
 
 				if(unlinked != except) {
-					unlinked.Parent.Doors.Remove(unlinked);
-					Game.Instance.ActorManager.RemoveActor(unlinked);
-
+					unlinked.Parent.Seal(unlinked);
+					
 					UnlinkedDoors.Remove(unlinked);
 				}
 			}

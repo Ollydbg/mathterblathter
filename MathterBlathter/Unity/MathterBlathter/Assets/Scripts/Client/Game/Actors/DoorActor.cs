@@ -31,20 +31,39 @@ namespace Client.Game.Actors
 
 		private static Color OPEN_COLOR = Color.white;
 		private static Color CLOSED_COLOR = Color.red;
+		private static Color SEALED_COLOR = Color.black;
 
 		public bool Set = false;
 
+
+		private bool _isSealed;
+		public bool IsSealed {
+			get {
+				return _isSealed;
+			} set {
+				_isSealed = value;
+				this.GameObject.GetComponent<Renderer>().material.color = GetColor();
+				this.GameObject.GetComponent<Collider2D>().isTrigger = !value;
+			}
+		}
+
 		private bool _isOpen;
-
-
-        public bool isOpen {
+        public bool IsOpen {
 			get {
 				return _isOpen;
 			} 
 			private set {
-				_isOpen = value;
-				this.GameObject.GetComponent<Renderer>().material.color = _isOpen ? OPEN_COLOR : CLOSED_COLOR;
+				_isOpen = value && !IsSealed;
+				this.GameObject.GetComponent<Renderer>().material.color = GetColor();
 				this.GameObject.GetComponent<Collider2D>().isTrigger = _isOpen;
+			}
+		}
+
+		private Color GetColor() {
+			if(_isSealed) {
+				return SEALED_COLOR;
+			} else {
+				return _isOpen ? OPEN_COLOR : CLOSED_COLOR; 
 			}
 		}
 
@@ -55,15 +74,15 @@ namespace Client.Game.Actors
 		}
 
 		public bool isClosed {
-			get {return !isOpen; }
+			get {return !IsOpen; }
 		}
 
 		public void Open() {
-			isOpen = true;
+			IsOpen = true;
 		}
 
 		public void Close() {
-			isOpen = false;
+			IsOpen = false;
 		}
 		
 

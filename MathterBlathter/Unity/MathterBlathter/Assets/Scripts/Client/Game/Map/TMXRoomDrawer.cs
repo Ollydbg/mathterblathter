@@ -75,7 +75,7 @@ namespace Client.Game.Map
 			DrawScenery(scenery, go, tmx, sprites, room, 100f);
 
 			var decorBack = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DecorBackLayer);
-			DrawScenery(decorBack, go, tmx, sprites, room, 1f);
+			DrawScenery(decorBack, go, tmx, sprites, room, 3f);
 
 			var decorFront = tmx.Layers.FirstOrDefault(p => p.Name == Constants.DecorFrontLayer);
 			DrawScenery(decorFront, go, tmx, sprites, room, -1f);
@@ -144,7 +144,9 @@ namespace Client.Game.Map
 
 		void DrawDoors (TmxLayer doors, GameObject go, TmxMap tmx, Sprite[] sprites, Room room)
 		{
-			foreach (var door in room.Doors) {
+			var doorBuffer = room.Doors.Concat(room.SealedDoors);
+
+			foreach (var door in doorBuffer) {
 				if(!door.Set) {
 					
 					//door width/height are in tile units
@@ -162,7 +164,7 @@ namespace Client.Game.Map
 						float offset = door.Side == DoorRoomSide.Bottom? -1 : 0;
 						door.transform.position = new Vector3 (
 							door.X + .5f*door.Width + .75f,
-							door.Y) + GridToWorldSpace(room);
+							door.Y + 1.5f) + GridToWorldSpace(room);
 					}
 					door.Set = true;
 				}
