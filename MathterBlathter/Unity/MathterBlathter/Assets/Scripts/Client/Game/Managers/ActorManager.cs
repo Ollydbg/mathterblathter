@@ -5,6 +5,8 @@ using UnityEngine;
 using Client.Game.Data;
 using System.Linq;
 using Client.Game.Map;
+using TiledSharp;
+using Client.Game.Utils;
 
 namespace Client.Game.Managers
 {
@@ -79,6 +81,16 @@ namespace Client.Game.Managers
 			}
 		}
 
+		public Actor Spawn(RoomData.Spawn spawn, Room room) {
+			var actor = Spawn(CharacterDataTable.FromId(spawn.ActorId));
+			actor.SpawnData = spawn;
+
+			var resolvedPosition = spawn.GridPosition.GridToWorldC(room.data.TmxMap);
+			actor.transform.position = resolvedPosition + room.Position;
+			ActorUtils.FaceRelativeDirection(actor, spawn.Facing);
+
+			return actor;
+		}
 
 		public Actor Spawn(CharacterData data) {
 			//read type from the data

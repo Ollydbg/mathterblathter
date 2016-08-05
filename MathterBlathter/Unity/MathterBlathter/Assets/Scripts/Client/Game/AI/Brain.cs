@@ -23,6 +23,9 @@ namespace Client.Game.AI
 		}
 
 		public void Update( float dt) {
+			if(Self.Destroyed)
+				return;
+			
 			if (CurrentAction != null) {
 				var result = CurrentAction.Update(dt, Self);
 				

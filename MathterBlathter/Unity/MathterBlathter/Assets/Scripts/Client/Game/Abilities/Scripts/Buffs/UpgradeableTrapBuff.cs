@@ -45,8 +45,8 @@ namespace Client.Game.Abilities.Scripts.Buffs
 				Child.Destroy();
 			}
 
-
 			Child = Game.ActorManager.Spawn(Levels[level]);
+			Child.SpawnData = Owner.SpawnData;
 			Child.transform.position = SpawnPosition;
 			Child.transform.rotation = SpawnRotation;
 
