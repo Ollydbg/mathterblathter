@@ -11,7 +11,6 @@ namespace Client.Game.Map.TMX
 	{
 		public static Dictionary<string, CharacterData> Lookup = new Dictionary<string, CharacterData>();
 		private static ObjectTypes ObjectDefs;
-		private const string DATA_ID = "DataId";
 
 		public static CharacterData GetCharacterData(string id, RoomData context) {
 
@@ -36,7 +35,7 @@ namespace Client.Game.Map.TMX
 				return CharacterDataTable.RANDOM_WEAPON_PICKUP.Id;
 			}
 
-			var data = objectDef.Properties.Find(s => s.name == DATA_ID);
+			var data = objectDef.Properties.Find(s => s.name == Constants.DataId);
 			if(data == null) {
 				Debug.LogError("Couldn't find property with DataId on object named: " + id + " for room id " + context.Id);
 				return CharacterDataTable.RANDOM_WEAPON_PICKUP.Id;

@@ -130,9 +130,6 @@ namespace Client.Game.Data
 
 				ret.LayerData = ParallaxDataTable.ABSTRACT;
 
-				ret.AsciiSpawnLookup['B'] = CharacterDataTable.BOSS_1;
-				ret.AsciiSpawnLookup['U'] = CharacterDataTable.LAUNCH_PAD_FIXTURE;
-
 				finalize(ret);
 
 				return ret;
@@ -174,6 +171,12 @@ namespace Client.Game.Data
 						var gridPos = GridPoint.FromTMXObject(obj, room.TmxMap);
 						spawn.GridPosition = gridPos;
 
+						room.Spawns.Add(spawn);
+					} else {
+						var id = int.Parse(obj.TryGetProperty(Constants.DataId));
+						var spawn = new RoomData.Spawn(CharacterDataTable.FromId(id));
+						spawn.GridPosition = GridPoint.FromTMXObject(obj, room.TmxMap);
+						spawn.Facing = TMXUtils.FacingDirection(obj.TryGetProperty(Constants.Facing));
 						room.Spawns.Add(spawn);
 					}
 

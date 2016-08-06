@@ -25,7 +25,7 @@ namespace Client.Game.AI.Actions
 			
 			if (ActionUtil.InDetectionRange (distanceVec, actor)) {
 
-				FaceTarget2D(actor, target);
+				AimAtTarget2D(actor, target);
 				actor.Controller.MoveDirection(distanceVec.normalized);
 			}
 			return inAbilityRange (distanceVec, actor) ? AIResult.Success : AIResult.Running;

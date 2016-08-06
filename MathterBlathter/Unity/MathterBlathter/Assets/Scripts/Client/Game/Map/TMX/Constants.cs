@@ -25,6 +25,7 @@ namespace Client.Game.Map.TMX
 		public const string SpawnsLayer = "Spawns";
 
 		public const string Facing = "Facing";
+		public const string DataId = "DataId";
 	}
 }
 

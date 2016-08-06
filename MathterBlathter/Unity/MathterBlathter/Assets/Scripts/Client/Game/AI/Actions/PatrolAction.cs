@@ -33,7 +33,7 @@ namespace Client.Game.AI.Actions
 
 			Vector3 target = NextGoal(actor);
 
-			FaceTarget2D(actor, target);
+			AimAtTarget2D(actor, target);
 
 			actor.Controller.MoveDirection(Route.CurrentDirection);
 

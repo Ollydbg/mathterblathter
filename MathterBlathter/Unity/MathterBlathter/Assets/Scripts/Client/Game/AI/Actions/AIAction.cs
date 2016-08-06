@@ -90,25 +90,10 @@ namespace Client.Game.AI
 
 		}
 
-		internal void FaceTarget3D(Character selfActor, Vector3 target) {
 
-			float angle = target.x < selfActor.transform.position.x ? -180 : 0;
-
-			selfActor.transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-
-
-		}
-		internal void FaceTarget2D(Character selfActor, Vector3 target) {
-
-			var xScale = target.x > selfActor.transform.position.x ? 1f : -1f;
-
-			var scale = selfActor.transform.localScale;
-
-			if((xScale < 0 && scale.x > 0) || (xScale > 0 && scale.x < 0)) {
-				scale.x *= -1f;
-				selfActor.transform.localScale = scale;
-			}
-
+		internal void AimAtTarget2D(Character selfActor, Vector3 target) {
+			
+			selfActor.WeaponController.AimDirection = target - selfActor.transform.position;
 
 		}
 	}
