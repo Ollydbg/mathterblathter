@@ -54,7 +54,7 @@ namespace Client.Game.Map
 			float i = 0f;
 			foreach( var spawnPair in CurrentWave.Generated ) {
 				var pending = DelayedActorSpawn.Apply(spawnPair, 
-					2f + .4f*i++, 
+					1f + .1f*i++, 
 					TimelineRunner, 
 					ConvertPending);
 				

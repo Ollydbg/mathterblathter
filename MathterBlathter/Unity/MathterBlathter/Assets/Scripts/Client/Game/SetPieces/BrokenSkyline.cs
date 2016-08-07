@@ -64,27 +64,19 @@ namespace Client.Game.SetPieces
 		}
 
 
+		Vector3 sampledTrainPos;
+		public float maxShake = 2.5f;
+
 		void Update() {
-			
 
 
-			accumulator += Time.deltaTime;
+			var moveDelta = Train.gameObject.transform.position - sampledTrainPos;
+			var shakeMag = moveDelta.magnitude;
+			shakeMag = Mathf.Clamp(shakeMag, 0, maxShake);
 
-			/*
-			var turbulence = Jet.transform.right * UnityEngine.Random.Range(-1f, 1f) * Turbulence;
-			Jet.transform.position = jetStartingPos + accumulator * JetSpeed * jetUp + turbulence;
-			
-			Vector2 actor2d = Game.Instance.PossessedActor.transform.position;
-			Vector2 jet2d = Jet.transform.position;
-			var distance = (jet2d - actor2d).magnitude;
-			distance = Mathf.Clamp(distance, 0, maxDistance);*/
-
-			var clampedTime = (2 - accumulator);
-			clampedTime = Mathf.Clamp(clampedTime, 0, 1f);
-			var shake = UnityEngine.Random.insideUnitSphere * (clampedTime);//* cameraShakeFactor * (maxDistance - distance) / maxDistance;
-
+			var shake = UnityEngine.Random.insideUnitSphere * (shakeMag);
 			Game.Instance.CameraManager.Shake(shake);
-
+			sampledTrainPos = Train.gameObject.transform.position;
 
 		}
 	}

@@ -15,7 +15,7 @@ namespace Client.Game.Managers
 
 		public Transform TargetTransform;
 		Vector3 shakeAccum = Vector3.zero;
-		public float shakeScalar = 2f;
+		public float shakeScalar = 5f;
 		PlayerCharacter Player;
 
 		Transform OverrideTarget;
