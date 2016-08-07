@@ -565,8 +565,12 @@ namespace Client.Game.Data
 					ActorAttributes.AIDetectionRadius.Id, 100.0f
 				));
 
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.WeaponCooldownScalar.Id, .5f
+				));
+
 				ret.attributeData.Add( new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id, CharacterDataTable.RANGED_ENEMY_WEAPON.Id, 0
+					ActorAttributes.Weapons.Id, CharacterDataTable.SCATTER_GUN_WEAPON.Id, 0
 				));
 
 				ret.AddAbility(AbilityDataTable.AI_BUFF);

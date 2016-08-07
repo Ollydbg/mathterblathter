@@ -125,7 +125,7 @@ namespace Client.Game.Data
 			get {
 				var ret = new RoomData ();
 				ret.Id = 121;
-				ret.Type = RoomType.Boss | RoomType.NoWaves;
+				ret.Type = RoomType.Boss;
 				ret.TMXResource = "TMXData/Zone1Boss/121.tmx";
 
 				ret.LayerData = ParallaxDataTable.ABSTRACT;

@@ -16,7 +16,7 @@
   <property name="DataId" type="int" default="2049"/>
  </objecttype>
  <objecttype name="Boss1" color="#a0a0a4">
-  <property name="DataId" type="int" default="29"/>
+  <property name="DataId" type="int" default="30"/>
  </objecttype>
  <objecttype name="Spotlight" color="#a0a0a4"/>
  <objecttype name="Pointlight" color="#a0a0a4"/>
