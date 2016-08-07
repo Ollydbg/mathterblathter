@@ -197,7 +197,7 @@ namespace Client.Game.Data
 
 
 
-		public static CharacterData RAIL_SNIPER_ENEMY {
+		public static CharacterData BULLET_SNIPER_ENEMY {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 16;
@@ -209,7 +209,7 @@ namespace Client.Game.Data
 				ret.Name = "Sniper";
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.Weapons.Id,
-					CharacterDataTable.HOT_RAILS.Id,
+					CharacterDataTable.BULLET_SNIPER_WEAPON.Id,
 					0
 				));
 
@@ -226,7 +226,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.AILockOnTime.Id, .75f
+					ActorAttributes.AILockOnTime.Id, .25f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(

@@ -35,7 +35,7 @@ namespace Client.Game.Abilities.Scripts
 
 				var spreadDirection = Quaternion.AngleAxis(spreadDegrees, Vector3.back) * this.context.targetDirection;
 				
-				var projectile = this.FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], (AttachPoint)this.Attributes[AbilityAttributes.FiresFromJoint]);
+				var projectile = this.FireProjectile (projectileData, spreadDirection, this.Attributes[AbilityAttributes.ProjectileSpeed], AttachPoint.Muzzle);
 
 				projectiles.Add(projectile);
 

@@ -361,12 +361,5 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup name="Spawns">
-  <object id="25" gid="36" x="675" y="375" width="25" height="25">
-   <properties>
-    <property name="DataId" type="int" value="3"/>
-    <property name="Facing" value="up"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup name="Spawns"/>
 </map>

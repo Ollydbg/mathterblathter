@@ -45,7 +45,7 @@ namespace Client.Game.Data
 				ret.Name = "Ceramic Sawed Off Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 
-				ret.AddAbility(AbilityDataTable.SHOTGUN_BLAST);
+				ret.AddAbility(AbilityDataTable.PROJECTILE_SPREAD);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 				ret.AddAbility(AbilityDataTable.LIMITED_USE_ITEM_DEBUFF);
@@ -615,7 +615,7 @@ namespace Client.Game.Data
 				ret.Name = "Long Barrel Shotgun";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
 
-				ret.AddAbility(AbilityDataTable.SHOTGUN_BLAST);
+				ret.AddAbility(AbilityDataTable.PROJECTILE_SPREAD);
 				ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
 
@@ -813,7 +813,7 @@ namespace Client.Game.Data
 				ret.ActorType = ActorType.Weapon;
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
 
-				ret.AddAbility(AbilityDataTable.SHOTGUN_BLAST);
+				ret.AddAbility(AbilityDataTable.PROJECTILE_SPREAD);
 
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -899,6 +899,58 @@ namespace Client.Game.Data
 				));
 
 				ret.Availability = Availability.Droppable | Availability.InShop;
+				return ret;
+			}
+		}
+
+		public static CharacterData BULLET_SNIPER_WEAPON {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 1025;
+
+				ret.ResourcePath = "Weapons/Rifle_prefab";
+				ret.ActorType = ActorType.Weapon;
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
+
+				ret.AddAbility(AbilityDataTable.PROJECTILE_SPREAD);
+
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.BaseDamage.Id, 1
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Cooldown.Id, 4f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.KnockbackForce.Id, 55f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.CameraShakeForce.Id,
+					0f
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TimeSkipAmount.Id,
+					.06f
+				));
+
+				ret.overrideAttributes.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileCount.Id, 3
+				));
+
+				ret.overrideAttributes.Add(new GameData.AttributeData(
+					AbilityAttributes.ProjectileSpeed.Id, 30f
+				));
+				ret.overrideAttributes.Add( new GameData.AttributeData(
+					AbilityAttributes.ProjectileAccel.Id, 0f
+				));	
+				ret.overrideAttributes.Add (new GameData.AttributeData (
+					AbilityAttributes.ProjectileSpread.Id, 5f
+				));
+
+				ret.Availability = Availability.None;
+
 				return ret;
 			}
 		}

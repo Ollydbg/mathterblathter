@@ -107,7 +107,7 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static AbilityData SHOTGUN_BLAST {
+		public static AbilityData PROJECTILE_SPREAD {
 			get {
 				var ret = new AbilityData();
 				ret.Id = 3;

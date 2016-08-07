@@ -59,7 +59,7 @@ namespace Client.Game.Map
 			seen[fromRoom] = true;
 			stackCrumbs.Add(fromRoom);
 
-			//earliest rejection
+			//earliest matching
 			if(fromRoom.Id == data.Id) {
 				buff.AddRange(stackCrumbs);
 				buff.Add(fromRoom);
