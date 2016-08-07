@@ -58,7 +58,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\PatrolAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\SeekToPlayerLOS.cs" />
-     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\TeleportNearPlayer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\TeleportRandom.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitForAimLock.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\WaitForPlayerLOS.cs" />
@@ -138,6 +138,7 @@
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SpawnEnemy.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\StatUp.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\SwapActorPositions.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\TeleportLocation.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\TowerActorAbsorber.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Scripts\WeaponCurse.cs" />
      <Compile Include="Assets\Scripts\Client\Game\Abilities\Timelines\TimelineRunner.cs" />

@@ -504,10 +504,45 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static CharacterData BOSS_1 {
+		public static CharacterData SHOTGUN_GHOST {
 			get {
 				var ret = new CharacterData();
 				ret.Id = 29;
+
+				ret.SpawnType = SpawnType.Air;
+				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+				ret.ActorType = ActorType.Enemy;
+
+				ret.AIData = AIDataTable.FIRE_THEN_TELEPORT;
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id, CharacterDataTable.SCATTER_GUN_WEAPON.Id, 0
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 175
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 0f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+				return ret;
+			}
+		}
+
+		public static CharacterData BOSS_1 {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 30;
 
 				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/Boss1/Boss1_prefab";

@@ -15,8 +15,22 @@ namespace Client.Game.Map
 
     public class RoomWaveGenerator
 	{
-		public RoomWaveGenerator ()
+
+		private static List<WaveData> sorted;
+		private static Dictionary<int, List<WaveData>> waveBuckets = new Dictionary<int, List<WaveData>>();
+		List<Vector3> AirCoords;
+		List<Vector3> GroundCoords;
+		List<Vector3> SniperCoords;
+
+		Room Room;
+		public RoomWaveGenerator (Room room)
 		{
+			this.Room = room;
+			var extractor = new TMXChunkExtractor(room);
+			AirCoords = extractor.AllOnLayer(Constants.AirSpawnLayer).ToList();
+			GroundCoords = extractor.AllOnLayer(Constants.GroundSpawnLayer).ToList();
+			SniperCoords = GroundCoords;
+
 			if(sorted == null) 
 				StaticInit();
 
@@ -26,13 +40,8 @@ namespace Client.Game.Map
 			
 		}
 
-		private static List<WaveData> sorted;
-		private static Dictionary<int, List<WaveData>> waveBuckets = new Dictionary<int, List<WaveData>>();
-		List<Vector3> AirCoords;
-		List<Vector3> GroundCoords;
-		List<Vector3> SniperCoords;
 
-		private delegate Vector3 RandomRoomPosition(Room room);
+		private delegate Vector3 RandomRoomPosition();
 		private Dictionary<SpawnType, RandomRoomPosition> SpawnFactoryLookup = new Dictionary<SpawnType, RandomRoomPosition>();
 
 		public static List<WaveData> StaticInit() {
@@ -73,18 +82,14 @@ namespace Client.Game.Map
 			return buffer;
 		}
 
-		public GeneratedWave Generate(Room room, Actor forActor) {
+		public GeneratedWave Generate(Actor forActor) {
 			
-			var extractor = new TMXChunkExtractor(room);
-			AirCoords = extractor.AllOnLayer(Constants.AirSpawnLayer).ToList();
-			GroundCoords = extractor.AllOnLayer(Constants.GroundSpawnLayer).ToList();
-			SniperCoords = GroundCoords;
 
 			GeneratedWave waveHead = null;
 			GeneratedWave tail = null;
 			var extraDifficulty = forActor.Attributes[ActorAttributes.WaveDifficulty];
 
-			foreach( var wave in GetRoomWaves(room, extraDifficulty)) {
+			foreach( var wave in GetRoomWaves(Room, extraDifficulty)) {
 				
 				var newWave = new GeneratedWave();
 				newWave.WaveData = wave;
@@ -92,12 +97,12 @@ namespace Client.Game.Map
 				foreach( var waveChar in wave.Spawns ) {
 					
 					if(SpawnFactoryLookup.ContainsKey(waveChar.SpawnType)) {
-						var position = SpawnFactoryLookup[waveChar.SpawnType](room);
+						var position = RandomSpawnLocationForType(waveChar.SpawnType);
 						if(position == default(Vector3)) {
 							Debug.Log("Couldn't find spawn location for type: " + waveChar.SpawnType);
 						} else {
 							//always try to face into the center of the room
-							var facingDirection = position.x < room.roomCenter.x? Vector3.right : Vector3.left;
+							var facingDirection = position.x < Room.roomCenter.x? Vector3.right : Vector3.left;
 							Debug.DrawRay(position, Vector3.forward*100f, Color.blue, 100000f);
 							newWave.Generated.Add(new GeneratedWave.GeneratedSpawn(waveChar, position, facingDirection));
 						}
@@ -120,6 +125,10 @@ namespace Client.Game.Map
 
 		}
 
+		public Vector3 RandomSpawnLocationForType(SpawnType type) {
+			return SpawnFactoryLookup[type]();
+		}
+
 		private List<WaveData> GetRoomWaves(Room room, int actorDifficulty) {
 			var buff = new List<WaveData>();
 
@@ -138,32 +147,32 @@ namespace Client.Game.Map
 			return buff;
 		}
 
-		public Vector3 RandomAirPosition(Room room) {
+		public Vector3 RandomAirPosition() {
 			var seed = Game.Instance.Seed;
 			var airSpace = seed.RandomInList(AirCoords);
 
 			return new GridPoint(airSpace)
-				.GridToWorldBL(room.data.TmxMap)
-				+ new Vector3((float)room.X, (float)room.Y);
+				.GridToWorldBL(Room.data.TmxMap)
+				+ new Vector3((float)Room.X, (float)Room.Y);
 
 		}
 
-		public Vector3 RandomFloorPosition(Room room) {
+		public Vector3 RandomFloorPosition() {
 			var seed = Game.Instance.Seed;
 			var groundSpace = seed.RandomInList(GroundCoords);
 
 			return new GridPoint(groundSpace)
-				.GridToWorldBL(room.data.TmxMap)
-				+ new Vector3((float)room.X, (float)room.Y);
+				.GridToWorldBL(Room.data.TmxMap)
+				+ new Vector3((float)Room.X, (float)Room.Y);
 		}
 
-		public Vector3 RandomSniperPosition(Room room) {
+		public Vector3 RandomSniperPosition() {
 			var seed = Game.Instance.Seed;
 			var sniperPos = seed.RandomInList(SniperCoords);
 
 			return new GridPoint(sniperPos)
-				.GridToWorldBL(room.data.TmxMap)
-				+ new Vector3((float)room.X, (float)room.Y);
+				.GridToWorldBL(Room.data.TmxMap)
+				+ new Vector3((float)Room.X, (float)Room.Y);
 
 		}
 	}

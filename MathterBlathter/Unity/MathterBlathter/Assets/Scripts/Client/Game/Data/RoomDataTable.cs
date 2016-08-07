@@ -56,7 +56,7 @@ namespace Client.Game.Data
 				ret.Id = 2;
 				ret.TMXResource = "TMXData/Zone1/DebugRoom.tmx";
 				ret.SortOrder = int.MaxValue;
-				ret.Type =  RoomType.Debug;
+				ret.Type =  RoomType.Debug | RoomType.NoWaves;
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
 				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
 				finalize(ret);

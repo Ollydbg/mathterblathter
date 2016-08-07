@@ -70,7 +70,7 @@ namespace Client.Game.Data
 
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.ANXIETY_BALL_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 
@@ -218,15 +218,15 @@ namespace Client.Game.Data
 			}
 		}
 
-		public static WaveData ROCKETS_SNIPERS {
+		public static WaveData GHOSTS_AND_SNIPERS {
 			get {
 				var ret = new WaveData();
 				ret.Id = 10;
 				ret.PreDelay = 1f;
 
-				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
-				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
+				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
+				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);

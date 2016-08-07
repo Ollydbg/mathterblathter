@@ -113,8 +113,7 @@ namespace Client.Game.Data
 							.Then(typeof(FireAimingWhileAimedAtPlayer)
 
 				);
-
-
+				
 				return ret;
 
 			}   
@@ -163,6 +162,28 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-        
+
+		public static AIData FIRE_THEN_TELEPORT {
+			get {
+				var ret = new AIData();
+				ret.Name = "Fire then teleport";
+				
+				
+				ret.ActionData = new ActionData(
+					typeof(WaitAction)
+				).Then(
+					typeof(AimAtPlayerAction)
+				).Then (
+					typeof(FireAimingOnce)
+				).Then(
+					typeof(WaitAction)
+				).Then(
+					typeof(TeleportRandom)
+				);
+
+				return ret;
+			}
+		}
+
     }
 }

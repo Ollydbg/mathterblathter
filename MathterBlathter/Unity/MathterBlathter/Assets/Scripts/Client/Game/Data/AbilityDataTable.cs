@@ -1204,6 +1204,17 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+		public static AbilityData TELEPORT {
+			get {
+				var ret = new AbilityData();
+				ret.Id = 63;
+				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TeleportLocation);
+
+				return ret;
+
+			}
+		}
 	}
 }
 
