@@ -185,5 +185,16 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static AIData AIM_STEER_THROUGH_GEO {
+			get {
+				var ret = new AIData();
+				ret.ActionData = new ActionData(
+					typeof(AimSteerAtPlayer),
+					typeof(FireWhileSteeringTowardsPlayer)
+				);
+				return ret;
+			}
+		}
+
     }
 }

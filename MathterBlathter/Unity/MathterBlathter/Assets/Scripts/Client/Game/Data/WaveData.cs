@@ -51,7 +51,13 @@ namespace Client.Game.Data
     {
         public int Compare(WaveData x, WaveData y)
         {
-			return x.Difficulty.CompareTo(y.Difficulty);
+			var diffCompare = x.Difficulty.CompareTo(y.Difficulty);
+
+			if(diffCompare == 0) {
+				return Client.Game.Core.Game.Instance.Seed.RollAgainst(.5f)? -1 : 1;
+			} else {
+				return diffCompare;
+			}
         }
     }
 }

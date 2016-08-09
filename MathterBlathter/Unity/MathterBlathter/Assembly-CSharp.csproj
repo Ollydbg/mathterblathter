@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AggroFireAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimAtPlayerAction.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimScanForPlayer.cs" />
+     <Compile Include="Assets\Scripts\Client\Game\AI\Actions\AimSteerAtPlayer.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireAimingContinuous.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireDirection.cs" />
      <Compile Include="Assets\Scripts\Client\Game\AI\Actions\FireSpawnDirection.cs" />

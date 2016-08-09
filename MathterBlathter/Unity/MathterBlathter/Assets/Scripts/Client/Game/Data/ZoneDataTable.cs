@@ -65,30 +65,30 @@ namespace Client.Game.Data
 			}
 		}
 
+		
 		public static ZoneData ZONE_3 {
 			get {
 				var ret = new ZoneData();
 				ret.Id = 4;
-				ret.Name = "Power Center";
-				ret.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
-				//ret.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
-				ret.MaxRooms = 20;
-				ret.DrawColor = new Color(.65f, .33f, .20f);
-				ret.Difficulty = 14;
-				return ret;
-			}
-		}
-
-		public static ZoneData ZONE_4 {
-			get {
-				var ret = new ZoneData();
-				ret.Id = 6;
 				ret.Name = "The Lab";
 				ret.Requirements.Add(new ZReq(RoomType.Normal, 15, ZoneData.Occurance.Guaranteed));
 				//ret.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
 				ret.DrawColor = new Color(.25f, .53f, .30f);
 				ret.Difficulty = 18;
+				ret.MaxRooms = 14;
+				return ret;
+			}
+		}
+		public static ZoneData ZONE_4 {
+			get {
+				var ret = new ZoneData();
+				ret.Id = 6;
+				ret.Name = "Power Center";
+				ret.Requirements.Add(new ZReq(RoomType.Normal, 20, ZoneData.Occurance.Guaranteed));
+				//ret.Requirements.Add(new ZReq(RoomType.Store, 1, ZoneData.Occurance.Guaranteed));
 				ret.MaxRooms = 20;
+				ret.DrawColor = new Color(.65f, .33f, .20f);
+				ret.Difficulty = 20;
 				return ret;
 			}
 		}

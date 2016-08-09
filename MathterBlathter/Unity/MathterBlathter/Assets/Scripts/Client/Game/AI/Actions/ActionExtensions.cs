@@ -64,6 +64,11 @@ namespace Client.Game.AI.Actions
 			return false;
 
 		}
+
+		public static bool AimingAtActor(Actor actor, Actor target, float error) {
+			var angleBetween = Vector3.Angle(actor.transform.position, target.transform.position);
+			return Math.Abs(angleBetween) <= error;
+		}
 	}
 }
 

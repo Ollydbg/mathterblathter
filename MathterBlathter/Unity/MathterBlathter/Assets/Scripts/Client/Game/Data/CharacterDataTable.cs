@@ -579,6 +579,42 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static CharacterData FLYING_WALL_PHASER {
+			get {
+				var ret = new CharacterData();
+				ret.Id = 31;
+				ret.SpawnType = SpawnType.Air;
+				ret.ActorType = ActorType.Enemy;
+				ret.ResourcePath = "Actors/Enemies/GhostTurret_prefab";
+				ret.AIData = AIDataTable.AIM_STEER_THROUGH_GEO;
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.Weapons.Id, CharacterDataTable.RANGED_ENEMY_WEAPON.Id, 0
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AIMaxTurnSpeed.Id, 20f
+				));
+
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.Health.Id, 175
+				));
+
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.Speed.Id, 130f
+				));
+				ret.attributeData.Add(new GameData.AttributeData(
+					ActorAttributes.TakesDamage.Id, 1
+				));
+				ret.attributeData.Add (new CharacterData.AttributeData (
+					ActorAttributes.GravityScalar.Id, 0.0f
+				));
+
+				ret.AddAbility(AbilityDataTable.AI_BUFF);
+				return ret;
+			}
+		}
+
 	}
 }
 

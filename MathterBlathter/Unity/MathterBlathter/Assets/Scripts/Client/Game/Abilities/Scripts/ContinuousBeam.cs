@@ -109,7 +109,7 @@ namespace Client.Game.Abilities.Scripts
 		Vector3 BeamEndPosition(AbilityContext ctx, out Actor hitActor) {
 			
 			var startLocation = PointOnActor(Client.Game.Enums.AttachPoint.Muzzle, context.source);
-			int layerMask = LayerMask.GetMask(new string[]{Layers.HardGeometry.ToString(), Layers.Enemies.ToString(), Layers.AirEnemies.ToString()});
+			int layerMask = LayerMask.GetMask(LayerGroups.ProjectileCollision);
 			var hit = Physics2D.CircleCast(startLocation, beamWidth, VectorUtils.Vector2(ctx.targetDirection), 100f, layerMask);
 			if(hit != null && hit.transform != null) {
 				ActorUtils.TryHitToActor(hit, out hitActor);

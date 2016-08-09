@@ -25,7 +25,7 @@ namespace Client.Game.Actors.Controllers
 		private Collider2D collider;
 		int jumpFrames = 0;
 
-		Rigidbody2D rigidBody;
+		public Rigidbody2D rigidBody;
 
 		public delegate void GroundingHandler(Vector3 groundingVelocity);
 		private bool wasGrounded;

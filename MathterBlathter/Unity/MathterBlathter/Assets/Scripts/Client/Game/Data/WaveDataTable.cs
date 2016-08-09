@@ -7,23 +7,18 @@ namespace Client.Game.Data
 	public static class WaveDataTable
 	{
 
-		private static Dictionary<int, WaveData> _all;
+		private static List<WaveData> _all;
 		static void StaticInit() {
 			_all = typeof(WaveDataTable).GetProperties()
 				.Select( p => p.GetGetMethod().Invoke(null, null) as WaveData)
-				.ToDictionary(p => p.Id, p=>p);
+				.ToList();
 
 		}
 		
 		public static List<WaveData> All() {
 			if(_all == null) StaticInit();
-			return _all.Values.ToList();
+			return _all.ToList();
 
-		}
-
-		public static WaveData FromId(int id) {
-			if(_all == null) StaticInit();
-			return _all[id];
 		}
 
 		public static WaveData DEBUG_WAVE {
@@ -45,7 +40,6 @@ namespace Client.Game.Data
 		public static WaveData EASY_BLOOD_BOTS {
 			get {
 				var ret = new WaveData();
-				ret.Id = 1;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
@@ -62,16 +56,30 @@ namespace Client.Game.Data
 			}
 		}
 
+		public static WaveData AIR_GHOSTS {
+			get {
+				var ret = new WaveData();
+				ret.Spawns.Add(CharacterDataTable.FLYING_WALL_PHASER);
+				ret.Spawns.Add(CharacterDataTable.FLYING_WALL_PHASER);
+				ret.Spawns.Add(CharacterDataTable.FLYING_WALL_PHASER);
+
+				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
+
+				ret.Difficulty = 2;
+				return ret;
+
+			}
+		}
+
 		public static WaveData WAVE_2 {
 			get {
 				var ret = new WaveData();
-				ret.Id = 2;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
 				ret.Spawns.Add(CharacterDataTable.QUAD_SHOT_TURRET_ENEMY);
 				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
-				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
+				ret.Spawns.Add(CharacterDataTable.FLYING_WALL_PHASER);
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
@@ -84,7 +92,6 @@ namespace Client.Game.Data
 		public static WaveData WAVE_3 {
 			get {
 				var ret = new WaveData();
-				ret.Id = 3;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.FLOATING_TURRET);
@@ -106,7 +113,6 @@ namespace Client.Game.Data
 		public static WaveData WAVE_4 {
 			get {
 				var ret = new WaveData();
-				ret.Id = 4;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
@@ -129,7 +135,6 @@ namespace Client.Game.Data
 		public static WaveData SHOTGUN_TURRETS_1 {
 			get {
 				var ret = new WaveData();
-				ret.Id = 5;
 				ret.PreDelay = 1f;
 				
 				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
@@ -148,7 +153,6 @@ namespace Client.Game.Data
 		public static WaveData ROCKETS_MIX {
 			get {
 				var ret = new WaveData();
-				ret.Id = 6;
 				ret.PreDelay = 1f;
 				
 				ret.Spawns.Add(CharacterDataTable.FLOATING_SCATTER_GUN_ENEMY);
@@ -165,7 +169,6 @@ namespace Client.Game.Data
 		public static WaveData SNIPERS_MIX {
 			get {
 				var ret = new WaveData();
-				ret.Id = 7;
 				ret.PreDelay = 1f;
 				
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
@@ -182,7 +185,6 @@ namespace Client.Game.Data
 		public static WaveData TWO_VIPERS {
 			get {
 				var ret = new WaveData();
-				ret.Id = 8;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
@@ -200,7 +202,6 @@ namespace Client.Game.Data
 		public static WaveData VIPER_SNIPER_MIX {
 			get {
 				var ret = new WaveData();
-				ret.Id = 9;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
@@ -221,7 +222,6 @@ namespace Client.Game.Data
 		public static WaveData GHOSTS_AND_SNIPERS {
 			get {
 				var ret = new WaveData();
-				ret.Id = 10;
 				ret.PreDelay = 1f;
 
 				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);

@@ -364,7 +364,7 @@
  <objectgroup name="Spawns">
   <object id="30" gid="36" x="700" y="350" width="25" height="25">
    <properties>
-    <property name="DataId" type="int" value="29"/>
+    <property name="DataId" type="int" value="31"/>
    </properties>
   </object>
  </objectgroup>
