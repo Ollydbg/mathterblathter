@@ -31,6 +31,15 @@ namespace Client.Game.Actors.Controllers
 		private bool wasGrounded;
 		public event GroundingHandler OnGrounded;
 		
+		public JumpingState JumpState;
+		private bool FastDropping = false;
+
+		public enum JumpingState {
+			Grounded,
+			Jumping,
+			Boosting,
+			Falling,
+		}
 
 		public CharacterController2D() {
 			
@@ -45,7 +54,6 @@ namespace Client.Game.Actors.Controllers
 				Debug.LogError("Couldn't find rigidbody on actor " + actor + ". Did you set the wrong actor type in the data?");
 			}
 
-			
 			if(collider is EdgeCollider2D) {
 				groundedDistance = -collider.offset.y;
 			} else {
@@ -70,6 +78,19 @@ namespace Client.Game.Actors.Controllers
 
 			movementAccumulator += (moveVector * Time.deltaTime);
 
+		}
+
+		public void JumpControl(float vert) {
+			if(JumpState == JumpingState.Falling) {
+				if(vert > 0 && !FastDropping) {
+					var yScale = Actor.Attributes[ActorAttributes.AirBrakeForce] * Time.deltaTime;
+					if((rigidBody.velocity.y + yScale) < 0f)
+						movementAccumulator += Vector2.up * yScale;
+				} else if (vert < 0 || FastDropping) {
+					FastDropping = true;
+					movementAccumulator += Vector2.down * Actor.Attributes[ActorAttributes.AirDropForce] * Time.deltaTime;
+				}
+			}
 		}
 
 		public void MoveDirection(Vector2 direction, bool andFace = false) {
@@ -125,21 +146,30 @@ namespace Client.Game.Actors.Controllers
 			var SustainedJumpPower = Actor.GameObjectRef.SustainedJumpPower;
 			var BoostFramesFloor = Actor.GameObjectRef.BoostFramesFloor;
 */
-			if(jumping) {
+			if(jumpButton || JumpState != JumpingState.Grounded) {
 				var grounded = IsGrounded;
 
 				if(grounded && jumpFrames == 0) {
+					JumpState = JumpingState.Jumping;
 					var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 					movementAccumulator += Vector2.up * jumpHeight;
 
 				} else if(jumpFrames > Actor.Attributes[ActorAttributes.JumpBoostFrameFloor]
 				 && jumpFrames < Actor.Attributes[ActorAttributes.JumpBoostFrameThresh]) {
-					movementAccumulator += Vector2.up * Actor.Attributes[ActorAttributes.SustainedJumpPower];
+					JumpState = JumpingState.Boosting;
+
+					if(jumpButton)
+						movementAccumulator += Vector2.up * Actor.Attributes[ActorAttributes.SustainedJumpPower];
+				} else {
+					
+					JumpState = JumpingState.Falling;
 				}
 
 				jumpFrames ++;
 				
 			}
+
+			
 
 		}
 
@@ -167,6 +197,8 @@ namespace Client.Game.Actors.Controllers
 			var grounded = IsGrounded;
 			if(grounded && !wasGrounded) {
 				jumpFrames = 0;
+				JumpState = JumpingState.Grounded;
+				FastDropping = false;
 				if(OnGrounded != null) {
 					OnGrounded(rigidBody.velocity);
 				}
@@ -177,10 +209,10 @@ namespace Client.Game.Actors.Controllers
 			movementAccumulator = Vector2.zero;
 		}
 
-		bool jumping = false;
+		bool jumpButton = false;
 		public void StopJumping ()
 		{
-			jumping = false;
+			jumpButton = false;
 		}
 
 		public void Jump() {
@@ -189,7 +221,7 @@ namespace Client.Game.Actors.Controllers
 				return;
 			}
 
-			jumping  = true;
+			jumpButton  = true;
 
 		}
 

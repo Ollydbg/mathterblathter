@@ -12,6 +12,11 @@ namespace Client.Game.Actors.Controllers
 		{
 		}
 
+		public void JumpControl (float vert)
+		{
+			
+		}
+
 		public void MoveDirection (UnityEngine.Vector2 normalizedDir, bool andFace = false)
 		{
 		}

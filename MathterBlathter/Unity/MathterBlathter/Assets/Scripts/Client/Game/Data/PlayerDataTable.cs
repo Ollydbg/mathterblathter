@@ -108,6 +108,15 @@ namespace Client.Game.Data
 					ActorAttributes.TeamID.Id, 1
 				));
 
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AirDropForce.Id, 120f
+				));
+
+				ret.attributeData.Add(new CharacterData.AttributeData(
+					ActorAttributes.AirBrakeForce.Id, 70f
+				));
+
+
 
 				ret.AddAbility(AbilityDataTable.INVULNERABLE_AFTER_HIT_BUFF);
 				ret.AddAbility(AbilityDataTable.ANXIETY_REGEN_BUFF);

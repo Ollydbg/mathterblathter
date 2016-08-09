@@ -10,6 +10,7 @@ namespace Client.Game.Actors.Controllers
 		void Jump();
 		void StopJumping();
 		void MoveRight(float amt);
+		void JumpControl(float vert);
 		void MoveDirection(Vector2 normalizedDir, bool andFace = false);
 		void KnockDirection(Vector2 direction, float force);
 		void FixedUpdate();

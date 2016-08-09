@@ -104,6 +104,8 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeI TeamID = new GameAttributeI(81, 0, "teamId", 0, 10);
 		public static readonly GameAttributeF AIAggro = new GameAttributeF(82, .1f, "ai aggro level", 0, float.MaxValue);
 		public static readonly GameAttributeF AIMaxTurnSpeed = new GameAttributeF(83, 1f, "ai max turn speed", 0, float.MaxValue);
+		public static readonly GameAttributeF AirDropForce = new GameAttributeF(84, 1f, "air drop force", 0, float.MaxValue);
+		public static readonly GameAttributeF AirBrakeForce = new GameAttributeF(85, 1f, "air brake force", 0, float.MaxValue);
 
 	}
 }
