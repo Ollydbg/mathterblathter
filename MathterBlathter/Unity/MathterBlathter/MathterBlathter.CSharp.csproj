@@ -270,6 +270,7 @@
     <Compile Include="Assets\Scripts\Client\Game\Map\MeshRoomDrawer.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\Room.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\RoomComparer.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Map\RoomPathFinder.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\RoomPool.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\RoomTraversalGrid.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\RoomWaveGenerator.cs" />

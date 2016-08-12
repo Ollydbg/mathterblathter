@@ -12,17 +12,16 @@ namespace Client.Game.AI.Actions
 
 		PathingAgent Agent;
 		float repathAccum = 0f;
-		public const float REPATH_DELAY = 1.5f;
+		public const float REPATH_DELAY = .25f;
 
 		Actor Self;
 
 		public override void Start (Actor selfActor)
 		{
 			this.Self = selfActor;
-
 			Repath();
 		}
-
+            
 		void Repath() {
 			Agent = new PathingAgent(CurrentRoom.Grid.SearchPath(Self.transform.position, PlayerMid));
 			repathAccum = 0f;
@@ -32,7 +31,10 @@ namespace Client.Game.AI.Actions
 
 		public override AIResult Update (float dt, Character actor)
 		{
-			
+            //DEBUGGING DNC!!
+            //Repath();
+            //
+
 			repathAccum += dt;
 
 			var didMove = Agent.TryMove(actor, actor.Attributes[ActorAttributes.Speed] * dt);

@@ -12,8 +12,9 @@ namespace Client.Game.Map
 	{
 		StaticGrid Grid;
 		Room Room;
-
-		private class PointI {
+        private bool[][] matrix;
+        
+        private class PointI {
 			public int x;
 			public int y;
 			public PointI(int inX, int inY) { x = inX; y = inY; }
@@ -46,11 +47,22 @@ namespace Client.Game.Map
 			return matrix;
 		}
 
+        public bool[][] GetMatrix() {
+            if(matrix == null) {
+                matrix = GetRoomMatrix(Room);
+
+				//contracting is a problematic way of doing wall avoidance, because it makes floor positions, where the player lives, un-navigable
+                //Contract(matrix);
+
+            }
+            
+            return matrix;
+        }
+
 		public StaticGrid GetGrid() {
 			//air grid
 			if(Grid == null) {
-				var matrix = GetRoomMatrix(Room);
-				Contract(matrix);
+				var matrix = GetMatrix();
 				DebugMatrix(matrix);
 				Grid = new StaticGrid(Room.data.TmxMap.Width, Room.data.TmxMap.Height, matrix);
 			} else {
@@ -148,36 +160,34 @@ namespace Client.Game.Map
 		}
 
 		private void DebugPoint(Vector3 worldPoint) {
-			Debug.DrawRay(worldPoint, Vector3.back*100f, Color.green, 2f);
-			GridPos fromInt = GridPoint.WorldToGrid(worldPoint, Room);
+			Debug.DrawRay(worldPoint, Vector3.back*10f, Color.green, 2f);
+			/*GridPos fromInt = GridPoint.WorldToGrid(worldPoint, Room);
 			var secondRay = new GridPoint(fromInt.x, fromInt.y).GridToWorldBL(Room.data.TmxMap);
-			Debug.DrawRay(secondRay, Vector3.back*100f, Color.cyan, 2f);
+			Debug.DrawRay(secondRay, Vector3.back*10f, Color.cyan, .1f);*/
 		}
 
-		public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
+        
+
+        public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 
 			Grid = GetGrid();
-			GridPos fromInt = GridPoint.WorldToGrid(worldFrom, Room);
-			GridPos toInt = GridPoint.WorldToGrid(roomTo, Room);
+			GridPoint fromInt = GridPoint.WorldToGrid(worldFrom, Room);
+            GridPoint toInt = GridPoint.WorldToGrid(roomTo, Room);
 
-			//DebugPoint(worldFrom);
-			//DebugPoint(roomTo);
+            //DebugPoint(worldFrom);
+            //DebugPoint(roomTo);
+            var pts = new RoomPathFinder().FindPath(GetMatrix(), fromInt, toInt);
+            var buff = new Vector3[pts.Count];
+            
+            for (int i = 0; i < pts.Count; i++) {
+                buff[i] = pts[i].GridToWorldC(Room.data.TmxMap);
+                //DebugPoint(buff[i]);
+            }
+
+            return buff;
 
 
-			var jp = new JumpPointParam(Grid, fromInt, toInt, false, false);
-			var points = JumpPointFinder.FindPath(jp);
-
-			var buff = new Vector3[points.Count];
-
-			for(int i = 0; i<points.Count; i++ ) {
-				buff[i] = new GridPoint(points[i].x, points[i].y).GridToWorldBL(Room.data.TmxMap);
-			}
-
-
-			return buff;
-			
-
-		}
+        }
 
 
 

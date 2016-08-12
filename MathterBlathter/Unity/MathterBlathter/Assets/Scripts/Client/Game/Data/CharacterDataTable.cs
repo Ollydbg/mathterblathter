@@ -92,7 +92,7 @@ namespace Client.Game.Data
 				ret.SpawnType = SpawnType.Air;
 				ret.ResourcePath = "Actors/Enemies/Drone1/Drone1_prefab";
 				ret.ActorType = ActorType.Enemy;
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
+                ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Health.Id, 100
 				));
@@ -107,7 +107,7 @@ namespace Client.Game.Data
 					ActorAttributes.WeaponCooldownScalar.Id, 3f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id, 500f
+					ActorAttributes.Speed.Id, 200f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.GravityScalar.Id, 0.0f
@@ -470,41 +470,7 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-
-		public static CharacterData PATHING_TEST {
-			get { 
-				var ret = new CharacterData();
-				ret.Id = 28;
-
-				ret.SpawnType = SpawnType.Air;
-				ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
-				ret.ActorType = ActorType.Enemy;
-
-				ret.AIData = AIDataTable.AIR_PATH_TO_FIRE_AI;
-
-				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.Weapons.Id, CharacterDataTable.STATIC_REPEATER.Id, 0
-				));
-
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, 150
-				));
-
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.Speed.Id, 2f
-				));
-				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.TakesDamage.Id, 1
-				));
-				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.GravityScalar.Id, 0.0f
-				));
-				ret.AddAbility(AbilityDataTable.AI_BUFF);
-
-				return ret;	
-			}
-		}
-
+        
 		public static CharacterData SHOTGUN_GHOST {
 			get {
 				var ret = new CharacterData();

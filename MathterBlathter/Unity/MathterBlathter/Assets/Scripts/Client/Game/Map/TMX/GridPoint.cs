@@ -31,8 +31,18 @@ namespace Client.Game.Map.TMX
 			);
 		}
 
+        public override int GetHashCode() {
+            return X << 8 | Y;
+        }
 
-		public static GridPoint FromTMXObject(TmxObjectGroup.TmxObject obj, TmxMap map) {
+        public override bool Equals(object obj) {
+            GridPoint gp = obj as GridPoint;
+            if (gp == null)
+                return false;
+            return gp.X == this.X && gp.Y == this.Y;
+        }
+
+        public static GridPoint FromTMXObject(TmxObjectGroup.TmxObject obj, TmxMap map) {
 			var x = (int)(obj.X / map.TileWidth);
 			var y = map.Height - (int)(obj.Y/map.TileHeight);
 			return new GridPoint(x, y);
@@ -51,7 +61,7 @@ namespace Client.Game.Map.TMX
 
 		}
 
-		public Vector3 GridToWorldC (TiledSharp.TmxMap map)
+		public Vector3 GridToWorldC (TmxMap map)
 		{
 			var spaceResolution = map.TileWidth / 100f;
 

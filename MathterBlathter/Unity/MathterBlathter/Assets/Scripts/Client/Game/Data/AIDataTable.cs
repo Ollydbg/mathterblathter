@@ -54,7 +54,7 @@ namespace Client.Game.Data
                 return ret;
             }
         }
-
+        
 		public static AIData IDLE_THEN_SEEK_AI {
 			get {
 				var ret = new AIData();
