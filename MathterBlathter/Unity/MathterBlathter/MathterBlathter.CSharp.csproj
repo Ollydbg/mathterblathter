@@ -217,7 +217,6 @@
     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiLookup.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMap.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiMeshExtractor.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiUtils.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\AsciiVector.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\Chunk.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\Ascii\FloodFill.cs" />
@@ -286,16 +285,6 @@
     <Compile Include="Assets\Scripts\Client\Game\Map\TMX\TileMap.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\TMXRoomDrawer.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Map\ZoneGenerator.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\BaseGrid.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGrid.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\DynamicGridWPool.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\PartialGridWPool.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Grid\StaticGrid.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\GridPos.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\GridRect.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\Heuristic.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\JumpPointFinder.cs" />
-    <Compile Include="Assets\Scripts\Client\Game\Pathfinding\NodePool.cs" />
     <Compile Include="Assets\Scripts\Client\Game\SetPieces\BrokenSkyline.cs" />
     <Compile Include="Assets\Scripts\Client\Game\States\FSM.cs" />
     <Compile Include="Assets\Scripts\Client\Game\States\GenerateMapState.cs" />

@@ -1,8 +1,6 @@
 ﻿using System;
-using Client.Game.Pathfinding;
 using UnityEngine;
 using System.Collections.Generic;
-using Client.Game.Data.Ascii;
 using Client.Game.Map.TMX;
 
 namespace Client.Game.Map
@@ -10,7 +8,6 @@ namespace Client.Game.Map
 	//A frontend for pathfinding
 	public class RoomTraversalGrid 
 	{
-		StaticGrid Grid;
 		Room Room;
         private bool[][] matrix;
         
@@ -23,8 +20,7 @@ namespace Client.Game.Map
 
 		public RoomTraversalGrid (Room room)
 		{
-			this.Room = room;
-			this.Grid = GetGrid();
+            this.Room = room;
 
 		}
 
@@ -58,20 +54,7 @@ namespace Client.Game.Map
             
             return matrix;
         }
-
-		public StaticGrid GetGrid() {
-			//air grid
-			if(Grid == null) {
-				var matrix = GetMatrix();
-				DebugMatrix(matrix);
-				Grid = new StaticGrid(Room.data.TmxMap.Width, Room.data.TmxMap.Height, matrix);
-			} else {
-				Grid.Reset();
-			}
-
-			return Grid;
-		}
-
+        
 		void DebugMatrix (bool[][] matrix)
 		{
 			for( int x = 0; x < matrix.Length; x++ ) {
@@ -170,7 +153,6 @@ namespace Client.Game.Map
 
         public Vector3[] SearchPath(Vector2 worldFrom, Vector2 roomTo) {
 
-			Grid = GetGrid();
 			GridPoint fromInt = GridPoint.WorldToGrid(worldFrom, Room);
             GridPoint toInt = GridPoint.WorldToGrid(roomTo, Room);
 

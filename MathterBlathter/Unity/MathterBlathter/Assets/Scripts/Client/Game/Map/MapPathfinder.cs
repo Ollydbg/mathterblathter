@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Client.Game.Data.Ascii;
-using Client.Game.Pathfinding;
 using Client.Game.Actors;
 using System.Linq;
 using Client.Game.Data;
