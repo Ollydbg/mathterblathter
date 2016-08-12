@@ -28,6 +28,7 @@ namespace Client.Game.Enums
 				return new string[]{Layers.HardGeometry.ToString(), Layers.Enemies.ToString(), Layers.AirEnemies.ToString(), Layers.GhostEnemies.ToString()};
 			}
 		}
+        
 	}
 }
 

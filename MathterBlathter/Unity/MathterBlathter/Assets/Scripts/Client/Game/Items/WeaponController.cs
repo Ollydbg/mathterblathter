@@ -158,14 +158,14 @@ namespace Client.Game.Items
 
 			var aim = AimDirection;
 			var angle = Vector3.Angle(aim, Vector3.right);
-
-			if(aim.y < 0) 
-				angle *= -1f;
-
+            if (aim.y < 0) {
+                angle *= -1f;
+            }
+            
 			if(Mathf.Abs(angle) > 90) {
 				Owner.FaceLeft();
 				//because weapon is parented to the left facing transform, we have to compensate in the rotation
-				angle = 180 - angle;
+				angle = angle - 180;
 			} else {
 				Owner.FaceRight();
 			}

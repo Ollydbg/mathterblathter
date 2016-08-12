@@ -105,8 +105,8 @@ namespace Client.Game.Data
 				ret.Name = "Pathing Sniper AI";
 
 				ret.ActionData = new ActionData(new Type[]{
-					typeof(PatrolAction),
-					typeof(AimScanForPlayer)
+					typeof(AimScanForPlayer),
+					typeof(PatrolAction)
 					}
 				).Then(typeof(WaitForAimLock))
 						.Then(typeof(WaitAction))

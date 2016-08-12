@@ -956,6 +956,41 @@ namespace Client.Game.Data
 		}
 
 
+        public static CharacterData EXPLODER_WEAPON {
+            get {
+                var ret = new CharacterData();
+                ret.Id = 1026;
+                ret.ActorType = ActorType.Weapon;
+                
+                ret.AddAbility(AbilityDataTable.EXPLODE_AND_DIE);
+
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.BaseDamage.Id, 2
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.Cooldown.Id, 4f
+                ));
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.KnockbackForce.Id, 55f
+                ));
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.CameraShakeForce.Id,
+                    3f
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.TimeSkipAmount.Id,
+                    .06f
+                ));
+                
+                ret.Availability = Availability.None;
+
+                return ret;
+            }
+        }
+
 	}
 }
 

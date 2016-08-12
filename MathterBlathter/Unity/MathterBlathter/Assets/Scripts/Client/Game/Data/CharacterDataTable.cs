@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
 using Client.Game.Enums;
+using Client.Game.AI.Actions;
 
 namespace Client.Game.Data
 {
@@ -614,6 +615,50 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+        public static CharacterData TRUNDLER_MINE {
+            get {
+
+                var ret = new CharacterData();
+                ret.Id = 32;
+                ret.SpawnType = SpawnType.Air;
+                ret.ActorType = ActorType.Enemy;
+                ret.ResourcePath = "Actors/Enemies/FloatingTurret_prefab";
+                ret.AIData = new AIData();
+                ret.AIData.ActionData = new ActionData(
+                    typeof(WaitForPlayerWalkUnder)
+                );
+
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.Weapons.Id,
+                    CharacterDataTable.EXPLODER_WEAPON.Id, 0
+                ));
+
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.AIMaxTurnSpeed.Id, 20f
+                ));
+
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.Health.Id, 40
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.Speed.Id, 130f
+                ));
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.TakesDamage.Id, 1
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.GravityScalar.Id, 0.0f
+                ));
+
+                
+                ret.AddAbility(AbilityDataTable.AI_BUFF);
+
+                return ret;
+            }
+
+        }
 
 	}
 }

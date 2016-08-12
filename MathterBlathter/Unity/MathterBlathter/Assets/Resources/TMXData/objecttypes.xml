@@ -29,4 +29,7 @@
  <objecttype name="WaveGunWeapon" color="#a0a0a4">
   <property name="DataId" type="string" default="1006"/>
  </objecttype>
+ <objecttype name="BulletSniperEnemy" color="#a0a0a4">
+  <property name="DataId" type="int" default="16"/>
+ </objecttype>
 </objecttypes>

@@ -17,18 +17,17 @@ namespace Client.Game.AI.Actions
 
 
 		double accum = 0;
-		#region implemented abstract members of AIAction
 		
 		public override AIResult Update (float dt, Character actor)
 		{
+
 			accum += dt;
 
 			float aimAngle = actor.Attributes[ActorAttributes.AIScanDegrees];
 			float aimConstraint = aimAngle / 360f;
 
 			double angle = Math.Sin(accum) * aimConstraint;
-
-
+            
 			Vector3 aimVector = new Vector3((float)Math.Cos(angle), (float)Math.Sin(angle), 0f).normalized;
 
 			if(actor.FacingLeft)
@@ -39,14 +38,13 @@ namespace Client.Game.AI.Actions
 
 			actor.WeaponController.AimDirection = aimVector;
 
-			if(IsAimedAtPlayer(actor))
+	  		if(IsAimedAtPlayer(actor))
 				return AIResult.Success;
 			
 			return AIResult.Running;	
 
 		}
-
-		#endregion
+        
 	}
 
 

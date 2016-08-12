@@ -11,7 +11,7 @@ namespace Client.Game.Data
 		public static ZoneData DEBUG_ZONE {
 			get {
 				var ret = new ZoneData();
-				ret.Mute = true;
+				ret.Solo = true;
 				ret.Name = "Debug Zone";
 				ret.Requirements.Add(new ZReq(RoomDataTable.DEBUG_ROOM, 1, ZoneData.Occurance.Guaranteed));
 				ret.Difficulty = 3;

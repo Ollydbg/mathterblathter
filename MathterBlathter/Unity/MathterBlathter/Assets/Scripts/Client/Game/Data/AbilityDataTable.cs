@@ -1215,6 +1215,15 @@ namespace Client.Game.Data
 
 			}
 		}
+
+        public static AbilityData EXPLODE_AND_DIE {
+            get {
+                var ret = new AbilityData();
+                ret.Id = 64;
+                ret.executionScript = typeof(Client.Game.Abilities.Scripts.ExplodeAndDie);
+                return ret;
+            }
+        }
 	}
 }
 

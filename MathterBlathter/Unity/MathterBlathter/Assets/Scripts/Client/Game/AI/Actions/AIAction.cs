@@ -62,7 +62,7 @@ namespace Client.Game.AI
 				return Game.Instance.PossessedActor;
 			}
 		}
-
+        
 		internal Room CurrentRoom {
 			get {
 				return Game.Instance.RoomManager.CurrentRoom;

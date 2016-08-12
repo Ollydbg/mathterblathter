@@ -18,6 +18,7 @@ namespace Client.Game.AI.Actions
 		}
 		public override AIResult Update (float dt, Character actor)
 		{
+
 			if(IsAimedAtPlayer(actor)) {
 				accum += dt;
 			} else {

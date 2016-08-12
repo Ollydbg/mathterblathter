@@ -17,9 +17,6 @@ namespace Client.Game.AI.Actions
 		}
 		
 		
-		
-		#region IAction implementation
-
 
 		public override AIResult Update (float dt, Character actor)
 		{
@@ -96,9 +93,7 @@ namespace Client.Game.AI.Actions
 
 			return actor.Attributes[ActorAttributes.GravityScalar] == 0f;
 		}
-
-        #endregion
-
+        
 	}
 }
 
