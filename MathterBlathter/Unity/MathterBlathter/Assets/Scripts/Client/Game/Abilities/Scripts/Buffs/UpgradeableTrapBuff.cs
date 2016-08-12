@@ -25,9 +25,18 @@ namespace Client.Game.Abilities.Scripts.Buffs
 
 		#region implemented abstract members of AbilityBase
 
+        public int MaxLevel {
+            get {
+                return Levels.Count - 1;
+            }
+        }
 
 		public bool ShouldUpgradeTo(int newLevel) {
-			return newLevel < Levels.Count -1 && newLevel > level;
+            //clamp here
+            if (newLevel > MaxLevel)
+                newLevel = MaxLevel;
+
+			return newLevel > level;
 		}
 
 		private bool DidInit = false;

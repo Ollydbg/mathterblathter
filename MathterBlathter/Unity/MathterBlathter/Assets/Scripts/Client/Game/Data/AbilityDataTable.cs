@@ -976,7 +976,7 @@ namespace Client.Game.Data
 				var ret = new AbilityData();
 				ret.Id = 47;
 				ret.attributeData.Add(
-					new GameData.AttributeData(ActorAttributes.RoomUnlockDifficultyIncr.Id, 2)
+					new GameData.AttributeData(ActorAttributes.WaveDifficultyIncr.Id, 2)
 				);
 
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.PlayerRunHardenerBuff);

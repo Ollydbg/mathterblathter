@@ -261,7 +261,7 @@
   <object id="4" type="Spotlight" x="615.333" y="290.333" width="56" height="58">
    <ellipse/>
   </object>
-  <object id="7" type="Spotlight" x="254.333" y="90" width="62" height="62">
+  <object id="7" type="Spotlight" x="175" y="400" width="62" height="62">
    <ellipse/>
   </object>
   <object id="9" type="Pointlight" x="235.667" y="236.667" width="20" height="18">
@@ -367,6 +367,5 @@
     <property name="Facing" value="left"/>
    </properties>
   </object>
-  <object id="32" type="BulletSniperEnemy" gid="36" x="375" y="600" width="25" height="25"/>
  </objectgroup>
 </map>
