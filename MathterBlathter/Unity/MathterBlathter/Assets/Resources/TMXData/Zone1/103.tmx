@@ -318,7 +318,7 @@
 </data>
  </layer>
  <objectgroup name="Lights">
-  <object id="4" type="DownSpotlight" x="946" y="265.667" width="56" height="58">
+  <object id="4" type="DownSpotlight" x="953" y="244.667" width="56" height="58">
    <ellipse/>
   </object>
   <object id="7" type="Spotlight" x="123" y="326" width="62" height="62">
@@ -464,7 +464,7 @@
 </data>
  </layer>
  <objectgroup name="Spawns" opacity="0.35">
-  <object id="24" type="RandomWeapon" gid="36" x="975" y="500" width="25" height="25"/>
+  <object id="24" type="RandomWeapon" gid="36" x="950" y="500" width="25" height="25"/>
   <object id="25" type="UpgradeableTrap" gid="36" x="850" y="275" width="25" height="25">
    <properties>
     <property name="Facing" value="up"/>

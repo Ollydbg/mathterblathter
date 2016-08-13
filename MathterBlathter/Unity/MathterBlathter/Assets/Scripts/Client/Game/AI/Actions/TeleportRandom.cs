@@ -13,8 +13,7 @@ namespace Client.Game.AI.Actions
 		{
 		}
 
-		#region implemented abstract members of AIAction
-
+		
 		public override AIResult Update (float dt, Character actor)
 		{
 			var ctx = new AbilityContext(actor, actor, AbilityDataTable.TELEPORT);
@@ -29,8 +28,7 @@ namespace Client.Game.AI.Actions
 
 			return AIResult.Success;
 		}
-
-		#endregion
+        
 	}
 }
 

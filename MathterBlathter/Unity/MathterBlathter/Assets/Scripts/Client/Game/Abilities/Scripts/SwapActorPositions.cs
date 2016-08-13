@@ -21,8 +21,10 @@ namespace Client.Game.Abilities.Scripts
 			var sourcePos = source.transform.position;
 			var targetPos = hitActor.transform.position;
 
-			
-			source.transform.position = targetPos;
+            PlayTimeline(context.data.Timelines[4], sourcePos);
+            PlayTimeline(context.data.Timelines[5], targetPos);
+
+            source.transform.position = targetPos + Vector3.up;
 			hitActor.transform.position = sourcePos;
 		}
 

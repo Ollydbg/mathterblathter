@@ -227,7 +227,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
-					ActorAttributes.AILockOnTime.Id, .25f
+					ActorAttributes.AILockOnTime.Id, .5f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData(
@@ -399,24 +399,24 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Actors/Enemies/ViperEnemy_prefab";
 				ret.ActorType = ActorType.Enemy;
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.Health.Id, 200
+					ActorAttributes.Health.Id, 20
 				));
 				ret.attributeData.Add(new CharacterData.AttributeData(
 					ActorAttributes.TakesDamage.Id, 1
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.AIDetectionRadius.Id, 30.0f
+					ActorAttributes.AIDetectionRadius.Id, 10f
 				));
 				ret.attributeData.Add (new CharacterData.AttributeData (
 					ActorAttributes.Speed.Id, 100f
 				));
 
 				ret.attributeData.Add(new CharacterData.AttributeData( 
-					ActorAttributes.BloodBounty.Id, 25
+					ActorAttributes.BloodBounty.Id, 45
 				));
 
 				ret.attributeData.Add (new CharacterData.AttributeData (
-					ActorAttributes.WeaponCooldownScalar.Id, .3f
+					ActorAttributes.WeaponCooldownScalar.Id, .5f
 				));
 
 				ret.AddAbility(AbilityDataTable.AI_BUFF);

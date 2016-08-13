@@ -11,10 +11,12 @@ namespace Client.Game.Abilities.Scripts
 
 		public override void Start ()
 		{
-			context.targetActor.transform.position = this.context.targetPosition;
+            PlayTimeline(context.data.Timelines[0], context.targetActor.transform.position);
+            PlayTimeline(context.data.Timelines[1], context.targetPosition);
+
+            context.targetActor.transform.position = this.context.targetPosition;
 		}
 		
-
 		public override void Update (float dt)
 		{
 		}

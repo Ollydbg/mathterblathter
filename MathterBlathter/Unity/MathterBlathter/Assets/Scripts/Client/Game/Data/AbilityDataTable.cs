@@ -732,10 +732,9 @@ namespace Client.Game.Data
 
 				fireTimeline.AsciiMap += "sssssss     ";
 				fireTimeline.Duration = .5f;
-
 				fireTimeline.Lookup['s'] = new TimelineData.Point("SFX/Renders/HotRails_fire_1", AttachPoint.Muzzle);
 				ret.Timelines.Add(fireTimeline);
-
+                
 				var hitTimeline = new TimelineData();
 				hitTimeline.AsciiMap += "eeee";
 				hitTimeline.Lookup['e'] = new TimelineData.Point("Projectiles/VFX/enemyTestHit_prefab", AttachPoint.WeaponSlot);
@@ -753,7 +752,18 @@ namespace Client.Game.Data
 				wallHit.Lookup['e'] = "Projectiles/VFX/railWallHit_prefab";
 				ret.Timelines.Add(wallHit);
 
-				ret.attributeData.Add(new GameData.AttributeData(
+                var vanish = new TimelineData(1f, false);
+                vanish.AsciiMap += "eeeeee";
+                vanish.Lookup['e'] = "Projectiles/VFX/teleportVanish_prefab";
+                ret.Timelines.Add(vanish);
+
+
+                var appear = new TimelineData(1f, false);
+                appear.AsciiMap += "eeeee";
+                appear.Lookup['e'] = "Projectiles/VFX/teleportAppear_prefab";
+                ret.Timelines.Add(appear);
+
+                ret.attributeData.Add(new GameData.AttributeData(
 					AbilityAttributes.ProjectileSpeed.Id, 200f
 				));
 
@@ -1209,7 +1219,18 @@ namespace Client.Game.Data
 			get {
 				var ret = new AbilityData();
 				ret.Id = 63;
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.TeleportLocation);
+                var vanish = new TimelineData(1f, false);
+                vanish.AsciiMap += "eeeeee";
+                vanish.Lookup['e'] = "Projectiles/VFX/teleportVanish_prefab";
+                ret.Timelines.Add(vanish);
+
+
+                var appear = new TimelineData(1f, false);
+                appear.AsciiMap += "eeeee";
+                appear.Lookup['e'] = "Projectiles/VFX/teleportAppear_prefab";
+                ret.Timelines.Add(appear);
+                
+                ret.executionScript = typeof(Client.Game.Abilities.Scripts.TeleportLocation);
 
 				return ret;
 

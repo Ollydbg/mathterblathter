@@ -274,8 +274,8 @@ namespace Client.Game.Data
 				ret.ResourcePath = "Weapons/Rifle_prefab";
 
 				ret.ActorType = ActorType.Weapon;
-				ret.Name = "Rust Machine";
-				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
+				ret.Name = "Nail Machine";
+				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
 
 				ret.AddAbility(AbilityDataTable.RAIL_GUN);
 				ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
@@ -313,6 +313,8 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
+
+
 
 		public static CharacterData RUSTY_SHIELD_WEAPON {
 			get {
@@ -510,7 +512,7 @@ namespace Client.Game.Data
 
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.CameraShakeForce.Id,
-					.4f
+					1f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_ONE_HANDED));
 
@@ -525,7 +527,7 @@ namespace Client.Game.Data
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponAnxietyCost.Id, 2));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.BaseDamage.Id, 10
+					ActorAttributes.BaseDamage.Id, 100
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
@@ -991,6 +993,55 @@ namespace Client.Game.Data
             }
         }
 
-	}
+
+        public static CharacterData CURSED_NAIL_MACHINE {
+            get {
+                var ret = new CharacterData();
+                ret.Id = 1027;
+                ret.ResourcePath = "Weapons/Rifle_prefab";
+
+                ret.ActorType = ActorType.Weapon;
+                ret.Name = "Rust Machine";
+                ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.RANGED_TWO_HANDED));
+
+                ret.AddAbility(AbilityDataTable.SWAP_POSITIONS);
+                ret.AddAbility(AbilityDataTable.TOWER_ACTOR_ABSORBER);
+                ret.AddAbility(AbilityDataTable.FIRE_ON_FALL);
+                ret.AddAbility(AbilityDataTable.WEAPON_CURSE);
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.CameraShakeForce.Id,
+                    .3f
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.BaseDamage.Id, 30
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.Inaccuracy.Id, 2f
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.Cooldown.Id, .09f
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.WeaponAnxietyCost.Id, 1
+                ));
+
+                ret.attributeData.Add(new GameData.AttributeData(
+                    ActorAttributes.KnockbackForce.Id, 5f
+                ));
+
+                ret.Availability = Availability.Droppable | Availability.InShop | Availability.RoomClearReward;
+                ret.Cost = 140;
+
+                return ret;
+            }
+        }
+
+
+    }
 }
 
