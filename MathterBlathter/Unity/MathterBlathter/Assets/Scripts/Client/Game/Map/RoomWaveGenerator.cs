@@ -132,7 +132,7 @@ namespace Client.Game.Map
 		private List<WaveData> GetRoomWaves(Room room, int actorDifficulty) {
 			var buff = new List<WaveData>();
 
-			var difficulty = room.Zone.Difficulty + actorDifficulty;
+			var difficulty = Mathf.FloorToInt(room.data.DifficultyScalar * (room.Zone.Difficulty + actorDifficulty));
 
 			while(difficulty > 0) {
 				Debug.Log("Generating for difficulty: " + difficulty);

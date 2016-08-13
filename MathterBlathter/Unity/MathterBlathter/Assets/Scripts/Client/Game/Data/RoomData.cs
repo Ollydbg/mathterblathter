@@ -23,6 +23,8 @@ namespace Client.Game.Data
 		public List<Spawn> Spawns = new List<Spawn> ();
 		public AsciiLookup AsciiSpawnLookup = new AsciiLookup();
 
+        public float DifficultyScalar = 1f;
+
 		public String TMXResource = "TMXData/Concept50X.tmx";
 		public TmxMap TmxMap {
 			get {

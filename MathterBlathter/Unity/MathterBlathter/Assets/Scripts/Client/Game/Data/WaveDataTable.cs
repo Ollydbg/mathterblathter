@@ -51,7 +51,7 @@ namespace Client.Game.Data
 
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 1;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -65,7 +65,7 @@ namespace Client.Game.Data
 
 				ret.Spawns.Add(CharacterDataTable.SHOTGUN_GHOST);
 
-				ret.Difficulty = 2;
+				ret.Difficulty = 4;
 				return ret;
 
 			}
@@ -84,7 +84,7 @@ namespace Client.Game.Data
 
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 2;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -103,7 +103,7 @@ namespace Client.Game.Data
 
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 6;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -127,7 +127,7 @@ namespace Client.Game.Data
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
-				ret.Difficulty = 8;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -145,7 +145,7 @@ namespace Client.Game.Data
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
-				ret.Difficulty = 5;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -161,7 +161,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_VIPER_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 9;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -177,7 +177,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.GROUNDED_RANGED_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 12;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -193,7 +193,7 @@ namespace Client.Game.Data
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
 
-				ret.Difficulty = 10;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}
@@ -214,7 +214,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 14;
+				ret.Difficulty = 6;
 				return ret;
 			}
 		}
@@ -232,7 +232,7 @@ namespace Client.Game.Data
 				ret.Spawns.Add(CharacterDataTable.BULLET_SNIPER_ENEMY);
 				ret.RestrictToZones.Add(ZoneDataTable.ZONE_1);
 
-				ret.Difficulty = 17;
+				ret.Difficulty = 4;
 				return ret;
 			}
 		}

@@ -28,9 +28,7 @@ namespace Client.Game.Managers
 		{
 
 		}
-
-		#region IGameManager implementation
-
+        
 		public void Start (Game game)
 		{
 			MusicGroup = game.AudioMixer.FindMatchingGroups("Music")[0];
@@ -75,8 +73,8 @@ namespace Client.Game.Managers
 		public void StartRun ()
 		{
 
-			//Play(Game.Instance.Seed.RandomInList(MusicDataTable.GetAll().Where(p => p.RunMusic).ToList()));
-			Play(MusicDataTable.RUN_MUSIC);
+			Play(Game.Instance.Seed.RandomInList(MusicDataTable.GetAll().Where(p => p.RunMusic).ToList()));
+			//Play(MusicDataTable.RUN_MUSIC);
 
 		}
 
@@ -115,10 +113,7 @@ namespace Client.Game.Managers
 		public void SetPlayerCharacter (PlayerCharacter player)
 		{
 		}
-
-
-
-		#endregion
+        
 
 		public class CrossFade {
 			public AudioSource From;
