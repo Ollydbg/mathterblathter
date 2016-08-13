@@ -333,7 +333,7 @@
   <object id="19" type="Pointlight" x="622" y="171" width="20" height="18">
    <ellipse/>
   </object>
-  <object id="20" type="Pointlight" x="747.333" y="71" width="20" height="18">
+  <object id="20" type="DownSpotlight" x="588.833" y="12.5" width="20" height="18">
    <ellipse/>
   </object>
   <object id="21" type="Pointlight" x="157" y="683" width="56" height="58">
