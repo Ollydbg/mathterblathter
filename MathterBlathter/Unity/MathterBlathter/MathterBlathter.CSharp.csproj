@@ -225,6 +225,7 @@
     <Compile Include="Assets\Scripts\Client\Game\Data\FixtureDataTable.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\GameData.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\ItemDataTable.cs" />
+    <Compile Include="Assets\Scripts\Client\Game\Data\JumpFXBuff.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\MapData.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\MapDataTable.cs" />
     <Compile Include="Assets\Scripts\Client\Game\Data\MusicData.cs" />

@@ -123,6 +123,7 @@ namespace Client.Game.Data
 				ret.AddAbility(AbilityDataTable.ROOM_UNLOCK_HARDENER);
 				ret.AddAbility(AbilityDataTable.ROOM_UNLOCK_DROP_BUFF);
 				ret.AddAbility(AbilityDataTable.HIT_ENEMY_FLASH_BUFF);
+                ret.AddAbility(AbilityDataTable.JUMP_FX);
 				//ret.attributeData.Add(new CharacterData.AttributeData(AbilityDataTable.PLAYER_DEATH_BUFF.Id, (int)AbilitySlots.Death));
 
 				return ret;

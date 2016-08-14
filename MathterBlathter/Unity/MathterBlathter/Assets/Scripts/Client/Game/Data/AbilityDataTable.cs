@@ -1245,6 +1245,25 @@ namespace Client.Game.Data
                 return ret;
             }
         }
+
+        public static AbilityData JUMP_FX {
+            get {
+                var ret = new AbilityData();
+                ret.Id = 65;
+                var jump = new TimelineData(1f, false);
+                jump.AsciiMap += "ee";
+                jump.Lookup['e'] = "Projectiles/VFX/landingDust_prefab";
+                ret.Timelines.Add(jump);
+
+                var land = new TimelineData(1f, false);
+                land.AsciiMap += "ee";
+                land.Lookup['e'] = "Projectiles/VFX/landingDust_prefab";
+                ret.Timelines.Add(land);
+
+                ret.executionScript = typeof(Abilities.Scripts.Buffs.JumpFXBuff);
+                return ret;
+            }
+        }
 	}
 }
 

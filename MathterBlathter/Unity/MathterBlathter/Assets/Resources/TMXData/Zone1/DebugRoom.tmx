@@ -362,14 +362,9 @@
 </data>
  </layer>
  <objectgroup name="Spawns">
-  <object id="31" type="UpgradeableTrap" gid="36" x="375" y="300" width="25" height="25">
+  <object id="31" type="UpgradeableTrap" gid="36" x="525" y="250" width="25" height="25">
    <properties>
     <property name="Facing" value="left"/>
-   </properties>
-  </object>
-  <object id="33" gid="36" x="700" y="425" width="25" height="25">
-   <properties>
-    <property name="DataId" type="int" value="29"/>
    </properties>
   </object>
   <object id="34" gid="36" x="275" y="600" width="25" height="25">

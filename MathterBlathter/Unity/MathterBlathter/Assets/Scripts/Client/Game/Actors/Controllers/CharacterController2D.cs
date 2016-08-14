@@ -30,7 +30,8 @@ namespace Client.Game.Actors.Controllers
 		public delegate void GroundingHandler(Vector3 groundingVelocity);
 		private bool wasGrounded;
 		public event GroundingHandler OnGrounded;
-		
+        public Action<Character> OnJump;
+
 		public JumpingState JumpState;
 		private bool FastDropping = false;
 
@@ -153,6 +154,8 @@ namespace Client.Game.Actors.Controllers
 					JumpState = JumpingState.Jumping;
 					var jumpHeight = Actor.Attributes[ActorAttributes.MinJumpPower];
 					movementAccumulator += Vector2.up * jumpHeight;
+                    if (this.OnJump != null)
+                        OnJump(this.Actor);
 
 				} else if(jumpFrames > Actor.Attributes[ActorAttributes.JumpBoostFrameFloor]
 				 && jumpFrames < Actor.Attributes[ActorAttributes.JumpBoostFrameThresh]) {

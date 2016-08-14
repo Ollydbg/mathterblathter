@@ -109,7 +109,11 @@ namespace Client.Game.Managers
 			}
 			
 			if(UsingController) {
-				TargetActor.WeaponController.AimDirection = new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V));
+                Debug.Log("PROCESSED: " + Input.GetAxis(PS4_RSTICK_H));
+                Debug.Log("RAW: " + Input.GetAxisRaw(PS4_RSTICK_H));
+
+
+                TargetActor.WeaponController.AimDirection = new Vector3(Input.GetAxis(PS4_RSTICK_H), Input.GetAxis(PS4_RSTICK_V));
 			} else {
 				TargetActor.WeaponController.AimDirection = getMousingDirection();
 			}

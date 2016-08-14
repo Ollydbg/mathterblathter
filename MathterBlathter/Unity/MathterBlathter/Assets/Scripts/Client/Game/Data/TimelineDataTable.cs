@@ -31,15 +31,7 @@ namespace Client.Game.Data
 				return ret;
 			}
 		}
-
-		public static TimelineData JUMP_LANDED_DUST_TL {
-			get {
-				var ret = new TimelineData();
-
-				return ret;
-			}
-		}
-
+        
 	}
 }
 
