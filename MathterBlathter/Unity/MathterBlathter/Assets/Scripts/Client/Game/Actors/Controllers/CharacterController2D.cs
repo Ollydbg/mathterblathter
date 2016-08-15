@@ -26,6 +26,7 @@ namespace Client.Game.Actors.Controllers
 		int jumpFrames = 0;
 
 		public Rigidbody2D rigidBody;
+        private Vector2 WorldFootOffset;
 
 		public delegate void GroundingHandler(Vector3 groundingVelocity);
 		private bool wasGrounded;
@@ -60,6 +61,8 @@ namespace Client.Game.Actors.Controllers
 			} else {
 				groundedDistance = collider.bounds.extents.y;
 			}
+
+            WorldFootOffset = Vector2.down * (groundedDistance * actor.transform.localScale.y);
 			
 			rigidBody.gravityScale = GravityScalar;
 
@@ -114,11 +117,12 @@ namespace Client.Game.Actors.Controllers
 			SetAnimationState(movementAccumulator, wasGrounded);
 		}
 
+        public Vector2 WorldFootPosition {get {return VectorUtils.Vector2(Actor.GameObject.transform.position) + WorldFootOffset;}}
 
 		public bool IsGrounded 
 		{
 			get {
-				var hit = Physics2D.BoxCast(VectorUtils.Vector2(Actor.GameObject.transform.position), new Vector2(1.5f, 2.4f), 0f, Vector2.down, groundedDistance + .1f, groundedMask);
+                var hit = Physics2D.BoxCast(WorldFootPosition, new Vector2(1.5f, .1f), 0f, Vector2.down, .1f, groundedMask);
 				var goodHit = hit.collider != null;
 
 				return goodHit && rigidBody.velocity.y == 0f;

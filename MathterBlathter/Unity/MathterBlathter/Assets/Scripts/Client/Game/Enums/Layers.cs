@@ -28,6 +28,12 @@ namespace Client.Game.Enums
 				return new string[]{Layers.HardGeometry.ToString(), Layers.Enemies.ToString(), Layers.AirEnemies.ToString(), Layers.GhostEnemies.ToString()};
 			}
 		}
+
+        public static string[] WalkableSurfaces {
+            get {
+                return new string[] { Layers.HardGeometry.ToString(), Layers.SoftGeometry.ToString() };
+            }
+        }
         
 	}
 }

@@ -367,7 +367,7 @@
     <property name="Facing" value="left"/>
    </properties>
   </object>
-  <object id="34" gid="36" x="275" y="600" width="25" height="25">
+  <object id="34" gid="36" x="350" y="600" width="25" height="25">
    <properties>
     <property name="DataId" type="int" value="1027"/>
    </properties>
