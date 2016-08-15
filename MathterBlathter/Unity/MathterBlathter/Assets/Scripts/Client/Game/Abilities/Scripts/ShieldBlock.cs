@@ -13,15 +13,17 @@ namespace Client.Game.Abilities.Scripts
 		{
 		}
 
-		#region implemented abstract members of AbilityBase
-
+		
 		ProjectileActor projectile;
 
 		bool attacking;
 
 		public override void Start ()
 		{
-			
+            if (Owner.GameObject.transform.parent == null) {
+                Abort();
+                return;
+            }
 			SourceWeapon.OnAttackStart += SourceWeapon_OnAttackStart;
 			SourceWeapon.OnAttackEnd += SourceWeapon_OnAttackEnd;
 		}
@@ -40,13 +42,13 @@ namespace Client.Game.Abilities.Scripts
 			context = ctx;
 			attacking = true;
 			if(projectile == null) {
-				projectile = this.FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle, Layers.Player);
+                projectile = this.FireProjectile(CharacterDataTable.FromId(context.data.spawnableDataId), context.targetDirection, .1f, AttachPoint.Muzzle, Layers.Player);
 				projectile.transform.rotation = Quaternion.identity;
-
-				projectile.GameObjectRef.OnTriggerActorEnter += (Actor actor) => {
+                projectile.GameObjectRef.OnTriggerActorEnter += (Actor actor) => {
 					if(actor.ActorType == ActorType.Projectile) {
 						actor.Destroy();
 						ApplyEnergyCost(context.source);
+                        KnockBack(context.source as Character, -context.source.WeaponController.AimDirection);
 						CameraShake();
 						PlayTimeline(context.data.Timelines[0], actor.transform.position);
 					}
@@ -61,6 +63,9 @@ namespace Client.Game.Abilities.Scripts
 				var aimVector = context.source.WeaponController.AimDirection;
 				projectile.transform.position = context.source.transform.position + 3* aimVector;
 				var angle = Vector3.Angle(Vector3.right, aimVector);
+                if (aimVector.y < 0)
+                    angle *= -1f;
+
 				projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 				//projectile.transform.RotateAround(context.source.HalfHeight, Vector3.forward, 10f);
 				
@@ -70,8 +75,7 @@ namespace Client.Game.Abilities.Scripts
 		public override void End ()
 		{
 		}
-
-		#endregion
+        
 	}
 }
 

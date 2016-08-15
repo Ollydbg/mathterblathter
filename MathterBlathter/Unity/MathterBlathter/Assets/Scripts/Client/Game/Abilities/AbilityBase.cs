@@ -10,6 +10,7 @@ using Client.Game.Abilities.Utils;
 using System.Collections.Generic;
 using Client.Game.Abilities.Timelines;
 using Client.Game.Abilities.Movement;
+using Client.Utils;
 
 namespace Client
 {
@@ -79,7 +80,7 @@ namespace Client
 		public void KnockBack(Character actor, Vector3 direction) {
 			new KnockbackPayload(context, actor, direction).Apply();
 		}
-
+        public void KnockBack(Character actor, Vector2 dir) { KnockBack(actor, VectorUtils.Vector3(dir)); }
 		public void CameraShake() {
 			if(context.source.Id == Game.PossessedActor.Id)
 				Game.CameraManager.Shake(SourceWeapon.Attributes[ActorAttributes.CameraShakeForce] * -context.targetDirection);

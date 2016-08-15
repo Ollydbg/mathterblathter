@@ -207,7 +207,11 @@ namespace Client.Game.Abilities
 			return new InstanceId(ctx);
 		}
 
-		public override int GetHashCode ()
+        public override string ToString() {
+            return Id.ToString();
+        }
+
+        public override int GetHashCode ()
 		{
 			return Id.GetHashCode();
 		}

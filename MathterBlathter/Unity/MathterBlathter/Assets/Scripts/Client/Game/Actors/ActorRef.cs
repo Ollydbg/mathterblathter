@@ -27,7 +27,7 @@ namespace Client.Game.Actors
 
 		public delegate void CollisionDelegate(Collision2D collision);
 		public event CollisionDelegate CollisionEvent;
-
+        
 		void OnColliderEnter2D(Collision2D collision) {
 			if(CollisionEvent != null && collision.gameObject != null) {
 				CollisionEvent(collision);
@@ -35,8 +35,7 @@ namespace Client.Game.Actors
 		}
 
 		void OnTriggerEnter2D(Collider2D collider) {
-
-			if (TriggerEvent != null && collider.gameObject != null) {
+            if (TriggerEvent != null && collider.gameObject != null) {
 				TriggerEvent (collider);
 			}
 

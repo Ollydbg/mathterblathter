@@ -526,7 +526,6 @@ namespace Client.Game.Data
 				ret.Id = 25;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ShieldBlock);
 				ret.spawnableDataId = CharacterDataTable.SHIELD_BLOCK_PROJECTILE.Id;
-
 				var hitTL = new TimelineData();
 				hitTL.AsciiMap += "eeeeeee     ";
 				hitTL.AsciiMap += "sssssss     ";

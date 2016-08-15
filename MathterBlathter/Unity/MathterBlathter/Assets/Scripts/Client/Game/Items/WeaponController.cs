@@ -119,7 +119,7 @@ namespace Client.Game.Items
 
 			ActorUtils.ParentToActor(Owner, actor, AttachPoint.WeaponSlot);
 			actor.transform.localPosition = WeaponForward;
-
+            
 			//if actor is facing left, we need to flip the scale of our transform! SO WEAK!
 			if(Owner.GameObject.transform.localScale.x < 0f) {
 				var scale = actor.transform.localScale;

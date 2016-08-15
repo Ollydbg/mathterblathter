@@ -321,7 +321,7 @@ namespace Client.Game.Data
 				var ret = new CharacterData();
 
 				ret.Id = 1008;
-				ret.ResourcePath = "Weapons/Shield_prefab";
+				ret.ResourcePath = "Weapons/ShieldWeapon_prefab";
 				ret.ActorType = ActorType.Weapon;
 				ret.Name = "Rusty Shield";
 				ret.attributeData.Add(new GameData.AttributeData(ActorAttributes.WeaponFlags.Id, (int)WeaponFlagsUtil.MELEE_ONE_HANDED));
@@ -339,7 +339,7 @@ namespace Client.Game.Data
 				));
 
 				ret.attributeData.Add(new GameData.AttributeData(
-					ActorAttributes.KnockbackForce.Id, 25f
+					ActorAttributes.KnockbackForce.Id, 75f
 				));
 				ret.attributeData.Add(new GameData.AttributeData(
 					ActorAttributes.Inaccuracy.Id, 0

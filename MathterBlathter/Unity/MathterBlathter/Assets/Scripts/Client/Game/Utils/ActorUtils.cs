@@ -96,7 +96,7 @@ namespace Client.Game.Utils
 			child.transform.parent = GetAttachTransform(owner, ap);
 			foreach( var childTrans in child.GameObject.GetComponentsInChildren<Transform>()) 
 				childTrans.gameObject.layer = owner.GameObject.layer;
-
+            
 			child.GameObject.SetActive(false);
 			child.GameObject.SetActive(true);
 
