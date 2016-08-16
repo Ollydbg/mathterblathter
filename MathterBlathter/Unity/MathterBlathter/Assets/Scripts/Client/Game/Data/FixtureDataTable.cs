@@ -177,6 +177,83 @@ namespace Client.Game.Data
 			}
 		}
 
-	}
+        public static CharacterData UPGRADEABLE_PAIRED_TRAP_A {
+
+            get {
+                var ret = new CharacterData();
+                ret.Id = TRAP_OFFSET + 6;
+                ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+                ret.ActorType = ActorType.Fixture;
+                ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
+                ret.Name = "Upgradeable paired trap A";
+                ret.AddAbility(AbilityDataTable.AI_BUFF);
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.BaseDamage.Id, 0
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.TakesDamage.Id, 0
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.GravityScalar.Id, 0f
+                ));
+                
+                ret.AddAbility(AbilityDataTable.UPGRADEABLE_TRAP_BUFF);
+
+                return ret;
+            }
+        }
+
+        public static CharacterData UPGRADEABLE_PAIRED_TRAP_B {
+
+            get {
+                var ret = new CharacterData();
+                ret.Id = TRAP_OFFSET + 7;
+                ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+                ret.ActorType = ActorType.Fixture;
+                ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
+                ret.Name = "Upgradeable paired trap B";
+                ret.AddAbility(AbilityDataTable.AI_BUFF);
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.BaseDamage.Id, 0
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.TakesDamage.Id, 0
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.GravityScalar.Id, 0f
+                ));
+
+				ret.AddAbility(AbilityDataTable.UPGRADEABLE_TRAP_BUFF);
+
+                return ret;
+            }
+        }
+
+        public static CharacterData UPGRADEABLE_GEOMETRIC_TRAP {
+            get {
+                var ret = new CharacterData();
+                ret.Id = TRAP_OFFSET + 8;
+                ret.ResourcePath = "Actors/RoomFeatures/Spike_prefab";
+                ret.ActorType = ActorType.Fixture;
+                ret.AIData = AIDataTable.FIRING_FIXTURE_AI;
+                ret.Name = "Upgradeable paired trap B";
+                ret.AddAbility(AbilityDataTable.AI_BUFF);
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.BaseDamage.Id, 0
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.TakesDamage.Id, 0
+                ));
+                ret.attributeData.Add(new CharacterData.AttributeData(
+                    ActorAttributes.GravityScalar.Id, 0f
+                ));
+
+                ret.AddAbility(AbilityDataTable.UPGRADEABLE_TRAP_BUFF);
+
+                return ret;
+            }
+        }
+
+    }
 }
 
