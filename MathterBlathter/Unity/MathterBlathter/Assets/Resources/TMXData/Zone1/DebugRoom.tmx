@@ -362,7 +362,7 @@
 </data>
  </layer>
  <objectgroup name="Spawns">
-  <object id="31" type="UpgradeableTrap" gid="36" x="575" y="525" width="25" height="25">
+  <object id="31" type="UpgradeableTrap" gid="36" x="475" y="375" width="25" height="25">
    <properties>
     <property name="Facing" value="left"/>
    </properties>

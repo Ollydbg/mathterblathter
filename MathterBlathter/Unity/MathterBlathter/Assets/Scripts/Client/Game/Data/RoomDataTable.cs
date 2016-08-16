@@ -105,11 +105,11 @@ namespace Client.Game.Data
 		}
 
 
-		public static RoomData SHOP_1 {
+		public static RoomData WEAPON_SHOP {
 			get {
 				var ret = new RoomData ();
 				ret.Id = 106;
-				ret.TMXResource = "TMXData/Zone1/Shop1.tmx";
+				ret.TMXResource = "TMXData/Zone1/WeaponShop.tmx";
 				ret.Type = RoomType.Store | RoomType.NoWaves;
 				ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
 				ret.LayerData = ParallaxDataTable.OUTDOORS;
@@ -120,8 +120,23 @@ namespace Client.Game.Data
 			}
 		}
 
+        public static RoomData BUFF_SHOP {
+            get {
+                var ret = new RoomData();
+                ret.Id = 107;
+                ret.TMXResource = "TMXData/Zone1/BuffShop.tmx";
+                ret.Type = RoomType.Store | RoomType.NoWaves;
+                ret.OverrideMusic = MusicDataTable.SHOP_MUSIC;
+                ret.LayerData = ParallaxDataTable.OUTDOORS;
 
-		public static RoomData BOSS_FIGHT_1 {
+                finalize(ret);
+
+                return ret;
+            }
+        }
+
+
+        public static RoomData BOSS_FIGHT_1 {
 			get {
 				var ret = new RoomData ();
 				ret.Id = 121;

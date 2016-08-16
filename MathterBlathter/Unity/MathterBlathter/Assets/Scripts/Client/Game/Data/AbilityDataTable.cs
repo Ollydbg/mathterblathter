@@ -43,7 +43,7 @@ namespace Client.Game.Data
 					AbilityAttributes.FiresFromJoint.Id, (int)AttachPoint.Muzzle
 				));
 
-				ret.executionScript = typeof(Client.Game.Abilities.Scripts.ProjectileAttack);
+				ret.executionScript = typeof(Abilities.Scripts.ProjectileAttack);
 				return ret;
 			}
 		}
@@ -598,8 +598,11 @@ namespace Client.Game.Data
 				ret.Id = 29;
 				ret.DoesPropogate = true;
 				ret.executionScript = typeof(Client.Game.Abilities.Scripts.Buffs.AnxietyRegenBuff);
-				ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.AnxietyRegenScalar.Id, 6f));
-				var unlockTimeline = new TimelineData();
+                ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.AnxietyRegenScalar.Id, 15f));
+                ret.attributeData.Add(new GameData.AttributeData(AbilityAttributes.CalmdownBoostDelay.Id, 3f));
+
+
+                var unlockTimeline = new TimelineData();
 				unlockTimeline.AsciiMap += "sssss    ";
 				unlockTimeline.Lookup['s'] = new TimelineData.Point("SFX/room_cleared", AttachPoint.WeaponSlot);
 

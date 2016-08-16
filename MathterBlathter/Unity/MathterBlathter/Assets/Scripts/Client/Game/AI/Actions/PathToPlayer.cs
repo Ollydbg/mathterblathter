@@ -31,10 +31,6 @@ namespace Client.Game.AI.Actions
 
 		public override AIResult Update (float dt, Character actor)
 		{
-            //DEBUGGING DNC!!
-            //Repath();
-            //
-
 			repathAccum += dt;
 
 			var didMove = Agent.TryMove(actor, actor.Attributes[ActorAttributes.Speed] * dt);

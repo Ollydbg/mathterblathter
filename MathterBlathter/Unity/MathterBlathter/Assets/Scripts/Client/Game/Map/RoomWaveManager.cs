@@ -38,7 +38,6 @@ namespace Client.Game.Map
 		}
 
 		public void AddActor(Actor actor) {
-			actor.OnDestroyed += (deadActor) => AliveActors.Remove(deadActor);
 			AliveActors.Add(actor);
 			if(OnActorEntered != null)
 				OnActorEntered();
@@ -54,7 +53,7 @@ namespace Client.Game.Map
 			float i = 0f;
 			foreach( var spawnPair in CurrentWave.Generated ) {
 				var pending = DelayedActorSpawn.Apply(spawnPair, 
-					1f + .1f*i++, 
+					.75f + .1f*i++, 
 					TimelineRunner, 
 					ConvertPending);
 				

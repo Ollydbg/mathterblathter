@@ -106,7 +106,11 @@ namespace Client.Game.Attributes
 		public static readonly GameAttributeF AIMaxTurnSpeed = new GameAttributeF(83, 1f, "ai max turn speed", 0, float.MaxValue);
 		public static readonly GameAttributeF AirDropForce = new GameAttributeF(84, 1f, "air drop force", 0, float.MaxValue);
 		public static readonly GameAttributeF AirBrakeForce = new GameAttributeF(85, 1f, "air brake force", 0, float.MaxValue);
-
-	}
+        public static readonly GameAttributeI ShopKeeperNumBuffs = new GameAttributeI(86, 0, "shopkeeper num buffs", 0, 20);
+        public static readonly GameAttributeI ShopKeeperNumWeapons = new GameAttributeI(86, 0, "", 0, 20);
+        public static readonly GameAttributeI ShopKeeperNumItems = new GameAttributeI(86, 0, "", 0, 20);
+        public static readonly GameAttributeI ShopKeeperNumActiveItems = new GameAttributeI(86, 0, "", 0, 20);
+        
+    }
 }
 
